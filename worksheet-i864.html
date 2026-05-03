@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I-864 Affidavit of Support — Preparation Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0a1628; --accent:#c8a96e; --teal:#2a9d8f; --red:#e76f51; --muted:#8a9ab5; --border:#dde3ef; --card:#f2f5fa; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#fff; color:#1a2640; font-family:'DM Sans',sans-serif; font-size:14px; line-height:1.6; }
+  .page { max-width:740px; margin:0 auto; padding:32px 24px 60px; }
+  .header { border-bottom:3px solid var(--navy); padding-bottom:20px; margin-bottom:28px; }
+  .header-meta { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:8px; }
+  .header h1 { font-family:'Syne',sans-serif; font-size:24px; font-weight:800; color:var(--navy); }
+  .header .sub { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:0.06em; text-transform:uppercase; }
+  .header-right { font-size:11px; color:var(--muted); text-align:right; }
+  .print-btn { display:inline-block; background:var(--navy); color:#fff; font-family:'Syne',sans-serif; font-size:12px; font-weight:700; padding:8px 16px; border-radius:6px; cursor:pointer; border:none; margin-bottom:20px; }
+  @media print { .print-btn { display:none; } }
+  .alert-banner { background:#fff5f2; border:1px solid #f5c4bb; border-radius:8px; padding:12px 16px; font-size:13px; margin-bottom:20px; color:#5c1a1a; }
+  .section { margin-bottom:24px; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  .section-head { background:var(--navy); color:#fff; padding:10px 16px; font-family:'Syne',sans-serif; font-size:13px; font-weight:700; }
+  .section-head.teal { background:var(--teal); }
+  .section-head.red { background:var(--red); }
+  .section-body { padding:16px; }
+  .field { margin-bottom:14px; }
+  .field label { display:block; font-size:12px; font-weight:600; color:#2a3a55; margin-bottom:4px; }
+  .field .hint { font-size:11px; color:var(--muted); font-style:italic; margin-bottom:4px; display:block; }
+  .field input[type="text"], .field textarea, .field select {
+    width:100%; border:1px solid var(--border); border-radius:5px;
+    padding:7px 10px; font-family:'DM Sans',sans-serif; font-size:13px; color:#1a2640; background:#fff;
+  }
+  .field textarea { min-height:60px; resize:vertical; }
+  .radio-group { display:flex; gap:20px; margin-top:4px; flex-wrap:wrap; }
+  .radio-group label { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:400; cursor:pointer; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  @media (max-width:600px) { .two-col, .three-col { grid-template-columns:1fr; } }
+  .tip { background:var(--card); border-left:3px solid var(--teal); padding:8px 12px; font-size:12px; border-radius:0 4px 4px 0; margin:10px 0; }
+  .warn-box { background:#fff5f2; border-left:3px solid var(--red); padding:8px 12px; font-size:12px; border-radius:0 4px 4px 0; margin:10px 0; color:#5c1a1a; }
+  .household-row { display:grid; grid-template-columns:2fr 1fr; gap:10px; align-items:center; padding:8px 0; border-bottom:1px solid var(--border); font-size:13px; }
+  .household-row:last-child { border-bottom:none; }
+  .total-row { display:grid; grid-template-columns:2fr 1fr; gap:10px; align-items:center; padding:10px 0; font-weight:700; font-size:14px; border-top:2px solid var(--navy); margin-top:4px; }
+  .footer { margin-top:32px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <button class="print-btn" onclick="window.print()">🖨️ Print this worksheet</button>
+
+  <div class="header">
+    <div class="header-meta">
+      <div>
+        <h1>I-864 Affidavit of Support</h1>
+        <div class="sub">Preparation Worksheet — Petitioner and Joint Sponsor</div>
+      </div>
+      <div class="header-right">londonvisatracker.github.io<br>v1.4 · Apr 2026</div>
+    </div>
+  </div>
+
+  <div class="alert-banner">
+    <strong>⚠️ The I-864 MUST be wet signed.</strong> Print the completed form, sign by hand, scan it back in. Do NOT use a digital or e-signature — this is a common reason for delays. The I-864EZ is available for simple cases but many users encounter issues with it; the standard I-864 is recommended for all.
+  </div>
+
+  <!-- PART 1: EZ eligibility -->
+  <div class="section">
+    <div class="section-head">Part 1 — Should you use I-864EZ or I-864 standard?</div>
+    <div class="section-body">
+      <div class="tip"><strong>Recommendation: use the standard I-864</strong> regardless of how simple your case appears. Many users experience problems with the EZ form even in straightforward situations.</div>
+      <p style="font-size:13px;margin-bottom:10px;">You may only use the I-864EZ if ALL three of the following apply:</p>
+      <div class="field">
+        <label><input type="checkbox"> You are the petitioner who filed the I-130</label>
+      </div>
+      <div class="field">
+        <label><input type="checkbox"> The sponsored immigrant is the only person on the petition</label>
+      </div>
+      <div class="field">
+        <label><input type="checkbox"> Your income comes entirely from salary or pension, shown on W-2(s) — not self-employed</label>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px;">If any answer is No, you must use the standard I-864.</p>
+    </div>
+  </div>
+
+  <!-- PART 2: Sponsor info -->
+  <div class="section">
+    <div class="section-head">Part 2 — About you (the sponsor)</div>
+    <div class="section-body">
+      <div class="field">
+        <label>Full legal name</label>
+        <input type="text" placeholder="Family name / Given names">
+      </div>
+      <div class="field">
+        <label>Mailing address</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Is your physical address the same as your mailing address?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="physicaladdr"> Yes</label>
+          <label><input type="radio" name="physicaladdr"> No</label>
+        </div>
+        <input type="text" placeholder="If no, physical address:">
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Date of birth (MM/DD/YYYY)</label>
+          <input type="text" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field">
+          <label>Place of birth (Country)</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Country of domicile</label>
+          <input type="text" placeholder="Usually United States">
+        </div>
+        <div class="field">
+          <label>US status</label>
+          <div class="radio-group">
+            <label><input type="radio" name="usstatus"> US Citizen</label>
+            <label><input type="radio" name="usstatus"> US National</label>
+            <label><input type="radio" name="usstatus"> Lawful Permanent Resident</label>
+          </div>
+        </div>
+      </div>
+      <div class="three-col">
+        <div class="field">
+          <label>Social Security Number</label>
+          <input type="text" placeholder="XXX-XX-XXXX">
+        </div>
+        <div class="field">
+          <label>A-Number (if any)</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>USCIS Online Account Number (if any)</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="field">
+        <label>Are you on active duty in the US Armed Forces or Coast Guard?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="military"> Yes</label>
+          <label><input type="radio" name="military"> No</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: Immigrant -->
+  <div class="section">
+    <div class="section-head">Part 3 — About the immigrant you are sponsoring</div>
+    <div class="section-body">
+      <div class="field">
+        <label>Full legal name of immigrant (beneficiary)</label>
+        <input type="text">
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Date of birth (MM/DD/YYYY)</label>
+          <input type="text" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field">
+          <label>Country of birth</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Mailing address</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>A-Number (if any)</label>
+          <input type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 4: Household size -->
+  <div class="section">
+    <div class="section-head teal">Part 4 — Household size</div>
+    <div class="section-body">
+      <div class="tip">Count each person only once. Household size determines the income threshold you must meet.</div>
+      <div class="household-row">
+        <span>Yourself and the person you are sponsoring</span>
+        <input type="number" value="2" min="2" style="width:60px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;">
+      </div>
+      <div class="household-row">
+        <span>Your spouse (if not already counted above)</span>
+        <div class="radio-group"><label><input type="radio" name="spouse"> Yes +1</label><label><input type="radio" name="spouse"> No</label></div>
+      </div>
+      <div class="household-row">
+        <span>Dependent children under 21</span>
+        <input type="number" value="0" min="0" style="width:60px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;">
+      </div>
+      <div class="household-row">
+        <span>Other dependents listed on your most recent tax return</span>
+        <input type="number" value="0" min="0" style="width:60px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;">
+      </div>
+      <div class="household-row">
+        <span>Immigrants you have previously sponsored still under obligation</span>
+        <input type="number" value="0" min="0" style="width:60px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;">
+      </div>
+      <div class="total-row">
+        <span>Total household size</span>
+        <input type="number" style="width:60px;padding:4px 8px;border:2px solid var(--navy);border-radius:4px;font-weight:700;">
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:10px;">Check the <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition/affidavit-of-support.html" target="_blank">NVC Poverty Guidelines Calculator</a> to confirm the income threshold for your household size.</p>
+    </div>
+  </div>
+
+  <!-- PART 5: Employment and income -->
+  <div class="section">
+    <div class="section-head">Part 5 — Employment and income</div>
+    <div class="section-body">
+      <div class="field">
+        <label>Employment status</label>
+        <div class="radio-group">
+          <label><input type="radio" name="empstatus"> Employed</label>
+          <label><input type="radio" name="empstatus"> Retired</label>
+          <label><input type="radio" name="empstatus"> Self-employed</label>
+          <label><input type="radio" name="empstatus"> Unemployed</label>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Job title or source of income</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>Employer name(s)</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="field">
+        <label>Annual current income (USD)</label>
+        <input type="text" placeholder="$">
+      </div>
+      <div class="field">
+        <label>Have you filed federal tax returns for the past 3 years?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="taxfiled"> Yes</label>
+          <label><input type="radio" name="taxfiled"> No</label>
+        </div>
+      </div>
+      <div class="three-col">
+        <div class="field">
+          <label>Most recent year income</label>
+          <input type="text" placeholder="$">
+        </div>
+        <div class="field">
+          <label>2nd year income</label>
+          <input type="text" placeholder="$">
+        </div>
+        <div class="field">
+          <label>3rd year income</label>
+          <input type="text" placeholder="$">
+        </div>
+      </div>
+      <div class="tip"><strong>Documents to attach:</strong> IRS tax transcript (most recent year minimum — get from IRS website, not a copy of your return). Adding W-2s, 6 months of pay stubs, and up to 3 years of transcripts is advised even if not explicitly required by NVC.</div>
+    </div>
+  </div>
+
+  <!-- PART 6: Assets -->
+  <div class="section">
+    <div class="section-head">Part 6 — Assets (only if income is below threshold)</div>
+    <div class="section-body">
+      <div class="warn-box"><strong>London-specific warning:</strong> The US Embassy London has demonstrated reluctance to accept assets-only cases. Cases relying primarily on savings, property equity, or investments have received 221(g) even when technically meeting thresholds. If income is close to or below the requirement — secure a joint sponsor. Do not rely on assets alone.</div>
+      <div class="two-col">
+        <div class="field">
+          <label>Cash / savings accounts (USD)</label>
+          <input type="text" placeholder="$">
+        </div>
+        <div class="field">
+          <label>Real estate net value (USD)</label>
+          <input type="text" placeholder="$">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Stocks / bonds (USD)</label>
+          <input type="text" placeholder="$">
+        </div>
+        <div class="field">
+          <label>Other assets (USD)</label>
+          <input type="text" placeholder="$">
+        </div>
+      </div>
+      <div class="field">
+        <label>Total assets (USD)</label>
+        <input type="text" placeholder="$" style="font-weight:700;">
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 7: Obligations -->
+  <div class="section">
+    <div class="section-head red">Part 7 — Sponsor's obligations (read before signing)</div>
+    <div class="section-body">
+      <p style="font-size:13px;margin-bottom:12px;">By signing the I-864, you agree to financially support the immigrant at 125% of the US poverty line (or 100% if on active duty sponsoring a spouse or child). This obligation is <strong>legally enforceable</strong> and lasts until the immigrant:</p>
+      <ul style="font-size:13px;padding-left:18px;margin-bottom:12px;">
+        <li>Becomes a US citizen, OR</li>
+        <li>Has worked 40 qualifying Social Security quarters (~10 years), OR</li>
+        <li>Loses permanent resident status and departs the US, OR</li>
+        <li>Dies.</li>
+      </ul>
+      <div class="warn-box"><strong>Divorce does NOT end the I-864 obligation.</strong> The sponsor remains financially responsible regardless of the status of the relationship.</div>
+      <div class="field" style="margin-top:12px;">
+        <label>Notes / questions:</label>
+        <textarea placeholder="Use this space for notes or questions to discuss with a tax or immigration professional:"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOINT SPONSOR section -->
+  <div class="section">
+    <div class="section-head teal">Joint Sponsor — if petitioner income is insufficient</div>
+    <div class="section-body">
+      <div class="tip">Adding a joint sponsor causes a 2–3 day CEAC lockout while the system updates. Plan ahead and do not add a joint sponsor at the last minute.</div>
+      <p style="font-size:13px;margin-bottom:12px;">The joint sponsor must be a US citizen or green card holder and must meet the income threshold independently based on their own household size. They complete a separate I-864 form.</p>
+      <div class="field">
+        <label>Joint sponsor full name</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Relationship to petitioner / beneficiary</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Joint sponsor employment / income type</label>
+        <div class="radio-group">
+          <label><input type="radio" name="jsemp"> W-2/1099 employee</label>
+          <label><input type="radio" name="jsemp"> Self-employed</label>
+          <label><input type="radio" name="jsemp"> Retired</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Joint sponsor annual income (USD)</label>
+        <input type="text" placeholder="$">
+      </div>
+      <div class="field">
+        <label>Documents the joint sponsor must provide</label>
+        <div style="background:var(--card);border-radius:6px;padding:12px;font-size:12px;">
+          <ul style="padding-left:16px;">
+            <li>Separate I-864 (wet signed)</li>
+            <li>IRS Tax Transcript (most recent year)</li>
+            <li>W-2s / 1099s</li>
+            <li>Proof of US status (passport or green card)</li>
+            <li>Proof of US domicile</li>
+            <li>W-2 employees: employment letter + recent pay stubs</li>
+            <li>Self-employed: 12 months of business bank statements + evidence of business</li>
+            <li>Retired: evidence of retirement income source (pension statements, SSA award letter)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>London Visa Tracker · Community resource · Not legal advice</span>
+    <span>Support: ko-fi.com/erinsaidwhat</span>
+  </div>
+</div>
+</body>
+</html>

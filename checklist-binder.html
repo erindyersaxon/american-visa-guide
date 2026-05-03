@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visa Binder Layout — US Embassy London</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0a1628; --accent:#c8a96e; --teal:#2a9d8f; --red:#e76f51; --muted:#8a9ab5; --border:#dde3ef; --card:#f2f5fa; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#fff; color:#1a2640; font-family:'DM Sans',sans-serif; font-size:14px; line-height:1.6; }
+  .page { max-width:720px; margin:0 auto; padding:32px 24px 60px; }
+  .header { border-bottom:3px solid var(--navy); padding-bottom:20px; margin-bottom:28px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px; }
+  .header-left h1 { font-family:'Syne',sans-serif; font-size:26px; font-weight:800; color:var(--navy); }
+  .header-left .sub { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:0.08em; text-transform:uppercase; }
+  .header-right { font-size:11px; color:var(--muted); text-align:right; }
+  .print-btn { display:inline-block; background:var(--navy); color:#fff; font-family:'Syne',sans-serif; font-size:12px; font-weight:700; padding:8px 16px; border-radius:6px; cursor:pointer; border:none; margin-bottom:20px; }
+  @media print { .print-btn { display:none; } }
+  .binder-section { margin-bottom:18px; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  .binder-head { padding:10px 16px; display:flex; align-items:center; gap:10px; }
+  .binder-head.front { background:var(--navy); color:#fff; }
+  .binder-head.s1 { background:#e8f5f3; color:#1a5247; }
+  .binder-head.s2 { background:#fef6eb; color:#5c3a00; }
+  .binder-head.s3 { background:#f0f4ff; color:#1a2a6b; }
+  .binder-head.s4 { background:#f5f0ff; color:#3a1a6b; }
+  .binder-head.s5 { background:#fff0f0; color:#6b1a1a; }
+  .binder-head.s6 { background:#f5f5f5; color:#555; }
+  .tab { font-family:'Syne',sans-serif; font-size:13px; font-weight:800; letter-spacing:0.05em; }
+  .use-tag { font-size:11px; opacity:0.75; margin-left:auto; font-style:italic; }
+  .binder-body { padding:12px 16px; }
+  .checklist { list-style:none; padding:0; }
+  .checklist li { display:flex; align-items:flex-start; gap:10px; padding:5px 0; border-bottom:1px solid var(--border); font-size:13px; }
+  .checklist li:last-child { border-bottom:none; }
+  .box { width:14px; height:14px; border:2px solid #9aa5bb; border-radius:3px; flex-shrink:0; margin-top:3px; }
+  .note { font-size:11px; color:var(--muted); font-style:italic; }
+  .use-guide { background:var(--navy); color:#fff; border-radius:8px; padding:16px 20px; margin-top:24px; }
+  .use-guide h3 { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:var(--accent); margin-bottom:12px; }
+  .use-row { display:flex; gap:12px; margin-bottom:8px; font-size:13px; align-items:center; }
+  .use-label { font-weight:600; color:var(--accent); min-width:140px; }
+  .use-sections { color:rgba(255,255,255,0.8); }
+  .tip { background:var(--card); border-left:3px solid var(--teal); padding:8px 12px; font-size:12px; border-radius:0 4px 4px 0; margin:16px 0; }
+  .photos { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+  .photo-card { border:1px solid var(--border); border-radius:8px; overflow:hidden; text-align:center; }
+  .photo-card img { width:100%; height:180px; object-fit:cover; }
+  .photo-card p { font-size:11px; color:var(--muted); padding:6px; }
+  .footer { margin-top:32px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <button class="print-btn" onclick="window.print()">🖨️ Print this layout</button>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>Visa Binder Layout</h1>
+      <div class="sub">Document organisation for medical, doc check &amp; interview</div>
+    </div>
+    <div class="header-right">londonvisatracker.github.io<br>v1.4 · Apr 2026</div>
+  </div>
+
+  <div class="tip">You need two trips to London: one for the medical + document check, one for the interview. A well-organised binder means the document check window runs smoothly and you aren't scrambling on interview day. Staples (binder) + Amazon (coloured dividers) is a popular combination.</div>
+
+  <div class="photos">
+    <div class="photo-card">
+      <img src="binder-accordion.jpg" alt="Accordion folder with colour-coded tabs">
+      <p>Accordion folder — good for medical day organisation</p>
+    </div>
+    <div class="photo-card">
+      <img src="binder-blue.jpg" alt="Blue binder with labelled divider tabs">
+      <p>Ring binder with labelled dividers — Medical, Doc Check, Petitioner, Joint Sponsor, B&amp;Bean, US Domicile, Rev Visas, USCIS Notices</p>
+    </div>
+  </div>
+
+  <!-- FRONT -->
+  <div class="binder-section">
+    <div class="binder-head front">
+      <div class="tab">⭐ Front section — immediate access</div>
+      <div class="use-tag">Medical · Doc check · Interview</div>
+    </div>
+    <div class="binder-body">
+      <ul class="checklist">
+        <li><div class="box"></div><span>Passport</span></li>
+        <li><div class="box"></div><span>Interview Letter</span></li>
+        <li><div class="box"></div><span>DS-260 Confirmation Page</span></li>
+        <li><div class="box"></div><span>Completed Medical Questionnaire (IV18a)</span></li>
+        <li><div class="box"></div><span>Courier Registration Confirmation with QR Code</span></li>
+        <li><div class="box"></div><span>Pink Medical Slip <span class="note">(add after medical)</span></span></li>
+        <li><div class="box"></div><span>Sealed Embassy Packet <span class="note">(add after document check — do NOT open)</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- S1 -->
+  <div class="binder-section">
+    <div class="binder-head s1">
+      <div class="tab">Section 1 — Medical documents</div>
+      <div class="use-tag">Medical + doc check</div>
+    </div>
+    <div class="binder-body">
+      <ul class="checklist">
+        <li><div class="box"></div><span>GP Summary / Patient Care Record <span class="note">Dated within 2–3 weeks of medical</span></span></li>
+        <li><div class="box"></div><span>Vaccination Records</span></li>
+        <li><div class="box"></div><span>ACRO Police Certificate <span class="note">Photo page facing front</span></span></li>
+        <li><div class="box"></div><span>Medical Reports <span class="note">If applicable: chronic conditions, mental health, TB/STI</span></span></li>
+        <li><div class="box"></div><span>Child Health Record / Red Book <span class="note">If applicable</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- S2 -->
+  <div class="binder-section">
+    <div class="binder-head s2">
+      <div class="tab">Section 2 — Civil documents (originals + copies)</div>
+      <div class="use-tag">Doc check + interview backup</div>
+    </div>
+    <div class="binder-body">
+      <ul class="checklist">
+        <li><div class="box"></div><span>Birth Certificate <span class="note">Long form with parent names</span></span></li>
+        <li><div class="box"></div><span>Marriage Certificate</span></li>
+        <li><div class="box"></div><span>Divorce Decrees <span class="note">If applicable — all prior marriages</span></span></li>
+        <li><div class="box"></div><span>Death Certificates <span class="note">If applicable — former spouses</span></span></li>
+        <li><div class="box"></div><span>Adoption Documents <span class="note">If applicable</span></span></li>
+        <li><div class="box"></div><span>Name Change Documents <span class="note">If applicable</span></span></li>
+        <li><div class="box"></div><span>Court / Criminal Records <span class="note">If applicable</span></span></li>
+        <li><div class="box"></div><span>Military Records <span class="note">If applicable</span></span></li>
+        <li><div class="box"></div><span>Additional Police Certificates <span class="note">Non-UK, per reciprocity rules</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- S3 -->
+  <div class="binder-section">
+    <div class="binder-head s3">
+      <div class="tab">Section 3 — Financial documents (copies)</div>
+      <div class="use-tag">Interview backup only</div>
+    </div>
+    <div class="binder-body">
+      <p style="font-size:12px;color:var(--red);margin-bottom:8px;font-weight:600;">All financial documents must already be uploaded to CEAC. The officer will not accept new documents at the interview window.</p>
+      <ul class="checklist">
+        <li><div class="box"></div><span>Form I-864 — Petitioner <span class="note">Wet signed — no digital signatures</span></span></li>
+        <li><div class="box"></div><span>Form I-864 — Joint Sponsor <span class="note">If applicable</span></span></li>
+        <li><div class="box"></div><span>IRS Tax Transcripts</span></li>
+        <li><div class="box"></div><span>W-2s / 1099s</span></li>
+        <li><div class="box"></div><span>Employment Letter</span></li>
+        <li><div class="box"></div><span>Recent Pay Stubs</span></li>
+        <li><div class="box"></div><span>Proof of Status — Sponsor / Joint Sponsor <span class="note">US passport or green card</span></span></li>
+        <li><div class="box"></div><span>Proof of US Domicile <span class="note">If petitioner lives abroad</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- S4 -->
+  <div class="binder-section">
+    <div class="binder-head s4">
+      <div class="tab">Section 4 — Identity &amp; travel documents</div>
+      <div class="use-tag">Interview backup</div>
+    </div>
+    <div class="binder-body">
+      <ul class="checklist">
+        <li><div class="box"></div><span>Passport Biographic Page Copy</span></li>
+        <li><div class="box"></div><span>Previous Passports <span class="note">If relevant to travel/visa history</span></span></li>
+        <li><div class="box"></div><span>Visa History <span class="note">If applicable</span></span></li>
+        <li><div class="box"></div><span>USCIS Approval Notice (I-130 NOA2)</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- S5 -->
+  <div class="binder-section">
+    <div class="binder-head s5">
+      <div class="tab">Section 5 — Supporting / case-specific</div>
+      <div class="use-tag">As needed</div>
+    </div>
+    <div class="binder-body">
+      <ul class="checklist">
+        <li><div class="box"></div><span>Immigration History Documents</span></li>
+        <li><div class="box"></div><span>Any documents specific to complex case history</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- S6 -->
+  <div class="binder-section">
+    <div class="binder-head s6">
+      <div class="tab">Section 6 — Optional (rarely requested)</div>
+      <div class="use-tag">Backup only</div>
+    </div>
+    <div class="binder-body">
+      <ul class="checklist">
+        <li><div class="box"></div><span>Relationship Evidence <span class="note">Photos, messages, travel records</span></span></li>
+        <li><div class="box"></div><span>Additional Supporting Evidence</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="use-guide">
+    <h3>Which sections for each appointment</h3>
+    <div class="use-row"><span class="use-label">Medical</span><span class="use-sections">Front section + Section 1</span></div>
+    <div class="use-row"><span class="use-label">Document check</span><span class="use-sections">Front section + Section 1 + Section 2</span></div>
+    <div class="use-row"><span class="use-label">Interview</span><span class="use-sections">Front section primarily — Sections 2–4 as backup if asked</span></div>
+  </div>
+
+  <div class="footer">
+    <span>London Visa Tracker · Community resource · Not legal advice</span>
+    <span>Support the guide: ko-fi.com/erinsaidwhat</span>
+  </div>
+</div>
+</body>
+</html>
