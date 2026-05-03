@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NVC Document Checklist — CEAC Submission</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0a1628; --accent:#c8a96e; --teal:#2a9d8f; --red:#e76f51; --muted:#8a9ab5; --border:#dde3ef; --card:#f2f5fa; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#fff; color:#1a2640; font-family:'DM Sans',sans-serif; font-size:14px; line-height:1.6; }
+  .page { max-width:720px; margin:0 auto; padding:32px 24px 60px; }
+  .header { border-bottom:3px solid var(--navy); padding-bottom:20px; margin-bottom:28px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px; }
+  .header-left h1 { font-family:'Syne',sans-serif; font-size:26px; font-weight:800; color:var(--navy); }
+  .header-left .sub { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:0.08em; text-transform:uppercase; }
+  .header-right { font-size:11px; color:var(--muted); text-align:right; }
+  .print-btn { display:inline-block; background:var(--navy); color:#fff; font-family:'Syne',sans-serif; font-size:12px; font-weight:700; padding:8px 16px; border-radius:6px; cursor:pointer; border:none; margin-bottom:20px; }
+  @media print { .print-btn { display:none; } }
+  .section { margin-bottom:22px; }
+  .section-title { font-family:'Syne',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#fff; background:var(--navy); padding:6px 12px; border-radius:4px; margin-bottom:10px; display:inline-block; }
+  .section-title.teal { background:var(--teal); }
+  .section-title.red { background:var(--red); }
+  .section-title.accent { background:var(--accent); color:var(--navy); }
+  .checklist { list-style:none; padding:0; }
+  .checklist li { display:flex; align-items:flex-start; gap:10px; padding:6px 0; border-bottom:1px solid var(--border); font-size:13px; }
+  .checklist li:last-child { border-bottom:none; }
+  .box { width:14px; height:14px; border:2px solid #9aa5bb; border-radius:3px; flex-shrink:0; margin-top:3px; }
+  .note { font-size:11px; color:var(--muted); font-style:italic; display:block; margin-top:1px; }
+  .alert { background:#fff5f2; border-left:3px solid var(--red); padding:8px 12px; font-size:12px; border-radius:0 4px 4px 0; margin:10px 0; }
+  .tip { background:var(--card); border-left:3px solid var(--teal); padding:8px 12px; font-size:12px; border-radius:0 4px 4px 0; margin:10px 0; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .failure { background:#fff5f2; border:1px solid #f5c4bb; border-radius:8px; padding:14px 16px; margin-top:24px; }
+  .failure h3 { font-family:'Syne',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+  .failure ul { padding-left:16px; font-size:12px; color:#5c1a1a; }
+  .failure li { margin-bottom:4px; }
+  .footer { margin-top:32px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <button class="print-btn" onclick="window.print()">🖨️ Print this checklist</button>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>NVC Document Checklist</h1>
+      <div class="sub">CEAC Submission — before you can be Documentarily Qualified (DQ)</div>
+    </div>
+    <div class="header-right">londonvisatracker.github.io<br>v1.4 · Apr 2026</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Before you start</div>
+    <ul class="checklist">
+      <li><div class="box"></div><span>Case created and NVC Welcome Letter received <span class="note">Contains your NVC Case Number and Invoice ID — save both</span></span></li>
+      <li><div class="box"></div><span>CEAC access confirmed at <strong>ceac.state.gov/IV/Login.aspx</strong></span></li>
+      <li><div class="box"></div><span>IV fee ($325) paid and showing PAID</span></li>
+      <li><div class="box"></div><span>Affidavit of Support fee ($120) paid and showing PAID</span></li>
+    </ul>
+    <div class="alert"><strong>Rule:</strong> You cannot upload documents until both fees are paid and cleared.</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="section">
+        <div class="section-title teal">Financial documents (petitioner)</div>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Form I-864 — Affidavit of Support <span class="note">Wet signed — NO digital signatures</span></span></li>
+          <li><div class="box"></div><span>IRS Tax Transcript <span class="note">Most recent year — from IRS website, not a copy of your return</span></span></li>
+          <li><div class="box"></div><span>W-2s / 1099s</span></li>
+          <li><div class="box"></div><span>Proof of current employment <span class="note">Employment letter or contract</span></span></li>
+          <li><div class="box"></div><span>Recent pay stubs</span></li>
+        </ul>
+        <div class="tip">Petitioner must meet 125% of US Federal Poverty Guidelines based on household size. If income is insufficient, irregular, asset-heavy, or earned abroad — a joint sponsor is required.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title teal">Financial documents (joint sponsor)</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:8px;font-style:italic;">Complete only if a joint sponsor is required</p>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Separate Form I-864 (signed)</span></li>
+          <li><div class="box"></div><span>IRS Tax Transcript</span></li>
+          <li><div class="box"></div><span>W-2s / 1099s</span></li>
+          <li><div class="box"></div><span>Proof of US status <span class="note">US passport or green card</span></span></li>
+          <li><div class="box"></div><span>Proof of US domicile</span></li>
+          <li><div class="box"></div><span>Proof of income:
+            <span class="note">W2/1099 employees: employment letter + pay stubs</span>
+            <span class="note">Self-employed: 12 months business bank statements + evidence of business</span>
+            <span class="note">Retired: evidence of retirement income source</span>
+          </span></li>
+        </ul>
+        <div class="alert"><strong>London-specific risk:</strong> Asset-only or borderline income cases frequently result in 221(g) delays. If there is any doubt, secure a joint sponsor early.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section">
+        <div class="section-title">Civil documents (beneficiary)</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px;font-style:italic;">Required documents vary by visa category (spouse, child, parent)</div>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Birth Certificate <span class="note">Long form with parent names</span></span></li>
+          <li><div class="box"></div><span>Marriage Certificate <span class="note">If applicable</span></span></li>
+          <li><div class="box"></div><span>UK ACRO Police Certificate <span class="note">Required for UK residence</span></span></li>
+          <li><div class="box"></div><span>Police Certificates from all other qualifying countries <span class="note">Check reciprocity schedule for rules</span></span></li>
+          <li><div class="box"></div><span>Passport biographic page <span class="note">Must be valid — preferably until naturalization</span></span></li>
+        </ul>
+        <div class="warn" style="font-size:12px;font-weight:600;color:var(--red);margin-top:8px;">If using a PCC placeholder — you MUST upload the actual certificate by interview day or risk 221(g).</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title accent">Conditional / case-specific</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:8px;font-style:italic;">Include only if applicable</p>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Divorce Decrees <span class="note">All prior marriages</span></span></li>
+          <li><div class="box"></div><span>Death Certificates <span class="note">Former spouses</span></span></li>
+          <li><div class="box"></div><span>Court / criminal records</span></li>
+          <li><div class="box"></div><span>Prison records</span></li>
+          <li><div class="box"></div><span>Military records</span></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Upload and submit</div>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Each document placed in the correct CEAC category</span></li>
+          <li><div class="box"></div><span>Clear, legible scans — all pages included</span></li>
+          <li><div class="box"></div><span>Max file size 4MB per upload</span></li>
+          <li><div class="box"></div><span>No duplicates or missing pages</span></li>
+          <li><div class="box"></div><span>Do NOT mail originals to NVC — bring them to interview</span></li>
+          <li><div class="box"></div><span>Click <strong>Submit Documents</strong> — uploading alone does not enter you into the review queue</span></li>
+        </ul>
+        <div class="tip"><strong>Recommended naming convention:</strong><br>[CASE NUMBER]_[DOCUMENT TYPE]_[NAME]<br>Example: LNDXXXX_BirthCert_Beneficiary</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="failure">
+    <h3>Top failure points from real cases</h3>
+    <ul>
+      <li>Uploading documents to the wrong CEAC category</li>
+      <li>Missing police certificates for countries lived in</li>
+      <li>Incomplete financial evidence — assuming assets are sufficient without a sponsor</li>
+      <li>Submitting before fully ready — every RFE adds ~2 weeks</li>
+      <li>I-864 digitally signed instead of wet signed</li>
+      <li>PCC placeholder not replaced before interview</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <span>London Visa Tracker · Community resource · Not legal advice</span>
+    <span>Support the guide: ko-fi.com/erinsaidwhat</span>
+  </div>
+</div>
+</body>
+</html>

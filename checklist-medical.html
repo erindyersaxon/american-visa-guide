@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Day Checklist — US Embassy London</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628; --accent: #c8a96e; --teal: #2a9d8f;
+    --red: #e76f51; --white: #f8f6f2; --muted: #8a9ab5;
+    --border: #dde3ef; --card: #f2f5fa;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#fff; color:#1a2640; font-family:'DM Sans',sans-serif; font-size:14px; line-height:1.6; }
+
+  .page { max-width:720px; margin:0 auto; padding:32px 24px 60px; }
+
+  .header { border-bottom:3px solid var(--navy); padding-bottom:20px; margin-bottom:28px; display:flex; justify-content:space-between; align-items:flex-end; }
+  .header-left h1 { font-family:'Syne',sans-serif; font-size:26px; font-weight:800; color:var(--navy); line-height:1.1; }
+  .header-left .sub { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:0.08em; text-transform:uppercase; }
+  .header-right { font-size:11px; color:var(--muted); text-align:right; }
+  .print-btn { display:inline-block; background:var(--navy); color:#fff; font-family:'Syne',sans-serif; font-size:12px; font-weight:700; padding:8px 16px; border-radius:6px; cursor:pointer; border:none; margin-bottom:20px; }
+  @media print { .print-btn { display:none; } }
+
+  .section { margin-bottom:24px; }
+  .section-title {
+    font-family:'Syne',sans-serif; font-size:12px; font-weight:700;
+    letter-spacing:0.15em; text-transform:uppercase;
+    color:#fff; background:var(--navy);
+    padding:6px 12px; border-radius:4px; margin-bottom:10px;
+    display:inline-block;
+  }
+  .section-title.teal { background:var(--teal); }
+  .section-title.red { background:var(--red); }
+  .section-title.accent { background:var(--accent); color:var(--navy); }
+
+  .checklist { list-style:none; padding:0; }
+  .checklist li {
+    display:flex; align-items:flex-start; gap:10px;
+    padding:7px 0; border-bottom:1px solid var(--border);
+    font-size:13px;
+  }
+  .checklist li:last-child { border-bottom:none; }
+  .box {
+    width:16px; height:16px; border:2px solid #9aa5bb;
+    border-radius:3px; flex-shrink:0; margin-top:2px;
+  }
+  .note { font-size:11px; color:var(--muted); margin-top:2px; display:block; }
+  .warn { font-size:12px; color:var(--red); font-weight:600; margin:8px 0 4px; }
+  .tip { background:var(--card); border-left:3px solid var(--teal); padding:8px 12px; font-size:12px; border-radius:0 4px 4px 0; margin:8px 0; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .bottom-line { background:var(--navy); color:#fff; border-radius:8px; padding:16px 20px; margin-top:24px; font-size:13px; }
+  .bottom-line h3 { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:var(--accent); margin-bottom:8px; }
+  .bottom-line ul { list-style:none; }
+  .bottom-line li { padding:4px 0; display:flex; gap:8px; }
+  .bottom-line li::before { content:'✓'; color:var(--teal); font-weight:700; }
+  .footer { margin-top:32px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <button class="print-btn" onclick="window.print()">🖨️ Print this checklist</button>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>Medical Day Checklist</h1>
+      <div class="sub">US Embassy London — Immigrant Visa Process</div>
+    </div>
+    <div class="header-right">
+      londonvisatracker.github.io<br>
+      v1.4 · Apr 2026
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="section">
+        <div class="section-title">Night before — pack these</div>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Passport</span></li>
+          <li><div class="box"></div><span>Interview letter</span></li>
+          <li><div class="box"></div><span>DS-260 confirmation page <span class="note">Printed — not on phone</span></span></li>
+          <li><div class="box"></div><span>Completed medical questionnaire (IV18a)</span></li>
+          <li><div class="box"></div><span>Vaccination records</span></li>
+          <li><div class="box"></div><span>ACRO police certificate</span></li>
+          <li><div class="box"></div><span>GP summary <span class="note">Dated within 2–3 weeks of appointment</span></span></li>
+          <li><div class="box"></div><span>Glasses or contact lenses (if applicable)</span></li>
+          <li><div class="box"></div><span>Payment method (card preferred)</span></li>
+        </ul>
+        <div class="warn">If applicable:</div>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Medical reports (chronic conditions, mental health, TB/STIs)</span></li>
+          <li><div class="box"></div><span>Child health record / Red Book</span></li>
+          <li><div class="box"></div><span>Maternity documentation (if pregnant)</span></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title teal">At the medical</div>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Check-in and digital photo</span></li>
+          <li><div class="box"></div><span>Document review</span></li>
+          <li><div class="box"></div><span>Chest X-ray (age 15+)</span></li>
+          <li><div class="box"></div><span>Blood test (age 18+)</span></li>
+          <li><div class="box"></div><span>Urine test (age 18+)</span></li>
+          <li><div class="box"></div><span>Physical examination</span></li>
+          <li><div class="box"></div><span>Vaccine review and administration</span></li>
+        </ul>
+        <div class="warn">Before leaving the clinic:</div>
+        <ul class="checklist">
+          <li><div class="box"></div><span><strong>Collect pink checklist slip</strong> — required for embassy document check</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="section">
+        <div class="section-title accent">Same day — embassy document check</div>
+        <div class="tip">Go directly to the embassy after the medical. Do not go home first.</div>
+        <p style="font-size:12px;margin-bottom:8px;"><strong>Address:</strong> 33 Nine Elms Lane, London SW11 7US<br>
+        <strong>Window:</strong> 11:30 AM–1:00 PM (queue opens ~11:45)</p>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Passport</span></li>
+          <li><div class="box"></div><span>Pink medical slip</span></li>
+          <li><div class="box"></div><span>DS-260 confirmation page</span></li>
+          <li><div class="box"></div><span>Civil documents (originals)</span></li>
+        </ul>
+        <div class="warn">At the embassy:</div>
+        <ul class="checklist">
+          <li><div class="box"></div><span>Go to <strong>"Pass Back" window</strong> on the right side of the building — do NOT join the main queue</span></li>
+          <li><div class="box"></div><span>Airport-style security</span></li>
+          <li><div class="box"></div><span>Document check at window</span></li>
+          <li><div class="box"></div><span>Fingerprints</span></li>
+          <li><div class="box"></div><span><strong>Receive sealed "Do Not Tamper" envelope</strong> for interview day</span></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title red">High-risk failure points</div>
+        <ul class="checklist">
+          <li><div class="box"></div><span style="color:var(--red);">Missing GP summary</span></li>
+          <li><div class="box"></div><span style="color:var(--red);">Missing vaccination records</span></li>
+          <li><div class="box"></div><span style="color:var(--red);">Forgetting pink slip before leaving clinic</span></li>
+          <li><div class="box"></div><span style="color:var(--red);">Not going to embassy same day</span></li>
+          <li><div class="box"></div><span style="color:var(--red);">Arriving after 1:00 PM and missing the doc check window</span></li>
+        </ul>
+        <div class="tip" style="margin-top:10px;"><strong>Timing:</strong> Medical ~1–1.5 hrs · Coffee break · Embassy doc check opens 11:45 AM · Done by ~12:15 PM</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-line">
+    <h3>Bottom line — all three must be done</h3>
+    <ul>
+      <li>Medical complete and pink slip collected</li>
+      <li>Embassy document check completed same day</li>
+      <li>Sealed envelope in hand — ready for interview day</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <span>London Visa Tracker · Community resource · Not legal advice</span>
+    <span>Support the guide: ko-fi.com/erinsaidwhat</span>
+  </div>
+</div>
+</body>
+</html>

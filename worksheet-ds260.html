@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DS-260 Preparation Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0a1628; --accent:#c8a96e; --teal:#2a9d8f; --red:#e76f51; --muted:#8a9ab5; --border:#dde3ef; --card:#f2f5fa; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#fff; color:#1a2640; font-family:'DM Sans',sans-serif; font-size:14px; line-height:1.6; }
+  .page { max-width:740px; margin:0 auto; padding:32px 24px 60px; }
+  .header { border-bottom:3px solid var(--navy); padding-bottom:20px; margin-bottom:28px; }
+  .header h1 { font-family:'Syne',sans-serif; font-size:24px; font-weight:800; color:var(--navy); }
+  .header .sub { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:0.06em; text-transform:uppercase; }
+  .header-meta { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:8px; }
+  .header-right { font-size:11px; color:var(--muted); text-align:right; }
+  .print-btn { display:inline-block; background:var(--navy); color:#fff; font-family:'Syne',sans-serif; font-size:12px; font-weight:700; padding:8px 16px; border-radius:6px; cursor:pointer; border:none; margin-bottom:20px; }
+  @media print { .print-btn, .alert-banner { display:none; } }
+  .alert-banner { background:#fff5f2; border:1px solid #f5c4bb; border-radius:8px; padding:12px 16px; font-size:13px; margin-bottom:20px; color:#5c1a1a; }
+  .section { margin-bottom:28px; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  .section-head { background:var(--navy); color:#fff; padding:10px 16px; font-family:'Syne',sans-serif; font-size:13px; font-weight:700; }
+  .section-body { padding:16px; }
+  .field { margin-bottom:14px; }
+  .field label { display:block; font-size:12px; font-weight:600; color:#2a3a55; margin-bottom:4px; }
+  .field .hint { font-size:11px; color:var(--muted); font-style:italic; margin-bottom:4px; display:block; }
+  .field input[type="text"], .field textarea, .field select {
+    width:100%; border:1px solid var(--border); border-radius:5px;
+    padding:7px 10px; font-family:'DM Sans',sans-serif; font-size:13px;
+    color:#1a2640; background:#fff;
+  }
+  .field textarea { min-height:60px; resize:vertical; }
+  .radio-group { display:flex; gap:20px; margin-top:4px; }
+  .radio-group label { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:400; cursor:pointer; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  @media (max-width:600px) { .two-col, .three-col { grid-template-columns:1fr; } }
+  .warn { font-size:12px; color:var(--red); font-weight:600; margin:8px 0 4px; }
+  .tip { background:var(--card); border-left:3px solid var(--teal); padding:8px 12px; font-size:12px; border-radius:0 4px 4px 0; margin:10px 0; }
+  .footer { margin-top:32px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; }
+  .section-head.teal { background:var(--teal); }
+  .section-head.accent { background:#8a6a2a; }
+</style>
+</head>
+<body>
+<div class="page">
+  <button class="print-btn" onclick="window.print()">🖨️ Print this worksheet</button>
+
+  <div class="header">
+    <div class="header-meta">
+      <div>
+        <h1>DS-260 Preparation Worksheet</h1>
+        <div class="sub">Immigrant Visa Application — Complete before logging into CEAC</div>
+      </div>
+      <div class="header-right">londonvisatracker.github.io<br>v1.4 · Apr 2026</div>
+    </div>
+  </div>
+
+  <div class="alert-banner">
+    <strong>⚠️ CEAC times out after ~10 minutes of inactivity and is very unreliable.</strong> Complete this worksheet in full before logging in. Once you submit the DS-260 you cannot edit it — double-check every answer. The DS-260 confirmation page must be printed and brought to your medical and interview.
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-head">1. Personal information (beneficiary)</div>
+    <div class="section-body">
+      <div class="field">
+        <label>Full legal name (exactly as in passport)</label>
+        <input type="text" placeholder="Family name / Given names">
+      </div>
+      <div class="field">
+        <label>Have you ever used other names? (maiden name, aliases, name changes)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="othernames"> Yes</label>
+          <label><input type="radio" name="othernames"> No</label>
+        </div>
+        <textarea placeholder="If yes, list all names and explanations:"></textarea>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Sex</label>
+          <div class="radio-group">
+            <label><input type="radio" name="sex"> Male</label>
+            <label><input type="radio" name="sex"> Female</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Marital status</label>
+          <select><option>Married</option><option>Single</option><option>Divorced</option><option>Widowed</option></select>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Date of birth (MM/DD/YYYY)</label>
+          <input type="text" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field">
+          <label>Place of birth (City, Country)</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Primary nationality</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>Other nationalities held (if any)</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="field">
+        <label>Do you hold or have you ever held another nationality or passport?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="otherppt"> Yes</label>
+          <label><input type="radio" name="otherppt"> No</label>
+        </div>
+        <textarea placeholder="If yes, provide details and document numbers:"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-head">2. Address and contact information</div>
+    <div class="section-body">
+      <div class="field">
+        <label>Present address (where you live now)</label>
+        <input type="text" placeholder="Street address">
+        <div style="height:6px;"></div>
+        <input type="text" placeholder="City / Town">
+        <div style="height:6px;"></div>
+        <div class="two-col">
+          <input type="text" placeholder="Postal code">
+          <input type="text" placeholder="Country">
+        </div>
+      </div>
+      <div class="field">
+        <label>Is your mailing address the same?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="mailsame"> Yes</label>
+          <label><input type="radio" name="mailsame"> No</label>
+        </div>
+        <input type="text" placeholder="If no, list mailing address:">
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Phone number(s)</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>Email address</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="field">
+        <label>Have you lived anywhere else in the past 5 years?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="prevaddr"> Yes</label>
+          <label><input type="radio" name="prevaddr"> No</label>
+        </div>
+        <textarea placeholder="If yes, list all previous addresses with dates:"></textarea>
+      </div>
+      <div class="field">
+        <label>Social media handles (last 5 years — active or deleted)</label>
+        <span class="hint">Platform and username for each. Requested but optional.</span>
+        <textarea placeholder="Platform: ________ Username: ________"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-head">3. Passport / Travel document</div>
+    <div class="section-body">
+      <div class="three-col">
+        <div class="field">
+          <label>Passport number</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>Date of issue</label>
+          <input type="text" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field">
+          <label>Date of expiry</label>
+          <input type="text" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      <div class="field">
+        <label>Country of issuance</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Have you ever lost or had a passport stolen?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="lostppt"> Yes</label>
+          <label><input type="radio" name="lostppt"> No</label>
+        </div>
+        <input type="text" placeholder="If yes, explain:">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-head">4. Family information — parents</div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="field">
+          <label>Father's full name</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>Father — living?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="fatherliving"> Yes</label>
+            <label><input type="radio" name="fatherliving"> No</label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Father's city and country of birth</label>
+        <input type="text">
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Mother's full name (maiden)</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>Mother — living?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="motherliving"> Yes</label>
+            <label><input type="radio" name="motherliving"> No</label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Mother's city and country of birth</label>
+        <input type="text">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <div class="section-head teal">5. Family information — spouse (petitioner)</div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="field">
+          <label>Spouse's full legal name</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>Spouse's date of birth</label>
+          <input type="text" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Spouse's city and country of birth</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>Spouse's current address</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Date of marriage</label>
+          <input type="text" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field">
+          <label>Place of marriage</label>
+          <input type="text" placeholder="City, Country">
+        </div>
+      </div>
+      <div class="field">
+        <label>Do you have previous spouses?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="prevspouse"> Yes</label>
+          <label><input type="radio" name="prevspouse"> No</label>
+        </div>
+        <textarea placeholder="If yes, list names, dates of marriage and termination:"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <div class="section-head">6. Family information — children</div>
+    <div class="section-body">
+      <div class="tip">If a child is a US citizen (e.g. via CRBA), answer "No" to "Is the child immigrating with you?" — they are returning as a citizen, not immigrating as a visa applicant.</div>
+      <div class="field">
+        <label>Do you have children?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="children"> Yes</label>
+          <label><input type="radio" name="children"> No</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>For each child: name, DOB, country of birth, immigrating with you? (Y/N)</label>
+        <textarea placeholder="Child 1: &#10;Child 2: &#10;Child 3:"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section">
+    <div class="section-head">7. Previous US travel</div>
+    <div class="section-body">
+      <div class="field">
+        <label>Have you ever been in the US?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="ustravel"> Yes</label>
+          <label><input type="radio" name="ustravel"> No</label>
+        </div>
+        <textarea placeholder="If yes, list entry/exit dates, visa type, status, A-numbers, any overstays:"></textarea>
+      </div>
+      <div class="field">
+        <label>Have you ever been refused a US visa or entry?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="refused"> Yes</label>
+          <label><input type="radio" name="refused"> No</label>
+        </div>
+        <input type="text" placeholder="If yes, explain:">
+      </div>
+      <div class="field">
+        <label>List every country you have travelled to in the past 5 years</label>
+        <textarea placeholder="Country, approximate dates:"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section">
+    <div class="section-head">8. US contact information</div>
+    <div class="section-body">
+      <div class="field">
+        <label>Primary US contact (usually the petitioner)</label>
+        <div class="two-col">
+          <input type="text" placeholder="Name">
+          <input type="text" placeholder="Relationship (e.g. Spouse)">
+        </div>
+        <div style="height:6px;"></div>
+        <input type="text" placeholder="Address">
+        <div style="height:6px;"></div>
+        <div class="two-col">
+          <input type="text" placeholder="Phone">
+          <input type="text" placeholder="Email">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="section">
+    <div class="section-head">9. Work / Education / Training</div>
+    <div class="section-body">
+      <div class="field">
+        <label>Are you currently employed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="employed"> Yes</label>
+          <label><input type="radio" name="employed"> No</label>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Employer name</label>
+          <input type="text">
+        </div>
+        <div class="field">
+          <label>Job title</label>
+          <input type="text">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label>Start date</label>
+          <input type="text" placeholder="MM/YYYY">
+        </div>
+        <div class="field">
+          <label>Work history (10 years — have it ready)</label>
+          <input type="text" placeholder="Employer, role, dates">
+        </div>
+      </div>
+      <div class="field">
+        <label>Employer address</label>
+        <input type="text">
+      </div>
+      <div class="field">
+        <label>Highest level of education</label>
+        <select>
+          <option>None</option><option>Primary</option><option>Secondary</option>
+          <option>University / Undergraduate</option><option>Graduate / Postgraduate</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Educational institutions attended</label>
+        <textarea placeholder="Name, location, degree, start and end dates:"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="section">
+    <div class="section-head accent">10. Security and background</div>
+    <div class="section-body">
+      <p style="font-size:12px;color:#5c3a00;margin-bottom:12px;"><strong>Answer Yes/No to each category. Explain any "Yes" answers fully — be truthful and consistent with all previous records.</strong></p>
+      <div class="field">
+        <label>Communicable diseases, mental health conditions, or drug use</label>
+        <div class="radio-group">
+          <label><input type="radio" name="health"> Yes</label>
+          <label><input type="radio" name="health"> No</label>
+        </div>
+        <input type="text" placeholder="Explain if Yes:">
+      </div>
+      <div class="field">
+        <label>Criminal record, arrests, convictions (even if expunged or pardoned)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="criminal"> Yes</label>
+          <label><input type="radio" name="criminal"> No</label>
+        </div>
+        <input type="text" placeholder="Explain if Yes:">
+      </div>
+      <div class="field">
+        <label>Terrorist affiliations, involvement in genocide, torture, or persecution</label>
+        <div class="radio-group">
+          <label><input type="radio" name="terror"> Yes</label>
+          <label><input type="radio" name="terror"> No</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Immigration fraud, visa overstays, prior removals or deportations</label>
+        <div class="radio-group">
+          <label><input type="radio" name="immfailure"> Yes</label>
+          <label><input type="radio" name="immfailure"> No</label>
+        </div>
+        <input type="text" placeholder="Explain if Yes:">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="section">
+    <div class="section-head teal">11. Vaccinations</div>
+    <div class="section-body">
+      <div class="tip">If you plan to get missing vaccines at the medical exam, select "Other" on the vaccination question and explain in the dialogue box that you will receive all required vaccines at the medical examination.</div>
+      <div class="field">
+        <label>Vaccination status notes — list any known gaps to discuss at the medical:</label>
+        <textarea placeholder="e.g. No Hep A on record, will receive at medical. Varicella — had chickenpox as a child."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 12 -->
+  <div class="section">
+    <div class="section-head">12. Social Security Number</div>
+    <div class="section-body">
+      <div class="field">
+        <label>Do you want a Social Security Number issued automatically upon US entry?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="ssn"> Yes (recommended)</label>
+          <label><input type="radio" name="ssn"> No</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Confirm exact name as it should appear on the SSN card</label>
+        <input type="text">
+      </div>
+    </div>
+  </div>
+
+  <div class="tip" style="margin:20px 0;">When you submit the DS-260, print the confirmation page immediately. You will need it at both your medical appointment and your visa interview.</div>
+
+  <div class="footer">
+    <span>London Visa Tracker · Community resource · Not legal advice</span>
+    <span>Support: ko-fi.com/erinsaidwhat</span>
+  </div>
+</div>
+</body>
+</html>
