@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life in the USA — American Visa Guide</title>
+  <meta name="description" content="Practical first steps after arriving in the US — green card, SSN, banking, tax obligations, and more. Community data showing where London visa holders have settled.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+  <style>
+    :root {
+      --navy:#0a1628;--navy-mid:#142040;--blue:#1a3a6b;
+      --accent:#c8a96e;--accent-light:#e8c98a;
+      --teal:#2a9d8f;--teal-light:#3dbfb0;
+      --red:#e76f51;--white:#f8f6f2;--muted:#8a9ab5;
+      --card-bg:#111e36;--border:rgba(200,169,110,0.15);
+      --border-subtle:rgba(255,255,255,0.06);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--navy);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.75}
+    body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% -10%,rgba(26,58,107,0.4) 0%,transparent 60%);pointer-events:none;z-index:0}
+
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 20px}
+    .nav-logo{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--white);text-decoration:none}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-link{font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all 0.15s;white-space:nowrap}
+    .nav-link:hover,.nav-link.active{color:var(--white);background:rgba(255,255,255,0.06)}
+    .nav-link.active{color:var(--accent)}
+    .nav-cta{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:var(--navy);background:var(--accent);border-radius:7px;padding:6px 12px;text-decoration:none;transition:opacity 0.15s;white-space:nowrap}
+    .nav-cta:hover{opacity:0.9}
+    @media(max-width:600px){
+      .nav-link .nav-text{display:none}
+      .nav-link{padding:6px 8px;font-size:16px}
+      .nav-cta .nav-text{display:none}
+      .nav-cta{padding:6px 10px;font-size:15px}
+    }
+
+    .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 20px 80px}
+
+    .page-hero{padding:48px 0 36px;border-bottom:1px solid var(--border);margin-bottom:40px}
+    .page-hero-eyebrow{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-light);margin-bottom:12px}
+    .page-hero h1{font-family:'Outfit',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:900;line-height:1.1;margin-bottom:14px}
+    .page-hero h1 span{color:var(--accent)}
+    .page-hero p{font-size:15px;color:rgba(248,246,242,0.75);max-width:560px;line-height:1.7}
+
+    /* MAP */
+    .map-section{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:40px}
+    .map-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap}
+    .map-header-left h2{font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:var(--white);margin-bottom:4px}
+    .map-header-left p{font-size:13px;color:var(--muted)}
+    .map-stats{display:flex;gap:24px;flex-wrap:wrap}
+    .map-stat{text-align:right}
+    .map-stat-num{font-family:'Outfit',sans-serif;font-size:28px;font-weight:900;color:var(--accent);line-height:1}
+    .map-stat-label{font-size:11px;color:var(--muted);margin-top:2px}
+
+    .map-wrap{position:relative;width:100%}
+    #us-map{width:100%;height:auto;display:block}
+    .state{fill:rgba(255,255,255,0.05);stroke:rgba(255,255,255,0.15);stroke-width:0.5;transition:fill 0.2s,opacity 0.2s;cursor:default}
+    .state:hover{opacity:0.8;stroke:rgba(200,169,110,0.6);stroke-width:1}
+    .state.has-data{cursor:pointer}
+
+    /* Tooltip */
+    #tooltip{position:fixed;background:rgba(10,22,40,0.97);border:1px solid var(--border);border-radius:10px;padding:12px 16px;pointer-events:none;z-index:999;display:none;min-width:140px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+    #tooltip .tt-name{font-family:'Outfit',sans-serif;font-size:14px;font-weight:800;color:var(--white);margin-bottom:4px}
+    #tooltip .tt-count{font-size:22px;font-weight:900;font-family:'Outfit',sans-serif;color:var(--teal-light);line-height:1}
+    #tooltip .tt-label{font-size:11px;color:var(--muted);margin-top:2px}
+
+    /* Legend */
+    .map-legend{display:flex;align-items:center;gap:6px;margin-top:16px;flex-wrap:wrap}
+    .map-legend-label{font-size:12px;color:var(--muted);margin-right:4px}
+    .legend-bar{height:10px;border-radius:3px;flex:1;min-width:120px;max-width:240px}
+    .legend-ends{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);min-width:120px;max-width:240px;flex:1}
+
+    /* Insets (AK, HI, territories) */
+
+
+    /* State leaderboard */
+    .state-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:24px}
+    .state-row{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.03);border:1px solid var(--border-subtle);border-radius:8px;padding:8px 12px}
+    .state-row.top{background:rgba(42,157,143,0.08);border-color:rgba(42,157,143,0.2)}
+    .state-rank{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:var(--muted);width:18px;flex-shrink:0}
+    .state-name{font-size:13px;color:rgba(248,246,242,0.85);flex:1}
+    .state-count{font-family:'Outfit',sans-serif;font-size:16px;font-weight:800;color:var(--teal-light)}
+
+    /* CONTENT */
+    .content-section{margin-bottom:48px}
+    .section-label{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+    .content-section h3{font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:var(--white);margin:20px 0 10px}
+    .content-section h3:first-child{margin-top:0}
+    .content-section p{font-size:14px;color:rgba(248,246,242,0.82);margin-bottom:10px;line-height:1.75}
+    .content-section ul,.content-section ol{font-size:14px;color:rgba(248,246,242,0.82);padding-left:20px;margin-bottom:10px}
+    .content-section li{margin-bottom:4px}
+    .content-section a{color:var(--teal-light);text-decoration:none}
+    .content-section a:hover{text-decoration:underline}
+    .content-section strong{color:var(--white)}
+    .info-card{background:rgba(17,30,54,0.8);border:1px solid var(--border-subtle);border-radius:10px;padding:16px;margin-bottom:12px}
+    .info-card-head{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .info-card p{font-size:13px;color:rgba(248,246,242,0.82);margin-bottom:6px}
+    .info-card p:last-child{margin-bottom:0}
+    .info-card.warning{border-color:rgba(231,111,81,0.3);background:rgba(231,111,81,0.06)}
+    .info-card.tip{border-color:rgba(42,157,143,0.25);background:rgba(42,157,143,0.05)}
+    .sub-acc-item{border:1px solid var(--border-subtle);border-radius:8px;margin-bottom:5px;overflow:hidden;transition:border-color 0.2s}
+    .sub-acc-item.open{border-color:rgba(200,169,110,0.2)}
+    .sub-acc-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:rgba(17,30,54,0.7);border:none;cursor:pointer;text-align:left;transition:background 0.15s}
+    .sub-acc-trigger:hover{background:rgba(17,30,54,0.9)}
+    .sub-acc-item.open .sub-acc-trigger{background:rgba(17,30,54,0.95);border-bottom:1px solid var(--border-subtle)}
+    .sub-acc-label{font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:var(--white)}
+    .sub-acc-chevron{color:var(--muted);font-size:11px;transition:transform 0.25s,color 0.15s;flex-shrink:0}
+    .sub-acc-item.open .sub-acc-chevron{transform:rotate(180deg);color:var(--accent)}
+    .sub-acc-body{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1)}
+    .sub-acc-item.open .sub-acc-body{max-height:9999px}
+    .sub-acc-content{padding:16px 18px;background:rgba(10,22,40,0.4);font-size:14px}
+    .sub-controls{display:flex;gap:8px;margin:0 0 12px}
+    .sub-ctrl{font-size:11px;font-weight:600;color:var(--muted);background:rgba(255,255,255,0.04);border:1px solid var(--border-subtle);border-radius:5px;padding:4px 12px;cursor:pointer;transition:all 0.15s;font-family:'Outfit',sans-serif}
+    .sub-ctrl:hover{color:var(--white);border-color:var(--accent)}
+    .tracker-memo{display:flex;align-items:center;gap:10px;background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px}
+    .tracker-memo p{font-size:12px;color:rgba(248,246,242,0.75);margin:0}
+    .tracker-memo a{color:var(--teal-light);font-weight:600;text-decoration:none}
+    table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:12px}
+    th{padding:8px 12px;background:rgba(200,169,110,0.08);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;text-align:left;border:1px solid var(--border-subtle)}
+    td{padding:8px 12px;border:1px solid rgba(255,255,255,0.05);color:rgba(248,246,242,0.82)}
+    @media(max-width:600px){.map-stats{gap:12px}.nav-link{font-size:11px;padding:6px 7px}}
+  
+  /* ── Shared page hero ── */
+  .page-hero { padding: 40px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 36px; }
+  .page-hero-flags { font-size: 24px; margin-bottom: 10px; letter-spacing: 4px; }
+  .page-hero-eyebrow { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .page-hero-h1 { font-family: 'Outfit', sans-serif; font-size: clamp(32px,7vw,52px); font-weight: 900; line-height: 1.05; margin-bottom: 14px; }
+  .page-hero-h1 span { color: var(--accent); }
+  .page-hero-sub { font-size: 15px; color: rgba(248,246,242,0.75); max-width: 560px; line-height: 1.7; }
+
+  /* ── Shared footer ── */
+  .site-footer { border-top: 1px solid var(--border); margin-top: 48px; padding: 28px 0 20px; }
+  .footer-inner { display: flex; flex-direction: column; gap: 10px; }
+  .footer-note { font-size: 12px; color: var(--muted); line-height: 1.6; max-width: 620px; }
+  .footer-links { font-size: 12px; color: var(--muted); }
+  .footer-links a { color: var(--teal-light); text-decoration: none; }
+  .footer-links a:hover { text-decoration: underline; }
+  .coffee-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--navy); font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 8px; text-decoration: none; transition: opacity 0.15s; align-self: flex-start; }
+  .coffee-btn:hover { opacity: 0.9; }
+
+  /* ── Image-style nav icons ── */
+  .nav-links { display: flex; align-items: center; gap: 4px; }
+  .nav-icon {
+    position: relative; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; width: 42px; height: 42px; border-radius: 10px;
+    text-decoration: none; font-size: 20px; transition: background 0.15s;
+    color: var(--white); background: transparent;
+  }
+  .nav-icon:hover { background: rgba(255,255,255,0.07); }
+  .nav-icon.active { background: rgba(200,169,110,0.12); }
+  .nav-icon .nav-tooltip {
+    position: absolute; bottom: -32px; left: 50%; transform: translateX(-50%);
+    background: rgba(10,22,40,0.97); border: 1px solid var(--border);
+    color: var(--white); font-family: 'Outfit', sans-serif; font-size: 11px;
+    font-weight: 600; white-space: nowrap; padding: 4px 10px; border-radius: 6px;
+    opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 200;
+  }
+  .nav-icon:hover .nav-tooltip { opacity: 1; }
+  .nav-cta-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border-radius: 10px; font-size: 20px;
+    background: var(--accent); color: var(--navy); text-decoration: none;
+    transition: opacity 0.15s; position: relative;
+  }
+  .nav-cta-btn:hover { opacity: 0.85; }
+  .nav-cta-btn .nav-tooltip {
+    position: absolute; bottom: -32px; left: 50%; transform: translateX(-50%);
+    background: rgba(10,22,40,0.97); border: 1px solid var(--border);
+    color: var(--white); font-family: 'Outfit', sans-serif; font-size: 11px;
+    font-weight: 600; white-space: nowrap; padding: 4px 10px; border-radius: 6px;
+    opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 200;
+  }
+  .nav-cta-btn:hover .nav-tooltip { opacity: 1; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">American <span>Visa Guide</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-icon" title="Data"><span>📊</span><span class="nav-tooltip">Data</span></a>
+      <a href="guide.html" class="nav-icon" title="Visa Guide"><span>📖</span><span class="nav-tooltip">Visa Guide</span></a>
+      <a href="life.html" class="nav-icon active" title="Life in the USA"><span>🏠</span><span class="nav-tooltip">Life in the USA</span></a>
+      <a href="https://forms.fillout.com/t/dTRqnkx9uxus" class="nav-icon" target="_blank" rel="noopener noreferrer" title="Submit Timeline"><span>✏️</span><span class="nav-tooltip">Submit Timeline</span></a>
+      <a href="https://ko-fi.com/erinsaidwhat" class="nav-cta-btn" target="_blank" rel="noopener noreferrer" title="Support"><span>☕</span><span class="nav-tooltip">Support</span></a>
+    </div>
+  </div>
+</nav>
+
+
+
+<div id="tooltip">
+  <div class="tt-name" id="tt-name"></div>
+  <div class="tt-count" id="tt-count"></div>
+  <div class="tt-label" id="tt-label"></div>
+</div>
+
+<div class="wrap">
+  <div class="page-hero">
+    <div class="page-hero-flags">🇬🇧 → 🇺🇸</div>
+    <div class="page-hero-eyebrow">After Arrival · Green Card · Practical First Steps</div>
+    <h1 class="page-hero-h1">Life in the <span>USA</span></h1>
+    <p class="page-hero-sub">Practical first steps after arriving — green card, SSN, banking, tax, and where the London community has settled.</p>
+  </div>
+
+  <!-- MAP -->
+  <div class="map-section">
+    <div class="map-header">
+      <div class="map-header-left">
+        <h2>🗺️ Where the community has settled</h2>
+        <p>Community-submitted data. Updates as members report their state of residence.</p>
+      </div>
+      <div class="map-stats">
+        <div class="map-stat">
+          <div class="map-stat-num" id="stat-total">—</div>
+          <div class="map-stat-label">members with state data</div>
+        </div>
+        <div class="map-stat">
+          <div class="map-stat-num" id="stat-states">—</div>
+          <div class="map-stat-label">states represented</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <svg id="us-map" viewBox="0 0 960 500"></svg>
+    </div>
+
+    <div class="map-legend">
+      <span class="map-legend-label">Members:</span>
+      <svg width="200" height="10" id="legend-svg" style="border-radius:3px;overflow:hidden"></svg>
+      <div class="legend-ends" id="legend-ends" style="min-width:200px"><span>1</span><span id="legend-max">—</span></div>
+    </div>
+
+
+
+    <!-- State leaderboard -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:24px;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+      <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);">By state</div>
+      <div style="font-size:11px;color:var(--muted);">Community data — <a href="https://www.americanvisaguide.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);text-decoration:none;font-weight:600;">americanvisaguide.com</a></div>
+    </div>
+    <div class="state-board" id="state-board">
+      <div style="font-size:13px;color:var(--muted);">Loading...</div>
+    </div>
+  </div>
+
+  <!-- TRACKER MEMO -->
+  <div class="tracker-memo">
+    <span style="font-size:15px">✏️</span>
+    <p>Settled in the US? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">Add your green card and SSN received dates to the community tracker →</a></p>
+  </div>
+
+  <!-- STAGE 9 CONTENT placeholder — will be populated from guide content -->
+  <div class="content-section" id="life-content">
+    <div class="section-label">Practical first steps</div>
+    
+      <p>This section covers what to do after you arrive as a permanent resident — IDs, banking, driving, and the UK financial and tax obligations you need to manage from day one.</p>
+
+
+            <div class="sub-controls">
+        <button class="sub-ctrl" onclick="subAccGroup('life', true)">Expand all</button>
+        <button class="sub-ctrl" onclick="subAccGroup('life', false)">Collapse all</button>
+      </div>
+      <div class="sub-acc-item" id="life_0" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_0')">
+          <span class="sub-acc-label">Green card and SSN — recap</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <ul style="font-size:13px;">
+        <li>Pay the <strong>$235 USCIS immigrant fee</strong> — recommended before you travel to start the clock earlier, but can be paid after entry. Card takes up to 90 days from entry date (if paid before) or payment date (if paid after)</li>
+        <li>Green card is typically mailed within 90 days of entry to your address on file — double-check your address in your USCIS account after arrival</li>
+        <li>SSN initiates automatically if selected on DS-260 — if not arrived within 4–6 weeks, go to your local SSA office in person</li>
+        <li>Register for <a href="https://informeddelivery.usps.com/" target="_blank" rel="noopener noreferrer">USPS Informed Delivery</a> to track both cards before they arrive</li>
+      </ul>
+
+      <!-- ID DOCUMENTS -->
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_1" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_1')">
+          <span class="sub-acc-label">Getting ID: driver's licence and Real ID</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <p>Your first priority for US identification is a <strong>state driver's licence or state ID</strong>. <a href="https://www.dhs.gov/real-id" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[DHS: REAL ID]</a> Your green card and passport with visa stamp serve as ID in the meantime, but a state-issued ID is required for many everyday purposes. If settling in a US territory (Puerto Rico, US Virgin Islands, Guam, American Samoa, or the Northern Mariana Islands), the same process applies — territories issue their own IDs which are valid US identification.</p>
+
+      <div class="info-card warning">
+        <div class="info-card-head">Real ID vs Standard ID</div>
+        <p style="font-size:13px;margin-bottom:6px;"><strong>Real ID</strong> is federally compliant — required for domestic flights and entry to federal buildings from May 2025. It requires more documentation than a standard ID.</p>
+        <p style="font-size:13px;margin:0;"><strong>Standard ID</strong> is valid for driving and general purposes but cannot be used to board domestic flights or enter federal buildings. If you have a passport you can use that for flights instead — but a Real ID is the cleaner long-term solution.</p>
+      </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_2" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_2')">
+          <span class="sub-acc-label">What you need for a Real ID driver's licence</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <div class="two-col">
+        <div class="info-card">
+          <div class="info-card-head">Proof of lawful presence</div>
+          <ul style="font-size:13px;margin:0;">
+            <li>Permanent Resident Card (I-551)</li>
+            <li>Temporary I-551 stamp in passport (the visa stamp counts)</li>
+            <li>Employment Authorization Document (EAD)</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-card-head">Proof of Social Security Number</div>
+          <ul style="font-size:13px;margin:0;">
+            <li>SSN card (cannot be laminated)</li>
+            <li>W-2 form displaying 9-digit SSN</li>
+            <li>Pay stub with name and SSN</li>
+            <li>SSA-1099 form</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-card-head">Proof of state residency</div>
+          <ul style="font-size:13px;margin:0;">
+            <li>Utility bill, bank statement, or credit card statement (within 60 days)</li>
+            <li>Current lease or mortgage</li>
+            <li>Pay stub dated within 60 days</li>
+            <li>W-2 or tax statement</li>
+            <li>For Real ID: two residency documents required</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-card-head">Name match requirement</div>
+          <p style="font-size:13px;margin:0;">Your name must match across all documents. If your name has changed (e.g. marriage), bring a marriage certificate issued by a municipality, divorce decree, or court document. This is required for Real ID; not required for a standard licence.</p>
+        </div>
+      </div>
+
+      <div class="info-card tip">
+        <div class="info-card-head">Massachusetts residents — additional note</div>
+        <p style="font-size:13px;margin-bottom:6px;">Massachusetts allows residents to obtain a standard driver's licence regardless of immigration status under the Work and Family Mobility Act (effective July 2023). For a standard licence you need proof of identity, date of birth, and Massachusetts residency — but not necessarily an SSN if it cannot be validated yet.</p>
+        <p style="font-size:13px;margin:0;">Start your application online and schedule a Class D learner's permit exam at your local RMV Service Center. The $30 exam is available in 34 languages; you must score at least 18/25 within 25 minutes. After the permit, you sit a road test to get the full licence. Check <a href="https://mass.gov/ID" target="_blank" rel="noopener noreferrer">mass.gov/ID</a> to get ready online before going in.</p>
+      </div>
+
+      <p style="font-size:12px;color:var(--muted);">Requirements vary by state. Check your state's DMV website for the exact documents required in your state. The above reflects Massachusetts as an example.</p>
+
+      <!-- BANKING -->
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_3" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_3')">
+          <span class="sub-acc-label">Banking</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <p>Opening a US bank account is one of the first practical priorities. You need it for direct deposit, bill payments, and to pay the USCIS immigrant fee.</p>
+      <ul style="font-size:13px;">
+        <li>Most major banks (Chase, Bank of America, Wells Fargo, Citi) accept permanent residents — bring your passport with visa stamp or green card, SSN (or ITIN if SSN not yet arrived), and proof of address</li>
+        <li>Some banks allow account opening without an SSN initially — you provide it later once received</li>
+        <li>Consider a <strong>credit union</strong> if you are new to the area — often more flexible for new residents</li>
+        <li>Start building US credit immediately: apply for a secured credit card if you have no US credit history</li>
+        <li>Your UK credit history does not transfer to the US — but you do not necessarily start from zero. Being added as an <strong>authorised user</strong> on a US person's card, using a credit-building secured card, or transferring an existing <strong>Amex card from the UK to the US</strong> (Amex has a global transfer programme) are all options members have used to start with some history already in place.</li>
+      </ul>
+
+      <div class="info-card tip">
+        <div class="info-card-head">Building US credit from scratch</div>
+        <p style="font-size:13px;margin:0;">A secured credit card (you deposit a fixed amount as collateral) is the standard starting point. Use it for small regular purchases and pay it off in full each month. After 6–12 months of on-time payments you will have enough history to apply for unsecured cards. Do not carry a balance — the interest rates are high and it is unnecessary for building credit.</p>
+      </div>
+
+      <!-- UK OBLIGATIONS BEFORE LEAVING -->
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_4" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_4')">
+          <span class="sub-acc-label">US tax and financial obligations</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <div class="info-card warning">
+        <div class="info-card-head">Do not underestimate the tax and financial side</div>
+        <p style="margin:0;font-size:13px;">Becoming a US person triggers worldwide income reporting, FBAR <a href="https://www.fincen.gov/report-foreign-bank-and-financial-accounts" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[FinCEN: FBAR]</a> and FATCA <a href="https://www.irs.gov/businesses/corporations/foreign-account-tax-compliance-act-fatca" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[IRS: FATCA]</a> obligations, and potential PFIC exposure on UK investments. These are commonly missed and carry significant penalties. Address them early.</p>
+      </div>
+
+      
+
+      <div class="info-card accent">
+        <div class="info-card-head">Welcome to the IRS</div>
+        <p style="margin:0;font-size:13px;">As a green card holder you must file US taxes annually and report <strong>worldwide income</strong> — regardless of where income is earned or whether tax was already paid in the UK. A tax treaty generally prevents double taxation, but you still must report everything. For the first year, use a tax preparer experienced in international/expat filings.</p>
+      </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_5" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_5')">
+          <span class="sub-acc-label">FBAR — Foreign Bank Account Reporting</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <p style="font-size:13px;">If your total combined foreign account balances exceed <strong>$10,000 at any point in the year</strong> (cumulative across all accounts, not per account), you must file an FBAR. This covers all UK bank accounts, ISAs, and investment accounts.</p>
+      <ul style="font-size:13px;">
+        <li>Report all foreign account details, highest balance during the year, and year-end balance</li>
+        <li>File at: <a href="https://bsaefiling.fincen.treas.gov/NoRegFBARFiler.html" target="_blank" rel="noopener noreferrer">bsaefiling.fincen.treas.gov</a></li>
+        <li>This is one of the most commonly missed obligations and carries <strong>significant penalties</strong></li>
+        <li>Consolidate UK accounts before moving where possible and maintain clear balance records</li>
+      </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_6" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_6')">
+          <span class="sub-acc-label">FATCA — Form 8938</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <p style="font-size:13px;">If you hold foreign financial assets over approximately $50,000 (varies by filing status), you must also file Form 8938. This covers foreign bank accounts, investments, and certain pensions. More info: <a href="https://www.irs.gov/forms-pubs/about-form-8938" target="_blank" rel="noopener noreferrer">irs.gov/forms-pubs/about-form-8938</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_7" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_7')">
+          <span class="sub-acc-label">Form 3520 — Foreign gifts</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <p style="font-size:13px;">If you receive large foreign gifts (including from family in the UK), this may need to be reported via Form 3520. It is a reporting requirement, not necessarily a tax. More info: <a href="https://www.irs.gov/forms-pubs/about-form-3520" target="_blank" rel="noopener noreferrer">irs.gov/forms-pubs/about-form-3520</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_8" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_8')">
+          <span class="sub-acc-label">Tax preparation — UK → US transition</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <p>Many UK-based US tax preparers do not support clients after relocation. Register with an expat specialist early — before your first US filing year — and expect higher costs for that first year. It is worth it to get it right.</p>
+
+      <div class="two-col">
+        <div class="info-card">
+          <div class="info-card-head">Professional services</div>
+          <ul style="font-size:13px;margin:0;">
+            <li><a href="https://www.greenbacktaxservices.com/" target="_blank" rel="noopener noreferrer">Greenback Expat Tax Services</a></li>
+            <li><a href="https://universaltaxprofessionals.com/" target="_blank" rel="noopener noreferrer">Universal Tax Professionals</a></li>
+            <li><a href="https://brighttax.com/" target="_blank" rel="noopener noreferrer">Bright!Tax</a></li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <div class="info-card-head">Self-preparation tools</div>
+          <ul style="font-size:13px;margin:0;">
+            <li><a href="https://www.myexpattaxes.com/" target="_blank" rel="noopener noreferrer">MyExpatTaxes</a></li>
+            <li><a href="https://expatfile.tax/" target="_blank" rel="noopener noreferrer">ExpatFile</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- REGIONAL CHATS -->
+      <div style="text-align:center;margin:32px 0 8px;">
+        <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;">
+          📊 Submit your timeline to the community tracker
+        </a>
+      </div>
+      <p style="font-size:12px;color:var(--muted);text-align:center;">Your data helps the community — takes 5 minutes</p>
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_9" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_9')">
+          <span class="sub-acc-label">Selective Service Registration</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <div class="info-card warning">
+        <div class="info-card-head">⚠️ Required by law for males aged 18–25</div>
+        <p style="font-size:13px;margin-bottom:8px;">Male immigrants are required by law to register with the Selective Service System within 30 days of their 18th birthday, or within 30 days of entry into the United States if they are between the ages of 18 and 25. This applies to legal permanent residents entering on an immigrant visa.</p>
+        <p style="font-size:13px;margin-bottom:8px;">Registration does not mean military service — it is a legal administrative requirement. Failure to register can affect eligibility for federal employment, student loans, and naturalisation.</p>
+        <p style="font-size:13px;margin-bottom:8px;"><strong>Exempt:</strong> those who were on a valid non-immigrant visa continuously until age 26. Immigrant visa holders (CR1, IR1, IR2, IR5 etc.) are <strong>not</strong> exempt — registration is required.</p>
+        <p style="font-size:13px;margin:0;">Register at <a href="https://www.sss.gov/register/" target="_blank" rel="noopener noreferrer">sss.gov/register</a> — takes a few minutes online. <a href="https://www.sss.gov/register/who-needs-to-register/" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[SSS: Who needs to register]</a></p>
+      </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sub-acc-item" id="life_10" data-sub-group="life">
+        <button class="sub-acc-trigger" onclick="toggleSubAcc('life_10')">
+          <span class="sub-acc-label">Regional community chats</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body">
+          <div class="sub-acc-content">
+            <p>London members have set up regional Signal groups for ongoing support after arrival. These are independent community groups, not affiliated with American Visa Guide or any official organisation. They use Signal so you do not need to exchange phone numbers until you are ready.</p>
+      <div class="info-card">
+        <div class="info-card-head">Signal groups by region</div>
+        <ul style="font-size:13px;margin:0;">
+          <li><strong>California:</strong> <a href="https://signal.group/#CjQKIMD2fQH9iv1HR2L57E2sclJ7498TcZ6Q2ZObsYL6ymjOEhBGFKb1VkTZxsge0bF-MJhJ" target="_blank" rel="noopener noreferrer">Join group</a></li>
+          <li><strong>Massachusetts / New England:</strong> <a href="https://signal.group/#CjQKIAeyhYHSb9I170b611Yq0FNRgtnKc3Bfupk6UKoCUYlTEhAfGAxB1xjklQvxOhlhUCeM" target="_blank" rel="noopener noreferrer">Join group</a></li>
+        </ul>
+      </div>
+
+      <div style="text-align:center;margin:32px 0 8px;">
+        <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;">
+          📊 Submit your timeline to the community tracker
+        </a>
+      </div>
+      <p style="font-size:12px;color:var(--muted);text-align:center;">Your data helps the community — takes 5 minutes</p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-note">Not legal or financial advice. Based on official US government sources and community experience. Written by Erin with input from community members, not lawyers or advisors. Last updated May 2026.</p>
+      <p class="footer-links">Questions or corrections? <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a> · <a href="privacy.html">Privacy Policy</a></p>
+      <a href="https://ko-fi.com/erinsaidwhat" class="coffee-btn" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+const INSETS = new Set(['Alaska','Hawaii','Puerto Rico','US Virgin Islands','Guam','American Samoa','Northern Mariana Islands']);
+const INSET_ABBR = {'Alaska':'AK','Hawaii':'HI','Puerto Rico':'PR','US Virgin Islands':'VI','Guam':'GU','American Samoa':'AS','Northern Mariana Islands':'MP'};
+
+// Colour scale: none → deep teal → gold
+const colorScale = (count, max) => {
+  if (!count || count === 0) return 'rgba(255,255,255,0.05)';
+  const t = Math.sqrt(count / max); // sqrt for perceptual balance
+  // interpolate teal → gold
+  const r = Math.round(42  + (200 - 42)  * t);
+  const g = Math.round(157 + (169 - 157) * t);
+  const b = Math.round(143 + (110 - 143) * t);
+  const a = 0.25 + 0.65 * t;
+  return `rgba(${r},${g},${b},${a})`;
+};
+
+async function buildMap() {
+  // Load US TopoJSON
+  const us = await d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
+  const stateFeatures = topojson.feature(us, us.objects.states).features;
+  const stateMesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
+
+  // Load community data
+  let dist = {};
+  try {
+    const res = await fetch('/api/data');
+    const data = await res.json();
+    dist = data.state_distribution || {};
+  } catch(e) { console.warn('API error', e); }
+
+  // Normalise — map full state names to counts
+  const fipsByName = {};
+  stateFeatures.forEach(f => { fipsByName[f.properties.name] = f.id; });
+
+  // Build count map keyed by state name
+  const counts = {};
+  for (const [k, v] of Object.entries(dist)) {
+    // k might be full name or abbreviation
+    counts[k] = (counts[k] || 0) + v;
+  }
+
+  const mainCounts = Object.fromEntries(Object.entries(counts).filter(([k]) => !INSETS.has(k)));
+  const max = Math.max(1, ...Object.values(mainCounts));
+
+  // Total + states count
+  const total = Object.values(counts).reduce((a,b) => a+b, 0);
+  const statesCount = Object.keys(mainCounts).filter(k => counts[k] > 0).length;
+  document.getElementById('stat-total').textContent = total || '—';
+  document.getElementById('stat-states').textContent = statesCount || '—';
+  document.getElementById('legend-max').textContent = max;
+
+  // Draw map
+  const svg = d3.select('#us-map');
+  const width = 960, height = 500;
+  const projection = d3.geoAlbersUsa().scale(1300).translate([width/2, height/2]);
+  const path = d3.geoPath().projection(projection);
+
+  // State fills
+  svg.selectAll('.state')
+    .data(stateFeatures)
+    .join('path')
+    .attr('class', d => `state${(counts[d.properties.name]||0) > 0 ? ' has-data' : ''}`)
+    .attr('d', path)
+    .style('fill', d => colorScale(counts[d.properties.name] || 0, max))
+    .on('mousemove', (event, d) => {
+      const c = counts[d.properties.name] || 0;
+      document.getElementById('tt-name').textContent = d.properties.name;
+      document.getElementById('tt-count').textContent = c || '0';
+      document.getElementById('tt-label').textContent = c === 1 ? 'member' : c > 1 ? 'members' : 'no data yet';
+      const tt = document.getElementById('tooltip');
+      tt.style.display = 'block';
+      tt.style.left = (event.clientX + 14) + 'px';
+      tt.style.top  = (event.clientY - 10) + 'px';
+    })
+    .on('mouseleave', () => { document.getElementById('tooltip').style.display = 'none'; });
+
+  // State borders
+  svg.append('path')
+    .datum(stateMesh)
+    .attr('fill', 'none')
+    .attr('stroke', 'rgba(255,255,255,0.12)')
+    .attr('stroke-width', 0.5)
+    .attr('d', path);
+
+  // Legend gradient
+  const lsvg = d3.select('#legend-svg');
+  const defs = lsvg.append('defs');
+  const grad = defs.append('linearGradient').attr('id','map-grad');
+  const steps = 10;
+  for (let i = 0; i <= steps; i++) {
+    grad.append('stop')
+      .attr('offset', `${i*100/steps}%`)
+      .attr('stop-color', colorScale(i/steps * max, max));
+  }
+  lsvg.append('rect').attr('width',200).attr('height',10).attr('rx',3).style('fill','url(#map-grad)');
+
+
+
+  // State leaderboard
+  const board = document.getElementById('state-board');
+  // Include all locations with data — states + territories
+  const allCounts = {};
+  for (const [k, v] of Object.entries(counts)) {
+    allCounts[k] = v;
+  }
+  const sorted = Object.entries(allCounts)
+    .filter(([,c]) => c > 0)
+    .sort(([,a],[,b]) => b - a);
+
+  if (sorted.length === 0) {
+    board.innerHTML = '<div style="font-size:13px;color:var(--muted);grid-column:1/-1">No state data yet — be the first to submit yours.</div>';
+  } else {
+    board.innerHTML = sorted.map(([name, count], i) => `
+      <div class="state-row${i < 3 ? ' top' : ''}">
+        <span class="state-rank">${i+1}</span>
+        <span class="state-name">${name}</span>
+        <span class="state-count">${count}</span>
+      </div>`).join('');
+  }
+}
+
+function toggleSubAcc(id) {
+  const item = document.getElementById(id);
+  if (!item) return;
+  item.classList.toggle('open');
+  if (item.classList.contains('open')) setTimeout(() => item.scrollIntoView({behavior:'smooth',block:'nearest'}), 50);
+}
+function subAccGroup(group, expand) {
+  document.querySelectorAll('[data-sub-group="'+group+'"]').forEach(el => el.classList.toggle('open', expand));
+}
+
+buildMap();
+</script>
