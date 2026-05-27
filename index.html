@@ -638,7 +638,7 @@
     <div class="queue-grid">
       <div class="queue-item">
         <div class="queue-label">Latest DQ → received IL</div>
-        <div class="queue-value accent" id="queue-latest-dq">—</div>
+        <div class="queue-value accent" id="il-latest-dq">—</div>
         <div class="queue-sub">If your DQ is after this date, you are still waiting</div>
       </div>
       <div class="queue-item">
@@ -648,7 +648,7 @@
       </div>
       <div class="queue-item">
         <div class="queue-label">Latest scheduled interview</div>
-        <div class="queue-value accent" id="queue-latest-interview">—</div>
+        <div class="queue-value accent" id="il-latest-interview">—</div>
         <div class="queue-sub">Furthest known interview date in the community</div>
       </div>
       <div class="queue-item">
@@ -668,23 +668,13 @@
 
   <!-- IL → Interview lookup -->
   <div class="section-label">When will my interview be scheduled?</div>
-  <div class="wims-wrap">
-    <div class="wims-lookup">
-      <label class="wims-label">Enter your IL month:</label>
-      <select class="wims-select" id="wims-select" onchange="lookupWims()">
-        <option value="">-- Select --</option>
-      </select>
-    </div>
-    <div class="wims-result" id="wims-result" style="display:none;">
-      <span class="wims-result-label">Likely interview month:</span>
-      <span class="wims-result-value" id="wims-result-month">—</span>
-    </div>
-  </div>
   <div style="overflow-x:auto;margin-bottom:8px;">
-    <table class="wims-table" id="wims-table">
-      <thead><tr><th>IL received</th><th>Interview month</th></tr></thead>
-      <tbody id="wims-tbody lookup-body" ><tbody id="lookup-body" style="display:none;">
-        <tr><td class="label-col">April 2026</td><td>June 2026</td></tr>
+    <table class="wims-table">
+      <thead>
+        <tr><th>IL received</th><th>Interview month (community observed)</th></tr>
+      </thead>
+      <tbody>
+        <tr class="current-row"><td class="label-col">April 2026</td><td>June 2026</td></tr>
         <tr><td class="label-col">Late March 2026</td><td>May 2026</td></tr>
         <tr><td class="label-col">Early March 2026</td><td>April 2026</td></tr>
         <tr><td class="label-col">February 2026</td><td>April 2026</td></tr>
@@ -699,7 +689,7 @@
       </tbody>
     </table>
   </div>
-
+  <p style="font-size:12px;color:var(--muted);margin-bottom:24px;">Based on community-observed patterns. April 2026 is the most recent IL drop, with interviews in June. Interviews are typically scheduled 8–10 weeks after the IL date.</p>
   <div class="drop-history">
     <div class="drop-title">Recent IL drop history</div>
     <div class="drop-grid" id="drop-grid">
