@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <!-- SEO & Open Graph -->
-  <meta name="description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 195+ members — DQ to IL averages, interview scheduling, passport return times, and the full London process guide.">
+  <meta name="description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members — DQ to IL averages, interview scheduling, passport return times, and the full London process guide.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.americanvisaguide.com/">
 
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.americanvisaguide.com/">
   <meta property="og:title" content="American Visa Guide — London Embassy Tracker">
-  <meta property="og:description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 195+ members.">
+  <meta property="og:description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members.">
   <meta property="og:image" content="https://www.americanvisaguide.com/og-image.svg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -486,6 +486,11 @@
     opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 200;
   }
   .nav-cta-btn:hover .nav-tooltip { opacity: 1; }
+.stage-jump { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 28px; }
+  .stage-jump-label { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .stage-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stage-pill { font-size: 13px; font-weight: 500; color: rgba(248,246,242,0.8); background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 6px 14px; text-decoration: none; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+  .stage-pill:hover { background: rgba(255,255,255,0.1); color: var(--white); }
 </style>
 <script type="text/plain" data-cookieconsent="statistics">
   (function(c,l,a,r,i,t,y){
@@ -518,18 +523,19 @@
     <div class="page-hero-flags">🇬🇧 → 🇺🇸</div>
     <div class="page-hero-eyebrow">London Embassy · Community Data · IR &amp; F Visa Categories</div>
     <h1 class="page-hero-h1">American<br><span>Visa Guide</span></h1>
-    <p class="page-hero-sub">Real wait times, real outcomes — contributed by members going through the same process at the US Embassy London.</p>
+    <p class="page-hero-sub">Real wait times, real outcomes, contributed by members going through the same process at the US Embassy London.</p>
   </div>
 
   <!-- Sticky nav anchors -->
-  <nav aria-label="Page sections" style="margin-bottom:24px;">
-    <div style="display:flex;flex-wrap:wrap;gap:8px;">
-      <a href="#queue" class="section-anchor-btn">⏳ Queue status</a>
-      <a href="#this-week" class="section-anchor-btn">🗓️ This week</a>
-      <a href="#detail" class="section-anchor-btn">📊 Trends &amp; detail</a>
-      <a href="guide.html" class="section-anchor-btn">📖 Full guide →</a>
+<div class="stage-jump" style="margin-bottom:28px;">
+    <div class="stage-jump-label">Jump to section</div>
+    <div class="stage-pills">
+      <a href="#this-week" class="stage-pill">🗓️ This week</a>
+      <a href="#queue" class="stage-pill">⏳ Waiting for IL</a>
+      <a href="#detail" class="stage-pill">📊 Trends &amp; detail</a>
+      <a href="guide.html" class="stage-pill">📖 Full guide →</a>
     </div>
-  </nav>
+  </div>
 
   <!-- ═══ THIS WEEK ═══ -->
   <span id="this-week"></span>
