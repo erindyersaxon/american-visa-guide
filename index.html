@@ -666,34 +666,51 @@
     <p id="drop-overdue-notice" style="display:none;background:rgba(231,111,81,0.12);border:1px solid rgba(231,111,81,0.3);border-radius:8px;padding:10px 14px;font-size:13px;color:rgba(248,246,242,0.9);margin-top:10px;text-align:left;">⚠️ The next IL drop is taking longer than expected. Drops do not follow a fixed schedule — it will arrive.</p>
   </div>
 
-  <!-- IL → Interview lookup -->
+<!-- IL → Interview lookup -->
   <div class="section-label">When will my interview be scheduled?</div>
-  <div style="overflow-x:auto;margin-bottom:8px;">
-    <table class="wims-table">
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:8px;">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
       <thead>
-        <tr><th>IL received</th><th>Interview month (community observed)</th></tr>
+        <tr>
+          <th style="width:40%;text-align:left;padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border-subtle);">IL received</th>
+          <th style="width:20%;text-align:center;padding:12px 8px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border-subtle);"></th>
+          <th style="width:40%;text-align:left;padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border-subtle);">Interview month</th>
+        </tr>
       </thead>
       <tbody>
-        <tr class="current-row"><td class="label-col">April 2026</td><td>June 2026</td></tr>
-        <tr><td class="label-col">Late March 2026</td><td>May 2026</td></tr>
-        <tr><td class="label-col">Early March 2026</td><td>April 2026</td></tr>
-        <tr><td class="label-col">February 2026</td><td>April 2026</td></tr>
-        <tr><td class="label-col">January 2026</td><td>March 2026</td></tr>
-        <tr><td class="label-col">December 2025</td><td>February 2026</td></tr>
-        <tr><td class="label-col">November 2025</td><td>January 2026</td></tr>
-        <tr><td class="label-col">October 2025</td><td>December 2025</td></tr>
-        <tr><td class="label-col">September 2025</td><td>November 2025</td></tr>
-        <tr><td class="label-col">August 2025</td><td>October 2025</td></tr>
-        <tr><td class="label-col">July 2025</td><td>September 2025</td></tr>
-        <tr><td class="label-col">June 2025</td><td>August 2025</td></tr>
+        <tr style="background:rgba(200,169,110,0.06);">
+          <td style="padding:10px 16px;color:var(--accent);font-weight:600;border-bottom:1px solid var(--border-subtle);">April 2026</td>
+          <td style="padding:10px 8px;text-align:center;color:var(--muted);border-bottom:1px solid var(--border-subtle);">→</td>
+          <td style="padding:10px 16px;color:var(--accent);font-weight:600;border-bottom:1px solid var(--border-subtle);">June 2026</td>
+        </tr>
+        <tr><td style="padding:10px 16px;color:var(--muted);border-bottom:1px solid var(--border-subtle);">Late March 2026</td><td style="padding:10px 8px;text-align:center;color:var(--muted);border-bottom:1px solid var(--border-subtle);">→</td><td style="padding:10px 16px;color:rgba(248,246,242,0.75);border-bottom:1px solid var(--border-subtle);">May 2026</td></tr>
+        <tr><td style="padding:10px 16px;color:var(--muted);border-bottom:1px solid var(--border-subtle);">Early March 2026</td><td style="padding:10px 8px;text-align:center;color:var(--muted);border-bottom:1px solid var(--border-subtle);">→</td><td style="padding:10px 16px;color:rgba(248,246,242,0.75);border-bottom:1px solid var(--border-subtle);">April 2026</td></tr>
+        <tr><td style="padding:10px 16px;color:var(--muted);border-bottom:1px solid var(--border-subtle);">February 2026</td><td style="padding:10px 8px;text-align:center;color:var(--muted);border-bottom:1px solid var(--border-subtle);">→</td><td style="padding:10px 16px;color:rgba(248,246,242,0.75);border-bottom:1px solid var(--border-subtle);">April 2026</td></tr>
+        <tr><td style="padding:10px 16px;color:var(--muted);border-bottom:1px solid var(--border-subtle);">January 2026</td><td style="padding:10px 8px;text-align:center;color:var(--muted);border-bottom:1px solid var(--border-subtle);">→</td><td style="padding:10px 16px;color:rgba(248,246,242,0.75);border-bottom:1px solid var(--border-subtle);">March 2026</td></tr>
+        <tr><td style="padding:10px 16px;color:var(--muted);border-bottom:1px solid var(--border-subtle);">December 2025</td><td style="padding:10px 8px;text-align:center;color:var(--muted);border-bottom:1px solid var(--border-subtle);">→</td><td style="padding:10px 16px;color:rgba(248,246,242,0.75);border-bottom:1px solid var(--border-subtle);">February 2026</td></tr>
+        <tr><td style="padding:10px 16px;color:var(--muted);border-bottom:1px solid var(--border-subtle);">November 2025</td><td style="padding:10px 8px;text-align:center;color:var(--muted);border-bottom:1px solid var(--border-subtle);">→</td><td style="padding:10px 16px;color:rgba(248,246,242,0.75);border-bottom:1px solid var(--border-subtle);">January 2026</td></tr>
+        <tr><td style="padding:10px 16px;color:var(--muted);border-bottom:1px solid var(--border-subtle);">October 2025</td><td style="padding:10px 8px;text-align:center;color:var(--muted);border-bottom:1px solid var(--border-subtle);">→</td><td style="padding:10px 16px;color:rgba(248,246,242,0.75);border-bottom:1px solid var(--border-subtle);">December 2025</td></tr>
+        <tr><td style="padding:10px 16px;color:var(--muted);border-bottom:1px solid var(--border-subtle);">September 2025</td><td style="padding:10px 8px;text-align:center;color:var(--muted);border-bottom:1px solid var(--border-subtle);">→</td><td style="padding:10px 16px;color:rgba(248,246,242,0.75);border-bottom:1px solid var(--border-subtle);">November 2025</td></tr>
+        <tr><td style="padding:10px 16px;color:var(--muted);">August 2025</td><td style="padding:10px 8px;text-align:center;color:var(--muted);">→</td><td style="padding:10px 16px;color:rgba(248,246,242,0.75);">October 2025</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:12px;color:var(--muted);margin-bottom:24px;">Based on community-observed patterns. April 2026 is the most recent IL drop, with interviews in June. Interviews are typically scheduled 8–10 weeks after the IL date.</p>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:24px;">Based on community-observed patterns. April 2026 (highlighted) is the most recent IL drop. Interviews are typically scheduled 8–10 weeks after IL date.</p>
   <div class="drop-history">
-    <div class="drop-title">Recent IL drop history</div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px;">
+      <div class="drop-title">Recent IL drop history</div>
+      <span style="font-size:11px;color:var(--muted);">Last updated May 2026</span>
+    </div>
     <div class="drop-grid" id="drop-grid">
-      <div class="drop-chip"><div class="drop-chip-date">17 Apr 2026</div><div class="drop-chip-gap">17d gap · 16:02 UK</div><div class="drop-chip-dq">DQ: 30 Sep 2025 – 14 Feb 2026 (138d)</div><div class="drop-chip-count">11 ILs issued</div></div>
+      <div class="drop-chip" style="border-color:rgba(42,157,143,0.4);background:rgba(42,157,143,0.06);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+          <div class="drop-chip-date" style="font-size:14px;color:var(--teal-light);">17 Apr 2026</div>
+          <span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-light);background:rgba(42,157,143,0.15);border-radius:4px;padding:2px 6px;">Latest</span>
+        </div>
+        <div class="drop-chip-gap">17d gap · 16:02 UK</div>
+        <div class="drop-chip-dq">DQ: 30 Sep 2025 – 14 Feb 2026 (138d)</div>
+        <div class="drop-chip-count">11 ILs issued</div>
+      </div>
       <div class="drop-chip"><div class="drop-chip-date">31 Mar 2026</div><div class="drop-chip-gap">27d gap · 15:16 UK</div><div class="drop-chip-dq">DQ: 30 Dec 2025 – 27 Jan 2026 (29d)</div><div class="drop-chip-count">17 ILs issued</div></div>
       <div class="drop-chip"><div class="drop-chip-date">4 Mar 2026</div><div class="drop-chip-gap">19d gap · 14:08 UK</div><div class="drop-chip-dq">DQ: 17 Dec 2025 – 22 Dec 2025 (6d)</div><div class="drop-chip-count">3 ILs issued</div></div>
       <div class="drop-chip"><div class="drop-chip-date">13 Feb 2026</div><div class="drop-chip-gap">29d gap · 13:51 UK</div><div class="drop-chip-dq">DQ: 24 Oct 2025 – 26 Jan 2026 (95d)</div><div class="drop-chip-count">13 ILs issued</div></div>
@@ -711,7 +728,6 @@
     </div>
     <p style="font-size:12px;color:var(--muted);margin-top:12px;">The 45-day gap in summer 2025 was an outlier. Typical gap is 15–30 days. Average across recorded drops (excl. outlier): <span id="drop-avg">21</span> days.</p>
   </div>
-
   
 
   <div class="trend-section">
