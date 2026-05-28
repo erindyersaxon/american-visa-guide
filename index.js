@@ -98,8 +98,8 @@
     set('plain-last-drop', fmtDate(il.last_il_drop))
 
     // Passport
-    set('passport-pickup', `${k.avg_pickup_days ?? '—'} days avg`)
-    set('passport-mail',   `${k.avg_mail_days ?? '—'} days avg`)
+    set('plain-pickup',    `${k.avg_pickup_days ?? '4'} days`)
+    set('plain-mail',      `${k.avg_mail_days ?? '12'} days`)
     setText('passport-median', k.median_passport_days ?? '—')
     setText('passport-n',      sc.passport_in_hand ?? '—')
 
