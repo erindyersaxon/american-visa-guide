@@ -1,3 +1,20 @@
 {
-  "type": "module"
+  "name": "avg-mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only --respawn src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "echo \"No lint configured. Add ESLint if needed.\""
+  },
+  "dependencies": {
+    "express": "^4.18.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.19",
+    "@types/node": "^20.14.6",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.2"
+  }
 }
