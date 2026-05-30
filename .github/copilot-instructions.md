@@ -1,0 +1,4 @@
+- Scaffold a minimal Node.js + TypeScript MCP server in the workspace root.
+- Include a basic Express server in `src/index.ts`.
+- Provide setup commands for `npm install`, `npm run dev`, `npm run build`, and `npm start`.
+- Keep the project structure simple and ready for extension.
