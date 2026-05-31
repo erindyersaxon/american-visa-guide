@@ -60,7 +60,7 @@ export default async function handler(req, res) {
   } else {
     // No username — plain insert
     const insertRes = await fetch(
-      `${supabaseUrl}/rest/v1/form_responses`,
+      `${supabaseUrl}/rest/v1/form_responses?on_conflict=username_raw`,
       {
         method: 'POST',
         headers: { ...baseHeaders, 'Prefer': 'return=minimal' },
