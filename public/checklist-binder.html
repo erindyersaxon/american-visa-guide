@@ -1,216 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Visa Binder Layout — US Embassy London</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-<style>
-  :root { --navy:#0a1628; --accent:#c8a96e; --teal:#2a9d8f; --red:#e76f51; --muted:#8a9ab5; --border:#dde3ef; --card:#f2f5fa; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:#fff; color:#1a2640; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; line-height:1.65; -webkit-font-smoothing:antialiased; }
-  .page { max-width:720px; margin:0 auto; padding:32px 24px 60px; }
-  .header { border-bottom:3px solid var(--navy); padding-bottom:20px; margin-bottom:28px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px; }
-  .header-left h1 { font-family:'Outfit',sans-serif; font-size:28px; font-weight:800; color:var(--navy); }
-  .header-left .sub { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:0.08em; text-transform:uppercase; }
-  .header-right { font-size:11px; color:var(--muted); text-align:right; }
-  .print-btn { display:inline-block; background:var(--navy); color:#fff; font-family:'Outfit',sans-serif; font-size:12px; font-weight:700; padding:8px 16px; border-radius:6px; cursor:pointer; border:none; margin-bottom:20px; }
-  @media print { .print-btn { display:none; } }
-  .binder-section { margin-bottom:18px; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
-  .binder-head { padding:10px 16px; display:flex; align-items:center; gap:10px; }
-  .binder-head.front { background:var(--navy); color:#fff; }
-  .binder-head.s1 { background:#e8f5f3; color:#1a5247; }
-  .binder-head.s2 { background:#fef6eb; color:#5c3a00; }
-  .binder-head.s3 { background:#f0f4ff; color:#1a2a6b; }
-  .binder-head.s4 { background:#f5f0ff; color:#3a1a6b; }
-  .binder-head.s5 { background:#fff0f0; color:#6b1a1a; }
-  .binder-head.s6 { background:#f5f5f5; color:#555; }
-  .tab { font-family:'Outfit',sans-serif; font-size:13px; font-weight:800; letter-spacing:0.05em; }
-  .use-tag { font-size:11px; opacity:0.75; margin-left:auto; font-style:italic; }
-  .binder-body { padding:12px 16px; }
-  .checklist { list-style:none; padding:0; }
-  .checklist li { display:flex; align-items:flex-start; gap:10px; padding:5px 0; border-bottom:1px solid var(--border); font-size:13px; }
-  .checklist li:last-child { border-bottom:none; }
-  .box { width:14px; height:14px; border:2px solid #9aa5bb; border-radius:3px; flex-shrink:0; margin-top:3px; }
-  .note { font-size:11px; color:var(--muted); font-style:italic; }
-  .use-guide { background:var(--navy); color:#fff; border-radius:8px; padding:16px 20px; margin-top:24px; }
-  .use-guide h3 { font-family:'Outfit',sans-serif; font-size:13px; font-weight:700; color:var(--accent); margin-bottom:12px; }
-  .use-row { display:flex; gap:12px; margin-bottom:8px; font-size:13px; align-items:center; }
-  .use-label { font-weight:600; color:var(--accent); min-width:140px; }
-  .use-sections { color:rgba(255,255,255,0.8); }
-  .tip { background:var(--card); border-left:3px solid var(--teal); padding:8px 12px; font-size:12px; border-radius:0 4px 4px 0; margin:16px 0; }
-  .photos { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
-  .photo-card { border:1px solid var(--border); border-radius:8px; overflow:hidden; text-align:center; }
-  .photo-card img { width:100%; height:180px; object-fit:cover; }
-  .photo-card p { font-size:11px; color:var(--muted); padding:6px; }
-  .footer { margin-top:32px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; }
-</style>
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wlfs757o2n");
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visa Binder Layout — American Visa Guide</title>
+  <meta name="description" content="How to organise your physical documents binder for the medical, document check, and interview at the US Embassy London.">
+  <link rel="canonical" href="https://www.americanvisaguide.com/checklist-binder">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
+  <style>
+    .cl-page{padding-block:var(--space-8)}.cl-header{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-6);padding-bottom:var(--space-6);border-bottom:1px solid var(--color-border);margin-bottom:var(--space-6)}.cl-header__eyebrow{font-size:var(--text-xs);font-weight:var(--font-semibold);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:var(--color-primary);margin-bottom:var(--space-3)}.cl-header__title{font-family:var(--font-display);font-size:var(--text-3xl);color:var(--color-text);line-height:var(--leading-tight);margin-bottom:var(--space-2)}@media(max-width:640px){.cl-header__title{font-size:var(--text-2xl)}}.cl-header__sub{font-size:var(--text-sm);color:var(--color-text-muted);max-width:none}.print-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border:1px solid var(--color-border-strong);border-radius:var(--radius-md);background:var(--color-surface);font-family:var(--font-body);font-size:var(--text-sm);font-weight:var(--font-semibold);color:var(--color-text);cursor:pointer;box-shadow:var(--shadow-xs);min-height:36px}.print-btn:hover{background:var(--color-bg)}.print-btn:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}.print-btn svg{width:15px;height:15px}.browser-note{display:flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-4);background:var(--color-bg-alt);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--space-8)}.cl-section{margin-bottom:var(--space-8)}.cl-section-title{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);line-height:var(--leading-tight);margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid var(--color-border)}.cl-section-note{font-size:var(--text-sm);color:var(--color-text-secondary);margin-bottom:var(--space-4);max-width:none;line-height:var(--leading-relaxed)}.cl-list{display:flex;flex-direction:column;gap:var(--space-2)}.cl-item{display:flex;align-items:flex-start;gap:var(--space-3);padding:var(--space-3) var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);cursor:pointer;transition:background-color 120ms,border-color 120ms}.cl-item:has(input[type="checkbox"]:checked){background:var(--color-success-subtle);border-color:var(--color-success-border)}.cl-item input[type="checkbox"]{flex-shrink:0;appearance:none;-webkit-appearance:none;width:20px;height:20px;border:2px solid var(--color-border-strong);border-radius:var(--radius-sm);background:var(--color-surface);cursor:pointer;position:relative;margin-top:1px;transition:background-color 120ms,border-color 120ms}.cl-item input[type="checkbox"]:checked{background:var(--color-success);border-color:var(--color-success)}.cl-item input[type="checkbox"]:checked::after{content:'';position:absolute;left:3px;top:2px;width:10px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}.cl-item input[type="checkbox"]:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}.cl-item__text{flex:1;font-size:var(--text-sm);color:var(--color-text);line-height:var(--leading-relaxed);cursor:pointer;user-select:none;max-width:none}.cl-item:has(input:checked) .cl-item__text{color:var(--color-text-muted);text-decoration:line-through;text-decoration-color:var(--color-success-border)}.cl-item__note{display:block;margin-top:2px;font-size:var(--text-xs);color:var(--color-text-muted);font-style:italic}.cl-note{display:flex;gap:var(--space-3);padding:var(--space-4) var(--space-5);border-radius:var(--radius-md);border:1px solid;font-size:var(--text-sm);line-height:var(--leading-relaxed);margin-bottom:var(--space-4)}.cl-note--warning{background:var(--color-warning-subtle);border-color:var(--color-warning-border);color:var(--color-warning)}.cl-note--tip{background:var(--color-tip-subtle);border-color:var(--color-tip-border);color:var(--color-tip)}.cl-note--info{background:var(--color-info-subtle);border-color:var(--color-info-border);color:var(--color-info)}.cl-note__icon{flex-shrink:0;width:18px;height:18px;margin-top:1px}.cl-note__body{flex:1}.cl-note__title{font-weight:var(--font-semibold);margin-bottom:var(--space-1);max-width:none}.cl-note p{max-width:none;color:inherit;margin-top:var(--space-1)}
+
+    /* Binder-specific */
+    .binder-intro { font-size:var(--text-base); color:var(--color-text-secondary); line-height:var(--leading-relaxed); margin-bottom:var(--space-8); max-width:72ch; }
+    .photo-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-5); margin-bottom:var(--space-8); }
+    @media(max-width:480px) { .photo-grid { grid-template-columns:1fr; } }
+    .photo-figure { margin:0; }
+    .photo-figure img { width:100%; border-radius:var(--radius-lg); border:1px solid var(--color-border); aspect-ratio:4/3; object-fit:cover; background:var(--color-bg-alt); }
+    .photo-figure figcaption { font-size:var(--text-xs); color:var(--color-text-muted); margin-top:var(--space-2); text-align:center; }
+
+    .section-badge {
+      display:inline-flex; align-items:center; gap:var(--space-2);
+      padding:var(--space-1) var(--space-3);
+      border-radius:var(--radius-full);
+      font-size:var(--text-xs); font-weight:var(--font-semibold);
+      background:var(--color-primary); color:#fff;
+      margin-bottom:var(--space-3);
+    }
+    .section-badge--front { background:var(--color-warning); color:#fff; }
+
+    .appt-table { width:100%; border-collapse:collapse; font-size:var(--text-sm); background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); overflow:hidden; }
+    .appt-table th { padding:var(--space-3) var(--space-4); text-align:left; font-size:var(--text-xs); font-weight:var(--font-semibold); text-transform:uppercase; letter-spacing:var(--tracking-wider); color:var(--color-text-muted); background:var(--color-bg-alt); border-bottom:1px solid var(--color-border); }
+    .appt-table td { padding:var(--space-3) var(--space-4); color:var(--color-text-secondary); border-bottom:1px solid var(--color-border); vertical-align:top; }
+    .appt-table tr:last-child td { border-bottom:none; }
+    .appt-table td:first-child { font-weight:var(--font-medium); color:var(--color-text); white-space:nowrap; }
+    .dot-yes { color:var(--color-success); font-weight:var(--font-bold); }
+    .dot-no  { color:var(--color-text-muted); }
+    .cl-footer{margin-top:var(--space-10);padding-top:var(--space-6);border-top:1px solid var(--color-border);font-size:var(--text-xs);color:var(--color-text-muted)}
+  </style>
 </head>
 <body>
-<div class="page">
-  <button class="print-btn" onclick="window.print()">🖨️ Print this layout</button>
+  <div id="nav-placeholder"></div>
+  <main id="main-content">
+    <div class="container cl-page">
 
-  <div class="header">
-    <div class="header-left">
-      <h1>Visa Binder Layout</h1>
-      <div class="sub">Document organisation for medical, doc check &amp; interview</div>
-    </div>
-    <div class="header-right">londonvisatracker.github.io<br>v1.4 · Apr 2026</div>
-  </div>
+      <header class="cl-header">
+        <div>
+          <div class="cl-header__eyebrow">Stage 4 — Pre-Appointment · Reference</div>
+          <h1 class="cl-header__title">Visa Binder Layout</h1>
+          <p class="cl-header__sub">Document organisation for medical, document check, and interview</p>
+        </div>
+        <button type="button" class="print-btn no-print" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print
+        </button>
+      </header>
 
-  <div class="tip">You need two trips to London: one for the medical + document check, one for the interview. A well-organised binder means the document check window runs smoothly and you aren't scrambling on interview day. Staples (binder) + Amazon (coloured dividers) is a popular combination.</div>
+      <p class="browser-note no-print" role="note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Checkboxes can be ticked in your browser. Your progress is not saved when you close or refresh the tab.
+      </p>
 
-  <div class="photos">
-    <div class="photo-card">
-      <img src="binder-accordion.jpg" alt="Accordion folder with colour-coded tabs">
-      <p>Accordion folder — good for medical day organisation</p>
-    </div>
-    <div class="photo-card">
-      <img src="binder-blue.jpg" alt="Blue binder with labelled divider tabs">
-      <p>Ring binder with labelled dividers — Medical, Doc Check, Petitioner, Joint Sponsor, B&amp;Bean, US Domicile, Rev Visas, USCIS Notices</p>
-    </div>
-  </div>
+      <p class="binder-intro">You need two trips to London — one for the medical and document check (same day), one for the interview. A well-organised binder means the document check window runs smoothly and you aren't scrambling on interview day. Staples (binder) and Amazon (coloured dividers) is a popular combination used by community members.</p>
 
-  <!-- FRONT -->
-  <div class="binder-section">
-    <div class="binder-head front">
-      <div class="tab">⭐ Front section — immediate access</div>
-      <div class="use-tag">Medical · Doc check · Interview</div>
-    </div>
-    <div class="binder-body">
-      <ul class="checklist">
-        <li><div class="box"></div><span>Passport</span></li>
-        <li><div class="box"></div><span>Interview Letter</span></li>
-        <li><div class="box"></div><span>DS-260 Confirmation Page</span></li>
-        <li><div class="box"></div><span>Completed Medical Questionnaire (IV18a)</span></li>
-        <li><div class="box"></div><span>Courier Registration Confirmation with QR Code</span></li>
-        <li><div class="box"></div><span>Pink Medical Slip <span class="note">(add after medical)</span></span></li>
-        <li><div class="box"></div><span>Sealed Embassy Packet <span class="note">(add after document check — do NOT open)</span></span></li>
-      </ul>
-    </div>
-  </div>
+      <!-- Photos -->
+      <div class="photo-grid" aria-label="Binder organisation examples">
+        <figure class="photo-figure">
+          <img src="/images/binder-accordion.jpg"
+               alt="Accordion expanding file folder with coloured section tabs, shown on a wooden surface — multiple angles showing how the pockets fan out with documents sorted by category"
+               loading="lazy" width="400" height="300">
+          <figcaption>Accordion folder — good for medical day organisation</figcaption>
+        </figure>
+        <figure class="photo-figure">
+          <img src="/images/binder-blue.jpg"
+               alt="Blue ring binder standing upright on a sofa, with coloured divider tabs visible along the right edge — red, orange, yellow, teal, and other sections"
+               loading="lazy" width="400" height="300">
+          <figcaption>Ring binder with labelled coloured dividers</figcaption>
+        </figure>
+      </div>
 
-  <!-- S1 -->
-  <div class="binder-section">
-    <div class="binder-head s1">
-      <div class="tab">Section 1 — Medical documents</div>
-      <div class="use-tag">Medical + doc check</div>
-    </div>
-    <div class="binder-body">
-      <ul class="checklist">
-        <li><div class="box"></div><span>GP Summary / Patient Care Record <span class="note">Dated within 2–3 weeks of medical</span></span></li>
-        <li><div class="box"></div><span>Vaccination Records</span></li>
-        <li><div class="box"></div><span>ACRO Police Certificate <span class="note">Photo page facing front</span></span></li>
-        <li><div class="box"></div><span>Medical Reports <span class="note">If applicable: chronic conditions, mental health, TB/STI</span></span></li>
-        <li><div class="box"></div><span>Child Health Record / Red Book <span class="note">If applicable</span></span></li>
-      </ul>
-    </div>
-  </div>
+      <!-- Front section -->
+      <section class="cl-section" aria-labelledby="s-front">
+        <div class="section-badge section-badge--front">Front section — Immediate access</div>
+        <h2 class="cl-section-title" id="s-front">Front section — immediately accessible</h2>
+        <p class="cl-section-note">These go at the very front. You will need these at security and at every window. Add the pink slip and sealed envelope on medical day.</p>
+        <div class="cl-list" role="list">
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Passport">
+            <span class="cl-item__text">Passport</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Interview letter">
+            <span class="cl-item__text">Interview letter</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="DS-260 confirmation page — printed">
+            <span class="cl-item__text">DS-260 confirmation page (printed)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Completed medical questionnaire IV18a">
+            <span class="cl-item__text">Completed medical questionnaire (IV18a)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Courier registration confirmation with QR code">
+            <span class="cl-item__text">Courier registration confirmation with QR code</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Pink medical slip — add after leaving IOM clinic">
+            <span class="cl-item__text">Pink medical slip
+              <span class="cl-item__note">Add after leaving IOM clinic on medical day. Required at the embassy document check window.</span>
+            </span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Sealed embassy packet — add after document check, do not open">
+            <span class="cl-item__text">Sealed embassy packet — "Do Not Tamper"
+              <span class="cl-item__note">Add after document check. Keep sealed. Bring to interview — do NOT open it.</span>
+            </span>
+          </label>
+        </div>
+      </section>
 
-  <!-- S2 -->
-  <div class="binder-section">
-    <div class="binder-head s2">
-      <div class="tab">Section 2 — Civil documents (originals + copies)</div>
-      <div class="use-tag">Doc check + interview backup</div>
-    </div>
-    <div class="binder-body">
-      <ul class="checklist">
-        <li><div class="box"></div><span>Birth Certificate <span class="note">Long form with parent names</span></span></li>
-        <li><div class="box"></div><span>Marriage Certificate</span></li>
-        <li><div class="box"></div><span>Divorce Decrees <span class="note">If applicable — all prior marriages</span></span></li>
-        <li><div class="box"></div><span>Death Certificates <span class="note">If applicable — former spouses</span></span></li>
-        <li><div class="box"></div><span>Adoption Documents <span class="note">If applicable</span></span></li>
-        <li><div class="box"></div><span>Name Change Documents <span class="note">If applicable</span></span></li>
-        <li><div class="box"></div><span>Court / Criminal Records <span class="note">If applicable</span></span></li>
-        <li><div class="box"></div><span>Military Records <span class="note">If applicable</span></span></li>
-        <li><div class="box"></div><span>Additional Police Certificates <span class="note">Non-UK, per reciprocity rules</span></span></li>
-      </ul>
-    </div>
-  </div>
+      <!-- Section 1: Medical documents -->
+      <section class="cl-section" aria-labelledby="s-sec1">
+        <div class="section-badge">Section 1</div>
+        <h2 class="cl-section-title" id="s-sec1">Section 1 — Medical documents</h2>
+        <p class="cl-section-note">Used at: Medical appointment + document check</p>
+        <div class="cl-list" role="list">
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="GP summary or patient care record dated within 2–3 weeks of medical">
+            <span class="cl-item__text">GP Summary / Patient Care Record
+              <span class="cl-item__note">Must be dated within 2–3 weeks of your medical appointment. Request in advance.</span>
+            </span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Vaccination records">
+            <span class="cl-item__text">Vaccination records</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="ACRO police certificate — photo page facing front">
+            <span class="cl-item__text">ACRO Police Certificate (photo page facing front)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Medical reports if applicable">
+            <span class="cl-item__text">Medical reports
+              <span class="cl-item__note">If applicable: chronic conditions, mental health, TB, STI documentation.</span>
+            </span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Child health record or Red Book if applicable">
+            <span class="cl-item__text">Child Health Record / Red Book (if applicable)</span>
+          </label>
+        </div>
+      </section>
 
-  <!-- S3 -->
-  <div class="binder-section">
-    <div class="binder-head s3">
-      <div class="tab">Section 3 — Financial documents (copies)</div>
-      <div class="use-tag">Interview backup only</div>
-    </div>
-    <div class="binder-body">
-      <p style="font-size:12px;color:var(--red);margin-bottom:8px;font-weight:600;">All financial documents must already be uploaded to CEAC. The officer will not accept new documents at the interview window.</p>
-      <ul class="checklist">
-        <li><div class="box"></div><span>Form I-864 — Petitioner <span class="note">Wet signed — no digital signatures</span></span></li>
-        <li><div class="box"></div><span>Form I-864 — Joint Sponsor <span class="note">If applicable</span></span></li>
-        <li><div class="box"></div><span>IRS Tax Transcripts</span></li>
-        <li><div class="box"></div><span>W-2s / 1099s</span></li>
-        <li><div class="box"></div><span>Employment Letter</span></li>
-        <li><div class="box"></div><span>Recent Pay Stubs</span></li>
-        <li><div class="box"></div><span>Proof of Status — Sponsor / Joint Sponsor <span class="note">US passport or green card</span></span></li>
-        <li><div class="box"></div><span>Proof of US Domicile <span class="note">If petitioner lives abroad</span></span></li>
-      </ul>
-    </div>
-  </div>
+      <!-- Section 2: Civil documents -->
+      <section class="cl-section" aria-labelledby="s-sec2">
+        <div class="section-badge">Section 2</div>
+        <h2 class="cl-section-title" id="s-sec2">Section 2 — Civil documents (originals + copies)</h2>
+        <p class="cl-section-note">Used at: Document check (originals required) + interview (as backup)</p>
+        <div class="cl-list" role="list">
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Birth certificate — long form with both parent names">
+            <span class="cl-item__text">Birth Certificate (long form with both parent names)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Marriage certificate if applicable">
+            <span class="cl-item__text">Marriage Certificate (if applicable)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Divorce decrees for all prior marriages if applicable">
+            <span class="cl-item__text">Divorce Decrees (if applicable — all prior marriages)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Death certificates for former spouses if applicable">
+            <span class="cl-item__text">Death Certificates (if applicable — former spouses)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Adoption documents if applicable">
+            <span class="cl-item__text">Adoption Documents (if applicable)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Name change documents if applicable">
+            <span class="cl-item__text">Name Change Documents (if applicable)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Court or criminal records if applicable">
+            <span class="cl-item__text">Court / Criminal Records (if applicable)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Military records if applicable">
+            <span class="cl-item__text">Military Records (if applicable)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Additional police certificates for non-UK countries">
+            <span class="cl-item__text">Additional Police Certificates (non-UK countries, per reciprocity rules)</span>
+          </label>
+        </div>
+      </section>
 
-  <!-- S4 -->
-  <div class="binder-section">
-    <div class="binder-head s4">
-      <div class="tab">Section 4 — Identity &amp; travel documents</div>
-      <div class="use-tag">Interview backup</div>
-    </div>
-    <div class="binder-body">
-      <ul class="checklist">
-        <li><div class="box"></div><span>Passport Biographic Page Copy</span></li>
-        <li><div class="box"></div><span>Previous Passports <span class="note">If relevant to travel/visa history</span></span></li>
-        <li><div class="box"></div><span>Visa History <span class="note">If applicable</span></span></li>
-        <li><div class="box"></div><span>USCIS Approval Notice (I-130 NOA2)</span></li>
-      </ul>
-    </div>
-  </div>
+      <!-- Section 3: Financial -->
+      <section class="cl-section" aria-labelledby="s-sec3">
+        <div class="section-badge">Section 3</div>
+        <h2 class="cl-section-title" id="s-sec3">Section 3 — Financial documents (copies only)</h2>
+        <p class="cl-section-note">Used at: Interview — backup copies only. Originals should not need to be presented.</p>
+        <div class="cl-note cl-note--warning" role="alert">
+          <svg class="cl-note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="cl-note__body">
+            <p class="cl-note__title">All financial documents must be uploaded to CEAC before interview day</p>
+            <p>The officer will not accept new documents at the window. What is in your binder is backup — CEAC is what counts.</p>
+          </div>
+        </div>
+        <div class="cl-list" role="list">
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Form I-864 petitioner copy — wet signed">
+            <span class="cl-item__text">Form I-864 — Petitioner (wet signed — no digital signatures)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Form I-864 joint sponsor if applicable">
+            <span class="cl-item__text">Form I-864 — Joint Sponsor (if applicable)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="IRS Tax Transcripts">
+            <span class="cl-item__text">IRS Tax Transcripts</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="W-2s and or 1099s">
+            <span class="cl-item__text">W-2s / 1099s</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Employment letter">
+            <span class="cl-item__text">Employment Letter</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Recent pay stubs">
+            <span class="cl-item__text">Recent Pay Stubs</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Proof of status for sponsor or joint sponsor — US passport or green card">
+            <span class="cl-item__text">Proof of Status — Sponsor / Joint Sponsor (US passport or green card copy)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Proof of US domicile if petitioner lives abroad">
+            <span class="cl-item__text">Proof of US Domicile (if petitioner lives abroad)</span>
+          </label>
+        </div>
+      </section>
 
-  <!-- S5 -->
-  <div class="binder-section">
-    <div class="binder-head s5">
-      <div class="tab">Section 5 — Supporting / case-specific</div>
-      <div class="use-tag">As needed</div>
-    </div>
-    <div class="binder-body">
-      <ul class="checklist">
-        <li><div class="box"></div><span>Immigration History Documents</span></li>
-        <li><div class="box"></div><span>Any documents specific to complex case history</span></li>
-      </ul>
-    </div>
-  </div>
+      <!-- Section 4: Identity & travel -->
+      <section class="cl-section" aria-labelledby="s-sec4">
+        <div class="section-badge">Section 4</div>
+        <h2 class="cl-section-title" id="s-sec4">Section 4 — Identity &amp; travel documents</h2>
+        <p class="cl-section-note">Used at: Interview — backup if requested</p>
+        <div class="cl-list" role="list">
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Passport biographic page copy">
+            <span class="cl-item__text">Passport Biographic Page (copy)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Previous passports if relevant to travel or visa history">
+            <span class="cl-item__text">Previous Passports (if relevant to travel / visa history)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Visa history if applicable">
+            <span class="cl-item__text">Visa History (if applicable)</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="USCIS approval notice I-130 NOA2">
+            <span class="cl-item__text">USCIS Approval Notice (I-130 NOA2)</span>
+          </label>
+        </div>
+      </section>
 
-  <!-- S6 -->
-  <div class="binder-section">
-    <div class="binder-head s6">
-      <div class="tab">Section 6 — Optional (rarely requested)</div>
-      <div class="use-tag">Backup only</div>
-    </div>
-    <div class="binder-body">
-      <ul class="checklist">
-        <li><div class="box"></div><span>Relationship Evidence <span class="note">Photos, messages, travel records</span></span></li>
-        <li><div class="box"></div><span>Additional Supporting Evidence</span></li>
-      </ul>
-    </div>
-  </div>
+      <!-- Section 5: Supporting -->
+      <section class="cl-section" aria-labelledby="s-sec5">
+        <div class="section-badge">Section 5</div>
+        <h2 class="cl-section-title" id="s-sec5">Section 5 — Supporting / case-specific</h2>
+        <p class="cl-section-note">As needed for your specific situation. Most applicants will not need this section.</p>
+        <div class="cl-list" role="list">
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Immigration history documents">
+            <span class="cl-item__text">Immigration History Documents</span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Any documents specific to your complex case history">
+            <span class="cl-item__text">Documents specific to complex case history</span>
+          </label>
+        </div>
+      </section>
 
-  <div class="use-guide">
-    <h3>Which sections for each appointment</h3>
-    <div class="use-row"><span class="use-label">Medical</span><span class="use-sections">Front section + Section 1</span></div>
-    <div class="use-row"><span class="use-label">Document check</span><span class="use-sections">Front section + Section 1 + Section 2</span></div>
-    <div class="use-row"><span class="use-label">Interview</span><span class="use-sections">Front section primarily — Sections 2–4 as backup if asked</span></div>
-  </div>
+      <!-- Section 6: Optional -->
+      <section class="cl-section" aria-labelledby="s-sec6">
+        <div class="section-badge">Section 6</div>
+        <h2 class="cl-section-title" id="s-sec6">Section 6 — Optional / rarely requested</h2>
+        <p class="cl-section-note">Backup only. Rarely requested at interview — do not rely on these for your primary submission.</p>
+        <div class="cl-list" role="list">
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Relationship evidence — photos, messages, travel records">
+            <span class="cl-item__text">Relationship Evidence (photos, messages, travel records)
+              <span class="cl-item__note">For spouse/CR1/IR1 cases. Not required at interview but useful as backup.</span>
+            </span>
+          </label>
+          <label class="cl-item" role="listitem">
+            <input type="checkbox" aria-label="Additional supporting evidence for complex cases">
+            <span class="cl-item__text">Additional Supporting Evidence</span>
+          </label>
+        </div>
+      </section>
 
-  <div class="footer">
-    <span>London Visa Tracker · Community resource · Not legal advice</span>
-    <span>Support the guide: ko-fi.com/erinsaidwhat</span>
-  </div>
-</div>
+      <!-- Which sections per appointment -->
+      <section class="cl-section" aria-labelledby="s-appts">
+        <h2 class="cl-section-title" id="s-appts">Which sections for each appointment</h2>
+        <div class="table-wrapper" role="region" aria-labelledby="s-appts" tabindex="0">
+          <table class="appt-table">
+            <caption class="sr-only">Which binder sections to bring to each appointment</caption>
+            <thead>
+              <tr>
+                <th scope="col">Section</th>
+                <th scope="col">Medical</th>
+                <th scope="col">Doc Check</th>
+                <th scope="col">Interview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Front section</td>
+                <td class="dot-yes" aria-label="Yes">✓</td>
+                <td class="dot-yes" aria-label="Yes">✓</td>
+                <td class="dot-yes" aria-label="Yes">✓</td>
+              </tr>
+              <tr>
+                <td>Section 1 — Medical</td>
+                <td class="dot-yes" aria-label="Yes">✓</td>
+                <td class="dot-yes" aria-label="Yes">✓</td>
+                <td class="dot-no" aria-label="Not usually needed">—</td>
+              </tr>
+              <tr>
+                <td>Section 2 — Civil</td>
+                <td class="dot-no" aria-label="Not needed">—</td>
+                <td class="dot-yes" aria-label="Yes">✓</td>
+                <td><span class="dot-yes" aria-label="Yes, as backup">✓</span> backup</td>
+              </tr>
+              <tr>
+                <td>Section 3 — Financial</td>
+                <td class="dot-no" aria-label="Not needed">—</td>
+                <td class="dot-no" aria-label="Not needed">—</td>
+                <td><span class="dot-yes" aria-label="Yes, as backup">✓</span> backup</td>
+              </tr>
+              <tr>
+                <td>Section 4 — Identity</td>
+                <td class="dot-no" aria-label="Not needed">—</td>
+                <td class="dot-no" aria-label="Not needed">—</td>
+                <td><span class="dot-yes" aria-label="Yes, as backup">✓</span> backup</td>
+              </tr>
+              <tr>
+                <td>Sections 5 &amp; 6</td>
+                <td class="dot-no" aria-label="Not needed">—</td>
+                <td class="dot-no" aria-label="Not needed">—</td>
+                <td><span class="dot-no">—</span> rarely needed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="cl-footer">americanvisaguide.com · Community resource · Not legal advice</footer>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="/js/main.js"></script>
 </body>
 </html>

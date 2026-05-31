@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" aria-hidden="true" focusable="false" role="img">
+  <defs>
+    <style>
+      .stage-card { fill: #fff; stroke: #D6D2CA; stroke-width: 1.5; rx: 10; }
+      .stage-icon-bg { fill: #E6F3F8; }
+      .stage-icon    { stroke: #155E78; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .stage-label   { font-family: 'DM Serif Display', Georgia, serif; font-size: 13px; fill: #1A2332; }
+      .stage-sub     { font-family: 'DM Sans', system-ui, sans-serif; font-size: 11px; fill: #718096; }
+      .stage-badge   { font-family: 'DM Sans', system-ui, sans-serif; font-size: 10px; font-weight: 600; fill: #0D7A5F; }
+      .connector     { stroke: #D6D2CA; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+      .connector-dot { fill: #9ECFDF; }
+      .arrow         { fill: #9ECFDF; }
+      .pill          { fill: #ECFDF6; }
+      .pill-text     { font-family: 'DM Sans', system-ui, sans-serif; font-size: 9px; font-weight: 700; fill: #0D7A5F; text-transform: uppercase; letter-spacing: 0.05em; }
+    </style>
+
+    <!-- Subtle drop shadow filter -->
+    <filter id="card-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1A2332" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- Background — transparent (matches page bg) -->
+
+  <!-- ══════════ STAGE 1: USCIS / I-130 ══════════ -->
+  <g transform="translate(30, 20)" filter="url(#card-shadow)">
+    <rect class="stage-card" x="0" y="0" width="220" height="150" rx="10" ry="10"/>
+
+    <!-- Icon area -->
+    <rect class="stage-icon-bg" x="16" y="16" width="40" height="40" rx="8"/>
+    <!-- Document icon -->
+    <g class="stage-icon" transform="translate(27, 27)">
+      <path d="M4 0 H13 L18 5 V22 H4 Z"/>
+      <polyline points="13,0 13,5 18,5"/>
+      <line x1="7" y1="10" x2="15" y2="10"/>
+      <line x1="7" y1="14" x2="15" y2="14"/>
+      <line x1="7" y1="18" x2="11" y2="18"/>
+    </g>
+
+    <!-- Step number -->
+    <text x="68" y="32" style="font-family:'DM Sans',system-ui,sans-serif; font-size:10px; font-weight:700; fill:#155E78; text-transform:uppercase; letter-spacing:0.08em;">STEP 1</text>
+    <text x="68" y="47" style="font-family:'DM Serif Display',Georgia,serif; font-size:12px; fill:#1A2332; font-weight:400;">USCIS</text>
+
+    <!-- Label -->
+    <text x="16" y="84" class="stage-label">I-130 Petition</text>
+    <text x="16" y="100" class="stage-sub">File with USCIS</text>
+    <text x="16" y="114" class="stage-sub">Immediate Relative</text>
+
+    <!-- Status pill -->
+    <rect class="pill" x="16" y="124" width="80" height="16" rx="8"/>
+    <text x="56" y="135.5" class="pill-text" text-anchor="middle">● Processing</text>
+
+    <!-- Avg time -->
+    <text x="164" y="135.5" style="font-family:'DM Sans',system-ui,sans-serif; font-size:10px; fill:#718096;" text-anchor="end">~8 mo</text>
+  </g>
+
+  <!-- ══════════ CONNECTOR 1→2 ══════════ -->
+  <g transform="translate(258, 82)">
+    <line class="connector" x1="0" y1="13" x2="68" y2="13"/>
+    <!-- Arrowhead -->
+    <polygon class="arrow" points="62,8 72,13 62,18"/>
+    <!-- Midpoint dot -->
+    <circle class="connector-dot" cx="34" cy="13" r="3.5"/>
+  </g>
+
+  <!-- ══════════ STAGE 2: NVC ══════════ -->
+  <g transform="translate(334, 20)" filter="url(#card-shadow)">
+    <rect class="stage-card" x="0" y="0" width="220" height="150" rx="10" ry="10"/>
+
+    <!-- Icon area -->
+    <rect class="stage-icon-bg" x="16" y="16" width="40" height="40" rx="8"/>
+    <!-- Checklist / NVC icon -->
+    <g class="stage-icon" transform="translate(27, 27)">
+      <rect x="0" y="0" width="18" height="22" rx="2"/>
+      <polyline points="4,7 7,10 14,4"/>
+      <line x1="4" y1="14" x2="14" y2="14"/>
+      <line x1="4" y1="18" x2="10" y2="18"/>
+    </g>
+
+    <!-- Step number -->
+    <text x="68" y="32" style="font-family:'DM Sans',system-ui,sans-serif; font-size:10px; font-weight:700; fill:#155E78; text-transform:uppercase; letter-spacing:0.08em;">STEP 2</text>
+    <text x="68" y="47" style="font-family:'DM Serif Display',Georgia,serif; font-size:12px; fill:#1A2332; font-weight:400;">NVC</text>
+
+    <!-- Label -->
+    <text x="16" y="84" class="stage-label">National Visa Centre</text>
+    <text x="16" y="100" class="stage-sub">Fees &amp; Documents</text>
+    <text x="16" y="114" class="stage-sub">DQ: Documentarily Qualified</text>
+
+    <!-- Status pill -->
+    <rect class="pill" x="16" y="124" width="80" height="16" rx="8"/>
+    <text x="56" y="135.5" class="pill-text" text-anchor="middle">● Processing</text>
+
+    <!-- Avg time -->
+    <text x="164" y="135.5" style="font-family:'DM Sans',system-ui,sans-serif; font-size:10px; fill:#718096;" text-anchor="end">~3 mo</text>
+  </g>
+
+  <!-- ══════════ CONNECTOR 2→3 ══════════ -->
+  <g transform="translate(562, 82)">
+    <line class="connector" x1="0" y1="13" x2="68" y2="13"/>
+    <polygon class="arrow" points="62,8 72,13 62,18"/>
+    <circle class="connector-dot" cx="34" cy="13" r="3.5"/>
+  </g>
+
+  <!-- ══════════ STAGE 3: US Embassy London ══════════ -->
+  <g transform="translate(638, 20)" filter="url(#card-shadow)">
+    <rect class="stage-card" x="0" y="0" width="220" height="150" rx="10" ry="10"/>
+
+    <!-- Icon area -->
+    <rect class="stage-icon-bg" x="16" y="16" width="40" height="40" rx="8"/>
+    <!-- Globe/embassy icon -->
+    <g class="stage-icon" transform="translate(26, 26)">
+      <circle cx="10" cy="11" r="9"/>
+      <line x1="1" y1="11" x2="19" y2="11"/>
+      <path d="M10 2 C7 5 5 8 5 11 S7 17 10 20"/>
+      <path d="M10 2 C13 5 15 8 15 11 S13 17 10 20"/>
+    </g>
+
+    <!-- Step number -->
+    <text x="68" y="32" style="font-family:'DM Sans',system-ui,sans-serif; font-size:10px; font-weight:700; fill:#155E78; text-transform:uppercase; letter-spacing:0.08em;">STEP 3</text>
+    <text x="68" y="47" style="font-family:'DM Serif Display',Georgia,serif; font-size:12px; fill:#1A2332; font-weight:400;">Embassy London</text>
+
+    <!-- Label -->
+    <text x="16" y="84" class="stage-label">IL Drop → Interview</text>
+    <text x="16" y="100" class="stage-sub">Medical &amp; Biometrics</text>
+    <text x="16" y="114" class="stage-sub">Visa Stamp &amp; Entry</text>
+
+    <!-- Status pill — highlighted as active stage -->
+    <rect x="16" y="124" width="92" height="16" rx="8" style="fill:#FEF5E4;"/>
+    <text x="62" y="135.5" style="font-family:'DM Sans',system-ui,sans-serif; font-size:9px; font-weight:700; fill:#A56D0E; text-transform:uppercase; letter-spacing:0.05em;" text-anchor="middle">⚡ Bottleneck</text>
+
+    <!-- Avg time -->
+    <text x="164" y="135.5" style="font-family:'DM Sans',system-ui,sans-serif; font-size:10px; fill:#718096;" text-anchor="end">~6 mo</text>
+  </g>
+
+  <!-- ══════════ Timeline bar ══════════ -->
+  <g transform="translate(30, 183)">
+    <rect x="0" y="0" width="828" height="3" rx="1.5" fill="#EAE8E2"/>
+    <!-- USCIS segment -->
+    <rect x="0" y="0" width="200" height="3" rx="1.5" fill="#9ECFDF"/>
+    <!-- NVC segment -->
+    <rect x="230" y="0" width="90" height="3" rx="1.5" fill="#9ECFDF"/>
+    <!-- London segment -->
+    <rect x="350" y="0" width="478" height="3" rx="1.5" fill="#F6CC85"/>
+  </g>
+</svg>

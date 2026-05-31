@@ -1,0 +1,328 @@
+/* ─────────────────────────────────────────────────────────────
+   American Visa Guide — Print Styles
+   Applied on top of main.css + components.css via @media print
+   ───────────────────────────────────────────────────────────── */
+
+@media print {
+  /* ─── Reset & base ─────────────────────────────────────── */
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  @page {
+    margin: 1.5cm 2cm;
+    size: A4 portrait;
+  }
+
+  /* ─── Hide non-essential UI ─────────────────────────────── */
+  .site-nav,
+  .skip-link,
+  .nav-toggle,
+  .btn,
+  .btn--primary,
+  .btn--secondary,
+  .btn--ghost,
+  .btn--destructive,
+  .tag[role="button"],
+  .tag--interactive,
+  .footer-link--kofi,
+  .accordion-chevron {
+    display: none !important;
+  }
+
+  /* ─── Footer — show legal, hide ko-fi ──────────────────── */
+  .site-footer {
+    border-top: 1pt solid #999;
+    margin-top: 1cm;
+    padding: 0.4cm 0 0;
+  }
+
+  .footer-container {
+    display: block;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1em;
+  }
+
+  .footer-link--kofi {
+    display: none !important;
+  }
+
+  /* ─── Links — show URL after anchor text ────────────────── */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555 !important;
+    word-break: break-all;
+  }
+
+  /* Don't expand internal anchors or JS links */
+  a[href^="#"]::after,
+  a[href^="javascript"]::after {
+    content: "";
+  }
+
+  /* Don't expand nav links — they're hidden anyway */
+  .site-nav a::after {
+    content: "" !important;
+  }
+
+  /* ─── Page breaks ───────────────────────────────────────── */
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  .checklist-section,
+  .step,
+  .card,
+  .info-card,
+  .callout,
+  .table-wrapper {
+    page-break-inside: avoid;
+  }
+
+  /* ─── Cards ─────────────────────────────────────────────── */
+  .card,
+  .data-card,
+  .stat-block {
+    border: 1pt solid #ccc;
+    border-radius: 0;
+    padding: 0.4cm;
+  }
+
+  /* ─── Info cards ─────────────────────────────────────────── */
+  .info-card {
+    border: 1pt solid #999;
+    border-radius: 0;
+    padding: 0.3cm 0.4cm;
+  }
+
+  .callout {
+    border-left: 3pt solid #666;
+    padding: 0.3cm 0.5cm;
+  }
+
+  /* ─── Checklist — print-specific checkbox rendering ──────── */
+  .checklist-item {
+    border: 1pt solid #ccc;
+    border-radius: 0;
+    padding: 0.2cm 0.3cm;
+    break-inside: avoid;
+  }
+
+  .checklist-item__checkbox {
+    border: 1.5pt solid #333;
+    background: transparent;
+    width: 14pt;
+    height: 14pt;
+  }
+
+  .checklist-item__checkbox:checked {
+    background: transparent;
+    border-color: #333;
+  }
+
+  .checklist-item__checkbox:checked::after {
+    border-color: #333;
+  }
+
+  /* ─── Tables ─────────────────────────────────────────────── */
+  .table-wrapper {
+    border: 1pt solid #ccc;
+    border-radius: 0;
+  }
+
+  .table th,
+  .table td {
+    border: 0.5pt solid #ddd;
+    padding: 0.2cm 0.3cm;
+  }
+
+  .table thead {
+    background: #f5f5f5 !important;
+  }
+
+  .table--striped tbody tr:nth-child(even) td {
+    background: #f9f9f9 !important;
+  }
+
+  /* ─── Accordion — always show content when printing ──────── */
+  .accordion-panel[hidden] {
+    display: block !important;
+  }
+
+  .accordion-trigger {
+    font-weight: bold;
+    padding: 0.2cm 0;
+  }
+
+  /* ─── Steps ──────────────────────────────────────────────── */
+  .steps {
+    gap: 0;
+  }
+
+  .step:not(:last-child)::before {
+    background-color: #ccc;
+    width: 1pt;
+  }
+
+  .step__marker {
+    border: 1.5pt solid #333;
+    background: transparent;
+    color: #333;
+    width: 24pt;
+    height: 24pt;
+  }
+
+  .step--done .step__marker,
+  .step--active .step__marker {
+    background: transparent;
+    border-color: #333;
+    color: #333;
+    box-shadow: none;
+  }
+
+  /* ─── Typography cleanup ─────────────────────────────────── */
+  h1 { font-size: 20pt; margin-bottom: 0.4cm; }
+  h2 { font-size: 16pt; margin-bottom: 0.3cm; margin-top: 0.6cm; }
+  h3 { font-size: 13pt; margin-bottom: 0.2cm; margin-top: 0.5cm; }
+  h4 { font-size: 11pt; }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* ─── Layout ─────────────────────────────────────────────── */
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .main-content {
+    padding-top: 0;
+    min-height: 0;
+  }
+
+  .page-header {
+    padding-top: 0;
+    border-bottom: 1pt solid #ccc;
+    margin-bottom: 0.6cm;
+    padding-bottom: 0.4cm;
+  }
+
+  .section + .section {
+    border-top: 0.5pt solid #ccc;
+    padding-top: 0.5cm;
+    margin-top: 0.5cm;
+  }
+
+  /* ─── Badges / Tags — text only on print ────────────────── */
+  .badge,
+  .tag {
+    border: 0.5pt solid #999;
+    border-radius: 0;
+    padding: 0 0.2cm;
+  }
+
+  /* ─── Progress bar — text fallback ──────────────────────── */
+  .progress {
+    display: none;
+  }
+
+  /* ─── Checklist page specifics ───────────────────────────── */
+  .print-btn,
+  .no-print,
+  .browser-note {
+    display: none !important;
+  }
+
+  .cl-item {
+    border: 1pt solid #ccc !important;
+    border-radius: 0 !important;
+    padding: 0.2cm 0.3cm !important;
+    break-inside: avoid;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Reset checked visual state — print as empty box */
+  .cl-item:has(input[type="checkbox"]:checked) {
+    background: transparent !important;
+    border-color: #ccc !important;
+  }
+
+  .cl-item input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12pt !important;
+    height: 12pt !important;
+    border: 1.5pt solid #000 !important;
+    border-radius: 0 !important;
+    background: white !important;
+    print-color-adjust: exact;
+    flex-shrink: 0;
+  }
+
+  .cl-item input[type="checkbox"]:checked {
+    background: white !important;
+  }
+
+  .cl-item input[type="checkbox"]:checked::after {
+    content: none !important;
+  }
+
+  .cl-item:has(input:checked) .cl-item__text {
+    text-decoration: none !important;
+    color: #000 !important;
+    opacity: 1 !important;
+  }
+
+  .risk-item {
+    border: 1pt solid #999 !important;
+    border-left: 3pt solid #333 !important;
+    background: transparent !important;
+    break-inside: avoid;
+  }
+
+  .risk-item__text {
+    color: #000 !important;
+  }
+
+  .cl-summary {
+    border: 1pt solid #999 !important;
+    background: transparent !important;
+  }
+
+  .cl-section-title {
+    font-size: 13pt;
+    border-bottom: 0.5pt solid #ccc;
+    padding-bottom: 0.2cm;
+    margin-bottom: 0.3cm;
+  }
+
+  .cl-note {
+    border: 0.5pt solid #999 !important;
+    background: transparent !important;
+  }
+
+  .timing-row {
+    border-bottom: 0.5pt solid #ddd !important;
+  }
+}

@@ -1,576 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DS-260 Preparation Worksheet</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-<style>
-  :root { --navy:#0a1628; --accent:#c8a96e; --teal:#2a9d8f; --red:#e76f51; --muted:#8a9ab5; --border:#dde3ef; --card:#f2f5fa; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:#fff; color:#1a2640; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; line-height:1.65; -webkit-font-smoothing:antialiased; }
-  .page { max-width:740px; margin:0 auto; padding:32px 24px 60px; }
-  .header { border-bottom:3px solid var(--navy); padding-bottom:20px; margin-bottom:28px; }
-  .header h1 { font-family:'Outfit',sans-serif; font-size:24px; font-weight:800; color:var(--navy); }
-  .header .sub { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:0.06em; text-transform:uppercase; }
-  .header-meta { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:8px; }
-  .header-right { font-size:11px; color:var(--muted); text-align:right; }
-  .print-btn { display:inline-block; background:var(--navy); color:#fff; font-family:'Outfit',sans-serif; font-size:12px; font-weight:700; padding:8px 16px; border-radius:6px; cursor:pointer; border:none; margin-bottom:20px; }
-  @media print { .print-btn, .alert-banner { display:none; } }
-  .alert-banner { background:#fff5f2; border:1px solid #f5c4bb; border-radius:8px; padding:12px 16px; font-size:13px; margin-bottom:20px; color:#5c1a1a; }
-  .section { margin-bottom:28px; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
-  .section-head { background:var(--navy); color:#fff; padding:10px 16px; font-family:'Outfit',sans-serif; font-size:13px; font-weight:700; }
-  .section-body { padding:16px; }
-  .field { margin-bottom:14px; }
-  .field label { display:block; font-size:12px; font-weight:600; color:#2a3a55; margin-bottom:4px; }
-  .field .hint { font-size:11px; color:var(--muted); font-style:italic; margin-bottom:4px; display:block; }
-  .field input[type="text"], .field textarea, .field select {
-    width:100%; border:1px solid var(--border); border-radius:5px;
-    padding:7px 10px; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px;
-    color:#1a2640; background:#fff;
-  }
-  .field textarea { min-height:60px; resize:vertical; }
-  .radio-group { display:flex; gap:20px; margin-top:4px; }
-  .radio-group label { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:400; cursor:pointer; }
-  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-  .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
-  @media (max-width:600px) { .two-col, .three-col { grid-template-columns:1fr; } }
-  .warn { font-size:12px; color:var(--red); font-weight:600; margin:8px 0 4px; }
-  .tip { background:var(--card); border-left:3px solid var(--teal); padding:8px 12px; font-size:12px; border-radius:0 4px 4px 0; margin:10px 0; }
-  .footer { margin-top:32px; padding-top:16px; border-top:1px solid var(--border); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; }
-  .section-head.teal { background:var(--teal); }
-  .section-head.accent { background:#8a6a2a; }
-</style>
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wlfs757o2n");
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DS-260 Preparation Worksheet — American Visa Guide</title>
+  <meta name="description" content="Private planning worksheet for DS-260 visa application. Browser-only storage, no data sharing.">
+  <link rel="canonical" href="https://www.americanvisaguide.com/worksheet-ds260">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <style>
+    .worksheet { max-width: 900px; margin: 0 auto; padding: var(--space-8) var(--space-4); }
+    .ws-header { margin-bottom: var(--space-6); padding-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); }
+    .ws-title { font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-text); margin-bottom: var(--space-2); }
+    .ws-subtitle { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .privacy-warning { background: var(--color-destructive-subtle); border: 2px solid var(--color-destructive-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); margin-bottom: var(--space-6); font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-destructive); }
+    .save-buttons { display: flex; gap: var(--space-3); margin-bottom: var(--space-6); flex-wrap: wrap; }
+    .btn { padding: var(--space-3) var(--space-5); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); background: var(--color-surface); font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--font-semibold); color: var(--color-text); cursor: pointer; transition: background-color 120ms; }
+    .btn:hover { background: var(--color-bg); }
+    .btn:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+    .warning-banner { background: var(--color-warning-subtle); border: 1px solid var(--color-warning-border); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); margin-bottom: var(--space-6); font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-warning); }
+    .ws-section { margin-bottom: var(--space-8); }
+    .ws-section-title { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--color-text); margin-bottom: var(--space-4); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border); }
+    .ws-field-group { margin-bottom: var(--space-4); }
+    .ws-label { display: block; font-size: var(--text-sm); font-weight: var(--font-semibold); color: var(--color-text); margin-bottom: var(--space-2); }
+    .ws-hint { display: block; font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-1); }
+    .ws-input, .ws-textarea, .ws-select { width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--text-sm); color: var(--color-text); background: var(--color-surface); box-sizing: border-box; }
+    .ws-input:focus, .ws-textarea:focus, .ws-select:focus { outline: 2px solid var(--color-primary); outline-offset: 2px; border-color: var(--color-primary); }
+    .ws-textarea { min-height: 100px; resize: vertical; }
+    .ws-radio-group { margin-bottom: var(--space-3); }
+    .ws-radio-label { display: inline-flex; align-items: center; gap: var(--space-2); margin-right: var(--space-4); margin-bottom: var(--space-2); cursor: pointer; font-size: var(--text-sm); }
+    .ws-radio-label input { cursor: pointer; }
+    .ws-conditional { margin-top: var(--space-3); padding: var(--space-3); background: var(--color-bg-alt); border-radius: var(--radius-md); display: none; }
+    .ws-conditional.show { display: block; }
+    .ws-repeatable-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-3); position: relative; }
+    .ws-repeatable-add { display: inline-block; padding: var(--space-2) var(--space-4); background: var(--color-primary); color: #fff; border: none; border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: var(--font-semibold); cursor: pointer; margin-bottom: var(--space-4); }
+    .ws-repeatable-add:hover { opacity: 0.9; }
+    .ws-repeatable-remove { position: absolute; top: var(--space-2); right: var(--space-2); padding: var(--space-1) var(--space-2); background: var(--color-destructive-subtle); color: var(--color-destructive); border: none; border-radius: var(--radius-sm); font-size: var(--text-xs); cursor: pointer; }
+    .ws-note { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-2); padding: var(--space-2) var(--space-3); background: var(--color-bg-alt); border-radius: var(--radius-sm); }
+    @media print { body { background: #fff; } .save-buttons, .warning-banner { display: none; } .privacy-warning { border: 1px solid #000; background: #fff; color: #000; } .ws-input, .ws-textarea, .ws-select { border: 1px solid #000; background: #fff; color: #000; } .ws-conditional.show { display: block !important; } }
+  </style>
 </head>
 <body>
-<div class="page">
-  <button class="print-btn" onclick="window.print()">🖨️ Print this worksheet</button>  <button id="copyBtn" onclick="copyToClipboard()" style="display:inline-block;background:#1a3a6b;color:#fff;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;padding:8px 16px;border-radius:6px;cursor:pointer;border:none;margin-bottom:20px;margin-left:8px;">📋 Copy answers to clipboard</button>
-
-  <div style="background:#fff3cd;border:2px solid #e6a817;border-radius:10px;padding:16px 20px;margin-bottom:24px;">
-    <div style="font-family:'Outfit',sans-serif;font-size:14px;font-weight:800;color:#7a4800;margin-bottom:8px;">⚠️ Do not submit or share this worksheet</div>
-    <p style="font-size:13px;color:#3a2200;margin-bottom:10px;">This is a <strong>personal planning tool</strong> — it is not connected to USCIS, NVC, or any official system. Do not share it, post it in the community, or send it to anyone.</p>
-    <p style="font-size:13px;color:#3a2200;margin-bottom:12px;"><strong>Your answers are only stored in your browser tab. If you close this tab, your answers are gone.</strong> Before you close, save your work:</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <div style="background:#fff;border:1px solid #e6a817;border-radius:8px;padding:10px 14px;font-size:13px;color:#3a2200;flex:1;min-width:180px;">
-        <strong style="color:#7a4800;">🖨️ Option 1 — Print</strong><br>
-        Use the Print button to save a PDF to your own device. Do not print to a shared or office printer.
-      </div>
-      <div style="background:#fff;border:1px solid #e6a817;border-radius:8px;padding:10px 14px;font-size:13px;color:#3a2200;flex:1;min-width:180px;">
-        <strong style="color:#7a4800;">📋 Option 2 — Copy to clipboard</strong><br>
-        Use the Copy button and paste into a private notes app or document on your own device.
-      </div>
+  <div id="nav-placeholder"></div>
+  <main id="main-content">
+    <div class="worksheet">
+      <header class="ws-header">
+        <h1 class="ws-title">DS-260 Preparation Worksheet</h1>
+        <p class="ws-subtitle">Plan your answers before logging into CEAC</p>
+      </header>
+      <div class="privacy-warning"><strong>⚠️ Privacy Notice (cannot be dismissed):</strong> This is a personal planning tool. It is not connected to USCIS, NVC, or any official system. Do not submit it, share it, or send it to anyone. Your answers are only stored in your current browser tab — if you close or refresh this tab, your answers are gone. Save your work using the Print or Copy buttons below before closing.</div>
+      <div class="save-buttons"><button type="button" class="btn" onclick="window.print()">🖨️ Print Worksheet</button><button type="button" class="btn" onclick="copyToClipboard()">📋 Copy to Clipboard</button></div>
+      <div class="warning-banner">⚡ <strong>CEAC Warning:</strong> CEAC times out after ~10 minutes of inactivity and is very unreliable. Complete this worksheet in full before logging in. Once you submit the DS-260 you cannot edit it — double-check every answer. The DS-260 confirmation page must be printed and brought to your medical and interview.</div>
+      <form id="worksheetForm">
+        <section class="ws-section">
+          <h2 class="ws-section-title">Section 1 — Personal Information (Beneficiary)</h2>
+          <div class="ws-field-group"><label class="ws-label">Full legal name (exactly as in passport) *</label><input type="text" class="ws-input" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever used other names?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="otherNames" value="no" checked onchange="toggleConditional(this, 'otherNamesText')"> No</label><label class="ws-radio-label"><input type="radio" name="otherNames" value="yes" onchange="toggleConditional(this, 'otherNamesText')"> Yes</label></div><div id="otherNamesText" class="ws-conditional"><textarea class="ws-textarea" placeholder="List all other names used" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Sex</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sex" value="Male" required> Male</label><label class="ws-radio-label"><input type="radio" name="sex" value="Female" required> Female</label></div></div>
+          <div class="ws-field-group"><label class="ws-label">Marital status *</label><select class="ws-select" required><option value="">— Select —</option><option value="Single">Single</option><option value="Married">Married</option><option value="Divorced">Divorced</option><option value="Widowed">Widowed</option></select></div>
+          <div class="ws-field-group"><label class="ws-label">Date of birth MM/DD/YYYY *</label><input type="text" class="ws-input" placeholder="01/15/1990" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Place of birth (City, Country) *</label><input type="text" class="ws-input" placeholder="London, United Kingdom" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Primary nationality *</label><input type="text" class="ws-input" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Other nationalities held</label><input type="text" class="ws-input" autocomplete="off"></div>
+          <div class="ws-field-group"><label class="ws-label">Do you hold or have you ever held another passport?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="otherPassport" value="no" checked onchange="toggleConditional(this, 'otherPassportText')"> No</label><label class="ws-radio-label"><input type="radio" name="otherPassport" value="yes" onchange="toggleConditional(this, 'otherPassportText')"> Yes</label></div><div id="otherPassportText" class="ws-conditional"><textarea class="ws-textarea" placeholder="Document numbers and details" autocomplete="off"></textarea></div></div>
+        </section>
+        <section class="ws-section">
+          <h2 class="ws-section-title">Section 2 — Address and Contact</h2>
+          <div class="ws-field-group"><label class="ws-label">Present address *</label><input type="text" class="ws-input" placeholder="Street address" autocomplete="off" required><input type="text" class="ws-input" style="margin-top: var(--space-2);" placeholder="City / Town" autocomplete="off" required><input type="text" class="ws-input" style="margin-top: var(--space-2);" placeholder="Postal code" autocomplete="off" required><input type="text" class="ws-input" style="margin-top: var(--space-2);" placeholder="Country" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Is mailing address the same?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="mailingAddrSame" value="yes" checked onchange="toggleConditional(this, 'mailingAddress')"> Yes</label><label class="ws-radio-label"><input type="radio" name="mailingAddrSame" value="no" onchange="toggleConditional(this, 'mailingAddress')"> No</label></div><div id="mailingAddress" class="ws-conditional"><textarea class="ws-textarea" placeholder="Mailing address" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Phone number(s)</label><input type="text" class="ws-input" autocomplete="off"></div>
+          <div class="ws-field-group"><label class="ws-label">Email address</label><input type="email" class="ws-input" autocomplete="off"></div>
+          <div class="ws-field-group"><label class="ws-label">Have you lived elsewhere in the past 5 years?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="pastAddresses" value="no" checked onchange="toggleConditional(this, 'pastAddressesText')"> No</label><label class="ws-radio-label"><input type="radio" name="pastAddresses" value="yes" onchange="toggleConditional(this, 'pastAddressesText')"> Yes</label></div><div id="pastAddressesText" class="ws-conditional"><textarea class="ws-textarea" placeholder="Addresses and dates" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Social media handles (last 5 years)</label><textarea class="ws-textarea" placeholder="Optional" autocomplete="off"></textarea><span class="ws-hint">Optional</span></div>
+        </section>
+        <section class="ws-section">
+          <h2 class="ws-section-title">Section 3 — Passport / Travel Document</h2>
+          <div class="ws-field-group"><label class="ws-label">Passport number *</label><input type="text" class="ws-input" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Date of issue *</label><input type="text" class="ws-input" placeholder="MM/DD/YYYY" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Date of expiry *</label><input type="text" class="ws-input" placeholder="MM/DD/YYYY" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Country of issuance *</label><input type="text" class="ws-input" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Do you have other travel documents?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="otherDocs" value="no" checked onchange="toggleConditional(this, 'otherDocsText')"> No</label><label class="ws-radio-label"><input type="radio" name="otherDocs" value="yes" onchange="toggleConditional(this, 'otherDocsText')"> Yes</label></div><div id="otherDocsText" class="ws-conditional"><textarea class="ws-textarea" placeholder="Document details" autocomplete="off"></textarea></div></div>
+        </section>
+        <section class="ws-section">
+          <h2 class="ws-section-title">Section 4 — Travel to the US</h2>
+          <div class="ws-field-group"><label class="ws-label">Intended address in the US *</label><input type="text" class="ws-input" placeholder="Street address" autocomplete="off" required><input type="text" class="ws-input" style="margin-top: var(--space-2);" placeholder="City" autocomplete="off" required><input type="text" class="ws-input" style="margin-top: var(--space-2);" placeholder="State" autocomplete="off" required><input type="text" class="ws-input" style="margin-top: var(--space-2);" placeholder="ZIP" autocomplete="off" required></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever been in the US?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="usVisits" value="no" checked onchange="toggleConditional(this, 'usVisitsText')"> No</label><label class="ws-radio-label"><input type="radio" name="usVisits" value="yes" onchange="toggleConditional(this, 'usVisitsText')"> Yes</label></div><div id="usVisitsText" class="ws-conditional"><textarea class="ws-textarea" placeholder="Dates and visa types" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever been refused a US visa?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="visaRefusal" value="no" checked onchange="toggleConditional(this, 'visaRefusalText')"> No</label><label class="ws-radio-label"><input type="radio" name="visaRefusal" value="yes" onchange="toggleConditional(this, 'visaRefusalText')"> Yes</label></div><div id="visaRefusalText" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Has anyone ever filed an immigrant petition on your behalf?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="petitionFiled" value="no" checked onchange="toggleConditional(this, 'petitionFiledText')"> No</label><label class="ws-radio-label"><input type="radio" name="petitionFiled" value="yes" onchange="toggleConditional(this, 'petitionFiledText')"> Yes</label></div><div id="petitionFiledText" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+        </section>
+        <section class="ws-section">
+          <h2 class="ws-section-title">Section 5 — US Contacts</h2>
+          <div class="ws-field-group"><label class="ws-label">Contact in the US — name</label><input type="text" class="ws-input" autocomplete="off"></div>
+          <div class="ws-field-group"><label class="ws-label">Relationship</label><input type="text" class="ws-input" autocomplete="off"></div>
+          <div class="ws-field-group"><label class="ws-label">Address and phone</label><textarea class="ws-textarea" autocomplete="off"></textarea></div>
+        </section>
+        <section class="ws-section">
+          <h2 class="ws-section-title">Section 6 — Family</h2>
+          <div class="ws-field-group"><label class="ws-label"><strong>Father</strong></label><input type="text" class="ws-input" placeholder="Full name" autocomplete="off" style="margin-top: var(--space-2); margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="DOB MM/DD/YYYY" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="City of birth" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Country of birth" autocomplete="off" style="margin-bottom: var(--space-2);"><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="fatherAlive" value="alive"> Alive</label><label class="ws-radio-label"><input type="radio" name="fatherAlive" value="deceased"> Deceased</label></div><input type="text" class="ws-input" placeholder="Current country (if alive)" autocomplete="off" style="margin-top: var(--space-2);"></div>
+          <div class="ws-field-group"><label class="ws-label"><strong>Mother</strong></label><input type="text" class="ws-input" placeholder="Full name" autocomplete="off" style="margin-top: var(--space-2); margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="DOB MM/DD/YYYY" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="City of birth" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Country of birth" autocomplete="off" style="margin-bottom: var(--space-2);"><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="motherAlive" value="alive"> Alive</label><label class="ws-radio-label"><input type="radio" name="motherAlive" value="deceased"> Deceased</label></div><input type="text" class="ws-input" placeholder="Current country (if alive)" autocomplete="off" style="margin-top: var(--space-2);"></div>
+          <div class="ws-field-group"><label class="ws-label">Were your parents married?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="parentsMarried" value="yes"> Yes</label><label class="ws-radio-label"><input type="radio" name="parentsMarried" value="no"> No</label></div></div>
+          <div class="ws-field-group"><label class="ws-label"><strong>Current spouse / partner</strong></label><input type="text" class="ws-input" placeholder="Full name" autocomplete="off" style="margin-top: var(--space-2); margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="DOB MM/DD/YYYY" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="City of birth" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Country of nationality" autocomplete="off" style="margin-bottom: var(--space-2);"><textarea class="ws-textarea" placeholder="Address" autocomplete="off"></textarea></div>
+          <div class="ws-field-group"><label class="ws-label">Spouse's immigration status (if US person)</label><input type="text" class="ws-input" autocomplete="off"></div>
+          <div class="ws-field-group"><label class="ws-label"><strong>Prior marriages</strong></label><div id="priorMarriages"></div><button type="button" class="ws-repeatable-add" onclick="addPriorMarriage()">+ Add prior marriage</button></div>
+          <div class="ws-field-group"><label class="ws-label"><strong>Children</strong></label><div id="children"></div><button type="button" class="ws-repeatable-add" onclick="addChild()">+ Add child</button></div>
+        </section>
+        <section class="ws-section">
+          <h2 class="ws-section-title">Section 7 — Work and Education</h2>
+          <div class="ws-field-group"><label class="ws-label">Current occupation</label><input type="text" class="ws-input" autocomplete="off"></div>
+          <div class="ws-field-group"><label class="ws-label">Present employer / school name and address</label><textarea class="ws-textarea" autocomplete="off"></textarea></div>
+          <div class="ws-field-group"><label class="ws-label"><strong>Employment history</strong> (past 5 years)</label><div id="employment"></div><button type="button" class="ws-repeatable-add" onclick="addEmployment()">+ Add employment</button></div>
+          <div class="ws-field-group"><label class="ws-label"><strong>Education history</strong></label><div id="education"></div><button type="button" class="ws-repeatable-add" onclick="addEducation()">+ Add education</button></div>
+          <div class="ws-field-group"><label class="ws-label">Language skills</label><input type="text" class="ws-input" autocomplete="off"></div>
+        </section>
+        <section class="ws-section">
+          <h2 class="ws-section-title">Section 8 — Security Questions</h2>
+          <div class="ws-note">Answer truthfully. These questions mirror the actual DS-260. Your answers here are never stored or submitted — this worksheet is for your own preparation only.</div>
+          <div class="ws-field-group" style="margin-top: var(--space-4);"><label class="ws-label">Do you have a communicable disease of public health significance?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec1" value="no" checked onchange="toggleConditional(this, 'sec1Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec1" value="yes" onchange="toggleConditional(this, 'sec1Text')"> Yes</label></div><div id="sec1Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Explain" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Do you have a mental or physical disorder or drug addiction?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec2" value="no" checked onchange="toggleConditional(this, 'sec2Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec2" value="yes" onchange="toggleConditional(this, 'sec2Text')"> Yes</label></div><div id="sec2Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Explain" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever been arrested, cited, or convicted of any offense?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec3" value="no" checked onchange="toggleConditional(this, 'sec3Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec3" value="yes" onchange="toggleConditional(this, 'sec3Text')"> Yes</label></div><div id="sec3Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever violated any controlled substance law?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec4" value="no" checked onchange="toggleConditional(this, 'sec4Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec4" value="yes" onchange="toggleConditional(this, 'sec4Text')"> Yes</label></div><div id="sec4Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever been a prostitute or procured prostitutes?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec5" value="no" checked onchange="toggleConditional(this, 'sec5Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec5" value="yes" onchange="toggleConditional(this, 'sec5Text')"> Yes</label></div><div id="sec5Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever engaged in terrorism, espionage, sabotage, or genocide?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec6" value="no" checked onchange="toggleConditional(this, 'sec6Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec6" value="yes" onchange="toggleConditional(this, 'sec6Text')"> Yes</label></div><div id="sec6Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever committed human trafficking or benefited from it?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec7" value="no" checked onchange="toggleConditional(this, 'sec7Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec7" value="yes" onchange="toggleConditional(this, 'sec7Text')"> Yes</label></div><div id="sec7Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever falsely claimed US citizenship?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec8" value="no" checked onchange="toggleConditional(this, 'sec8Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec8" value="yes" onchange="toggleConditional(this, 'sec8Text')"> Yes</label></div><div id="sec8Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever been deported or removed from any country?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec9" value="no" checked onchange="toggleConditional(this, 'sec9Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec9" value="yes" onchange="toggleConditional(this, 'sec9Text')"> Yes</label></div><div id="sec9Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Are you coming to the US to practise polygamy?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec10" value="no" checked onchange="toggleConditional(this, 'sec10Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec10" value="yes" onchange="toggleConditional(this, 'sec10Text')"> Yes</label></div><div id="sec10Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever been a habitual drunkard?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec11" value="no" checked onchange="toggleConditional(this, 'sec11Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec11" value="yes" onchange="toggleConditional(this, 'sec11Text')"> Yes</label></div><div id="sec11Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever been a member of a totalitarian party?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec12" value="no" checked onchange="toggleConditional(this, 'sec12Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec12" value="yes" onchange="toggleConditional(this, 'sec12Text')"> Yes</label></div><div id="sec12Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Have you ever withheld custody of a US citizen child?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec13" value="no" checked onchange="toggleConditional(this, 'sec13Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec13" value="yes" onchange="toggleConditional(this, 'sec13Text')"> Yes</label></div><div id="sec13Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+          <div class="ws-field-group"><label class="ws-label">Do you plan to vote or claim benefits in the US unlawfully?</label><div class="ws-radio-group"><label class="ws-radio-label"><input type="radio" name="sec14" value="no" checked onchange="toggleConditional(this, 'sec14Text')"> No</label><label class="ws-radio-label"><input type="radio" name="sec14" value="yes" onchange="toggleConditional(this, 'sec14Text')"> Yes</label></div><div id="sec14Text" class="ws-conditional"><textarea class="ws-textarea" placeholder="Details" autocomplete="off"></textarea></div></div>
+        </section>
+      </form>
     </div>
-  </div>
-  <div class="header">
-    <div class="header-meta">
-      <div>
-        <h1>DS-260 Preparation Worksheet</h1>
-        <div class="sub">Immigrant Visa Application — Complete before logging into CEAC</div>
-      </div>
-      <div class="header-right">londonvisatracker.github.io<br>v1.4 · Apr 2026</div>
-    </div>
-  </div>
-
-  <div class="alert-banner">
-    <strong>⚠️ CEAC times out after ~10 minutes of inactivity and is very unreliable.</strong> Complete this worksheet in full before logging in. Once you submit the DS-260 you cannot edit it — double-check every answer. The DS-260 confirmation page must be printed and brought to your medical and interview.
-  </div>
-
-  <!-- SECTION 1 -->
-  <div class="section">
-    <div class="section-head">1. Personal information (beneficiary)</div>
-    <div class="section-body">
-      <div class="field">
-        <label>Full legal name (exactly as in passport)</label>
-        <input type="text" placeholder="Family name / Given names">
-      </div>
-      <div class="field">
-        <label>Have you ever used other names? (maiden name, aliases, name changes)</label>
-        <div class="radio-group">
-          <label><input type="radio" name="othernames"> Yes</label>
-          <label><input type="radio" name="othernames"> No</label>
-        </div>
-        <textarea placeholder="If yes, list all names and explanations:"></textarea>
-      </div>
-      <div class="two-col">
-        <div class="field">
-          <label>Sex</label>
-          <div class="radio-group">
-            <label><input type="radio" name="sex"> Male</label>
-            <label><input type="radio" name="sex"> Female</label>
-          </div>
-        </div>
-        <div class="field">
-          <label>Marital status</label>
-          <select><option>Married</option><option>Single</option><option>Divorced</option><option>Widowed</option></select>
-        </div>
-      </div>
-      <div class="two-col">
-        <div class="field">
-          <label>Date of birth (MM/DD/YYYY)</label>
-          <input type="text" placeholder="MM/DD/YYYY">
-        </div>
-        <div class="field">
-          <label>Place of birth (City, Country)</label>
-          <input type="text">
-        </div>
-      </div>
-      <div class="two-col">
-        <div class="field">
-          <label>Primary nationality</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Other nationalities held (if any)</label>
-          <input type="text">
-        </div>
-      </div>
-      <div class="field">
-        <label>Do you hold or have you ever held another nationality or passport?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="otherppt"> Yes</label>
-          <label><input type="radio" name="otherppt"> No</label>
-        </div>
-        <textarea placeholder="If yes, provide details and document numbers:"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 2 -->
-  <div class="section">
-    <div class="section-head">2. Address and contact information</div>
-    <div class="section-body">
-      <div class="field">
-        <label>Present address (where you live now)</label>
-        <input type="text" placeholder="Street address">
-        <div style="height:6px;"></div>
-        <input type="text" placeholder="City / Town">
-        <div style="height:6px;"></div>
-        <div class="two-col">
-          <input type="text" placeholder="Postal code">
-          <input type="text" placeholder="Country">
-        </div>
-      </div>
-      <div class="field">
-        <label>Is your mailing address the same?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="mailsame"> Yes</label>
-          <label><input type="radio" name="mailsame"> No</label>
-        </div>
-        <input type="text" placeholder="If no, list mailing address:">
-      </div>
-      <div class="two-col">
-        <div class="field">
-          <label>Phone number(s)</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Email address</label>
-          <input type="text">
-        </div>
-      </div>
-      <div class="field">
-        <label>Have you lived anywhere else in the past 5 years?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="prevaddr"> Yes</label>
-          <label><input type="radio" name="prevaddr"> No</label>
-        </div>
-        <textarea placeholder="If yes, list all previous addresses with dates:"></textarea>
-      </div>
-      <div class="field">
-        <label>Social media handles (last 5 years — active or deleted)</label>
-        <span class="hint">Platform and username for each. Requested but optional.</span>
-        <textarea placeholder="Platform: ________ Username: ________"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 3 -->
-  <div class="section">
-    <div class="section-head">3. Passport / Travel document</div>
-    <div class="section-body">
-      <div class="three-col">
-        <div class="field">
-          <label>Passport number</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Date of issue</label>
-          <input type="text" placeholder="MM/DD/YYYY">
-        </div>
-        <div class="field">
-          <label>Date of expiry</label>
-          <input type="text" placeholder="MM/DD/YYYY">
-        </div>
-      </div>
-      <div class="field">
-        <label>Country of issuance</label>
-        <input type="text">
-      </div>
-      <div class="field">
-        <label>Have you ever lost or had a passport stolen?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="lostppt"> Yes</label>
-          <label><input type="radio" name="lostppt"> No</label>
-        </div>
-        <input type="text" placeholder="If yes, explain:">
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 4 -->
-  <div class="section">
-    <div class="section-head">4. Family information — parents</div>
-    <div class="section-body">
-      <div class="two-col">
-        <div class="field">
-          <label>Father's full name</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Father — living?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="fatherliving"> Yes</label>
-            <label><input type="radio" name="fatherliving"> No</label>
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <label>Father's city and country of birth</label>
-        <input type="text">
-      </div>
-      <div class="two-col">
-        <div class="field">
-          <label>Mother's full name (maiden)</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Mother — living?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="motherliving"> Yes</label>
-            <label><input type="radio" name="motherliving"> No</label>
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <label>Mother's city and country of birth</label>
-        <input type="text">
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 5 -->
-  <div class="section">
-    <div class="section-head teal">5. Family information — spouse (petitioner)</div>
-    <div class="section-body">
-      <div class="two-col">
-        <div class="field">
-          <label>Spouse's full legal name</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Spouse's date of birth</label>
-          <input type="text" placeholder="MM/DD/YYYY">
-        </div>
-      </div>
-      <div class="two-col">
-        <div class="field">
-          <label>Spouse's city and country of birth</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Spouse's current address</label>
-          <input type="text">
-        </div>
-      </div>
-      <div class="two-col">
-        <div class="field">
-          <label>Date of marriage</label>
-          <input type="text" placeholder="MM/DD/YYYY">
-        </div>
-        <div class="field">
-          <label>Place of marriage</label>
-          <input type="text" placeholder="City, Country">
-        </div>
-      </div>
-      <div class="field">
-        <label>Do you have previous spouses?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="prevspouse"> Yes</label>
-          <label><input type="radio" name="prevspouse"> No</label>
-        </div>
-        <textarea placeholder="If yes, list names, dates of marriage and termination:"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 6 -->
-  <div class="section">
-    <div class="section-head">6. Family information — children</div>
-    <div class="section-body">
-      <div class="tip">If a child is a US citizen (e.g. via CRBA), answer "No" to "Is the child immigrating with you?" — they are returning as a citizen, not immigrating as a visa applicant.</div>
-      <div class="field">
-        <label>Do you have children?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="children"> Yes</label>
-          <label><input type="radio" name="children"> No</label>
-        </div>
-      </div>
-      <div class="field">
-        <label>For each child: name, DOB, country of birth, immigrating with you? (Y/N)</label>
-        <textarea placeholder="Child 1: &#10;Child 2: &#10;Child 3:"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 7 -->
-  <div class="section">
-    <div class="section-head">7. Previous US travel</div>
-    <div class="section-body">
-      <div class="field">
-        <label>Have you ever been in the US?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="ustravel"> Yes</label>
-          <label><input type="radio" name="ustravel"> No</label>
-        </div>
-        <textarea placeholder="If yes, list entry/exit dates, visa type, status, A-numbers, any overstays:"></textarea>
-      </div>
-      <div class="field">
-        <label>Have you ever been refused a US visa or entry?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="refused"> Yes</label>
-          <label><input type="radio" name="refused"> No</label>
-        </div>
-        <input type="text" placeholder="If yes, explain:">
-      </div>
-      <div class="field">
-        <label>List every country you have travelled to in the past 5 years</label>
-        <textarea placeholder="Country, approximate dates:"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 8 -->
-  <div class="section">
-    <div class="section-head">8. US contact information</div>
-    <div class="section-body">
-      <div class="field">
-        <label>Primary US contact (usually the petitioner)</label>
-        <div class="two-col">
-          <input type="text" placeholder="Name">
-          <input type="text" placeholder="Relationship (e.g. Spouse)">
-        </div>
-        <div style="height:6px;"></div>
-        <input type="text" placeholder="Address">
-        <div style="height:6px;"></div>
-        <div class="two-col">
-          <input type="text" placeholder="Phone">
-          <input type="text" placeholder="Email">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 9 -->
-  <div class="section">
-    <div class="section-head">9. Work / Education / Training</div>
-    <div class="section-body">
-      <div class="field">
-        <label>Are you currently employed?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="employed"> Yes</label>
-          <label><input type="radio" name="employed"> No</label>
-        </div>
-      </div>
-      <div class="two-col">
-        <div class="field">
-          <label>Employer name</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Job title</label>
-          <input type="text">
-        </div>
-      </div>
-      <div class="two-col">
-        <div class="field">
-          <label>Start date</label>
-          <input type="text" placeholder="MM/YYYY">
-        </div>
-        <div class="field">
-          <label>Work history (10 years — have it ready)</label>
-          <input type="text" placeholder="Employer, role, dates">
-        </div>
-      </div>
-      <div class="field">
-        <label>Employer address</label>
-        <input type="text">
-      </div>
-      <div class="field">
-        <label>Highest level of education</label>
-        <select>
-          <option>None</option><option>Primary</option><option>Secondary</option>
-          <option>University / Undergraduate</option><option>Graduate / Postgraduate</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Educational institutions attended</label>
-        <textarea placeholder="Name, location, degree, start and end dates:"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 10 -->
-  <div class="section">
-    <div class="section-head accent">10. Security and background</div>
-    <div class="section-body">
-      <p style="font-size:12px;color:#5c3a00;margin-bottom:12px;"><strong>Answer Yes/No to each category. Explain any "Yes" answers fully — be truthful and consistent with all previous records.</strong></p>
-      <div class="field">
-        <label>Communicable diseases, mental health conditions, or drug use</label>
-        <div class="radio-group">
-          <label><input type="radio" name="health"> Yes</label>
-          <label><input type="radio" name="health"> No</label>
-        </div>
-        <input type="text" placeholder="Explain if Yes:">
-      </div>
-      <div class="field">
-        <label>Criminal record, arrests, convictions (even if expunged or pardoned)</label>
-        <div class="radio-group">
-          <label><input type="radio" name="criminal"> Yes</label>
-          <label><input type="radio" name="criminal"> No</label>
-        </div>
-        <input type="text" placeholder="Explain if Yes:">
-      </div>
-      <div class="field">
-        <label>Terrorist affiliations, involvement in genocide, torture, or persecution</label>
-        <div class="radio-group">
-          <label><input type="radio" name="terror"> Yes</label>
-          <label><input type="radio" name="terror"> No</label>
-        </div>
-      </div>
-      <div class="field">
-        <label>Immigration fraud, visa overstays, prior removals or deportations</label>
-        <div class="radio-group">
-          <label><input type="radio" name="immfailure"> Yes</label>
-          <label><input type="radio" name="immfailure"> No</label>
-        </div>
-        <input type="text" placeholder="Explain if Yes:">
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 11 -->
-  <div class="section">
-    <div class="section-head teal">11. Vaccinations</div>
-    <div class="section-body">
-      <div class="tip">If you plan to get missing vaccines at the medical exam, select "Other" on the vaccination question and explain in the dialogue box that you will receive all required vaccines at the medical examination.</div>
-      <div class="field">
-        <label>Vaccination status notes — list any known gaps to discuss at the medical:</label>
-        <textarea placeholder="e.g. No Hep A on record, will receive at medical. Varicella — had chickenpox as a child."></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 12 -->
-  <div class="section">
-    <div class="section-head">12. Social Security Number</div>
-    <div class="section-body">
-      <div class="field">
-        <label>Do you want a Social Security Number issued automatically upon US entry?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="ssn"> Yes (recommended)</label>
-          <label><input type="radio" name="ssn"> No</label>
-        </div>
-      </div>
-      <div class="field">
-        <label>Confirm exact name as it should appear on the SSN card</label>
-        <input type="text">
-      </div>
-    </div>
-  </div>
-
-  <div class="tip" style="margin:20px 0;">When you submit the DS-260, print the confirmation page immediately. You will need it at both your medical appointment and your visa interview.</div>
-
-  <div class="footer">
-    <span>London Visa Tracker · Community resource · Not legal advice</span>
-    <span>Support: ko-fi.com/erinsaidwhat</span>
-  </div>
-</div>
-
-<script>
-function copyToClipboard() {
-  const lines = [];
-  const page = document.querySelector('.page');
-  
-  // Get all section heads for context
-  const sections = page.querySelectorAll('.section');
-  sections.forEach(section => {
-    const head = section.querySelector('.section-head');
-    if (head) lines.push('\n== ' + head.textContent.trim() + ' ==');
-    
-    // Get all labelled fields
-    const fields = section.querySelectorAll('.field');
-    fields.forEach(field => {
-      const label = field.querySelector('label');
-      if (!label) return;
-      const labelText = label.childNodes[0]?.textContent?.trim() || label.textContent.trim();
-      if (!labelText) return;
-      
-      // Text inputs and textareas
-      const input = field.querySelector('input[type="text"], textarea, select');
-      if (input && input.value.trim()) {
-        lines.push(labelText + ': ' + input.value.trim());
-      }
-      
-      // Radio buttons
-      const checked = field.querySelector('input[type="radio"]:checked');
-      if (checked) {
-        const radioLabel = checked.closest('label')?.textContent?.trim() || checked.value;
-        lines.push(labelText + ': ' + radioLabel);
-      }
-
-      // Checkboxes
-      const checkboxes = field.querySelectorAll('input[type="checkbox"]:checked');
-      if (checkboxes.length) {
-        checkboxes.forEach(cb => {
-          const cbLabel = cb.closest('label')?.textContent?.trim();
-          if (cbLabel) lines.push('☑ ' + cbLabel);
+  </main>
+  <div id="footer-placeholder"></div>
+  <script>
+    function toggleConditional(radio, elementId) {
+      const element = document.getElementById(elementId);
+      if (radio.value === 'yes') element.classList.add('show');
+      else element.classList.remove('show');
+    }
+    function addPriorMarriage() {
+      const html = '<div class="ws-repeatable-item"><button type="button" class="ws-repeatable-remove" onclick="this.parentElement.remove()">Remove</button><input type="text" class="ws-input" placeholder="Spouse name" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Dates" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="How ended" autocomplete="off"></div>';
+      document.getElementById('priorMarriages').insertAdjacentHTML('beforeend', html);
+    }
+    function addChild() {
+      const html = '<div class="ws-repeatable-item"><button type="button" class="ws-repeatable-remove" onclick="this.parentElement.remove()">Remove</button><input type="text" class="ws-input" placeholder="Name" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="DOB" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Country of birth" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Current country" autocomplete="off"></div>';
+      document.getElementById('children').insertAdjacentHTML('beforeend', html);
+    }
+    function addEmployment() {
+      const html = '<div class="ws-repeatable-item"><button type="button" class="ws-repeatable-remove" onclick="this.parentElement.remove()">Remove</button><input type="text" class="ws-input" placeholder="Employer" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Address" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Dates" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Job title" autocomplete="off"></div>';
+      document.getElementById('employment').insertAdjacentHTML('beforeend', html);
+    }
+    function addEducation() {
+      const html = '<div class="ws-repeatable-item"><button type="button" class="ws-repeatable-remove" onclick="this.parentElement.remove()">Remove</button><input type="text" class="ws-input" placeholder="Institution" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Address" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Dates" autocomplete="off" style="margin-bottom: var(--space-2);"><input type="text" class="ws-input" placeholder="Course / degree" autocomplete="off"></div>';
+      document.getElementById('education').insertAdjacentHTML('beforeend', html);
+    }
+    function copyToClipboard() {
+      const form = document.getElementById('worksheetForm');
+      let text = 'DS-260 PREPARATION WORKSHEET\nPERSONAL PLANNING ONLY — NOT AN OFFICIAL DOCUMENT\n\n';
+      const sections = form.querySelectorAll('.ws-section');
+      sections.forEach(section => {
+        const title = section.querySelector('.ws-section-title').textContent;
+        text += '\n' + title + '\n' + '='.repeat(50) + '\n';
+        const groups = section.querySelectorAll('.ws-field-group');
+        groups.forEach(group => {
+          const label = group.querySelector('.ws-label');
+          if (label) {
+            text += '\n' + label.textContent + '\n';
+            const inputs = group.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+              if (input.type === 'radio') { if (input.checked) text += '  ✓ ' + input.value + '\n'; }
+              else if (input.value.trim()) { if (input.tagName === 'TEXTAREA') text += '  ' + input.value.split('\n').join('\n  ') + '\n'; else text += '  ' + input.value + '\n'; }
+            });
+          }
         });
-      }
-    });
-  });
-  
-  const text = lines.join('\n').trim();
-  if (!text || text.replace(/==/g,'').trim() === '') {
-    alert('Nothing to copy — fill in some fields first.');
-    return;
-  }
-  
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById('copyBtn');
-    btn.textContent = '✓ Copied to clipboard';
-    btn.style.background = '#2a9d8f';
-    setTimeout(() => {
-      btn.textContent = '📋 Copy answers to clipboard';
-      btn.style.background = '#1a3a6b';
-    }, 2500);
-  }).catch(() => {
-    // Fallback for older browsers
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    alert('Copied to clipboard.');
-  });
-}
-</script>
+      });
+      text += '\n\n--- END OF WORKSHEET ---\nThis worksheet is for your private planning only. Do not share or submit.\n';
+      navigator.clipboard.writeText(text).then(() => alert('Copied to clipboard!')).catch(() => alert('Copy failed. Use Print instead.'));
+    }
+  </script>
+  <script src="/js/main.js"></script>
 </body>
 </html>
