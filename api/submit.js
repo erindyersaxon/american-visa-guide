@@ -2,7 +2,6 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     return res.status(200).json({ status: 'ok' })
   }
-
   if (req.method !== 'POST') return res.status(405).end()
 
   const raw = req.body
@@ -25,62 +24,38 @@ export default async function handler(req, res) {
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 
+  // Always update submitted_at
+  cleaned.submitted_at = new Date().toISOString()
+
   if (username) {
     // Normalise username to lowercase
     cleaned.username_raw = username.toLowerCase()
 
-    // Step 1: check if row already exists
-    const checkRes = await fetch(
-      `${supabaseUrl}/rest/v1/form_responses?username_raw=eq.${encodeURIComponent(cleaned.username_raw)}&select=id`,
-      { headers: baseHeaders }
+    // Strip null values so we never overwrite existing data with nulls on update
+    const payload = Object.fromEntries(
+      Object.entries(cleaned).filter(([_, v]) => v !== null && v !== undefined)
     )
-    const existing = await checkRes.json()
 
-    if (existing && existing.length > 0) {
-      // Row exists — PATCH (update) only non-null fields
-      const existingId = existing[0].id
-
-      // Only send fields that have actual values — don't overwrite existing data with nulls
-      const updatePayload = Object.fromEntries(
-        Object.entries(cleaned).filter(([_, v]) => v !== null && v !== undefined)
-      )
-      // Always update submitted_at
-      updatePayload.submitted_at = new Date().toISOString()
-
-      const updateRes = await fetch(
-        `${supabaseUrl}/rest/v1/form_responses?id=eq.${existingId}`,
-        {
-          method: 'PATCH',
-          headers: { ...baseHeaders, 'Prefer': 'return=minimal' },
-          body: JSON.stringify(updatePayload)
-        }
-      )
-
-      if (!updateRes.ok) {
-        const error = await updateRes.text()
-        return res.status(500).json({ error })
+    // Atomic upsert — inserts if no matching username_raw, updates non-null fields if one exists.
+    // ignoreDuplicates=false + merge-duplicates means conflicting rows are updated, not skipped.
+    const upsertRes = await fetch(
+      `${supabaseUrl}/rest/v1/form_responses`,
+      {
+        method: 'POST',
+        headers: {
+          ...baseHeaders,
+          'Prefer': 'resolution=merge-duplicates,return=minimal'
+        },
+        body: JSON.stringify(payload)
       }
+    )
 
-      return res.status(200).json({ success: true, action: 'updated' })
-
-    } else {
-      // No existing row — INSERT
-      const insertRes = await fetch(
-        `${supabaseUrl}/rest/v1/form_responses`,
-        {
-          method: 'POST',
-          headers: { ...baseHeaders, 'Prefer': 'return=minimal' },
-          body: JSON.stringify(cleaned)
-        }
-      )
-
-      if (!insertRes.ok) {
-        const error = await insertRes.text()
-        return res.status(500).json({ error })
-      }
-
-      return res.status(200).json({ success: true, action: 'inserted' })
+    if (!upsertRes.ok) {
+      const error = await upsertRes.text()
+      return res.status(500).json({ error })
     }
+
+    return res.status(200).json({ success: true, action: 'upserted' })
 
   } else {
     // No username — plain insert
