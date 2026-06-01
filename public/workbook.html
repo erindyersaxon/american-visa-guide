@@ -1,358 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <script src="/js/env.js"></script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moving to the USA Workbook — American Visa Guide</title>
-  <meta name="description" content="Complete immigration and relocation tracker from USCIS through to settling in the US. Download as Excel or copy to Google Sheets.">
-  <link rel="canonical" href="https://www.americanvisaguide.com/workbook">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/print.css" media="print">
-  <style>
-    /* ── Accessibility: Skip link and focus ── */
-    .skip-to-main:focus {
-      top: 0;
-      outline: 2px solid var(--color-primary);
-      outline-offset: 2px;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving to the USA Workbook — American Visa Guide</title>
+    <meta name="description" content="Free planning workbook for new US permanent residents, created by Nikki." />
+    <link rel="canonical" href="https://www.americanvisaguide.com/workbook.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
+    <style>
+      .workbook-container { max-width: var(--max-width-prose); margin: 0 auto; }
+      .workbook-hero { padding: var(--space-12) var(--space-6); background: linear-gradient(135deg, var(--color-navy-xlight) 0%, var(--color-surface) 100%); border-radius: var(--radius-lg); margin-bottom: var(--space-12); }
+      .workbook-eyebrow { font-size: var(--size-sm); color: var(--color-gold); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-2); }
+      .workbook-title { font-size: var(--size-3xl); font-weight: var(--weight-bold); color: var(--color-navy); margin-bottom: var(--space-6); }
+      .attribution-box { padding: var(--space-6); background: var(--color-gold-xlight); border: 2px solid var(--color-gold); border-radius: var(--radius-lg); margin-bottom: var(--space-12); }
+      .attribution-box p { margin: 0; line-height: var(--line-lg); }
+      .content-section { margin-bottom: var(--space-12); }
+      .content-section h2 { margin-bottom: var(--space-4); font-size: var(--size-xl); font-weight: var(--weight-semibold); }
+      .content-section p { margin-bottom: var(--space-4); line-height: var(--line-lg); }
+      .download-button { display: inline-block; padding: var(--space-4) var(--space-8); background: var(--color-navy); color: white; text-decoration: none; border-radius: var(--radius-md); font-weight: var(--weight-semibold); transition: all var(--transition-fast); margin: var(--space-6) 0; }
+      .download-button:hover { background: var(--color-navy-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26, 58, 82, 0.2); }
+      .format-note { padding: var(--space-4); background: var(--color-surface-alt); border-radius: var(--radius-md); font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-8); }
+      .disclaimer { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-12) 0; font-size: var(--size-sm); }
+      .placeholder-img { padding: var(--space-12); background: var(--color-surface-alt); border-radius: var(--radius-lg); text-align: center; color: var(--color-text-muted); margin: var(--space-12) 0; }
+      @media (max-width: 768px) {
+        .workbook-hero { padding: var(--space-8) var(--space-6); }
+        .workbook-title { font-size: var(--size-2xl); }
       }
-    }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation"></nav>
 
-    .wb-container { max-width: 1000px; margin: 0 auto; padding: var(--space-8) var(--space-4); }
-    .wb-header { margin-bottom: var(--space-6); padding-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); }
-    .wb-title { font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-text); margin-bottom: var(--space-2); }
-    .wb-subtitle { font-size: var(--text-sm); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+    <main id="main">
+      <div class="container">
+        <div class="workbook-container">
+          <div class="workbook-hero">
+            <div class="workbook-eyebrow">Created by Nikki</div>
+            <h1 class="workbook-title">Moving to the USA Workbook</h1>
+          </div>
 
-    .wb-attribution { background: var(--color-primary-subtle); border-left: 4px solid var(--color-primary); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-bottom: var(--space-8); font-style: italic; color: var(--color-primary); font-size: var(--text-sm); line-height: var(--leading-relaxed); }
+          <div class="attribution-box">
+            <p>This workbook was created by <strong>Nikki</strong>, a brilliant member of the Track My Visa community going through the US Embassy London process, who built it to share with everyone going through this journey. <strong>Thank you, Nikki.</strong></p>
+          </div>
 
-    .wb-intro { font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-8); max-width: 72ch; }
+          <section class="content-section">
+            <h2>What's included</h2>
+            <p>Practical planning worksheets designed for new permanent residents. This workbook covers:</p>
+            <ul style="margin-left: var(--space-6); margin-bottom: var(--space-4);">
+              <li>Banking and credit building</li>
+              <li>Budget planning and cost of living</li>
+              <li>US tax considerations and filing</li>
+              <li>Healthcare and insurance navigation</li>
+              <li>Housing search and move planning</li>
+              <li>Employment and licensing requirements</li>
+              <li>First-year expenses and timeline</li>
+            </ul>
+          </section>
 
-    .wb-buttons { display: flex; gap: var(--space-4); margin-bottom: var(--space-8); flex-wrap: wrap; }
-    .wb-button { display: inline-flex; align-items: center; justify-content: center; padding: var(--space-4) var(--space-6); background: var(--color-primary); color: #fff; border: none; border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--font-semibold); cursor: pointer; text-decoration: none; transition: background-color 120ms; }
-    .wb-button:hover { background: var(--color-primary); opacity: 0.9; }
-    .wb-button:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
-    .wb-button-secondary { background: var(--color-border); color: var(--color-text); }
-    .wb-button-secondary:hover { background: var(--color-border); opacity: 0.9; }
+          <section class="content-section">
+            <h2>Download the workbook</h2>
+            <a href="/Moving_to_the_USA_Workbook.xlsx" class="download-button" download>📥 Download the workbook</a>
+            <div class="format-note">
+              <strong>Microsoft Excel format (.xlsx)</strong><br/>
+              Opens in Microsoft Excel, Google Sheets, Apple Numbers, or any spreadsheet application.
+            </div>
+          </section>
 
-    .wb-preview-section h2 { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--color-text); margin-bottom: var(--space-5); margin-top: var(--space-6); }
+          <section class="content-section">
+            <p>Nikki's workbook is one of the most practical resources in the London visa community. It's comprehensive, beautifully organized, and exactly what you need when you're preparing to arrive and build your life in the US.</p>
+          </section>
 
-    .wb-table-wrapper { overflow-x: auto; border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-bottom: var(--space-8); }
-    .wb-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
-    .wb-table thead { background: var(--color-surface-subtle); border-bottom: 2px solid var(--color-border); }
-    .wb-table th { padding: var(--space-3) var(--space-4); text-align: left; font-weight: var(--font-bold); color: var(--color-text); }
-    .wb-table td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); color: var(--color-text-secondary); }
-    .wb-table tr:last-child td { border-bottom: none; }
-    .wb-table tbody tr:hover { background: var(--color-surface-hover); }
-    .wb-table .phase-col { font-weight: var(--font-semibold); color: var(--color-text); background: var(--color-primary-subtle); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
-    .wb-table .phase-header { background: var(--color-primary); color: #fff; font-weight: var(--font-bold); }
+          <div class="placeholder-img">🖼️ PLACEHOLDER: Illustration of a planning workbook or spreadsheet with checklists, warm and organized.</div>
 
-    .wb-note { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-top: var(--space-8); font-size: var(--text-sm); color: var(--color-text-secondary); line-height: var(--leading-relaxed); }
+          <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> Created by a community member and shared freely. This is not legal or financial advice. Adapt worksheets to your own circumstances and consult professionals (accountant, financial advisor, immigration attorney) for advice specific to your situation.</p>
+          </div>
 
-    @media print { .wb-buttons { display: none; } }
-  </style>
-</head>
-<body>
-  <div id="nav-placeholder"></div>
-  <main id="main-content">
-    <div class="wb-container">
-      <header class="wb-header">
-        <h1 class="wb-title">Moving to the USA Workbook</h1>
-        <p class="wb-subtitle">Complete immigration and relocation tracker — from USCIS through to settling in the US</p>
-      </header>
-
-      <div class="wb-attribution">
-        ✨ Created by Nikki, a community member who went through the US Embassy London process and built this resource to share with everyone who needs it.
-      </div>
-
-      <p class="wb-intro">A complete checklist covering every stage of the visa process and your relocation — USCIS through to your first weeks in the US. Download your own copy and fill it in as you go. Nothing is stored on this site.</p>
-
-      <div class="wb-buttons">
-        <a href="Moving_to_the_USA_Workbook.xlsx" download class="wb-button">
-          📥 Download as Excel
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/1KWP930yDbFd1EhoPYm7V1SVr9x3QlKFFcukfoDvNeTo/copy" target="_blank" rel="noopener noreferrer" class="wb-button wb-button-secondary">
-          📊 Copy to Google Sheets
-        </a>
-      </div>
-
-      <section class="wb-preview-section">
-        <h2>Workbook Structure Preview</h2>
-        <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin-bottom: var(--space-4);">This table shows the structure and key milestones you'll track in your own copy.</p>
-
-        <div class="wb-table-wrapper">
-          <table class="wb-table">
-            <thead>
-              <tr>
-                <th style="width: 20%;">Phase & Item</th>
-                <th style="width: 15%;">Cost</th>
-                <th style="width: 20%;">Date Completed</th>
-                <th style="width: 12%;">Paid</th>
-                <th style="width: 33%;">Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- PHASE 1: USCIS -->
-              <tr>
-                <td colspan="5" class="phase-header">PHASE 1: USCIS — I-130 Petition</td>
-              </tr>
-              <tr>
-                <td class="phase-col">Form I-130</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">I-130 Filing Fee</td>
-                <td>$385</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Receipt Notice (NOA1)</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Priority Date</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Approval Notice (NOA2)</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <!-- PHASE 2: NVC -->
-              <tr>
-                <td colspan="5" class="phase-header">PHASE 2: NVC — National Visa Centre</td>
-              </tr>
-              <tr>
-                <td class="phase-col">NVC Case Number Received</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Immigrant Visa Fee (IV)</td>
-                <td>$325</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Form I-864 (Affidavit of Support)</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Form DS-260 Submission</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Documentarily Qualified (DQ)</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <!-- PHASE 3: Embassy -->
-              <tr>
-                <td colspan="5" class="phase-header">PHASE 3: Embassy London — Interview & Visa</td>
-              </tr>
-              <tr>
-                <td class="phase-col">Appointment Letter (IL) Received</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Medical Examination</td>
-                <td>~£120</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Document Check</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Immigrant Visa Interview</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Visa Stamp Issued</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <!-- PHASE 4: Post-Approval -->
-              <tr>
-                <td colspan="5" class="phase-header">PHASE 4: Post-Approval — Before US Entry</td>
-              </tr>
-              <tr>
-                <td class="phase-col">USCIS Immigrant Fee</td>
-                <td>$220</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Passport Received from Embassy</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Travel Plans Confirmed</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Port of Entry Confirmed</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Travel Insurance Arranged</td>
-                <td>Variable</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <!-- PHASE 5: Arrival -->
-              <tr>
-                <td colspan="5" class="phase-header">PHASE 5: Arrival in the USA</td>
-              </tr>
-              <tr>
-                <td class="phase-col">US Entry & Green Card Received</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Social Security Number (SSN) Application</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Bank Account Opened</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Driving Licence / State ID</td>
-                <td>$20–100</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Tax Obligations (IRS Registration)</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <!-- PHASE 6: Long-term -->
-              <tr>
-                <td colspan="5" class="phase-header">PHASE 6: Long-term — Permanent Residence & Citizenship</td>
-              </tr>
-              <tr>
-                <td class="phase-col">I-751 Filing Window (CR1 only)</td>
-                <td>$680</td>
-                <td></td>
-                <td></td>
-                <td>Conditional Resident only</td>
-              </tr>
-              <tr>
-                <td class="phase-col">Green Card Renewal (10-year)</td>
-                <td>$130</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">N-400 Eligibility Date (Naturalization)</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td>5 years as LPR (3 if married to US citizen)</td>
-              </tr>
-              <tr>
-                <td class="phase-col">N-400 Application (Naturalization)</td>
-                <td>$640</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td class="phase-col">Oath of Allegiance / US Citizenship</td>
-                <td>—</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
+          <div style="text-align: center; padding: var(--space-12) 0; border-top: 1px solid var(--color-border); margin-top: var(--space-12);">
+            <p style="color: var(--color-text-muted); font-size: var(--size-sm); margin-bottom: var(--space-4);">Built by Nikki. Shared by American Visa Guide.</p>
+            <p style="font-size: var(--size-sm);"><strong>Thank you for contributing to the community.</strong></p>
+          </div>
         </div>
-      </section>
-
-      <div class="wb-note">
-        <strong>📝 Your data stays private</strong><br>
-        The workbook is a personal tracking tool. Your data stays on your own device — it is not connected to americanvisaguide.com. Download the Excel file or make your own copy in Google Sheets, and fill it in as you progress through each stage.
       </div>
-    </div>
-  </main>
-  <div id="footer-placeholder"></div>
-  <script src="/js/main.js"></script>
-  <!-- WCAG 2.1 AA — audited 2026-05-30 — accessibility improvements: skip link, focus indicators, reduced motion support, semantic HTML -->
+    </main>
 
-  <script src="/js/cookie-notice.js"></script>
-</body>
+    <footer></footer>
+    <script src="/js/shared.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        renderPage({
+          title: 'Moving to the USA Workbook — American Visa Guide',
+          description: 'Free planning workbook for new US permanent residents, created by Nikki.',
+          activePage: ''
+        });
+      });
+    </script>
+  </body>
 </html>

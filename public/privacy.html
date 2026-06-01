@@ -1,130 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <script src="/js/env.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — American Visa Guide</title>
+    <meta name="description" content="Privacy policy for americanvisaguide.com" />
+    <link rel="canonical" href="https://www.americanvisaguide.com/privacy.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
+    <style>
+      .privacy-container { max-width: var(--max-width-prose); margin: 0 auto; }
+      .privacy-header { margin-bottom: var(--space-8); padding-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); }
+      .privacy-title { font-size: var(--size-3xl); font-weight: var(--weight-bold); color: var(--color-navy); margin-bottom: var(--space-2); }
+      .privacy-subtitle { font-size: var(--size-sm); color: var(--color-text-muted); }
+      .privacy-intro { font-size: var(--size-base); color: var(--color-text); line-height: var(--line-lg); margin-bottom: var(--space-8); }
+      .privacy-section { margin-bottom: var(--space-12); }
+      .privacy-section h2 { font-size: var(--size-xl); font-weight: var(--weight-semibold); color: var(--color-navy); margin-bottom: var(--space-4); padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+      .privacy-section h3 { font-size: var(--size-lg); font-weight: var(--weight-semibold); color: var(--color-navy); margin-top: var(--space-6); margin-bottom: var(--space-3); }
+      .privacy-section ol, .privacy-section ul { margin-left: var(--space-6); margin-bottom: var(--space-4); }
+      .privacy-section li { margin-bottom: var(--space-3); color: var(--color-text); line-height: var(--line-lg); }
+      .privacy-section p { margin-bottom: var(--space-4); color: var(--color-text); line-height: var(--line-lg); }
+      .privacy-section strong { color: var(--color-navy); }
+      .privacy-section a { color: var(--color-navy); font-weight: var(--weight-semibold); }
+      .info-box { padding: var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy-light); border-radius: var(--radius-lg); margin: var(--space-8) 0; }
+      .info-box strong { color: var(--color-navy); display: block; margin-bottom: var(--space-2); }
+      .contact-info { background: var(--color-surface-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin-top: var(--space-6); }
+      .contact-info strong { color: var(--color-navy); display: block; margin-bottom: var(--space-2); }
+      .contact-info a { color: var(--color-navy); font-weight: var(--weight-semibold); word-break: break-all; }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation"></nav>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — American Visa Guide</title>
-  <meta name="description" content="Privacy policy and GDPR compliance information for American Visa Guide. Learn how we handle your data and your privacy rights.">
-  <link rel="canonical" href="https://www.americanvisaguide.com/privacy">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <style>
-    .privacy-container { max-width: 900px; margin: 0 auto; padding: var(--space-8) var(--space-4); }
-    .privacy-header { margin-bottom: var(--space-8); padding-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); }
-    .privacy-title { font-family: var(--font-display); font-size: var(--text-4xl); color: var(--color-text); margin-bottom: var(--space-2); }
-    .privacy-subtitle { font-size: var(--text-sm); color: var(--color-text-muted); }
-    .privacy-intro { font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-8); }
-    .privacy-section { margin-bottom: var(--space-8); }
-    .privacy-section h2 { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--color-text); margin-bottom: var(--space-4); padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
-    .privacy-section ol, .privacy-section ul { margin-left: var(--space-5); margin-bottom: var(--space-4); }
-    .privacy-section li { margin-bottom: var(--space-3); color: var(--color-text-secondary); line-height: var(--leading-relaxed); }
-    .privacy-section p { margin-bottom: var(--space-4); color: var(--color-text-secondary); line-height: var(--leading-relaxed); }
-    .privacy-section strong { color: var(--color-text); }
-    .privacy-section a { color: var(--color-primary); text-decoration: underline; }
-    .info-box { background: var(--color-primary-subtle); border: 1px solid var(--color-primary-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin: var(--space-6) 0; font-size: var(--text-sm); color: var(--color-primary); line-height: var(--leading-relaxed); }
-    .contact-info { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-top: var(--space-6); }
-    .contact-info strong { color: var(--color-text); display: block; margin-bottom: var(--space-2); }
-    .contact-info a { color: var(--color-primary); text-decoration: underline; word-break: break-all; }
-  </style>
-</head>
-<body>
-  <!-- Skip to main content link -->
-  <a href="#main-content" class="skip-to-main" style="position: absolute; top: -40px; left: 0; background: var(--color-primary); color: white; padding: 8px 16px; text-decoration: none; z-index: 100;">Skip to main content</a>
+    <main id="main">
+      <div class="container">
+        <div class="privacy-container">
+          <header class="privacy-header">
+            <h1 class="privacy-title">Privacy Policy</h1>
+            <p class="privacy-subtitle">Last updated: 30 May 2026</p>
+          </header>
 
-  <div id="nav-placeholder"></div>
-  
-  <main id="main-content">
-    <div class="privacy-container">
-      <header class="privacy-header">
-        <h1 class="privacy-title">Privacy Policy</h1>
-        <p class="privacy-subtitle">Last updated: 30 May 2026</p>
-      </header>
+          <div class="privacy-intro">
+            <p><strong>americanvisaguide.com</strong> is a community resource operated by Erin Dyer Saxon. This privacy policy explains how we collect, use, and protect your data.</p>
+          </div>
 
-      <div class="privacy-intro">
-        <p><strong>americanvisaguide.com</strong> is a community resource operated by Erin Dyer Saxon. This privacy policy explains how we collect, use, and protect your data.</p>
-      </div>
+          <section class="privacy-section">
+            <h2>What Data We Collect</h2>
 
-      <!-- WHAT DATA WE COLLECT -->
-      <section class="privacy-section">
-        <h2>What Data We Collect</h2>
+            <h3>1. Timeline submissions via FillOut</h3>
+            <p>When you submit your visa timeline via the FillOut form, you provide dates and milestones (I-130 approval, NVC, DQ, IL, medical, interview, passport received, arrival, green card, SSN). This data is stored in Supabase and used to generate aggregate statistics displayed on this site.</p>
+            <p><strong>Important:</strong> Individual submissions are not publicly displayed — only aggregated trends and anonymised statistics are shown. Your personal data is never shared or sold. <a href="https://www.fillout.com/privacy" target="_blank" rel="noopener">FillOut's privacy policy</a> governs form submissions.</p>
 
-        <h3 style="font-family: var(--font-body); font-size: var(--text-lg); color: var(--color-text); margin-top: var(--space-4); margin-bottom: var(--space-2);">1. Timeline submissions via FillOut</h3>
-        <p>When you submit your visa timeline via the FillOut form, you provide dates and milestones (I-130 approval, NVC, DQ, IL, medical, interview, passport received, arrival, green card, SSN). This data is stored in Supabase and used to generate aggregate statistics displayed on this site.</p>
-        <p><strong>Important:</strong> Individual submissions are not publicly displayed — only aggregated trends and anonymised statistics are shown. Your personal data is never shared or sold. <a href="https://www.fillout.com/privacy" target="_blank" rel="noopener noreferrer">FillOut's privacy policy</a> governs form submissions.</p>
+            <h3>2. Analytics via Microsoft Clarity</h3>
+            <p>This site uses Microsoft Clarity to understand how visitors interact with it. Clarity may record session replays and heatmaps. No personal data is intentionally included in Clarity sessions. <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener">Microsoft Clarity's privacy policy</a> applies to analytics.</p>
 
-        <h3 style="font-family: var(--font-body); font-size: var(--text-lg); color: var(--color-text); margin-top: var(--space-4); margin-bottom: var(--space-2);">2. Analytics via Microsoft Clarity</h3>
-        <p>This site uses Microsoft Clarity to understand how visitors interact with it. Clarity may record session replays and heatmaps. No personal data is intentionally included in Clarity sessions. <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft Clarity's privacy policy</a> applies to analytics.</p>
+            <h3>3. Browser-stored worksheet data</h3>
+            <p>The DS-260 and I-864 worksheets store your inputs in your browser tab memory only. This data is never transmitted to any server and is lost when you close or refresh the tab. <strong>We have no access to your worksheet inputs.</strong></p>
 
-        <h3 style="font-family: var(--font-body); font-size: var(--text-lg); color: var(--color-text); margin-top: var(--space-4); margin-bottom: var(--space-2);">3. Browser-stored worksheet data</h3>
-        <p>The DS-260 and I-864 worksheets store your inputs in your browser tab memory only. This data is never transmitted to any server and is lost when you close or refresh the tab. <strong>We have no access to your worksheet inputs.</strong></p>
+            <h3>4. Cookies</h3>
+            <p>This site uses <strong>no first-party cookies</strong>. Microsoft Clarity may set third-party cookies for session analytics. <strong>No advertising or tracking cookies are used.</strong></p>
+          </section>
 
-        <h3 style="font-family: var(--font-body); font-size: var(--text-lg); color: var(--color-text); margin-top: var(--space-4); margin-bottom: var(--space-2);">4. Cookies</h3>
-        <p>This site uses <strong>no first-party cookies</strong>. Microsoft Clarity may set third-party cookies for session analytics. <strong>No advertising or tracking cookies are used.</strong></p>
-      </section>
+          <section class="privacy-section">
+            <h2>Your Privacy Rights (UK GDPR)</h2>
+            <p>Under UK GDPR, you have the following rights:</p>
+            <ul>
+              <li><strong>Right to access:</strong> You can request a copy of the personal data we hold about you</li>
+              <li><strong>Right to correct:</strong> You can request that we correct any inaccurate data</li>
+              <li><strong>Right to erasure:</strong> If you submitted a timeline and wish to have it removed, we will delete your submission and recalculate aggregate statistics</li>
+              <li><strong>Right to object:</strong> You can object to the processing of your personal data</li>
+            </ul>
+            <p>To exercise any of these rights, contact us at <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a>.</p>
+          </section>
 
-      <!-- YOUR RIGHTS -->
-      <section class="privacy-section">
-        <h2>Your Privacy Rights (UK GDPR)</h2>
-        <p>Under UK GDPR, you have the following rights:</p>
-        <ul>
-          <li><strong>Right to access:</strong> You can request a copy of the personal data we hold about you</li>
-          <li><strong>Right to correct:</strong> You can request that we correct any inaccurate data</li>
-          <li><strong>Right to erasure:</strong> If you submitted a timeline and wish to have it removed, we will delete your submission and recalculate aggregate statistics</li>
-          <li><strong>Right to object:</strong> You can object to the processing of your personal data</li>
-        </ul>
-        <p>To exercise any of these rights, contact us at <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a>.</p>
-      </section>
+          <section class="privacy-section">
+            <h2>Data Retention</h2>
+            <p>Timeline submissions are retained indefinitely to maintain community statistics accuracy. If you request deletion, your submission will be removed and aggregate statistics will be recalculated.</p>
+            <p>Browser-stored worksheet data is automatically deleted when you close or refresh your tab — we do not retain it.</p>
+          </section>
 
-      <!-- DATA RETENTION -->
-      <section class="privacy-section">
-        <h2>Data Retention</h2>
-        <p>Timeline submissions are retained indefinitely to maintain community statistics accuracy. If you request deletion, your submission will be removed and aggregate statistics will be recalculated.</p>
-        <p>Browser-stored worksheet data is automatically deleted when you close or refresh your tab — we do not retain it.</p>
-      </section>
+          <section class="privacy-section">
+            <h2>Third-Party Services</h2>
+            <p>This site uses the following third-party services, each with their own privacy policies:</p>
+            <ul>
+              <li><strong>Supabase:</strong> Data storage and community timeline database — <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
+              <li><strong>FillOut:</strong> Form collection and submission — <a href="https://www.fillout.com/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
+              <li><strong>Microsoft Clarity:</strong> Session analytics and heatmaps — <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener">Privacy statement</a></li>
+              <li><strong>Ko-fi:</strong> Support donations (if used) — <a href="https://more.ko-fi.com/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
+            </ul>
+            <p>We recommend reviewing the privacy policies of these services to understand how they handle your data.</p>
+          </section>
 
-      <!-- THIRD-PARTY SERVICES -->
-      <section class="privacy-section">
-        <h2>Third-Party Services</h2>
-        <p>This site uses the following third-party services, each with their own privacy policies:</p>
-        <ul>
-          <li><strong>Supabase:</strong> Data storage and community timeline database — <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
-          <li><strong>FillOut:</strong> Form collection and submission — <a href="https://www.fillout.com/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
-          <li><strong>Microsoft Clarity:</strong> Session analytics and heatmaps — <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Privacy statement</a></li>
-          <li><strong>Ko-fi:</strong> Support donations (if used) — <a href="https://more.ko-fi.com/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
-        </ul>
-        <p>We recommend reviewing the privacy policies of these services to understand how they handle your data.</p>
-      </section>
+          <div class="info-box">
+            <strong>⚖️ Not Legal Advice</strong><br/>
+            <p style="margin: var(--space-3) 0 0 0;">This site provides general immigration information based on official government sources and community experience. <strong>Nothing on this site constitutes legal advice.</strong> For legal advice regarding your specific visa case, consult a qualified immigration attorney licensed to practice in your jurisdiction.</p>
+          </div>
 
-      <!-- LEGAL DISCLAIMER -->
-      <div class="info-box">
-        <strong>⚖️ Not Legal Advice</strong><br>
-        This site provides general immigration information based on official government sources and community experience. <strong>Nothing on this site constitutes legal advice.</strong> For legal advice regarding your specific visa case, consult a qualified immigration attorney licensed to practice in your jurisdiction.
-      </div>
+          <section class="privacy-section">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+              <strong>For privacy concerns or to exercise your rights:</strong>
+              <p>Email: <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a></p>
+            </div>
+          </section>
 
-      <!-- CONTACT -->
-      <section class="privacy-section">
-        <h2>Contact Us</h2>
-        <div class="contact-info">
-          <strong>For privacy concerns or to exercise your rights:</strong><br>
-          Email: <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a>
+          <section class="privacy-section">
+            <h2>Changes to This Policy</h2>
+            <p>We may update this privacy policy from time to time. The "Last updated" date at the top of this page indicates when the policy was last changed. We encourage you to review this policy periodically.</p>
+          </section>
         </div>
-      </section>
+      </div>
+    </main>
 
-      <!-- CHANGES TO POLICY -->
-      <section class="privacy-section">
-        <h2>Changes to This Policy</h2>
-        <p>We may update this privacy policy from time to time. The "Last updated" date at the top of this page indicates when the policy was last changed. We encourage you to review this policy periodically.</p>
-      </section>
-    </div>
-  </main>
-
-  <div id="footer-placeholder"></div>
-
-  <script src="/js/main.js"></script>
-  <!-- WCAG 2.1 AA — audited 2026-05-30 — privacy policy page with proper semantic structure, accessible links, and GDPR compliance documentation -->
-
-  <script src="/js/cookie-notice.js"></script>
-</body>
+    <footer></footer>
+    <script src="/js/shared.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        renderPage({
+          title: 'Privacy Policy — American Visa Guide',
+          description: 'Privacy policy for americanvisaguide.com',
+          activePage: ''
+        });
+      });
+    </script>
+  </body>
 </html>
