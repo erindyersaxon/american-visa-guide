@@ -1,65 +1,200 @@
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+// Supabase integration for American Visa Guide
+// Loads Supabase client from CDN and fetches data from tables
 
-const SUPABASE_URL = 'https://lkssaokcpqilrfwagxnv.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxrc3Nhb2tjcHFpbHJmd2FneG52Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MjY5MzQsImV4cCI6MjA5NDAwMjkzNH0.oQSl-_JOE4ESrpTqTUoVlnxlVubx7Gi8TdZwgvfL7Kg';
+// Environment setup: Supabase credentials should be injected via window.ENV by Vercel build
+// If not available, functions will return null and pages will use static fallbacks
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const SUPABASE_URL = window.ENV?.SUPABASE_URL || '';
+const SUPABASE_ANON_KEY = window.ENV?.SUPABASE_ANON_KEY || '';
 
-export async function fetchILDrops() {
+// Cache with 5-minute TTL (300000 ms)
+const cache = {};
+const CACHE_TTL = 300000;
+
+function isCacheValid(key) {
+  if (!cache[key]) return false;
+  const age = Date.now() - cache[key].timestamp;
+  return age < CACHE_TTL;
+}
+
+function getFromCache(key) {
+  if (isCacheValid(key)) return cache[key].data;
+  delete cache[key];
+  return null;
+}
+
+function setCache(key, data) {
+  cache[key] = { data, timestamp: Date.now() };
+}
+
+// Initialize Supabase client (loaded from CDN)
+let supabaseClient = null;
+
+async function initSupabase() {
+  if (supabaseClient) return supabaseClient;
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+    console.warn('Supabase credentials not available. Using static fallbacks.');
+    return null;
+  }
+  
   try {
-    const { data, error } = await supabase
-      .from('il_drops')
-      .select('*')
-      .order('recorded_at', { ascending: false });
-    if (error) throw error;
-    return data ?? [];
+    const { createClient } = window.supabase;
+    supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    return supabaseClient;
   } catch (err) {
-    console.error('fetchILDrops error:', err);
-    return [];
+    console.error('Failed to initialize Supabase:', err);
+    return null;
   }
 }
 
-export async function fetchCommunityStats() {
+// ============================================
+// PUBLIC FUNCTIONS — CALLED BY HTML PAGES
+// ============================================
+
+/**
+ * fetchILDrops - IL appointment drop history
+ * Returns: array of { date, gap_days, time_uk, dq_date_from, dq_date_to, dq_range_days, il_count, notes }
+ */
+async function fetchILDrops() {
+  const cacheKey = 'il_drops';
+  const cached = getFromCache(cacheKey);
+  if (cached) return cached;
+
+  const client = await initSupabase();
+  if (!client) return null;
+
   try {
-    const { data, error } = await supabase
+    const { data, error } = await client
+      .from('il_drops')
+      .select('*')
+      .order('date', { ascending: false });
+    
+    if (error) throw error;
+    setCache(cacheKey, data);
+    return data;
+  } catch (err) {
+    console.error('fetchILDrops error:', err);
+    return null;
+  }
+}
+
+/**
+ * fetchCommunityStats - Aggregate community statistics
+ * Returns: { total_members, waiting_for_il, dq_to_il_avg_all, dq_to_il_avg_6m, dq_to_il_avg_3m,
+ *            il_to_interview_avg_all, il_to_interview_avg_6m, approved_pct, pending_221g_pct, denied_pct,
+ *            pickup_days_avg, mail_days_avg, interview_count_total }
+ */
+async function fetchCommunityStats() {
+  const cacheKey = 'community_stats';
+  const cached = getFromCache(cacheKey);
+  if (cached) return cached;
+
+  const client = await initSupabase();
+  if (!client) return null;
+
+  try {
+    const { data, error } = await client
       .from('community_stats')
       .select('*')
-      .order('recorded_at', { ascending: false })
-      .limit(1)
       .single();
+    
     if (error) throw error;
-    return data ?? null;
+    setCache(cacheKey, data);
+    return data;
   } catch (err) {
     console.error('fetchCommunityStats error:', err);
     return null;
   }
 }
 
-export async function fetchMemberTimelines() {
+/**
+ * fetchMemberTimelines - Individual member timelines for per-stage analysis
+ * Returns: array of { i130_to_nvc_days, nvc_fee_to_docs_days, docs_to_dq_days, dq_to_il_days,
+ *                      il_to_medical_days, medical_to_interview_days, interview_to_passport_days,
+ *                      visa_category, embassy }
+ */
+async function fetchMemberTimelines() {
+  const cacheKey = 'member_timelines';
+  const cached = getFromCache(cacheKey);
+  if (cached) return cached;
+
+  const client = await initSupabase();
+  if (!client) return null;
+
   try {
-    const { data, error } = await supabase
+    const { data, error } = await client
       .from('member_timelines')
-      .select('*')
-      .order('created_at', { ascending: false });
+      .select('*');
+    
     if (error) throw error;
-    return data ?? [];
+    setCache(cacheKey, data);
+    return data;
   } catch (err) {
     console.error('fetchMemberTimelines error:', err);
-    return [];
+    return null;
   }
 }
 
-export async function fetchWeeklyActivity() {
+/**
+ * fetchWeeklyActivity - Activities in the current week
+ * Returns: { interviews_this_week, medicals_this_week, flights_this_week, dq_this_week, i130_approved_this_week }
+ */
+async function fetchWeeklyActivity() {
+  const cacheKey = 'weekly_activity';
+  const cached = getFromCache(cacheKey);
+  if (cached) return cached;
+
+  const client = await initSupabase();
+  if (!client) return null;
+
   try {
-    const { data, error } = await supabase
+    const { data, error } = await client
       .from('weekly_activity')
       .select('*')
-      .order('week_start', { ascending: false })
-      .limit(12);
+      .single();
+    
     if (error) throw error;
-    return data ?? [];
+    setCache(cacheKey, data);
+    return data;
   } catch (err) {
     console.error('fetchWeeklyActivity error:', err);
-    return [];
+    return null;
   }
 }
+
+/**
+ * fetchSettlementData - Where community members have settled
+ * Returns: array of { state_code, state_name, member_count, gc_median_days, ssn_median_days, intervention_rate }
+ */
+async function fetchSettlementData() {
+  const cacheKey = 'settlement_data';
+  const cached = getFromCache(cacheKey);
+  if (cached) return cached;
+
+  const client = await initSupabase();
+  if (!client) return null;
+
+  try {
+    const { data, error } = await client
+      .from('settlement_data')
+      .select('*')
+      .order('member_count', { ascending: false });
+    
+    if (error) throw error;
+    setCache(cacheKey, data);
+    return data;
+  } catch (err) {
+    console.error('fetchSettlementData error:', err);
+    return null;
+  }
+}
+
+// Export for ES modules
+export {
+  fetchILDrops,
+  fetchCommunityStats,
+  fetchMemberTimelines,
+  fetchWeeklyActivity,
+  fetchSettlementData,
+  initSupabase
+};

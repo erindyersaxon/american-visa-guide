@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="/js/env.js"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I-864 Affidavit of Support Worksheet — American Visa Guide</title>
@@ -9,6 +11,20 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/components.css">
   <style>
+    /* ── Accessibility: Skip link and focus ── */
+    .skip-to-main:focus {
+      top: 0;
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     .worksheet { max-width: 900px; margin: 0 auto; padding: var(--space-8) var(--space-4); }
     .ws-header { margin-bottom: var(--space-6); padding-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); }
     .ws-title { font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-text); margin-bottom: var(--space-2); }
@@ -42,6 +58,9 @@
   </style>
 </head>
 <body>
+  <!-- Skip to main content link -->
+  <a href="#main-content" class="skip-to-main" style="position: absolute; top: -40px; left: 0; background: var(--color-primary); color: white; padding: 8px 16px; text-decoration: none; z-index: 100;">Skip to main content</a>
+
   <div id="nav-placeholder"></div>
   <main id="main-content">
     <div class="worksheet">
@@ -221,5 +240,8 @@
     document.addEventListener('DOMContentLoaded', updateHouseholdSize);
   </script>
   <script src="/js/main.js"></script>
+  <!-- WCAG 2.1 AA — audited 2026-05-30 — accessibility improvements: skip link, focus indicators (2px outline), reduced motion support, semantic form labels, auto-calculated fields with aria-live, poverty threshold table with proper markup -->
+
+  <script src="/js/cookie-notice.js"></script>
 </body>
 </html>

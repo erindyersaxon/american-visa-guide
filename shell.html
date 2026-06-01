@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- CHARSET & VIEWPORT -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TITLE & DESCRIPTION -->
+    <title>Page Title — American Visa Guide</title>
+    <meta name="description" content="Page description goes here." />
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Page Title" />
+    <meta property="og:description" content="Page description goes here." />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://americanvisaguide.com" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Page Title" />
+    <meta name="twitter:description" content="Page description goes here." />
+    <meta name="twitter:image" content="/og-image.svg" />
+
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://americanvisaguide.com" />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- DESIGN SYSTEM -->
+    <link rel="stylesheet" href="/css/design-system.css" />
+
+    <!-- PRINT STYLES -->
+    <link rel="stylesheet" href="/css/print.css" media="print" />
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- COOKIEBOT (blocking mode) -->
+    <script
+      id="CookieDeclaration"
+      src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js"
+      type="text/javascript"
+      async
+    ></script>
+  </head>
+
+  <body>
+    <!-- SKIP LINK -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- NAVIGATION (populated by shared.js) -->
+    <nav role="navigation" aria-label="Main navigation"></nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="main">
+      <div class="container">
+        <h1>Page Title</h1>
+        <p>Page content goes here.</p>
+      </div>
+    </main>
+
+    <!-- FOOTER (populated by shared.js) -->
+    <footer></footer>
+
+    <!-- SHARED COMPONENTS -->
+    <script src="/js/shared.js"></script>
+
+    <!-- PAGE-SPECIFIC INITIALIZATION -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderPage({
+          title: "Page Title",
+          description: "Page description goes here.",
+          activePage: "page-slug",
+        });
+      });
+    </script>
+
+    <!-- CLARITY (deferred until consent) -->
+    <script
+      type="text/plain"
+      data-cookieconsent="statistics"
+      src="https://www.clarity.ms/tag/wlfs757o2n"
+    ></script>
+  </body>
+</html>

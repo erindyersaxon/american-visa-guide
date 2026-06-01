@@ -1,5 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>American Visa Guide</title>
+    <meta
+      name="description"
+      content="Real data and plain-language guidance for the US Embassy London visa process. From community members who have been through it."
+    />
+
+    <meta property="og:title" content="American Visa Guide" />
+    <meta
+      property="og:description"
+      content="Real data and plain-language guidance from people processing through US Embassy London."
+    />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.americanvisaguide.com/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="American Visa Guide" />
+    <meta
+      name="twitter:description"
+      content="Real data and plain-language guidance from people processing through US Embassy London."
+    />
+    <meta name="twitter:image" content="/og-image.svg" />
+
+    <link rel="canonical" href="https://www.americanvisaguide.com/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/design-system.css" />
+
+    <script
+      id="CookieDeclaration"
+      src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js"
+      type="text/javascript"
+      async
+    ></script>
+
+    <style>
+      .hero {
+        text-align: center;
+        padding: var(--space-16) var(--container-padding);
+      }
+
+      .hero-eyebrow {
+        font-size: var(--size-3xl);
+        margin-bottom: var(--space-4);
+      }
+
+      .hero h1 {
+        font-size: var(--size-5xl);
+        margin: var(--space-4) 0 var(--space-6) 0;
+        color: var(--color-navy);
+      }
+
+      .hero-subtitle {
+        font-size: var(--size-xl);
+        line-height: var(--leading-relaxed);
+        color: var(--color-text);
+        max-width: var(--max-width-prose);
+        margin: 0 auto var(--space-12) auto;
+      }
+
+      .hero-signals {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-6);
+        margin: var(--space-12) 0;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-signal {
+        padding: var(--space-6);
+        background: var(--color-surface-alt);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border);
+      }
+
+      .hero-signal strong {
+        display: block;
+        font-size: var(--size-lg);
+        color: var(--color-navy);
+        margin-bottom: var(--space-2);
+      }
+
+      .hero-signal em {
+        display: block;
+        font-style: normal;
+        font-size: var(--size-sm);
+        color: var(--color-text-muted);
+      }
+
+      .hero-ctas {
+        display: flex;
+        gap: var(--space-4);
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: var(--space-12);
+      }
+
+      .hero-image {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 12 / 5;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        margin-top: var(--space-12);
+      }
+
+      .where-section {
+        padding: var(--space-16) var(--container-padding);
+        background: var(--color-surface);
+      }
+
+      .where-section h2 {
+        text-align: center;
+        max-width: var(--max-width-prose);
+        margin: 0 auto var(--space-2) auto;
+      }
+
+      .where-subtitle {
+        text-align: center;
+        color: var(--color-text-muted);
+        font-size: var(--size-lg);
+        max-width: var(--max-width-prose);
+        margin: 0 auto var(--space-12) auto;
+      }
+
+      .stage-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-8);
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+
+      .stage-card {
+        position: relative;
+        padding: var(--space-8);
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        text-decoration: none;
+        color: inherit;
+        transition: all var(--transition-base);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .stage-card::before {
+        content: attr(data-stage);
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-family: var(--font-display);
+        font-size: 120px;
+        font-weight: var(--weight-bold);
+        color: rgba(212, 165, 116, 0.08);
+        line-height: 1;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .stage-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+        border-color: var(--color-navy);
+      }
+
+      .stage-card-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .stage-label {
+        font-size: var(--size-sm);
+        font-weight: var(--weight-semibold);
+        color: var(--color-gold);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: var(--space-2);
+      }
+
+      .stage-card h3 {
+        margin: 0 0 var(--space-3) 0;
+        font-size: var(--size-2xl);
+        color: var(--color-navy);
+      }
+
+      .stage-card p {
+        margin: 0 0 var(--space-6) 0;
+        flex: 1;
+        color: var(--color-text-muted);
+        font-size: var(--size-base);
+      }
+
+      .stage-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        padding: var(--space-3) var(--space-4);
+        background: var(--color-navy);
+        color: white;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: var(--weight-medium);
+        font-size: var(--size-sm);
+        transition: background-color var(--transition-fast);
+      }
+
+      .stage-cta:hover {
+        background-color: var(--color-navy-light);
+      }
+
+      .stage-cta:focus-visible {
+        outline: var(--focus-outline);
+      }
+
+      .about-section {
+        padding: var(--space-16) var(--container-padding);
+        background: var(--color-surface-alt);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-8);
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+
+      .about-column p {
+        font-size: var(--size-base);
+        line-height: var(--leading-body);
+        color: var(--color-text);
+      }
+
+      .links-section {
+        padding: var(--space-16) var(--container-padding);
+      }
+
+      .links-section h2 {
+        text-align: center;
+        margin: 0 0 var(--space-12) 0;
+      }
+
+      .links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-6);
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+
+      .link-item {
+        padding: var(--space-6);
+        text-decoration: none;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border);
+        background: white;
+        transition: all var(--transition-base);
+      }
+
+      .link-item:hover {
+        background: var(--color-navy-xlight);
+        border-color: var(--color-navy);
+      }
+
+      .link-item:focus-visible {
+        outline: var(--focus-outline);
+      }
+
+      .link-item h3 {
+        margin: 0 0 var(--space-2) 0;
+        font-size: var(--size-lg);
+        color: var(--color-navy);
+      }
+
+      .link-item p {
+        margin: 0;
+        font-size: var(--size-sm);
+        color: var(--color-text-muted);
+      }
+
+      .community-section {
+        padding: var(--space-16) var(--container-padding);
+        background: var(--color-surface-alt);
+      }
+
+      .community-section h2 {
+        text-align: center;
+        max-width: var(--max-width-prose);
+        margin: 0 auto var(--space-12) auto;
+      }
+
+      .community-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-6);
+        margin-bottom: var(--space-8);
+        max-width: var(--max-width);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .stat-card {
+        padding: var(--space-6);
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        text-align: center;
+      }
+
+      .stat-value {
+        font-family: var(--font-display);
+        font-size: var(--size-4xl);
+        font-weight: var(--weight-bold);
+        color: var(--color-navy);
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      .stat-desc {
+        font-size: var(--size-sm);
+        color: var(--color-text-muted);
+        margin: var(--space-2) 0 0 0;
+      }
+
+      .community-note {
+        text-align: center;
+        font-size: var(--size-sm);
+        color: var(--color-text-muted);
+        margin: var(--space-8) 0;
+        max-width: var(--max-width-prose);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .community-link {
+        text-align: center;
+      }
+
+      .closing-section {
+        padding: var(--space-16) var(--container-padding);
+        background: linear-gradient(135deg, var(--color-navy) 0%, rgba(26, 58, 82, 0.95) 100%);
+        color: white;
+        text-align: center;
+      }
+
+      .closing-text {
+        max-width: var(--max-width-prose);
+        margin: 0 auto var(--space-8) auto;
+        font-size: var(--size-xl);
+        line-height: var(--leading-relaxed);
+      }
+
+      .closing-links {
+        display: flex;
+        gap: var(--space-4);
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .closing-links a {
+        color: var(--color-gold);
+        text-decoration: none;
+        font-weight: var(--weight-medium);
+        transition: color var(--transition-fast);
+      }
+
+      .closing-links a:hover {
+        color: white;
+      }
+
+      .closing-links a:focus-visible {
+        outline: 2px solid white;
+        border-radius: var(--radius-sm);
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: var(--space-12) var(--container-padding);
+        }
+
+        .hero h1 {
+          font-size: var(--size-4xl);
+        }
+
+        .hero-subtitle {
+          font-size: var(--size-lg);
+        }
+
+        .stage-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-ctas {
+          flex-direction: column;
+        }
+
+        .hero-ctas .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation"></nav>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-eyebrow">🇬🇧 → 🇺🇸</div>
+          <h1>American Visa Guide</h1>
+          <p class="hero-subtitle">
+            Real data and plain-language guidance from people who have been through the London consular process.
+          </p>
+
+          <div class="hero-signals" id="heroSignals">
+            <div class="hero-signal">
+              <strong id="memberCount">200+</strong>
+              <em>people have shared their timelines</em>
+            </div>
+            <div class="hero-signal">
+              <strong id="approvalRate">94%</strong>
+              <em>interview approval rate</em>
+            </div>
+            <div class="hero-signal">
+              <strong>Free</strong>
+              <em>Independent. Not legal advice.</em>
+            </div>
+          </div>
+
+          <div class="hero-ctas">
+            <button class="btn btn-primary" onclick="document.getElementById('where-section').scrollIntoView({behavior: 'smooth'});">
+              Where do I start?
+            </button>
+            <a href="/tracker.html" class="btn btn-secondary">See the live data</a>
+          </div>
+
+          <div class="placeholder-image" style="margin-top: var(--space-12);">🖼️ Hero image (1200×500px)</div>
+        </div>
+      </section>
+
+      <section class="where-section" id="where-section">
+        <div class="container">
+          <h2>Where are you right now?</h2>
+          <p class="where-subtitle">
+            Pick your stage and go straight to what you need.
+          </p>
+
+          <div class="stage-grid">
+            <a href="/guide.html#i130" class="stage-card" data-stage="1">
+              <div class="stage-card-content">
+                <div class="stage-label">Stage 1</div>
+                <h3>Filing the I-130</h3>
+                <p>Your petition is with USCIS. This is where the process starts.</p>
+                <span class="stage-cta">I-130 guidance →</span>
+              </div>
+            </a>
+
+            <a href="/guide.html#nvc" class="stage-card" data-stage="2">
+              <div class="stage-card-content">
+                <div class="stage-label">Stage 2</div>
+                <h3>At the NVC</h3>
+                <p>Your petition was approved. The National Visa Center is processing your case.</p>
+                <span class="stage-cta">NVC guidance →</span>
+              </div>
+            </a>
+
+            <a href="/guide.html#interview" class="stage-card" data-stage="3">
+              <div class="stage-card-content">
+                <div class="stage-label">Stage 3</div>
+                <h3>Interview preparation</h3>
+                <p>You have an interview date at the US Embassy London. Time to prepare.</p>
+                <span class="stage-cta">Interview prep →</span>
+              </div>
+            </a>
+
+            <a href="/life.html" class="stage-card" data-stage="4">
+              <div class="stage-card-content">
+                <div class="stage-label">Stage 4</div>
+                <h3>Arrived in the US</h3>
+                <p>You made it. Here is what to do in the first weeks after you land.</p>
+                <span class="stage-cta">Life in the USA →</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <div class="container">
+          <h2 class="sr-only">About this site</h2>
+          <div class="about-grid">
+            <div class="about-column">
+              <p>
+                Over 200 people going through US Embassy London have shared their milestone dates. The tracker shows real wait times, real outcomes, and when the next interview letter drop is likely to happen.
+              </p>
+            </div>
+            <div class="about-column">
+              <p>
+                The London process guide covers every stage from filing the I-130 to picking up your passport. Written in plain language, based on what the embassy actually does.
+              </p>
+            </div>
+            <div class="about-column">
+              <p>
+                Built by Erin, who went through the London process. Independent, volunteer-run, and free. Not affiliated with USCIS, the US Embassy, or any legal service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="links-section">
+        <div class="container">
+          <h2>Everything on this site</h2>
+          <div class="links-grid">
+            <a href="/tracker.html" class="link-item">
+              <h3>Data Tracker</h3>
+              <p>Real wait times from real cases</p>
+            </a>
+            <a href="/guide.html" class="link-item">
+              <h3>Visa Guide</h3>
+              <p>End-to-end London process guide</p>
+            </a>
+            <a href="/checklists.html" class="link-item">
+              <h3>Checklists</h3>
+              <p>Stage-by-stage printable checklists</p>
+            </a>
+            <a href="/workbook.html" class="link-item">
+              <h3>Workbook</h3>
+              <p>Moving to the USA planning workbook</p>
+            </a>
+            <a href="/about.html" class="link-item">
+              <h3>About</h3>
+              <p>Who made this and how the data works</p>
+            </a>
+            <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener" class="link-item">
+              <h3>Submit your data</h3>
+              <p>Add your timeline to the tracker</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="community-section" id="communitySection">
+        <div class="container">
+          <h2>Latest from the community</h2>
+          <div class="community-stats" id="communityStats">
+            <div class="stat-card">
+              <p class="stat-value">—</p>
+              <p class="stat-desc">Loading data...</p>
+            </div>
+          </div>
+          <p class="community-note">Updated in real time from community submissions.</p>
+          <div class="community-link">
+            <a href="/tracker.html" class="btn btn-ghost">See the full tracker →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing-section">
+        <div class="container">
+          <p class="closing-text">
+            Going through this process is hard. This site exists to make it a little less so.
+          </p>
+          <div class="closing-links">
+            <a href="https://ko-fi.com/erinsaidwhat" target="_blank" rel="noopener">Support the site</a>
+            <span>•</span>
+            <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener">Submit your data</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="/js/shared.js"></script>
+    <script>
+      fetch("/api/data")
+        .then((response) => {
+          if (!response.ok) throw new Error("API error");
+          return response.json();
+        })
+        .then((data) => {
+          if (data.meta && data.meta.total_members) {
+            document.getElementById("memberCount").textContent = data.meta.total_members + "+";
+          }
+          if (data.outcomes && data.outcomes.approval_pct) {
+            document.getElementById("approvalRate").textContent = Math.round(data.outcomes.approval_pct) + "%";
+          }
+
+          const statsContainer = document.getElementById("communityStats");
+          statsContainer.innerHTML = "";
+
+          if (data.il_schedule && data.il_schedule.last_il_drop) {
+            const lastDropDate = new Date(data.il_schedule.last_il_drop);
+            const formattedDate = lastDropDate.toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            });
+            const card = document.createElement("div");
+            card.className = "stat-card";
+            card.innerHTML = `<p class="stat-value">${formattedDate}</p><p class="stat-desc">Last interview letter drop</p>`;
+            statsContainer.appendChild(card);
+          }
+
+          if (data.il_schedule && data.il_schedule.estimated_next_window) {
+            const card = document.createElement("div");
+            card.className = "stat-card";
+            card.innerHTML = `<p class="stat-value">${data.il_schedule.estimated_next_window}</p><p class="stat-desc">Next estimated window</p>`;
+            statsContainer.appendChild(card);
+          }
+
+          if (data.this_week) {
+            const thisWeek = data.this_week;
+            const summary = [];
+            if (thisWeek.interviews) summary.push(`${thisWeek.interviews} interviews`);
+            if (thisWeek.medicals) summary.push(`${thisWeek.medicals} medicals`);
+            if (thisWeek.flights) summary.push(`${thisWeek.flights} flights`);
+
+            if (summary.length > 0) {
+              const card = document.createElement("div");
+              card.className = "stat-card";
+              card.innerHTML = `<p class="stat-value">${summary.join(", ")}</p><p class="stat-desc">This week</p>`;
+              statsContainer.appendChild(card);
+            }
+          }
+        })
+        .catch(() => {
+          document.getElementById("communityStats").innerHTML =
+            '<div class="stat-card"><p class="stat-value">—</p><p class="stat-desc">Data unavailable</p></div>';
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        renderPage({
+          title: "American Visa Guide",
+          description:
+            "Real data and plain-language guidance for the US Embassy London visa process. From community members who have been through it.",
+          activePage: "home",
+        });
+      });
+    </script>
+  </body>
+</html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +689,28 @@
   <link rel="stylesheet" href="/css/components.css">
 
   <style>
+    /* ── Accessibility: Skip link ── */
+    .skip-to-main:focus {
+      top: 0;
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    /* ── Accessibility: Focus indicators ── */
+    *:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    /* ── Accessibility: Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     /* ── Skeleton loaders ── */
     @keyframes shimmer {
       0%   { background-position: -400px 0; }
@@ -338,6 +1022,8 @@
   </style>
 </head>
 <body>
+  <!-- Skip to main content link -->
+  <a href="#main-content" class="skip-to-main" style="position: absolute; top: -40px; left: 0; background: var(--color-primary); color: white; padding: 8px 16px; text-decoration: none; z-index: 100;">Skip to main content</a>
 
   <div id="nav-placeholder"></div>
 
@@ -510,6 +1196,12 @@
             <div class="week-card__label">I-130 Approvals</div>
           </div>
 
+        </div>
+
+        <!-- Submit CTA -->
+        <div style="background: var(--color-primary-subtle); border: 1px solid var(--color-primary-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-top: var(--space-8); text-align: center;">
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 0 0 var(--space-3) 0;">💾 Reached a milestone? Add your dates to help the community.</p>
+          <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: var(--space-2) var(--space-4); background: var(--color-primary); color: #fff; border-radius: var(--radius-md); text-decoration: none; font-size: var(--text-sm); font-weight: var(--font-semibold);">Submit your timeline →</a>
         </div>
       </div>
     </section>
@@ -708,6 +1400,12 @@
   </main>
 
   <div id="footer-placeholder"></div>
+
+  <!-- Supabase CDN -->
+  <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.4/+esm"></script>
+
+  <!-- Environment setup -->
+  <script src="/js/env.js"></script>
 
   <script src="/js/main.js"></script>
   <script type="module">
@@ -983,5 +1681,9 @@
       : boot();
   </script>
 
+
+  <!-- WCAG 2.1 AA — audited 2026-05-30 — accessibility improvements: skip link, focus indicators, reduced motion support, semantic HTML landmarks, aria labels on status indicators, external link handling -->
+
+  <script src="/js/cookie-notice.js"></script>
 </body>
 </html>

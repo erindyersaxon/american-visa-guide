@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I-130 Checklist — American Visa Guide</title>
+    <meta name="description" content="I-130 pre-submission audit checklist." />
+    <link rel="canonical" href="https://www.americanvisaguide.com/checklist-i130.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/print.css" media="print" />
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
+    <style>
+      .checklist-container { max-width: var(--max-width-prose); margin: 0 auto; }
+      .checklist-controls { display: flex; gap: var(--space-4); margin: var(--space-8) 0; flex-wrap: wrap; }
+      .progress-bar { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-6); background: var(--color-surface-alt); border-radius: var(--radius-lg); margin: var(--space-8) 0; }
+      .progress-text { font-weight: var(--weight-medium); color: var(--color-navy); }
+      .checklist-section { margin: var(--space-12) 0; }
+      .checklist-section h3 { margin-bottom: var(--space-6); }
+      .checklist-item { display: flex; gap: var(--space-4); margin-bottom: var(--space-4); padding: var(--space-4); background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+      .checklist-item input[type="checkbox"] { flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: var(--color-gold); }
+      .checklist-item label { flex: 1; cursor: pointer; }
+      .checklist-item input[type="checkbox"]:checked ~ label { color: var(--color-text-muted); }
+      .checklist-item input[type="checkbox"]:focus-visible { outline: var(--focus-outline); }
+      .warning-box { padding: var(--space-6); background: #fee2e2; border: 2px solid var(--color-error); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .warning-box strong { color: var(--color-error); }
+      .advanced-panel { margin-top: var(--space-8); }
+      .advanced-trigger { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--color-surface-alt); border: none; border-radius: var(--radius-md); cursor: pointer; font-weight: var(--weight-medium); color: var(--color-navy); width: 100%; }
+      .advanced-trigger:hover { background: var(--color-navy-xlight); }
+      .advanced-icon { transition: transform var(--transition-base); }
+      .advanced-trigger[aria-expanded="true"] .advanced-icon { transform: rotate(180deg); }
+      .advanced-content { max-height: 0; overflow: hidden; transition: max-height var(--transition-base); }
+      .advanced-trigger[aria-expanded="true"] ~ .advanced-content { max-height: 2000px; }
+      .advanced-body { padding: var(--space-6); background: var(--color-surface-alt); border-radius: 0 0 var(--radius-md) var(--radius-md); }
+      .disclaimer { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-12) 0; font-size: var(--size-sm); }
+      .placeholder-img { padding: var(--space-12); background: var(--color-surface-alt); border-radius: var(--radius-lg); text-align: center; color: var(--color-text-muted); margin: var(--space-12) 0; }
+      .back-link { display: inline-block; margin-top: var(--space-12); color: var(--color-gold); text-decoration: none; font-weight: var(--weight-medium); }
+      .back-link:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation"></nav>
+
+    <main id="main">
+      <div class="container">
+        <div class="checklist-container">
+          <h1>I-130 Pre-Submission Checklist</h1>
+          <p class="subtitle">Work through this before you file. Most RFEs are preventable.</p>
+
+          <div class="progress-bar">
+            <span class="progress-text" id="progress-i130">0 of 32 items checked</span>
+            <button class="btn btn-secondary btn-sm" id="reset-i130">Reset checklist</button>
+          </div>
+
+          <div data-checklist="i130">
+            <section class="checklist-section">
+              <h3>1. Case classification</h3>
+              <div class="checklist-item" data-item-id="class-1">
+                <input type="checkbox" id="class-1" />
+                <label for="class-1">Petitioner status confirmed (USC or permanent resident)</label>
+              </div>
+              <div class="checklist-item" data-item-id="class-2">
+                <input type="checkbox" id="class-2" />
+                <label for="class-2">Beneficiary category correct (IR1/CR1, IR5, F1, etc.)</label>
+              </div>
+              <div class="checklist-item" data-item-id="class-3">
+                <input type="checkbox" id="class-3" />
+                <label for="class-3">If CRBA: US citizen parent physical presence documented (5 years, 2 after age 14)</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>2. Forms and filing integrity</h3>
+              <div class="checklist-item" data-item-id="form-1">
+                <input type="checkbox" id="form-1" />
+                <label for="form-1">I-130 Part 1 (petitioner info): all fields complete</label>
+              </div>
+              <div class="checklist-item" data-item-id="form-2">
+                <input type="checkbox" id="form-2" />
+                <label for="form-2">I-130 Part 2 (beneficiary info): all fields complete</label>
+              </div>
+              <div class="checklist-item" data-item-id="form-3">
+                <input type="checkbox" id="form-3" />
+                <label for="form-3">Petitioner has signed Part 1 in correct signature box</label>
+              </div>
+              <div class="checklist-item" data-item-id="form-4">
+                <input type="checkbox" id="form-4" />
+                <label for="form-4">Beneficiary name matches all documents exactly</label>
+              </div>
+              <div class="checklist-item" data-item-id="form-5">
+                <input type="checkbox" id="form-5" />
+                <label for="form-5">All prior marriages disclosed (both petitioner and beneficiary)</label>
+              </div>
+              <div class="warning-box">
+                <p><strong>⚠️ Critical:</strong> Petitioner names and signatures must be in the correct spaces on the form. Wrong placement is a documented cause for I-130 denial. Check this carefully.</p>
+                <p><strong>Note:</strong> Beneficiary does not sign I-130A (outside the US).</p>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>3. Identity and civil documents</h3>
+              <div class="checklist-item" data-item-id="doc-1">
+                <input type="checkbox" id="doc-1" />
+                <label for="doc-1">Petitioner: certified birth certificate</label>
+              </div>
+              <div class="checklist-item" data-item-id="doc-2">
+                <input type="checkbox" id="doc-2" />
+                <label for="doc-2">Petitioner: proof of US citizenship (passport, certificate of naturalization, or birth certificate)</label>
+              </div>
+              <div class="checklist-item" data-item-id="doc-3">
+                <input type="checkbox" id="doc-3" />
+                <label for="doc-3">Beneficiary: certified birth certificate</label>
+              </div>
+              <div class="checklist-item" data-item-id="doc-4">
+                <input type="checkbox" id="doc-4" />
+                <label for="doc-4">Beneficiary: UK birth certificate translation (certified if required)</label>
+              </div>
+              <div class="checklist-item" data-item-id="doc-5">
+                <input type="checkbox" id="doc-5" />
+                <label for="doc-5">Marriage certificate (certified copy)</label>
+              </div>
+              <div class="checklist-item" data-item-id="doc-6">
+                <input type="checkbox" id="doc-6" />
+                <label for="doc-6">All divorce decrees or death certificates (if previously married)</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>4. Evidence quality audit</h3>
+              <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);">For spouse/CR1/IR1:</p>
+              <div class="checklist-item" data-item-id="evid-1">
+                <input type="checkbox" id="evid-1" />
+                <label for="evid-1">Joint bank account statements (6+ months)</label>
+              </div>
+              <div class="checklist-item" data-item-id="evid-2">
+                <input type="checkbox" id="evid-2" />
+                <label for="evid-2">Joint lease or mortgage with both names</label>
+              </div>
+              <div class="checklist-item" data-item-id="evid-3">
+                <input type="checkbox" id="evid-3" />
+                <label for="evid-3">Insurance policies naming each other as beneficiaries</label>
+              </div>
+              <div class="checklist-item" data-item-id="evid-4">
+                <input type="checkbox" id="evid-4" />
+                <label for="evid-4">Photos of relationship (wedding, vacations, recent together)</label>
+              </div>
+              <div class="checklist-item" data-item-id="evid-5">
+                <input type="checkbox" id="evid-5" />
+                <label for="evid-5">Travel records showing joint travel</label>
+              </div>
+              <div class="checklist-item" data-item-id="evid-6">
+                <input type="checkbox" id="evid-6" />
+                <label for="evid-6">Communication logs (emails, messages, letters)</label>
+              </div>
+              <div class="checklist-item" data-item-id="evid-7">
+                <input type="checkbox" id="evid-7" />
+                <label for="evid-7">Relationship timeline (how/where you met, dates of major milestones)</label>
+              </div>
+              <div class="checklist-item" data-item-id="evid-8">
+                <input type="checkbox" id="evid-8" />
+                <label for="evid-8">Affidavits from friends or family (if helpful)</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>5. Consistency audit</h3>
+              <div class="checklist-item" data-item-id="cons-1">
+                <input type="checkbox" id="cons-1" />
+                <label for="cons-1">Petitioner names identical across all documents</label>
+              </div>
+              <div class="checklist-item" data-item-id="cons-2">
+                <input type="checkbox" id="cons-2" />
+                <label for="cons-2">Beneficiary names identical across all documents</label>
+              </div>
+              <div class="checklist-item" data-item-id="cons-3">
+                <input type="checkbox" id="cons-3" />
+                <label for="cons-3">Dates of birth consistent everywhere</label>
+              </div>
+              <div class="checklist-item" data-item-id="cons-4">
+                <input type="checkbox" id="cons-4" />
+                <label for="cons-4">Addresses consistent (if multiple addresses, all explained)</label>
+              </div>
+              <div class="checklist-item" data-item-id="cons-5">
+                <input type="checkbox" id="cons-5" />
+                <label for="cons-5">No contradictions between I-130 statements and supporting evidence</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>6. RFE risk scan</h3>
+              <div class="checklist-item" data-item-id="rfe-1">
+                <input type="checkbox" id="rfe-1" />
+                <label for="rfe-1">Commingling of finances is strong (joint accounts, shared bills)</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-2">
+                <input type="checkbox" id="rfe-2" />
+                <label for="rfe-2">If long-distance, visits are documented and frequent</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-3">
+                <input type="checkbox" id="rfe-3" />
+                <label for="rfe-3">No major timeline gaps without explanation</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-4">
+                <input type="checkbox" id="rfe-4" />
+                <label for="rfe-4">All translations are certified where required</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-5">
+                <input type="checkbox" id="rfe-5" />
+                <label for="rfe-5">Documents are legible (scans are clear, photocopies readable)</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-6">
+                <input type="checkbox" id="rfe-6" />
+                <label for="rfe-6">Bona fide evidence covers the entire relationship, not just the proposal</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>7. CR1 vs IR1 forward planning</h3>
+              <div class="checklist-item" data-item-id="cr-1">
+                <input type="checkbox" id="cr-1" />
+                <label for="cr-1">Marriage date confirmed and documented</label>
+              </div>
+              <div class="checklist-item" data-item-id="cr-2">
+                <input type="checkbox" id="cr-2" />
+                <label for="cr-2">If married less than 2 years at expected US entry, CR1 applies</label>
+              </div>
+              <div class="checklist-item" data-item-id="cr-3">
+                <input type="checkbox" id="cr-3" />
+                <label for="cr-3">Original marriage certificate procured for CBP at US entry (CR1 holders)</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>8. Final packaging</h3>
+              <div class="checklist-item" data-item-id="pack-1">
+                <input type="checkbox" id="pack-1" />
+                <label for="pack-1">Documents organized in logical order</label>
+              </div>
+              <div class="checklist-item" data-item-id="pack-2">
+                <input type="checkbox" id="pack-2" />
+                <label for="pack-2">All scans are legible and at least 300 DPI</label>
+              </div>
+              <div class="checklist-item" data-item-id="pack-3">
+                <input type="checkbox" id="pack-3" />
+                <label for="pack-3">No missing pages (check document count)</label>
+              </div>
+              <div class="checklist-item" data-item-id="pack-4">
+                <input type="checkbox" id="pack-4" />
+                <label for="pack-4">All required forms are included</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>9. Post-submission monitoring</h3>
+              <div class="checklist-item" data-item-id="post-1">
+                <input type="checkbox" id="post-1" />
+                <label for="post-1">Expected: months of inactivity and generic "case is being processed" messages</label>
+              </div>
+              <div class="checklist-item" data-item-id="post-2">
+                <input type="checkbox" id="post-2" />
+                <label for="post-2">Meaningful signals: "Actively being reviewed" status or document tab updates</label>
+              </div>
+              <div class="checklist-item" data-item-id="post-3">
+                <input type="checkbox" id="post-3" />
+                <label for="post-3">Not meaningful: processing time fluctuations on myUSCIS (this is normal)</label>
+              </div>
+            </section>
+
+            <div class="advanced-panel">
+              <button class="advanced-trigger" aria-expanded="false" aria-controls="advanced">
+                <span>Advanced: USCIS JSON/API check</span>
+                <svg class="advanced-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" /></svg>
+              </button>
+              <div class="advanced-content" id="advanced">
+                <div class="advanced-body">
+                  <p>Some people attempt to check USCIS case processing via unofficial API tools or JSON data. This is not an official tool. Codes are not always interpretable, and data can be incomplete or misleading. Use with extreme caution and do not rely on these for important decisions. For accurate case status, use <a href="https://egov.uscis.gov/" target="_blank" rel="noopener">USCIS Case Tracker</a>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="placeholder-img">🖼️ PLACEHOLDER: Illustration of organised documents in a folder, clean desk.</div>
+
+          <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> This is not legal advice. Verify all requirements against official sources before your appointment. If your case is complex, consult an immigration attorney.</p>
+          </div>
+
+          <a href="/guide.html#i130" class="back-link">← Back to I-130 filing guide</a>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+    <script src="/js/shared.js"></script>
+    <script src="/js/checklist.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const advancedTrigger = document.querySelector('.advanced-trigger');
+        if (advancedTrigger) {
+          advancedTrigger.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+          });
+        }
+
+        renderPage({
+          title: 'I-130 Checklist — American Visa Guide',
+          description: 'I-130 pre-submission audit checklist.',
+          activePage: 'checklists'
+        });
+      });
+    </script>
+  </body>
+</html>

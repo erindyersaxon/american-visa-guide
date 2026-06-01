@@ -1,21 +1,9 @@
 {
   "framework": null,
-  "buildCommand": null,
+  "buildCommand": "node scripts/generate-config.js && sed -i 's|%%SUPABASE_URL%%|'${SUPABASE_URL}'|g; s|%%SUPABASE_ANON_KEY%%|'${SUPABASE_ANON_KEY}'|g' public/js/env.js",
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/erindyersaxon.github.io/london-visa-tracker/:splat*",
-      "destination": "https://www.americanvisaguide.com/:splat*",
-      "permanent": true
-    },
-    {
-      "source": "/erindyersaxon.github.io/american-visa-guide/:splat*",
-      "destination": "https://www.americanvisaguide.com/:splat*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -35,8 +23,106 @@
         {
           "key": "Permissions-Policy",
           "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
       ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/erindyersaxon.github.io/london-visa-tracker/:splat*",
+      "destination": "https://www.americanvisaguide.com/:splat*",
+      "permanent": true
+    },
+    {
+      "source": "/erindyersaxon.github.io/american-visa-guide/:splat*",
+      "destination": "https://www.americanvisaguide.com/:splat*",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/guide.html",
+      "destination": "/guide",
+      "permanent": true
+    },
+    {
+      "source": "/life.html",
+      "destination": "/life",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-medical.html",
+      "destination": "/checklist-medical",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-interview.html",
+      "destination": "/checklist-interview",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-nvc.html",
+      "destination": "/checklist-nvc",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-binder.html",
+      "destination": "/checklist-binder",
+      "permanent": true
+    },
+    {
+      "source": "/worksheet-ds260.html",
+      "destination": "/worksheet-ds260",
+      "permanent": true
+    },
+    {
+      "source": "/worksheet-i864.html",
+      "destination": "/worksheet-i864",
+      "permanent": true
+    },
+    {
+      "source": "/public-charge.html",
+      "destination": "/public-charge",
+      "permanent": true
+    },
+    {
+      "source": "/workbook.html",
+      "destination": "/workbook",
+      "permanent": true
     }
   ]
 }

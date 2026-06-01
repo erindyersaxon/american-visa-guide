@@ -118,6 +118,19 @@ function initChecklists() {
   });
 }
 
+/* ─── GDPR: Worksheet data isolation verification ───────── */
+function verifyWorksheetDataIsolation() {
+  // Worksheets must store data in form field values only, not localStorage/sessionStorage
+  const isWorksheet = /worksheet|public-charge/.test(window.location.pathname);
+  if (isWorksheet) {
+    const worksheetStorageUsed = Object.keys(sessionStorage)
+      .filter(k => k.startsWith('worksheet') || k.startsWith('public-charge')).length;
+    if (worksheetStorageUsed > 0) {
+      console.warn('⚠️ Worksheet detected using sessionStorage — data must be stored in form fields only');
+    }
+  }
+}
+
 /* ─── Boot ────────────────────────────────────────────────── */
 async function boot() {
   // Load partials — nav first (skip link must precede content)
@@ -130,6 +143,7 @@ async function boot() {
   initThemeToggle();
   initAccordions();
   initChecklists();
+  verifyWorksheetDataIsolation();
 }
 
 if (document.readyState === 'loading') {

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checklists — American Visa Guide</title>
+    <meta name="description" content="Stage-by-stage interactive checklists for the US Embassy London visa process. Printable." />
+    <meta property="og:title" content="Checklists — American Visa Guide" />
+    <meta property="og:description" content="Stage-by-stage interactive checklists for the US Embassy London visa process." />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.americanvisaguide.com/checklists.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Checklists — American Visa Guide" />
+    <meta name="twitter:description" content="Stage-by-stage interactive checklists for the US Embassy London visa process." />
+    <meta name="twitter:image" content="/og-image.svg" />
+    <link rel="canonical" href="https://www.americanvisaguide.com/checklists.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
+    <style>
+      .checklists-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); margin: var(--space-12) 0; }
+      .checklist-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-8); background: white; text-decoration: none; color: inherit; transition: all var(--transition-fast); cursor: pointer; }
+      .checklist-card:hover { border-color: var(--color-gold); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); transform: translateY(-2px); }
+      .checklist-card h3 { margin: 0 0 var(--space-3) 0; color: var(--color-navy); }
+      .checklist-card p { margin: 0 0 var(--space-4) 0; font-size: var(--size-sm); color: var(--color-text-muted); }
+      .card-progress { display: none; padding: var(--space-3) var(--space-4); background: var(--color-gold-xlight); border-radius: var(--radius-md); font-size: var(--size-sm); color: var(--color-navy); font-weight: var(--weight-medium); }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation"></nav>
+
+    <main id="main">
+      <div class="container">
+        <h1>Checklists</h1>
+        <p class="subtitle">Stage-by-stage checklists for the London consular process. Each one is interactive and printable.</p>
+
+        <div class="checklists-grid">
+          <a href="/checklist-i130.html" class="checklist-card" data-checklist-id="i130">
+            <h3>I-130 Pre-Submission</h3>
+            <p>Work through this before you file. Most RFEs are preventable.</p>
+            <div class="card-progress"></div>
+          </a>
+
+          <a href="/checklist-nvc.html" class="checklist-card" data-checklist-id="nvc">
+            <h3>NVC Documents</h3>
+            <p>Everything you need to submit to the National Visa Center.</p>
+            <div class="card-progress"></div>
+          </a>
+
+          <a href="/checklist-medical.html" class="checklist-card" data-checklist-id="medical">
+            <h3>Medical Day</h3>
+            <p>Your medical and document check happen on the same day.</p>
+            <div class="card-progress"></div>
+          </a>
+
+          <a href="/checklist-interview.html" class="checklist-card" data-checklist-id="interview">
+            <h3>Interview Day</h3>
+            <p>Most London interviews are under 5 minutes. Preparation is what makes them that way.</p>
+            <div class="card-progress"></div>
+          </a>
+
+          <a href="/checklist-binder.html" class="checklist-card" data-checklist-id="binder">
+            <h3>Interview Binder</h3>
+            <p>How to organise your documents for the embassy.</p>
+            <div class="card-progress"></div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+    <script src="/js/shared.js"></script>
+    <script src="/js/checklist.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderPage({
+          title: "Checklists — American Visa Guide",
+          description: "Stage-by-stage interactive checklists for the US Embassy London visa process. Printable.",
+          activePage: "checklists",
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,231 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moving to the USA Workbook — American Visa Guide</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link crossorigin href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<!-- Cookiebot consent manager — must be first script in head -->
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
-  data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366"
-  data-blockingmode="auto"
-  type="text/javascript">
-</script>
-<style>
-  :root {
-    --navy: #0a1628; --accent: #c8a96e; --accent-light: #e8c98a;
-    --teal: #2a9d8f; --teal-light: #3dbfb0; --white: #f8f6f2;
-    --muted: #8a9ab5; --card-bg: #111e36; --border: rgba(200,169,110,0.15);
-    --border-subtle: rgba(255,255,255,0.06);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--navy); color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; line-height: 1.7; }
-  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 80% 50% at 20% -10%, rgba(26,58,107,0.4) 0%, transparent 60%); pointer-events: none; z-index: 0; }
+  <script src="/js/env.js"></script>
 
-  nav { position: sticky; top: 0; z-index: 100; background: rgba(10,22,40,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 20px; }
-  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 52px; gap: 16px; }
-  .nav-logo { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; color: var(--white); text-decoration: none; }
-  .nav-logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 4px; align-items: center; }
-  .nav-links a { font-size: 12px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 5px 10px; border-radius: 6px; transition: color 0.15s; }
-  .nav-links a:hover { color: var(--white); }
-  .nav-links a.active { color: var(--accent); }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving to the USA Workbook — American Visa Guide</title>
+  <meta name="description" content="Complete immigration and relocation tracker from USCIS through to settling in the US. Download as Excel or copy to Google Sheets.">
+  <link rel="canonical" href="https://www.americanvisaguide.com/workbook">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/print.css" media="print">
+  <style>
+    /* ── Accessibility: Skip link and focus ── */
+    .skip-to-main:focus {
+      top: 0;
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
 
-  .wrap { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 52px 20px 80px; }
+    .wb-container { max-width: 1000px; margin: 0 auto; padding: var(--space-8) var(--space-4); }
+    .wb-header { margin-bottom: var(--space-6); padding-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); }
+    .wb-title { font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-text); margin-bottom: var(--space-2); }
+    .wb-subtitle { font-size: var(--text-sm); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
 
-  .page-header { padding-bottom: 32px; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
-  .flag-label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-  h1 { font-family: 'Outfit', sans-serif; font-size: clamp(24px, 4vw, 38px); font-weight: 800; color: var(--white); margin-bottom: 10px; line-height: 1.15; }
-  h1 span { color: var(--accent); }
-  .page-sub { font-size: 14px; color: var(--muted); max-width: 580px; margin-bottom: 20px; }
+    .wb-attribution { background: var(--color-primary-subtle); border-left: 4px solid var(--color-primary); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-bottom: var(--space-8); font-style: italic; color: var(--color-primary); font-size: var(--text-sm); line-height: var(--leading-relaxed); }
 
-  .attribution { background: rgba(200,169,110,0.08); border: 1px solid rgba(200,169,110,0.2); border-radius: 10px; padding: 14px 18px; font-size: 13px; color: rgba(248,246,242,0.8); margin-bottom: 24px; }
-  .attribution strong { color: var(--white); }
+    .wb-intro { font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-8); max-width: 72ch; }
 
-  .download-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
-  .download-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--accent); color: var(--navy);
-    font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700;
-    padding: 10px 20px; border-radius: 8px; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .download-btn:hover { background: var(--accent-light); transform: translateY(-1px); }
-  .download-note { font-size: 12px; color: var(--muted); }
+    .wb-buttons { display: flex; gap: var(--space-4); margin-bottom: var(--space-8); flex-wrap: wrap; }
+    .wb-button { display: inline-flex; align-items: center; justify-content: center; padding: var(--space-4) var(--space-6); background: var(--color-primary); color: #fff; border: none; border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--font-semibold); cursor: pointer; text-decoration: none; transition: background-color 120ms; }
+    .wb-button:hover { background: var(--color-primary); opacity: 0.9; }
+    .wb-button:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+    .wb-button-secondary { background: var(--color-border); color: var(--color-text); }
+    .wb-button-secondary:hover { background: var(--color-border); opacity: 0.9; }
 
-  /* Table */
-  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 600px; }
+    .wb-preview-section h2 { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--color-text); margin-bottom: var(--space-5); margin-top: var(--space-6); }
 
-  tr.phase-row td {
-    background: linear-gradient(90deg, rgba(26,58,107,0.6), rgba(26,58,107,0.3));
-    color: var(--accent);
-    font-family: 'Outfit', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--border);
-  }
-  tr.section-row td {
-    background: rgba(200,169,110,0.06);
-    color: var(--white);
-    font-family: 'Outfit', sans-serif;
-    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
-    padding: 8px 16px;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-  tr.col-header td {
-    background: rgba(255,255,255,0.03);
-    color: var(--muted);
-    font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 7px 16px;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-  tr.item-row td {
-    padding: 9px 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
-    color: rgba(248,246,242,0.82);
-    vertical-align: middle;
-  }
-  tr.item-row:hover td { background: rgba(255,255,255,0.02); }
-  tr.note-row td {
-    padding: 8px 16px 8px 24px;
-    font-size: 12px;
-    color: var(--muted);
-    border-bottom: 1px solid rgba(255,255,255,0.02);
-    font-style: italic;
-  }
+    .wb-table-wrapper { overflow-x: auto; border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-bottom: var(--space-8); }
+    .wb-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+    .wb-table thead { background: var(--color-surface-subtle); border-bottom: 2px solid var(--color-border); }
+    .wb-table th { padding: var(--space-3) var(--space-4); text-align: left; font-weight: var(--font-bold); color: var(--color-text); }
+    .wb-table td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); color: var(--color-text-secondary); }
+    .wb-table tr:last-child td { border-bottom: none; }
+    .wb-table tbody tr:hover { background: var(--color-surface-hover); }
+    .wb-table .phase-col { font-weight: var(--font-semibold); color: var(--color-text); background: var(--color-primary-subtle); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+    .wb-table .phase-header { background: var(--color-primary); color: #fff; font-weight: var(--font-bold); }
 
-  td.status { font-weight: 600; text-align: center; width: 60px; }
-  td.status.done { color: var(--teal-light); }
-  td.status.false { color: rgba(138,154,181,0.4); }
-  td.status.pending { color: var(--accent); }
+    .wb-note { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-top: var(--space-8); font-size: var(--text-sm); color: var(--color-text-secondary); line-height: var(--leading-relaxed); }
 
-  footer { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 40px; font-size: 12px; color: var(--muted); }
-  a { color: var(--teal-light); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-</style>
+    @media print { .wb-buttons { display: none; } }
+  </style>
 </head>
 <body>
+  <div id="nav-placeholder"></div>
+  <main id="main-content">
+    <div class="wb-container">
+      <header class="wb-header">
+        <h1 class="wb-title">Moving to the USA Workbook</h1>
+        <p class="wb-subtitle">Complete immigration and relocation tracker — from USCIS through to settling in the US</p>
+      </header>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">American <span>Visa Guide</span></a>
-    <div class="nav-links">
-      <a href="index.html">📊 Data</a>
-      <a href="guide.html" class="active">📖 Guide</a>
-      <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">✏️ Submit Timeline</a>
+      <div class="wb-attribution">
+        ✨ Created by Nikki, a community member who went through the US Embassy London process and built this resource to share with everyone who needs it.
+      </div>
+
+      <p class="wb-intro">A complete checklist covering every stage of the visa process and your relocation — USCIS through to your first weeks in the US. Download your own copy and fill it in as you go. Nothing is stored on this site.</p>
+
+      <div class="wb-buttons">
+        <a href="Moving_to_the_USA_Workbook.xlsx" download class="wb-button">
+          📥 Download as Excel
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1KWP930yDbFd1EhoPYm7V1SVr9x3QlKFFcukfoDvNeTo/copy" target="_blank" rel="noopener noreferrer" class="wb-button wb-button-secondary">
+          📊 Copy to Google Sheets
+        </a>
+      </div>
+
+      <section class="wb-preview-section">
+        <h2>Workbook Structure Preview</h2>
+        <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin-bottom: var(--space-4);">This table shows the structure and key milestones you'll track in your own copy.</p>
+
+        <div class="wb-table-wrapper">
+          <table class="wb-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Phase & Item</th>
+                <th style="width: 15%;">Cost</th>
+                <th style="width: 20%;">Date Completed</th>
+                <th style="width: 12%;">Paid</th>
+                <th style="width: 33%;">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- PHASE 1: USCIS -->
+              <tr>
+                <td colspan="5" class="phase-header">PHASE 1: USCIS — I-130 Petition</td>
+              </tr>
+              <tr>
+                <td class="phase-col">Form I-130</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">I-130 Filing Fee</td>
+                <td>$385</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Receipt Notice (NOA1)</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Priority Date</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Approval Notice (NOA2)</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <!-- PHASE 2: NVC -->
+              <tr>
+                <td colspan="5" class="phase-header">PHASE 2: NVC — National Visa Centre</td>
+              </tr>
+              <tr>
+                <td class="phase-col">NVC Case Number Received</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Immigrant Visa Fee (IV)</td>
+                <td>$325</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Form I-864 (Affidavit of Support)</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Form DS-260 Submission</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Documentarily Qualified (DQ)</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <!-- PHASE 3: Embassy -->
+              <tr>
+                <td colspan="5" class="phase-header">PHASE 3: Embassy London — Interview & Visa</td>
+              </tr>
+              <tr>
+                <td class="phase-col">Appointment Letter (IL) Received</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Medical Examination</td>
+                <td>~£120</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Document Check</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Immigrant Visa Interview</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Visa Stamp Issued</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <!-- PHASE 4: Post-Approval -->
+              <tr>
+                <td colspan="5" class="phase-header">PHASE 4: Post-Approval — Before US Entry</td>
+              </tr>
+              <tr>
+                <td class="phase-col">USCIS Immigrant Fee</td>
+                <td>$220</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Passport Received from Embassy</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Travel Plans Confirmed</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Port of Entry Confirmed</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Travel Insurance Arranged</td>
+                <td>Variable</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <!-- PHASE 5: Arrival -->
+              <tr>
+                <td colspan="5" class="phase-header">PHASE 5: Arrival in the USA</td>
+              </tr>
+              <tr>
+                <td class="phase-col">US Entry & Green Card Received</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Social Security Number (SSN) Application</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Bank Account Opened</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Driving Licence / State ID</td>
+                <td>$20–100</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Tax Obligations (IRS Registration)</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <!-- PHASE 6: Long-term -->
+              <tr>
+                <td colspan="5" class="phase-header">PHASE 6: Long-term — Permanent Residence & Citizenship</td>
+              </tr>
+              <tr>
+                <td class="phase-col">I-751 Filing Window (CR1 only)</td>
+                <td>$680</td>
+                <td></td>
+                <td></td>
+                <td>Conditional Resident only</td>
+              </tr>
+              <tr>
+                <td class="phase-col">Green Card Renewal (10-year)</td>
+                <td>$130</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">N-400 Eligibility Date (Naturalization)</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td>5 years as LPR (3 if married to US citizen)</td>
+              </tr>
+              <tr>
+                <td class="phase-col">N-400 Application (Naturalization)</td>
+                <td>$640</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="phase-col">Oath of Allegiance / US Citizenship</td>
+                <td>—</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="wb-note">
+        <strong>📝 Your data stays private</strong><br>
+        The workbook is a personal tracking tool. Your data stays on your own device — it is not connected to americanvisaguide.com. Download the Excel file or make your own copy in Google Sheets, and fill it in as you progress through each stage.
+      </div>
     </div>
-  </div>
-</nav>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="/js/main.js"></script>
+  <!-- WCAG 2.1 AA — audited 2026-05-30 — accessibility improvements: skip link, focus indicators, reduced motion support, semantic HTML -->
 
-<div class="wrap">
-
-  <div class="page-header">
-    <div class="flag-label">Community Resource</div>
-    <h1>Moving to the<br><span>USA Workbook</span></h1>
-    <p class="page-sub">A complete immigration and relocation checklist covering every stage from USCIS through to settling in the US. Download your own copy to track your progress.</p>
-  </div>
-
-  <div class="attribution">
-    Created by <strong>Nikki</strong>, a brilliant mod on the Track My Visa server going through the US Embassy London, who built this resource to share with everyone who needs it.
-  </div>
-
-  <div class="download-bar">
-    <a href="Moving_to_the_USA_Workbook.xlsx" download class="download-btn">⬇️ Download workbook (.xlsx)</a>
-    <a href="https://docs.google.com/spreadsheets/d/1KWP930yDbFd1EhoPYm7V1SVr9x3QlKFFcukfoDvNeTo/copy" target="_blank" rel="noopener noreferrer" class="download-btn" style="background:var(--card-bg);color:var(--white);border:1px solid var(--border);">📋 Copy to Google Sheets</a>
-    <span class="download-note">Download the Excel file or make your own Google Sheets copy — fill it in as you go through the process.</span>
-  </div>
-
-  <div class="table-wrap">
-    <table>
-      <tr class="phase-row"><td colspan="5">PHASE 1: USCIS</td></tr>
-<tr class="col-header"><td>Form / Document</td><td>Cost</td><td>Date Completed</td><td>Paid</td><td>Approval</td></tr>
-<tr class="phase-row"><td colspan="5">PHASE 2: NVC</td></tr>
-<tr class="col-header"><td>Fees</td><td>Cost</td><td>Date Completed</td><td>Paid</td><td></td></tr>
-<tr class="section-row"><td colspan="5">BENEFICARY</td></tr>
-<tr class="item-row"><td>Passport (Photo Page)</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Old Passport (If Renewed)</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Birth Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Marriage Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>ARCO Police Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Address History List</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Work History List</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Travel History (All countries)</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Parents Full Names, DOB and Place of Birth, Current Address</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="section-row"><td colspan="5">PETITIONER</td></tr>
-<tr class="item-row"><td>Proof of U.S. Citizenship (Passport / Birth Cert.)</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Proof of U.S. Domicile or Intent to Re-Establish U.S. Domicile</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>W-2s / 1099s</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Form I-864</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Tax Transcripts</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="section-row"><td colspan="5">JOINT SPONSOR</td></tr>
-<tr class="item-row"><td>Tax Transcripts</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>W-2s / 1099s</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Proof of Status (Passport)</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Proof of U.S. Address</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Form I-864</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="section-row"><td colspan="5">DOCUMENTARILY QUALIFIED</td></tr>
-<tr class="note-row"><td colspan="5">Date Reviewed</td></tr>
-<tr class="note-row"><td colspan="5">Request for Evidence</td></tr>
-<tr class="note-row"><td colspan="5">Date Approved</td></tr>
-<tr class="phase-row"><td colspan="5">PHASE 3: EMBASSY</td></tr>
-<tr class="section-row"><td colspan="5">INTERVIEW LETTER</td></tr>
-<tr class="section-row"><td colspan="5">MEDICAL EXAM & DOCUMENT CHECK</td></tr>
-<tr class="col-header"><td>Appointment</td><td>Cost</td><td>Date</td><td>Paid</td><td>Booked</td></tr>
-<tr class="item-row"><td>VisaMedicals</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="note-row"><td colspan="5">No. 4 Ground Floor, Bentinck Mansions, 12–16 Bentinck St, London W1U 2ER</td></tr>
-<tr class="note-row"><td colspan="5">BOOK EARLY MORNING APPOINTMENT</td></tr>
-<tr class="section-row"><td colspan="5">MEDICAL EXAM / DOCUMENTS NEEDED</td></tr>
-<tr class="item-row"><td>Interview Letter from the U.S. Embassy</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>DS-260 Confirmation Page</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Valid Passport</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>4 Identical U.S. Sized Photographs</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Medical Questionnaire (Form IV18A)</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Vaccination Records with Original Certification</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>GP Care Summary (Request 2 Weeks Prior)</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="note-row"><td colspan="5">Immediately after your medical, head to the U.S. Embassy at 33 Nine Elms Ln, London SW11 7US.</td></tr>
-<tr class="note-row"><td colspan="5">- Check in at the "Visa Services" tent (Visa Passport & Consular Door)
-- Go through airport-style security (no large liquids, laptops, etc.)
-SUBMIT:
-Passport, medical receipt, police certificate, civil documents, DS-260 confirmation
-Fingerprint scan
-Receive sealed envelope labeled “Do Not Tamper” for interview day</td></tr>
-<tr class="section-row"><td colspan="5">VISA INTERVIEW</td></tr>
-<tr class="note-row"><td colspan="5">U.S. Embassy at 33 Nine Elms Ln, London SW11 7US.</td></tr>
-<tr class="note-row"><td colspan="5">GO TO THE FRONT ON THE LINE, DO NOT WAIT</td></tr>
-<tr class="section-row"><td colspan="5">EMBASSY INTERVIEW</td></tr>
-<tr class="section-row"><td colspan="5">INTERVIEW BINDER</td></tr>
-<tr class="section-row"><td colspan="5">Original Documents</td></tr>
-<tr class="item-row"><td>Interview Letter</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Petitioner I-864</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Joint Sponsor I-864</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Marriage Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Birth Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="section-row"><td colspan="5">Printed Copies</td></tr>
-<tr class="item-row"><td>2 U.S. Sized Passport Photos</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>DS-260 Confirmation Page</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Petitioner IRS Transcripts</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Petitioner W-2s/1099s</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Petitioner Proof of Status</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Joint Sponsor Proof of Status</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Joint Sponsor IRS Transcripts</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Joint Sponsor W-2s/1099s</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Domicile Documentation</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Marriage Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-<tr class="item-row"><td>Birth Certificate</td><td></td><td></td><td class="status false">False</td><td></td></tr>
-    </table>
-  </div>
-
-  <footer>
-    Part of the <a href="guide.html">American Visa Guide</a> · <a href="privacy.html">Privacy Policy</a> · Questions: <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a>
-  </footer>
-
-</div>
+  <script src="/js/cookie-notice.js"></script>
 </body>
 </html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>London Visa Tracker</title>
+    <meta
+      name="description"
+      content="Real wait times and outcomes from 200+ people going through US Embassy London."
+    />
+
+    <meta property="og:title" content="London Visa Tracker" />
+    <meta
+      property="og:description"
+      content="Real wait times and outcomes from the US Embassy London visa process."
+    />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.americanvisaguide.com/tracker.html" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="London Visa Tracker" />
+    <meta
+      name="twitter:description"
+      content="Real wait times and outcomes from the US Embassy London visa process."
+    />
+    <meta name="twitter:image" content="/og-image.svg" />
+
+    <link rel="canonical" href="https://www.americanvisaguide.com/tracker.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/design-system.css" />
+
+    <script
+      id="CookieDeclaration"
+      src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js"
+      type="text/javascript"
+      async
+    ></script>
+
+    <script>
+      window._dataPromise = fetch("/api/data");
+    </script>
+
+    <style>
+      .tracker-header {
+        text-align: center;
+        padding: var(--space-12) var(--container-padding);
+      }
+
+      .tracker-header h1 {
+        margin: var(--space-4) 0 var(--space-2) 0;
+      }
+
+      .tracker-subtitle {
+        font-size: var(--size-lg);
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+
+      .jump-pills {
+        display: flex;
+        gap: var(--space-3);
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: var(--space-8);
+      }
+
+      .jump-pill {
+        padding: var(--space-2) var(--space-4);
+        background: var(--color-navy);
+        color: white;
+        border-radius: var(--radius-full);
+        text-decoration: none;
+        font-size: var(--size-sm);
+        font-weight: var(--weight-medium);
+        transition: background-color var(--transition-fast);
+      }
+
+      .jump-pill:hover {
+        background-color: var(--color-navy-light);
+      }
+
+      .jump-pill:focus-visible {
+        outline: var(--focus-outline);
+      }
+
+      .tracker-section {
+        padding: var(--space-12) var(--container-padding);
+      }
+
+      .tracker-section:nth-child(odd) {
+        background: var(--color-surface-alt);
+      }
+
+      .tracker-section h2 {
+        text-align: center;
+        margin: 0 0 var(--space-12) 0;
+      }
+
+      .week-widget {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-8);
+        max-width: var(--max-width);
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .week-widget::after {
+        content: "americanvisaguide.com";
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        font-size: var(--size-xs);
+        color: var(--color-text-muted);
+        opacity: 0.5;
+      }
+
+      .week-column h3 {
+        color: var(--color-gold);
+        margin: 0 0 var(--space-4) 0;
+      }
+
+      .week-item {
+        padding: var(--space-3) 0;
+        border-bottom: 1px solid var(--color-border);
+        font-size: var(--size-sm);
+      }
+
+      .week-item:last-child {
+        border-bottom: none;
+      }
+
+      .week-label {
+        font-size: var(--size-xs);
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: var(--space-6);
+        padding-bottom: var(--space-4);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .week-empty {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: var(--space-8);
+        color: var(--color-text-muted);
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-6);
+        max-width: var(--max-width);
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .stat-grid::after {
+        content: "americanvisaguide.com";
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        font-size: var(--size-xs);
+        color: var(--color-text-muted);
+        opacity: 0.5;
+      }
+
+      .stat-card {
+        padding: var(--space-6);
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        text-align: center;
+      }
+
+      .stat-value {
+        font-family: var(--font-display);
+        font-size: var(--size-4xl);
+        font-weight: var(--weight-bold);
+        color: var(--color-navy);
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      .stat-label {
+        font-size: var(--size-sm);
+        color: var(--color-text-muted);
+        margin: var(--space-2) 0 0 0;
+      }
+
+      .pipeline-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-6);
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+
+      .pipeline-card {
+        padding: var(--space-6);
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+      }
+
+      .pipeline-card h3 {
+        margin: 0 0 var(--space-4) 0;
+        color: var(--color-navy);
+      }
+
+      .pipeline-stat {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--space-3) 0;
+        border-bottom: 1px solid var(--color-border);
+        font-size: var(--size-sm);
+      }
+
+      .pipeline-stat:last-child {
+        border-bottom: none;
+      }
+
+      .pipeline-stat strong {
+        color: var(--color-navy);
+      }
+
+      .pipeline-value {
+        color: var(--color-text-muted);
+        font-weight: var(--weight-semibold);
+      }
+
+      .queue-block {
+        position: relative;
+        padding: var(--space-6);
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        margin-bottom: var(--space-6);
+      }
+
+      .queue-block::after {
+        content: "americanvisaguide.com";
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        font-size: var(--size-xs);
+        color: var(--color-text-muted);
+        opacity: 0.5;
+      }
+
+      .queue-title {
+        font-weight: var(--weight-semibold);
+        color: var(--color-navy);
+        margin: 0 0 var(--space-4) 0;
+      }
+
+      .queue-value {
+        font-family: var(--font-display);
+        font-size: var(--size-3xl);
+        font-weight: var(--weight-bold);
+        color: var(--color-gold);
+        margin: 0;
+      }
+
+      .queue-label {
+        font-size: var(--size-sm);
+        color: var(--color-text-muted);
+        margin: var(--space-2) 0 0 0;
+      }
+
+      .il-table-wrapper {
+        overflow-x: auto;
+        margin: var(--space-8) 0;
+      }
+
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: var(--size-sm);
+      }
+
+      .data-table caption {
+        text-align: left;
+        padding: var(--space-4) 0;
+        font-weight: var(--weight-semibold);
+        color: var(--color-navy);
+      }
+
+      .data-table th {
+        background-color: var(--color-navy);
+        color: white;
+        padding: var(--space-3) var(--space-4);
+        text-align: left;
+        font-weight: var(--weight-semibold);
+      }
+
+      .data-table td {
+        padding: var(--space-3) var(--space-4);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .data-table tbody tr:nth-child(odd) {
+        background-color: var(--color-navy-xlight);
+      }
+
+      .data-table tbody tr:hover {
+        background-color: var(--color-gold-xlight);
+      }
+
+      .badge {
+        display: inline-block;
+        padding: var(--space-1) var(--space-3);
+        background-color: var(--color-gold-light);
+        color: var(--color-navy);
+        border-radius: var(--radius-full);
+        font-size: var(--size-xs);
+        font-weight: var(--weight-semibold);
+      }
+
+      .drop-history {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-4);
+        max-width: var(--max-width);
+        margin: 0 auto;
+        position: relative;
+        padding-bottom: var(--space-8);
+      }
+
+      .drop-history::after {
+        content: "americanvisaguide.com";
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        font-size: var(--size-xs);
+        color: var(--color-text-muted);
+        opacity: 0.5;
+      }
+
+      .drop-chip {
+        padding: var(--space-3) var(--space-4);
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        font-size: var(--size-sm);
+      }
+
+      .drop-chip.latest {
+        border-color: var(--color-gold);
+        background: var(--color-gold-xlight);
+      }
+
+      .drop-date {
+        font-weight: var(--weight-semibold);
+        color: var(--color-navy);
+      }
+
+      .drop-detail {
+        font-size: var(--size-xs);
+        color: var(--color-text-muted);
+      }
+
+      .trend-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-weight: var(--weight-medium);
+      }
+
+      .trend-up {
+        color: var(--color-error);
+      }
+
+      .trend-down {
+        color: var(--color-success);
+      }
+
+      .trend-neutral {
+        color: var(--color-text-muted);
+      }
+
+      .trend-arrow {
+        font-size: var(--size-lg);
+      }
+
+      .approval-bar {
+        position: relative;
+        height: 40px;
+        background: var(--color-border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        margin: var(--space-6) 0;
+      }
+
+      .approval-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--color-gold), var(--color-navy));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: var(--weight-bold);
+        font-size: var(--size-sm);
+      }
+
+      .outcome-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--space-4);
+        margin: var(--space-6) 0;
+      }
+
+      .outcome-item {
+        padding: var(--space-4);
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        text-align: center;
+      }
+
+      .outcome-count {
+        font-family: var(--font-display);
+        font-size: var(--size-2xl);
+        font-weight: var(--weight-bold);
+        color: var(--color-navy);
+        margin: 0;
+      }
+
+      .outcome-label {
+        font-size: var(--size-sm);
+        color: var(--color-text-muted);
+        margin: var(--space-2) 0 0 0;
+      }
+
+      .stage-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-6);
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+
+      .stage-card-tracker {
+        padding: var(--space-6);
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+      }
+
+      .stage-card-tracker h4 {
+        margin: 0 0 var(--space-4) 0;
+        color: var(--color-navy);
+        font-size: var(--size-lg);
+      }
+
+      .error-message {
+        padding: var(--space-8);
+        background: var(--color-gold-xlight);
+        border: 1px solid var(--color-gold);
+        border-radius: var(--radius-lg);
+        color: var(--color-navy);
+        text-align: center;
+        max-width: var(--max-width-prose);
+        margin: 0 auto;
+      }
+
+      .disclaimer {
+        font-size: var(--size-sm);
+        color: var(--color-text-muted);
+        margin: var(--space-6) 0;
+        padding: var(--space-4);
+        background: var(--color-surface);
+        border-left: 3px solid var(--color-gold);
+        border-radius: var(--radius-sm);
+      }
+
+      @media (max-width: 768px) {
+        .week-widget {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .pipeline-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .drop-history {
+          flex-direction: column;
+        }
+
+        .drop-chip {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation"></nav>
+
+    <main id="main">
+      <section class="tracker-header">
+        <div class="container">
+          <div style="font-size: var(--size-3xl); margin-bottom: var(--space-4);">🇬🇧 → 🇺🇸</div>
+          <h1>London Visa Tracker</h1>
+          <p class="tracker-subtitle">
+            Community data from <span id="memberCount">—</span> people going through US Embassy London.
+          </p>
+
+          <div class="jump-pills">
+            <a href="#this-week" class="jump-pill">This week</a>
+            <a href="#key-stats" class="jump-pill">Key stats</a>
+            <a href="#pipeline" class="jump-pill">Pipeline</a>
+            <a href="#il-waiting" class="jump-pill">Interview letters</a>
+            <a href="#il-drops" class="jump-pill">IL history</a>
+            <a href="#trends" class="jump-pill">Trends</a>
+            <a href="#outcomes" class="jump-pill">Outcomes</a>
+            <a href="#passport" class="jump-pill">Passport</a>
+            <a href="#stage-times" class="jump-pill">Stage times</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="this-week">
+        <div class="container">
+          <h2>This week</h2>
+          <div class="week-label" id="weekLabel">Week data loading...</div>
+          <div class="week-widget" id="weekWidget">
+            <div class="week-empty">Loading data...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="key-stats">
+        <div class="container">
+          <h2>The numbers</h2>
+          <div class="stat-grid" id="keyStatsGrid">
+            <div class="stat-card">
+              <p class="stat-value">—</p>
+              <p class="stat-label">DQ to interview letter (avg days)</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value">—</p>
+              <p class="stat-label">IL to interview (avg days)</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value">—</p>
+              <p class="stat-label">Interview approval rate</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value">—</p>
+              <p class="stat-label">Community members</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="pipeline">
+        <div class="container">
+          <h2>Where people are in the process</h2>
+          <div class="pipeline-grid" id="pipelineGrid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="il-waiting">
+        <div class="container">
+          <h2>Waiting for your interview letter?</h2>
+
+          <div class="queue-block">
+            <p class="queue-title">Latest member with interview date</p>
+            <p class="queue-value" id="latestDQWithIL">—</p>
+            <p class="queue-label" id="latestDQLabel">—</p>
+          </div>
+
+          <div class="queue-block">
+            <p class="queue-title">Estimated next interview letter window</p>
+            <p class="queue-value" id="nextWindow">—</p>
+          </div>
+
+          <div class="il-table-wrapper">
+            <table class="data-table" id="ilLookupTable">
+              <caption>IL month to expected interview month — based on observed patterns</caption>
+              <thead>
+                <tr>
+                  <th>IL Month</th>
+                  <th>Expected Interview Month</th>
+                </tr>
+              </thead>
+              <tbody id="ilLookupBody">
+                <tr>
+                  <td colspan="2" style="text-align: center; padding: var(--space-8);">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="disclaimer">
+            Based on observed patterns. Not a guarantee.
+          </p>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="il-drops">
+        <div class="container">
+          <h2>Interview letter drop history</h2>
+          <div class="drop-history" id="dropHistory">
+            <div style="width: 100%; text-align: center; padding: var(--space-8); color: var(--color-text-muted);">
+              Loading drops...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="trends">
+        <div class="container">
+          <h2>Is the wait getting longer?</h2>
+          <div style="overflow-x: auto;">
+            <table class="data-table" id="trendsTable">
+              <caption>Processing time trends</caption>
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>All time</th>
+                  <th>Last 12 months</th>
+                  <th>Last 6 months</th>
+                  <th>Last 3 months</th>
+                  <th>Trend</th>
+                </tr>
+              </thead>
+              <tbody id="trendsBody">
+                <tr>
+                  <td colspan="6" style="text-align: center; padding: var(--space-8);">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="outcomes">
+        <div class="container">
+          <h2>Interview outcomes</h2>
+          <div class="approval-bar" id="approvalBar">
+            <div class="approval-fill" style="width: 0%; background: #ddd;">
+              <span>—</span>
+            </div>
+          </div>
+          <div class="outcome-grid" id="outcomeGrid">
+            <!-- Populated by JS -->
+          </div>
+          <p class="disclaimer" id="outcomesNote">—</p>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="passport">
+        <div class="container">
+          <h2>Getting your passport back</h2>
+          <div class="stat-grid" id="passportStatsGrid">
+            <div class="stat-card">
+              <p class="stat-value">—</p>
+              <p class="stat-label">Mail return (avg days)</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value">—</p>
+              <p class="stat-label">In-person pickup (avg days)</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value">—</p>
+              <p class="stat-label">Overall average (avg days)</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value">—</p>
+              <p class="stat-label">Overall median (days)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="stage-times">
+        <div class="container">
+          <h2>How long does each stage take?</h2>
+          <div class="stage-cards" id="stageTimes">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <section class="tracker-section" id="community">
+        <div class="container">
+          <h2>This is community data</h2>
+          <div style="max-width: var(--max-width-prose); margin: 0 auto;">
+            <p class="disclaimer">
+              <strong>Track My Visa Disclaimer:</strong> Track My Visa is an independent company and is not affiliated with USCIS. This guide is written independently.
+            </p>
+            <p style="text-align: center; margin-top: var(--space-8);">
+              <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener" class="btn btn-primary">
+                Add your timeline
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="/js/shared.js"></script>
+    <script src="/js/tracker.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderPage({
+          title: "London Visa Tracker",
+          description:
+            "Real wait times and outcomes from 200+ people going through US Embassy London.",
+          activePage: "tracker",
+        });
+      });
+    </script>
+  </body>
+</html>

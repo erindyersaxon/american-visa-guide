@@ -1,0 +1,119 @@
+/* American Visa Guide — Print Styles */
+
+@media print {
+  /* HIDE INTERACTIVE ELEMENTS */
+  nav,
+  footer,
+  .btn,
+  .skip-link,
+  .progress-bar,
+  [role="search"],
+  .no-print {
+    display: none !important;
+  }
+
+  /* EXPAND ALL ACCORDIONS */
+  .accordion-trigger {
+    display: none;
+  }
+
+  .accordion-content {
+    max-height: none !important;
+    padding: var(--space-4) 0 !important;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .accordion-item:last-child .accordion-content {
+    border-bottom: none;
+  }
+
+  /* TEXT & COLORS */
+  body,
+  * {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  a {
+    text-decoration: underline;
+    color: black !important;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.875em;
+    word-break: break-all;
+  }
+
+  a[href^="#"]::after {
+    content: "";
+  }
+
+  /* HEADINGS & STRUCTURE */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    color: black !important;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+    page-break-inside: avoid;
+  }
+
+  /* IMAGES */
+  img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+
+  /* CARDS & BOXES */
+  .card {
+    border: 1px solid black !important;
+    page-break-inside: avoid;
+  }
+
+  /* TABLES */
+  .data-table {
+    border-collapse: collapse;
+    page-break-inside: avoid;
+  }
+
+  .data-table th,
+  .data-table td {
+    border: 1px solid black !important;
+    background-color: white !important;
+  }
+
+  /* CHECKLIST */
+  .checklist-item {
+    page-break-inside: avoid;
+  }
+
+  /* PAGE BREAKS */
+  .page-break {
+    page-break-after: always;
+  }
+
+  /* MARGINS */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}

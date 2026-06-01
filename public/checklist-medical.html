@@ -1,337 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medical Day Checklist — American Visa Guide</title>
-  <meta name="description" content="What to bring to the IOM medical and same-day embassy document check for a US immigrant visa through the US Embassy London.">
-  <link rel="canonical" href="https://www.americanvisaguide.com/checklist-medical">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/print.css" media="print">
-  <style>
-    .cl-page { padding-block: var(--space-8); }
-    .cl-header { display:flex; align-items:flex-start; justify-content:space-between; gap:var(--space-6); padding-bottom:var(--space-6); border-bottom:1px solid var(--color-border); margin-bottom:var(--space-6); }
-    .cl-header__eyebrow { font-size:var(--text-xs); font-weight:var(--font-semibold); text-transform:uppercase; letter-spacing:var(--tracking-wider); color:var(--color-primary); margin-bottom:var(--space-3); }
-    .cl-header__title { font-family:var(--font-display); font-size:var(--text-3xl); color:var(--color-text); line-height:var(--leading-tight); margin-bottom:var(--space-2); }
-    @media (max-width:640px) { .cl-header__title { font-size:var(--text-2xl); } }
-    .cl-header__sub { font-size:var(--text-sm); color:var(--color-text-muted); max-width:none; }
-    .print-btn { flex-shrink:0; display:inline-flex; align-items:center; gap:var(--space-2); padding:var(--space-2) var(--space-4); border:1px solid var(--color-border-strong); border-radius:var(--radius-md); background:var(--color-surface); font-family:var(--font-body); font-size:var(--text-sm); font-weight:var(--font-semibold); color:var(--color-text); cursor:pointer; box-shadow:var(--shadow-xs); transition:background-color 120ms; min-height:36px; }
-    .print-btn:hover { background:var(--color-bg); }
-    .print-btn:focus-visible { outline:2px solid var(--color-primary); outline-offset:2px; }
-    .print-btn svg { width:15px; height:15px; }
-    .browser-note { display:flex; align-items:center; gap:var(--space-2); padding:var(--space-3) var(--space-4); background:var(--color-bg-alt); border:1px solid var(--color-border); border-radius:var(--radius-md); font-size:var(--text-xs); color:var(--color-text-muted); margin-bottom:var(--space-8); }
-    .cl-section { margin-bottom:var(--space-8); }
-    .cl-section-title { font-family:var(--font-display); font-size:var(--text-xl); color:var(--color-text); line-height:var(--leading-tight); margin-bottom:var(--space-4); padding-bottom:var(--space-3); border-bottom:1px solid var(--color-border); }
-    .cl-section-note { font-size:var(--text-sm); color:var(--color-text-secondary); margin-bottom:var(--space-4); max-width:none; line-height:var(--leading-relaxed); }
-    .cl-subsection-label { font-size:var(--text-base); font-weight:var(--font-semibold); color:var(--color-text-secondary); margin:var(--space-5) 0 var(--space-3); }
-    .cl-list { display:flex; flex-direction:column; gap:var(--space-2); }
-    .cl-item { display:flex; align-items:flex-start; gap:var(--space-3); padding:var(--space-3) var(--space-4); background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-md); cursor:pointer; transition:background-color 120ms, border-color 120ms; }
-    .cl-item:has(input[type="checkbox"]:checked) { background:var(--color-success-subtle); border-color:var(--color-success-border); }
-    .cl-item input[type="checkbox"] { flex-shrink:0; appearance:none; -webkit-appearance:none; width:20px; height:20px; border:2px solid var(--color-border-strong); border-radius:var(--radius-sm); background:var(--color-surface); cursor:pointer; position:relative; margin-top:1px; transition:background-color 120ms, border-color 120ms; }
-    .cl-item input[type="checkbox"]:checked { background:var(--color-success); border-color:var(--color-success); }
-    .cl-item input[type="checkbox"]:checked::after { content:''; position:absolute; left:3px; top:2px; width:10px; height:6px; border-left:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(-45deg); }
-    .cl-item input[type="checkbox"]:focus-visible { outline:2px solid var(--color-primary); outline-offset:2px; }
-    .cl-item__text { flex:1; font-size:var(--text-sm); color:var(--color-text); line-height:var(--leading-relaxed); cursor:pointer; user-select:none; max-width:none; }
-    .cl-item:has(input:checked) .cl-item__text { color:var(--color-text-muted); text-decoration:line-through; text-decoration-color:var(--color-success-border); }
-    .cl-item__note { display:block; margin-top:2px; font-size:var(--text-xs); color:var(--color-text-muted); font-style:italic; }
-    .cl-step { display:flex; align-items:flex-start; gap:var(--space-3); padding:var(--space-3) var(--space-4); background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-md); }
-    .cl-step__num { flex-shrink:0; display:flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--color-primary-subtle); border:1px solid var(--color-primary-border); font-size:var(--text-xs); font-weight:var(--font-bold); color:var(--color-primary); margin-top:1px; }
-    .cl-step__num--warn { background:var(--color-warning-subtle); border-color:var(--color-warning-border); color:var(--color-warning); }
-    .cl-step__text { flex:1; font-size:var(--text-sm); color:var(--color-text); line-height:var(--leading-relaxed); max-width:none; }
-    .cl-note { display:flex; gap:var(--space-3); padding:var(--space-4) var(--space-5); border-radius:var(--radius-md); border:1px solid; font-size:var(--text-sm); line-height:var(--leading-relaxed); margin-bottom:var(--space-4); }
-    .cl-note--critical { background:var(--color-destructive-subtle); border-color:var(--color-destructive-border); color:var(--color-destructive); }
-    .cl-note--warning { background:var(--color-warning-subtle); border-color:var(--color-warning-border); color:var(--color-warning); }
-    .cl-note__icon { flex-shrink:0; width:18px; height:18px; margin-top:1px; }
-    .cl-note__body { flex:1; }
-    .cl-note__title { font-weight:var(--font-semibold); margin-bottom:var(--space-1); max-width:none; }
-    .cl-note p { max-width:none; color:inherit; margin-top:var(--space-1); }
-    .cl-address { font-size:var(--text-sm); background:var(--color-bg-alt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:var(--space-4); margin-bottom:var(--space-4); line-height:var(--leading-relaxed); }
-    .cl-address strong { display:block; color:var(--color-text); margin-bottom:var(--space-1); }
-    .cl-address p { max-width:none; color:var(--color-text-secondary); }
-    .risk-list { display:flex; flex-direction:column; gap:var(--space-2); }
-    .risk-item { display:flex; align-items:flex-start; gap:var(--space-3); padding:var(--space-3) var(--space-4); background:var(--color-destructive-subtle); border:1px solid var(--color-destructive-border); border-left:3px solid var(--color-destructive); border-radius:0 var(--radius-md) var(--radius-md) 0; }
-    .risk-item__icon { flex-shrink:0; color:var(--color-destructive); margin-top:2px; width:16px; height:16px; }
-    .risk-item__text { font-size:var(--text-sm); font-weight:var(--font-medium); color:var(--color-destructive); line-height:var(--leading-relaxed); max-width:none; }
-    .timing-grid { border:1px solid var(--color-border); border-radius:var(--radius-md); overflow:hidden; }
-    .timing-row { display:flex; }
-    .timing-row + .timing-row { border-top:1px solid var(--color-border); }
-    .timing-time { flex-shrink:0; width:90px; padding:var(--space-3) var(--space-4); font-size:var(--text-sm); font-weight:var(--font-semibold); color:var(--color-primary); background:var(--color-primary-subtle); }
-    .timing-desc { flex:1; padding:var(--space-3) var(--space-4); font-size:var(--text-sm); color:var(--color-text-secondary); background:var(--color-surface); }
-    .cl-summary { padding:var(--space-5); background:var(--color-success-subtle); border:1px solid var(--color-success-border); border-radius:var(--radius-lg); margin-top:var(--space-8); }
-    .cl-summary__title { font-family:var(--font-display); font-size:var(--text-lg); color:var(--color-success); margin-bottom:var(--space-3); }
-    .cl-summary__item { display:flex; align-items:flex-start; gap:var(--space-2); font-size:var(--text-sm); color:var(--color-text-secondary); max-width:none; margin-bottom:var(--space-2); }
-    .cl-summary__item::before { content:'✓'; color:var(--color-success); font-weight:var(--font-bold); flex-shrink:0; margin-top:1px; }
-    .cl-footer { margin-top:var(--space-10); padding-top:var(--space-6); border-top:1px solid var(--color-border); font-size:var(--text-xs); color:var(--color-text-muted); }
-  </style>
-</head>
-<body>
-  <div id="nav-placeholder"></div>
-  <main id="main-content">
-    <div class="container cl-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Day Checklist — American Visa Guide</title>
+    <meta name="description" content="Medical day checklist — medical and document check on the same day." />
+    <link rel="canonical" href="https://www.americanvisaguide.com/checklist-medical.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/print.css" media="print" />
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
+    <style>
+      .checklist-container { max-width: var(--max-width-prose); margin: 0 auto; }
+      .progress-bar { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-6); background: var(--color-surface-alt); border-radius: var(--radius-lg); margin: var(--space-8) 0; }
+      .progress-text { font-weight: var(--weight-medium); color: var(--color-navy); }
+      .checklist-section { margin: var(--space-12) 0; }
+      .checklist-section h3 { margin-bottom: var(--space-6); }
+      .checklist-item { display: flex; gap: var(--space-4); margin-bottom: var(--space-4); padding: var(--space-4); background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+      .checklist-item input[type="checkbox"] { flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: var(--color-gold); }
+      .checklist-item label { flex: 1; cursor: pointer; }
+      .warning-box { padding: var(--space-6); background: #fee2e2; border: 2px solid var(--color-error); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .warning-box strong { color: var(--color-error); }
+      .info-box { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .disclaimer { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-12) 0; font-size: var(--size-sm); }
+      .placeholder-img { padding: var(--space-12); background: var(--color-surface-alt); border-radius: var(--radius-lg); text-align: center; color: var(--color-text-muted); margin: var(--space-12) 0; }
+      .back-link { display: inline-block; margin-top: var(--space-12); color: var(--color-gold); text-decoration: none; font-weight: var(--weight-medium); }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation"></nav>
 
-      <header class="cl-header">
-        <div>
-          <div class="cl-header__eyebrow">Stage 4 — Pre-Appointment · Checklist</div>
-          <h1 class="cl-header__title">Medical Day Checklist</h1>
-          <p class="cl-header__sub">US Embassy London — Immigrant Visa Process</p>
+    <main id="main">
+      <div class="container">
+        <div class="checklist-container">
+          <h1>Medical Day Checklist</h1>
+          <p class="subtitle">Your medical and document check both happen on the same day.</p>
+
+          <div class="warning-box">
+            <p><strong>🚨 Critical:</strong> You must attend the US Embassy for document check on the same day as your medical examination. Do not book them on separate days. The embassy doc check window is 11:45 AM to 1:00 PM — go even if you are running late.</p>
+          </div>
+
+          <div class="progress-bar">
+            <span class="progress-text" id="progress-medical">0 of 20 items checked</span>
+            <button class="btn btn-secondary btn-sm" id="reset-medical">Reset checklist</button>
+          </div>
+
+          <div data-checklist="medical">
+            <section class="checklist-section">
+              <h3>1. Night before</h3>
+              <div class="checklist-item" data-item-id="med-1">
+                <input type="checkbox" id="med-1" />
+                <label for="med-1">Passport (original, not copy)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-2">
+                <input type="checkbox" id="med-2" />
+                <label for="med-2">Interview letter (printed from email)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-3">
+                <input type="checkbox" id="med-3" />
+                <label for="med-3">DS-260 confirmation (printed from CEAC)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-4">
+                <input type="checkbox" id="med-4" />
+                <label for="med-4">IV18a questionnaire (printed)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-5">
+                <input type="checkbox" id="med-5" />
+                <label for="med-5">Vaccination records (original booklet)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-6">
+                <input type="checkbox" id="med-6" />
+                <label for="med-6">ACRO police certificate (original)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-7">
+                <input type="checkbox" id="med-7" />
+                <label for="med-7">GP summary (if requested or helpful)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-8">
+                <input type="checkbox" id="med-8" />
+                <label for="med-8">Glasses or contact lenses (if worn)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-9">
+                <input type="checkbox" id="med-9" />
+                <label for="med-9">Printed documents (NOT on phone), originals plus copies</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>2. Morning of medical</h3>
+              <div class="checklist-item" data-item-id="med-10">
+                <input type="checkbox" id="med-10" />
+                <label for="med-10">Arrive early (allow 1 to 1.5 hours for medical)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-11">
+                <input type="checkbox" id="med-11" />
+                <label for="med-11">Bring debit/credit card (preferred payment method)</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>3. At the medical clinic (VisaMedicals)</h3>
+              <div class="info-box">
+                <p><strong>Location:</strong> Bentinck Mansions, London<br/>
+                <strong>Phone:</strong> 020 7486 7822 | <strong>Email:</strong> bookings@visamedicals.co.uk</p>
+              </div>
+              <div class="checklist-item" data-item-id="med-12">
+                <input type="checkbox" id="med-12" />
+                <label for="med-12">Check-in and digital photo</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-13">
+                <input type="checkbox" id="med-13" />
+                <label for="med-13">Document review</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-14">
+                <input type="checkbox" id="med-14" />
+                <label for="med-14">Chest X-ray (15+) and physical exam</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-15">
+                <input type="checkbox" id="med-15" />
+                <label for="med-15">Blood and urine tests (18+)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-16">
+                <input type="checkbox" id="med-16" />
+                <label for="med-16">Vaccination review</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>4. Before leaving medical</h3>
+              <div class="checklist-item" data-item-id="med-17">
+                <input type="checkbox" id="med-17" />
+                <label for="med-17">Receive pink checklist slip (REQUIRED for embassy)</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>5. Same day: Embassy document check</h3>
+              <div class="warning-box">
+                <p><strong>Window: 11:45 AM to 1:00 PM</strong> at US Embassy, 33 Nine Elms Lane, London SW11 7US</p>
+              </div>
+              <div class="checklist-item" data-item-id="med-18">
+                <input type="checkbox" id="med-18" />
+                <label for="med-18">Bring passport, pink slip, DS-260, civil documents</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-19">
+                <input type="checkbox" id="med-19" />
+                <label for="med-19">Go to Pass Back window (skip main visa queue)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-20">
+                <input type="checkbox" id="med-20" />
+                <label for="med-20">Receive sealed interview packet</label>
+              </div>
+            </section>
+
+            <div class="info-box">
+              <p><strong>Bottom line:</strong> If you complete medical, receive pink slip, AND complete embassy document check on the same day, you are fully cleared for interview.</p>
+            </div>
+          </div>
+
+          <div class="placeholder-img">🖼️ PLACEHOLDER: Illustration of a medical checklist and clinic setting. Professional, calm.</div>
+
+          <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> This is not legal advice. Verify all requirements against official sources before your appointment. If your case is complex, consult an immigration attorney.</p>
+          </div>
+
+          <a href="/guide.html#medical" class="back-link">← Back to Medical guide</a>
         </div>
-        <button type="button" class="print-btn no-print" onclick="window.print()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          Print
-        </button>
-      </header>
-
-      <p class="browser-note no-print" role="note">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Checkboxes can be ticked in your browser. Your progress is not saved when you close or refresh the tab.
-      </p>
-
-      <!-- Night before -->
-      <section class="cl-section" aria-labelledby="s-pack">
-        <h2 class="cl-section-title" id="s-pack">Night before — pack these</h2>
-        <div class="cl-list" role="list">
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Passport">
-            <span class="cl-item__text">Passport</span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Interview letter">
-            <span class="cl-item__text">Interview letter</span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="DS-260 confirmation page (printed, not on phone)">
-            <span class="cl-item__text">DS-260 confirmation page
-              <span class="cl-item__note">Printed — not on phone. Must be the physical print from CEAC.</span>
-            </span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Completed medical questionnaire IV18a">
-            <span class="cl-item__text">Completed medical questionnaire (IV18a)</span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Vaccination records">
-            <span class="cl-item__text">Vaccination records</span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="ACRO police certificate">
-            <span class="cl-item__text">ACRO police certificate</span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="GP summary dated within 2–3 weeks of appointment">
-            <span class="cl-item__text">GP summary / patient care record
-              <span class="cl-item__note">Must be dated within 2–3 weeks of your medical appointment. Request in advance — this has a lead time.</span>
-            </span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Glasses or contact lenses if applicable">
-            <span class="cl-item__text">Glasses or contact lenses
-              <span class="cl-item__note">If applicable — vision is checked during the physical examination.</span>
-            </span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Payment method — card preferred">
-            <span class="cl-item__text">Payment method (card preferred)</span>
-          </label>
-        </div>
-
-        <div class="cl-subsection-label">If applicable</div>
-        <div class="cl-list" role="list">
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Medical reports for chronic conditions, mental health, TB or STIs">
-            <span class="cl-item__text">Medical reports
-              <span class="cl-item__note">Chronic conditions, mental health, TB, STIs — bring current documentation from your GP or specialist.</span>
-            </span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Child health record or Red Book if applicable">
-            <span class="cl-item__text">Child health record / Red Book</span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Maternity documentation if pregnant">
-            <span class="cl-item__text">Maternity documentation
-              <span class="cl-item__note">If pregnant — maternity notes, scan records, expected due date.</span>
-            </span>
-          </label>
-        </div>
-      </section>
-
-      <!-- At the medical -->
-      <section class="cl-section" aria-labelledby="s-medical">
-        <h2 class="cl-section-title" id="s-medical">At the medical — what happens</h2>
-        <p class="cl-section-note">Process steps, not things to bring. Know what to expect so nothing surprises you.</p>
-        <div class="cl-list" role="list">
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 1">1</span>
-            <span class="cl-step__text">Check-in and digital photo</span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 2">2</span>
-            <span class="cl-step__text">Document review</span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 3">3</span>
-            <span class="cl-step__text">Chest X-ray <span style="color:var(--color-text-muted);font-size:var(--text-xs);">(age 15+)</span></span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 4">4</span>
-            <span class="cl-step__text">Blood test <span style="color:var(--color-text-muted);font-size:var(--text-xs);">(age 18+)</span></span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 5">5</span>
-            <span class="cl-step__text">Urine test <span style="color:var(--color-text-muted);font-size:var(--text-xs);">(age 18+)</span></span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 6">6</span>
-            <span class="cl-step__text">Physical examination</span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 7">7</span>
-            <span class="cl-step__text">Vaccine review and administration
-              <span class="cl-item__note">Missing vaccinations required for US entry will be administered. Bring complete records to reduce the number of jabs needed.</span>
-            </span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num cl-step__num--warn" aria-label="Critical final step">!</span>
-            <span class="cl-step__text"><strong>Before leaving — collect your pink checklist slip</strong>
-              <span class="cl-item__note" style="color:var(--color-warning);font-style:normal;font-weight:600;">Required for the embassy document check the same day. Do not leave without it.</span>
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Embassy doc check -->
-      <section class="cl-section" aria-labelledby="s-embassy">
-        <h2 class="cl-section-title" id="s-embassy">Same day — Embassy document check</h2>
-
-        <div class="cl-note cl-note--critical" role="alert">
-          <svg class="cl-note__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <div class="cl-note__body">
-            <p class="cl-note__title">Go directly to the embassy after the medical. Do not go home first.</p>
-            <p>The document check window closes at 1:00 PM. There is no other opportunity — missing it means rescheduling the whole day.</p>
-          </div>
-        </div>
-
-        <div class="cl-address">
-          <strong>US Embassy London — 33 Nine Elms Lane, London SW11 7US</strong>
-          <p><strong>Window:</strong> 11:30 AM–1:00 PM · Queue opens approximately 11:45 AM</p>
-          <p><strong>Enter at:</strong> Pass Back window on the right side of the building — do NOT join the main non-immigrant visa queue.</p>
-        </div>
-
-        <div class="cl-subsection-label">Bring to the embassy</div>
-        <div class="cl-list" role="list">
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Passport">
-            <span class="cl-item__text">Passport</span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Pink medical slip from IOM">
-            <span class="cl-item__text">Pink medical slip from IOM
-              <span class="cl-item__note">Collected at the clinic before you left. Do not proceed without it.</span>
-            </span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="DS-260 confirmation page">
-            <span class="cl-item__text">DS-260 confirmation page</span>
-          </label>
-          <label class="cl-item" role="listitem">
-            <input type="checkbox" aria-label="Civil documents — originals">
-            <span class="cl-item__text">Civil documents — originals
-              <span class="cl-item__note">Birth certificate, marriage certificate, divorce decrees — whatever applies to your case.</span>
-            </span>
-          </label>
-        </div>
-
-        <div class="cl-subsection-label">At the embassy — what happens</div>
-        <div class="cl-list" role="list">
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 1">1</span>
-            <span class="cl-step__text">Airport-style security — no large bags or laptops</span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 2">2</span>
-            <span class="cl-step__text">Document check at window</span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num" aria-label="Step 3">3</span>
-            <span class="cl-step__text">Fingerprints</span>
-          </div>
-          <div class="cl-step" role="listitem">
-            <span class="cl-step__num cl-step__num--warn" aria-label="Final step">!</span>
-            <span class="cl-step__text"><strong>Receive sealed "Do Not Tamper" envelope</strong>
-              <span class="cl-item__note" style="color:var(--color-warning);font-style:normal;font-weight:600;">Keep sealed. Bring to interview day — do not open.</span>
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <!-- High-risk failure points -->
-      <section class="cl-section" aria-labelledby="s-risks">
-        <h2 class="cl-section-title" id="s-risks">High-risk failure points</h2>
-        <p class="cl-section-note">The most common reasons medical day goes wrong.</p>
-        <div class="risk-list" role="list">
-          <div class="risk-item" role="listitem">
-            <svg class="risk-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            <span class="risk-item__text">Missing GP summary — must be dated within 2–3 weeks of your appointment</span>
-          </div>
-          <div class="risk-item" role="listitem">
-            <svg class="risk-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            <span class="risk-item__text">Missing vaccination records — leads to unnecessary jabs or delays</span>
-          </div>
-          <div class="risk-item" role="listitem">
-            <svg class="risk-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            <span class="risk-item__text">Forgetting pink slip before leaving the IOM clinic — you cannot return for it</span>
-          </div>
-          <div class="risk-item" role="listitem">
-            <svg class="risk-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            <span class="risk-item__text">Not going to the embassy same day as the medical</span>
-          </div>
-          <div class="risk-item" role="listitem">
-            <svg class="risk-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            <span class="risk-item__text">Arriving after 1:00 PM and missing the document check window entirely</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Timing -->
-      <section class="cl-section" aria-labelledby="s-timing">
-        <h2 class="cl-section-title" id="s-timing">Typical day timing</h2>
-        <div class="timing-grid" role="table" aria-label="Medical day schedule">
-          <div class="timing-row" role="row">
-            <div class="timing-time" role="cell">AM</div>
-            <div class="timing-desc" role="cell">Medical at IOM — approximately 1–1.5 hours</div>
-          </div>
-          <div class="timing-row" role="row">
-            <div class="timing-time" role="cell">Between</div>
-            <div class="timing-desc" role="cell">Coffee break — collect pink slip, travel to embassy (~10–20 min from IOM London)</div>
-          </div>
-          <div class="timing-row" role="row">
-            <div class="timing-time" role="cell">11:45 AM</div>
-            <div class="timing-desc" role="cell">Embassy document check queue opens at Pass Back window</div>
-          </div>
-          <div class="timing-row" role="row">
-            <div class="timing-time" role="cell">~12:15 PM</div>
-            <div class="timing-desc" role="cell">Typically done — sealed envelope in hand</div>
-          </div>
-          <div class="timing-row" role="row">
-            <div class="timing-time" role="cell">1:00 PM</div>
-            <div class="timing-desc" role="cell">Window closes — document check is not possible after this</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Bottom line -->
-      <div class="cl-summary" role="note" aria-label="Bottom line">
-        <h2 class="cl-summary__title">Bottom line — all three must be done today</h2>
-        <p class="cl-summary__item">Medical complete and pink slip collected before leaving IOM</p>
-        <p class="cl-summary__item">Embassy document check completed same day — not a separate day</p>
-        <p class="cl-summary__item">Sealed "Do Not Tamper" envelope in hand before you go home</p>
       </div>
+    </main>
 
-      <footer class="cl-footer">americanvisaguide.com · Community resource · Not legal advice</footer>
-    </div>
-  </main>
-  <div id="footer-placeholder"></div>
-  <script src="/js/main.js"></script>
-</body>
+    <footer></footer>
+    <script src="/js/shared.js"></script>
+    <script src="/js/checklist.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        renderPage({
+          title: 'Medical Day Checklist — American Visa Guide',
+          description: 'Medical day checklist — medical and document check on the same day.',
+          activePage: 'checklists'
+        });
+      });
+    </script>
+  </body>
 </html>

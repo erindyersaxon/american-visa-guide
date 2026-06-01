@@ -1,1389 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Complete London Consular Process Guide — American Visa Guide</title>
-  <meta name="description" content="Step-by-step guide to the US family immigrant visa process through the US Embassy London. Covers I-130, NVC, IL drops, medical, interview, and post-approval.">
-  <link rel="canonical" href="https://www.americanvisaguide.com/guide">
-  <meta property="og:title" content="The Complete London Consular Process Guide">
-  <meta property="og:description" content="Step-by-step guide to the US family immigrant visa through the US Embassy London — I-130 to approval.">
-  <meta property="og:url" content="https://www.americanvisaguide.com/guide">
-  <meta property="og:type" content="article">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <style>
-    /* ── Guide layout ── */
-    .guide-wrap { padding-block: var(--space-8); }
-    .guide-layout {
-      display: grid;
-      grid-template-columns: 1fr;
-      max-width: var(--container-max);
-      margin-inline: auto;
-      padding-inline: var(--space-6);
-    }
-    @media (min-width: 960px) {
-      .guide-layout {
-        grid-template-columns: 248px 1fr;
-        gap: var(--space-10);
-        align-items: start;
-      }
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>London Visa Process Guide</title>
+    <meta name="description" content="End-to-end guide to the US Embassy London consular process. I-130, NVC, medical, interview and beyond." />
+    <meta property="og:title" content="London Visa Process Guide" />
+    <meta property="og:description" content="Complete step-by-step guide to the US Embassy London visa process." />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.americanvisaguide.com/guide.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="London Visa Process Guide" />
+    <meta name="twitter:description" content="Complete step-by-step guide to the US Embassy London visa process." />
+    <meta name="twitter:image" content="/og-image.svg" />
+    <link rel="canonical" href="https://www.americanvisaguide.com/guide.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
+    <style>
+      .guide-wrapper { display: grid; grid-template-columns: 260px 1fr; gap: var(--space-12); max-width: 1400px; margin: 0 auto; padding: var(--space-12) var(--container-padding); }
+      .guide-sidebar { position: sticky; top: var(--space-12); height: fit-content; max-height: calc(100vh - 40px); overflow-y: auto; }
+      .guide-nav { list-style: none; margin: 0; padding: 0; }
+      .guide-nav a { display: block; padding: var(--space-3) var(--space-4); border-left: 3px solid transparent; text-decoration: none; color: var(--color-text); font-size: var(--size-sm); transition: all var(--transition-fast); margin-bottom: var(--space-1); }
+      .guide-nav a:hover { background-color: var(--color-surface-alt); border-left-color: var(--color-gold); }
+      .guide-nav a.active { background-color: var(--color-navy-xlight); border-left-color: var(--color-navy); color: var(--color-navy); font-weight: var(--weight-semibold); }
+      .guide-content { max-width: var(--max-width-prose); }
+      .guide-content section { margin-bottom: var(--space-16); }
+      .guide-content h2 { margin-top: var(--space-16); margin-bottom: var(--space-6); scroll-margin-top: var(--space-12); }
+      .guide-content h2:first-child { margin-top: 0; }
+      .guide-content h3 { margin-top: var(--space-8); margin-bottom: var(--space-4); }
+      .mobile-jump { display: none; }
+      .warning-box { padding: var(--space-6); background: #fee2e2; border: 2px solid var(--color-error); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .warning-box strong { color: var(--color-error); }
+      .info-box { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .pcc-warning { padding: var(--space-6); background: #fee2e2; border-left: 4px solid var(--color-error); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .accordion-section { margin: var(--space-8) 0; }
+      .accordion-item { border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: var(--space-4); }
+      .accordion-trigger { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: var(--space-4); background: white; border: none; font-size: var(--size-base); font-weight: var(--weight-medium); color: var(--color-navy); cursor: pointer; text-align: left; transition: background-color var(--transition-fast); }
+      .accordion-trigger:hover { background-color: var(--color-surface-alt); }
+      .accordion-trigger:focus-visible { outline: var(--focus-outline); }
+      .accordion-icon { width: 24px; height: 24px; flex-shrink: 0; color: var(--color-gold); transition: transform var(--transition-base); }
+      .accordion-trigger[aria-expanded="true"] .accordion-icon { transform: rotate(180deg); }
+      .accordion-content { max-height: 0; overflow: hidden; transition: max-height var(--transition-base); }
+      .accordion-trigger[aria-expanded="true"] ~ .accordion-content { max-height: 3000px; }
+      .accordion-body { padding: var(--space-4); background: var(--color-surface); }
+      .interview-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-6) 0; background: white; }
+      .interview-header { display: grid; grid-template-columns: auto auto auto; gap: var(--space-4); margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border); }
+      .back-to-top { position: fixed; bottom: var(--space-6); right: var(--space-6); width: 44px; height: 44px; background: var(--color-navy); color: white; border: none; border-radius: var(--radius-full); cursor: pointer; display: none; align-items: center; justify-content: center; font-size: var(--size-2xl); transition: all var(--transition-fast); z-index: 40; }
+      .back-to-top:hover { background-color: var(--color-navy-light); transform: translateY(-4px); }
+      .back-to-top.visible { display: flex; }
+      @media (max-width: 1024px) { .guide-wrapper { grid-template-columns: 1fr; gap: var(--space-8); } .guide-sidebar { display: none; } .mobile-jump { display: block; margin-bottom: var(--space-6); } .mobile-menu { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); } .mobile-menu a { padding: var(--space-3) var(--space-4); background: var(--color-surface-alt); border-radius: var(--radius-md); text-decoration: none; color: var(--color-navy); font-size: var(--size-sm); font-weight: var(--weight-medium); text-align: center; } .mobile-menu a:hover { background: var(--color-navy-xlight); } }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation"></nav>
+    <main id="main">
+      <div class="container">
+        <div class="guide-wrapper">
+          <aside class="guide-sidebar">
+            <nav><ul class="guide-nav">
+              <li><a href="#overview">Overview</a></li>
+              <li><a href="#visa-categories">Visa categories</a></li>
+              <li><a href="#i130">I-130 filing</a></li>
+              <li><a href="#nvc">NVC</a></li>
+              <li><a href="#public-charge">Public charge</a></li>
+              <li><a href="#medical">Medical</a></li>
+              <li><a href="#interview">Interview</a></li>
+              <li><a href="#after-interview">After interview</a></li>
+            </ul></nav>
+          </aside>
 
-    /* ── Sidebar ── */
-    .guide-sidebar { display: none; }
-    @media (min-width: 960px) {
-      .guide-sidebar {
-        display: block;
-        position: sticky;
-        top: calc(var(--nav-height) + var(--space-6));
-        max-height: calc(100vh - var(--nav-height) - var(--space-12));
-        overflow-y: auto;
-        padding-right: var(--space-2);
-      }
-    }
-    .sidebar-group { margin-bottom: var(--space-5); }
-    .sidebar-label {
-      font-size: var(--text-xs);
-      font-weight: var(--font-semibold);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wider);
-      color: var(--color-text-muted);
-      padding: 0 var(--space-3);
-      margin-bottom: var(--space-2);
-    }
-    .sidebar-links { display: flex; flex-direction: column; gap: 2px; }
-    .guide-nav-link {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      padding: 6px var(--space-3);
-      border-radius: var(--radius-md);
-      font-size: var(--text-sm);
-      color: var(--color-text-secondary);
-      text-decoration: none;
-      line-height: 1.3;
-      transition: color 120ms, background-color 120ms;
-    }
-    .guide-nav-link:hover { color: var(--color-text); background: var(--color-bg); }
-    .guide-nav-link.is-active { color: var(--color-primary); background: var(--color-primary-subtle); font-weight: var(--font-medium); }
-    .guide-nav-link:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
-    .snav-num {
-      flex-shrink: 0;
-      display: inline-flex; align-items: center; justify-content: center;
-      min-width: 22px; height: 18px;
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-sm);
-      font-size: 10px; font-weight: var(--font-bold);
-      color: var(--color-text-muted);
-    }
-    .guide-nav-link.is-active .snav-num { background: var(--color-primary); color: #fff; }
+          <article class="guide-content">
+            <section id="overview">
+              <h2>Overview</h2>
+              <p>This is a guide to the consular visa process for family-based immigration through the US Embassy in London. It covers the steps from filing the I-130 petition through to arrival in the United States.</p>
+              <p><strong>This process rewards overpreparation.</strong> When in doubt, follow the strictest interpretation of official guidance. Supply more evidence than asked. Document more than required. Leave nothing to chance.</p>
+              <p>This guide is written by and for community members who have been through it. It is not legal advice. Always consult with an immigration attorney for your specific situation.</p>
+            </section>
 
-    /* ── Stage chip bar ── */
-    .stage-bar {
-      position: sticky;
-      top: var(--nav-height);
-      z-index: var(--z-sticky);
-      background: var(--color-surface);
-      border-bottom: 1px solid var(--color-border);
-      box-shadow: var(--shadow-xs);
-    }
-    .stage-bar-inner {
-      display: flex;
-      gap: var(--space-2);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      padding: var(--space-3) var(--space-6);
-      max-width: var(--container-max);
-      margin-inline: auto;
-    }
-    .stage-bar-inner::-webkit-scrollbar { display: none; }
-    .stage-chip {
-      display: inline-flex; align-items: center; gap: 4px;
-      flex-shrink: 0;
-      padding: var(--space-1) var(--space-3);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-full);
-      font-size: var(--text-xs);
-      font-weight: var(--font-semibold);
-      color: var(--color-text-secondary);
-      text-decoration: none;
-      background: var(--color-surface);
-      white-space: nowrap;
-      transition: all 120ms ease;
-    }
-    .stage-chip:hover { border-color: var(--color-primary-border); color: var(--color-primary); background: var(--color-primary-subtle); }
-    .stage-chip:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
-    .stage-chip__num { font-weight: var(--font-bold); color: var(--color-primary); }
+            <section id="visa-categories">
+              <h2>Visa categories</h2>
+              <h3>Immediate Relative (IR) — No annual cap</h3>
+              <p>Immediate relative visas have no annual cap. They include:</p>
+              <ul>
+                <li><strong>CR1/IR1 (Spouse):</strong> CR1 if married less than 2 years at US entry (conditional, 2-year validity). IR1 if married 2+ years (10-year validity). Marriage date matters. Keep original marriage certificate — CBP will ask for it at US entry.</li>
+                <li><strong>IR2 (Unmarried child under 21):</strong> Child of US citizen petitioner</li>
+                <li><strong>IR5 (Parent):</strong> Petitioner must be 21 or older</li>
+              </ul>
+              <h3>Family Preference (F) — Subject to annual cap</h3>
+              <p>Family preference categories are subject to annual visa caps:</p>
+              <ul>
+                <li>F1: Unmarried adult child (21+) of US citizen</li>
+                <li>F2A: Spouse/unmarried children of permanent resident</li>
+                <li>F2B: Unmarried adult child (21+) of permanent resident</li>
+                <li>F3: Married child of US citizen</li>
+                <li>F4: Sibling of US citizen (petitioner age 21+)</li>
+              </ul>
+              <h3>CRBA — Consular Report of Birth Abroad</h3>
+              <p>If your child was born overseas to a US citizen parent, you can establish citizenship via CRBA. The US citizen parent must have lived in the US for 5+ years before the child's birth, including 2+ years after age 14.</p>
+              <p><strong>Physical presence evidence—what works:</strong> Official school transcripts, W-2 forms with employer HR letter, passports showing entries/exits, military records, bank statements with US location markers, US medical records (with dates), CBP entry/exit records via FOIA.</p>
+              <p>Process: Register via MyTravelGov (eCRBA), pay $100, attend interview with child and US citizen parent, receive CRBA certificate and passport (~4 weeks).</p>
+              <h3>Transgender and non-binary applicants</h3>
+              <p>Current USCIS policy (April 2025) recognizes only male/female markers from original birth certificate. If your sex markers are inconsistent across documents, expect delays at USCIS, NVC, and medical stages. For legal assistance, contact <a href="https://www.immigrationequality.org" target="_blank" rel="noopener">Immigration Equality</a>. Reference: <em>USCIS Policy Manual Vol. 1, Part E, Chapter 5.</em></p>
+              <p><a href="/checklist-i130.html" class="btn btn-ghost btn-sm">I-130 Checklist →</a></p>
+            </section>
 
-    /* ── Guide sections ── */
-    .guide-section { padding-block: var(--space-10); border-top: 1px solid var(--color-border); }
-    .guide-section:first-child { border-top: none; padding-top: 0; }
-    .section-eyebrow { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
-    .section-num {
-      font-family: var(--font-display);
-      font-size: var(--text-4xl);
-      line-height: 1;
-      color: var(--color-primary-border);
-      font-weight: var(--font-normal);
-      letter-spacing: var(--tracking-tight);
-      min-width: 2.5rem;
-    }
-    .section-tag { font-size: var(--text-xs); font-weight: var(--font-semibold); text-transform: uppercase; letter-spacing: var(--tracking-wider); color: var(--color-primary); }
-    .section-title { font-family: var(--font-display); font-size: var(--text-3xl); color: var(--color-text); line-height: var(--leading-tight); margin-bottom: var(--space-4); }
-    @media (max-width: 768px) { .section-title { font-size: var(--text-2xl); } }
-    .section-lead { font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-6); max-width: none; }
+            <section id="i130">
+              <h2>Filing the I-130</h2>
+              <p>The I-130 petition establishes your relationship to the US petitioner and starts the visa process. It's submitted to USCIS and takes 9–18+ months to approve.</p>
+              <h3>Petitioner requirements</h3>
+              <ul>
+                <li>US citizen or permanent resident</li>
+                <li>18+ years old</li>
+                <li>Proof of identity and US immigration status</li>
+                <li>Income above poverty line for I-864 (affidavit of support)</li>
+              </ul>
+              <h3>Evidence checklist</h3>
+              <ul>
+                <li>Marriage certificate (if spouse petition)</li>
+                <li>Birth certificates</li>
+                <li>Divorce decrees (if previously married)</li>
+                <li>Photos of relationship</li>
+                <li>Communications (emails, messages, letters)</li>
+                <li>Travel records (passport stamps, flight records)</li>
+              </ul>
+              <h3>After submission</h3>
+              <p>After USCIS approves the I-130 (NOA2), your case transfers to the National Visa Center (NVC).</p>
+              <div class="accordion-section">
+                <div class="accordion-item">
+                  <button class="accordion-trigger" aria-expanded="false" aria-controls="uscis-check">
+                    <span>Advanced: USCIS JSON/API check</span>
+                    <svg class="accordion-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" /></svg>
+                  </button>
+                  <div class="accordion-content" id="uscis-check">
+                    <div class="accordion-body"><p><strong>This is not an official tool.</strong> Codes are not always interpretable, and data can be incomplete or misleading. For accurate case status, use <a href="https://egov.uscis.gov/" target="_blank" rel="noopener">USCIS Case Tracker</a>.</p></div>
+                  </div>
+                </div>
+              </div>
+              <div class="placeholder-image" style="margin: var(--space-8) 0; padding: var(--space-8); background: var(--color-surface-alt); border-radius: var(--radius-lg); text-align: center; color: var(--color-text-muted);">🖼️ Illustration: Document filing process (warm, organized)</div>
+              <p><a href="/checklist-i130.html" class="btn btn-ghost btn-sm">I-130 Checklist →</a></p>
+            </section>
 
-    /* ── Policy banner ── */
-    .policy-banner {
-      display: flex; gap: var(--space-4);
-      padding: var(--space-5);
-      background: var(--color-warning-subtle);
-      border: 1px solid var(--color-warning-border);
-      border-left: 4px solid var(--color-warning);
-      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-      margin-bottom: var(--space-8);
-    }
-    .policy-banner__icon { flex-shrink: 0; font-size: 20px; margin-top: 2px; }
-    .policy-banner__content { flex: 1; }
-    .policy-banner__date {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-size: var(--text-xs); font-weight: var(--font-semibold);
-      text-transform: uppercase; letter-spacing: var(--tracking-wide);
-      color: var(--color-warning);
-      margin-bottom: var(--space-2);
-    }
-    .policy-banner__title { font-weight: var(--font-semibold); font-size: var(--text-sm); color: var(--color-warning); margin-bottom: var(--space-2); }
-    .policy-banner__body { font-size: var(--text-sm); color: var(--color-text-secondary); line-height: var(--leading-relaxed); max-width: none; }
-    .policy-banner__body + .policy-banner__body { margin-top: var(--space-3); }
-    .policy-banner__sources { margin-top: var(--space-3); display: flex; flex-wrap: wrap; gap: var(--space-3); }
+            <section id="nvc">
+              <h2>National Visa Center (NVC)</h2>
+              <p>Once USCIS approves the I-130, your case goes to the National Visa Center. NVC processes the case through 10 steps:</p>
+              <div class="accordion-section">
+                <div class="accordion-item">
+                  <button class="accordion-trigger" aria-expanded="true" aria-controls="nvc-step-1">
+                    <span>Step 1: Welcome Letter</span>
+                    <svg class="accordion-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" /></svg>
+                  </button>
+                  <div class="accordion-content" id="nvc-step-1">
+                    <div class="accordion-body"><p>NVC sends a welcome letter 1–21 days after I-130 approval with your case number and invoice ID.</p></div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button class="accordion-trigger" aria-expanded="false" aria-controls="nvc-step-2">
+                    <span>Step 2–3: Create CEAC account and pay fees</span>
+                    <svg class="accordion-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" /></svg>
+                  </button>
+                  <div class="accordion-content" id="nvc-step-2">
+                    <div class="accordion-body"><p>Log in to <a href="https://ceac.state.gov/" target="_blank" rel="noopener">CEAC</a>. Two fees: Visa processing $325 + Affidavit of Support $120.</p></div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button class="accordion-trigger" aria-expanded="false" aria-controls="nvc-step-4">
+                    <span>Step 4–6: Submit documents</span>
+                    <svg class="accordion-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" /></svg>
+                  </button>
+                  <div class="accordion-content" id="nvc-step-4">
+                    <div class="accordion-body"><h4>Affidavit of Support (I-864)</h4><ul><li>Must be wet-signed (not digital)</li><li>Income must be 125% of federal poverty line</li><li>Attach IRS tax transcripts, W-2s, employment letters</li></ul><h4>DS-260 (Visa application)</h4><ul><li>Complete in CEAC</li><li>Form times out after ~10 minutes of inactivity</li><li>Prepare all answers in advance</li></ul><h4>Civil documents</h4><ul><li>Birth certificate</li><li>Marriage certificate</li><li>Police certificates (for all 16+)</li></ul></div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button class="accordion-trigger" aria-expanded="false" aria-controls="nvc-step-10">
+                    <span>Step 10: Document Check (DQ)</span>
+                    <svg class="accordion-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" /></svg>
+                  </button>
+                  <div class="accordion-content" id="nvc-step-10">
+                    <div class="accordion-body"><p>Once all documents are submitted and reviewed, NVC marks your case as "Documentarily Qualified" (DQ). Your case then moves to the London Embassy queue.</p></div>
+                  </div>
+                </div>
+              </div>
+              <h3>Police certificates</h3>
+              <p>Required for all applicants 16+ who hold other citizenship, live abroad 6+ months, or lived elsewhere 12+ months at age 16+.</p>
+              <p>For the UK: <a href="https://www.acro.police.uk/s/acro-services/police-certificates" target="_blank" rel="noopener">ACRO</a> — Standard £68 / Premium £121. <strong>Validity: 12 months for embassy purposes.</strong></p>
+              <h3 id="nvc-strategic-hold">12-month inactivity rule</h3>
+              <div class="warning-box"><p><strong>INA §203(g):</strong> Your case will be terminated if you don't log into CEAC or contact NVC for 12 consecutive months. Log in every 6–11 months to keep your case active.</p></div>
+              <h3>PCC warning</h3>
+              <div class="pcc-warning"><p><strong>If you use a police certificate placeholder at NVC, you MUST upload the real certificate before your interview.</strong> If you don't, you risk administrative processing after your interview, which delays your visa.</p></div>
+              <p><a href="/checklist-nvc.html" class="btn btn-ghost btn-sm">NVC Checklist →</a></p>
+            </section>
 
-    /* ── Expandable details ── */
-    .disc-group { display: flex; flex-direction: column; gap: var(--space-3); margin-block: var(--space-6); }
-    details.disc-item { border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
-    details.disc-item[open] { border-color: var(--color-primary-border); border-left: 3px solid var(--color-primary); }
-    details.disc-item summary {
-      display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
-      list-style: none; padding: var(--space-4) var(--space-5);
-      cursor: pointer; font-size: var(--text-base); font-weight: var(--font-medium);
-      color: var(--color-text); user-select: none;
-      border-radius: var(--radius-md);
-      transition: background-color 120ms;
-    }
-    details.disc-item summary::-webkit-details-marker { display: none; }
-    details.disc-item[open] summary { color: var(--color-primary); border-bottom: 1px solid var(--color-border); border-radius: var(--radius-md) var(--radius-md) 0 0; }
-    details.disc-item summary:hover { background: var(--color-bg); }
-    details.disc-item summary:focus-visible { outline: 2px solid var(--color-primary); outline-offset: -2px; border-radius: var(--radius-md); }
-    .disc-chevron { flex-shrink: 0; width: 18px; height: 18px; color: var(--color-text-muted); transition: transform 200ms ease; }
-    details.disc-item[open] .disc-chevron { transform: rotate(180deg); color: var(--color-primary); }
-    .disc-body { padding: var(--space-5); }
-    .disc-body > * + * { margin-top: var(--space-4); }
-    .disc-body p, .disc-body li { font-size: var(--text-sm); color: var(--color-text-secondary); line-height: var(--leading-relaxed); max-width: none; }
-    .disc-body ul { padding-left: var(--space-5); }
-    .disc-body li { list-style: disc; margin-bottom: var(--space-2); }
-    .disc-body ol li { list-style: decimal; }
-    .disc-body strong { font-weight: var(--font-semibold); color: var(--color-text); }
-    .disc-body h4 { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-2); }
+            <section id="public-charge">
+              <h2>Public charge</h2>
+              <p>The "public charge" assessment is not a wealth test. It's a demonstration of your planning intent. <strong>Submitting a public charge statement is strongly advised.</strong></p>
+              <p>Address: where you will live in the US, your employment plans, your health insurance plans. A specific plan significantly reduces risk.</p>
+              <p>Submit to <a href="mailto:LNDIVSubmissions@state.gov">LNDIVSubmissions@state.gov</a> or upload to CEAC before interview.</p>
+              <p><a href="/public-charge.html" class="btn btn-ghost btn-sm">Public Charge Statement Template →</a></p>
+            </section>
 
-    /* ── Tool callout ── */
-    .tool-callout {
-      display: flex; gap: var(--space-4);
-      padding: var(--space-5);
-      background: var(--color-primary-subtle);
-      border: 1px solid var(--color-primary-border);
-      border-radius: var(--radius-lg);
-      margin-block: var(--space-6);
-    }
-    .tool-callout__icon {
-      flex-shrink: 0; width: 40px; height: 40px;
-      background: var(--color-primary); border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center; color: #fff;
-    }
-    .tool-callout__body { flex: 1; }
-    .tool-callout__title { font-weight: var(--font-semibold); font-size: var(--text-sm); color: var(--color-primary); margin-bottom: var(--space-3); }
-    .tool-callout__links { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+            <section id="medical">
+              <h2>Medical examination</h2>
+              <div class="warning-box">
+                <p><strong>CRITICAL:</strong> Your medical examination and document check happen on <strong>Trip 1.</strong> Your interview is on <strong>Trip 2.</strong> These are two separate visits to London on different days. They cannot be combined.</p>
+              </div>
+              <h3>Medical provider</h3>
+              <p><a href="https://visamedicals.co.uk/united-states/" target="_blank" rel="noopener">VisaMedicals</a> — the only approved clinic for US visa medicals in the UK. Location: Bentinck Mansions, London</p>
+              <h3>Booking</h3>
+              <p>Medical appointment must be 10 working days before your interview. Slots fill quickly and open monthly. Phone: 020 7486 7822 | Email: bookings@visamedicals.co.uk</p>
+              <h3>Fees (as of December 2025)</h3>
+              <ul>
+                <li>Adults 45+: £400</li>
+                <li>Adults 25–44: £430</li>
+                <li>Adults 18–24: £450</li>
+                <li>Children 15–17: £365</li>
+                <li>Children 14 and under: £250</li>
+              </ul>
+              <h3>What happens at the exam</h3>
+              <p>Digital photo, document review, chest X-ray (15+), blood test (18+), urine test (18+), physical exam, vaccine review.</p>
+              <h3>Vaccinations</h3>
+              <p>MMR, Tetanus/Diphtheria, Hepatitis A & B (series can be completed in US), Varicella (or history), Polio (within 12 months), Flu (Oct–Mar). COVID-19 no longer required.</p>
+              <h3>After medical</h3>
+              <p>You'll receive a pink checklist slip. Go straight to the embassy for document check at the window on the right side of the building.</p>
+              <h3>Document check window</h3>
+              <p><strong>11:45 AM to 1:00 PM.</strong> Present your pink slip, sealed packet from NVC. They will check that everything is in order.</p>
+              <h3>Transgender applicants</h3>
+              <p>Sex is determined by original birth certificate marker (male/female only). If your sex markers are inconsistent across documents, expect delays at the medical stage.</p>
+              <p><a href="/checklist-medical.html" class="btn btn-ghost btn-sm">Medical Checklist →</a></p>
+            </section>
 
-    /* ── Prose ── */
-    .prose p { font-size: var(--text-base); color: var(--color-text-secondary); line-height: var(--leading-relaxed); max-width: none; margin-bottom: var(--space-4); }
-    .prose p:last-child { margin-bottom: 0; }
-    .prose ul, .prose ol { padding-left: var(--space-6); margin-bottom: var(--space-4); }
-    .prose li { font-size: var(--text-sm); color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: var(--space-2); list-style: disc; }
-    .prose ol li { list-style: decimal; }
-    .prose strong { font-weight: var(--font-semibold); color: var(--color-text); }
-    .prose h3 { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-text); margin-top: var(--space-8); margin-bottom: var(--space-3); line-height: var(--leading-tight); }
-    .prose h3:first-child { margin-top: 0; }
+            <section id="interview">
+              <h2>Interview</h2>
+              <p>Your interview is at the US Embassy, 33 Nine Elms Lane, London SW11 7US.</p>
+              <h3>What to bring</h3>
+              <ul>
+                <li>Passport</li>
+                <li>Sealed document packet (from document check)</li>
+                <li>Courier registration confirmation</li>
+                <li>Originals of everything else (though likely not reviewed)</li>
+              </ul>
+              <h3>Interview process</h3>
+              <ol>
+                <li>Skip the main visa queue. Tell staff: "I am here for an immigrant visa interview."</li>
+                <li>Document window: submit passport and sealed packet, confirm courier, fingerprints if requested.</li>
+                <li>Interview window: oath, brief questions (typically 2–5 minutes), decision.</li>
+              </ol>
+              <h3>People permitted in the interview</h3>
+              <ul>
+                <li><strong>NOT permitted:</strong> Petitioner, spouse, attorney</li>
+                <li><strong>Permitted:</strong> Interpreter (if needed), one additional person for special needs only</li>
+              </ul>
+              <h3>Interview duration</h3>
+              <p>Typical interview lasts under 5 minutes. Total time at embassy (including document window, waiting): 30 minutes to 2+ hours depending on queue.</p>
+              <h3>Community interview reports</h3>
+              <div class="interview-card">
+                <div class="interview-header">
+                  <span class="badge">Keely</span>
+                  <span class="badge">CR1</span>
+                  <span class="interview-detail">January 2026</span>
+                </div>
+                <p><strong>Arrival:</strong> Normal queue bypassed. <strong>Documents:</strong> Submitted in minutes. <strong>Wait:</strong> ~1 hour. <strong>Questions:</strong> "Where does your husband live, how did you meet, what does he do?" <strong>Duration:</strong> 40 seconds. <strong>Result:</strong> <span class="badge badge-approved">APPROVED</span></p>
+              </div>
+              <div class="interview-card">
+                <div class="interview-header">
+                  <span class="badge">Queen B</span>
+                  <span class="badge">IR1</span>
+                  <span class="interview-detail">July 2025</span>
+                </div>
+                <p><strong>Arrival:</strong> 7:40 AM for 8:00 AM slot. <strong>Questions:</strong> Meeting, prior marriages, residence. <strong>Duration:</strong> ~5 minutes. <strong>Total time:</strong> ~30 minutes. <strong>Result:</strong> <span class="badge badge-approved">APPROVED same day</span></p>
+              </div>
+              <div class="interview-card">
+                <div class="interview-header">
+                  <span class="badge">HT3</span>
+                  <span class="badge">IR5</span>
+                  <span class="interview-detail">December 2025</span>
+                </div>
+                <p><strong>Arrival:</strong> No queue joining. <strong>Questions:</strong> Son's citizenship, joint sponsor relationship. <strong>Duration:</strong> ~5 minutes. <strong>Total time:</strong> ~1.5 hours. <strong>Result:</strong> <span class="badge badge-approved">APPROVED</span></p>
+              </div>
+              <p><a href="/checklist-interview.html" class="btn btn-ghost btn-sm">Interview Checklist →</a> <a href="/checklist-binder.html" class="btn btn-ghost btn-sm">Binder Layout →</a></p>
+            </section>
 
-    /* ── Source links ── */
-    a.source-link {
-      display: inline-flex; align-items: center; gap: 3px;
-      font-size: var(--text-xs); color: var(--color-primary);
-      text-decoration-thickness: 1px; text-underline-offset: 2px;
-    }
-    a.source-link svg { width: 10px; height: 10px; flex-shrink: 0; }
-
-    /* ── Visa grid ── */
-    .visa-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); margin-top: var(--space-6); }
-    @media (min-width: 640px) { .visa-grid { grid-template-columns: 1fr 1fr; } }
-    .visa-type-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      margin-bottom: var(--space-3);
-    }
-    .visa-code {
-      font-family: var(--font-display);
-      font-size: var(--text-xl);
-      color: var(--color-primary);
-      line-height: 1;
-    }
-    .visa-cap {
-      font-size: var(--text-xs); font-weight: var(--font-semibold);
-      color: var(--color-text-muted);
-      text-transform: uppercase; letter-spacing: var(--tracking-wide);
-    }
-
-    /* ── Disclaimer ── */
-    .disclaimer {
-      padding: var(--space-5) var(--space-6);
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--color-border);
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      line-height: var(--leading-relaxed);
-      margin-top: var(--space-10);
-      max-width: none;
-    }
-
-    /* ── Mobile jump button + drawer ── */
-    .jump-btn {
-      display: flex; align-items: center; gap: var(--space-2);
-      position: fixed; bottom: var(--space-6); right: var(--space-4);
-      z-index: var(--z-modal);
-      padding: var(--space-3) var(--space-5);
-      background: var(--color-primary); color: #fff;
-      border: none; border-radius: var(--radius-full);
-      font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--font-semibold);
-      cursor: pointer; box-shadow: var(--shadow-lg);
-      transition: background-color 120ms, transform 120ms;
-      min-height: 44px;
-    }
-    .jump-btn:hover { background: var(--color-primary-hover); }
-    .jump-btn:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
-    @media (min-width: 960px) { .jump-btn { display: none; } }
-
-    .jump-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.45); z-index: calc(var(--z-modal) - 1);
-    }
-    .jump-overlay.is-open { display: block; }
-
-    .jump-drawer {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      z-index: var(--z-modal);
-      background: var(--color-surface);
-      border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
-      box-shadow: var(--shadow-xl);
-      padding: var(--space-5);
-      transform: translateY(100%);
-      transition: transform 250ms ease;
-      max-height: 80vh; overflow-y: auto;
-    }
-    .jump-drawer.is-open { transform: translateY(0); }
-    .jump-drawer__handle { width: 36px; height: 4px; background: var(--color-border-strong); border-radius: var(--radius-full); margin: 0 auto var(--space-5); }
-    .jump-drawer__title { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-4); }
-    .jump-drawer__links { display: flex; flex-direction: column; gap: 2px; }
-    .jump-drawer__link {
-      display: flex; align-items: center; gap: var(--space-3);
-      padding: var(--space-3) var(--space-4);
-      border-radius: var(--radius-md);
-      font-size: var(--text-base); color: var(--color-text-secondary);
-      text-decoration: none;
-      transition: background-color 120ms, color 120ms;
-      min-height: 44px;
-    }
-    .jump-drawer__link:hover { background: var(--color-bg); color: var(--color-text); }
-    .drawer-num {
-      flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
-      min-width: 28px; height: 22px;
-      background: var(--color-bg-alt); border-radius: var(--radius-sm);
-      font-size: var(--text-xs); font-weight: var(--font-bold); color: var(--color-primary);
-    }
-
-    /* ── Print ── */
-    @media print {
-      .guide-sidebar, .jump-btn, .jump-drawer, .jump-overlay, .stage-bar, #nav-placeholder, #footer-placeholder { display: none !important; }
-      .guide-layout { display: block; }
-      .guide-layout { padding-inline: 0; }
-      details.disc-item { open: true; border: none; border-bottom: 1px solid #ddd; border-radius: 0; }
-      details.disc-item[open] { border-left: none; }
-      details.disc-item .disc-body { display: block !important; }
-      .policy-banner, .info-card, .tool-callout, .step { break-inside: avoid; }
-      a[href]::after { content: " (" attr(href) ")"; font-size: 10px; color: #666; }
-      a.source-link::after { content: none; }
-    }
-  </style>
-</head>
-<body>
-
-<div id="nav-placeholder"></div>
-
-<!-- Stage jump bar -->
-<div class="stage-bar" role="navigation" aria-label="Jump to stage">
-  <div class="stage-bar-inner">
-    <a href="#intro"        class="stage-chip">Overview</a>
-    <a href="#visa-categories" class="stage-chip">Visa Types</a>
-    <a href="#stage-1"     class="stage-chip"><span class="stage-chip__num">1</span> USCIS</a>
-    <a href="#stage-1b"    class="stage-chip"><span class="stage-chip__num">1B</span> CRBA</a>
-    <a href="#stage-2"     class="stage-chip"><span class="stage-chip__num">2</span> NVC</a>
-    <a href="#stage-3"     class="stage-chip"><span class="stage-chip__num">3</span> Embassy Queue</a>
-    <a href="#stage-4"     class="stage-chip"><span class="stage-chip__num">4</span> Pre-Appointment</a>
-    <a href="#stage-5"     class="stage-chip"><span class="stage-chip__num">5</span> Interview</a>
-    <a href="#stage-6"     class="stage-chip"><span class="stage-chip__num">6</span> Post-Approval</a>
-  </div>
-</div>
-
-<main id="main-content">
-  <div class="guide-wrap">
-    <div class="guide-layout">
-
-      <!-- ── Sidebar ── -->
-      <nav class="guide-sidebar" aria-label="Guide sections">
-        <div class="sidebar-group">
-          <div class="sidebar-label">Overview</div>
-          <div class="sidebar-links">
-            <a href="#intro"           class="guide-nav-link">Introduction</a>
-            <a href="#visa-categories" class="guide-nav-link">Visa Categories</a>
-          </div>
+            <section id="after-interview">
+              <h2>After your interview</h2>
+              <h3>If approved</h3>
+              <p>Your passport is retained for visa printing. You'll receive an email from the embassy with instructions on how to collect it.</p>
+              <h4>Passport return methods:</h4>
+              <h5>Mail Boxes Etc (MBE) pickup</h5>
+              <ul>
+                <li>2–3 days after interview</li>
+                <li>Hold for 30 working days</li>
+                <li>Holborn: 19 Bury Place WC1A 2JB (Mon–Fri 9:00–18:00)</li>
+                <li>Angel: 8 Duncan Street N1 8BW</li>
+                <li>Belfast: 38 Montgomery Business Park BT6 9HL (Mon–Fri 8:30–16:30)</li>
+              </ul>
+              <h5>Home delivery</h5>
+              <ul>
+                <li>5–7 days after interview (up to 2 weeks)</li>
+                <li>Email notification from noreply@mbeglobal.com</li>
+              </ul>
+              <h3>If not approved: 221(g), visa pause, or denial</h3>
+              <h4>221(g) — Administrative Processing</h4>
+              <p>Case is under review. You'll receive an email with instructions. Usually resolved within weeks to months. Most common reason: financial sponsorship review.</p>
+              <h4>Visa pause</h4>
+              <p>If you hold citizenship in a country on a visa pause list, your visa cannot be issued while the pause is in effect. If you have dual citizenship (e.g., UK + another country), attempt to use your other passport if possible.</p>
+              <h4>Denial</h4>
+              <p>Officer explains the reason. Recourse is limited but may include an I-601 waiver if you're eligible. Consult an immigration attorney.</p>
+              <h3>After visa issuance: Next steps</h3>
+              <p>See <a href="/life.html">Life in the USA</a> for guidance on green card arrival, SSN, banking, and tax registration.</p>
+            </section>
+          </article>
         </div>
-        <div class="sidebar-group">
-          <div class="sidebar-label">The Stages</div>
-          <div class="sidebar-links">
-            <a href="#stage-1"  class="guide-nav-link"><span class="snav-num">1</span> USCIS / I-130</a>
-            <a href="#stage-1b" class="guide-nav-link"><span class="snav-num">1B</span> CRBA</a>
-            <a href="#stage-2"  class="guide-nav-link"><span class="snav-num">2</span> NVC</a>
-            <a href="#stage-3"  class="guide-nav-link"><span class="snav-num">3</span> Embassy Queue</a>
-            <a href="#stage-4"  class="guide-nav-link"><span class="snav-num">4</span> Pre-Appointment</a>
-            <a href="#stage-5"  class="guide-nav-link"><span class="snav-num">5</span> Interview</a>
-            <a href="#stage-6"  class="guide-nav-link"><span class="snav-num">6</span> Post-Approval</a>
-          </div>
-        </div>
-      </nav>
-
-      <!-- ── Main content ── -->
-      <article class="guide-content">
-
-        <!-- ══════ INTRODUCTION ══════ -->
-        <section id="intro" class="guide-section" data-section>
-          <h1 class="section-title" style="font-size:var(--text-4xl);">The Complete London Consular Processing Guide</h1>
-          <p class="section-lead">Everything you need to navigate a US family immigrant visa through the US Embassy London — from filing the I-130 to collecting your passport.</p>
-
-          <div class="prose">
-            <h3>What this guide covers</h3>
-            <p>This guide covers <strong>consular processing</strong> for family-based immigrant visas via the US Embassy London. It follows the full journey: I-130 at USCIS → National Visa Center → Embassy London interview and visa issuance.</p>
-
-            <h3>What this guide does NOT cover</h3>
-            <ul>
-              <li><strong>Local I-130 / Direct Consular Filing (DCF)</strong> — a separate process for some applicants already abroad</li>
-              <li><strong>Adjustment of Status (AOS / I-485)</strong> — for applicants already in the US. Note: as of May 2026, AOS is now only granted in extraordinary circumstances (see Stage 1 policy update)</li>
-              <li>Non-immigrant (temporary) visas, asylum, or DACA</li>
-            </ul>
-
-            <h3>Core principle</h3>
-            <p>Everything in this guide is based on <strong>official US government sources</strong> and verified community experience. Where the two differ, the official source takes precedence. Links to official sources are provided throughout.</p>
-          </div>
-        </section>
-
-        <!-- ══════ VISA CATEGORIES ══════ -->
-        <section id="visa-categories" class="guide-section" data-section>
-          <div class="section-eyebrow">
-            <div class="section-tag">Before you start</div>
-          </div>
-          <h2 class="section-title">Visa Categories</h2>
-          <p class="section-lead">Family-based immigrant visas fall into two groups: Immediate Relative (IR) visas, which have no annual cap, and Preference (F) visas, which do and can have multi-year waits.</p>
-
-          <div class="disc-group" role="list">
-
-            <!-- CR1 -->
-            <details class="disc-item" id="vis-cr1" role="listitem">
-              <summary>
-                <div class="visa-type-tag">
-                  <span class="visa-code">CR1</span>
-                  <span class="visa-cap">Spouse of US citizen (married &lt;2 years)</span>
-                </div>
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p><strong>Conditional green card, valid 2 years.</strong> Requires filing I-751 (Petition to Remove Conditions) before the card expires. If the marriage crosses 2 years before you enter the US, the visa automatically converts to IR1 — no action needed.</p>
-                <p><strong>Evidence at filing:</strong> joint financial accounts, lease/mortgage, insurance policies, tax returns (joint preferred), photos with name/date/location, travel history and communication logs.</p>
-                <p>
-                  <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" class="source-link" target="_blank" rel="noopener noreferrer">
-                    Official: travel.state.gov<span class="sr-only"> (opens in new tab)</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  </a>
-                </p>
-              </div>
-            </details>
-
-            <!-- IR1 -->
-            <details class="disc-item" id="vis-ir1" role="listitem">
-              <summary>
-                <div class="visa-type-tag">
-                  <span class="visa-code">IR1</span>
-                  <span class="visa-cap">Spouse of US citizen (married ≥2 years)</span>
-                </div>
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p><strong>10-year green card. No I-751 required.</strong> If you filed as CR1 but your marriage crosses 2 years before US entry, you automatically receive IR1 status on entry — no separate application needed.</p>
-                <p><strong>Evidence requirements</strong> are the same as CR1: joint financial accounts, lease/mortgage, insurance, tax returns, photos with name/date/location, communication logs.</p>
-              </div>
-            </details>
-
-            <!-- IR2 -->
-            <details class="disc-item" id="vis-ir2" role="listitem">
-              <summary>
-                <div class="visa-type-tag">
-                  <span class="visa-code">IR2</span>
-                  <span class="visa-cap">Unmarried child under 21 of US citizen</span>
-                </div>
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p>Can be CR2/IR2 depending on parents' marriage length. No annual cap.</p>
-                <p><strong>Evidence:</strong> child's birth certificate naming both parents; if stepchild, marriage certificate of petitioner and biological parent; proof of legal custody if petitioner is not the biological parent.</p>
-                <p>
-                  <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" class="source-link" target="_blank" rel="noopener noreferrer">
-                    Official: travel.state.gov<span class="sr-only"> (opens in new tab)</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  </a>
-                </p>
-              </div>
-            </details>
-
-            <!-- IR5 -->
-            <details class="disc-item" id="vis-ir5" role="listitem">
-              <summary>
-                <div class="visa-type-tag">
-                  <span class="visa-code">IR5</span>
-                  <span class="visa-cap">Parent of US citizen (petitioner 21+)</span>
-                </div>
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p><strong>No annual cap. 10-year green card.</strong></p>
-                <p><strong>Evidence:</strong> petitioner's birth certificate naming the parent; proof of US citizenship; if sponsoring stepparent, marriage certificate and proof the marriage occurred before the petitioner turned 18.</p>
-              </div>
-            </details>
-
-            <!-- F1 -->
-            <details class="disc-item" id="vis-f1" role="listitem">
-              <summary>
-                <div class="visa-type-tag">
-                  <span class="visa-code">F1</span>
-                  <span class="visa-cap">Unmarried adult child (21+) of US citizen</span>
-                </div>
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p>Subject to annual cap — waits can be several years. Monitor the Visa Bulletin monthly once I-130 is approved.</p>
-                <p><strong>Evidence:</strong> birth certificate; proof of citizenship; evidence of unmarried status; divorce/death cert for any prior marriages.</p>
-              </div>
-            </details>
-
-            <!-- F2A -->
-            <details class="disc-item" id="vis-f2a" role="listitem">
-              <summary>
-                <div class="visa-type-tag">
-                  <span class="visa-code">F2A</span>
-                  <span class="visa-cap">Spouse and unmarried children under 21 of LPR</span>
-                </div>
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p>Shortest wait of the F preference categories, but still subject to annual cap.</p>
-                <p><strong>Evidence:</strong> marriage/birth certificate; petitioner's green card; prior marriage termination documents; bona fide marriage evidence.</p>
-              </div>
-            </details>
-
-            <!-- F2B -->
-            <details class="disc-item" id="vis-f2b" role="listitem">
-              <summary>
-                <div class="visa-type-tag">
-                  <span class="visa-code">F2B</span>
-                  <span class="visa-cap">Unmarried adult child (21+) of LPR</span>
-                </div>
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p><strong>Evidence:</strong> birth certificate; petitioner's green card; evidence of unmarried status; divorce/death certificates for any prior marriages.</p>
-              </div>
-            </details>
-
-            <!-- F3 -->
-            <details class="disc-item" id="vis-f3" role="listitem">
-              <summary>
-                <div class="visa-type-tag">
-                  <span class="visa-code">F3</span>
-                  <span class="visa-cap">Married child of US citizen</span>
-                </div>
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p><strong>Evidence:</strong> birth cert; proof of citizenship; marriage cert; derivative beneficiaries' birth and marriage certificates.</p>
-              </div>
-            </details>
-
-            <!-- F4 -->
-            <details class="disc-item" id="vis-f4" role="listitem">
-              <summary>
-                <div class="visa-type-tag">
-                  <span class="visa-code">F4</span>
-                  <span class="visa-cap">Sibling of US citizen (petitioner 21+)</span>
-                </div>
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p><strong>Waits can exceed 10 years</strong> for some countries. File early and be prepared for a long wait.</p>
-                <p><strong>Evidence:</strong> both birth certificates showing a shared parent; proof of citizenship; name change documents if needed; derivatives' birth and marriage certificates.</p>
-              </div>
-            </details>
-
-          </div>
-        </section>
-
-        <!-- ══════ STAGE 1: USCIS ══════ -->
-        <section id="stage-1" class="guide-section" data-section>
-          <div class="section-eyebrow">
-            <div class="section-num" aria-hidden="true">1</div>
-            <div class="section-tag">Stage 1 of 6</div>
-          </div>
-          <h2 class="section-title">USCIS — I-130 Petition</h2>
-          <p class="section-lead">The I-130 establishes a qualifying family relationship. It does not assess finances or issue a visa. The output is an approval notice (NOA2) which forwards the case to the National Visa Center.</p>
-
-          <!-- Policy update banner -->
-          <div class="policy-banner" role="alert" aria-label="Policy update">
-            <div class="policy-banner__icon" aria-hidden="true">⚠️</div>
-            <div class="policy-banner__content">
-              <div class="policy-banner__date">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                Policy update — 22 May 2026
-              </div>
-              <div class="policy-banner__title">Adjustment of Status now limited to extraordinary circumstances</div>
-              <p class="policy-banner__body">USCIS has announced that Adjustment of Status will be granted only in extraordinary circumstances. Those previously expecting to adjust status from within the United States will now need to follow the consular processing route covered by this guide.</p>
-              <p class="policy-banner__body">If you have a pending I-485: The memo does not automatically cancel or convert pending applications to consular processing. However, USCIS officers are now directed to deny AOS on discretionary grounds even where statutory eligibility is met, unless extraordinary circumstances apply. <strong>Anyone with a pending AOS application should seek qualified immigration legal advice urgently.</strong></p>
-              <div class="policy-banner__sources">
-                <a href="https://www.uscis.gov/newsroom/news-releases/us-citizenship-and-immigration-services-will-grant-adjustment-of-status-only-in-extraordinary" class="source-link" target="_blank" rel="noopener noreferrer">
-                  USCIS press release<span class="sr-only"> (opens in new tab)</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-                <a href="https://www.uscis.gov/sites/default/files/document/memos/PM-602-0199-AdjustmentOfStatusAndDiscretion-20260521.pdf" class="source-link" target="_blank" rel="noopener noreferrer">
-                  Policy memo (PDF)<span class="sr-only"> (opens in new tab)</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pipeline warning -->
-          <div class="info-card info-card--warning" role="note" aria-label="Current pipeline warning">
-            <div class="info-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            </div>
-            <div class="info-card__body">
-              <div class="info-card__title">Current pipeline status</div>
-              <p class="info-card__text">The front of the I-130 line has not moved since 16 March 2026. As of mid-April 2026, USCIS was only processing cases with priority dates before 25 February 2025. Processing volumes have dropped to less than 50% of pre-slowdown levels. The cause is unconfirmed.</p>
-              <div style="margin-top:var(--space-3);display:flex;flex-wrap:wrap;gap:var(--space-3);">
-                <a href="https://trackmyvisanow.com/blog/i130-ir-consular-processing-slows-further" class="source-link" target="_blank" rel="noopener noreferrer">
-                  TrackMyVisaNow blog<span class="sr-only"> (opens in new tab)</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:10px;height:10px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-                <a href="https://trackmyvisanow.com/i130" class="source-link" target="_blank" rel="noopener noreferrer">
-                  Live tracker<span class="sr-only"> (opens in new tab)</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:10px;height:10px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Transgender/Non-binary warning -->
-          <div class="info-card info-card--warning" role="note" aria-label="Important note for transgender and non-binary applicants" style="margin-bottom:var(--space-6);">
-            <div class="info-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            </div>
-            <div class="info-card__body">
-              <div class="info-card__title">Transgender and non-binary applicants</div>
-              <p class="info-card__text">Under current US policy (April 2025), USCIS determines sex from the original birth certificate and only recognises male or female markers. Inconsistent sex markers can cause delays at USCIS, NVC, and the embassy medical. See the Medical section (Stage 4) for full guidance.</p>
-            </div>
-          </div>
-
-          <!-- Steps -->
-          <h3 class="prose" style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-text);margin-bottom:var(--space-5);">The I-130 Process</h3>
-          <ol class="steps" aria-label="I-130 filing steps">
-            <li class="step">
-              <div class="step__marker" aria-label="Step 1">1</div>
-              <div class="step__body">
-                <div class="step__title">File I-130</div>
-                <p class="step__desc">Submit via USCIS Online Account or by mail. Upload civil documents and supporting evidence. Source: <a href="https://www.uscis.gov/i-130" class="source-link" target="_blank" rel="noopener noreferrer">uscis.gov/i-130<span class="sr-only"> (opens in new tab)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:10px;height:10px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 2">2</div>
-              <div class="step__body">
-                <div class="step__title">Receipt Notice (NOA1)</div>
-                <p class="step__desc">Case accepted, priority date assigned. IR visas: typically 12+ months processing, some cases over 2 years. F visas: priority date must be current on the Visa Bulletin before NVC begins — this can take years. Monitor the Visa Bulletin monthly.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 3">3</div>
-              <div class="step__body">
-                <div class="step__title">Adjudication</div>
-                <p class="step__desc">Status cycles through: Case Was Received → Actively Being Reviewed → approval. You cannot speed this up.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 4">4</div>
-              <div class="step__body">
-                <div class="step__title">RFE (if issued)</div>
-                <p class="step__desc">USCIS requests missing evidence. The clock pauses until your response is submitted. Front-loading evidence when filing significantly reduces RFE risk.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 5">5</div>
-              <div class="step__body">
-                <div class="step__title">Decision (NOA2)</div>
-                <p class="step__desc">Approval forwards the case to NVC automatically. Denial allows appeal via I-290B (Motion to Reopen/Reconsider) or refiling. Do not refile without understanding why the case was denied.</p>
-              </div>
-            </li>
-          </ol>
-
-          <!-- Linking family applications (expandable) -->
-          <div class="disc-group">
-            <details class="disc-item" id="linking-family">
-              <summary>
-                Linking family I-130 applications
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p>If filing I-130s for multiple family members simultaneously, USCIS will <strong>not</strong> automatically link them. You must do this manually.</p>
-                <ol style="padding-left:var(--space-5);margin-top:var(--space-4);">
-                  <li style="list-style:decimal;margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Label and upload receipt notices to each other's USCIS accounts with label <strong>"PLEASE ATTACH – FAMILY CONNECTION"</strong></li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Cross-upload identity documents (child's birth cert to spouse's I-130 and vice versa)</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Complete Form I-130 Part 4, Question 25 listing the other applicant by name and case number</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Upload family evidence labelled <strong>"FAMILY UNIT EVIDENCE"</strong></li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Optionally request USCIS to link via the Emma chat tool — optional and may not be acted upon</li>
-                  <li style="list-style:decimal;margin-bottom:0;font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">If one case is stuck at NVC: request expedite on the pending I-130 using <strong>"family unity"</strong> as the reason</li>
-                </ol>
-                <div class="info-card info-card--tip" role="note" style="margin-top:var(--space-5);">
-                  <div class="info-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  </div>
-                  <div class="info-card__body">
-                    <div class="info-card__title">Make it painfully obvious</div>
-                    <p class="info-card__text">Clear labels, organised files, and explicit connections matter more than volume. USCIS officers handle thousands of cases — help them help you.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
-        </section>
-
-        <!-- ══════ STAGE 1B: CRBA ══════ -->
-        <section id="stage-1b" class="guide-section" data-section>
-          <div class="section-eyebrow">
-            <div class="section-num" aria-hidden="true">1B</div>
-            <div class="section-tag">Stage 1B</div>
-          </div>
-          <h2 class="section-title">CRBA — Consular Report of Birth Abroad</h2>
-          <p class="section-lead">If a child is born in the UK to a US citizen parent, they may already be a US citizen at birth and need a CRBA rather than an immigrant visa. This is assessed entirely separately from any I-130.</p>
-
-          <div class="info-card info-card--accent" role="note" style="margin-bottom:var(--space-6);">
-            <div class="info-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <div class="info-card__body">
-              <div class="info-card__title">CRBA vs IR2 — check this first</div>
-              <p class="info-card__text">If the child is a US citizen at birth, filing an I-130 is the wrong route. Assess CRBA eligibility first — it is faster and bypasses the entire visa process.</p>
-            </div>
-          </div>
-
-          <div class="prose">
-            <h3>Jurisdiction</h3>
-            <ul>
-              <li><strong>Child born in the UK:</strong> apply at US Embassy London</li>
-              <li><strong>Child born elsewhere but living in UK:</strong> apply in London, but the case is forwarded to the embassy in the country of birth (can take longer)</li>
-              <li><strong>Child already in the US:</strong> cannot apply for a CRBA</li>
-            </ul>
-
-            <h3>Physical presence requirement</h3>
-            <p>The US citizen parent must have lived in the US for <strong>at least 5 years</strong> before the child's birth, including <strong>at least 2 years after age 14</strong>. Non-continuous periods count. Any time outside the US is excluded, including holidays.</p>
-          </div>
-
-          <!-- Evidence details -->
-          <div class="disc-group">
-            <details class="disc-item" id="crba-evidence">
-              <summary>
-                Accepted evidence for physical presence
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <h4>Accepted</h4>
-                <ul>
-                  <li>Official school transcripts</li>
-                  <li>W-2s with HR employer letter</li>
-                  <li>Passports showing entries <em>and</em> exits</li>
-                  <li>Military records (Statement of Service or DD-214)</li>
-                  <li>Bank/credit card statements showing specific US locations</li>
-                  <li>US medical records (exact treatment dates only)</li>
-                  <li>CBP entry/exit records via FOIA request</li>
-                </ul>
-                <h4 style="margin-top:var(--space-5);">NOT accepted</h4>
-                <ul>
-                  <li>US driver's licence</li>
-                  <li>Diploma without transcripts</li>
-                  <li>Lease or mortgage documents</li>
-                  <li>Cell phone records</li>
-                  <li>Bank statements without US location shown</li>
-                  <li>Social media posts</li>
-                  <li>Income tax forms without pay stubs</li>
-                </ul>
-                <div style="margin-top:var(--space-4);display:flex;flex-wrap:wrap;gap:var(--space-3);">
-                  <a href="https://common.usembassy.gov/wp-content/uploads/sites/161/2023/04/acs-crba-and-proof-of-physical-presence.pdf" class="source-link" target="_blank" rel="noopener noreferrer">Embassy guidance (PDF)<span class="sr-only"> (opens in new tab)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:10px;height:10px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                  <a href="https://uk.usembassy.gov/wp-content/uploads/sites/204/2025/10/Proof-of-Physical-Presence-Information-Notice-Oct-2025.pdf" class="source-link" target="_blank" rel="noopener noreferrer">Oct 2025 notice (PDF)<span class="sr-only"> (opens in new tab)</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:10px;height:10px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                </div>
-              </div>
-            </details>
-
-            <details class="disc-item" id="crba-process">
-              <summary>
-                CRBA application process
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <ol style="padding-left:var(--space-5);">
-                  <li style="list-style:decimal;margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);"><strong>Complete eCRBA</strong> via MyTravelGov, DS-11 (unsigned), SS-5 (optional, if child is under 5). Upload documents and pay $100 fee online.</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);"><strong>Assemble all evidence</strong> before booking an appointment. Incomplete evidence is the most common cause of delays and refused appointments.</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);"><strong>Pay fees:</strong> CRBA $100, passport under 16 $135, passport ages 16–17 $165.</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-3);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);"><strong>Book appointment:</strong> email the London CRBA unit with the child's name, date of birth, and CRBA case number.</li>
-                  <li style="list-style:decimal;margin-bottom:0;font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);"><strong>Attend interview:</strong> child must attend. Both parents should attend; the US citizen parent must attend. If the non-US parent cannot attend, a DS-3053 notarised parental consent form is required (must be within 3 months). Bring originals and photocopies of everything.</li>
-                </ol>
-              </div>
-            </details>
-          </div>
-        </section>
-
-        <!-- ══════ STAGE 2: NVC ══════ -->
-        <section id="stage-2" class="guide-section" data-section>
-          <div class="section-eyebrow">
-            <div class="section-num" aria-hidden="true">2</div>
-            <div class="section-tag">Stage 2 of 6</div>
-          </div>
-          <h2 class="section-title">NVC — National Visa Center</h2>
-          <p class="section-lead">After I-130 NOA2, the case transfers automatically to the National Visa Center. NVC does not issue visas — it collects fees and documents, and determines Documentary Qualification (DQ) readiness before sending the case to the embassy.</p>
-
-          <ol class="steps" aria-label="NVC processing steps">
-            <li class="step">
-              <div class="step__marker" aria-label="Step 1">1</div>
-              <div class="step__body">
-                <div class="step__title">Receive NVC Welcome Letter</div>
-                <p class="step__desc">You'll receive a Case Number and Invoice ID. Log in at <a href="https://ceac.state.gov/IV" class="source-link" target="_blank" rel="noopener noreferrer">ceac.state.gov/IV<span class="sr-only"> (opens in new tab)</span></a> to begin.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 2">2</div>
-              <div class="step__body">
-                <div class="step__title">Pay fees</div>
-                <p class="step__desc">IV Application Fee $325, Affidavit of Support fee $120. <strong>Both must show PAID before you upload any documents.</strong> Uploading before fees clear is a common mistake that delays cases.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 3">3</div>
-              <div class="step__body">
-                <div class="step__title">Complete and submit DS-260</div>
-                <p class="step__desc">Complete online at CEAC. CEAC times out after ~10 minutes of inactivity and is unreliable — prepare all answers offline first. Once submitted, it cannot be edited. <strong>Print the DS-260 confirmation page</strong> — you must bring it to the medical and the interview.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 4">4</div>
-              <div class="step__body">
-                <div class="step__title">Upload I-864 Affidavit of Support</div>
-                <p class="step__desc">Must be <strong>wet signed</strong> (handwritten signature). Digital and e-signatures are rejected. The standard I-864 is recommended over I-864EZ even for apparently simple cases.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 5">5</div>
-              <div class="step__body">
-                <div class="step__title">Upload civil documents</div>
-                <p class="step__desc"><strong>Always required:</strong> birth certificate (long form), marriage certificate, UK ACRO Police Certificate, police certificates from all countries lived in for 6+ months since age 16, passport biographic page.<br><br><strong>If applicable:</strong> divorce decrees (all prior marriages), death certificates, court/criminal records, prison records, military records.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 6">6</div>
-              <div class="step__body">
-                <div class="step__title">Submit documents</div>
-                <p class="step__desc"><strong>Uploading alone does not enter you into the review queue.</strong> You must click the Submit Documents button separately. This is one of the most common mistakes.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 7">7</div>
-              <div class="step__body">
-                <div class="step__title">NVC confirms DQ</div>
-                <p class="step__desc">Typically 10 business days (~14 calendar days) after submission. Each RFE resets the 14-day clock from scratch.</p>
-              </div>
-            </li>
-          </ol>
-
-          <!-- I-864 income / joint sponsor -->
-          <div class="disc-group">
-            <details class="disc-item" id="i864-income">
-              <summary>
-                I-864 income requirement and joint sponsors
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p>The petitioner must meet <strong>125% of US Federal Poverty Guidelines</strong> based on household size. If income is insufficient, irregular, asset-heavy, or earned abroad — a joint sponsor is required.</p>
-                <h4 style="margin-top:var(--space-4);">Joint sponsor requirements</h4>
-                <ul>
-                  <li>Separate I-864 (not I-864A)</li>
-                  <li>IRS Tax Transcript (not just a copy of the return)</li>
-                  <li>W-2s and/or 1099s</li>
-                  <li>Proof of US status (US passport or green card)</li>
-                  <li>Proof of US domicile</li>
-                  <li>Proof of income: W-2 employees need employment letter + recent pay stubs; self-employed need 12 months of business bank statements; retired need evidence of retirement income</li>
-                </ul>
-                <div class="info-card info-card--warning" role="note" style="margin-top:var(--space-5);">
-                  <div class="info-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                  </div>
-                  <div class="info-card__body">
-                    <div class="info-card__title">London-specific risk</div>
-                    <p class="info-card__text">Asset-only or borderline income cases frequently result in 221(g) delays at London. If there is any doubt about income qualification, secure a joint sponsor <em>before</em> the interview — financial documents cannot be accepted at the window on interview day.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-
-            <details class="disc-item" id="nvc-strategic-hold">
-              <summary>
-                Strategic hold — delaying submission intentionally
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p>Some applicants choose to hold their case at NVC by not clicking Submit Documents, to delay scheduling. Common reasons include needing more time to arrange housing or employment in the US, or waiting for a specific interview window.</p>
-                <p>This is a legitimate strategy. The case will not move forward until documents are submitted. There is no deadline to submit once fees are paid.</p>
-              </div>
-            </details>
-
-            <details class="disc-item" id="nvc-failure-points">
-              <summary>
-                Common failure points at NVC
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <ul>
-                  <li>Uploading documents to the wrong CEAC category</li>
-                  <li>Missing police certificates for countries lived in for 6+ months</li>
-                  <li>Assuming assets suffice without a joint sponsor when income is borderline</li>
-                  <li>Submitting before fully ready — every RFE adds ~2 weeks</li>
-                  <li>I-864 digitally signed instead of wet signed</li>
-                  <li>Police Certificate placeholder not replaced with the actual certificate before interview day</li>
-                </ul>
-                <div class="info-card info-card--tip" role="note" style="margin-top:var(--space-4);">
-                  <div class="info-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  </div>
-                  <div class="info-card__body">
-                    <div class="info-card__title">File naming convention</div>
-                    <p class="info-card__text">Use: <strong>[CASE NUMBER]_[DOCUMENT TYPE]_[NAME]</strong><br>Example: <code>LNDXXXX_BirthCert_Beneficiary</code></p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
-
-          <!-- Tool callout -->
-          <div class="tool-callout" role="complementary" aria-label="NVC tools">
-            <div class="tool-callout__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </div>
-            <div class="tool-callout__body">
-              <div class="tool-callout__title">Tools for this stage</div>
-              <div class="tool-callout__links">
-                <a href="/checklist-nvc" class="btn btn--secondary btn--sm">NVC Checklist</a>
-                <a href="/worksheet-ds260" class="btn btn--secondary btn--sm">DS-260 Worksheet</a>
-                <a href="/worksheet-i864" class="btn btn--secondary btn--sm">I-864 Worksheet</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══════ STAGE 3: EMBASSY QUEUE ══════ -->
-        <section id="stage-3" class="guide-section" data-section>
-          <div class="section-eyebrow">
-            <div class="section-num" aria-hidden="true">3</div>
-            <div class="section-tag">Stage 3 of 6</div>
-          </div>
-          <h2 class="section-title">Embassy Queue — IL Drops</h2>
-          <p class="section-lead">After achieving DQ at NVC, the case enters the US Embassy London queue. The embassy issues Interview Letters (ILs) in batches — these are called "drops."</p>
-
-          <div class="prose">
-            <h3>How IL drops work</h3>
-            <p>ILs arrive in batches, typically on <strong>Tuesday–Thursday between 13:30–15:30 UK time</strong>. Each drop covers a range of DQ dates — applicants with older DQ dates are prioritised. Drops are not on a fixed schedule.</p>
-
-            <h3>Current wait times</h3>
-            <ul>
-              <li><strong>DQ to IL:</strong> the wait has risen from 58 days (all-time average) to approximately 70 days over the last 6 months. Use the 6-month figure as your planning baseline.</li>
-              <li><strong>IL to Interview:</strong> typically 8–10 weeks after the IL date.</li>
-            </ul>
-          </div>
-
-          <div class="tool-callout" role="complementary" aria-label="Data dashboard link">
-            <div class="tool-callout__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            </div>
-            <div class="tool-callout__body">
-              <div class="tool-callout__title">Live data dashboard</div>
-              <div class="tool-callout__links">
-                <a href="/" class="btn btn--secondary btn--sm">IL Drop Tracker &amp; Community Data</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══════ STAGE 4: PRE-APPOINTMENT ══════ -->
-        <section id="stage-4" class="guide-section" data-section>
-          <div class="section-eyebrow">
-            <div class="section-num" aria-hidden="true">4</div>
-            <div class="section-tag">Stage 4 of 6</div>
-          </div>
-          <h2 class="section-title">Pre-Appointment — Medical &amp; Document Check</h2>
-          <p class="section-lead">Two separate trips to London are required: one for the medical + document check (same day, back to back), and one for the interview (a later date). Do not confuse the two.</p>
-
-          <div class="info-card info-card--warning" role="note" style="margin-bottom:var(--space-6);">
-            <div class="info-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            </div>
-            <div class="info-card__body">
-              <div class="info-card__title">Medical must be within 6 months of interview date</div>
-              <p class="info-card__text">The medical is booked at <strong>IOM London</strong>, not at the embassy. Book it close enough to your interview date that it won't expire, but with enough buffer for any follow-up requirements.</p>
-            </div>
-          </div>
-
-          <div class="disc-group">
-            <details class="disc-item" id="medical-what-to-bring">
-              <summary>
-                Medical appointment — what to bring
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <h4>Always required</h4>
-                <ul>
-                  <li>Passport</li>
-                  <li>Interview Letter</li>
-                  <li>DS-260 confirmation page (printed — not on phone)</li>
-                  <li>Completed medical questionnaire IV18a</li>
-                  <li>Vaccination records</li>
-                  <li>ACRO Police Certificate</li>
-                  <li>GP summary (dated within 2–3 weeks)</li>
-                  <li>Payment method</li>
-                </ul>
-                <h4 style="margin-top:var(--space-4);">If applicable</h4>
-                <ul>
-                  <li>Medical reports for chronic conditions</li>
-                  <li>Mental health documentation</li>
-                  <li>TB/STI documentation</li>
-                  <li>Child health record / Red Book</li>
-                  <li>Maternity documentation if pregnant</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="disc-item" id="medical-what-happens">
-              <summary>
-                Medical appointment — what happens
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <ol style="padding-left:var(--space-5);">
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Check-in and digital photo</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Document review</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Chest X-ray (applicants age 15+)</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Blood test (age 18+)</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Urine test (age 18+)</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Physical examination</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Vaccine review and administration of any missing vaccinations</li>
-                </ol>
-                <div class="info-card info-card--warning" role="note" style="margin-top:var(--space-4);">
-                  <div class="info-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                  </div>
-                  <div class="info-card__body">
-                    <div class="info-card__title">Before you leave the clinic</div>
-                    <p class="info-card__text">You <strong>must</strong> collect your pink checklist slip before leaving IOM. This slip is required for the document check at the embassy the same day. Do not leave without it.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-
-            <details class="disc-item" id="doc-check">
-              <summary>
-                Document check — same day as medical
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <div class="info-card info-card--warning" role="note" style="margin-bottom:var(--space-4);">
-                  <div class="info-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                  </div>
-                  <div class="info-card__body">
-                    <div class="info-card__title">Go directly to the embassy after the medical</div>
-                    <p class="info-card__text">Do <strong>not</strong> go home first. Go straight from IOM to the embassy. The window closes at 1:00 PM.</p>
-                  </div>
-                </div>
-                <p><strong>Address:</strong> 33 Nine Elms Lane, London SW11 7US</p>
-                <p><strong>Window hours:</strong> 11:30 AM–1:00 PM (queue opens ~11:45)</p>
-                <p>Go to the <strong>Pass Back window on the right side of the building</strong> — do NOT join the main non-immigrant queue.</p>
-                <h4 style="margin-top:var(--space-4);">Bring</h4>
-                <ul>
-                  <li>Passport</li>
-                  <li>Pink medical slip from IOM</li>
-                  <li>DS-260 confirmation page</li>
-                  <li>Civil documents (originals)</li>
-                </ul>
-                <h4 style="margin-top:var(--space-4);">Process</h4>
-                <ol style="padding-left:var(--space-5);">
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Airport-style security screening</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Document check at the window</li>
-                  <li style="list-style:decimal;margin-bottom:var(--space-2);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Fingerprints</li>
-                  <li style="list-style:decimal;margin-bottom:0;font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">Receive sealed <strong>"Do Not Tamper"</strong> envelope — keep this sealed for interview day</li>
-                </ol>
-              </div>
-            </details>
-          </div>
-
-          <div class="tool-callout" role="complementary" aria-label="Medical and binder tools">
-            <div class="tool-callout__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-            </div>
-            <div class="tool-callout__body">
-              <div class="tool-callout__title">Tools for this stage</div>
-              <div class="tool-callout__links">
-                <a href="/checklist-medical" class="btn btn--secondary btn--sm">Medical Checklist</a>
-                <a href="/checklist-binder" class="btn btn--secondary btn--sm">Binder Guide</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══════ STAGE 5: INTERVIEW ══════ -->
-        <section id="stage-5" class="guide-section" data-section>
-          <div class="section-eyebrow">
-            <div class="section-num" aria-hidden="true">5</div>
-            <div class="section-tag">Stage 5 of 6</div>
-          </div>
-          <h2 class="section-title">Interview Day</h2>
-          <p class="section-lead">By this point USCIS, NVC, and the medical have all cleared the case. The interview is a final consistency check. Passport and sealed envelope are the only essentials — the rest is preparation.</p>
-
-          <div class="info-card info-card--accent" role="note" style="margin-bottom:var(--space-6);">
-            <div class="info-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <div class="info-card__body">
-              <div class="info-card__title">Wait is long. Interview is short.</div>
-              <p class="info-card__text">Total time inside the embassy: approximately 90–120 minutes. The interview itself is typically 2–5 minutes. The wait before your window is called is the majority of the time.</p>
-            </div>
-          </div>
-
-          <div class="disc-group">
-            <details class="disc-item" id="interview-bring">
-              <summary>
-                What to bring
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <h4>Essentials</h4>
-                <ul>
-                  <li>Passport (valid, undamaged)</li>
-                  <li>Sealed document envelope from document check — <strong>do NOT open this</strong></li>
-                  <li>Interview Letter</li>
-                  <li>DS-260 confirmation page</li>
-                  <li>Courier registration confirmation with QR code</li>
-                </ul>
-                <h4 style="margin-top:var(--space-4);">Backup documents (rarely requested, but bring originals)</h4>
-                <ul>
-                  <li>ACRO Police Certificate</li>
-                  <li>Marriage/birth certificate originals</li>
-                  <li>I-864 and any joint sponsor documents</li>
-                </ul>
-                <div class="info-card info-card--warning" role="note" style="margin-top:var(--space-4);">
-                  <div class="info-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                  </div>
-                  <div class="info-card__body">
-                    <div class="info-card__title">Financial documents must be in CEAC before interview</div>
-                    <p class="info-card__text">All financial documents must be uploaded to CEAC <em>before</em> your interview date. Officers will not accept new documents at the window on the day.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-
-            <details class="disc-item" id="interview-arrival">
-              <summary>
-                Arrival and security
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <ul>
-                  <li>Arrive approximately <strong>30 minutes early</strong></li>
-                  <li>Go straight to the front — do <strong>not</strong> join the main non-immigrant visa queue</li>
-                  <li>State clearly: <em>"I am here for an immigrant visa interview"</em></li>
-                  <li>Check that your passport sticker has the correct name and case number before leaving security</li>
-                  <li>Airport-style security — no laptops, no large bags</li>
-                  <li>Bag storage nearby: District Coffee (Nine Elms) or World Heartbeat Cafe</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="disc-item" id="interview-process">
-              <summary>
-                Inside the embassy — two windows
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <ol style="padding-left:var(--space-5);">
-                  <li style="list-style:decimal;margin-bottom:var(--space-4);font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">
-                    <strong>Document window:</strong> hand over your passport and sealed envelope, confirm courier registration, fingerprints taken
-                  </li>
-                  <li style="list-style:decimal;margin-bottom:0;font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">
-                    <strong>Interview window:</strong> take the oath, answer questions (typically 2–5 minutes), receive the decision — which is usually immediate and verbal
-                  </li>
-                </ol>
-              </div>
-            </details>
-
-            <details class="disc-item" id="interview-questions">
-              <summary>
-                Typical questions by visa category
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <h4>CR1/IR1 — Spouse of US citizen</h4>
-                <ul>
-                  <li>How and when did you meet?</li>
-                  <li>Where does your spouse live? What do they do for work?</li>
-                  <li>What do you do for work?</li>
-                  <li>Any prior marriages?</li>
-                  <li>Have you lived elsewhere or been arrested?</li>
-                  <li>Who is your joint sponsor? (if applicable)</li>
-                </ul>
-                <h4 style="margin-top:var(--space-4);">IR2 — Child of US citizen</h4>
-                <ul>
-                  <li>Where does your parent live? What do they do for work?</li>
-                  <li>When did you last see your parent?</li>
-                  <li>Who do you currently live with?</li>
-                  <li>Do you have siblings in the US?</li>
-                </ul>
-                <h4 style="margin-top:var(--space-4);">IR5 — Parent of US citizen</h4>
-                <ul>
-                  <li>How did your child become a US citizen?</li>
-                  <li>Where does your child live? What do they do for work?</li>
-                  <li>Who is the joint sponsor? (if applicable)</li>
-                  <li>Have you lived in the US before?</li>
-                </ul>
-                <h4 style="margin-top:var(--space-4);">General (all categories)</h4>
-                <ul>
-                  <li>Have you ever been arrested?</li>
-                  <li>Have you lived in other countries?</li>
-                  <li>Have you been married before?</li>
-                  <li>What are your plans in the US?</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="disc-item" id="public-charge-interview">
-              <summary>
-                Public charge — voluntary statement
-                <svg class="disc-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </summary>
-              <div class="disc-body">
-                <p>A voluntary public charge statement sent to <a href="mailto:LNDIVSubmissions@state.gov" class="source-link">LNDIVSubmissions@state.gov</a> before the interview removes one potential line of questioning at the window.</p>
-                <p>Community experience is that it should be sent even though it is described as voluntary. Include your case number in the subject line and send it at least a few days before your appointment.</p>
-                <div class="tool-callout" role="complementary" aria-label="Public charge template link" style="margin-top:var(--space-4);">
-                  <div class="tool-callout__icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  </div>
-                  <div class="tool-callout__body">
-                    <div class="tool-callout__title">Use the community template</div>
-                    <div class="tool-callout__links">
-                      <a href="/public-charge" class="btn btn--secondary btn--sm">Public Charge Template</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
-
-          <div class="tool-callout" role="complementary" aria-label="Interview tools">
-            <div class="tool-callout__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-            </div>
-            <div class="tool-callout__body">
-              <div class="tool-callout__title">Tools for this stage</div>
-              <div class="tool-callout__links">
-                <a href="/checklist-interview" class="btn btn--secondary btn--sm">Interview Checklist</a>
-                <a href="/public-charge" class="btn btn--secondary btn--sm">Public Charge Template</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ══════ STAGE 6: POST-APPROVAL ══════ -->
-        <section id="stage-6" class="guide-section" data-section>
-          <div class="section-eyebrow">
-            <div class="section-num" aria-hidden="true">6</div>
-            <div class="section-tag">Stage 6 of 6</div>
-          </div>
-          <h2 class="section-title">Post-Approval</h2>
-          <p class="section-lead">After verbal approval at the interview, here's what happens next and what you need to do.</p>
-
-          <ol class="steps" aria-label="Post-approval steps">
-            <li class="step">
-              <div class="step__marker" aria-label="Step 1">1</div>
-              <div class="step__body">
-                <div class="step__title">Passport return</div>
-                <p class="step__desc">Returned via courier (registered at booking) or pick-up at Mail Boxes Etc, Vauxhall. <strong>Pick-up average: 4 days. Mail average: 12 days. Median overall: ~5 days.</strong></p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 2">2</div>
-              <div class="step__body">
-                <div class="step__title">Pay USCIS Immigrant Fee ($235)</div>
-                <p class="step__desc">Pay at <a href="https://my.uscis.gov/" class="source-link" target="_blank" rel="noopener noreferrer">my.uscis.gov<span class="sr-only"> (opens in new tab)</span></a>. Recommended before travelling to start the green card clock, but can be paid after entry. Do not delay past entry.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 3">3</div>
-              <div class="step__body">
-                <div class="step__title">Green card</div>
-                <p class="step__desc">Mailed within 90 days of entry to the address on file with USCIS. Confirm your address in your USCIS account after arrival in the US.</p>
-              </div>
-            </li>
-            <li class="step">
-              <div class="step__marker" aria-label="Step 4">4</div>
-              <div class="step__body">
-                <div class="step__title">Social Security Number</div>
-                <p class="step__desc">SSN initiates automatically if you selected it on the DS-260. If it hasn't arrived within 4–6 weeks of entry, visit your local Social Security Administration office in person.</p>
-              </div>
-            </li>
-          </ol>
-
-          <div class="tool-callout" role="complementary" aria-label="Life in the USA guide">
-            <div class="tool-callout__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <div class="tool-callout__body">
-              <div class="tool-callout__title">What happens next</div>
-              <p style="font-size:var(--text-sm);color:var(--color-text-secondary);margin-bottom:var(--space-3);max-width:none;">The Life in the USA guide covers everything from arriving at the border to setting up your life — banking, healthcare, driving, taxes, and more.</p>
-              <div class="tool-callout__links">
-                <a href="/life" class="btn btn--primary btn--sm">Life in the USA Guide</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Disclaimer -->
-          <p class="disclaimer" role="note">
-            <strong>Not legal advice.</strong> Based on official US government sources and community experience. Written by Erin with input from community members, not lawyers or embassy staff. Immigration law changes frequently — always verify against official sources before acting.
-          </p>
-        </section>
-
-      </article>
-    </div>
-  </div>
-</main>
-
-<!-- Mobile "Jump to section" button -->
-<button class="jump-btn" id="jump-btn" aria-expanded="false" aria-controls="jump-drawer">
-  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  Jump to section
-</button>
-
-<div class="jump-overlay" id="jump-overlay" aria-hidden="true"></div>
-
-<div class="jump-drawer" id="jump-drawer" role="dialog" aria-modal="true" aria-label="Jump to section">
-  <div class="jump-drawer__handle" aria-hidden="true"></div>
-  <div class="jump-drawer__title">Jump to section</div>
-  <nav class="jump-drawer__links" aria-label="Guide sections">
-    <a href="#intro"           class="jump-drawer__link">Introduction</a>
-    <a href="#visa-categories" class="jump-drawer__link">Visa Categories</a>
-    <a href="#stage-1"  class="jump-drawer__link"><span class="drawer-num">1</span> USCIS / I-130</a>
-    <a href="#stage-1b" class="jump-drawer__link"><span class="drawer-num">1B</span> CRBA</a>
-    <a href="#stage-2"  class="jump-drawer__link"><span class="drawer-num">2</span> NVC</a>
-    <a href="#stage-3"  class="jump-drawer__link"><span class="drawer-num">3</span> Embassy Queue</a>
-    <a href="#stage-4"  class="jump-drawer__link"><span class="drawer-num">4</span> Pre-Appointment</a>
-    <a href="#stage-5"  class="jump-drawer__link"><span class="drawer-num">5</span> Interview</a>
-    <a href="#stage-6"  class="jump-drawer__link"><span class="drawer-num">6</span> Post-Approval</a>
-  </nav>
-</div>
-
-<div id="footer-placeholder"></div>
-
-<script src="/js/main.js"></script>
-<script>
-  /* ── IntersectionObserver: highlight active sidebar link ── */
-  (function () {
-    const sections = document.querySelectorAll('[data-section]');
-    const navLinks = document.querySelectorAll('.guide-nav-link');
-    if (!sections.length || !navLinks.length) return;
-
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(l => l.classList.remove('is-active'));
-        const active = document.querySelector(`.guide-nav-link[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('is-active');
+      </div>
+    </main>
+
+    <footer></footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    <script src="/js/shared.js"></script>
+    <script src="/js/guide.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderPage({
+          title: "London Visa Process Guide",
+          description: "End-to-end guide to the US Embassy London consular process. I-130, NVC, medical, interview and beyond.",
+          activePage: "guide",
+        });
       });
-    }, { rootMargin: '-10% 0% -70% 0%', threshold: 0 });
-
-    sections.forEach(s => obs.observe(s));
-  })();
-
-  /* ── Mobile drawer ── */
-  (function () {
-    const btn     = document.getElementById('jump-btn');
-    const drawer  = document.getElementById('jump-drawer');
-    const overlay = document.getElementById('jump-overlay');
-    if (!btn || !drawer) return;
-
-    function open() {
-      drawer.classList.add('is-open');
-      overlay.classList.add('is-open');
-      overlay.removeAttribute('aria-hidden');
-      btn.setAttribute('aria-expanded', 'true');
-      drawer.querySelector('a')?.focus();
-    }
-    function close() {
-      drawer.classList.remove('is-open');
-      overlay.classList.remove('is-open');
-      overlay.setAttribute('aria-hidden', 'true');
-      btn.setAttribute('aria-expanded', 'false');
-      btn.focus();
-    }
-
-    btn.addEventListener('click', () => drawer.classList.contains('is-open') ? close() : open());
-    overlay.addEventListener('click', close);
-    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) close(); });
-  })();
-
-  /* ── Session state for <details> ── */
-  (function () {
-    document.querySelectorAll('details[id]').forEach(el => {
-      const key = 'guide:' + el.id;
-      if (sessionStorage.getItem(key) === 'open') el.open = true;
-      el.addEventListener('toggle', () => sessionStorage.setItem(key, el.open ? 'open' : 'closed'));
-    });
-  })();
-</script>
-</body>
+    </script>
+  </body>
 </html>
