@@ -80,8 +80,28 @@
       "permanent": true
     },
     {
+      "source": "/tracker.html",
+      "destination": "/tracker",
+      "permanent": true
+    },
+    {
+      "source": "/checklists.html",
+      "destination": "/checklists",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
       "source": "/life.html",
       "destination": "/life",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-i130.html",
+      "destination": "/checklist-i130",
       "permanent": true
     },
     {
@@ -122,6 +142,11 @@
     {
       "source": "/workbook.html",
       "destination": "/workbook",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
       "permanent": true
     }
   ]
