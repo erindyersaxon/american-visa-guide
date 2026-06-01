@@ -11,9 +11,9 @@ const NAV_HTML = `
         <li><a href="/guide.html" class="nav-link">Visa Guide</a></li>
         <li><a href="/checklists.html" class="nav-link">Checklists</a></li>
         <li><a href="/life.html" class="nav-link">Life in the USA</a></li>
-        <li><a href="https://forms.fillout.com/t/dTRqnkx9uxus" class="nav-link" target="_blank" rel="noopener">Submit Data</a></li>
+        <li><a href="https://forms.fillout.com/t/dTRqnkx9uxus" class="nav-link" target="_blank" rel="noopener noreferrer">Submit Data</a></li>
         <li><a href="/about.html" class="nav-link">About</a></li>
-        <li><a href="https://ko-fi.com/erinsaidwhat" class="nav-link" target="_blank" rel="noopener">Support</a></li>
+        <li><a href="https://ko-fi.com/erinsaidwhat" class="nav-link" target="_blank" rel="noopener noreferrer">Support</a></li>
       </ul>
     </div>
   </nav>
