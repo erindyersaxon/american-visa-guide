@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moving to the USA Workbook — American Visa Guide</title>
-    <meta name="description" content="Free planning workbook for new US permanent residents, created by Nikki." />
+    <meta name="description" content="Complete immigration and relocation checklist covering every stage from USCIS through to settling in the US. Created by Nikki." />
+    <meta property="og:title" content="Moving to the USA Workbook — American Visa Guide" />
+    <meta property="og:description" content="Complete immigration and relocation checklist: USCIS → NVC → Embassy. Download the Excel file or copy to Google Sheets." />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.americanvisaguide.com/workbook.html" />
     <link rel="canonical" href="https://www.americanvisaguide.com/workbook.html" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,24 +18,107 @@
     <link rel="stylesheet" href="/css/design-system.css" />
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
     <style>
-      .workbook-container { max-width: var(--max-width-prose); margin: 0 auto; }
-      .workbook-hero { padding: var(--space-12) var(--space-6); background: linear-gradient(135deg, var(--color-navy-xlight) 0%, var(--color-surface) 100%); border-radius: var(--radius-lg); margin-bottom: var(--space-12); }
-      .workbook-eyebrow { font-size: var(--size-sm); color: var(--color-gold); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-2); }
-      .workbook-title { font-size: var(--size-3xl); font-weight: var(--weight-bold); color: var(--color-navy); margin-bottom: var(--space-6); }
-      .attribution-box { padding: var(--space-6); background: var(--color-gold-xlight); border: 2px solid var(--color-gold); border-radius: var(--radius-lg); margin-bottom: var(--space-12); }
-      .attribution-box p { margin: 0; line-height: var(--line-lg); }
-      .content-section { margin-bottom: var(--space-12); }
-      .content-section h2 { margin-bottom: var(--space-4); font-size: var(--size-xl); font-weight: var(--weight-semibold); }
-      .content-section p { margin-bottom: var(--space-4); line-height: var(--line-lg); }
-      .download-button { display: inline-block; padding: var(--space-4) var(--space-8); background: var(--color-navy); color: white; text-decoration: none; border-radius: var(--radius-md); font-weight: var(--weight-semibold); transition: all var(--transition-fast); margin: var(--space-6) 0; }
-      .download-button:hover { background: var(--color-navy-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26, 58, 82, 0.2); }
-      .format-note { padding: var(--space-4); background: var(--color-surface-alt); border-radius: var(--radius-md); font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-8); }
-      .disclaimer { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-12) 0; font-size: var(--size-sm); }
-      .placeholder-img { padding: var(--space-12); background: var(--color-surface-alt); border-radius: var(--radius-lg); text-align: center; color: var(--color-text-muted); margin: var(--space-12) 0; }
-      @media (max-width: 768px) {
-        .workbook-hero { padding: var(--space-8) var(--space-6); }
-        .workbook-title { font-size: var(--size-2xl); }
+      /* Page layout */
+      .workbook-container { max-width: 900px; margin: 0 auto; }
+
+      /* Header */
+      .workbook-header { padding-bottom: var(--space-8); margin-bottom: var(--space-8); border-bottom: 1px solid var(--color-border); }
+      .workbook-eyebrow { font-size: var(--size-xs); font-weight: var(--weight-semibold); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gold); margin-bottom: var(--space-3); }
+      .workbook-header h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: var(--space-3); }
+      .workbook-header h1 span { color: var(--color-gold); }
+      .workbook-sub { font-size: var(--size-sm); color: var(--color-text-muted); max-width: 580px; margin-bottom: var(--space-6); }
+
+      /* Attribution */
+      .attribution { background: var(--color-gold-xlight); border: 1px solid rgba(200,145,58,0.25); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); font-size: var(--size-sm); color: var(--color-text); margin-bottom: var(--space-6); }
+
+      /* Download bar */
+      .download-bar { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-8); flex-wrap: wrap; }
+      .download-btn-primary {
+        display: inline-flex; align-items: center; gap: var(--space-2);
+        background: var(--color-gold); color: var(--color-navy);
+        font-size: var(--size-sm); font-weight: var(--weight-bold);
+        padding: var(--space-3) var(--space-5); border-radius: var(--radius-md);
+        text-decoration: none; transition: background var(--transition-fast), transform var(--transition-fast);
       }
+      .download-btn-primary:hover { background: var(--color-gold-light); transform: translateY(-1px); text-decoration: none; color: var(--color-navy); }
+      .download-btn-primary:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+      .download-btn-secondary {
+        display: inline-flex; align-items: center; gap: var(--space-2);
+        background: white; color: var(--color-navy);
+        border: 1px solid var(--color-border);
+        font-size: var(--size-sm); font-weight: var(--weight-semibold);
+        padding: var(--space-3) var(--space-5); border-radius: var(--radius-md);
+        text-decoration: none; transition: all var(--transition-fast);
+      }
+      .download-btn-secondary:hover { background: var(--color-navy-xlight); border-color: var(--color-navy); text-decoration: none; color: var(--color-navy); }
+      .download-btn-secondary:focus-visible { outline: var(--focus-outline); outline-offset: 2px; }
+      .download-note { font-size: var(--size-xs); color: var(--color-text-muted); }
+
+      /* Table wrapper */
+      .table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-bottom: var(--space-12); }
+
+      /* Table base */
+      .workbook-table { width: 100%; border-collapse: collapse; font-size: var(--size-sm); min-width: 600px; background: white; }
+
+      /* Phase header rows */
+      .workbook-table tr.phase-row td {
+        background: var(--color-navy);
+        color: var(--color-gold);
+        font-family: var(--font-display);
+        font-size: var(--size-xs); font-weight: var(--weight-bold);
+        letter-spacing: 0.15em; text-transform: uppercase;
+        padding: var(--space-3) var(--space-4);
+        border-bottom: 1px solid rgba(200,145,58,0.2);
+      }
+
+      /* Section sub-header rows */
+      .workbook-table tr.section-row td {
+        background: var(--color-navy-xlight);
+        color: var(--color-navy);
+        font-family: var(--font-display);
+        font-size: var(--size-xs); font-weight: var(--weight-bold);
+        letter-spacing: 0.08em;
+        padding: var(--space-2) var(--space-4);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      /* Column header rows */
+      .workbook-table tr.col-header td {
+        background: var(--color-surface-alt);
+        color: var(--color-text-muted);
+        font-size: 10px; font-weight: var(--weight-bold);
+        letter-spacing: 0.1em; text-transform: uppercase;
+        padding: var(--space-2) var(--space-4);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      /* Item rows */
+      .workbook-table tr.item-row td {
+        padding: var(--space-2) var(--space-4) var(--space-2) var(--space-4);
+        border-bottom: 1px solid rgba(0,0,0,0.04);
+        color: var(--color-text);
+        vertical-align: middle;
+      }
+      .workbook-table tr.item-row:hover td { background: var(--color-surface-alt); }
+
+      /* Note rows */
+      .workbook-table tr.note-row td {
+        padding: var(--space-2) var(--space-4) var(--space-2) var(--space-6);
+        font-size: var(--size-xs);
+        color: var(--color-text-muted);
+        border-bottom: 1px solid rgba(0,0,0,0.03);
+        font-style: italic;
+        white-space: pre-wrap;
+      }
+
+      /* Status cells */
+      td.status { font-weight: var(--weight-semibold); text-align: center; width: 64px; font-size: var(--size-xs); }
+      td.status.done    { color: #0D7A5F; }
+      td.status.false   { color: var(--color-border); }
+      td.status.pending { color: var(--color-gold); }
+
+      /* Disclaimer */
+      .disclaimer { padding: var(--space-5); background: var(--color-gold-xlight); border: 1px solid rgba(200,145,58,0.25); border-radius: var(--radius-lg); font-size: var(--size-sm); color: var(--color-text); margin-bottom: var(--space-8); }
     </style>
   </head>
   <body>
@@ -40,52 +128,141 @@
     <main id="main">
       <div class="container">
         <div class="workbook-container">
-          <div class="workbook-hero">
-            <div class="workbook-eyebrow">Created by Nikki</div>
-            <h1 class="workbook-title">Moving to the USA Workbook</h1>
+
+          <div class="workbook-header">
+            <div class="workbook-eyebrow">Community Resource</div>
+            <h1>Moving to the <span>USA Workbook</span></h1>
+            <p class="workbook-sub">A complete immigration and relocation checklist covering every stage from USCIS through to settling in the US. Download your own copy to track your progress.</p>
           </div>
 
-          <div class="attribution-box">
-            <p>This workbook was created by <strong>Nikki</strong>, a brilliant member of the Track My Visa community going through the US Embassy London process, who built it to share with everyone going through this journey. <strong>Thank you, Nikki.</strong></p>
+          <div class="attribution">
+            Created by <strong>Nikki</strong>, a brilliant mod on the Track My Visa server going through the US Embassy London process, who built this resource to share with everyone who needs it.
           </div>
 
-          <section class="content-section">
-            <h2>What's included</h2>
-            <p>Practical planning worksheets designed for new permanent residents. This workbook covers:</p>
-            <ul style="margin-left: var(--space-6); margin-bottom: var(--space-4);">
-              <li>Banking and credit building</li>
-              <li>Budget planning and cost of living</li>
-              <li>US tax considerations and filing</li>
-              <li>Healthcare and insurance navigation</li>
-              <li>Housing search and move planning</li>
-              <li>Employment and licensing requirements</li>
-              <li>First-year expenses and timeline</li>
-            </ul>
-          </section>
+          <div class="download-bar">
+            <a href="/Moving_to_the_USA_Workbook.xlsx" download class="download-btn-primary">⬇ Download workbook (.xlsx)</a>
+            <a href="https://docs.google.com/spreadsheets/d/1KWP930yDbFd1EhoPYm7V1SVr9x3QlKFFcukfoDvNeTo/copy" target="_blank" rel="noopener noreferrer" class="download-btn-secondary">📋 Copy to Google Sheets</a>
+            <span class="download-note">Download the Excel file or make your own Google Sheets copy — fill it in as you go through the process.</span>
+          </div>
 
-          <section class="content-section">
-            <h2>Download the workbook</h2>
-            <a href="/Moving_to_the_USA_Workbook.xlsx" class="download-button" download>📥 Download the workbook</a>
-            <div class="format-note">
-              <strong>Microsoft Excel format (.xlsx)</strong><br/>
-              Opens in Microsoft Excel, Google Sheets, Apple Numbers, or any spreadsheet application.
-            </div>
-          </section>
+          <div class="table-wrap">
+            <table class="workbook-table">
+              <caption class="sr-only">Moving to the USA Workbook — USCIS, NVC, and Embassy checklist with costs, dates, and status</caption>
+              <tbody>
 
-          <section class="content-section">
-            <p>Nikki's workbook is one of the most practical resources in the London visa community. It's comprehensive, beautifully organized, and exactly what you need when you're preparing to arrive and build your life in the US.</p>
-          </section>
+                <!-- PHASE 1: USCIS -->
+                <tr class="phase-row"><td colspan="5">PHASE 1: USCIS</td></tr>
+                <tr class="col-header">
+                  <td scope="col">Form / Document</td>
+                  <td scope="col">Cost</td>
+                  <td scope="col">Date Completed</td>
+                  <td scope="col">Paid</td>
+                  <td scope="col">Approval</td>
+                </tr>
 
-          <div class="placeholder-img">🖼️ PLACEHOLDER: Illustration of a planning workbook or spreadsheet with checklists, warm and organized.</div>
+                <!-- PHASE 2: NVC -->
+                <tr class="phase-row"><td colspan="5">PHASE 2: NVC</td></tr>
+                <tr class="col-header">
+                  <td scope="col">Fees</td>
+                  <td scope="col">Cost</td>
+                  <td scope="col">Date Completed</td>
+                  <td scope="col">Paid</td>
+                  <td scope="col"></td>
+                </tr>
+
+                <tr class="section-row"><td colspan="5">BENEFICIARY</td></tr>
+                <tr class="item-row"><td>Passport (Photo Page)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Old Passport (If Renewed)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Birth Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Marriage Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Address History List</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Work History List</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Travel History (All countries)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Parents — Full Name, DOB, Place of Birth, Current Address</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+
+                <tr class="section-row"><td colspan="5">PETITIONER</td></tr>
+                <tr class="item-row"><td>Proof of U.S. Citizenship (Passport / Birth Certificate)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Proof of U.S. Domicile or Intent to Re-Establish U.S. Domicile</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>W-2s / 1099s</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Form I-864 (wet-signed original)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Tax Transcripts</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+
+                <tr class="section-row"><td colspan="5">JOINT SPONSOR (if applicable)</td></tr>
+                <tr class="item-row"><td>Tax Transcripts</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>W-2s / 1099s</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Proof of Status (Passport)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Proof of U.S. Address</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Form I-864</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+
+                <tr class="section-row"><td colspan="5">DOCUMENTARILY QUALIFIED</td></tr>
+                <tr class="note-row"><td colspan="5">Date Reviewed</td></tr>
+                <tr class="note-row"><td colspan="5">Request for Evidence</td></tr>
+                <tr class="note-row"><td colspan="5">Date Approved</td></tr>
+
+                <!-- PHASE 3: EMBASSY -->
+                <tr class="phase-row"><td colspan="5">PHASE 3: EMBASSY</td></tr>
+
+                <tr class="section-row"><td colspan="5">INTERVIEW LETTER</td></tr>
+
+                <tr class="section-row"><td colspan="5">MEDICAL EXAM &amp; DOCUMENT CHECK</td></tr>
+                <tr class="col-header">
+                  <td scope="col">Appointment</td>
+                  <td scope="col">Cost</td>
+                  <td scope="col">Date</td>
+                  <td scope="col">Paid</td>
+                  <td scope="col">Booked</td>
+                </tr>
+                <tr class="item-row"><td>VisaMedicals</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="note-row"><td colspan="5">No. 4 Ground Floor, Bentinck Mansions, 12–16 Bentinck St, London W1U 2ER — Book early morning appointment</td></tr>
+
+                <tr class="section-row"><td colspan="5">MEDICAL EXAM / DOCUMENTS NEEDED</td></tr>
+                <tr class="item-row"><td>Interview Letter from the U.S. Embassy</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>DS-260 Confirmation Page</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Valid Passport</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>4 Identical U.S.-Sized Photographs</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Medical Questionnaire (Form IV18A)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Vaccination Records with Original Certification</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>GP Care Summary (Request 2 Weeks Prior)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="note-row"><td colspan="5">Immediately after your medical, head to the U.S. Embassy at 33 Nine Elms Ln, London SW11 7US.
+Check in at the "Visa Services" tent (Visa Passport &amp; Consular Door). Go through airport-style security.
+SUBMIT: Passport, medical receipt, police certificate, civil documents, DS-260 confirmation, fingerprint scan.
+Receive sealed envelope labelled "Do Not Tamper" for interview day.</td></tr>
+
+                <tr class="section-row"><td colspan="5">VISA INTERVIEW</td></tr>
+                <tr class="note-row"><td colspan="5">U.S. Embassy, 33 Nine Elms Ln, London SW11 7US — Go to the front of the line. Do not wait.</td></tr>
+
+                <tr class="section-row"><td colspan="5">INTERVIEW BINDER — ORIGINAL DOCUMENTS</td></tr>
+                <tr class="item-row"><td>Interview Letter</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Petitioner I-864</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Joint Sponsor I-864 (if applicable)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Marriage Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Birth Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+
+                <tr class="section-row"><td colspan="5">INTERVIEW BINDER — PRINTED COPIES</td></tr>
+                <tr class="item-row"><td>2 U.S.-Sized Passport Photos</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>DS-260 Confirmation Page</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Petitioner IRS Transcripts</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Petitioner W-2s / 1099s</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Petitioner Proof of Status</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Joint Sponsor Proof of Status (if applicable)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Joint Sponsor IRS Transcripts (if applicable)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Joint Sponsor W-2s / 1099s (if applicable)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Domicile Documentation</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Marriage Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Birth Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+
+              </tbody>
+            </table>
+          </div>
 
           <div class="disclaimer">
-            <p><strong>Disclaimer:</strong> Created by a community member and shared freely. This is not legal or financial advice. Adapt worksheets to your own circumstances and consult professionals (accountant, financial advisor, immigration attorney) for advice specific to your situation.</p>
+            <strong>Disclaimer:</strong> Created by a community member and shared freely. This is not legal advice. Verify all requirements against official sources and consult an immigration attorney for your specific situation.
           </div>
 
-          <div style="text-align: center; padding: var(--space-12) 0; border-top: 1px solid var(--color-border); margin-top: var(--space-12);">
-            <p style="color: var(--color-text-muted); font-size: var(--size-sm); margin-bottom: var(--space-4);">Built by Nikki. Shared by American Visa Guide.</p>
-            <p style="font-size: var(--size-sm);"><strong>Thank you for contributing to the community.</strong></p>
-          </div>
         </div>
       </div>
     </main>
@@ -96,7 +273,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         renderPage({
           title: 'Moving to the USA Workbook — American Visa Guide',
-          description: 'Free planning workbook for new US permanent residents, created by Nikki.',
+          description: 'Complete immigration and relocation checklist covering every stage from USCIS through to settling in the US. Created by Nikki.',
           activePage: ''
         });
       });
