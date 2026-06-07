@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   if (username) {
     cleaned.username_raw = username.toLowerCase()
     const checkRes = await fetch(
-      `${supabaseUrl}/rest/v1/form_responses?username_raw=eq.${encodeURIComponent(cleaned.username_raw)}&select=id`,
+      `${supabaseUrl}/rest/v1/form_responses?username_raw=ilike.${encodeURIComponent(cleaned.username_raw)}&select=id`,
       { headers: baseHeaders }
     )
     const existing = await checkRes.json()
