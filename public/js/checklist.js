@@ -82,9 +82,11 @@ function copyChecklistForDocs(btn) {
   const title = document.querySelector('h1')?.textContent.trim() || 'Checklist';
   const lines = [title, '='.repeat(title.length), ''];
 
-  container.querySelectorAll('h3, .checklist-item, .content-item').forEach(el => {
+  container.querySelectorAll('h3, .checklist-item, .content-item, .copy-note').forEach(el => {
     if (el.tagName === 'H3') {
-      lines.push('', el.textContent.trim(), '');
+      lines.push('', el.textContent.trim().replace(/\s+/g, ' '), '');
+    } else if (el.classList.contains('copy-note')) {
+      lines.push(`⚠ ${el.textContent.trim()}`, '');
     } else {
       const label = el.querySelector('label');
       const checkbox = el.querySelector('input[type="checkbox"]');

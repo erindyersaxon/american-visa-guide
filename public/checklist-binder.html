@@ -15,17 +15,23 @@
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
     <style>
       .checklist-container { max-width: var(--max-width-prose); margin: 0 auto; }
-      .progress-bar { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-6); background: var(--color-surface-alt); border-radius: var(--radius-lg); margin: var(--space-8) 0; }
+      .progress-bar { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-6); background: var(--color-surface-alt); border-radius: var(--radius-lg); margin: var(--space-8) 0; flex-wrap: wrap; }
       .progress-text { font-weight: var(--weight-medium); color: var(--color-navy); }
       .binder-section { margin: var(--space-12) 0; }
       .binder-section h3 { margin-bottom: var(--space-6); padding-bottom: var(--space-3); border-bottom: 2px solid var(--color-gold); }
+      .sec-tag { display: block; font-family: var(--font-body); font-size: var(--size-sm); font-weight: var(--weight-medium); color: var(--color-text-muted); margin-top: var(--space-1); text-transform: none; letter-spacing: normal; }
       .tab-contents { padding: var(--space-6); background: var(--color-surface-alt); border-radius: var(--radius-lg); margin-bottom: var(--space-4); }
       .content-item { display: flex; gap: var(--space-4); margin-bottom: var(--space-3); align-items: flex-start; }
       .content-item input[type="checkbox"] { flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: var(--color-gold); }
       .content-item label { flex: 1; cursor: pointer; font-size: var(--size-sm); }
+      .content-item label strong { color: var(--color-navy); }
+      .section-note { padding: var(--space-4) var(--space-5); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-md); margin-bottom: var(--space-4); font-size: var(--size-sm); }
       .info-box { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-6) 0; font-size: var(--size-sm); }
       .disclaimer { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-12) 0; font-size: var(--size-sm); }
-      .placeholder-img { padding: var(--space-12); background: var(--color-surface-alt); border-radius: var(--radius-lg); text-align: center; color: var(--color-text-muted); margin: var(--space-12) 0; }
+      .appt-map { width: 100%; border-collapse: collapse; font-size: var(--size-sm); background: white; border: 1px solid var(--color-border); }
+      .appt-map th { text-align: left; padding: var(--space-3) var(--space-4); background: var(--color-navy); color: white; font-family: var(--font-display); font-size: var(--size-xs); text-transform: uppercase; letter-spacing: 0.08em; }
+      .appt-map td { padding: var(--space-3) var(--space-4); border-top: 1px solid var(--color-border); vertical-align: top; }
+      .appt-map td:first-child { font-weight: var(--weight-semibold); color: var(--color-navy); white-space: nowrap; }
       .back-link { display: inline-block; margin-top: var(--space-12); color: var(--color-gold); text-decoration: none; font-weight: var(--weight-medium); }
     </style>
   </head>
@@ -44,7 +50,7 @@
           </div>
 
           <div class="progress-bar">
-            <span class="progress-text" id="progress-binder">0 of 23 items checked</span>
+            <span class="progress-text" id="progress-binder">0 of 37 items checked</span>
             <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">🖨 Print / save as PDF</button>
             <button type="button" class="btn btn-secondary btn-sm" onclick="copyChecklistForDocs(this)">📋 Copy for Google Docs</button>
             <button class="btn btn-secondary btn-sm" id="reset-binder">Reset checklist</button>
@@ -52,135 +58,192 @@
 
           <div data-checklist="binder">
             <section class="binder-section">
-              <h3>Tab 1: Visa Documents (Sealed Packet)</h3>
+              <h3>⭐ Front section — immediate access <span class="sec-tag">Medical · Doc check · Interview</span></h3>
               <div class="tab-contents">
-                <div class="content-item" data-item-id="binder-1">
-                  <input type="checkbox" id="binder-1" />
-                  <label for="binder-1">Sealed interview packet from document check (do not open)</label>
+                <div class="content-item" data-item-id="fr-1">
+                  <input type="checkbox" id="fr-1" />
+                  <label for="fr-1"><strong>Passport</strong></label>
                 </div>
-                <div class="content-item" data-item-id="binder-2">
-                  <input type="checkbox" id="binder-2" />
-                  <label for="binder-2">Appointment letter (print from email)</label>
+                <div class="content-item" data-item-id="fr-2">
+                  <input type="checkbox" id="fr-2" />
+                  <label for="fr-2"><strong>Interview Letter</strong></label>
                 </div>
-                <div class="content-item" data-item-id="binder-3">
-                  <input type="checkbox" id="binder-3" />
-                  <label for="binder-3">Medical examination results (pink slip)</label>
+                <div class="content-item" data-item-id="fr-3">
+                  <input type="checkbox" id="fr-3" />
+                  <label for="fr-3"><strong>DS-260 Confirmation Page</strong></label>
+                </div>
+                <div class="content-item" data-item-id="fr-4">
+                  <input type="checkbox" id="fr-4" />
+                  <label for="fr-4"><strong>Completed Medical Questionnaire (IV18a)</strong></label>
+                </div>
+                <div class="content-item" data-item-id="fr-5">
+                  <input type="checkbox" id="fr-5" />
+                  <label for="fr-5"><strong>Courier Registration Confirmation with QR Code</strong></label>
+                </div>
+                <div class="content-item" data-item-id="fr-6">
+                  <input type="checkbox" id="fr-6" />
+                  <label for="fr-6"><strong>Pink Medical Slip</strong> — add after medical</label>
+                </div>
+                <div class="content-item" data-item-id="fr-7">
+                  <input type="checkbox" id="fr-7" />
+                  <label for="fr-7"><strong>Sealed Embassy Packet</strong> — add after document check — do NOT open</label>
                 </div>
               </div>
             </section>
 
             <section class="binder-section">
-              <h3>Tab 2: Civil Documents</h3>
+              <h3>Section 1 — Medical documents <span class="sec-tag">Medical + doc check</span></h3>
               <div class="tab-contents">
-                <div class="content-item" data-item-id="binder-4">
-                  <input type="checkbox" id="binder-4" />
-                  <label for="binder-4">Birth certificate (certified copy)</label>
+                <div class="content-item" data-item-id="s1-1">
+                  <input type="checkbox" id="s1-1" />
+                  <label for="s1-1"><strong>GP Summary / Patient Care Record</strong> — dated within 2–3 weeks of medical</label>
                 </div>
-                <div class="content-item" data-item-id="binder-5">
-                  <input type="checkbox" id="binder-5" />
-                  <label for="binder-5">Marriage certificate (certified copy)</label>
+                <div class="content-item" data-item-id="s1-2">
+                  <input type="checkbox" id="s1-2" />
+                  <label for="s1-2"><strong>Vaccination Records</strong></label>
                 </div>
-                <div class="content-item" data-item-id="binder-6">
-                  <input type="checkbox" id="binder-6" />
-                  <label for="binder-6">Divorce decrees / prior spouse documents (if applicable)</label>
+                <div class="content-item" data-item-id="s1-3">
+                  <input type="checkbox" id="s1-3" />
+                  <label for="s1-3"><strong>ACRO Police Certificate</strong> — photo page facing front</label>
                 </div>
-                <div class="content-item" data-item-id="binder-7">
-                  <input type="checkbox" id="binder-7" />
-                  <label for="binder-7">Police certificate (ACRO)</label>
+                <div class="content-item" data-item-id="s1-4">
+                  <input type="checkbox" id="s1-4" />
+                  <label for="s1-4"><strong>Medical Reports</strong> — if applicable: chronic conditions, mental health, TB/STI</label>
+                </div>
+                <div class="content-item" data-item-id="s1-5">
+                  <input type="checkbox" id="s1-5" />
+                  <label for="s1-5"><strong>Child Health Record / Red Book</strong> — if applicable</label>
                 </div>
               </div>
             </section>
 
             <section class="binder-section">
-              <h3>Tab 3: Financial Documents (I-864)</h3>
+              <h3>Section 2 — Civil documents (originals + copies) <span class="sec-tag">Doc check + interview backup</span></h3>
               <div class="tab-contents">
-                <div class="content-item" data-item-id="binder-8">
-                  <input type="checkbox" id="binder-8" />
-                  <label for="binder-8">I-864 form — a copy is fine, it does not need to be the wet-signed original. For primary sponsor (petitioner) and any joint sponsor</label>
+                <div class="content-item" data-item-id="s2-1">
+                  <input type="checkbox" id="s2-1" />
+                  <label for="s2-1"><strong>Birth Certificate</strong> — long form with parent names</label>
                 </div>
-                <div class="content-item" data-item-id="binder-9">
-                  <input type="checkbox" id="binder-9" />
-                  <label for="binder-9">Last 2–3 years tax returns (tax return transcripts or 1040 + W-2s)</label>
+                <div class="content-item" data-item-id="s2-2">
+                  <input type="checkbox" id="s2-2" />
+                  <label for="s2-2"><strong>Marriage Certificate</strong></label>
                 </div>
-                <div class="content-item" data-item-id="binder-10">
-                  <input type="checkbox" id="binder-10" />
-                  <label for="binder-10">Employment letter on company letterhead</label>
+                <div class="content-item" data-item-id="s2-3">
+                  <input type="checkbox" id="s2-3" />
+                  <label for="s2-3"><strong>Divorce Decrees</strong> — if applicable — all prior marriages</label>
                 </div>
-                <div class="content-item" data-item-id="binder-11">
-                  <input type="checkbox" id="binder-11" />
-                  <label for="binder-11">I-864A (household member, if applicable)</label>
+                <div class="content-item" data-item-id="s2-4">
+                  <input type="checkbox" id="s2-4" />
+                  <label for="s2-4"><strong>Death Certificates</strong> — if applicable — former spouses</label>
+                </div>
+                <div class="content-item" data-item-id="s2-5">
+                  <input type="checkbox" id="s2-5" />
+                  <label for="s2-5"><strong>Adoption Documents</strong> — if applicable</label>
+                </div>
+                <div class="content-item" data-item-id="s2-6">
+                  <input type="checkbox" id="s2-6" />
+                  <label for="s2-6"><strong>Name Change Documents</strong> — if applicable</label>
+                </div>
+                <div class="content-item" data-item-id="s2-7">
+                  <input type="checkbox" id="s2-7" />
+                  <label for="s2-7"><strong>Court / Criminal Records</strong> — if applicable</label>
+                </div>
+                <div class="content-item" data-item-id="s2-8">
+                  <input type="checkbox" id="s2-8" />
+                  <label for="s2-8"><strong>Military Records</strong> — if applicable</label>
+                </div>
+                <div class="content-item" data-item-id="s2-9">
+                  <input type="checkbox" id="s2-9" />
+                  <label for="s2-9"><strong>Additional Police Certificates</strong> — non-UK, per reciprocity rules</label>
                 </div>
               </div>
             </section>
 
             <section class="binder-section">
-              <h3>Tab 4: Relationship Evidence</h3>
+              <h3>Section 3 — Financial documents (copies) <span class="sec-tag">Interview backup only</span></h3>
+              <div class="section-note copy-note">All financial documents must already be uploaded to CEAC. The officer will not accept new documents at the interview window.</div>
               <div class="tab-contents">
-                <div class="content-item" data-item-id="binder-13">
-                  <input type="checkbox" id="binder-13" />
-                  <label for="binder-13">Wedding photos (4–10, in chronological order)</label>
+                <div class="content-item" data-item-id="s3-1">
+                  <input type="checkbox" id="s3-1" />
+                  <label for="s3-1"><strong>Form I-864 — Petitioner</strong> — wet signed — no digital signatures</label>
                 </div>
-                <div class="content-item" data-item-id="binder-14">
-                  <input type="checkbox" id="binder-14" />
-                  <label for="binder-14">Emails and letters (10–15 pages showing communication)</label>
+                <div class="content-item" data-item-id="s3-2">
+                  <input type="checkbox" id="s3-2" />
+                  <label for="s3-2"><strong>Form I-864 — Joint Sponsor</strong> — if applicable</label>
                 </div>
-                <div class="content-item" data-item-id="binder-15">
-                  <input type="checkbox" id="binder-15" />
-                  <label for="binder-15">Travel confirmations together (flight confirmations, hotel bookings)</label>
+                <div class="content-item" data-item-id="s3-3">
+                  <input type="checkbox" id="s3-3" />
+                  <label for="s3-3"><strong>IRS Tax Transcripts</strong></label>
                 </div>
-                <div class="content-item" data-item-id="binder-16">
-                  <input type="checkbox" id="binder-16" />
-                  <label for="binder-16">Affidavits from witnesses (2–3 friends who know you as a couple)</label>
+                <div class="content-item" data-item-id="s3-4">
+                  <input type="checkbox" id="s3-4" />
+                  <label for="s3-4"><strong>W-2s / 1099s</strong></label>
+                </div>
+                <div class="content-item" data-item-id="s3-5">
+                  <input type="checkbox" id="s3-5" />
+                  <label for="s3-5"><strong>Employment Letter</strong></label>
+                </div>
+                <div class="content-item" data-item-id="s3-6">
+                  <input type="checkbox" id="s3-6" />
+                  <label for="s3-6"><strong>Recent Pay Stubs</strong></label>
+                </div>
+                <div class="content-item" data-item-id="s3-7">
+                  <input type="checkbox" id="s3-7" />
+                  <label for="s3-7"><strong>Proof of Status — Sponsor / Joint Sponsor</strong> — US passport or green card</label>
+                </div>
+                <div class="content-item" data-item-id="s3-8">
+                  <input type="checkbox" id="s3-8" />
+                  <label for="s3-8"><strong>Proof of US Domicile</strong> — if petitioner lives abroad</label>
                 </div>
               </div>
             </section>
 
             <section class="binder-section">
-              <h3>Tab 5: Form I-130</h3>
+              <h3>Section 4 — Identity &amp; travel documents <span class="sec-tag">Interview backup</span></h3>
               <div class="tab-contents">
-                <div class="content-item" data-item-id="binder-17">
-                  <input type="checkbox" id="binder-17" />
-                  <label for="binder-17">I-130 approval notice (USCIS receipt)</label>
+                <div class="content-item" data-item-id="s4-1">
+                  <input type="checkbox" id="s4-1" />
+                  <label for="s4-1"><strong>Passport Biographic Page Copy</strong></label>
                 </div>
-                <div class="content-item" data-item-id="binder-18">
-                  <input type="checkbox" id="binder-18" />
-                  <label for="binder-18">USCIS case number confirmation</label>
+                <div class="content-item" data-item-id="s4-2">
+                  <input type="checkbox" id="s4-2" />
+                  <label for="s4-2"><strong>Previous Passports</strong> — if relevant to travel/visa history</label>
                 </div>
-                <div class="content-item" data-item-id="binder-19">
-                  <input type="checkbox" id="binder-19" />
-                  <label for="binder-19">National Visa Center (NVC) case number confirmation</label>
+                <div class="content-item" data-item-id="s4-3">
+                  <input type="checkbox" id="s4-3" />
+                  <label for="s4-3"><strong>Visa History</strong> — if applicable</label>
+                </div>
+                <div class="content-item" data-item-id="s4-4">
+                  <input type="checkbox" id="s4-4" />
+                  <label for="s4-4"><strong>USCIS Approval Notice (I-130 NOA2)</strong></label>
                 </div>
               </div>
             </section>
 
             <section class="binder-section">
-              <h3>Tab 6: Derivative Applicants (if applicable)</h3>
+              <h3>Section 5 — Supporting / case-specific <span class="sec-tag">As needed</span></h3>
               <div class="tab-contents">
-                <div class="content-item" data-item-id="binder-20">
-                  <input type="checkbox" id="binder-20" />
-                  <label for="binder-20">Birth certificate (derivative child or dependent)</label>
+                <div class="content-item" data-item-id="s5-1">
+                  <input type="checkbox" id="s5-1" />
+                  <label for="s5-1"><strong>Immigration History Documents</strong></label>
                 </div>
-                <div class="content-item" data-item-id="binder-21">
-                  <input type="checkbox" id="binder-21" />
-                  <label for="binder-21">Custody decree or sole guardianship document</label>
-                </div>
-                <div class="content-item" data-item-id="binder-22">
-                  <input type="checkbox" id="binder-22" />
-                  <label for="binder-22">Police certificate for derivative (if age 16+)</label>
+                <div class="content-item" data-item-id="s5-2">
+                  <input type="checkbox" id="s5-2" />
+                  <label for="s5-2"><strong>Any documents specific to complex case history</strong></label>
                 </div>
               </div>
             </section>
 
             <section class="binder-section">
-              <h3>Tab 7: Notes & Reference</h3>
+              <h3>Section 6 — Optional (rarely requested) <span class="sec-tag">Backup only</span></h3>
               <div class="tab-contents">
-                <div class="content-item" data-item-id="binder-23">
-                  <input type="checkbox" id="binder-23" />
-                  <label for="binder-23">Case timeline (I-130 filed date, approval date, NVC assignment date, medical date)</label>
+                <div class="content-item" data-item-id="s6-1">
+                  <input type="checkbox" id="s6-1" />
+                  <label for="s6-1"><strong>Relationship Evidence</strong> — photos, messages, travel records</label>
                 </div>
-                <div class="content-item" data-item-id="binder-24">
-                  <input type="checkbox" id="binder-24" />
-                  <label for="binder-24">One-page summary of relationship (how you met, married date, timeline to US move)</label>
+                <div class="content-item" data-item-id="s6-2">
+                  <input type="checkbox" id="s6-2" />
+                  <label for="s6-2"><strong>Additional Supporting Evidence</strong></label>
                 </div>
               </div>
             </section>
@@ -192,13 +255,38 @@
                 <li>Include a table of contents at the front</li>
                 <li>Avoid excessive highlighting; use simple yellow only for key dates</li>
                 <li>Keep originals in the binder; bring copies separately</li>
-                <li>Organize documents chronologically within each tab</li>
+                <li>Organize documents chronologically within each section</li>
                 <li>Include brief labels or notes to help the officer navigate</li>
               </ul>
             </div>
           </div>
 
-          <div class="placeholder-img">🖼️ PLACEHOLDER: Illustration of a neatly organized binder with tabs, documents peeking out, professional and calm.</div>
+          <section class="binder-section">
+            <h3>Which sections for each appointment</h3>
+            <table class="appt-map">
+              <caption class="sr-only">Which binder sections to bring to each appointment</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Appointment</th>
+                  <th scope="col">Bring</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Medical</td>
+                  <td>Front section + Section 1</td>
+                </tr>
+                <tr>
+                  <td>Document check</td>
+                  <td>Front section + Section 1 + Section 2</td>
+                </tr>
+                <tr>
+                  <td>Interview</td>
+                  <td>Front section primarily — Sections 2–4 as backup if asked</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
 
           <div class="disclaimer">
             <p><strong>Disclaimer:</strong> This is not legal advice. Verify all requirements against official sources before your appointment. If your case is complex, consult an immigration attorney.</p>
