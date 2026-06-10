@@ -110,7 +110,7 @@ function renderPage(config) {
 
     if (isActive) {
       link.setAttribute("aria-current", "page");
-      link.style.color = "var(--color-gold)";
+      link.style.color = "var(--color-gold-light)";
       link.style.fontWeight = "var(--weight-semibold)";
     }
   });

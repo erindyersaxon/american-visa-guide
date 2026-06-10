@@ -1,29 +1,29 @@
 /* ─────────────────────────────────────────────────────────────
    American Visa Guide — Design Tokens & Base Styles
-   Fonts: DM Serif Display (headings) + DM Sans (body/UI)
-   Palette: Deep Teal primary · Warm Amber accent · Warm Off-white bg
+   Fonts: Outfit (headings) + Plus Jakarta Sans (body/UI)
+   Palette: Navy primary · Gold accent · Warm Off-white bg
    ───────────────────────────────────────────────────────────── */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 /* ─── Light Mode Tokens ───────────────────────────────────── */
 :root {
-  /* — Brand: Deep Teal — */
-  --color-primary:          #155E78;
-  --color-primary-hover:    #0E4E66;
-  --color-primary-active:   #0A3F53;
-  --color-primary-subtle:   #E6F3F8;
-  --color-primary-border:   #9ECFDF;
+  /* — Brand: Navy — */
+  --color-primary:          #1A3A52;
+  --color-primary-hover:    #142E41;
+  --color-primary-active:   #0F2436;
+  --color-primary-subtle:   #EBF2F7;
+  --color-primary-border:   #9DBDD4;
   --color-primary-text:     #FFFFFF;
 
-  /* — Accent: Warm Amber — */
-  --color-accent:           #A56D0E;
+  /* — Accent: Gold — */
+  --color-accent:           #A3700F;
   --color-accent-hover:     #8A5A0B;
   --color-accent-subtle:    #FEF5E4;
   --color-accent-border:    #F6CC85;
 
   /* — Neutrals — */
-  --color-bg:               #F5F3EF;
+  --color-bg:               #F7F5F1;
   --color-bg-alt:           #EAE8E2;
   --color-surface:          #FFFFFF;
   --color-surface-raised:   #F9F8F5;
@@ -63,8 +63,8 @@
   --color-destructive-hover:  #7F1D1D;
 
   /* ─── Typography ─────────────────────────────────── */
-  --font-display:   'DM Serif Display', Georgia, 'Times New Roman', serif;
-  --font-body:      'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display:   'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:      'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono:      'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
   /* Font Sizes */
@@ -324,7 +324,7 @@ table {
 /* ─── Base Typography ─────────────────────────────────────── */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: var(--font-normal);
+  font-weight: var(--font-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text);

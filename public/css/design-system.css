@@ -5,7 +5,7 @@
    ───────────────────────────────────────────────────────────── */
 
 /* ─── Font Import ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 /* ─── Design Tokens ───────────────────────────────────────── */
 :root {
@@ -16,8 +16,8 @@
   --color-navy-xlight: #EBF4F8;
 
   /* — Gold palette — */
-  --color-gold:        #C8913A;
-  --color-gold-light:  #D9B06A;
+  --color-gold:        #A3700F;   /* WCAG AA as text on white/cream */
+  --color-gold-light:  #D9B06A;   /* for use on dark navy backgrounds */
   --color-gold-xlight: #FDF6EC;
 
   /* — Surfaces — */
@@ -36,7 +36,7 @@
   --color-text-inverse: #FFFFFF;
 
   /* — Background (alias for worksheet pages) — */
-  --color-bg:     #F5F3EF;
+  --color-bg:     #F7F5F1;
   --color-bg-alt: #EAE8E2;
 
   /* — Status — */
@@ -60,8 +60,8 @@
   --color-primary-text:   #FFFFFF;
 
   /* ─── Typography ─────────────────────────────────── */
-  --font-body:    'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:    'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono:    'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
   /* Font Sizes (--size-* naming) */
@@ -179,7 +179,7 @@ body {
   font-size: var(--size-base);
   line-height: var(--line-base);
   color: var(--color-text);
-  background-color: var(--color-surface);
+  background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -261,7 +261,7 @@ nav[role="navigation"] {
 }
 
 .nav-link[aria-current="page"] {
-  color: var(--color-gold) !important;
+  color: var(--color-gold-light) !important;
   font-weight: var(--weight-semibold) !important;
 }
 
