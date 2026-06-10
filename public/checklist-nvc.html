@@ -47,6 +47,7 @@
           <div class="progress-bar">
             <span class="progress-text" id="progress-nvc">0 of 27 items checked</span>
             <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">🖨 Print / save as PDF</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="copyChecklistForDocs(this)">📋 Copy for Google Docs</button>
             <button class="btn btn-secondary btn-sm" id="reset-nvc">Reset checklist</button>
           </div>
 
@@ -213,8 +214,8 @@
     </main>
 
     <footer></footer>
-    <script src="/js/shared.js"></script>
-    <script src="/js/checklist.js"></script>
+    <script src="/js/shared.js?v=20260609"></script>
+    <script src="/js/checklist.js?v=20260609"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         renderPage({

@@ -74,6 +74,36 @@ function initializeChecklist(checklistId) {
   loadChecklist();
 }
 
+/* Copy the checklist as text so it can be pasted into Google Docs, Word, etc. */
+function copyChecklistForDocs(btn) {
+  const container = document.querySelector('[data-checklist]');
+  if (!container) return;
+
+  const title = document.querySelector('h1')?.textContent.trim() || 'Checklist';
+  const lines = [title, '='.repeat(title.length), ''];
+
+  container.querySelectorAll('h3, .checklist-item, .content-item').forEach(el => {
+    if (el.tagName === 'H3') {
+      lines.push('', el.textContent.trim(), '');
+    } else {
+      const label = el.querySelector('label');
+      const checkbox = el.querySelector('input[type="checkbox"]');
+      if (label) {
+        lines.push(`${checkbox && checkbox.checked ? '☑' : '☐'} ${label.textContent.trim()}`);
+      }
+    }
+  });
+  lines.push('', `From americanvisaguide.com${window.location.pathname}`);
+
+  const finish = ok => {
+    const original = btn.textContent;
+    btn.textContent = ok ? '✓ Copied — paste into Google Docs' : 'Copy failed — try selecting the page text';
+    setTimeout(() => { btn.textContent = original; }, 3000);
+  };
+
+  navigator.clipboard.writeText(lines.join('\n')).then(() => finish(true), () => finish(false));
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize all checklists on the page
   const checklistElements = document.querySelectorAll('[data-checklist]');
