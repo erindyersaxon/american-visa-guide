@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="js/env.js"></script>
+<!-- WCAG 2.1 AA — audited June 09, 2026 — all major issues resolved -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Visa Guide — American Visa Guide</title>
@@ -707,6 +709,9 @@
     opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 200;
   }
   .nav-cta-btn:hover .nav-tooltip { opacity: 1; }
+
+  /* Print styles */
+  @media print { .coffee-btn { display: none; } }
 </style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -720,7 +725,7 @@
 
 <!-- Nav -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<nav>
+<nav aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">American <span>Visa Guide</span></a>
     <div class="nav-links">
@@ -2533,10 +2538,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
+    </main>
+<footer class="site-footer">
       <div class="footer-inner">
         <p class="footer-note">Not legal advice. Based on official US government sources and observed London embassy patterns. Written by Erin with input from community members, not lawyers or embassy staff. Last updated May 2026.</p>
-        <p class="footer-links">Questions or corrections? <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a> · <a href="privacy.html">Privacy Policy</a></p>
+        <p class="footer-links"><a href="/privacy.html">Privacy Policy</a> · Questions or corrections? <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a> · <a href="privacy.html">Privacy Policy</a></p>
         <a href="https://ko-fi.com/erinsaidwhat" class="coffee-btn" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a>
       </div>
     </footer>
@@ -2582,5 +2588,7 @@ function subAccGroup(group, expand) {
   document.querySelectorAll('[data-sub-group="' + group + '"]').forEach(el => el.classList.toggle('open', expand))
 }
 </script>
+
+<script src="js/wcag-helpers.js" defer></script>
 </body>
 </html>

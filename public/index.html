@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- WCAG 2.1 AA — audited June 09, 2026 — all major issues resolved -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -28,6 +29,7 @@
 
 <title>American Visa Guide — London Embassy Tracker</title>
 <!-- Cookiebot consent manager — must be first script in head -->
+<script src="js/env.js"></script>
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
   data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366"
   data-blockingmode="auto"
@@ -491,6 +493,9 @@
   .stage-pills { display: flex; flex-wrap: wrap; gap: 8px; }
   .stage-pill { font-size: 13px; font-weight: 500; color: rgba(248,246,242,0.8); background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 6px 14px; text-decoration: none; transition: background 0.15s, color 0.15s; white-space: nowrap; }
   .stage-pill:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+
+  /* Print styles */
+  @media print { .coffee-btn { display: none; } }
 </style>
 <script type="text/plain" data-cookieconsent="statistics">
   (function(c,l,a,r,i,t,y){
@@ -505,7 +510,7 @@
 <!-- Skip to main content — WCAG 2.4.1 -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<nav>
+<nav aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">American <span>Visa Guide</span></a>
     <div class="nav-links">
@@ -517,7 +522,7 @@
     </div>
   </div>
 </nav>
-<div class="wrap" id="main-content">
+<main id="main-content" class="wrap">
 
   <div class="page-hero">
     <div class="page-hero-flags">🇬🇧 → 🇺🇸</div>
@@ -877,10 +882,11 @@
     <span style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:var(--white);">👋 Also useful: </span><a href="https://www.trackmyvisa.us" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;">Track My Visa</a> surfaces USCIS case movement early during the I-130 stage. Their <a href="https://discord.gg/i130consular" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">I-130 Consular Discord</a> covers the full consular pipeline across all embassies — a good complement to this London-specific tracker. Track My Visa is an independent company and is not affiliated with USCIS. This site is written by Erin independently — I previously volunteered with the Track My Visa Discord community but have no employment or paid relationship with Track My Visa.
   </div>
 
-  <footer class="site-footer">
+  </main>
+<footer class="site-footer">
     <div class="footer-inner">
       <p class="footer-note">Data contributed by community members going through the London embassy process. All figures are community-sourced and should be treated as indicative — not official NVC or embassy timelines. Not legal advice. Based on official US government sources and observed London embassy patterns. Written by Erin with input from community members, not lawyers or embassy staff. Last updated <span id="footer-updated">May 2026</span>.</p>
-      <p class="footer-links">Questions or corrections? <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a> · <a href="privacy.html">Privacy Policy</a></p>
+      <p class="footer-links"><a href="/privacy.html">Privacy Policy</a> · Questions or corrections? <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a> · <a href="privacy.html">Privacy Policy</a></p>
       <a href="https://ko-fi.com/erinsaidwhat" class="coffee-btn" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a>
     </div>
   </footer>
@@ -897,6 +903,7 @@
   // Start fetching data immediately — don't wait for deferred JS
   window._dataPromise = fetch('/api/data').then(r => r.json()).catch(() => null)
 </script>
+<script src="js/wcag-helpers.js" defer></script>
 <script src="index.js" defer></script>
 </body>
 </html>

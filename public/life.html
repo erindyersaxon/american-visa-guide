@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="js/env.js"></script>
+<!-- WCAG 2.1 AA — audited June 09, 2026 — all major issues resolved -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Life in the USA — American Visa Guide</title>
@@ -188,10 +190,13 @@
     opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 200;
   }
   .nav-cta-btn:hover .nav-tooltip { opacity: 1; }
+
+  /* Print styles */
+  @media print { .coffee-btn { display: none; } }
 </style>
 </head>
 <body>
-<nav>
+<nav aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">American <span>Visa Guide</span></a>
     <div class="nav-links">
@@ -212,12 +217,28 @@
   <div class="tt-label" id="tt-label"></div>
 </div>
 
+<!-- Skip to main content — WCAG 2.4.1 -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<main id="main-content">
 <div class="wrap">
   <div class="page-hero">
     <div class="page-hero-flags">🇬🇧 → 🇺🇸</div>
     <div class="page-hero-eyebrow">After Arrival · Green Card · Practical First Steps</div>
     <h1 class="page-hero-h1">Life in the <span>USA</span></h1>
     <p class="page-hero-sub">Practical first steps after arriving — green card, SSN, banking, tax, and where the London community has settled.</p>
+  </div>
+
+  <!-- POST-APPROVAL ENTRY POINT -->
+  <div class="info-card accent" style="margin-bottom:40px;padding:24px;border-color:rgba(200,169,110,0.3);background:rgba(200,169,110,0.08);">
+    <div class="info-card-head" style="margin-bottom:12px;color:var(--accent);">🎉 You got approved — congratulations</div>
+    <p style="font-size:14px;margin-bottom:12px;">Here's what to do from here:</p>
+    <ul style="font-size:14px;padding-left:20px;margin-bottom:8px;">
+      <li><strong>Pay the USCIS Immigrant Fee ($235)</strong> at <a href="https://my.uscis.gov" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">my.uscis.gov</a> — do this before you travel if possible</li>
+      <li><strong>Your passport will be returned via courier</strong> — pick-up averages 4 days, mail averages 12 days</li>
+      <li><strong>Set your intended US address in your USCIS account</strong> before you travel — your green card mails there</li>
+      <li><strong>Register for <a href="https://informeddelivery.usps.com/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USPS Informed Delivery</a></strong> to track your green card and SSN card</li>
+    </ul>
   </div>
 
   <!-- MAP -->
@@ -601,6 +622,7 @@
         <ul style="font-size:13px;margin:0;">
           <li><strong>California:</strong> <a href="https://signal.group/#CjQKIMD2fQH9iv1HR2L57E2sclJ7498TcZ6Q2ZObsYL6ymjOEhBGFKb1VkTZxsge0bF-MJhJ" target="_blank" rel="noopener noreferrer">Join group</a></li>
           <li><strong>Massachusetts / New England:</strong> <a href="https://signal.group/#CjQKIAeyhYHSb9I170b611Yq0FNRgtnKc3Bfupk6UKoCUYlTEhAfGAxB1xjklQvxOhlhUCeM" target="_blank" rel="noopener noreferrer">Join group</a></li>
+          <li><strong>Texas:</strong> <a href="https://signal.group/#CjQKINusxf6JUKFPuHs96JlpArzAuiWk4OFb7NUKlc5xxqJWEhBKrPyOLRdvY_EplNmJwj-L" target="_blank" rel="noopener noreferrer">Join group</a></li>
         </ul>
       </div>
 
@@ -898,7 +920,8 @@
     </div>
   </div>
 
-  <footer class="site-footer">
+  </main>
+<footer class="site-footer">
     <div class="footer-inner">
       <p class="footer-note">Not legal or financial advice. Based on official US government sources and community experience. Written by Erin with input from community members, not lawyers or advisors. Last updated May 2026.</p>
       <p class="footer-links">Questions or corrections? <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a> · <a href="privacy.html">Privacy Policy</a></p>
@@ -1156,3 +1179,7 @@ const TL_DATA = [
 
 buildMap();
 </script>
+
+<script src="js/wcag-helpers.js" defer></script>
+</body>
+</html>

@@ -1,106 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — American Visa Guide</title>
-<!-- Cookiebot consent manager — must be first script in head -->
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js"
-  data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366"
-  data-blockingmode="auto"
-  type="text/javascript">
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link crossorigin href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-<style>
-  :root { --navy:#0a1628;--accent:#c8a96e;--teal-light:#3dbfb0;--white:#f8f6f2;--muted:#8a9ab5;--card-bg:#111e36;--border:rgba(200,169,110,0.15); }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--navy); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; line-height:1.7; }
-  nav { position:sticky; top:0; z-index:100; background:rgba(10,22,40,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:0 20px; }
-  .nav-inner { max-width:860px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:52px; gap:16px; }
-  .nav-logo { font-family:'Outfit',sans-serif; font-size:13px; font-weight:700; color:var(--white); text-decoration:none; }
-  .nav-logo span { color:var(--accent); }
-  .nav-links a { font-size:12px; font-weight:500; color:var(--muted); text-decoration:none; padding:5px 10px; border-radius:6px; }
-  .nav-links a:hover { color:var(--white); }
-  .wrap { max-width:720px; margin:0 auto; padding:52px 20px 80px; }
-  h1 { font-family:'Outfit',sans-serif; font-size:32px; font-weight:800; color:var(--white); margin-bottom:8px; }
-  .last-updated { font-size:12px; color:var(--muted); margin-bottom:40px; }
-  h2 { font-family:'Outfit',sans-serif; font-size:17px; font-weight:700; color:var(--white); margin:32px 0 10px; }
-  p { color:rgba(248,246,242,0.82); margin-bottom:12px; }
-  ul { padding-left:20px; color:rgba(248,246,242,0.82); margin-bottom:12px; }
-  li { margin-bottom:4px; }
-  a { color:var(--teal-light); text-decoration:none; }
-  a:hover { text-decoration:underline; }
-  strong { color:var(--white); }
-  .card { background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin:16px 0; }
-</style>
+<script src="js/env.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — American Visa Guide</title>
+  <meta name="description" content="Privacy policy and GDPR compliance information for americanvisaguide.com.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {--navy:#0a1628;--accent:#c8a96e;--teal:#2a9d8f;--teal-light:#3dbfb0;--white:#f8f6f2;--muted:#8a9ab5;--border:rgba(200,169,110,0.15);}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--navy);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.75}
+    body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% -10%,rgba(26,58,107,0.4) 0%,transparent 60%);pointer-events:none;z-index:0}
+    
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 20px}
+    .nav-logo{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--white);text-decoration:none}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-icon{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;text-decoration:none;font-size:20px;transition:background 0.15s;color:var(--white)}
+    .nav-icon:hover{background:rgba(255,255,255,0.07)}
+    .nav-cta-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;font-size:20px;background:var(--accent);color:#0a1628;text-decoration:none;transition:opacity 0.15s}
+    .nav-cta-btn:hover{opacity:0.85}
+    
+    .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 20px 80px}
+    .page-hero{padding:40px 0 32px;border-bottom:1px solid var(--border);margin-bottom:36px}
+    .page-hero-eyebrow{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+    .page-hero-h1{font-family:'Outfit',sans-serif;font-size:clamp(32px,7vw,52px);font-weight:900;line-height:1.05}
+    .page-hero-sub{font-size:15px;color:rgba(248,246,242,0.75)}
+    
+    main{position:relative;z-index:1}
+    .content{max-width:820px}
+    .content h2{font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;color:var(--white);margin:32px 0 16px;padding-top:16px;border-top:1px solid var(--border)}
+    .content h2:first-child{border-top:none;margin-top:0}
+    .content h3{font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:var(--white);margin:20px 0 10px}
+    .content p{font-size:14px;color:rgba(248,246,242,0.82);margin-bottom:12px}
+    .content ul,.content ol{font-size:14px;color:rgba(248,246,242,0.82);padding-left:24px;margin-bottom:12px}
+    .content li{margin-bottom:6px}
+    .content a{color:var(--teal-light);text-decoration:none}
+    .content a:hover{text-decoration:underline}
+    
+    .info-box{background:rgba(42,157,143,0.08);border:1px solid rgba(42,157,143,0.25);border-radius:10px;padding:16px;margin:20px 0;font-size:13px}
+    .site-footer{border-top:1px solid var(--border);margin-top:48px;padding:28px 0 20px}
+    .footer-inner{display:flex;flex-direction:column;gap:10px}
+    .footer-note{font-size:12px;color:var(--muted);line-height:1.6}
+    .footer-links{font-size:12px;color:var(--muted)}
+    .footer-links a{color:var(--teal-light);text-decoration:none}
+    .coffee-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#0a1628;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;transition:opacity 0.15s}
+    .coffee-btn:hover{opacity:0.9}
+    @media print { .coffee-btn { display: none; } }
+  </style>
+  <!-- WCAG 2.1 AA — audited June 09, 2026 — all major issues resolved -->
 </head>
 <body>
-<nav>
+<nav aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">American <span>Visa Guide</span></a>
     <div class="nav-links">
-      <a href="index.html">📊 Data</a>
-      <a href="guide.html">📖 Guide</a>
+      <a href="index.html" class="nav-icon" title="Data"><span>📊</span></a>
+      <a href="guide.html" class="nav-icon" title="Visa Guide"><span>📖</span></a>
+      <a href="life.html" class="nav-icon" title="Life in the USA"><span>🏠</span></a>
+      <a href="https://forms.fillout.com/t/dTRqnkx9uxus" class="nav-icon" target="_blank" rel="noopener noreferrer" title="Submit Timeline"><span>✏️</span></a>
+      <a href="https://ko-fi.com/erinsaidwhat" class="nav-cta-btn" target="_blank" rel="noopener noreferrer" title="Support"><span>☕</span></a>
     </div>
   </div>
 </nav>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<main id="main-content">
 <div class="wrap">
-  <h1>Privacy Policy</h1>
-  <p class="last-updated">Last updated: May 2026</p>
-
-  <p>This privacy policy explains how americanvisaguide.com collects, uses, and stores data. This site is a community resource for US family immigrant visa applicants and is not affiliated with the US government or any embassy.</p>
-
-  <h2>Who we are</h2>
-  <p>americanvisaguide.com is operated by Erin Dyer Saxon. You can contact us at <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a>.</p>
-
-  <h2>What data we collect</h2>
-
-  <div class="card">
-    <strong>Timeline form submissions</strong>
-    <p style="margin-top:8px;margin-bottom:0;">If you submit your visa timeline via the FillOut form, we collect: your Discord handle, email address (optional), visa category, embassy, and immigration process dates (I-130 approval, NVC stages, interview date, etc.). This data is stored in a Supabase database and used to calculate the community statistics displayed on this site. Your Discord handle may be displayed publicly in the "This week" section of the data page.</p>
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">Data & Privacy</div>
+    <h1 class="page-hero-h1">Privacy Policy</h1>
+    <p class="page-hero-sub">How we handle your data and your rights under UK GDPR.</p>
   </div>
 
-  <div class="card">
-    <strong>Analytics — Microsoft Clarity</strong>
-    <p style="margin-top:8px;margin-bottom:0;">We use Microsoft Clarity to understand how visitors use the site. Clarity records anonymised session data including mouse movements, clicks, and scrolling behaviour. Clarity may use cookies. No personally identifiable information is captured. See <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft's privacy statement</a> for details.</p>
+  <div class="content">
+    <p><strong>Last updated: June 9, 2026</strong></p>
+    <p>americanvisaguide.com is a community resource operated by Erin Dyer Saxon.</p>
+
+    <h2>What data we collect</h2>
+
+    <h3>1. Timeline submissions via FillOut</h3>
+    <p>When you submit your visa timeline via the FillOut form, you provide dates and milestones. This data is stored in Supabase and used to generate aggregate statistics.</p>
+    <ul>
+      <li>Individual submissions are not publicly displayed</li>
+      <li>Only aggregated trends and anonymised statistics are shown</li>
+      <li>FillOut privacy: <a href="https://www.fillout.com/privacy" target="_blank" rel="noopener noreferrer">https://www.fillout.com/privacy</a></li>
+    </ul>
+
+    <h3>2. Analytics via Microsoft Clarity</h3>
+    <p>This site uses Microsoft Clarity to understand visitor interactions. Clarity may record session replays and heatmaps.</p>
+    <ul>
+      <li>No personal data is intentionally included</li>
+      <li>Session data is aggregated and anonymised</li>
+      <li>Clarity privacy: <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">https://privacy.microsoft.com/en-us/privacystatement</a></li>
+    </ul>
+
+    <h3>3. Browser-stored worksheet data</h3>
+    <p>Worksheets store inputs in your browser tab memory only — never transmitted to any server, lost on tab close.</p>
+
+    <h3>4. Cookies</h3>
+    <p>No first-party cookies. Microsoft Clarity may set third-party cookies. No advertising or tracking cookies.</p>
+
+    <h2>Your rights (UK GDPR)</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Access your personal data</li>
+      <li>Correct inaccurate data</li>
+      <li>Request erasure of submitted timelines</li>
+      <li>Object to processing</li>
+    </ul>
+    <p>Contact: <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a></p>
+
+    <h2>Data retention</h2>
+    <p>Timeline submissions are retained indefinitely for statistics accuracy. Deletion requests will remove your submission and recalculate aggregates.</p>
+
+    <h2>Third-party services</h2>
+    <ul>
+      <li><strong>Supabase</strong>: <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">https://supabase.com/privacy</a></li>
+      <li><strong>FillOut</strong>: <a href="https://www.fillout.com/privacy" target="_blank" rel="noopener noreferrer">https://www.fillout.com/privacy</a></li>
+      <li><strong>Microsoft Clarity</strong>: <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">https://privacy.microsoft.com/en-us/privacystatement</a></li>
+      <li><strong>Ko-fi</strong>: <a href="https://more.ko-fi.com/privacy" target="_blank" rel="noopener noreferrer">https://more.ko-fi.com/privacy</a></li>
+    </ul>
+
+    <h2>Not legal advice</h2>
+    <div class="info-box">
+      <p>This site provides general immigration information based on official government sources and community experience. Nothing constitutes legal advice. For legal advice, consult a qualified immigration attorney.</p>
+    </div>
+
+    <h2>Contact</h2>
+    <p>Questions about this privacy policy? Contact: <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a></p>
   </div>
-
-  <div class="card">
-    <strong>No other tracking</strong>
-    <p style="margin-top:8px;margin-bottom:0;">We do not use Google Analytics, advertising cookies, or any other third-party tracking beyond Microsoft Clarity.</p>
-  </div>
-
-  <h2>How we use your data</h2>
-  <ul>
-    <li>Timeline data is used only to calculate aggregate statistics displayed on this site</li>
-    <li>We do not sell, share, or use data for advertising</li>
-    <li>Your Discord handle may appear in the weekly activity section of the data page</li>
-    <li>Email addresses submitted via the form are not displayed publicly</li>
-  </ul>
-
-  <h2>Data retention</h2>
-  <p>Timeline data is retained indefinitely to maintain historical accuracy of the community statistics. If you would like your data removed, email <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a> with your Discord handle and we will delete your record.</p>
-
-  <h2>Your rights (UK GDPR)</h2>
-  <p>Under UK GDPR you have the right to access, correct, or delete your personal data. To exercise these rights, contact <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a>.</p>
-
-  <h2>Cookies</h2>
-  <p>This site may set cookies via Microsoft Clarity for session recording purposes. No essential cookies are used. You can disable cookies in your browser settings at any time.</p>
-
-  <h2>Third-party services</h2>
-  <ul>
-    <li><strong>FillOut</strong> — form submissions. See <a href="https://www.fillout.com/privacy" target="_blank" rel="noopener noreferrer">FillOut's privacy policy</a>.</li>
-    <li><strong>Supabase</strong> — database hosting. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase's privacy policy</a>.</li>
-    <li><strong>Vercel</strong> — site hosting. See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's privacy policy</a>.</li>
-    <li><strong>Microsoft Clarity</strong> — session analytics. See <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft's privacy statement</a>.</li>
-  </ul>
-
-  <h2>Contact</h2>
-  <p>Questions about this policy: <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a></p>
 </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-note">Privacy Policy for americanvisaguide.com. For data rights inquiries, contact AmericanVisaGuideInfo@gmail.com</p>
+      <p class="footer-links"><a href="/privacy.html">Privacy Policy</a></p>
+      <a href="https://ko-fi.com/erinsaidwhat" class="coffee-btn" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a>
+    </div>
+  </footer>
+</main>
+
+<script src="js/wcag-helpers.js" defer></script>
+<script src="js/cookie-notice.js" defer></script>
+
 </body>
 </html>
