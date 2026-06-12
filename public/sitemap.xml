@@ -2,86 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.americanvisaguide.com/</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/tracker.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.americanvisaguide.com/about</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/guide.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.americanvisaguide.com/checklist-binder</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/life.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.americanvisaguide.com/checklist-i130</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/about.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.americanvisaguide.com/checklist-interview</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/checklists.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://www.americanvisaguide.com/checklist-medical</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/checklist-i130.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.americanvisaguide.com/checklist-nvc</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/checklist-nvc.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.americanvisaguide.com/checklists</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/checklist-medical.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.americanvisaguide.com/guide</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/checklist-interview.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.americanvisaguide.com/life</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/checklist-binder.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.americanvisaguide.com/privacy</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/workbook.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.americanvisaguide.com/public-charge</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/public-charge.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.americanvisaguide.com/workbook</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
-    <loc>https://www.americanvisaguide.com/privacy.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://www.americanvisaguide.com/worksheet-ds260</loc>
+    <lastmod>2026-06-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.americanvisaguide.com/worksheet-i864</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
 </urlset>

@@ -81,7 +81,7 @@
     },
     {
       "source": "/tracker.html",
-      "destination": "/tracker",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -147,6 +147,21 @@
     {
       "source": "/privacy.html",
       "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/tools.html",
+      "destination": "/checklists",
+      "permanent": true
+    },
+    {
+      "source": "/tools",
+      "destination": "/checklists",
+      "permanent": true
+    },
+    {
+      "source": "/tracker",
+      "destination": "/",
       "permanent": true
     }
   ]
