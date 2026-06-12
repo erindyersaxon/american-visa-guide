@@ -312,9 +312,10 @@
     /* ── Outcome cards ── */
     .outcome-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: var(--space-4);
     }
+    @media (min-width: 560px) { .outcome-grid { grid-template-columns: 1fr 1fr 1fr; } }
     .outcome-card {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
@@ -360,8 +361,8 @@
     /* ── Numeric table cells ── */
     .num { font-variant-numeric: tabular-nums; text-align: right; }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260615">
-  <script src="/js/nav.js?v=20260615" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20260616">
+  <script src="/js/nav.js?v=20260616" defer></script>
 </head>
 <body>
   <!-- Skip to main content link -->

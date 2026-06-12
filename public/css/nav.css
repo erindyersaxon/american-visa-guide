@@ -262,6 +262,7 @@
   line-height: 1.7;
   max-width: 65ch;
   margin: 0 0 2rem;
+  color: rgba(244, 239, 230, 0.75);
 }
 
 .avg-footer__note strong {
