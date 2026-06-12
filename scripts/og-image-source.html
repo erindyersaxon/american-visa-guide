@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    background: #f4efe6;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 72px 84px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  /* soft steel wash, echoes the site hero */
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 75% 60% at 85% -10%, rgba(90,143,166,0.16) 0%, transparent 60%);
+  }
+  .brand-row { display: flex; align-items: center; gap: 18px; position: relative; }
+  .brand-mark {
+    width: 64px; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 21px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: #3e7188;
+  }
+  h1 {
+    position: relative;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 108px; font-weight: 600;
+    line-height: 1.04; letter-spacing: -0.015em;
+    color: #1e1c17;
+  }
+  h1 em { font-style: italic; font-weight: 500; color: #3e7188; }
+  .sub {
+    position: relative;
+    font-size: 30px; line-height: 1.5;
+    color: #56524a;
+    max-width: 880px;
+    margin-top: 28px;
+  }
+  .footer-row {
+    position: relative;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 2px solid #ddd6cb;
+    padding-top: 30px;
+  }
+  .flags { font-size: 34px; letter-spacing: 10px; }
+  .domain {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px; font-weight: 600;
+    color: #2b3a42;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <div class="brand-row">
+      <div class="brand-mark">
+        <svg width="64" height="64" viewBox="0 0 24 24">
+          <rect width="24" height="24" rx="5" fill="#ece5d6"/>
+          <path d="M4 5 h5.5 L13.5 12 L9.5 19 H4 L8 12 Z" fill="#bf3b3b"/>
+          <path d="M11 5 h5.5 L20.5 12 L16.5 19 H11 L15 12 Z" fill="#2e4a7d"/>
+        </svg>
+      </div>
+      <div class="eyebrow">London Embassy · Community Data</div>
+    </div>
+    <h1 style="margin-top: 44px;">American <em>Visa</em> Guide</h1>
+    <p class="sub">Real wait times, real outcomes for US family immigrant visas — contributed by people going through the same process.</p>
+  </div>
+  <div class="footer-row">
+    <div class="flags">🇬🇧 → 🇺🇸</div>
+    <div class="domain">americanvisaguide.com</div>
+  </div>
+</body>
+</html>
