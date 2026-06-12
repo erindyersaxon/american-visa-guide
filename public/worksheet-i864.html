@@ -5,11 +5,21 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Microsoft Clarity — runs only after statistics consent -->
+<script type="text/plain" data-cookieconsent="statistics">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","wlfs757o2n");
+</script>
   <title>I-864 Affidavit of Support Worksheet — American Visa Guide</title>
   <meta name="description" content="Private planning worksheet for I-864 Affidavit of Support. Browser-only storage, auto-calculations, no data sharing.">
   <link rel="canonical" href="https://www.americanvisaguide.com/worksheet-i864">
-  <link rel="stylesheet" href="/css/main.css?v=20260609">
-  <link rel="stylesheet" href="/css/components.css?v=20260609">
+  <link rel="stylesheet" href="/css/main.css?v=20260612">
+  <link rel="stylesheet" href="/css/components.css?v=20260612">
   <style>
     /* ── Accessibility: Skip link and focus ── */
     .skip-to-main:focus {
@@ -31,7 +41,7 @@
     .ws-subtitle { font-size: var(--text-sm); color: var(--color-text-muted); }
     .privacy-warning { background: var(--color-destructive-subtle); border: 2px solid var(--color-destructive-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); margin-bottom: var(--space-6); font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-destructive); }
     .save-buttons { display: flex; gap: var(--space-3); margin-bottom: var(--space-6); flex-wrap: wrap; }
-    .btn { padding: var(--space-3) var(--space-5); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); background: var(--color-surface); font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--font-semibold); color: var(--color-text); cursor: pointer; transition: background-color 120ms; }
+    .btn { padding: var(--space-3) var(--space-5); border: 1px solid var(--color-border-strong); border-radius: var(--radius-full); background: var(--color-surface); font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--font-semibold); color: var(--color-text); cursor: pointer; transition: background-color 120ms; }
     .btn:hover { background: var(--color-bg); }
     .btn:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
     .warning-banner { background: var(--color-warning-subtle); border: 1px solid var(--color-warning-border); border-radius: var(--radius-md); padding: var(--space-4) var(--space-5); margin-bottom: var(--space-6); font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-warning); }
@@ -56,6 +66,8 @@
     .poverty-table tr:last-child td { border-bottom: none; }
     @media print { body { background: #fff; } .save-buttons, .warning-banner { display: none; } .privacy-warning { border: 1px solid #000; background: #fff; color: #000; } .ws-input, .ws-textarea, .ws-select { border: 1px solid #000; background: #fff; color: #000; } }
   </style>
+  <link rel="stylesheet" href="/css/nav.css?v=20260615">
+  <script src="/js/nav.js?v=20260615" defer></script>
 </head>
 <body>
   <!-- Skip to main content link -->
@@ -242,6 +254,5 @@
   <script src="/js/main.js?v=20260609"></script>
   <!-- WCAG 2.1 AA — audited 2026-05-30 — accessibility improvements: skip link, focus indicators (2px outline), reduced motion support, semantic form labels, auto-calculated fields with aria-live, poverty threshold table with proper markup -->
 
-  <script src="/js/cookie-notice.js?v=20260609"></script>
 </body>
 </html>

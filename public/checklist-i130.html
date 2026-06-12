@@ -3,15 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Microsoft Clarity — runs only after statistics consent -->
+<script type="text/plain" data-cookieconsent="statistics">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","wlfs757o2n");
+</script>
     <title>I-130 Checklist — American Visa Guide</title>
     <meta name="description" content="I-130 pre-submission audit checklist." />
-    <link rel="canonical" href="https://www.americanvisaguide.com/checklist-i130.html" />
+    <link rel="canonical" href="https://www.americanvisaguide.com/checklist-i130" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/design-system.css?v=20260609" />
-    <link rel="stylesheet" href="/css/print.css?v=20260609" media="print" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css?v=20260612" />
+    <link rel="stylesheet" href="/css/print.css?v=20260612" media="print" />
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
     <style>
       .checklist-container { max-width: var(--max-width-prose); margin: 0 auto; }
@@ -20,12 +30,12 @@
       .progress-text { font-weight: var(--weight-medium); color: var(--color-navy); }
       .checklist-section { margin: var(--space-12) 0; }
       .checklist-section h3 { margin-bottom: var(--space-6); }
-      .checklist-item { display: flex; gap: var(--space-4); margin-bottom: var(--space-4); padding: var(--space-4); background: white; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+      .checklist-item { display: flex; gap: var(--space-4); margin-bottom: var(--space-4); padding: var(--space-4); background: var(--color-surface); border-radius: var(--radius-md); border: 1px solid var(--color-border); }
       .checklist-item input[type="checkbox"] { flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: var(--color-gold); }
       .checklist-item label { flex: 1; cursor: pointer; }
       .checklist-item input[type="checkbox"]:checked ~ label { color: var(--color-text-muted); }
       .checklist-item input[type="checkbox"]:focus-visible { outline: var(--focus-outline); }
-      .warning-box { padding: var(--space-6); background: #fee2e2; border: 2px solid var(--color-error); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .warning-box { padding: var(--space-6); background: #f5ded6; border: 2px solid var(--color-error); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
       .warning-box strong { color: var(--color-error); }
       .advanced-panel { margin-top: var(--space-8); }
       .advanced-trigger { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--color-surface-alt); border: none; border-radius: var(--radius-md); cursor: pointer; font-weight: var(--weight-medium); color: var(--color-navy); width: 100%; }
@@ -40,7 +50,9 @@
       .back-link { display: inline-block; margin-top: var(--space-12); color: var(--color-gold); text-decoration: none; font-weight: var(--weight-medium); }
       .back-link:hover { text-decoration: underline; }
     </style>
-  </head>
+    <link rel="stylesheet" href="/css/nav.css?v=20260615">
+  <script src="/js/nav.js?v=20260615" defer></script>
+</head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <nav role="navigation" aria-label="Main navigation"></nav>
@@ -297,7 +309,7 @@
     </main>
 
     <footer></footer>
-    <script src="/js/shared.js?v=20260609"></script>
+    <script src="/js/shared.js?v=20260612"></script>
     <script src="/js/checklist.js?v=20260609"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {

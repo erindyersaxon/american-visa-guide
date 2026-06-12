@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Microsoft Clarity — runs only after statistics consent -->
+<script type="text/plain" data-cookieconsent="statistics">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","wlfs757o2n");
+</script>
   <title>American Visa Guide — UK to US Family Visa Data &amp; Community Tracker</title>
   <meta name="description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members — DQ to IL averages, interview scheduling, passport return times, and the full London process guide.">
   <link rel="canonical" href="https://www.americanvisaguide.com/">
   <meta property="og:title" content="American Visa Guide — UK to US Family Visa Data &amp; Community Tracker">
   <meta property="og:description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members.">
-  <meta property="og:image" content="/images/og-home.png">
+  <meta property="og:image" content="https://www.americanvisaguide.com/images/og-home.png">
   <meta property="og:url" content="https://www.americanvisaguide.com/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/og-home.png">
+  <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 
-  <!-- Microsoft Clarity — async, non-render-blocking -->
-  <script>
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window,document,"clarity","script","wlfs757o2n");
-  </script>
 
-  <link rel="stylesheet" href="/css/main.css?v=20260609">
-  <link rel="stylesheet" href="/css/components.css?v=20260609">
+  <link rel="stylesheet" href="/css/main.css?v=20260612">
+  <link rel="stylesheet" href="/css/components.css?v=20260612">
 
   <style>
     /* ── Accessibility: Skip link ── */
@@ -358,6 +360,8 @@
     /* ── Numeric table cells ── */
     .num { font-variant-numeric: tabular-nums; text-align: right; }
   </style>
+  <link rel="stylesheet" href="/css/nav.css?v=20260615">
+  <script src="/js/nav.js?v=20260615" defer></script>
 </head>
 <body>
   <!-- Skip to main content link -->
@@ -767,30 +771,30 @@
     /* ── Static fallback (when Supabase is unreachable) ── */
     const FB = {
       drops: [
-        { drop_date:'2024-10-15', gap_days:28, drop_time:'14:30', dq_date_from:'2024-08-01', dq_date_to:'2024-08-15', il_count:145 },
-        { drop_date:'2024-09-17', gap_days:31, drop_time:'10:15', dq_date_from:'2024-07-10', dq_date_to:'2024-07-25', il_count:132 },
-        { drop_date:'2024-08-17', gap_days:29, drop_time:'09:45', dq_date_from:'2024-06-20', dq_date_to:'2024-07-05', il_count:118 },
-        { drop_date:'2024-07-19', gap_days:35, drop_time:'11:00', dq_date_from:'2024-05-15', dq_date_to:'2024-06-01', il_count:124 },
-        { drop_date:'2024-06-14', gap_days:30, drop_time:'14:00', dq_date_from:'2024-04-10', dq_date_to:'2024-04-25', il_count:110 },
+        { drop_date:'2026-04-17', gap_days:17, drop_time:'16:02', dq_date_from:'2025-09-30', dq_date_to:'2026-02-14', il_count:11 },
+        { drop_date:'2026-03-31', gap_days:27, drop_time:'15:16', dq_date_from:'2025-12-30', dq_date_to:'2026-01-27', il_count:17 },
+        { drop_date:'2026-03-04', gap_days:19, drop_time:'14:08', dq_date_from:'2025-12-17', dq_date_to:'2025-12-22', il_count:3 },
+        { drop_date:'2026-02-13', gap_days:29, drop_time:'13:51', dq_date_from:'2025-10-24', dq_date_to:'2026-01-26', il_count:13 },
+        { drop_date:'2026-01-15', gap_days:14, drop_time:'13:53', dq_date_from:'2025-10-30', dq_date_to:'2025-12-04', il_count:21 },
       ],
       stats: {
-        members_waiting: 1240,
-        approved_pct: 94, rejected_221g_pct: 4, denied_pct: 2,
-        passport_pickup_avg_days: 3, passport_mail_avg_days: 7,
+        members_waiting: 217,
+        approved_pct: 93, rejected_221g_pct: 7, denied_pct: 0,
+        passport_pickup_avg_days: 4, passport_mail_avg_days: 12,
         il_system_status: 'active',
         next_drop_window_start: null, next_drop_window_end: null,
-        uscis_status: 'normal', nvc_status: 'normal', london_status: 'active',
-        uscis_summary:  'I-130 petition processing for immediate relatives of US citizens. Community average: 6–10 months.',
-        nvc_summary:    'Document review and fee payment. Most cases completing NVC in 2–3 months once received.',
-        london_summary: 'IL drops are the bottleneck. Once you have an IL, interview scheduling is typically 6–10 weeks out.',
+        uscis_status: 'slow', nvc_status: 'normal', london_status: 'active',
+        uscis_summary:  'Significantly slowed — the front of the line has not moved since mid-March 2026, with volumes below half of normal levels.',
+        nvc_summary:    'Processing normally. Documentarily Qualified typically ~14 calendar days after submission.',
+        london_summary: 'IL drops continuing on a regular cadence. Once you have an IL, your interview is typically about 9 weeks out.',
       },
       timelines: [
-        { created_at:'2024-09-01', dq_to_il_days:180, i130_to_nvc_days:45,  nvc_fees_to_docs_days:30, docs_to_dq_days:14, il_to_medical_days:21, medical_to_interview_days:14, interview_to_passport_days:5 },
-        { created_at:'2024-08-15', dq_to_il_days:195, i130_to_nvc_days:52,  nvc_fees_to_docs_days:28, docs_to_dq_days:12, il_to_medical_days:18, medical_to_interview_days:16, interview_to_passport_days:4 },
-        { created_at:'2024-07-20', dq_to_il_days:165, i130_to_nvc_days:38,  nvc_fees_to_docs_days:35, docs_to_dq_days:16, il_to_medical_days:24, medical_to_interview_days:12, interview_to_passport_days:6 },
-        { created_at:'2024-04-10', dq_to_il_days:210, i130_to_nvc_days:60,  nvc_fees_to_docs_days:25, docs_to_dq_days:10, il_to_medical_days:20, medical_to_interview_days:18, interview_to_passport_days:5 },
+        { created_at:'2026-04-01', dq_to_il_days:70, i130_to_nvc_days:42, nvc_fees_to_docs_days:21, docs_to_dq_days:14, il_to_medical_days:21, medical_to_interview_days:16, interview_to_passport_days:5 },
+        { created_at:'2026-03-01', dq_to_il_days:65, i130_to_nvc_days:38, nvc_fees_to_docs_days:24, docs_to_dq_days:13, il_to_medical_days:19, medical_to_interview_days:15, interview_to_passport_days:4 },
+        { created_at:'2026-02-01', dq_to_il_days:72, i130_to_nvc_days:45, nvc_fees_to_docs_days:19, docs_to_dq_days:15, il_to_medical_days:23, medical_to_interview_days:17, interview_to_passport_days:6 },
+        { created_at:'2026-01-05', dq_to_il_days:58, i130_to_nvc_days:40, nvc_fees_to_docs_days:26, docs_to_dq_days:14, il_to_medical_days:20, medical_to_interview_days:14, interview_to_passport_days:5 },
       ],
-      weekly: { week_start:'2024-10-14', interviews:12, medicals:8, flights:5, dq_submissions:45, i130_approvals:23 },
+      weekly: { week_start:'2026-06-08', interviews:2, medicals:3, flights:1, dq_submissions:4, i130_approvals:2 },
     };
 
     /* ── Helpers ── */
@@ -1080,6 +1084,5 @@
 
   <!-- WCAG 2.1 AA — audited 2026-05-30 — accessibility improvements: skip link, focus indicators, reduced motion support, semantic HTML landmarks, aria labels on status indicators, external link handling -->
 
-  <script src="/js/cookie-notice.js?v=20260609"></script>
 </body>
 </html>

@@ -3,30 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Microsoft Clarity — runs only after statistics consent -->
+<script type="text/plain" data-cookieconsent="statistics">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","wlfs757o2n");
+</script>
     <title>About — American Visa Guide</title>
     <meta name="description" content="About American Visa Guide - who made it, how the data works, and what this site is and is not." />
     <meta property="og:title" content="About — American Visa Guide" />
     <meta property="og:description" content="About American Visa Guide - who made it, how the data works, and what this site is and is not." />
-    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:image" content="https://www.americanvisaguide.com/images/og-home.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.americanvisaguide.com/about.html" />
+    <meta property="og:url" content="https://www.americanvisaguide.com/about" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="About — American Visa Guide" />
     <meta name="twitter:description" content="About American Visa Guide - who made it, how the data works, and what this site is and is not." />
-    <meta name="twitter:image" content="/og-image.svg" />
-    <link rel="canonical" href="https://www.americanvisaguide.com/about.html" />
+    <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png" />
+    <link rel="canonical" href="https://www.americanvisaguide.com/about" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/design-system.css?v=20260609" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css?v=20260612" />
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
     <style>
       .hero-section { padding: var(--space-16) var(--container-padding); background: linear-gradient(135deg, var(--color-navy-xlight) 0%, var(--color-surface) 100%); }
-      .hero-wrapper { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; }
+      .hero-wrapper { max-width: 1000px; margin: 0 auto; }
       .hero-content h1 { margin-bottom: var(--space-4); }
       .hero-subtitle { font-size: var(--size-lg); color: var(--color-text-muted); line-height: var(--line-lg); margin-bottom: var(--space-4); }
-      .hero-placeholder { padding: var(--space-12); background: var(--color-gold-xlight); border-radius: var(--radius-lg); border: 2px dashed var(--color-gold); color: var(--color-text-muted); text-align: center; min-height: 300px; display: flex; align-items: center; justify-content: center; }
       .about-content { max-width: var(--max-width-prose); margin: 0 auto; }
       .about-section { margin-bottom: var(--space-12); }
       .about-section h2 { margin-bottom: var(--space-6); }
@@ -39,12 +48,11 @@
       .contact-section p { margin-bottom: var(--space-4); }
       .contact-email { font-family: 'Public Sans', monospace; color: var(--color-navy); }
       .cta-buttons { display: flex; gap: var(--space-4); margin-top: var(--space-8); flex-wrap: wrap; }
-      @media (max-width: 768px) {
-        .hero-wrapper { grid-template-columns: 1fr; }
-        .hero-placeholder { min-height: 250px; }
-      }
+
     </style>
-  </head>
+    <link rel="stylesheet" href="/css/nav.css?v=20260615">
+  <script src="/js/nav.js?v=20260615" defer></script>
+</head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <nav role="navigation" aria-label="Main navigation"></nav>
@@ -56,7 +64,6 @@
             <h1>About American Visa Guide</h1>
             <p class="hero-subtitle">Honest data and plain-language guidance for people going through the London consular process, built by someone who went through it.</p>
           </div>
-          <div class="hero-placeholder">🖼️ PLACEHOLDER: Warm portrait-style photo of a person at a laptop, comfortable home setting, natural light. Conveys real person, real effort. Replace with real photography.</div>
         </div>
       </div>
 
@@ -64,7 +71,7 @@
         <article class="about-content">
           <section class="about-section" id="who-i-am">
             <h2>Who I am</h2>
-            <p>My name is <span class="highlight">Erin Dyer Saxon.</span> I went through the US Embassy London consular process myself. I know what it's like to have questions at 2 AM because nothing you've found is specific enough, or because you're not sure if you're reading a rule correctly.</p>
+            <p>My name is <span class="highlight">Erin.</span> I went through the US Embassy London consular process myself. I know what it's like to have questions at 2 AM because nothing you've found is specific enough, or because you're not sure if you're reading a rule correctly.</p>
             <p>I built this site because the information gap is real. There are official guides, but they're dense. There are community forums, but they're scattered. There's good data out there, but it's hard to find and harder to trust.</p>
             <p>American Visa Guide is volunteer-run and independent. <strong>I am not a lawyer.</strong> If you need legal advice, consult an immigration attorney. What I can offer is clarity about how the process actually works, based on what real people have experienced.</p>
           </section>
@@ -121,7 +128,7 @@
           <section class="about-section" style="margin-top: var(--space-16); text-align: center; border-top: 1px solid var(--color-border); padding-top: var(--space-16);">
             <p style="color: var(--color-text-muted); font-size: var(--size-sm);">Built with care. Maintained by volunteers. For people going through one of the biggest decisions of their lives.</p>
             <div class="cta-buttons" style="justify-content: center;">
-              <a href="/tracker.html" class="btn btn-primary">View Data Tracker</a>
+              <a href="/index.html" class="btn btn-primary">View Data Tracker</a>
               <a href="/guide.html" class="btn btn-secondary">Read the Guide</a>
             </div>
           </section>
@@ -130,7 +137,7 @@
     </main>
 
     <footer></footer>
-    <script src="/js/shared.js?v=20260609"></script>
+    <script src="/js/shared.js?v=20260612"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         renderPage({

@@ -3,19 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Microsoft Clarity — runs only after statistics consent -->
+<script type="text/plain" data-cookieconsent="statistics">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","wlfs757o2n");
+</script>
     <title>Moving to the USA Workbook — American Visa Guide</title>
     <meta name="description" content="Complete immigration and relocation checklist covering every stage from USCIS through to settling in the US. Created by Nikki." />
     <meta property="og:title" content="Moving to the USA Workbook — American Visa Guide" />
     <meta property="og:description" content="Complete immigration and relocation checklist: USCIS → NVC → Embassy. Download the Excel file or copy to Google Sheets." />
-    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:image" content="https://www.americanvisaguide.com/images/og-home.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.americanvisaguide.com/workbook.html" />
-    <link rel="canonical" href="https://www.americanvisaguide.com/workbook.html" />
+    <meta property="og:url" content="https://www.americanvisaguide.com/workbook" />
+    <link rel="canonical" href="https://www.americanvisaguide.com/workbook" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/design-system.css?v=20260609" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css?v=20260612" />
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
     <style>
       /* Page layout */
@@ -29,7 +39,7 @@
       .workbook-sub { font-size: var(--size-sm); color: var(--color-text-muted); max-width: 580px; margin-bottom: var(--space-6); }
 
       /* Attribution */
-      .attribution { background: var(--color-gold-xlight); border: 1px solid rgba(200,145,58,0.25); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); font-size: var(--size-sm); color: var(--color-text); margin-bottom: var(--space-6); }
+      .attribution { background: var(--color-gold-xlight); border: 1px solid rgba(90,143,166,0.25); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); font-size: var(--size-sm); color: var(--color-text); margin-bottom: var(--space-6); }
 
       /* Download bar */
       .download-bar { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-8); flex-wrap: wrap; }
@@ -68,7 +78,7 @@
         font-size: var(--size-xs); font-weight: var(--weight-bold);
         letter-spacing: 0.15em; text-transform: uppercase;
         padding: var(--space-3) var(--space-4);
-        border-bottom: 1px solid rgba(200,145,58,0.2);
+        border-bottom: 1px solid rgba(90,143,166,0.2);
       }
 
       /* Section sub-header rows */
@@ -113,14 +123,16 @@
 
       /* Status cells */
       td.status { font-weight: var(--weight-semibold); text-align: center; width: 64px; font-size: var(--size-xs); }
-      td.status.done    { color: #0D7A5F; }
+      td.status.done    { color: #4a6b50; }
       td.status.false   { color: var(--color-border); }
       td.status.pending { color: var(--color-gold); }
 
       /* Disclaimer */
-      .disclaimer { padding: var(--space-5); background: var(--color-gold-xlight); border: 1px solid rgba(200,145,58,0.25); border-radius: var(--radius-lg); font-size: var(--size-sm); color: var(--color-text); margin-bottom: var(--space-8); }
+      .disclaimer { padding: var(--space-5); background: var(--color-gold-xlight); border: 1px solid rgba(90,143,166,0.25); border-radius: var(--radius-lg); font-size: var(--size-sm); color: var(--color-text); margin-bottom: var(--space-8); }
     </style>
-  </head>
+    <link rel="stylesheet" href="/css/nav.css?v=20260615">
+  <script src="/js/nav.js?v=20260615" defer></script>
+</head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <nav role="navigation" aria-label="Main navigation"></nav>
@@ -268,7 +280,7 @@ Receive sealed envelope labelled "Do Not Tamper" for interview day.</td></tr>
     </main>
 
     <footer></footer>
-    <script src="/js/shared.js?v=20260609"></script>
+    <script src="/js/shared.js?v=20260612"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         renderPage({
