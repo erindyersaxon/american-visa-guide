@@ -3,24 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Microsoft Clarity — runs only after statistics consent -->
+<script type="text/plain" data-cookieconsent="statistics">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","wlfs757o2n");
+</script>
 <title>Visa Guide — American Visa Guide</title>
+<meta name="description" content="Step-by-step guide to US family immigrant visa consular processing through the US Embassy London — USCIS, NVC, medical, interview, and US entry, written from community experience.">
+<link rel="canonical" href="https://www.americanvisaguide.com/guide">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Outfit', sans-serif;
     --navy: #ffffff;          /* text on gold buttons */
-    --navy-mid: #142040;
-    --blue: #1a3a6b;
-    --bg: #f7f5f1;
-    --accent: #a3700f;
-    --accent-light: #8a5a0b;
-    --teal: #2a9d8f;
-    --teal-light: #1f7a6f;
-    --red: #c0492c;
-    --white: #1a2332;         /* main text colour */
-    --muted: #6b7280;
-    --card-bg: #ffffff;
-    --border: rgba(163,112,15,0.25);
+    --navy-mid: #233038;
+    --blue: #3d5260;
+    --bg: #f4efe6;
+    --accent: #3e7188;
+    --accent-light: #2f5a6e;
+    --teal: #4f8573;
+    --teal-light: #3f6b5c;
+    --red: #b04a38;
+    --white: #1e1c17;         /* main text colour */
+    --muted: #6a6560;
+    --card-bg: #fdfaf3;
+    --border: rgba(62,113,136,0.25);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -50,8 +64,8 @@
     margin-top: 10px;
   }
   .accom-card {
-    background: #ffffff;
-    border: 1px solid rgba(26,35,50,0.1);
+    background: #fdfaf3;
+    border: 1px solid rgba(30,28,23,0.1);
     border-radius: 8px;
     padding: 12px 14px;
   }
@@ -64,11 +78,11 @@
     grid-template-columns: 1fr;
     gap: 3px;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(200,169,110,0.06);
+    border-bottom: 1px solid rgba(90,143,166,0.06);
   }
   .prep-item:last-child { border-bottom: none; }
   .prep-label { font-size: 14px; font-weight: 600; color: var(--white); }
-  .prep-detail { font-size: 13px; color: rgba(26,35,50,0.85); line-height: 1.6; }
+  .prep-detail { font-size: 13px; color: rgba(30,28,23,0.85); line-height: 1.6; }
   .prep-link { font-size: 12px; color: var(--teal-light); margin-top: 3px; display: inline-block; }
   .skip-link { position:absolute;top:-40px;left:16px;background:var(--accent);color:var(--navy);font-weight:700;font-size:14px;padding:8px 16px;border-radius:0 0 8px 8px;z-index:9999;transition:top 0.15s;text-decoration:none; }
   .skip-link:focus { top: 0; }
@@ -88,77 +102,13 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(26,58,107,0.05) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(42,157,143,0.06) 0%, transparent 50%);
+      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(43,58,66,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(79,133,115,0.06) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
   }
 
-  /* ── Nav ── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 20px;
-  }
-
-  .nav-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 52px;
-    gap: 16px;
-  }
-
-  .nav-logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--white);
-    text-decoration: none;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .nav-logo span { color: var(--accent); }
-
-  .nav-links {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .nav-links a {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--muted);
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 6px;
-    transition: color 0.15s, background 0.15s;
-    white-space: nowrap;
-  }
-
-  .nav-links a:hover { color: var(--white); background: rgba(26,35,50,0.08); }
-  .nav-links a.active { color: var(--accent); }
-
-  .nav-cta {
-    font-family: 'Outfit', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--navy) !important;
-    background: var(--accent) !important;
-    padding: 6px 12px !important;
-    border-radius: 6px !important;
-  }
-
-  .nav-cta:hover { background: var(--accent-light) !important; }
+  /* Nav styles live in /css/nav.css (shared component) */
 
   /* ── Layout ── */
   .wrap {
@@ -186,7 +136,7 @@
   }
 
   .sidebar-label {
-    font-family: 'Outfit', sans-serif;
+    font-family:var(--font-ui);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.2em;
@@ -216,14 +166,14 @@
 
   .sidebar-nav a:hover {
     color: var(--white);
-    background: rgba(26,35,50,0.04);
+    background: rgba(30,28,23,0.04);
     border-left-color: var(--accent);
   }
 
   .sidebar-nav a.active {
     color: var(--accent);
     border-left-color: var(--accent);
-    background: rgba(200,169,110,0.06);
+    background: rgba(90,143,166,0.06);
   }
 
   .sidebar-divider {
@@ -261,7 +211,7 @@
   }
 
   h1 {
-    font-family: 'Outfit', sans-serif;
+    font-family:var(--font-display);
     font-size: clamp(26px, 4vw, 38px);
     font-weight: 800;
     line-height: 1.1;
@@ -280,12 +230,12 @@
   }
 
   .disclaimer {
-    background: rgba(200,169,110,0.08);
-    border: 1px solid rgba(200,169,110,0.2);
+    background: rgba(90,143,166,0.08);
+    border: 1px solid rgba(90,143,166,0.2);
     border-radius: 8px;
     padding: 12px 16px;
     font-size: 12px;
-    color: rgba(26,35,50,0.6);
+    color: rgba(30,28,23,0.6);
     line-height: 1.5;
   }
 
@@ -299,7 +249,7 @@
   }
 
   .stage-jump-label {
-    font-family: 'Outfit', sans-serif;
+    font-family:var(--font-ui);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -319,7 +269,7 @@
     font-size: 12px;
     font-weight: 500;
     color: var(--muted);
-    background: rgba(26,35,50,0.04);
+    background: rgba(30,28,23,0.04);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 5px 14px;
@@ -329,8 +279,8 @@
 
   .stage-pill:hover {
     color: var(--white);
-    background: rgba(200,169,110,0.1);
-    border-color: rgba(200,169,110,0.3);
+    background: rgba(90,143,166,0.1);
+    border-color: rgba(90,143,166,0.3);
   }
 
   /* ── Sections ── */
@@ -357,14 +307,14 @@
     justify-content: center;
     font-size: 16px;
     flex-shrink: 0;
-    background: rgba(200,169,110,0.1);
+    background: rgba(90,143,166,0.1);
   }
 
-  .section-icon.teal { background: rgba(42,157,143,0.15); }
-  .section-icon.blue { background: rgba(26,58,107,0.05); }
+  .section-icon.teal { background: rgba(79,133,115,0.15); }
+  .section-icon.blue { background: rgba(43,58,66,0.05); }
 
   .section-title {
-    font-family: 'Outfit', sans-serif;
+    font-family:var(--font-display);
     font-size: 20px;
     font-weight: 800;
     letter-spacing: -0.01em;
@@ -381,7 +331,7 @@
 
   /* ── Content blocks ── */
   h3 {
-    font-family: 'Outfit', sans-serif;
+    font-family:var(--font-display);
     font-size: 15px;
     font-weight: 700;
     color: var(--white);
@@ -391,7 +341,7 @@
   h3:first-child { margin-top: 0; }
 
   p {
-    color: rgba(26,35,50,0.85);
+    color: rgba(30,28,23,0.85);
     margin-bottom: 12px;
   }
 
@@ -399,7 +349,7 @@
 
   ul, ol {
     padding-left: 20px;
-    color: rgba(26,35,50,0.85);
+    color: rgba(30,28,23,0.85);
     margin-bottom: 12px;
   }
 
@@ -424,22 +374,22 @@
   }
 
   .info-card.warning {
-    background: rgba(231,111,81,0.08);
-    border-color: rgba(231,111,81,0.25);
+    background: rgba(176,74,56,0.08);
+    border-color: rgba(176,74,56,0.25);
   }
 
   .info-card.tip {
-    background: rgba(42,157,143,0.08);
-    border-color: rgba(42,157,143,0.25);
+    background: rgba(79,133,115,0.08);
+    border-color: rgba(79,133,115,0.25);
   }
 
   .info-card.accent {
-    background: rgba(200,169,110,0.08);
-    border-color: rgba(200,169,110,0.25);
+    background: rgba(90,143,166,0.08);
+    border-color: rgba(90,143,166,0.25);
   }
 
   .info-card-head {
-    font-family: 'Outfit', sans-serif;
+    font-family:var(--font-ui);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -484,7 +434,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Outfit', sans-serif;
+    font-family:var(--font-ui);
     font-size: 12px;
     font-weight: 700;
     color: var(--accent);
@@ -508,7 +458,7 @@
 
   .step-desc {
     font-size: 13px;
-    color: rgba(26,35,50,0.85);
+    color: rgba(30,28,23,0.85);
     line-height: 1.6;
   }
 
@@ -521,7 +471,7 @@
   }
 
   .fee-table th {
-    font-family: 'Outfit', sans-serif;
+    font-family:var(--font-ui);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -530,17 +480,17 @@
     padding: 8px 12px;
     text-align: left;
     border-bottom: 1px solid var(--border);
-    background: rgba(26,35,50,0.02);
+    background: rgba(30,28,23,0.02);
   }
 
   .fee-table td {
     padding: 10px 12px;
-    border-bottom: 1px solid rgba(200,169,110,0.06);
-    color: rgba(26,35,50,0.85);
+    border-bottom: 1px solid rgba(90,143,166,0.06);
+    color: rgba(30,28,23,0.85);
   }
 
   .fee-table tr:last-child td { border-bottom: none; }
-  .fee-table tr:hover td { background: rgba(26,35,50,0.02); }
+  .fee-table tr:hover td { background: rgba(30,28,23,0.02); }
 
   .fee-table td:last-child {
     font-weight: 500;
@@ -560,9 +510,9 @@
     align-items: flex-start;
     gap: 10px;
     padding: 7px 0;
-    border-bottom: 1px solid rgba(200,169,110,0.06);
+    border-bottom: 1px solid rgba(90,143,166,0.06);
     font-size: 13px;
-    color: rgba(26,35,50,0.85);
+    color: rgba(30,28,23,0.85);
   }
 
   .checklist li:last-child { border-bottom: none; }
@@ -592,8 +542,8 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(42,157,143,0.1);
-    border: 1px solid rgba(42,157,143,0.2);
+    background: rgba(79,133,115,0.1);
+    border: 1px solid rgba(79,133,115,0.2);
     border-radius: 20px;
     padding: 3px 12px;
     font-size: 12px;
@@ -627,7 +577,7 @@
     gap: 8px;
     background: var(--accent);
     color: var(--navy);
-    font-family: 'Outfit', sans-serif;
+    font-family:var(--font-ui);
     font-size: 13px;
     font-weight: 700;
     padding: 10px 18px;
@@ -643,27 +593,27 @@
   /* Sub-accordion (Option B) */
   .sub-acc-group { margin-bottom: 8px; }
   .sub-controls { display: flex; gap: 8px; margin: 0 0 12px; }
-  .sub-ctrl { font-size: 11px; font-weight: 600; color: var(--muted); background: rgba(26,35,50,0.04); border: 1px solid var(--border-subtle); border-radius: 5px; padding: 4px 12px; cursor: pointer; transition: all 0.15s; font-family: 'Outfit', sans-serif; }
+  .sub-ctrl { font-size: 11px; font-weight: 600; color: var(--muted); background: rgba(30,28,23,0.04); border: 1px solid var(--border-subtle); border-radius: 5px; padding: 4px 12px; cursor: pointer; transition: all 0.15s; font-family:var(--font-ui); }
   .sub-ctrl:hover { color: var(--white); border-color: var(--accent); }
   .sub-acc-item { border: 1px solid var(--border-subtle); border-radius: 8px; margin-bottom: 5px; overflow: hidden; transition: border-color 0.2s; }
-  .sub-acc-item.open { border-color: rgba(200,169,110,0.2); }
-  .sub-acc-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 16px; background: #ffffff; border: none; cursor: pointer; text-align: left; transition: background 0.15s; }
-  .sub-acc-trigger:hover { background: #f1ede5; }
-  .sub-acc-item.open .sub-acc-trigger { background: #f1ede5; border-bottom: 1px solid var(--border-subtle); }
-  .sub-acc-label { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; color: var(--white); }
+  .sub-acc-item.open { border-color: rgba(90,143,166,0.2); }
+  .sub-acc-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 16px; background: #fdfaf3; border: none; cursor: pointer; text-align: left; transition: background 0.15s; }
+  .sub-acc-trigger:hover { background: #ece5d6; }
+  .sub-acc-item.open .sub-acc-trigger { background: #ece5d6; border-bottom: 1px solid var(--border-subtle); }
+  .sub-acc-label { font-family:var(--font-ui); font-size: 14px; font-weight: 700; color: var(--white); }
   .sub-acc-chevron { color: var(--muted); font-size: 11px; transition: transform 0.25s, color 0.15s; flex-shrink: 0; }
   .sub-acc-item.open .sub-acc-chevron { transform: rotate(180deg); color: var(--accent); }
   .sub-acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
   .sub-acc-item.open .sub-acc-body { max-height: 9999px; }
-  .sub-acc-content { padding: 16px 18px; background: rgba(26,35,50,0.025); }
+  .sub-acc-content { padding: 16px 18px; background: rgba(30,28,23,0.025); }
 
   /* ── Shared page hero ── */
-  .page-hero { padding: 40px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 36px; }
+  .page-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
   .page-hero-flags { font-size: 24px; margin-bottom: 10px; letter-spacing: 4px; }
-  .page-hero-eyebrow { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-  .page-hero-h1 { font-family: 'Outfit', sans-serif; font-size: clamp(32px,7vw,52px); font-weight: 900; line-height: 1.05; margin-bottom: 14px; }
-  .page-hero-h1 span { color: var(--accent); }
-  .page-hero-sub { font-size: 15px; color: rgba(26,35,50,0.78); max-width: 560px; line-height: 1.7; }
+  .page-hero-eyebrow { font-family:var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .page-hero-h1 { font-family:var(--font-display); font-size: clamp(32px,7vw,52px); font-weight:600; line-height: 1.05; margin-bottom: 14px; }
+  .page-hero-h1 span { color: var(--accent); font-style: italic; font-weight: 500; }
+  .page-hero-sub { font-size: 15px; color: rgba(30,28,23,0.78); max-width: 560px; line-height: 1.7; }
 
   /* ── Shared footer ── */
   .site-footer { border-top: 1px solid var(--border); margin-top: 48px; padding: 28px 0 20px; }
@@ -672,67 +622,18 @@
   .footer-links { font-size: 12px; color: var(--muted); }
   .footer-links a { color: var(--teal-light); text-decoration: none; }
   .footer-links a:hover { text-decoration: underline; }
-  .coffee-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--navy); font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 8px; text-decoration: none; transition: opacity 0.15s; align-self: flex-start; }
+  .coffee-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--navy); font-family:var(--font-ui); font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 999px; text-decoration: none; transition: opacity 0.15s; align-self: flex-start; }
   .coffee-btn:hover { opacity: 0.9; }
 
-  /* ── Image-style nav icons ── */
-  .nav-links { display: flex; align-items: center; gap: 4px; }
-  .nav-icon {
-    position: relative; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; width: 42px; height: 42px; border-radius: 10px;
-    text-decoration: none; font-size: 20px; transition: background 0.15s;
-    color: var(--white); background: transparent;
-  }
-  .nav-icon:hover { background: rgba(26,35,50,0.1); }
-  .nav-icon.active { background: rgba(200,169,110,0.12); }
-  .nav-icon .nav-tooltip {
-    position: absolute; bottom: -32px; left: 50%; transform: translateX(-50%);
-    background: #ffffff; border: 1px solid var(--border);
-    color: var(--white); font-family: 'Outfit', sans-serif; font-size: 11px;
-    font-weight: 600; white-space: nowrap; padding: 4px 10px; border-radius: 6px;
-    opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 200;
-  }
-  .nav-icon:hover .nav-tooltip { opacity: 1; }
-  .nav-cta-btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 42px; height: 42px; border-radius: 10px; font-size: 20px;
-    background: var(--accent); color: var(--navy); text-decoration: none;
-    transition: opacity 0.15s; position: relative;
-  }
-  .nav-cta-btn:hover { opacity: 0.85; }
-  .nav-cta-btn .nav-tooltip {
-    position: absolute; bottom: -32px; left: 50%; transform: translateX(-50%);
-    background: #ffffff; border: 1px solid var(--border);
-    color: var(--white); font-family: 'Outfit', sans-serif; font-size: 11px;
-    font-weight: 600; white-space: nowrap; padding: 4px 10px; border-radius: 6px;
-    opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 200;
-  }
-  .nav-cta-btn:hover .nav-tooltip { opacity: 1; }
 </style>
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wlfs757o2n");
-</script>
+<link rel="stylesheet" href="/css/nav.css?v=20260615">
+<script src="/js/nav.js?v=20260615" defer></script>
 </head>
 <body>
 
 <!-- Nav -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">American <span>Visa Guide</span></a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-icon" title="Data"><span>📊</span><span class="nav-tooltip">Data</span></a>
-      <a href="guide.html" class="nav-icon active" title="Visa Guide"><span>📖</span><span class="nav-tooltip">Visa Guide</span></a>
-      <a href="life.html" class="nav-icon" title="Life in the USA"><span>🏠</span><span class="nav-tooltip">Life in the USA</span></a>
-      <a href="https://forms.fillout.com/t/dTRqnkx9uxus" class="nav-icon" target="_blank" rel="noopener noreferrer" title="Submit Timeline"><span>✏️</span><span class="nav-tooltip">Submit Timeline</span></a>
-      <a href="https://ko-fi.com/erinsaidwhat" class="nav-cta-btn" target="_blank" rel="noopener noreferrer" title="Support"><span>☕</span><span class="nav-tooltip">Support</span></a>
-    </div>
-  </div>
-</nav>
+<div id="nav-placeholder"></div>
 
 
 
@@ -755,8 +656,8 @@
       <li><a href="#entry">8 — US Entry</a></li>
       <li><a href="life.html">🏠 Life in the USA →</a></li>
       <div class="sidebar-divider"></div>
-      <li><a href="#checklists">📋 Checklists</a></li>
-      <li><a href="#resources">Resources</a></li>
+      <li><a href="checklists.html">📋 Checklists &amp; Tools</a></li>
+      <li><a href="checklists.html#resources">Resources</a></li>
     </ul>
   </aside>
 
@@ -845,25 +746,25 @@
               <div class="info-card">
                 <div class="info-card-head">CR1</div>
                 <p style="font-size:13px;margin-bottom:6px;">Spouse of US citizen, married <strong>&lt;2 years</strong> at US entry. Conditional green card, valid 2 years. Requires I-751 to remove conditions before permanent residency and citizenship eligibility.</p>
-                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(26,35,50,0.75);">Evidence at filing:</strong> This is the highest scrutiny category — USCIS is assessing fraud risk, not romance. Lack of financial integration is the most common weakness. Include: joint financial accounts, lease or mortgage in both names, insurance policies naming each other as beneficiaries, tax returns (joint preferred), photos over time organised with name/date/location, and travel history and communication logs.</p>
+                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> This is the highest scrutiny category — USCIS is assessing fraud risk, not romance. Lack of financial integration is the most common weakness. Include: joint financial accounts, lease or mortgage in both names, insurance policies naming each other as beneficiaries, tax returns (joint preferred), photos over time organised with name/date/location, and travel history and communication logs.</p>
                 <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">IR1</div>
                 <p style="font-size:13px;margin-bottom:6px;">Spouse of US citizen, married <strong>≥2 years</strong> at US entry. Green card valid 10 years. No I-751 required. A CR1 automatically converts to IR1 if the marriage crosses 2 years before entry.</p>
-                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(26,35,50,0.75);">Evidence at filing:</strong> This is the highest scrutiny category — USCIS is assessing fraud risk, not romance. Lack of financial integration is the most common weakness. Include: joint financial accounts, lease or mortgage in both names, insurance policies naming each other as beneficiaries, tax returns (joint preferred), photos over time organised with name/date/location, and travel history and communication logs.</p>
+                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> This is the highest scrutiny category — USCIS is assessing fraud risk, not romance. Lack of financial integration is the most common weakness. Include: joint financial accounts, lease or mortgage in both names, insurance policies naming each other as beneficiaries, tax returns (joint preferred), photos over time organised with name/date/location, and travel history and communication logs.</p>
                 <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">IR2</div>
                 <p style="font-size:13px;margin-bottom:6px;">Unmarried child under 21 of a US citizen. Child must not be a US citizen at birth (if so, CRBA applies instead). Can be CR2 (parents married &lt;2 years at entry) or IR2 (≥2 years).</p>
-                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(26,35,50,0.75);">Evidence at filing:</strong> Child's birth certificate naming both parents. If stepchild: marriage certificate of petitioner and biological parent. If biological parent is not the petitioner: evidence of legal custody or relationship. Proof of petitioner's US citizenship.</p>
+                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Child's birth certificate naming both parents. If stepchild: marriage certificate of petitioner and biological parent. If biological parent is not the petitioner: evidence of legal custody or relationship. Proof of petitioner's US citizenship.</p>
                 <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">IR5</div>
                 <p style="font-size:13px;margin-bottom:6px;">Parent of a US citizen, where the petitioner is <strong>21 or older</strong>. No annual cap. Green card valid 10 years. The US citizen child files the I-130 as the petitioner.</p>
-                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(26,35,50,0.75);">Evidence at filing:</strong> Petitioner's birth certificate naming the parent being sponsored. Proof of petitioner's US citizenship. If sponsoring a stepparent: marriage certificate of biological parent and stepparent, plus evidence that the marriage occurred before the petitioner turned 18.</p>
+                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Petitioner's birth certificate naming the parent being sponsored. Proof of petitioner's US citizenship. If sponsoring a stepparent: marriage certificate of biological parent and stepparent, plus evidence that the marriage occurred before the petitioner turned 18.</p>
                 <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-parent.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
               </div>
             </div>
@@ -882,36 +783,36 @@
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <p style="font-size:13px;color:rgba(26,35,50,0.85);margin-bottom:12px;">These categories require the priority date to be current on the <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer">monthly Visa Bulletin</a> before NVC processing begins. Waits can range from months to over a decade depending on category and country of chargeability.</p>
+            <p style="font-size:13px;color:rgba(30,28,23,0.85);margin-bottom:12px;">These categories require the priority date to be current on the <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer">monthly Visa Bulletin</a> before NVC processing begins. Waits can range from months to over a decade depending on category and country of chargeability.</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:16px;">
               <div class="info-card">
                 <div class="info-card-head">F1</div>
                 <p style="font-size:13px;margin-bottom:6px;">Unmarried adult child (21+) of a US citizen.</p>
-                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(26,35,50,0.75);">Evidence at filing:</strong> Child's birth certificate naming petitioner. Proof of petitioner's US citizenship. Evidence of child's unmarried status (e.g. statutory declaration). If the child has previously been married: divorce or death certificate for each prior marriage.</p>
+                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Child's birth certificate naming petitioner. Proof of petitioner's US citizenship. Evidence of child's unmarried status (e.g. statutory declaration). If the child has previously been married: divorce or death certificate for each prior marriage.</p>
                 <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">F2A</div>
                 <p style="font-size:13px;margin-bottom:6px;">Spouse and unmarried children under 21 of a <strong>lawful permanent resident (LPR)</strong>. Shortest wait among preference categories.</p>
-                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(26,35,50,0.75);">Evidence at filing:</strong> Marriage certificate (spouse) or birth certificate (child). Copy of petitioner's green card (front and back). Proof of termination of any prior marriages. Bona fide marriage evidence for spouse petitions.</p>
+                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Marriage certificate (spouse) or birth certificate (child). Copy of petitioner's green card (front and back). Proof of termination of any prior marriages. Bona fide marriage evidence for spouse petitions.</p>
                 <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">F2B</div>
                 <p style="font-size:13px;margin-bottom:6px;">Unmarried adult child (21+) of a <strong>lawful permanent resident (LPR)</strong>.</p>
-                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(26,35,50,0.75);">Evidence at filing:</strong> Child's birth certificate naming petitioner. Copy of petitioner's green card (front and back). Evidence of child's unmarried status. Divorce or death certificate for any prior marriages of the child.</p>
+                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Child's birth certificate naming petitioner. Copy of petitioner's green card (front and back). Evidence of child's unmarried status. Divorce or death certificate for any prior marriages of the child.</p>
                 <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">F3</div>
                 <p style="font-size:13px;margin-bottom:6px;">Married child of a US citizen (any age). Spouse and minor children can be included as derivatives.</p>
-                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(26,35,50,0.75);">Evidence at filing:</strong> Child's birth certificate naming petitioner. Proof of petitioner's US citizenship. Child's marriage certificate. Derivative beneficiaries (spouse, children): their birth or marriage certificates.</p>
+                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Child's birth certificate naming petitioner. Proof of petitioner's US citizenship. Child's marriage certificate. Derivative beneficiaries (spouse, children): their birth or marriage certificates.</p>
                 <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">F4</div>
                 <p style="font-size:13px;margin-bottom:6px;">Sibling of a US citizen, where the petitioner is <strong>21 or older</strong>. Longest waits of all preference categories — often 10+ years depending on country.</p>
-                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(26,35,50,0.75);">Evidence at filing:</strong> Birth certificates of both petitioner and sibling showing at least one shared parent. Proof of petitioner's US citizenship. If the shared parent's name differs on documents (e.g. through marriage): marriage certificate or name change documentation. Derivative beneficiaries (sibling's spouse and children): their birth or marriage certificates.</p>
+                <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Birth certificates of both petitioner and sibling showing at least one shared parent. Proof of petitioner's US citizenship. If the shared parent's name differs on documents (e.g. through marriage): marriage certificate or name change documentation. Derivative beneficiaries (sibling's spouse and children): their birth or marriage certificates.</p>
                 <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-sibling.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
               </div>
             </div>
@@ -937,9 +838,9 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
-        <p style="font-size:12px;color:rgba(26,35,50,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your I-130 priority date and approval date to the community tracker →</a></p>
+        <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your I-130 priority date and approval date to the community tracker →</a></p>
       </div>
       <p>The I-130 establishes a qualifying relationship between petitioner and beneficiary. It does not assess finances or issue a visa. Output is an approval (NOA2), which moves the case to the National Visa Center. <a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[USCIS I-130]</a></p>
 
@@ -1113,7 +1014,7 @@
           <div class="sub-acc-content">
             <p>The US citizen parent must prove they lived in the US for <strong>at least 5 years before the child's birth, including at least 2 years after age 14</strong>. This is where most cases succeed or fail — weak evidence here causes delays or refusal. <a href="https://travel.state.gov/content/travel/en/international-travel/while-abroad/birth-abroad.html" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[travel.state.gov: Birth Abroad]</a></p>
 
-            <p style="font-size:13px;color:rgba(26,35,50,0.85);margin-bottom:10px;">Physical presence does not need to be continuous — visits of any length count. However, <strong>any time outside the US must be excluded</strong>, including holidays and short trips. It does not matter whether you were in the US legally or illegally, or whether you held US citizenship during that time.</p>
+            <p style="font-size:13px;color:rgba(30,28,23,0.85);margin-bottom:10px;">Physical presence does not need to be continuous — visits of any length count. However, <strong>any time outside the US must be excluded</strong>, including holidays and short trips. It does not matter whether you were in the US legally or illegally, or whether you held US citizenship during that time.</p>
 
             <div class="info-card tip">
               <div class="info-card-head">Counts towards physical presence</div>
@@ -1290,9 +1191,9 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
-        <p style="font-size:12px;color:rgba(26,35,50,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your NVC dates and DQ date to the community tracker →</a></p>
+        <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your NVC dates and DQ date to the community tracker →</a></p>
       </div>
       <p>After USCIS approves the I-130, your case transfers to the National Visa Center (NVC). NVC collects fees, the DS-260 visa application, financial documents, and civil documents before forwarding the case to the US Embassy London for interview scheduling. The goal of this stage is to reach <strong>Documentarily Qualified (DQ)</strong> status.</p>
 
@@ -1365,7 +1266,7 @@
       <div class="info-card tip">
         <div class="info-card-head">I-864 / AOS preparation worksheet</div>
         <p style="font-size:13px;margin-bottom:6px;">Use the worksheet to prepare all answers before entering CEAC. The form is long and CEAC is unreliable — working from a completed worksheet avoids losing progress.</p>
-        <a href="worksheet-i864.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--navy);font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">📄 Open I-864 Worksheet</a>
+        <a href="worksheet-i864.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--navy);font-family:var(--font-ui);font-size:12px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">📄 Open I-864 Worksheet</a>
       </div>
           </div>
         </div>
@@ -1402,7 +1303,7 @@
       <div class="info-card tip">
         <div class="info-card-head">DS-260 preparation worksheet</div>
         <p style="font-size:13px;margin-bottom:6px;">Complete this before logging into CEAC to avoid losing progress to timeouts.</p>
-        <a href="worksheet-ds260.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--navy);font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">📄 Open DS-260 Worksheet</a>
+        <a href="worksheet-ds260.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--navy);font-family:var(--font-ui);font-size:12px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">📄 Open DS-260 Worksheet</a>
       </div>
           </div>
         </div>
@@ -1446,7 +1347,7 @@
         <p style="font-size:13px;margin-bottom:6px;">Some applicants deliberately delay paying NVC fees or submitting documents to control when their case enters the London embassy queue. Reasons include: waiting for a more convenient interview season, aligning with a job start date, or avoiding school-year disruption.</p>
         <p style="font-size:13px;margin-bottom:6px;">This is a legitimate personal decision. There is no penalty for taking longer at NVC, and your I-130 approval date does not expire. However, be aware that the London embassy queue — and therefore interview slot availability — may be longer or shorter by the time you DQ, and this is difficult to predict more than a few months ahead.</p>
         <p style="font-size:13px;margin-bottom:6px;">If you do hold at NVC, consider the <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">Visa Bulletin</a> and any known backlogs when deciding timing. Community data on <a href="index.html" style="color:var(--teal-light);">the tracker</a> reflects the current London queue position.</p>
-        <div style="background:rgba(231,111,81,0.08);border:1px solid rgba(231,111,81,0.25);border-radius:6px;padding:10px 12px;margin-top:4px;">
+        <div style="background:rgba(176,74,56,0.08);border:1px solid rgba(176,74,56,0.25);border-radius:6px;padding:10px 12px;margin-top:4px;">
           <p style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">⚠️ 12-month inactivity rule — INA §203(g)</p>
           <p style="font-size:13px;margin:0;">If you do not log into CEAC or communicate with NVC for 12 months, your case can be terminated — even if NVC has not contacted you. If you are holding your case deliberately, log in and upload documents every 6–11 months to keep it active.</p>
         </div>
@@ -1467,7 +1368,7 @@
       <div class="info-card tip">
         <div class="info-card-head">NVC document checklist</div>
         <p style="font-size:13px;margin-bottom:6px;">Full submission checklist with financial documents, civil documents, upload standards, and failure points.</p>
-        <a href="checklist-nvc.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:var(--white);font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">📋 Open NVC Checklist</a>
+        <a href="checklist-nvc.html" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:var(--white);font-family:var(--font-ui);font-size:12px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">📋 Open NVC Checklist</a>
       </div>
           </div>
         </div>
@@ -1492,35 +1393,35 @@
         <table style="width:100%;border-collapse:collapse;font-size:13px;">
           <thead>
             <tr>
-              <th style="padding:10px 14px;background:rgba(200,169,110,0.1);border-bottom:1px solid var(--border);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">If you…</th>
-              <th style="padding:10px 14px;background:rgba(200,169,110,0.1);border-bottom:1px solid var(--border);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">And…</th>
-              <th style="padding:10px 14px;background:rgba(200,169,110,0.1);border-bottom:1px solid var(--border);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">You need a certificate from…</th>
+              <th style="padding:10px 14px;background:rgba(90,143,166,0.1);border-bottom:1px solid var(--border);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">If you…</th>
+              <th style="padding:10px 14px;background:rgba(90,143,166,0.1);border-bottom:1px solid var(--border);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">And…</th>
+              <th style="padding:10px 14px;background:rgba(90,143,166,0.1);border-bottom:1px solid var(--border);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">You need a certificate from…</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.9);font-weight:600;">Hold citizenship of any country</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">You are 16 or older, and lived there for more than 6 months at any point in your life — including as a child</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:var(--teal-light);font-weight:600;">That country — even if you left long ago</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.9);font-weight:600;">Hold citizenship of any country</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">You are 16 or older, and lived there for more than 6 months at any point in your life — including as a child</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:var(--teal-light);font-weight:600;">That country — even if you left long ago</td>
             </tr>
-            <tr style="background:rgba(26,35,50,0.02);">
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.9);font-weight:600;">Are 16 or older</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Currently living in a country different from your nationality, for more than 6 months</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:var(--teal-light);font-weight:600;">Your current country of residence</td>
+            <tr style="background:rgba(30,28,23,0.02);">
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.9);font-weight:600;">Are 16 or older</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Currently living in a country different from your nationality, for more than 6 months</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:var(--teal-light);font-weight:600;">Your current country of residence</td>
             </tr>
             <tr>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.9);font-weight:600;">Have ever lived in another country for 12+ months</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Were 16 or older when you lived there</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:var(--teal-light);font-weight:600;">That country</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.9);font-weight:600;">Have ever lived in another country for 12+ months</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Were 16 or older when you lived there</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:var(--teal-light);font-weight:600;">That country</td>
             </tr>
-            <tr style="background:rgba(26,35,50,0.02);">
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.9);font-weight:600;">Were ever arrested anywhere</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Regardless of age, length of stay, or outcome</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(26,35,50,0.08);color:var(--teal-light);font-weight:600;">The city and/or country where you were arrested</td>
+            <tr style="background:rgba(30,28,23,0.02);">
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.9);font-weight:600;">Were ever arrested anywhere</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Regardless of age, length of stay, or outcome</td>
+              <td style="padding:10px 14px;border-bottom:1px solid rgba(30,28,23,0.08);color:var(--teal-light);font-weight:600;">The city and/or country where you were arrested</td>
             </tr>
           </tbody>
         </table>
-        <div style="padding:12px 14px;background:rgba(42,157,143,0.06);border-top:1px solid rgba(42,157,143,0.15);">
+        <div style="padding:12px 14px;background:rgba(79,133,115,0.06);border-top:1px solid rgba(79,133,115,0.15);">
           <p style="font-size:12px;color:var(--muted);margin-bottom:6px;"><strong style="color:var(--white);">Note:</strong> Present and former US residents do <strong style="color:var(--white);">not</strong> need to submit a US police certificate.</p>
           <p style="font-size:12px;color:var(--muted);margin:0;"><strong style="color:var(--white);">Validity (London embassy guidance):</strong> The UK police certificate (ACRO) is valid for <strong style="color:var(--white);">12 months</strong> from the date of issuance. All other police certificates are valid <strong style="color:var(--white);">indefinitely</strong>, provided you have not returned to that country and resided there for 6+ months (if it is your country of birth or current residence) or 12+ months (any other country). Source: <a href="https://uk.usembassy.gov/immigrant-visas-faqs-visa-processing-documents/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">US Embassy London FAQ</a></p>
         </div>
@@ -1543,9 +1444,9 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
-        <p style="font-size:12px;color:rgba(26,35,50,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your interview letter date to the community tracker →</a></p>
+        <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your interview letter date to the community tracker →</a></p>
       </div>
       <p>After DQ, your case is complete at NVC and enters the embassy scheduling queue. This stage is primarily a waiting and preparation phase — not an action phase. Your CEAC status will still show "At NVC" until your Interview Letter arrives. That is normal.</p>
 
@@ -1562,7 +1463,7 @@
       <div class="info-card">
         <div class="info-card-head">Current Average</div>
         <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">DQ → Interview Letter</p>
-        <p style="margin-bottom:6px;"><strong style="font-size:26px;font-family:'Outfit',sans-serif;color:var(--accent-light);">73 days</strong> <span style="font-size:12px;color:var(--muted);">last 6 months · 57d all time</span></p>
+        <p style="margin-bottom:6px;"><strong style="font-size:26px;font-family:var(--font-display);color:var(--accent-light);">73 days</strong> <span style="font-size:12px;color:var(--muted);">last 6 months · 57d all time</span></p>
         <p style="font-size:13px;margin-bottom:8px;">Community average — excludes expedited cases. The wait has been <strong style="color:var(--red);">increasing</strong>. If your DQ is recent, plan for the longer end of the range.</p>
         <p style="font-size:13px;margin-bottom:4px;"><strong>IL → Interview</strong>: <strong style="color:var(--teal-light);">58 days</strong> <span style="font-size:12px;color:var(--muted);">last 6 months · 62d all time</span></p>
         <p style="font-size:13px;margin-bottom:8px;"><strong>DQ → Interview total</strong>: <strong style="color:var(--teal-light);">130 days</strong> <span style="font-size:12px;color:var(--muted);">last 6 months</span></p>
@@ -1586,31 +1487,31 @@
 
       <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Observed drop times from the London community (earliest arrival recorded per drop):</p>
       <div style="position:relative;overflow:hidden;">
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);font-size:22px;font-weight:700;color:rgba(200,169,110,0.10);white-space:nowrap;pointer-events:none;letter-spacing:0.05em;font-family:'Outfit',sans-serif;z-index:1;">Community data — americanvisaguide.com</div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);font-size:22px;font-weight:700;color:rgba(90,143,166,0.10);white-space:nowrap;pointer-events:none;letter-spacing:0.05em;font-family:var(--font-ui);z-index:1;">Community data — americanvisaguide.com</div>
       <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:8px;position:relative;z-index:2;">
         <thead>
           <tr>
-            <th style="text-align:left;padding:7px 12px;background:rgba(200,169,110,0.08);border:1px solid rgba(200,169,110,0.15);color:var(--muted);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Date</th>
-            <th style="text-align:left;padding:7px 12px;background:rgba(200,169,110,0.08);border:1px solid rgba(200,169,110,0.15);color:var(--muted);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Day</th>
-            <th style="text-align:left;padding:7px 12px;background:rgba(200,169,110,0.08);border:1px solid rgba(200,169,110,0.15);color:var(--muted);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Earliest time (UK)</th>
+            <th style="text-align:left;padding:7px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--muted);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Date</th>
+            <th style="text-align:left;padding:7px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--muted);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Day</th>
+            <th style="text-align:left;padding:7px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--muted);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Earliest time (UK)</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">17 April 2026</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Friday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">16:02</td></tr>
-          <tr style="background:rgba(26,35,50,0.02);"><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">31 March 2026</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Tuesday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">15:16</td></tr>
-          <tr><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">4 March 2026</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Wednesday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">14:08</td></tr>
-          <tr style="background:rgba(26,35,50,0.02);"><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">13 February 2026</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Friday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">13:51</td></tr>
-          <tr><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">15 January 2026</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Thursday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">13:53</td></tr>
-          <tr style="background:rgba(26,35,50,0.02);"><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">1 January 2026</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Thursday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">13:59</td></tr>
-          <tr><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">11 December 2025</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Thursday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">13:55</td></tr>
-          <tr style="background:rgba(26,35,50,0.02);"><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">26 November 2025</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Wednesday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">15:03</td></tr>
-          <tr><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">11 November 2025</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Tuesday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">14:02</td></tr>
-          <tr style="background:rgba(26,35,50,0.02);"><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">10 October 2025</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Friday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">15:03</td></tr>
-          <tr><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">11 September 2025</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Thursday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">15:38</td></tr>
-          <tr style="background:rgba(26,35,50,0.02);"><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">10 September 2025</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Wednesday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">15:03</td></tr>
-          <tr><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">11 August 2025</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Monday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">15:09</td></tr>
-          <tr style="background:rgba(26,35,50,0.02);"><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">21 July 2025</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Monday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">15:00</td></tr>
-          <tr><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">6 June 2025</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Friday</td><td style="padding:7px 12px;border:1px solid rgba(26,35,50,0.08);color:var(--accent-light);">15:31</td></tr>
+          <tr><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">17 April 2026</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Friday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">16:02</td></tr>
+          <tr style="background:rgba(30,28,23,0.02);"><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">31 March 2026</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Tuesday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">15:16</td></tr>
+          <tr><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">4 March 2026</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Wednesday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">14:08</td></tr>
+          <tr style="background:rgba(30,28,23,0.02);"><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">13 February 2026</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Friday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">13:51</td></tr>
+          <tr><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">15 January 2026</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Thursday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">13:53</td></tr>
+          <tr style="background:rgba(30,28,23,0.02);"><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">1 January 2026</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Thursday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">13:59</td></tr>
+          <tr><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">11 December 2025</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Thursday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">13:55</td></tr>
+          <tr style="background:rgba(30,28,23,0.02);"><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">26 November 2025</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Wednesday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">15:03</td></tr>
+          <tr><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">11 November 2025</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Tuesday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">14:02</td></tr>
+          <tr style="background:rgba(30,28,23,0.02);"><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">10 October 2025</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Friday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">15:03</td></tr>
+          <tr><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">11 September 2025</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Thursday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">15:38</td></tr>
+          <tr style="background:rgba(30,28,23,0.02);"><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">10 September 2025</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Wednesday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">15:03</td></tr>
+          <tr><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">11 August 2025</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Monday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">15:09</td></tr>
+          <tr style="background:rgba(30,28,23,0.02);"><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">21 July 2025</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Monday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">15:00</td></tr>
+          <tr><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">6 June 2025</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Friday</td><td style="padding:7px 12px;border:1px solid rgba(30,28,23,0.08);color:var(--accent-light);">15:31</td></tr>
         </tbody>
       </table>
       </div>
@@ -1639,8 +1540,8 @@
       <h3>What the IL email looks like</h3>
       <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">The Interview Letter arrives by email from <strong>National_Visa_Center@state.gov</strong> with the subject <strong>Immigrant Visa Interview Appointment</strong>, typically early-to-mid afternoon UK time (13:30–15:30), most often mid-week (Tue–Thu). A CEAC status update follows.</p>
 
-      <div style="background:#ffffff;border:1px solid rgba(26,35,50,0.1);border-radius:10px;padding:20px 24px;margin-bottom:24px;font-size:13px;line-height:1.7;">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(26,35,50,0.08);">
+      <div style="background:#fdfaf3;border:1px solid rgba(30,28,23,0.1);border-radius:10px;padding:20px 24px;margin-bottom:24px;font-size:13px;line-height:1.7;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(30,28,23,0.08);">
           <div>
             <div style="font-weight:600;color:var(--white);margin-bottom:2px;">From: London, LNDIVSubmissions &lt;LNDIVSubmissions@state.gov&gt;</div>
             <div style="color:var(--muted);">To: [Beneficiary] / [Petitioner]</div>
@@ -1651,8 +1552,8 @@
         <p style="margin-bottom:8px;">Dear [Beneficiary],</p>
         <p style="margin-bottom:8px;"><strong>Case Number:</strong> LND01234567891</p>
         <p style="margin-bottom:16px;"><strong>Interview:</strong> [TIME] [DAY], [DATE]</p>
-        <p style="margin-bottom:8px;color:rgba(26,35,50,0.85);">We are pleased to confirm that the Immigrant Visa Unit at the U.S. Embassy in London has received an approved petition in your name. To complete your application, you must attend two separate appointments at the U.S. Embassy:</p>
-        <ul style="margin-bottom:8px;color:rgba(26,35,50,0.85);">
+        <p style="margin-bottom:8px;color:rgba(30,28,23,0.85);">We are pleased to confirm that the Immigrant Visa Unit at the U.S. Embassy in London has received an approved petition in your name. To complete your application, you must attend two separate appointments at the U.S. Embassy:</p>
+        <ul style="margin-bottom:8px;color:rgba(30,28,23,0.85);">
           <li><strong style="color:var(--white);">Document Review</strong> – Immediately following your medical examination</li>
           <li><strong style="color:var(--white);">Visa Interview</strong> – With an immigration consular officer</li>
         </ul>
@@ -1671,7 +1572,7 @@
       <p style="font-size:13px;color:var(--muted);">This period is your best opportunity to get organised before things accelerate. Work through this list systematically.</p>
 
       <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:16px 0;">
-        <div style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">Documents &amp; admin</div>
+        <div style="font-family:var(--font-ui);font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">Documents &amp; admin</div>
         <div class="prep-item">
           <div class="prep-label">ACRO police certificate</div>
           <div class="prep-detail">Valid 12 months for embassy purposes. Order early — do not leave this to the last minute.</div>
@@ -1693,7 +1594,7 @@
       </div>
 
       <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:16px 0;">
-        <div style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px;">Medical preparation</div>
+        <div style="font-family:var(--font-ui);font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px;">Medical preparation</div>
         <div class="prep-item">
           <div class="prep-label">GP Summary Care Record</div>
           <div class="prep-detail">Request within 2–3 weeks of your medical appointment date — not before. Ask for a full patient summary including medications, significant history, and vaccinations.</div>
@@ -1715,7 +1616,7 @@
       </div>
 
       <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:16px 0;">
-        <div style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">London logistics</div>
+        <div style="font-family:var(--font-ui);font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">London logistics</div>
         <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Two separate trips required — one for the medical + document check, one for the interview. These cannot be combined unless you have an expedited interview.</p>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
@@ -1784,9 +1685,9 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
-        <p style="font-size:12px;color:rgba(26,35,50,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your medical exam date to the community tracker →</a></p>
+        <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your medical exam date to the community tracker →</a></p>
       </div>
       <p>All applicants must complete a medical exam with an approved panel physician before the interview. For the entire United Kingdom, the only approved clinic is <strong>VisaMedicals in London</strong>.</p>
 
@@ -1925,7 +1826,7 @@
         <p style="font-size:13px;margin-bottom:4px;"><strong>Address:</strong> 33 Nine Elms Lane, London SW11 7US</p>
         <p style="font-size:13px;margin-bottom:8px;"><strong>Window:</strong> 11:45 AM – 1:00 PM — go even if running late</p>
         <p style="font-size:13px;margin-bottom:6px;"><strong>Getting there from VisaMedicals:</strong></p>
-        <ul style="font-size:12px;color:rgba(26,35,50,0.8);margin:0;">
+        <ul style="font-size:12px;color:rgba(30,28,23,0.8);margin:0;">
           <li>Victoria line towards Brixton from Oxford Circus → Vauxhall, ~10 min walk — £3.10 contactless</li>
           <li>Bus 2 towards West Norwood from Portman Sq → Vauxhall Bus Station, ~12 min walk — £1.75 contactless</li>
         </ul>
@@ -1953,23 +1854,23 @@
       <div style="display:flex;flex-direction:column;gap:12px;margin:12px 0;">
         <div style="background:var(--card-bg);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--teal-light);margin-bottom:4px;">Josie — March 2025</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">"Really smooth and reassuring." Submitted passport, SCR, vaccine records. 20-minute wait, then doctor review, bloods, physical exam, chest X-ray. Two vaccines administered. Staff calm and respectful. <em>Tip: moisturise your hands before fingerprints.</em> Total cost £475.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">"Really smooth and reassuring." Submitted passport, SCR, vaccine records. 20-minute wait, then doctor review, bloods, physical exam, chest X-ray. Two vaccines administered. Staff calm and respectful. <em>Tip: moisturise your hands before fingerprints.</em> Total cost £475.</div>
         </div>
         <div style="background:var(--card-bg);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--teal-light);margin-bottom:4px;">CF97 — November 2025</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">Arrived 08:55 for 09:30 appointment. Chest X-ray (~30 min wait), doctor exam (~20 min wait), nurse (~25 min wait). Tetanus booster, Hep B, and flu vaccine given. Left clinic at 11:04. Arrived embassy 12:05 — pink slip presented at South Pavilion, waited ~50 minutes. Documents sealed for interview by 13:15. Total cost £495.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">Arrived 08:55 for 09:30 appointment. Chest X-ray (~30 min wait), doctor exam (~20 min wait), nurse (~25 min wait). Tetanus booster, Hep B, and flu vaccine given. Left clinic at 11:04. Arrived embassy 12:05 — pink slip presented at South Pavilion, waited ~50 minutes. Documents sealed for interview by 13:15. Total cost £495.</div>
         </div>
         <div style="background:var(--card-bg);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--teal-light);margin-bottom:4px;">Aqua — February 2026 (with baby)</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">Husband and baby allowed to wait inside. Note: the building has stairs and is not step-free. Partial Hep B series from before accepted; no additional vaccines required. Chickenpox history taken on word. Total cost £430. Embassy doc check arrived at 10:30, returned 11:45 for pass back — smooth process.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">Husband and baby allowed to wait inside. Note: the building has stairs and is not step-free. Partial Hep B series from before accepted; no additional vaccines required. Chickenpox history taken on word. Total cost £430. Embassy doc check arrived at 10:30, returned 11:45 for pass back — smooth process.</div>
         </div>
         <div style="background:var(--card-bg);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--teal-light);margin-bottom:4px;">Naomi — March 2026</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">Medical approximately 2 hours (busy day). Embassy document check under 15 minutes. Hep A+B combo (£80) and Tetanus (£45) given at clinic. Doctor not concerned about limited prior medical history.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">Medical approximately 2 hours (busy day). Embassy document check under 15 minutes. Hep A+B combo (£80) and Tetanus (£45) given at clinic. Doctor not concerned about limited prior medical history.</div>
         </div>
         <div style="background:var(--card-bg);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--teal-light);margin-bottom:4px;">Neri — March 2026</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">"A breeze." Very efficient and supportive staff. Documents collected at check-in: passport, birth cert, police cert, vaccination record, interview letter, GP summary. Additional questionnaire completed on arrival. Pink slip issued and embassy doc check completed successfully.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">"A breeze." Very efficient and supportive staff. Documents collected at check-in: passport, birth cert, police cert, vaccination record, interview letter, GP summary. Additional questionnaire completed on arrival. Pink slip issued and embassy doc check completed successfully.</div>
         </div>
       </div>
       <p style="font-size:12px;color:var(--muted);">Across all reported cases: medical typically 1–2 hours, embassy document check 15–45 minutes. Staff consistently described as professional and efficient.</p>
@@ -1986,9 +1887,9 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
-        <p style="font-size:12px;color:rgba(26,35,50,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your interview date and outcome to the community tracker →</a></p>
+        <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your interview date and outcome to the community tracker →</a></p>
       </div>
       <p><strong>US Embassy London:</strong> 33 Nine Elms Lane, London SW11 7US<br>Nearest stations: Vauxhall or Nine Elms. Common nearby hotel: Travelodge Vauxhall.</p>
 
@@ -2115,23 +2016,23 @@
       <div style="display:flex;flex-direction:column;gap:12px;margin:12px 0;">
         <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--accent-light);margin-bottom:4px;">Keely — CR1, January 2026</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">Skipped queue, submitted sealed packet and passport within minutes. Waited ~1 hour. Questions: where does your husband live, how did you meet, what does he do for work. Interview duration: <strong>~40 seconds</strong>. Approved.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">Skipped queue, submitted sealed packet and passport within minutes. Waited ~1 hour. Questions: where does your husband live, how did you meet, what does he do for work. Interview duration: <strong>~40 seconds</strong>. Approved.</div>
         </div>
         <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--accent-light);margin-bottom:4px;">Walsh — CR1 + IR2 (child), January 2026</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">Large queue outside, bypassed immediately on stating immigrant visa. First call to submit sealed packet and passports, interview ~30 minutes later. Total time: ~45 minutes. CR1 questions covered sponsorship, how they met, wedding, travel, job plans, and custody documents. IR2 child asked about name change, prior meetings, feelings about moving. Both approved.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">Large queue outside, bypassed immediately on stating immigrant visa. First call to submit sealed packet and passports, interview ~30 minutes later. Total time: ~45 minutes. CR1 questions covered sponsorship, how they met, wedding, travel, job plans, and custody documents. IR2 child asked about name change, prior meetings, feelings about moving. Both approved.</div>
         </div>
         <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--accent-light);margin-bottom:4px;">Neri — IR1, March 2026</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">Bypassed queue on arrival. Note: initial ticket had an error and required two returns to reception before the correct ticket (name and case number) was issued — check this carefully. Documents taken at ~9:10, interview called just before 9:30. Questions: where did you meet, how many times visited the US, joint sponsor details, husband's job and location. Total time: ~2 hours. Approved.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">Bypassed queue on arrival. Note: initial ticket had an error and required two returns to reception before the correct ticket (name and case number) was issued — check this carefully. Documents taken at ~9:10, interview called just before 9:30. Questions: where did you meet, how many times visited the US, joint sponsor details, husband's job and location. Total time: ~2 hours. Approved.</div>
         </div>
         <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--accent-light);margin-bottom:4px;">Queen B — IR1, July 2025</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">Arrived 7:40 for 8:00 appointment. Sent directly to window, sticker on passport, bypassed queue. Questions: how did you meet, prior marriages, residence history. Interview ~5 minutes. Total time inside: <strong>~30 minutes</strong>. Approved — issued same day.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">Arrived 7:40 for 8:00 appointment. Sent directly to window, sticker on passport, bypassed queue. Questions: how did you meet, prior marriages, residence history. Interview ~5 minutes. Total time inside: <strong>~30 minutes</strong>. Approved — issued same day.</div>
         </div>
         <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 16px;">
           <div style="font-size:12px;font-weight:600;color:var(--accent-light);margin-bottom:4px;">HT3 — IR5 (parent of US citizen), December 2025</div>
-          <div style="font-size:13px;color:rgba(26,35,50,0.85);">Did not join queue. Submitted sealed folder and passport. Questions: how did your son become a citizen, relationship to joint sponsor, light background discussion. Interview ~5 minutes. Total time: ~1.5 hours. Approved.</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">Did not join queue. Submitted sealed folder and passport. Questions: how did your son become a citizen, relationship to joint sponsor, light background discussion. Interview ~5 minutes. Total time: ~1.5 hours. Approved.</div>
         </div>
       </div>
       <p style="font-size:12px;color:var(--muted);">Common pattern across all cases: skip the main queue, state "immigrant visa," two-step process (document window then interview window), interview 1–10 minutes, decision immediate. Check your sticker has the correct name and case number.</p>
@@ -2153,9 +2054,9 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
-        <p style="font-size:12px;color:rgba(26,35,50,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your visa approval date and passport in hand date to the community tracker →</a></p>
+        <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your visa approval date and passport in hand date to the community tracker →</a></p>
       </div>
       <h3>Possible outcomes</h3>
 
@@ -2308,9 +2209,9 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
-        <p style="font-size:12px;color:rgba(26,35,50,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your date of entry to the US to the community tracker →</a></p>
+        <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your date of entry to the US to the community tracker →</a></p>
       </div>
       <p>Present your passport with the immigrant visa at the port of entry. You are admitted as a <strong>lawful permanent resident</strong> from this moment.</p>
 
@@ -2328,15 +2229,15 @@
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">
           <div>
             <div style="font-size:11px;font-weight:700;color:var(--teal-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">🇮🇪 Ireland</div>
-            <div style="font-size:13px;color:rgba(26,35,50,0.85);line-height:1.6;">Dublin (DUB)<br><span style="font-size:11px;color:var(--muted);">07:00–16:30 IST</span><br>Shannon (SNN)<br><span style="font-size:11px;color:var(--muted);">09:00–17:00 IST</span></div>
+            <div style="font-size:13px;color:rgba(30,28,23,0.85);line-height:1.6;">Dublin (DUB)<br><span style="font-size:11px;color:var(--muted);">07:00–16:30 IST</span><br>Shannon (SNN)<br><span style="font-size:11px;color:var(--muted);">09:00–17:00 IST</span></div>
           </div>
           <div>
             <div style="font-size:11px;font-weight:700;color:var(--teal-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">🇨🇦 Canada</div>
-            <div style="font-size:13px;color:rgba(26,35,50,0.85);line-height:1.6;">Toronto Pearson (YYZ)<br>Vancouver (YVR)<br>Montreal (YUL)<br>Calgary (YYC)<br>Edmonton (YEG)<br>Ottawa (YOW)<br>Halifax (YHZ)<br>Winnipeg (YWG)</div>
+            <div style="font-size:13px;color:rgba(30,28,23,0.85);line-height:1.6;">Toronto Pearson (YYZ)<br>Vancouver (YVR)<br>Montreal (YUL)<br>Calgary (YYC)<br>Edmonton (YEG)<br>Ottawa (YOW)<br>Halifax (YHZ)<br>Winnipeg (YWG)</div>
           </div>
           <div>
             <div style="font-size:11px;font-weight:700;color:var(--teal-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">🇦🇪 Other</div>
-            <div style="font-size:13px;color:rgba(26,35,50,0.85);line-height:1.6;">Abu Dhabi (AUH)<br><span style="font-size:11px;color:var(--muted);">Note: AUH no longer issues physical entry stamps — contact deferred inspection on arrival if needed</span></div>
+            <div style="font-size:13px;color:rgba(30,28,23,0.85);line-height:1.6;">Abu Dhabi (AUH)<br><span style="font-size:11px;color:var(--muted);">Note: AUH no longer issues physical entry stamps — contact deferred inspection on arrival if needed</span></div>
           </div>
         </div>
 
@@ -2355,26 +2256,26 @@
       <table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0 16px;">
         <thead>
           <tr>
-            <th style="text-align:left;padding:8px 12px;background:rgba(200,169,110,0.08);border:1px solid rgba(200,169,110,0.15);color:var(--muted);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Entry</th>
-            <th style="text-align:left;padding:8px 12px;background:rgba(200,169,110,0.08);border:1px solid rgba(200,169,110,0.15);color:var(--muted);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Fee timing</th>
-            <th style="text-align:left;padding:8px 12px;background:rgba(200,169,110,0.08);border:1px solid rgba(200,169,110,0.15);color:var(--muted);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">When to expect card</th>
+            <th style="text-align:left;padding:8px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--muted);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Entry</th>
+            <th style="text-align:left;padding:8px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--muted);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Fee timing</th>
+            <th style="text-align:left;padding:8px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--muted);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">When to expect card</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding:9px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Entered on immigrant visa</td>
-            <td style="padding:9px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Fee paid <strong>before</strong> entry</td>
-            <td style="padding:9px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Up to <strong>90 days from entry date</strong></td>
+            <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Entered on immigrant visa</td>
+            <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Fee paid <strong>before</strong> entry</td>
+            <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Up to <strong>90 days from entry date</strong></td>
           </tr>
-          <tr style="background:rgba(26,35,50,0.02);">
-            <td style="padding:9px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Entered on immigrant visa</td>
-            <td style="padding:9px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Fee paid <strong>after</strong> entry</td>
-            <td style="padding:9px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Up to <strong>90 days from payment date</strong></td>
+          <tr style="background:rgba(30,28,23,0.02);">
+            <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Entered on immigrant visa</td>
+            <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Fee paid <strong>after</strong> entry</td>
+            <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Up to <strong>90 days from payment date</strong></td>
           </tr>
           <tr>
-            <td style="padding:9px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Entered on immigrant visa</td>
-            <td style="padding:9px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Fee <strong>not yet paid</strong></td>
-            <td style="padding:9px 12px;border:1px solid rgba(26,35,50,0.08);color:rgba(26,35,50,0.85);">Card cannot be processed until fee is paid at <a href="https://my.uscis.gov/accounts/uscis-immigrant-fee/about-you" target="_blank" rel="noopener noreferrer">my.uscis.gov</a></td>
+            <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Entered on immigrant visa</td>
+            <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Fee <strong>not yet paid</strong></td>
+            <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Card cannot be processed until fee is paid at <a href="https://my.uscis.gov/accounts/uscis-immigrant-fee/about-you" target="_blank" rel="noopener noreferrer">my.uscis.gov</a></td>
           </tr>
         </tbody>
       </table>
@@ -2413,7 +2314,7 @@
       </div>
 
       <div style="text-align:center;margin:32px 0 8px;">
-        <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;">
+        <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);font-family:var(--font-ui);font-size:14px;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;">
           📊 Submit your timeline to the community tracker
         </a>
       </div>
@@ -2432,12 +2333,12 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:16px;background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.2);border-radius:12px;padding:22px 24px;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.2);border-radius:12px;padding:22px 24px;margin-bottom:16px;">
         <span style="font-size:36px;flex-shrink:0;">🏠</span>
         <div>
-          <div style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:800;color:var(--white);margin-bottom:6px;">You made it — now read the Life in the USA guide</div>
-          <p style="font-size:13px;color:rgba(26,35,50,0.78);margin-bottom:12px;">Green card, SSN, banking, tax obligations, Selective Service, and where the community has settled. Includes a live map of member locations across the US.</p>
-          <a href="life.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;">🏠 Go to Life in the USA →</a>
+          <div style="font-family:var(--font-ui);font-size:16px;font-weight:800;color:var(--white);margin-bottom:6px;">You made it — now read the Life in the USA guide</div>
+          <p style="font-size:13px;color:rgba(30,28,23,0.78);margin-bottom:12px;">Green card, SSN, banking, tax obligations, Selective Service, and where the community has settled. Includes a live map of member locations across the US.</p>
+          <a href="life.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);font-family:var(--font-ui);font-size:13px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;">🏠 Go to Life in the USA →</a>
         </div>
       </div>
 
@@ -2453,34 +2354,12 @@
         </div>
       </div>
 
-      <p>These checklists are used by the London community. Download, print, or open on your phone for each appointment.</p>
+      <p>Every checklist, worksheet, and template for the process lives in one place — download, print, or open on your phone for each appointment.</p>
 
-      <div class="two-col" style="margin:20px 0 24px;">
-        <a href="checklist-nvc.html" target="_blank" rel="noopener noreferrer" style="display:block;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(200,169,110,0.15)'">
-          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">📄 NVC Document Checklist</div>
-          <div style="font-size:12px;color:var(--muted);">Everything needed for CEAC submission — financial documents, civil documents, upload standards, and top failure points.</div>
-        </a>
-        <a href="worksheet-ds260.html" target="_blank" rel="noopener noreferrer" style="display:block;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(200,169,110,0.15)'">
-          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">📝 DS-260 Preparation Worksheet</div>
-          <div style="font-size:12px;color:var(--muted);">Complete all DS-260 answers before logging into CEAC. CEAC times out frequently — this prevents losing your work. Fillable and printable.</div>
-        </a>
-        <a href="worksheet-i864.html" target="_blank" rel="noopener noreferrer" style="display:block;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(200,169,110,0.15)'">
-          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">📝 I-864 AOS Preparation Worksheet</div>
-          <div style="font-size:12px;color:var(--muted);">Affidavit of Support preparation — household size calculator, income and asset fields, joint sponsor section, and obligations summary. Fillable and printable.</div>
-        </a>
-        <a href="checklist-medical.html" target="_blank" rel="noopener noreferrer" style="display:block;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(200,169,110,0.15)'">
-          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">🏥 Medical Day Checklist</div>
-          <div style="font-size:12px;color:var(--muted);">What to bring, what happens at the clinic, same-day embassy document check process, and high-risk failure points.</div>
-        </a>
-        <a href="checklist-interview.html" target="_blank" rel="noopener noreferrer" style="display:block;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(200,169,110,0.15)'">
-          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">🏛️ Interview Day Checklist</div>
-          <div style="font-size:12px;color:var(--muted);">Night-before packing list, morning arrival instructions, typical questions by visa category, and what to do after.</div>
-        </a>
-        <a href="checklist-binder.html" target="_blank" rel="noopener noreferrer" style="display:block;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(200,169,110,0.4)'" onmouseout="this.style.borderColor='rgba(200,169,110,0.15)'">
-          <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">📁 Visa Binder Layout</div>
-          <div style="font-size:12px;color:var(--muted);">Complete section-by-section binder layout for medical, document check, and interview — including which sections to use when.</div>
-        </a>
-      </div>
+      <a href="checklists.html" style="display:block;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin:20px 0 24px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(90,143,166,0.4)'" onmouseout="this.style.borderColor='rgba(90,143,166,0.15)'">
+        <div style="font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--accent);margin-bottom:6px;">📋 Open Checklists &amp; Tools →</div>
+        <div style="font-size:13px;color:var(--muted);">I-130 pre-submission, NVC documents, DS-260 and I-864 worksheets, medical day, interview day, binder layout, public charge template, and the full relocation workbook.</div>
+      </a>
 
       <h3>The binder in practice</h3>
       <p>Organisation matters more than people expect — the document check window staff go through documents one by one, and having them in labelled sections makes this faster and less stressful. Two setups that members have used:</p>
@@ -2504,63 +2383,9 @@
       <a href="#main-content" class="section-top-link" aria-label="Back to top of page">↑ Back to top</a>
     </section>
 
-    <!-- Resources -->
-    <section class="section" id="resources">
-      <div class="section-header">
-        <div class="section-icon">🔗</div>
-        <div>
-          <div class="section-number">Reference</div>
-          <div class="section-title">Key resources</div>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div>
-          <h3>Official sources</h3>
-          <ul style="font-size:13px;">
-            <li><a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition.html" target="_blank" rel="noopener noreferrer">Travel.State.gov</a></li>
-            <li><a href="https://travel.state.gov/content/travel/en/us-visas/Supplements/Supplements_by_Post/LND-London.html" target="_blank" rel="noopener noreferrer">US Embassy London (Travel.State.gov)</a></li>
-            <li><a href="https://ceac.state.gov/IV/Login.aspx" target="_blank" rel="noopener noreferrer">CEAC login</a></li>
-            <li><a href="https://ceac.state.gov/ceacstattracker/status.aspx" target="_blank" rel="noopener noreferrer">CEAC visa tracker</a></li>
-            <li><a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS (appointment / courier)</a></li>
-            <li><a href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">USCIS case status</a></li>
-            <li><a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer">Visa Bulletin</a></li>
-            <li><a href="https://visamedicals.co.uk/united-states/" target="_blank" rel="noopener noreferrer">VisaMedicals (medical)</a></li>
-            <li><a href="https://www.cbp.gov/travel/preclearance" target="_blank" rel="noopener noreferrer">US Preclearance locations (CBP.gov)</a> — Ireland, Canada, Abu Dhabi</li>
-            <li><a href="https://informeddelivery.usps.com/" target="_blank" rel="noopener noreferrer">USPS Informed Delivery</a></li>
-            <li><a href="https://secure.ssa.gov/poms.nsf/lnx/0110211025" target="_blank" rel="noopener noreferrer">SSA policy: IV holders</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Community resources</h3>
-          <ul style="font-size:13px;">
-            <li><a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">Submit your visa timeline</a></li>
-            <li><a href="workbook.html">Moving to the USA Workbook</a> — created by Nikki, a brilliant mod on the Track My Visa server going through the US Embassy London, who built this resource to share with everyone who needs it.</li>
-          </ul>
-
-          <h3>Need a lawyer?</h3>
-          <p style="font-size:13px;color:rgba(26,35,50,0.85);margin-bottom:8px;">Most straightforward family visa cases do not require an immigration attorney. If your situation is complex — prior visa issues, criminal history, prior removal, previous overstays, or complicated financial sponsorship — professional advice is worthwhile.</p>
-          <ul style="font-size:13px;">
-            <li><a href="https://www.aila.org/find-an-immigration-lawyer" target="_blank" rel="noopener noreferrer">American Immigration Lawyers Association (AILA)</a> — the professional body for US immigration attorneys. Use their directory to find a qualified lawyer. Be cautious of notarios or immigration consultants who are not licensed attorneys.</li>
-          </ul>
-        </div>
-      </div>
-      <div style="background:linear-gradient(135deg,rgba(42,157,143,0.08) 0%,rgba(26,58,107,0.15) 100%);border:1px solid rgba(42,157,143,0.2);border-radius:12px;padding:22px 24px;margin-top:24px;">
-        <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--teal-light);margin-bottom:8px;">👋 Track My Visa — I-130 Consular Processing community</div>
-        <p style="font-size:13px;color:rgba(26,35,50,0.85);margin-bottom:10px;"><a href="https://trackmyvisanow.com/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;">Track My Visa</a> is a third-party case tracker for USCIS cases that surfaces data from the underlying API before it appears in the USCIS UI — useful for spotting case movement early during the I-130 stage. Their <a href="https://discord.gg/8pQdSPAR" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;">I-130 Consular Processing Discord</a> is an active community covering the full consular pipeline across all embassies worldwide — a good complement to this London-specific resource, particularly during the USCIS wait.</p>
-        <p style="font-size:12px;color:var(--muted);margin:0;">Track My Visa is an independent tool — not affiliated with USCIS or this community.</p>
-      </div>
-      <a href="#main-content" class="section-top-link" aria-label="Back to top of page">↑ Back to top</a>
-    </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <p class="footer-note">Not legal advice. Based on official US government sources and observed London embassy patterns. Written by Erin with input from community members, not lawyers or embassy staff. Last updated June 2026.</p>
-        <p class="footer-links">Questions or corrections? <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a> · <a href="privacy.html">Privacy Policy</a></p>
-        <a href="https://ko-fi.com/erinsaidwhat" class="coffee-btn" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a>
-      </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
   </main>
 </div>
