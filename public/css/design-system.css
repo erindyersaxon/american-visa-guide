@@ -1,56 +1,56 @@
 /* ─────────────────────────────────────────────────────────────
    American Visa Guide — Design System
-   Navy + Gold colour scheme
+   Charcoal-blue + Steel-blue colour scheme (warm cream backgrounds)
    Fonts: Inter (body) · Public Sans (display)
    ───────────────────────────────────────────────────────────── */
 
 /* ─── Font Import ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 /* ─── Design Tokens ───────────────────────────────────────── */
 :root {
-  /* — Navy palette — */
-  --color-navy:        #1A3A52;
-  --color-navy-dark:   #0F2436;
-  --color-navy-light:  #2A5A7A;
-  --color-navy-xlight: #EBF4F8;
+  /* — Structural palette: blue-charcoal (legacy --color-navy names kept) — */
+  --color-navy:        #2b3a42;
+  --color-navy-dark:   #1e2b32;
+  --color-navy-light:  #3d5260;
+  --color-navy-xlight: #e8eef1;
 
-  /* — Gold palette — */
-  --color-gold:        #A3700F;   /* WCAG AA as text on white/cream */
-  --color-gold-light:  #D9B06A;   /* for use on dark navy backgrounds */
-  --color-gold-xlight: #FDF6EC;
+  /* — Accent palette: steel blue (legacy --color-gold names kept) — */
+  --color-gold:        #3e7188;   /* WCAG AA as text on white/cream */
+  --color-gold-light:  #c8dde6;   /* for use on dark navy backgrounds */
+  --color-gold-xlight: #edf4f8;
 
   /* — Surfaces — */
-  --color-surface:     #FFFFFF;
-  --color-surface-alt: #F7F5F3;
+  --color-surface:     #FDFAF3;
+  --color-surface-alt: #f7f2e9;
 
   /* — Borders — */
-  --color-border:        #DDD9D0;
-  --color-border-strong: #A8A39A;
+  --color-border:        #ddd6cb;
+  --color-border-strong: #a39c8e;
 
   /* — Text — */
-  --color-text:        #1A2332;
-  --color-text-secondary: #4B5568;
-  --color-text-muted:  #6B7280;
-  --color-text-on-dark: #FFFFFF;
+  --color-text:        #1e1c17;
+  --color-text-secondary: #56524a;
+  --color-text-muted:  #6a6560;
+  --color-text-on-dark: #F4EFE6;
   --color-text-inverse: #FFFFFF;
 
   /* — Background (alias for worksheet pages) — */
-  --color-bg:     #F7F5F1;
-  --color-bg-alt: #EAE8E2;
+  --color-bg:     #f4efe6;
+  --color-bg-alt: #ede8de;
 
   /* — Status — */
-  --color-error:             #B91C1C;
-  --color-destructive:       #9B1C1C;
-  --color-destructive-subtle:  #FEF2F2;
-  --color-destructive-border:  #FCA5A5;
-  --color-success:           #0D7A5F;
-  --color-success-subtle:    #ECFDF6;
-  --color-warning:           #92400E;
-  --color-warning-subtle:    #FFFBEB;
-  --color-warning-border:    #FCD34D;
-  --color-info:              #1D4ED8;
-  --color-info-subtle:       #EFF6FF;
+  --color-error:             #a83a3a;
+  --color-destructive:       #9b3434;
+  --color-destructive-subtle:  #f8ece7;
+  --color-destructive-border:  #dfa9a0;
+  --color-success:           #4a6b50;
+  --color-success-subtle:    #e9f0e6;
+  --color-warning:           #875325;
+  --color-warning-subtle:    #f7efdc;
+  --color-warning-border:    #d9bb86;
+  --color-info:              #3e7188;
+  --color-info-subtle:       #edf4f8;
 
   /* — Brand aliases for legacy pages — */
   --color-primary:        var(--color-navy);
@@ -61,7 +61,8 @@
 
   /* ─── Typography ─────────────────────────────────── */
   --font-body:    'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-ui:      'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono:    'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
   /* Font Sizes (--size-* naming) */
@@ -151,7 +152,7 @@
 
   /* ─── Focus ───────────────────────────────────────── */
   --focus-outline: 2px solid var(--color-gold);
-  --focus-ring:    0 0 0 3px rgba(200, 145, 58, 0.4);
+  --focus-ring:    0 0 0 3px rgba(90,143,166, 0.4);
 
   /* ─── Z-index ─────────────────────────────────────── */
   --z-sticky:   100;
@@ -185,9 +186,17 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
   color: var(--color-navy);
+}
+
+/* Editorial italic accent inside headings */
+h1 span, h1 em, h2 em {
+  font-style: italic;
+  font-weight: var(--weight-medium);
+  color: var(--color-gold);
 }
 
 h1 { font-size: var(--size-4xl); }
@@ -234,53 +243,9 @@ code {
   padding-inline: var(--container-padding);
 }
 
-/* ─── Navigation ──────────────────────────────────────────── */
-nav[role="navigation"] {
-  position: sticky;
-  top: 0;
-  z-index: var(--z-sticky);
-  background-color: var(--color-navy);
-  border-bottom: 1px solid var(--color-navy-dark);
-  box-shadow: var(--shadow-sm);
-}
+/* Navigation styles live in /css/nav.css (shared component) */
 
-.nav-link {
-  font-family: var(--font-body);
-  font-size: var(--size-sm);
-  font-weight: var(--weight-medium);
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  padding: var(--space-2) var(--space-1);
-  border-radius: var(--radius-sm);
-  transition: color var(--transition-fast);
-}
-
-.nav-link:hover {
-  color: var(--color-gold-light);
-  text-decoration: none;
-}
-
-.nav-link[aria-current="page"] {
-  color: var(--color-gold-light) !important;
-  font-weight: var(--weight-semibold) !important;
-}
-
-/* ─── Footer ──────────────────────────────────────────────── */
-footer {
-  background-color: var(--color-navy-dark);
-  color: rgba(255, 255, 255, 0.75);
-  padding: var(--space-16) 0;
-  margin-top: var(--space-20);
-}
-
-footer a {
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: underline;
-}
-
-footer a:hover {
-  color: var(--color-gold-light);
-}
+/* Footer styles live in /css/nav.css (shared chrome) */
 
 /* ─── Skip Link ───────────────────────────────────────────── */
 .skip-link {
@@ -295,7 +260,7 @@ footer a:hover {
   font-weight: var(--weight-semibold);
   border-radius: var(--radius-md);
   text-decoration: none;
-  transform: translateY(-120%);
+  transform: translateY(-150%);
   transition: transform var(--duration-fast) var(--ease-out);
 }
 
@@ -335,7 +300,7 @@ footer a:hover {
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
   border: 2px solid transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   font-family: var(--font-body);
   font-size: var(--size-base);
   font-weight: var(--weight-semibold);
@@ -414,7 +379,7 @@ footer a:hover {
 .badge--success {
   background-color: var(--color-success-subtle);
   color: var(--color-success);
-  border-color: #6EE7B7;
+  border-color: #a9c8ad;
 }
 
 .badge--primary {
@@ -426,7 +391,7 @@ footer a:hover {
 .badge--info {
   background-color: var(--color-info-subtle);
   color: var(--color-info);
-  border-color: #93C5FD;
+  border-color: #a9cbd9;
 }
 
 .badge--warning {
@@ -451,8 +416,8 @@ footer a:hover {
 }
 
 .stage-chip.badge-int      { background: var(--color-navy-xlight); color: var(--color-navy); }
-.stage-chip.badge-nvc      { background: #EFF6FF; color: #1D4ED8; }
-.stage-chip.badge-preappt  { background: #FFFBEB; color: #92400E; }
+.stage-chip.badge-nvc      { background: #edf4f8; color: #3e7188; }
+.stage-chip.badge-preappt  { background: #f7efdc; color: #875325; }
 .stage-chip.badge-journey  { background: var(--color-success-subtle); color: var(--color-success); }
 
 /* Interview detail (guide page) */
@@ -464,7 +429,7 @@ footer a:hover {
 /* ─── Main content ────────────────────────────────────────── */
 main {
   min-height: calc(100vh - var(--nav-height) - 200px);
-  padding: var(--space-12) 0;
+  padding: var(--space-16) 0;
 }
 
 /* ─── Utility — visually hidden placeholder images ─────────── */
@@ -489,20 +454,9 @@ main {
   h2 { font-size: var(--size-2xl); }
   h3 { font-size: var(--size-xl); }
 
-  nav[role="navigation"] ul {
-    gap: var(--space-4) !important;
-  }
-
   .btn {
     width: 100%;
     justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  nav[role="navigation"] ul {
-    flex-wrap: wrap !important;
-    gap: var(--space-3) !important;
   }
 }
 
