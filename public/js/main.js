@@ -133,13 +133,8 @@ function verifyWorksheetDataIsolation() {
 
 /* ─── Boot ────────────────────────────────────────────────── */
 async function boot() {
-  // Load partials — nav first (skip link must precede content)
-  await Promise.all([
-    loadPartial('#nav-placeholder',    '/nav.html'),
-    loadPartial('#footer-placeholder', '/footer.html'),
-  ]);
+  // Nav and footer are injected by /js/nav.js
 
-  initNav();
   initThemeToggle();
   initAccordions();
   initChecklists();
