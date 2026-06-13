@@ -238,6 +238,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--space-3);
+      align-items: start; /* cards size to their own member list */
     }
     @media (min-width: 640px) { .week-grid--3 { grid-template-columns: repeat(3,1fr); } }
 
@@ -263,6 +264,28 @@
       letter-spacing: var(--tracking-wide);
       color: var(--color-text-muted);
       margin-top: var(--space-2);
+    }
+    .week-card__list {
+      list-style: none;
+      margin: var(--space-3) 0 0;
+      padding: 0;
+      text-align: left;
+    }
+    .week-card__list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      padding: var(--space-1) 0;
+      border-top: 1px solid var(--color-border);
+    }
+    .week-card__list .wm-name { color: var(--color-text); }
+    .week-card__list .wm-date { color: var(--color-text-muted); white-space: nowrap; flex-shrink: 0; }
+    .week-card__list .wm-empty {
+      justify-content: center;
+      color: var(--color-text-muted);
+      font-style: italic;
     }
 
     /* ── Trend cards ── */
@@ -501,24 +524,27 @@
           <div class="week-grid week-grid--3" role="list" aria-label="Upcoming community milestones">
 
             <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-interviews">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">Interviews</div>
-            </div>
-
-            <div class="week-card" role="listitem">
               <div class="week-card__value" id="w-medicals">
                 <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
               </div>
               <div class="week-card__label">Medicals</div>
+              <ul class="week-card__list" id="wl-medicals" aria-label="Members with a medical this week"></ul>
+            </div>
+
+            <div class="week-card" role="listitem">
+              <div class="week-card__value" id="w-interviews">
+                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
+              </div>
+              <div class="week-card__label">Interviews</div>
+              <ul class="week-card__list" id="wl-interviews" aria-label="Members with an interview this week"></ul>
             </div>
 
             <div class="week-card" role="listitem">
               <div class="week-card__value" id="w-flights">
                 <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
               </div>
-              <div class="week-card__label">Flights Booked</div>
+              <div class="week-card__label">Flights</div>
+              <ul class="week-card__list" id="wl-flights" aria-label="Members with a flight this week"></ul>
             </div>
 
           </div>
@@ -533,7 +559,8 @@
               <div class="week-card__value" id="w-dq">
                 <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
               </div>
-              <div class="week-card__label">DQ Submissions</div>
+              <div class="week-card__label">DQ</div>
+              <ul class="week-card__list" id="wl-dq" aria-label="Members documentarily qualified this week"></ul>
             </div>
 
             <div class="week-card" role="listitem">
@@ -541,24 +568,10 @@
                 <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
               </div>
               <div class="week-card__label">I-130 Approvals</div>
+              <ul class="week-card__list" id="wl-i130" aria-label="Members with an I-130 approval this week"></ul>
             </div>
 
           </div>
-        </div>
-
-        <!-- Members who reached these milestones -->
-        <div class="table-wrapper" id="week-names-wrap" role="region" aria-labelledby="week-hd" tabindex="0" hidden style="margin-top: var(--space-6);">
-          <table class="table table--striped">
-            <caption class="sr-only">Community members and their milestones: member name, milestone, and date</caption>
-            <thead>
-              <tr>
-                <th scope="col">Member</th>
-                <th scope="col">Milestone</th>
-                <th scope="col">Date</th>
-              </tr>
-            </thead>
-            <tbody id="week-names-tbody"></tbody>
-          </table>
         </div>
 
         <!-- Submit CTA -->
@@ -840,6 +853,11 @@
       const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
       return d.toLocaleDateString('en-GB', { month:'long', year:'numeric', timeZone:'UTC' });
     }
+    function fmtShort(s) {
+      if (!s) return '';
+      const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
+      return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', timeZone:'UTC' });
+    }
     function daysAgo(s) {
       if (!s) return null;
       const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
@@ -942,42 +960,28 @@
       ].forEach(s => { set(s.badge, statusBadge(s.status)); set(s.summary, s.text); });
     }
 
-    /* Two-window community widget — counts, labels, and member names from this_week */
+    /* Two-window community widget — each card shows its count plus the members
+       (name + date) who reached that milestone this week. */
     function renderWeek(tw) {
       if (!tw) return;
-      set('w-interviews', String((tw.interviews || []).length));
-      set('w-medicals',   String((tw.medicals   || []).length));
-      set('w-flights',    String((tw.flights    || []).length));
-      set('w-dq',         String((tw.dqs        || []).length));
-      set('w-i130',       String((tw.approved   || []).length));
       setWeekLabels(tw.upcoming_week_of, tw.previous_week_of);
-
-      const wrap  = document.getElementById('week-names-wrap');
-      const tbody = document.getElementById('week-names-tbody');
-      if (!wrap || !tbody) return;
       const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-      // Upcoming-week milestones first, then previous-week — each sorted by date
-      const upcoming = [
-        { list: tw.interviews, label: 'Interview' },
-        { list: tw.medicals,   label: 'Medical' },
-        { list: tw.flights,    label: 'Flight booked' },
+      const cards = [
+        ['w-medicals',   'wl-medicals',   tw.medicals],
+        ['w-interviews', 'wl-interviews', tw.interviews],
+        ['w-flights',    'wl-flights',    tw.flights],
+        ['w-dq',         'wl-dq',         tw.dqs],
+        ['w-i130',       'wl-i130',       tw.approved],
       ];
-      const previous = [
-        { list: tw.dqs,        label: 'DQ submission' },
-        { list: tw.approved,   label: 'I-130 approval' },
-      ];
-      const expand = groups => groups
-        .flatMap(g => (g.list || []).map(e => ({ ...e, milestone: g.label })))
-        .sort((a, b) => new Date(a.date) - new Date(b.date));
-      const rows = [...expand(upcoming), ...expand(previous)];
-      if (!rows.length) return;
-
-      tbody.innerHTML = rows.map(r => `<tr>
-        <td>${esc(r.name)}</td>
-        <td>${r.milestone}</td>
-        <td>${fmtDate(r.date)}</td>
-      </tr>`).join('');
-      wrap.hidden = false;
+      for (const [countId, listId, raw] of cards) {
+        const list = (raw || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+        set(countId, String(list.length));
+        const ul = document.getElementById(listId);
+        if (!ul) continue;
+        ul.innerHTML = list.length
+          ? list.map(m => `<li><span class="wm-name">${esc(m.name)}</span><span class="wm-date">${fmtShort(m.date)}</span></li>`).join('')
+          : '<li class="wm-empty">None this week</li>';
+      }
     }
 
     function renderDropTable(drops) {
