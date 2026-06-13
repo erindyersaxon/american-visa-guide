@@ -53,6 +53,19 @@ export default async function handler(req, res) {
   }
   const deduped = Object.values(byUser)
 
+  // Drop impossible future dates on past-only milestones — data-entry errors
+  // (e.g. an Interview Letter dated next year) otherwise poison the averages.
+  // Appointment fields (interview / medical / flight) are intentionally left
+  // alone, since those are legitimately future-dated for upcoming events.
+  const todayEnd = new Date(); todayEnd.setUTCHours(23, 59, 59, 999)
+  const PAST_ONLY = ['dq_date', 'interview_letter', 'i130_approval', 'sent_to_dos',
+    'nvc_welcome_letter', 'nvc_fees_paid', 'nvc_docs_submitted', 'passport_in_hand']
+  for (const r of deduped) {
+    for (const f of PAST_ONLY) {
+      if (r[f] && new Date(r[f]) > todayEnd) r[f] = null
+    }
+  }
+
   // Standard cases only (exclude expedited for wait time calcs)
   const standard = deduped.filter(r => !r.interview_expedited)
 
@@ -284,21 +297,19 @@ export default async function handler(req, res) {
     return standard.filter(r => r.dq_date && new Date(r.dq_date) >= cutoff)
   }
 
-  const trendDqToIL = (months) => avg(
-    windowFilter(months)
-      .filter(r => r.interview_letter)
-      .map(r => daysBetween(r.dq_date, r.interview_letter))
-  )
-  const trendILToInterview = (months) => avg(
-    windowFilter(months)
-      .filter(r => r.interview_letter && r.interview)
-      .map(r => daysBetween(r.interview_letter, r.interview))
-  )
-  const trendDqToInterview = (months) => avg(
-    windowFilter(months)
-      .filter(r => r.interview)
-      .map(r => daysBetween(r.dq_date, r.interview))
-  )
+  // A window needs a minimum number of data points to be a meaningful trend —
+  // otherwise one or two rows produce a misleading figure.
+  const MIN_TREND_N = 5
+  const windowedAvg = (months, mapFn, filterFn) => {
+    const v = windowFilter(months).filter(filterFn).map(mapFn).filter(n => n != null && n > 0)
+    return v.length >= MIN_TREND_N ? avg(v) : null
+  }
+  const trendDqToIL = (months) => windowedAvg(months,
+    r => daysBetween(r.dq_date, r.interview_letter), r => r.interview_letter)
+  const trendILToInterview = (months) => windowedAvg(months,
+    r => daysBetween(r.interview_letter, r.interview), r => r.interview_letter && r.interview)
+  const trendDqToInterview = (months) => windowedAvg(months,
+    r => daysBetween(r.dq_date, r.interview), r => r.interview)
 
   // --- Estimated next IL drop ---
   // Derived entirely from live drop clusters — no hardcoded dates needed.

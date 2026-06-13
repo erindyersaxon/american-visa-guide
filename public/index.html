@@ -789,7 +789,7 @@
       meta: { total_members: 219 },
       key_stats: { avg_dq_to_il:66, avg_il_to_interview:60, avg_dq_to_interview:123, avg_passport_days:7, median_passport_days:5, avg_pickup_days:4, avg_mail_days:12 },
       trends: {
-        dq_to_il:        { all_time:66, last_6m:86, last_3m:269 },
+        dq_to_il:        { all_time:63, last_6m:77, last_3m:null },
         il_to_interview: { all_time:60, last_6m:53, last_3m:60 },
         dq_to_interview: { all_time:123, last_6m:132, last_3m:135 },
       },
@@ -1030,13 +1030,16 @@
       const t = trends?.dq_to_il;
       if (!t || t.all_time == null) return;
       const allAvg = t.all_time;
-      const avg6   = t.last_6m ?? allAvg;
-      const avg3   = t.last_3m ?? allAvg;
 
       function setTrend(valId, dirId, val, ref) {
-        set(valId, val != null ? `${val} days` : '—');
         const el = document.getElementById(dirId);
-        if (!el || val == null || ref == null) return;
+        if (val == null) {
+          set(valId, '—');
+          if (el) { el.className = 'trend-card__dir'; el.innerHTML = '<span>Not enough recent data</span>'; }
+          return;
+        }
+        set(valId, `${val} days`);
+        if (!el || ref == null) return;
         const diff = val - ref;
         const dir  = Math.abs(diff) < 7 ? 'flat' : diff > 0 ? 'up' : 'down';
         const icon  = { up:'↑', down:'↓', flat:'→' }[dir];
@@ -1044,9 +1047,9 @@
         el.className = `trend-card__dir trend-card__dir--${dir}`;
         el.innerHTML = `<span aria-hidden="true">${icon}</span><span>${label}</span>`;
       }
-      setTrend('t-alltime', 't-alltime-dir', allAvg, allAvg);
-      setTrend('t-6mo',     't-6mo-dir',     avg6,   allAvg);
-      setTrend('t-3mo',     't-3mo-dir',     avg3,   allAvg);
+      setTrend('t-alltime', 't-alltime-dir', allAvg,    allAvg);
+      setTrend('t-6mo',     't-6mo-dir',     t.last_6m, allAvg);
+      setTrend('t-3mo',     't-3mo-dir',     t.last_3m, allAvg);
     }
 
     function renderOutcomes(stats) {
