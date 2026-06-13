@@ -317,53 +317,66 @@ export default async function handler(req, res) {
     : null
 
   // --- This week's activity ---
-  // Week = Sunday to Saturday, starts on Sunday, displayed as "w/c [Sunday]"
+  // The widget turns over each Sunday. Two windows, both Sunday→Saturday:
+  //   Upcoming week  (interviews, medicals, flights) — what's coming up
+  //   Previous week  (DQ submissions, I-130 approvals) — what just happened
+  // The dividing line is the upcoming Sunday (today if today is Sunday).
   const now2 = new Date()
-  // Get Sunday of current week (week starts on Sunday)
   const dayOfWeek = now2.getUTCDay() // 0=Sun, 1=Mon...
-  const daysToSunday = dayOfWeek // 0 if today is Sunday, 1 if Monday, etc.
-  const weekStart = new Date(now2)
-  weekStart.setUTCDate(now2.getUTCDate() - daysToSunday)
-  weekStart.setUTCHours(0,0,0,0)
-  const weekEnd = new Date(weekStart)
-  weekEnd.setUTCDate(weekStart.getUTCDate() + 6)
-  weekEnd.setUTCHours(23,59,59,999)
+  const daysToNextSunday = (7 - dayOfWeek) % 7 // 0 if today is Sunday
 
-  // Display date = the Sunday that starts the week
-  const displaySunday = weekStart
+  // Upcoming week: [next Sunday 00:00, following Saturday 23:59]
+  const upcomingStart = new Date(now2)
+  upcomingStart.setUTCDate(now2.getUTCDate() + daysToNextSunday)
+  upcomingStart.setUTCHours(0,0,0,0)
+  const upcomingEnd = new Date(upcomingStart)
+  upcomingEnd.setUTCDate(upcomingStart.getUTCDate() + 6)
+  upcomingEnd.setUTCHours(23,59,59,999)
 
-  const inThisWeek = (dateStr) => {
+  // Previous week: the Sunday→Saturday week immediately before the upcoming one
+  const previousStart = new Date(upcomingStart)
+  previousStart.setUTCDate(upcomingStart.getUTCDate() - 7)
+  const previousEnd = new Date(upcomingStart)
+  previousEnd.setUTCDate(upcomingStart.getUTCDate() - 1)
+  previousEnd.setUTCHours(23,59,59,999)
+
+  const inWindow = (dateStr, start, end) => {
     if (!dateStr) return false
     const d = new Date(dateStr + 'T12:00:00Z')
-    return d >= weekStart && d <= weekEnd
+    return d >= start && d <= end
   }
+  const inUpcoming = (dateStr) => inWindow(dateStr, upcomingStart, upcomingEnd)
+  const inPrevious = (dateStr) => inWindow(dateStr, previousStart, previousEnd)
 
+  // Forward-looking milestones — the upcoming week
   const weekInterviews = deduped
-    .filter(r => r.username_raw && inThisWeek(r.interview))
+    .filter(r => r.username_raw && inUpcoming(r.interview))
     .map(r => ({ name: r.username_raw, date: r.interview }))
     .sort((a, b) => new Date(a.date) - new Date(b.date))
 
   const weekMedicals = deduped
-    .filter(r => r.username_raw && inThisWeek(r.medical))
+    .filter(r => r.username_raw && inUpcoming(r.medical))
     .map(r => ({ name: r.username_raw, date: r.medical }))
     .sort((a, b) => new Date(a.date) - new Date(b.date))
 
   const weekFlights = deduped
-    .filter(r => r.username_raw && inThisWeek(r.flight))
+    .filter(r => r.username_raw && inUpcoming(r.flight))
     .map(r => ({ name: r.username_raw, date: r.flight }))
     .sort((a, b) => new Date(a.date) - new Date(b.date))
 
+  // Backward-looking milestones — the previous week
   const weekDQs = deduped
-    .filter(r => r.username_raw && inThisWeek(r.dq_date))
+    .filter(r => r.username_raw && inPrevious(r.dq_date))
     .map(r => ({ name: r.username_raw, date: r.dq_date }))
     .sort((a, b) => new Date(a.date) - new Date(b.date))
 
   const weekApproved = deduped
-    .filter(r => r.username_raw && inThisWeek(r.i130_approval))
+    .filter(r => r.username_raw && inPrevious(r.i130_approval))
     .map(r => ({ name: r.username_raw, date: r.i130_approval }))
     .sort((a, b) => new Date(a.date) - new Date(b.date))
 
-  const weekOf = displaySunday.toISOString().split('T')[0]
+  const upcomingWeekOf = upcomingStart.toISOString().split('T')[0]
+  const previousWeekOf = previousStart.toISOString().split('T')[0]
 
   // --- Assemble response ---
   return res.status(200).json({
@@ -440,12 +453,14 @@ export default async function handler(req, res) {
       }, {}),
     il_to_interview_lookup: ilToInterviewMonths,
     this_week: {
-      week_of: weekOf,
-      interviews: weekInterviews,
-      medicals: weekMedicals,
-      flights: weekFlights,
-      dqs: weekDQs,
-      approved: weekApproved,
+      upcoming_week_of: upcomingWeekOf,
+      previous_week_of: previousWeekOf,
+      week_of: upcomingWeekOf, // back-compat
+      interviews: weekInterviews, // upcoming week
+      medicals: weekMedicals,     // upcoming week
+      flights: weekFlights,       // upcoming week
+      dqs: weekDQs,               // previous week
+      approved: weekApproved,     // previous week
     },
   })
 }

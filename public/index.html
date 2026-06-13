@@ -235,13 +235,23 @@
     }
 
     /* ── Week cards ── */
+    .week-group { margin-top: var(--space-6); }
+    .week-group:first-of-type { margin-top: 0; }
+    .week-group__label {
+      font-size: var(--text-xs);
+      font-weight: var(--font-semibold);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-muted);
+      margin: 0 0 var(--space-3) 0;
+    }
+    .week-group__label em { font-style: normal; color: var(--color-primary); }
     .week-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--space-3);
     }
-    @media (min-width: 640px)  { .week-grid { grid-template-columns: repeat(3,1fr); } }
-    @media (min-width: 1024px) { .week-grid { grid-template-columns: repeat(5,1fr); } }
+    @media (min-width: 640px) { .week-grid--3 { grid-template-columns: repeat(3,1fr); } }
 
     .week-card {
       background: var(--color-surface);
@@ -499,52 +509,64 @@
       <div class="container">
         <div class="section-hd">
           <h2 class="section-hd__title" id="week-hd">This Week in the Community</h2>
-          <p class="section-hd__sub">Community activity — week of <span id="week-label">…</span></p>
+          <p class="section-hd__sub">Upcoming appointments and recent milestones across the community.</p>
         </div>
 
-        <div class="week-grid" role="list" aria-label="Community activity this week">
+        <!-- Coming up — the upcoming Sunday→Saturday week -->
+        <div class="week-group">
+          <p class="week-group__label">📅 Coming up · <em><span id="week-upcoming-label">…</span></em></p>
+          <div class="week-grid week-grid--3" role="list" aria-label="Upcoming community milestones">
 
-          <div class="week-card" role="listitem">
-            <div class="week-card__value" id="w-interviews">
-              <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
+            <div class="week-card" role="listitem">
+              <div class="week-card__value" id="w-interviews">
+                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
+              </div>
+              <div class="week-card__label">Interviews</div>
             </div>
-            <div class="week-card__label">Interviews</div>
-          </div>
 
-          <div class="week-card" role="listitem">
-            <div class="week-card__value" id="w-medicals">
-              <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
+            <div class="week-card" role="listitem">
+              <div class="week-card__value" id="w-medicals">
+                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
+              </div>
+              <div class="week-card__label">Medicals</div>
             </div>
-            <div class="week-card__label">Medicals</div>
-          </div>
 
-          <div class="week-card" role="listitem">
-            <div class="week-card__value" id="w-flights">
-              <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
+            <div class="week-card" role="listitem">
+              <div class="week-card__value" id="w-flights">
+                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
+              </div>
+              <div class="week-card__label">Flights Booked</div>
             </div>
-            <div class="week-card__label">Flights Booked</div>
-          </div>
 
-          <div class="week-card" role="listitem">
-            <div class="week-card__value" id="w-dq">
-              <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-            </div>
-            <div class="week-card__label">DQ Submissions</div>
           </div>
-
-          <div class="week-card" role="listitem">
-            <div class="week-card__value" id="w-i130">
-              <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-            </div>
-            <div class="week-card__label">I-130 Approvals</div>
-          </div>
-
         </div>
 
-        <!-- Members who reached milestones this week -->
+        <!-- Just happened — the previous Sunday→Saturday week -->
+        <div class="week-group">
+          <p class="week-group__label">✅ Just happened · <em><span id="week-previous-label">…</span></em></p>
+          <div class="week-grid week-grid--2" role="list" aria-label="Recent community milestones">
+
+            <div class="week-card" role="listitem">
+              <div class="week-card__value" id="w-dq">
+                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
+              </div>
+              <div class="week-card__label">DQ Submissions</div>
+            </div>
+
+            <div class="week-card" role="listitem">
+              <div class="week-card__value" id="w-i130">
+                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
+              </div>
+              <div class="week-card__label">I-130 Approvals</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Members who reached these milestones -->
         <div class="table-wrapper" id="week-names-wrap" role="region" aria-labelledby="week-hd" tabindex="0" hidden style="margin-top: var(--space-6);">
           <table class="table table--striped">
-            <caption class="sr-only">Community members who reached milestones this week: member name, milestone, and date</caption>
+            <caption class="sr-only">Community members and their milestones: member name, milestone, and date</caption>
             <thead>
               <tr>
                 <th scope="col">Member</th>
@@ -574,13 +596,13 @@
 
         <div class="table-wrapper" role="region" aria-labelledby="drops-hd" tabindex="0">
           <table class="table table--striped">
-            <caption class="sr-only">Interview Letter drop history: drop date, gap since previous drop, time of drop, DQ date range covered, and number of ILs issued</caption>
+            <caption class="sr-only">Interview Letter drop history: drop date, time of drop, DQ date range covered, gap since previous drop, and number of ILs issued</caption>
             <thead>
               <tr>
                 <th scope="col">Drop Date</th>
-                <th scope="col">Gap Since Previous</th>
                 <th scope="col">Time (London)</th>
                 <th scope="col">DQ Dates Covered</th>
+                <th scope="col">Gap Since Previous</th>
                 <th scope="col" class="num">ILs Issued</th>
               </tr>
             </thead>
@@ -795,7 +817,7 @@
         { created_at:'2026-02-01', dq_to_il_days:72, i130_to_nvc_days:45, nvc_fees_to_docs_days:19, docs_to_dq_days:15, il_to_medical_days:23, medical_to_interview_days:17, interview_to_passport_days:6 },
         { created_at:'2026-01-05', dq_to_il_days:58, i130_to_nvc_days:40, nvc_fees_to_docs_days:26, docs_to_dq_days:14, il_to_medical_days:20, medical_to_interview_days:14, interview_to_passport_days:5 },
       ],
-      weekly: { week_start:'2026-06-08', interviews:2, medicals:3, flights:1, dq_submissions:4, i130_approvals:2 },
+      weekly: { upcoming_week_of:'2026-06-14', previous_week_of:'2026-06-07', interviews:2, medicals:3, flights:1, dq_submissions:4, i130_approvals:2 },
     };
 
     /* ── Helpers ── */
@@ -822,6 +844,22 @@
     function toMonths(d) { return d != null ? (d / 30.44).toFixed(1) : '—'; }
     function set(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
     function txt(id, t)    { const el = document.getElementById(id); if (el) el.textContent = t; }
+
+    /* Sunday ISO -> "14–20 Jun" (or "28 Jun – 4 Jul" across a month boundary) */
+    function fmtWeekRange(sundayISO) {
+      if (!sundayISO) return '…';
+      const start = new Date(sundayISO + 'T00:00:00Z');
+      const end = new Date(start); end.setUTCDate(start.getUTCDate() + 6);
+      const day = d => d.getUTCDate();
+      const mon = d => d.toLocaleDateString('en-GB', { month:'short', timeZone:'UTC' });
+      return start.getUTCMonth() === end.getUTCMonth()
+        ? `${day(start)}–${day(end)} ${mon(end)}`
+        : `${day(start)} ${mon(start)} – ${day(end)} ${mon(end)}`;
+    }
+    function setWeekLabels(upcomingISO, previousISO) {
+      if (upcomingISO) txt('week-upcoming-label', fmtWeekRange(upcomingISO));
+      if (previousISO) txt('week-previous-label', fmtWeekRange(previousISO));
+    }
 
     function statusBadge(status) {
       const map = {
@@ -903,7 +941,7 @@
       set('w-flights',    String(w.flights          ?? '—'));
       set('w-dq',         String(w.dq_submissions  ?? '—'));
       set('w-i130',       String(w.i130_approvals  ?? '—'));
-      if (w.week_start) txt('week-label', `w/c ${fmtDate(w.week_start)}`);
+      setWeekLabels(w.upcoming_week_of, w.previous_week_of);
     }
 
     /* Members who reached milestones this week — names from /api/data this_week */
@@ -920,16 +958,21 @@
       if (!tw) return;
 
       const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-      const groups = [
+      // Upcoming-week milestones first, then previous-week — each sorted by date
+      const upcoming = [
         { list: tw.interviews, label: 'Interview' },
         { list: tw.medicals,   label: 'Medical' },
         { list: tw.flights,    label: 'Flight booked' },
+      ];
+      const previous = [
         { list: tw.dqs,        label: 'DQ submission' },
         { list: tw.approved,   label: 'I-130 approval' },
       ];
-      const rows = groups
+      const expand = groups => groups
         .flatMap(g => (g.list || []).map(e => ({ ...e, milestone: g.label })))
         .sort((a, b) => new Date(a.date) - new Date(b.date));
+      const rows = [...expand(upcoming), ...expand(previous)];
+      setWeekLabels(tw.upcoming_week_of, tw.previous_week_of);
       if (!rows.length) return;
 
       tbody.innerHTML = rows.map(r => `<tr>
@@ -939,13 +982,12 @@
       </tr>`).join('');
       wrap.hidden = false;
 
-      // Counts and week label from the same source, so cards and table agree
+      // Counts from the same source, so cards and table agree
       set('w-interviews', String((tw.interviews || []).length));
       set('w-medicals',   String((tw.medicals   || []).length));
       set('w-flights',    String((tw.flights    || []).length));
       set('w-dq',         String((tw.dqs        || []).length));
       set('w-i130',       String((tw.approved   || []).length));
-      if (tw.week_of) txt('week-label', `w/c ${fmtDate(tw.week_of)}`);
     }
 
     function renderDropTable(drops) {
@@ -955,9 +997,9 @@
         const ds = d.drop_date || d.recorded_at;
         return `<tr>
           <td>${fmtDate(ds)}</td>
-          <td>${d.gap_days != null ? d.gap_days + ' days' : '—'}</td>
           <td>${d.drop_time || '—'}</td>
           <td>${d.dq_date_from ? fmtDate(d.dq_date_from) : '—'} – ${d.dq_date_to ? fmtDate(d.dq_date_to) : '—'}</td>
+          <td>${d.gap_days != null ? d.gap_days + ' days' : '—'}</td>
           <td class="num">${d.il_count != null ? Number(d.il_count).toLocaleString('en-GB') : '—'}</td>
         </tr>`;
       }).join('');
