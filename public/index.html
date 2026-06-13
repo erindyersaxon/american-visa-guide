@@ -781,44 +781,70 @@
 
   <div id="footer-placeholder"></div>
 
-  <!-- Supabase CDN -->
-  <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.4/+esm"></script>
-
   <!-- Environment setup -->
   <script src="/js/env.js?v=20260609"></script>
 
   <script src="/js/main.js?v=20260609"></script>
   <script type="module">
-    import { fetchILDrops, fetchCommunityStats, fetchMemberTimelines, fetchWeeklyActivity } from '/js/supabase.js';
-
-    /* ── Static fallback (when Supabase is unreachable) ── */
+    /* Live data comes from the /api/data serverless endpoint, which aggregates
+       the community submissions server-side. FB is a frozen last-known snapshot
+       in the same shape, shown only if /api/data is unreachable. */
     const FB = {
-      drops: [
-        { drop_date:'2026-04-17', gap_days:17, drop_time:'16:02', dq_date_from:'2025-09-30', dq_date_to:'2026-02-14', il_count:11 },
-        { drop_date:'2026-03-31', gap_days:27, drop_time:'15:16', dq_date_from:'2025-12-30', dq_date_to:'2026-01-27', il_count:17 },
-        { drop_date:'2026-03-04', gap_days:19, drop_time:'14:08', dq_date_from:'2025-12-17', dq_date_to:'2025-12-22', il_count:3 },
-        { drop_date:'2026-02-13', gap_days:29, drop_time:'13:51', dq_date_from:'2025-10-24', dq_date_to:'2026-01-26', il_count:13 },
-        { drop_date:'2026-01-15', gap_days:14, drop_time:'13:53', dq_date_from:'2025-10-30', dq_date_to:'2025-12-04', il_count:21 },
-      ],
-      stats: {
-        members_waiting: 217,
-        approved_pct: 93, rejected_221g_pct: 7, denied_pct: 0,
-        passport_pickup_avg_days: 4, passport_mail_avg_days: 12,
-        il_system_status: 'active',
-        next_drop_window_start: null, next_drop_window_end: null,
-        uscis_status: 'slow', nvc_status: 'normal', london_status: 'active',
-        uscis_summary:  'Significantly slowed — the front of the line has not moved since mid-March 2026, with volumes below half of normal levels.',
-        nvc_summary:    'Processing normally. Documentarily Qualified typically ~14 calendar days after submission.',
-        london_summary: 'IL drops continuing on a regular cadence. Once you have an IL, your interview is typically about 9 weeks out.',
+      meta: { total_members: 219 },
+      key_stats: { avg_dq_to_il:66, avg_il_to_interview:60, avg_dq_to_interview:123, avg_passport_days:7, median_passport_days:5, avg_pickup_days:4, avg_mail_days:12 },
+      trends: {
+        dq_to_il:        { all_time:66, last_6m:86, last_3m:269 },
+        il_to_interview: { all_time:60, last_6m:53, last_3m:60 },
+        dq_to_interview: { all_time:123, last_6m:132, last_3m:135 },
       },
-      timelines: [
-        { created_at:'2026-04-01', dq_to_il_days:70, i130_to_nvc_days:42, nvc_fees_to_docs_days:21, docs_to_dq_days:14, il_to_medical_days:21, medical_to_interview_days:16, interview_to_passport_days:5 },
-        { created_at:'2026-03-01', dq_to_il_days:65, i130_to_nvc_days:38, nvc_fees_to_docs_days:24, docs_to_dq_days:13, il_to_medical_days:19, medical_to_interview_days:15, interview_to_passport_days:4 },
-        { created_at:'2026-02-01', dq_to_il_days:72, i130_to_nvc_days:45, nvc_fees_to_docs_days:19, docs_to_dq_days:15, il_to_medical_days:23, medical_to_interview_days:17, interview_to_passport_days:6 },
-        { created_at:'2026-01-05', dq_to_il_days:58, i130_to_nvc_days:40, nvc_fees_to_docs_days:26, docs_to_dq_days:14, il_to_medical_days:20, medical_to_interview_days:14, interview_to_passport_days:5 },
-      ],
-      weekly: { upcoming_week_of:'2026-06-14', previous_week_of:'2026-06-07', interviews:2, medicals:3, flights:1, dq_submissions:4, i130_approvals:2 },
+      outcomes: { approved:98, not_approved:3, cleared:5, denied:1, visa_pause:3, total:110, approval_pct:94 },
+      stage_avgs: { approval_to_welcome:6, welcome_to_fees:8, fees_to_docs:19, docs_to_dq:19, il_to_medical:46, interview_to_passport:6 },
+      il_schedule: {
+        last_il_drop:'2026-05-29', estimated_next_window:'2026-06-21 – 2026-07-01', avg_gap_days:21,
+        recent_drops: [
+          { date:'2026-05-29', time:'14:52', gap:35, dq_from:'2025-11-17', dq_to:'2026-03-16', dq_days:120, il_count:21 },
+          { date:'2026-04-17', time:'16:02', gap:18, dq_from:'2025-09-30', dq_to:'2026-02-14', dq_days:138, il_count:11 },
+          { date:'2026-03-30', time:'00:00', gap:26, dq_from:'2025-12-30', dq_to:'2026-01-27', dq_days:29, il_count:16 },
+          { date:'2026-03-04', time:'14:08', gap:15, dq_from:'2025-12-17', dq_to:'2025-12-22', dq_days:6, il_count:3 },
+          { date:'2026-02-13', time:'13:51', gap:29, dq_from:'2025-10-24', dq_to:'2026-01-26', dq_days:95, il_count:13 },
+        ],
+      },
+      this_week: { upcoming_week_of:'2026-06-14', previous_week_of:'2026-06-07', interviews:[], medicals:[], flights:[], dqs:[], approved:[] },
     };
+
+    /* Editorial pipeline narrative — current processing conditions, not in the DB */
+    const PIPELINE = {
+      uscis:  { status:'slow',   text:'Significantly slowed — the front of the line has barely moved since mid-March 2026, with volumes running below half of normal levels.' },
+      nvc:    { status:'normal', text:'Processing normally. Documentarily Qualified typically lands ~14 calendar days after a complete submission.' },
+      london: { status:'active', text:'IL drops continuing on a regular cadence. Once you have an IL, your interview is typically about 9 weeks out.' },
+    };
+
+    /* Map the /api/data response into the shapes the render functions consume */
+    function fromApiData(d) {
+      const sched = d.il_schedule || {};
+      const drops = (sched.recent_drops || []).map(r => ({
+        drop_date: r.date, gap_days: r.gap, drop_time: r.time,
+        dq_date_from: r.dq_from, dq_date_to: r.dq_to, il_count: r.il_count,
+      }));
+      const win = (sched.estimated_next_window || '').split('–').map(s => s.trim());
+      const o = d.outcomes || {};
+      const pct = n => (o.total ? Math.round((n || 0) / o.total * 100) : null);
+      const stats = {
+        members_waiting: d.meta?.total_members ?? null,
+        il_system_status: 'active', // renderBanner upgrades to delayed/paused from the drop date
+        next_drop_window_start: win[0] || null,
+        next_drop_window_end:   win[1] || null,
+        uscis_status:  PIPELINE.uscis.status,  uscis_summary:  PIPELINE.uscis.text,
+        nvc_status:    PIPELINE.nvc.status,    nvc_summary:    PIPELINE.nvc.text,
+        london_status: PIPELINE.london.status, london_summary: PIPELINE.london.text,
+        approved_pct: o.approval_pct ?? null,
+        rejected_221g_pct: pct(o.not_approved),
+        denied_pct: pct(o.denied),
+        passport_pickup_avg_days: d.key_stats?.avg_pickup_days ?? null,
+        passport_mail_avg_days:   d.key_stats?.avg_mail_days ?? null,
+      };
+      return { drops, stats };
+    }
 
     /* ── Helpers ── */
     function fmtDate(s) {
@@ -933,30 +959,19 @@
       ].forEach(s => { set(s.badge, statusBadge(s.status)); set(s.summary, s.text); });
     }
 
-    function renderWeekly(weekly) {
-      const w = Array.isArray(weekly) ? weekly[0] : weekly;
-      if (!w) return;
-      set('w-interviews', String(w.interviews      ?? '—'));
-      set('w-medicals',   String(w.medicals        ?? '—'));
-      set('w-flights',    String(w.flights          ?? '—'));
-      set('w-dq',         String(w.dq_submissions  ?? '—'));
-      set('w-i130',       String(w.i130_approvals  ?? '—'));
-      setWeekLabels(w.upcoming_week_of, w.previous_week_of);
-    }
+    /* Two-window community widget — counts, labels, and member names from this_week */
+    function renderWeek(tw) {
+      if (!tw) return;
+      set('w-interviews', String((tw.interviews || []).length));
+      set('w-medicals',   String((tw.medicals   || []).length));
+      set('w-flights',    String((tw.flights    || []).length));
+      set('w-dq',         String((tw.dqs        || []).length));
+      set('w-i130',       String((tw.approved   || []).length));
+      setWeekLabels(tw.upcoming_week_of, tw.previous_week_of);
 
-    /* Members who reached milestones this week — names from /api/data this_week */
-    async function renderWeekNames() {
       const wrap  = document.getElementById('week-names-wrap');
       const tbody = document.getElementById('week-names-tbody');
       if (!wrap || !tbody) return;
-      let tw;
-      try {
-        const res = await fetch('/api/data');
-        if (!res.ok) return;
-        tw = (await res.json()).this_week;
-      } catch { return; }
-      if (!tw) return;
-
       const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
       // Upcoming-week milestones first, then previous-week — each sorted by date
       const upcoming = [
@@ -972,7 +987,6 @@
         .flatMap(g => (g.list || []).map(e => ({ ...e, milestone: g.label })))
         .sort((a, b) => new Date(a.date) - new Date(b.date));
       const rows = [...expand(upcoming), ...expand(previous)];
-      setWeekLabels(tw.upcoming_week_of, tw.previous_week_of);
       if (!rows.length) return;
 
       tbody.innerHTML = rows.map(r => `<tr>
@@ -981,13 +995,6 @@
         <td>${fmtDate(r.date)}</td>
       </tr>`).join('');
       wrap.hidden = false;
-
-      // Counts from the same source, so cards and table agree
-      set('w-interviews', String((tw.interviews || []).length));
-      set('w-medicals',   String((tw.medicals   || []).length));
-      set('w-flights',    String((tw.flights    || []).length));
-      set('w-dq',         String((tw.dqs        || []).length));
-      set('w-i130',       String((tw.approved   || []).length));
     }
 
     function renderDropTable(drops) {
@@ -1032,14 +1039,12 @@
       tbody.innerHTML = rows.join('') || '<tr><td colspan="3">No data yet</td></tr>';
     }
 
-    function renderTrends(timelines) {
-      if (!timelines?.length) return;
-      const cutoff6 = Date.now() - 182 * 86400000;
-      const cutoff3 = Date.now() - 91  * 86400000;
-      const ts = t => new Date((t.created_at?.length === 10 ? t.created_at + 'T00:00:00Z' : t.created_at) || 0).getTime();
-      const allAvg = avgOf(timelines, 'dq_to_il_days');
-      const avg6   = avgOf(timelines.filter(t => ts(t) >= cutoff6), 'dq_to_il_days') ?? allAvg;
-      const avg3   = avgOf(timelines.filter(t => ts(t) >= cutoff3), 'dq_to_il_days') ?? allAvg;
+    function renderTrends(trends) {
+      const t = trends?.dq_to_il;
+      if (!t || t.all_time == null) return;
+      const allAvg = t.all_time;
+      const avg6   = t.last_6m ?? allAvg;
+      const avg3   = t.last_3m ?? allAvg;
 
       function setTrend(valId, dirId, val, ref) {
         set(valId, val != null ? `${val} days` : '—');
@@ -1070,53 +1075,51 @@
       set('pp-mail',   stats.passport_mail_avg_days   != null ? String(stats.passport_mail_avg_days)   : '—');
     }
 
-    function renderTimings(timelines) {
+    function renderTimings(d) {
       const tbody = document.getElementById('timing-tbody');
-      if (!tbody || !timelines?.length) return;
+      if (!tbody) return;
+      const sa = d.stage_avgs || {}, ks = d.key_stats || {};
       const stages = [
-        { label:'I-130 Approval → NVC Welcome',        field:'i130_to_nvc_days' },
-        { label:'NVC Fees → Documents Submitted',      field:'nvc_fees_to_docs_days' },
-        { label:'Documents Submitted → DQ',            field:'docs_to_dq_days' },
-        { label:'DQ → Interview Letter (IL)',           field:'dq_to_il_days' },
-        { label:'IL → Medical Appointment',            field:'il_to_medical_days' },
-        { label:'Medical Appointment → Interview',     field:'medical_to_interview_days' },
-        { label:'Interview → Passport Return',         field:'interview_to_passport_days' },
+        ['I-130 Approval → NVC Welcome',    sa.approval_to_welcome],
+        ['NVC Fees → Documents Submitted',  sa.fees_to_docs],
+        ['Documents Submitted → DQ',        sa.docs_to_dq],
+        ['DQ → Interview Letter (IL)',      ks.avg_dq_to_il],
+        ['IL → Medical Appointment',        sa.il_to_medical],
+        ['Medical Appointment → Interview', null], // not aggregated server-side
+        ['Interview → Passport Return',     sa.interview_to_passport],
       ];
-      tbody.innerHTML = stages.map(s => {
-        const a = avgOf(timelines, s.field);
-        return `<tr>
-          <th scope="row" style="font-weight:var(--font-normal);">${s.label}</th>
+      tbody.innerHTML = stages.map(([label, a]) => `<tr>
+          <th scope="row" style="font-weight:var(--font-normal);">${label}</th>
           <td class="num">${a != null ? a : '—'}</td>
           <td class="num">${a != null ? toMonths(a) : '—'}</td>
-        </tr>`;
-      }).join('');
+        </tr>`).join('');
     }
 
     /* ── Boot ── */
     async function boot() {
-      let drops, stats, timelines, weekly, usedFallback = false;
+      let d, usedFallback = false;
       try {
-        [drops, stats, timelines, weekly] = await Promise.all([
-          fetchILDrops(), fetchCommunityStats(), fetchMemberTimelines(), fetchWeeklyActivity(),
-        ]);
-        if (!drops?.length && !stats && !timelines?.length) throw new Error('empty');
+        const res = await fetch('/api/data');
+        if (!res.ok) throw new Error('http ' + res.status);
+        d = await res.json();
+        if (!d || !d.meta) throw new Error('empty');
       } catch {
-        drops = FB.drops; stats = FB.stats; timelines = FB.timelines; weekly = FB.weekly;
+        d = FB;
         usedFallback = true;
       }
       if (usedFallback) document.getElementById('data-notice')?.classList.add('is-visible');
 
+      const { drops, stats } = fromApiData(d);
       renderBanner(drops, stats);
       renderMetrics(drops, stats);
       renderPipeline(stats);
-      renderWeekly(Array.isArray(weekly) ? weekly : (weekly ? [weekly] : []));
-      renderWeekNames();
       renderDropTable(drops);
       renderSchedTable(drops);
-      renderTrends(timelines);
+      renderTrends(d.trends);
       renderOutcomes(stats);
       renderPassport(stats);
-      renderTimings(timelines);
+      renderTimings(d);
+      renderWeek(d.this_week);
     }
 
     document.readyState === 'loading'
