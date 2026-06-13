@@ -1,5 +1,6 @@
 node_modules
 dist
 .env
+.mcp.json
 mcp.json
 .DS_Store
