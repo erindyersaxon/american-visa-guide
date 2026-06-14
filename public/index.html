@@ -1040,7 +1040,7 @@
         ['Documents Submitted → DQ',        sa.docs_to_dq],
         ['DQ → Interview Letter (IL)',      ks.avg_dq_to_il],
         ['IL → Medical Appointment',        sa.il_to_medical],
-        ['Medical Appointment → Interview', null], // not aggregated server-side
+        ['Medical Appointment → Interview', sa.medical_to_interview],
         ['Interview → Passport Return',     sa.interview_to_passport],
       ];
       tbody.innerHTML = stages.map(([label, a]) => `<tr>
