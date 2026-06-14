@@ -2671,7 +2671,7 @@ if (mobileNavDrawer) {
 }
 
 // Highlight active section in sidebar navigation as user scrolls
-const sidebarLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]')
+const sectionLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]')
 const sections = document.querySelectorAll('.section[id]')
 
 function updateActiveLink() {
@@ -2683,7 +2683,7 @@ function updateActiveLink() {
     }
   })
 
-  sidebarLinks.forEach(link => {
+  sectionLinks.forEach(link => {
     link.classList.remove('active')
     if (link.getAttribute('href') === '#' + current) {
       link.classList.add('active')
