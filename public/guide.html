@@ -2596,13 +2596,13 @@
 </div>
 
 <script>
-const sections = document.querySelectorAll('.section');
-const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+let sections = document.querySelectorAll('.section');
+let navLinks = document.querySelectorAll('.sidebar-nav a');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      sidebarLinks.forEach(a => a.classList.remove('active'));
+      navLinks.forEach(a => a.classList.remove('active'));
       const active = document.querySelector(`.sidebar-nav a[href="#${entry.target.id}"]`);
       if (active) active.classList.add('active');
     }
