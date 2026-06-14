@@ -294,7 +294,7 @@
       grid-template-columns: 1fr;
       gap: var(--space-4);
     }
-    @media (min-width: 640px) { .trend-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (min-width: 640px) { .trend-grid { grid-template-columns: repeat(2,1fr); } }
 
     .trend-card {
       background: var(--color-surface);
@@ -660,11 +660,6 @@
             <div class="trend-card__period">Last 6 Months</div>
             <div class="trend-card__value" id="t-6mo"><span class="skel skel--val" aria-hidden="true"></span></div>
             <div class="trend-card__dir" id="t-6mo-dir"></div>
-          </div>
-          <div class="trend-card">
-            <div class="trend-card__period">Last 3 Months</div>
-            <div class="trend-card__value" id="t-3mo"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="trend-card__dir" id="t-3mo-dir"></div>
           </div>
         </div>
       </div>
@@ -1049,7 +1044,6 @@
       }
       setTrend('t-alltime', 't-alltime-dir', allAvg,    allAvg);
       setTrend('t-6mo',     't-6mo-dir',     t.last_6m, allAvg);
-      setTrend('t-3mo',     't-3mo-dir',     t.last_3m, allAvg);
     }
 
     function renderOutcomes(stats) {
