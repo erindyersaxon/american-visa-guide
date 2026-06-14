@@ -431,14 +431,14 @@
     top: 32px;
     bottom: 0;
     width: 1px;
-    background: var(--border);
+    background: rgba(62,113,136,0.45);
   }
 
   .step-num {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: var(--card-bg);
+    background: rgba(90,143,166,0.1);
     border: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -450,7 +450,10 @@
     flex-shrink: 0;
     position: relative;
     z-index: 1;
+    transition: all 0.15s;
   }
+
+  .step-num:hover { background: rgba(90,143,166,0.15); }
 
   .step-body {
     padding: 6px 0 20px;
