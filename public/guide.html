@@ -87,8 +87,13 @@
   .prep-link { font-size: 12px; color: var(--teal-light); margin-top: 3px; display: inline-block; }
   .skip-link { position:absolute;top:-40px;left:16px;background:var(--accent);color:var(--text-inverse);font-weight:700;font-size:14px;padding:8px 16px;border-radius:0 0 8px 8px;z-index:9999;transition:top 0.15s;text-decoration:none; }
   .skip-link:focus { top: 0; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .sub-acc-trigger:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .stage-pill:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .sidebar-nav a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .mobile-nav-toggle:focus-visible { outline: 3px solid var(--text-primary); outline-offset: 4px; }
+  .mobile-nav-drawer-close:focus-visible { outline: 3px solid var(--text-primary); outline-offset: 2px; }
 
   body {
     background: var(--bg);
@@ -667,6 +672,40 @@
     text-align: right;
   }
 
+  /* Table responsiveness */
+  @media (max-width: 600px) {
+    .fee-table {
+      font-size: 12px;
+    }
+
+    .fee-table th, .fee-table td {
+      padding: 8px 10px;
+    }
+
+    table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+
+    table thead {
+      display: table;
+      width: 100%;
+    }
+
+    table tbody {
+      display: block;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    table tr {
+      display: table;
+      width: 100%;
+    }
+  }
+
   /* ── Checklist ── */
   .checklist {
     list-style: none;
@@ -895,7 +934,7 @@
     <!-- Overview -->
     <section class="section" id="overview">
       <div class="section-header">
-        <div class="section-icon">🗺️</div>
+        <div class="section-icon" title="Overview">🗺️</div>
         <div>
           <div class="section-number">Overview</div>
           <div class="section-title">What this guide covers</div>
@@ -1035,7 +1074,7 @@
     <!-- USCIS -->
     <section class="section" id="uscis">
       <div class="section-header">
-        <div class="section-icon blue">📋</div>
+        <div class="section-icon blue" title="USCIS Filing">📋</div>
         <div>
           <div class="section-number">Stage 1</div>
           <div class="section-title">USCIS / I-130</div>
@@ -1163,7 +1202,7 @@
     <!-- CRBA -->
     <section class="section" id="crba">
       <div class="section-header">
-        <div class="section-icon blue">👶</div>
+        <div class="section-icon blue" title="CRBA Filing">👶</div>
         <div>
           <div class="section-number">Stage 1B</div>
           <div class="section-title">CRBA — Consular Report of Birth Abroad</div>
@@ -1392,7 +1431,7 @@
     <!-- NVC -->
     <section class="section" id="nvc">
       <div class="section-header">
-        <div class="section-icon">📁</div>
+        <div class="section-icon" title="National Visa Center">📁</div>
         <div>
           <div class="section-number">Stage 2</div>
           <div class="section-title">National Visa Center (NVC)</div>
@@ -1655,7 +1694,7 @@
     <!-- IL Drops -->
     <section class="section" id="waiting">
       <div class="section-header">
-        <div class="section-icon teal">⏳</div>
+        <div class="section-icon teal" title="Waiting for Interview Letter">⏳</div>
         <div>
           <div class="section-number">Stage 3</div>
           <div class="section-title">Interview Letter (IL) Drops</div>
@@ -1885,7 +1924,7 @@
     <!-- Medical -->
     <section class="section" id="medical">
       <div class="section-header">
-        <div class="section-icon">🏥</div>
+        <div class="section-icon" title="Medical Examination">🏥</div>
         <div>
           <div class="section-number">Stage 4</div>
           <div class="section-title">Medical Exam</div>
@@ -2087,7 +2126,7 @@
     <!-- Interview -->
     <section class="section" id="interview">
       <div class="section-header">
-        <div class="section-icon teal">🏛️</div>
+        <div class="section-icon teal" title="Embassy Interview">🏛️</div>
         <div>
           <div class="section-number">Stage 5</div>
           <div class="section-title">Embassy Interview</div>
@@ -2261,7 +2300,7 @@
     <!-- Post-interview -->
     <section class="section" id="post">
       <div class="section-header">
-        <div class="section-icon">✅</div>
+        <div class="section-icon" title="Post-Interview">✅</div>
         <div>
           <div class="section-number">Stage 6</div>
           <div class="section-title">After the Interview</div>
@@ -2367,7 +2406,7 @@
     <!-- Before You Leave the UK -->
     <section class="section" id="uk-obligations">
       <div class="section-header">
-        <div class="section-icon">🇬🇧</div>
+        <div class="section-icon" title="UK Departure">🇬🇧</div>
         <div>
           <div class="section-number">Stage 7</div>
           <div class="section-title">Before You Leave the UK</div>
@@ -2416,7 +2455,7 @@
 
     <section class="section" id="entry">
       <div class="section-header">
-        <div class="section-icon blue">✈️</div>
+        <div class="section-icon blue" title="US Entry">✈️</div>
         <div>
           <div class="section-number">Stage 8</div>
           <div class="section-title">Travel &amp; US Entry</div>
