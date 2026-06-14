@@ -124,9 +124,74 @@
     align-items: start;
   }
 
+  /* ── Mobile Navigation ── */
+  .mobile-nav-toggle {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    color: var(--text-inverse);
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(62,113,136,0.25);
+    transition: all 0.15s;
+  }
+
+  .mobile-nav-toggle:active { transform: scale(0.95); }
+
+  .mobile-nav-drawer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+  }
+
+  .mobile-nav-drawer.open {
+    display: block;
+  }
+
+  .mobile-nav-drawer-content {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+    background: var(--bg);
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  }
+
+  .mobile-nav-drawer-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobile-nav-drawer .sidebar-label {
+    margin-top: 40px;
+  }
+
   @media (max-width: 700px) {
     .wrap { grid-template-columns: 1fr; }
     .sidebar { display: none; }
+    .mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
+    .stage-jump { position: sticky; top: 72px; margin-bottom: 32px; z-index: 10; }
   }
 
   /* ── Sidebar ── */
@@ -649,7 +714,32 @@
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="nav-placeholder"></div>
 
+<!-- Mobile Navigation -->
+<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
 
+<div class="mobile-nav-drawer" id="mobileNavDrawer">
+  <div class="mobile-nav-drawer-content">
+    <button class="mobile-nav-drawer-close" id="mobileNavClose" aria-label="Close navigation">✕</button>
+    <div class="sidebar-label">Jump to stage</div>
+    <ul class="sidebar-nav" role="list" aria-label="Guide sections">
+      <li><a href="#overview">Overview</a></li>
+      <div class="sidebar-divider"></div>
+      <li><a href="#uscis">1 — USCIS / I-130</a></li>
+      <li><a href="#crba">1B — CRBA (children)</a></li>
+      <li><a href="#nvc">2 — NVC</a></li>
+      <li><a href="#waiting">3 — Waiting for IL</a></li>
+      <li><a href="#medical">4 — Medical</a></li>
+      <li><a href="#interview">5 — Interview</a></li>
+      <li><a href="#post">6 — After Interview</a></li>
+      <li><a href="#uk-obligations">7 — Before You Leave the UK</a></li>
+      <li><a href="#entry">8 — US Entry</a></li>
+      <li><a href="life.html">🏠 Life in the USA →</a></li>
+      <div class="sidebar-divider"></div>
+      <li><a href="checklists.html">📋 Checklists &amp; Tools</a></li>
+      <li><a href="checklists.html#resources">Resources</a></li>
+    </ul>
+  </div>
+</div>
 
 <div class="wrap">
 
@@ -2442,6 +2532,41 @@ function toggleSubAcc(id) {
 }
 function subAccGroup(group, expand) {
   document.querySelectorAll('[data-sub-group="' + group + '"]').forEach(el => el.classList.toggle('open', expand))
+}
+
+// Mobile navigation
+const mobileNavToggle = document.getElementById('mobileNavToggle')
+const mobileNavDrawer = document.getElementById('mobileNavDrawer')
+const mobileNavClose = document.getElementById('mobileNavClose')
+
+if (mobileNavToggle) {
+  mobileNavToggle.addEventListener('click', () => {
+    mobileNavDrawer.classList.add('open')
+    mobileNavToggle.setAttribute('aria-expanded', 'true')
+  })
+}
+
+if (mobileNavClose) {
+  mobileNavClose.addEventListener('click', () => {
+    mobileNavDrawer.classList.remove('open')
+    mobileNavToggle.setAttribute('aria-expanded', 'false')
+  })
+}
+
+if (mobileNavDrawer) {
+  mobileNavDrawer.addEventListener('click', (e) => {
+    if (e.target === mobileNavDrawer) {
+      mobileNavDrawer.classList.remove('open')
+      mobileNavToggle.setAttribute('aria-expanded', 'false')
+    }
+  })
+
+  mobileNavDrawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNavDrawer.classList.remove('open')
+      mobileNavToggle.setAttribute('aria-expanded', 'false')
+    })
+  })
 }
 </script>
 <!-- Shared IL → Interview pattern (single source, also used on the homepage) -->
