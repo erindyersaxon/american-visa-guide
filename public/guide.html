@@ -424,9 +424,25 @@
   a {
     color: var(--teal-light);
     text-decoration: none;
+    transition: all 0.15s;
   }
 
   a:hover { text-decoration: underline; }
+
+  /* External links */
+  a[target="_blank"] {
+    opacity: 0.9;
+  }
+
+  a[target="_blank"]::after {
+    content: ' ↗';
+    font-size: 0.85em;
+    vertical-align: super;
+  }
+
+  a[target="_blank"]:hover {
+    opacity: 1;
+  }
 
   strong { color: var(--text-primary); font-weight: 500; }
 
@@ -855,25 +871,25 @@
                 <div class="info-card-head">CR1</div>
                 <p style="font-size:13px;margin-bottom:6px;">Spouse of US citizen, married <strong>&lt;2 years</strong> at US entry. Conditional green card, valid 2 years. Requires I-751 to remove conditions before permanent residency and citizenship eligibility.</p>
                 <p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> This is the highest scrutiny category — USCIS is assessing fraud risk, not romance. Lack of financial integration is the most common weakness. Include: joint financial accounts, lease or mortgage in both names, insurance policies naming each other as beneficiaries, tax returns (joint preferred), photos over time organised with name/date/location, and travel history and communication logs.</p>
-                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
+                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">IR1</div>
                 <p style="font-size:13px;margin-bottom:6px;">Spouse of US citizen, married <strong>≥2 years</strong> at US entry. Green card valid 10 years. No I-751 required. A CR1 automatically converts to IR1 if the marriage crosses 2 years before entry.</p>
                 <p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> This is the highest scrutiny category — USCIS is assessing fraud risk, not romance. Lack of financial integration is the most common weakness. Include: joint financial accounts, lease or mortgage in both names, insurance policies naming each other as beneficiaries, tax returns (joint preferred), photos over time organised with name/date/location, and travel history and communication logs.</p>
-                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
+                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">IR2</div>
                 <p style="font-size:13px;margin-bottom:6px;">Unmarried child under 21 of a US citizen. Child must not be a US citizen at birth (if so, CRBA applies instead). Can be CR2 (parents married &lt;2 years at entry) or IR2 (≥2 years).</p>
                 <p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Child's birth certificate naming both parents. If stepchild: marriage certificate of petitioner and biological parent. If biological parent is not the petitioner: evidence of legal custody or relationship. Proof of petitioner's US citizenship.</p>
-                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
+                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">IR5</div>
                 <p style="font-size:13px;margin-bottom:6px;">Parent of a US citizen, where the petitioner is <strong>21 or older</strong>. No annual cap. Green card valid 10 years. The US citizen child files the I-130 as the petitioner.</p>
                 <p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Petitioner's birth certificate naming the parent being sponsored. Proof of petitioner's US citizenship. If sponsoring a stepparent: marriage certificate of biological parent and stepparent, plus evidence that the marriage occurred before the petitioner turned 18.</p>
-                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-parent.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
+                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-parent.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info</a>
               </div>
             </div>
             <div class="info-card tip">
@@ -897,31 +913,31 @@
                 <div class="info-card-head">F1</div>
                 <p style="font-size:13px;margin-bottom:6px;">Unmarried adult child (21+) of a US citizen.</p>
                 <p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Child's birth certificate naming petitioner. Proof of petitioner's US citizenship. Evidence of child's unmarried status (e.g. statutory declaration). If the child has previously been married: divorce or death certificate for each prior marriage.</p>
-                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
+                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">F2A</div>
                 <p style="font-size:13px;margin-bottom:6px;">Spouse and unmarried children under 21 of a <strong>lawful permanent resident (LPR)</strong>. Shortest wait among preference categories.</p>
                 <p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Marriage certificate (spouse) or birth certificate (child). Copy of petitioner's green card (front and back). Proof of termination of any prior marriages. Bona fide marriage evidence for spouse petitions.</p>
-                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
+                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-spouse-or-fiance-k-1-.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">F2B</div>
                 <p style="font-size:13px;margin-bottom:6px;">Unmarried adult child (21+) of a <strong>lawful permanent resident (LPR)</strong>.</p>
                 <p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Child's birth certificate naming petitioner. Copy of petitioner's green card (front and back). Evidence of child's unmarried status. Divorce or death certificate for any prior marriages of the child.</p>
-                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
+                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">F3</div>
                 <p style="font-size:13px;margin-bottom:6px;">Married child of a US citizen (any age). Spouse and minor children can be included as derivatives.</p>
                 <p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Child's birth certificate naming petitioner. Proof of petitioner's US citizenship. Child's marriage certificate. Derivative beneficiaries (spouse, children): their birth or marriage certificates.</p>
-                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
+                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-child.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info</a>
               </div>
               <div class="info-card">
                 <div class="info-card-head">F4</div>
                 <p style="font-size:13px;margin-bottom:6px;">Sibling of a US citizen, where the petitioner is <strong>21 or older</strong>. Longest waits of all preference categories — often 10+ years depending on country.</p>
                 <p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">Evidence at filing:</strong> Birth certificates of both petitioner and sibling showing at least one shared parent. Proof of petitioner's US citizenship. If the shared parent's name differs on documents (e.g. through marriage): marriage certificate or name change documentation. Derivative beneficiaries (sibling's spouse and children): their birth or marriage certificates.</p>
-                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-sibling.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info ↗</a>
+                <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/family-immigration/immigrant-visa-for-a-sibling.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;">Official info</a>
               </div>
             </div>
           </div>
