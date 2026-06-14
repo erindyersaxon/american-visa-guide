@@ -922,6 +922,9 @@
   vertical-align: top;
 }
 
+.table--compact th,
+.table--compact td { padding: var(--space-2) var(--space-4); }
+
 .table tbody tr:last-child td {
   border-bottom: none;
 }

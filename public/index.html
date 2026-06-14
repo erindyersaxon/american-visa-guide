@@ -26,7 +26,7 @@
 
 
   <link rel="stylesheet" href="/css/main.css?v=20260612">
-  <link rel="stylesheet" href="/css/components.css?v=20260612">
+  <link rel="stylesheet" href="/css/components.css?v=20260613">
 
   <style>
     /* ── Accessibility: Skip link ── */
@@ -619,23 +619,29 @@
       <div class="container">
         <div class="section-hd">
           <h2 class="section-hd__title" id="sched-hd">IL to Interview Scheduling</h2>
-          <p class="section-hd__sub">If you received your Interview Letter in a given month, your interview appointment is typically in this window. Based on community data.</p>
+          <p class="section-hd__sub">The month your Interview Letter arrived and the month interviews have been scheduled. IL → interview is typically ~2 months. Observed pattern from London community members.</p>
         </div>
 
         <div class="table-wrapper" role="region" aria-labelledby="sched-hd" tabindex="0">
-          <table class="table table--striped">
-            <caption class="sr-only">Interview scheduling estimates: IL receipt month, expected interview window, and number of community members who reported data</caption>
+          <table class="table table--striped table--compact">
+            <caption class="sr-only">Observed pattern: the month an Interview Letter was received and the month the interview was scheduled</caption>
             <thead>
               <tr>
                 <th scope="col">IL Received</th>
-                <th scope="col">Expected Interview Window</th>
-                <th scope="col" class="num">Members Reported</th>
+                <th scope="col">Interview Scheduled</th>
               </tr>
             </thead>
-            <tbody id="sched-tbody">
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
+            <tbody>
+              <tr><td>May 2026</td><td>July 2026</td></tr>
+              <tr><td>April 2026</td><td>June 2026</td></tr>
+              <tr><td>Late March 2026</td><td>May 2026</td></tr>
+              <tr><td>Early March 2026</td><td>April 2026</td></tr>
+              <tr><td>February 2026</td><td>April 2026</td></tr>
+              <tr><td>January 2026</td><td>March 2026</td></tr>
+              <tr><td>December 2025</td><td>February 2026</td></tr>
+              <tr><td>November 2025</td><td>January 2026</td></tr>
+              <tr><td>October 2025</td><td>December 2025</td></tr>
+              <tr><td>September 2025</td><td>November 2025</td></tr>
             </tbody>
           </table>
         </div>
@@ -994,33 +1000,6 @@
       }).join('');
     }
 
-    function renderSchedTable(drops) {
-      const tbody = document.getElementById('sched-tbody');
-      if (!tbody || !drops?.length) return;
-      const byMonth = {};
-      drops.forEach(d => {
-        const ds = d.drop_date || d.recorded_at;
-        if (!ds) return;
-        const key = ds.slice(0, 7);
-        byMonth[key] = (byMonth[key] || 0) + 1;
-      });
-      const opts = { month:'short', year:'numeric', timeZone:'UTC' };
-      const rows = Object.entries(byMonth)
-        .sort(([a], [b]) => b.localeCompare(a))
-        .slice(0, 8)
-        .map(([month, count]) => {
-          const base = new Date(month + '-01T00:00:00Z');
-          const early = new Date(base); early.setUTCDate(early.getUTCDate() + 42);
-          const late  = new Date(base); late.setUTCDate(late.getUTCDate() + 70);
-          return `<tr>
-            <td>${fmtMonth(month + '-01')}</td>
-            <td>${early.toLocaleDateString('en-GB', opts)} – ${late.toLocaleDateString('en-GB', opts)}</td>
-            <td class="num">${count}</td>
-          </tr>`;
-        });
-      tbody.innerHTML = rows.join('') || '<tr><td colspan="3">No data yet</td></tr>';
-    }
-
     function renderTrends(trends) {
       const t = trends?.dq_to_il;
       if (!t || t.all_time == null) return;
@@ -1098,7 +1077,6 @@
       renderMetrics(drops, stats);
       renderPipeline(stats);
       renderDropTable(drops);
-      renderSchedTable(drops);
       renderTrends(d.trends);
       renderOutcomes(stats);
       renderPassport(stats);
