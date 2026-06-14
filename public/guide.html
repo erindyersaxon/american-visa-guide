@@ -35,6 +35,7 @@
     --text-secondary: #6a6560;
     --card-bg: #fdfaf3;
     --border: rgba(62,113,136,0.25);
+    --border-subtle: rgba(62,113,136,0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -585,14 +586,16 @@
   .sub-controls { display: flex; gap: 8px; margin: 0 0 12px; }
   .sub-ctrl { font-size: 11px; font-weight: 600; color: var(--text-secondary); background: rgba(30,28,23,0.04); border: 1px solid var(--border-subtle); border-radius: 5px; padding: 4px 12px; cursor: pointer; transition: all 0.15s; font-family:var(--font-ui); }
   .sub-ctrl:hover { color: var(--text-primary); border-color: var(--accent); }
-  .sub-acc-item { border: 1px solid var(--border-subtle); border-radius: 8px; margin-bottom: 5px; overflow: hidden; transition: border-color 0.2s; }
-  .sub-acc-item.open { border-color: rgba(90,143,166,0.2); }
-  .sub-acc-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 16px; background: #fdfaf3; border: none; cursor: pointer; text-align: left; transition: background 0.15s; }
-  .sub-acc-trigger:hover { background: #ece5d6; }
-  .sub-acc-item.open .sub-acc-trigger { background: #ece5d6; border-bottom: 1px solid var(--border-subtle); }
-  .sub-acc-label { font-family:var(--font-ui); font-size: 14px; font-weight: 700; color: var(--text-primary); }
-  .sub-acc-chevron { color: var(--text-secondary); font-size: 11px; transition: transform 0.25s, color 0.15s; flex-shrink: 0; }
-  .sub-acc-item.open .sub-acc-chevron { transform: rotate(180deg); color: var(--accent); }
+  .sub-acc-item { border: 1px solid var(--border-subtle); border-left: 3px solid transparent; border-radius: 8px; margin-bottom: 5px; overflow: hidden; transition: all 0.2s; background: rgba(30,28,23,0.02); }
+  .sub-acc-item:hover { background: rgba(30,28,23,0.04); }
+  .sub-acc-item.open { border-color: rgba(90,143,166,0.2); border-left-color: var(--accent); background: #ffffff; }
+  .sub-acc-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; background: transparent; border: none; cursor: pointer; text-align: left; transition: all 0.15s; }
+  .sub-acc-trigger:hover { color: var(--accent); }
+  .sub-acc-item.open .sub-acc-trigger { border-bottom: 1px solid var(--border-subtle); }
+  .sub-acc-label { font-family:var(--font-ui); font-size: 14px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+  .sub-acc-item:not(.open) .sub-acc-label::before { content: '+'; font-weight: 800; opacity: 0.5; }
+  .sub-acc-chevron { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; background: rgba(90,143,166,0.08); border-radius: 3px; color: var(--text-secondary); font-size: 11px; transition: all 0.25s; flex-shrink: 0; }
+  .sub-acc-item.open .sub-acc-chevron { transform: rotate(180deg); color: var(--accent); background: rgba(90,143,166,0.15); }
   .sub-acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
   .sub-acc-item.open .sub-acc-body { max-height: 9999px; }
   .sub-acc-content { padding: 16px 18px; background: rgba(30,28,23,0.025); }
@@ -725,6 +728,10 @@
         <p style="font-size:13px;margin:0;"><strong>F (Family Preference) visas</strong> — F1, F2A, F2B, F3, F4 — are subject to annual caps and can have multi-year waiting periods. Before the embassy queue is relevant, the beneficiary's priority date must first become <strong>current</strong> on the monthly <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer">Visa Bulletin</a>. Once current, the case enters NVC processing and follows the same London embassy process as IR cases. F visa holders should monitor the Visa Bulletin closely — the embassy queue only begins once a visa number is available. <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[Visa Bulletin]</a></p>
       </div>
 
+      <div class="sub-controls">
+        <button class="sub-ctrl" onclick="subAccGroup('visa-cats', true)">Expand all</button>
+        <button class="sub-ctrl" onclick="subAccGroup('visa-cats', false)">Collapse all</button>
+      </div>
       <div class="sub-acc-item" id="visa-ir" data-sub-group="visa-cats">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('visa-ir')">
           <span class="sub-acc-label">Immediate Relatives (IR) — no annual cap — CR1, IR1, IR2, IR5</span>
@@ -877,6 +884,10 @@
         <p style="font-size:13px;margin:0;">Under current US policy (April 2025), USCIS determines sex from the original birth certificate and only recognises male or female markers. If your documents carry inconsistent sex markers, this can cause delays at USCIS, NVC, and the embassy medical. See the <a href="#medical">Medical section</a> of this guide for full guidance and support resources.</p>
       </div>
 
+      <div class="sub-controls">
+        <button class="sub-ctrl" onclick="subAccGroup('uscis-extra', true)">Expand all</button>
+        <button class="sub-ctrl" onclick="subAccGroup('uscis-extra', false)">Collapse all</button>
+      </div>
       <div class="sub-acc-item" id="linking-i130" data-sub-group="uscis-extra">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('linking-i130')">
           <span class="sub-acc-label">Linking family I-130 applications (IR2, IR5)</span>
