@@ -187,6 +187,76 @@
     margin-top: 40px;
   }
 
+  /* ── Sticky Alert Banner ── */
+  .sticky-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(184, 103, 50, 0.95);
+    border-bottom: 2px solid rgba(176, 74, 56, 0.5);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: #ffffff;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-height: 120px;
+    overflow-y: auto;
+    margin-top: 72px;
+  }
+
+  .sticky-alert-icon {
+    flex-shrink: 0;
+    font-size: 18px;
+    margin-top: 2px;
+  }
+
+  .sticky-alert-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sticky-alert-content p {
+    color: #ffffff;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+
+  .sticky-alert-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .sticky-alert-content a {
+    color: #ffffff;
+    text-decoration: underline;
+    opacity: 0.95;
+  }
+
+  .sticky-alert-content a:hover {
+    opacity: 1;
+  }
+
+  .sticky-alert-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: opacity 0.15s;
+  }
+
+  .sticky-alert-close:hover {
+    opacity: 0.8;
+  }
+
+  .sticky-alert.hidden {
+    display: none;
+  }
+
   @media (max-width: 700px) {
     .wrap { grid-template-columns: 1fr; }
     .sidebar { display: none; }
@@ -757,6 +827,16 @@
   </div>
 </div>
 
+<!-- Sticky Alert Banner -->
+<div class="sticky-alert" id="stickyAlert">
+  <div class="sticky-alert-icon">⚠️</div>
+  <div class="sticky-alert-content">
+    <p><strong>Policy Update — 22 May 2026</strong></p>
+    <p>USCIS has announced that Adjustment of Status will be granted only in extraordinary circumstances. If you have a pending I-485, seek qualified immigration legal advice urgently.</p>
+  </div>
+  <button class="sticky-alert-close" id="stickyAlertClose" aria-label="Dismiss alert">✕</button>
+</div>
+
 <div class="wrap">
 
   <!-- Sidebar -->
@@ -1317,6 +1397,12 @@
           <div class="section-number">Stage 2</div>
           <div class="section-title">National Visa Center (NVC)</div>
         </div>
+      </div>
+
+      <div class="info-card warning">
+        <div class="info-card-head">Policy update — 22 May 2026</div>
+        <p style="font-size:13px;margin-bottom:6px;">USCIS has announced that Adjustment of Status will be granted only in extraordinary circumstances. Those previously expecting to adjust status from within the United States will now need to follow the consular processing route covered by this guide.</p>
+        <p style="font-size:13px;margin-bottom:8px;"><strong>If you have a pending I-485:</strong> The memo does not automatically cancel or convert pending applications to consular processing. However, USCIS officers are now directed to deny AOS on discretionary grounds even where statutory eligibility is met, unless extraordinary circumstances apply. Anyone with a pending AOS application should seek qualified immigration legal advice urgently.</p>
       </div>
 
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
@@ -2008,6 +2094,12 @@
         </div>
       </div>
 
+      <div class="info-card warning">
+        <div class="info-card-head">Policy update — 22 May 2026</div>
+        <p style="font-size:13px;margin-bottom:6px;">USCIS has announced that Adjustment of Status will be granted only in extraordinary circumstances. Those previously expecting to adjust status from within the United States will now need to follow the consular processing route covered by this guide.</p>
+        <p style="font-size:13px;margin-bottom:8px;"><strong>If you have a pending I-485:</strong> The memo does not automatically cancel or convert pending applications to consular processing. However, USCIS officers are now directed to deny AOS on discretionary grounds even where statutory eligibility is met, unless extraordinary circumstances apply. Anyone with a pending AOS application should seek qualified immigration legal advice urgently.</p>
+      </div>
+
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
         <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your interview date and outcome to the community tracker →</a></p>
@@ -2583,6 +2675,21 @@ if (mobileNavDrawer) {
       mobileNavToggle.setAttribute('aria-expanded', 'false')
     })
   })
+}
+
+// Sticky alert banner
+const stickyAlert = document.getElementById('stickyAlert')
+const stickyAlertClose = document.getElementById('stickyAlertClose')
+
+if (stickyAlertClose) {
+  stickyAlertClose.addEventListener('click', () => {
+    stickyAlert.classList.add('hidden')
+    localStorage.setItem('stickyAlertDismissed', 'true')
+  })
+}
+
+if (stickyAlert && localStorage.getItem('stickyAlertDismissed')) {
+  stickyAlert.classList.add('hidden')
 }
 </script>
 <!-- Shared IL → Interview pattern (single source, also used on the homepage) -->
