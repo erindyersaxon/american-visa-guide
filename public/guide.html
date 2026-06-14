@@ -2670,11 +2670,11 @@ if (mobileNavDrawer) {
 
 // Highlight active section in sidebar navigation as user scrolls
 const sectionLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]')
-const sections = document.querySelectorAll('.section[id]')
+const sectionElements = document.querySelectorAll('.section[id]')
 
 function updateActiveLink() {
   let current = ''
-  sections.forEach(section => {
+  sectionElements.forEach(section => {
     const sectionTop = section.offsetTop
     if (window.scrollY >= sectionTop - 100) {
       current = section.getAttribute('id')
