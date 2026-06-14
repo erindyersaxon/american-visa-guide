@@ -2623,10 +2623,12 @@ window.addEventListener('scroll', () => {
 
 <script>
 function toggleSubAcc(id) {
+  console.log('toggleSubAcc called with id:', id)
   const item = document.getElementById(id)
-  if (!item) return
+  if (!item) { console.log('item not found'); return }
   const wasOpen = item.classList.contains('open')
   item.classList.toggle('open', !wasOpen)
+  console.log('toggled to open:', !wasOpen)
   if (!wasOpen) setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50)
 }
 function subAccGroup(group, expand) {
