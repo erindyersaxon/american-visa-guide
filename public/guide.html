@@ -367,27 +367,29 @@
 
   /* ── Info cards ── */
   .info-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+    background: rgba(90,143,166,0.08);
+    border: 1px solid rgba(90,143,166,0.25);
     border-radius: 10px;
     padding: 18px 20px;
     margin: 16px 0;
+    transition: all 0.15s;
   }
+
+  .info-card:hover { border-color: rgba(90,143,166,0.4); }
 
   .info-card.warning {
     background: rgba(176,74,56,0.08);
     border-color: rgba(176,74,56,0.25);
   }
 
+  .info-card.warning:hover { border-color: rgba(176,74,56,0.4); }
+
   .info-card.tip {
     background: rgba(79,133,115,0.08);
     border-color: rgba(79,133,115,0.25);
   }
 
-  .info-card.accent {
-    background: rgba(90,143,166,0.08);
-    border-color: rgba(90,143,166,0.25);
-  }
+  .info-card.tip:hover { border-color: rgba(79,133,115,0.4); }
 
   .info-card-head {
     font-family:var(--font-ui);
@@ -397,10 +399,16 @@
     text-transform: uppercase;
     margin-bottom: 8px;
     color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
+  .info-card .info-card-head::before { content: 'ⓘ'; }
   .info-card.warning .info-card-head { color: var(--red); }
+  .info-card.warning .info-card-head::before { content: '⚠️'; }
   .info-card.tip .info-card-head { color: var(--teal-light); }
+  .info-card.tip .info-card-head::before { content: '💡'; }
 
   /* ── Steps ── */
   .steps {
@@ -697,7 +705,7 @@
 
       <p>This guide covers consular processing of US family-based immigrant visas through the US Embassy in London. It covers IR and F visa categories for spouses (IR-1/CR-1), children (IR-2), parents (IR-5), and family preference (F visas).</p>
 
-      <div class="info-card accent">
+      <div class="info-card">
         <div class="info-card-head">Core principle</div>
         <p style="margin:0;">This process rewards overpreparation. When in doubt, follow the strictest interpretation of official guidance — supply more than asked, document more than required, and leave nothing to chance.</p>
       </div>
@@ -709,7 +717,7 @@
       </ul>
 
       <div class="info-card warning">
-        <div class="info-card-head">⚠️ Policy update — 22 May 2026</div>
+        <div class="info-card-head">Policy update — 22 May 2026</div>
         <p style="font-size:13px;margin-bottom:6px;">USCIS has announced that Adjustment of Status will be granted only in extraordinary circumstances. Those previously expecting to adjust status from within the United States will now need to follow the consular processing route covered by this guide.</p>
         <p style="font-size:13px;margin-bottom:8px;"><strong>If you have a pending I-485:</strong> The memo does not automatically cancel or convert pending applications to consular processing. However, USCIS officers are now directed to deny AOS on discretionary grounds even where statutory eligibility is met, unless extraordinary circumstances apply. Anyone with a pending AOS application should seek qualified immigration legal advice urgently.</p>
         <p style="font-size:12px;color:var(--text-secondary);margin:0;">
@@ -818,7 +826,7 @@
       </div>
       </div>
 
-      <div class="info-card accent">
+      <div class="info-card">
         <div class="info-card-head">All categories: same London process once current</div>
         <p style="margin:0;font-size:13px;">Once a priority date is current and NVC processing begins, all categories follow the same London embassy process described in this guide. The timelines on the <a href="index.html">data page</a> reflect IR cases — F visa holders should expect the same steps but cannot rely on the same wait time figures.</p>
       </div>
@@ -879,8 +887,8 @@
         </div>
       </div>
 
-      <div class="info-card warning" style="margin-bottom:16px;">
-        <div class="info-card-head">⚠️ Transgender and non-binary applicants</div>
+      <div class="info-card warning">
+        <div class="info-card-head">Transgender and non-binary applicants</div>
         <p style="font-size:13px;margin:0;">Under current US policy (April 2025), USCIS determines sex from the original birth certificate and only recognises male or female markers. If your documents carry inconsistent sex markers, this can cause delays at USCIS, NVC, and the embassy medical. See the <a href="#medical">Medical section</a> of this guide for full guidance and support resources.</p>
       </div>
 
@@ -1027,7 +1035,7 @@
             </div>
 
             <div class="info-card warning">
-              <div class="info-card-head">⚠️ What works as evidence — and what doesn't</div>
+              <div class="info-card-head">What works as evidence — and what doesn't</div>
               <p style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:6px;">Accepted evidence includes:</p>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:12px;">
                 <li>Official school transcripts from primary, secondary, or university</li>
@@ -1388,7 +1396,7 @@
             <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">Use this to work out which police certificates you need. You may need more than one. All must be original or certified — photocopies not accepted. <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-5-collect-financial-evidence-and-other-supporting-documents/step-7-collect-civil-documents.html" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;">[travel.state.gov — Civil Documents]</a></p>
 
       <div class="info-card warning">
-        <div class="info-card-head">⚠️ If you hold citizenship of another country — act early</div>
+        <div class="info-card-head">If you hold citizenship of another country — act early</div>
         <p style="font-size:13px;margin-bottom:6px;">If you are a citizen of a country you no longer live in — even if you left as a child — you almost certainly need a police certificate from that country. A visa will not be issued until this requirement is fulfilled satisfactorily.</p>
         <p style="font-size:13px;margin-bottom:6px;">The UK ACRO certificate is valid for 12 months. Police certificates from other countries are generally valid indefinitely, provided you have not returned to live there — but order early regardless, as processing times vary widely by country.</p>
         <p style="font-size:13px;margin:0;">Obtaining a police certificate from a country you do not currently reside in can take months and may require you to travel there in person. Identify this requirement early and start the process as soon as you receive your Interview Letter — do not leave it until the document check.</p>
@@ -1555,7 +1563,7 @@
       </div>
 
       <h3>Actions after receiving your IL</h3>
-      <div class="info-card accent">
+      <div class="info-card">
         <div class="info-card-head">Two things to action as soon as you can</div>
         <p style="font-size:13px;margin-bottom:8px;"><strong>1. Book your medical via <a href="https://visamedicals.co.uk/united-states/" target="_blank" rel="noopener noreferrer">VisaMedicals</a></strong> — appointment windows open monthly and fill quickly. The medical must be 10 working days before your interview date. You are required to attend the same-day embassy document check afterwards (window: 11:45 AM – 1:00 PM).</p>
         <p style="font-size:13px;margin:0;"><strong>2. Register your interview via <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a></strong> — you must select your passport return method at this stage: home delivery or Mail Boxes Etc collection (Holborn, Angel, or Belfast). If you do not complete this, the embassy has no way to return your passport to you. Note: registration may take a few days to appear after the IL arrives.</p>
@@ -1652,7 +1660,7 @@
       </div>
 
       <div class="info-card warning">
-        <div class="info-card-head">⚠️ Public Charge — Prepare your written statement now</div>
+        <div class="info-card-head">Public Charge — Prepare your written statement now</div>
         <p style="font-size:13px;margin-bottom:8px;">Before your interview you are strongly advised to submit a written statement to <a href="mailto:LNDIVSubmissions@state.gov">LNDIVSubmissions@state.gov</a> covering your housing, employment, and health insurance plans. Use this waiting period to draft it — it does not need to be long, but it should be specific.</p>
         <p style="font-size:13px;margin:0;"><a href="public-charge.html" style="color:var(--teal-light);">See our sample template and guidance →</a></p>
       </div>
@@ -1766,7 +1774,7 @@
       </div>
 
       <div class="info-card warning">
-        <div class="info-card-head">⚠️ Transgender and non-binary applicants — document consistency</div>
+        <div class="info-card-head">Transgender and non-binary applicants — document consistency</div>
         <p style="font-size:13px;margin-bottom:10px;">Under current US policy (effective April 2, 2025), USCIS recognises only male and female sex markers on immigration documents. Sex is determined by what is recorded on the birth certificate issued at or nearest to the time of birth. The X gender marker option has been removed from all USCIS forms and documents.</p>
         <p style="font-size:13px;margin-bottom:10px;">If your documents carry different sex markers — for example, your UK passport or a legal gender recognition certificate reflects an updated marker that differs from your birth certificate, or your medical records differ from either — this is likely to cause delays or a Request for Evidence. The medical examination at VisaMedicals records sex as shown on your documents, which may create a further inconsistency in the case file.</p>
         <p style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:8px;">Practical steps:</p>
@@ -1950,7 +1958,7 @@
       </div>
 
       <div class="info-card warning">
-        <div class="info-card-head">⚠️ Public Charge — prepare your written statement</div>
+        <div class="info-card-head">Public Charge — prepare your written statement</div>
         <p>The public charge assessment is a demonstration of intent and planning. The officer wants to see that you have thought about how you will support yourself in the US to ensure that the beneficiary won't become a burden on the U.S. government.</p>
         <p><strong>You are strongly advised to submit a written statement  </strong>before your interview via email to <a href="mailto:LNDIVSubmissions@state.gov">LNDIVSubmissions@state.gov</a> </strong>and</strong> by uploading to CEAC. The embassy states that applicants <em>may voluntarily</em> submit this statement; community experience strongly suggests you should. <a href="public-charge.html">See our sample template →
         </a> Cover three areas:</p>
@@ -1959,7 +1967,7 @@
           <li><strong>Employment:</strong> What work do you plan to do? Include your sector, relevant experience, and whether you have a role lined up or are job-seeking. If continuing with a current employer's US branch, say so explicitly.</li>
           <li><strong>Health insurance:</strong> How will you be covered? The most straightforward answer is being added to a spouse or family member's employer plan once your SSN arrives — state the plan, provider, and expected timeline. If you do not yet have coverage arranged, consider obtaining a quote for short-term international health insurance before your medical appointment — see the health insurance section below.</li>
         </ul>
-        <div class="info-card tip" style="margin-top:12px;margin-bottom:0;">
+        <div class="info-card tip">
           <div class="info-card-head">From community experience</div>
           <p style="margin:0;font-size:13px;">The statement doesn't need to be long or formal. A short, direct account of your housing, employment, and insurance plans is sufficient. The officer wants to see that you have a plan.</p>
         </div>
