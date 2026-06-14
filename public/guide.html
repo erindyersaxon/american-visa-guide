@@ -120,12 +120,13 @@
   .wrap {
     position: relative;
     z-index: 1;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
+    margin-left: 336px;
     padding: 0 20px 80px;
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 56px;
+    grid-template-columns: 1fr;
+    gap: 0;
     align-items: start;
   }
 
@@ -194,7 +195,7 @@
 
   /* ── Sticky Alert Banner ── */
   @media (max-width: 700px) {
-    .wrap { grid-template-columns: 1fr; }
+    .wrap { grid-template-columns: 1fr; margin-left: 0; }
     .sidebar { display: none; }
     .mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
     .stage-jump { position: sticky; top: 72px; margin-bottom: 32px; z-index: 10; }
@@ -202,13 +203,18 @@
 
   /* ── Sidebar ── */
   .sidebar {
-    position: sticky;
-    top: 72px;
+    position: fixed;
+    left: 20px;
+    top: 100px;
+    width: 280px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
     padding-top: 0;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px 20px;
+    z-index: 10;
   }
 
   .sidebar-label {
