@@ -485,21 +485,27 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--text-secondary);
-    padding: 8px 12px;
+    color: var(--text-primary);
+    padding: 12px 12px;
     text-align: left;
-    border-bottom: 1px solid var(--border);
-    background: rgba(30,28,23,0.02);
+    border-bottom: 2px solid var(--border);
+    border-left: 3px solid var(--accent);
+    background: rgba(30,28,23,0.08);
+  }
+
+  .fee-table tbody tr:nth-child(odd) td {
+    background: rgba(30,28,23,0.04);
   }
 
   .fee-table td {
     padding: 10px 12px;
     border-bottom: 1px solid rgba(90,143,166,0.06);
     color: rgba(30,28,23,0.85);
+    transition: background 0.15s;
   }
 
   .fee-table tr:last-child td { border-bottom: none; }
-  .fee-table tr:hover td { background: rgba(30,28,23,0.02); }
+  .fee-table tr:hover td { background: rgba(30,28,23,0.06); }
 
   .fee-table td:last-child {
     font-weight: 500;
@@ -510,8 +516,11 @@
   /* ── Checklist ── */
   .checklist {
     list-style: none;
-    padding: 0;
+    padding: 12px 14px;
     margin: 12px 0;
+    background: rgba(30,28,23,0.02);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
   }
 
   .checklist li {
@@ -527,11 +536,12 @@
   .checklist li:last-child { border-bottom: none; }
 
   .checklist li::before {
-    content: '□';
+    content: '☑';
     color: var(--accent);
-    font-size: 14px;
+    font-size: 13px;
     flex-shrink: 0;
-    margin-top: 1px;
+    margin-top: 2px;
+    font-weight: bold;
   }
 
   /* ── Two col ── */
@@ -1406,9 +1416,9 @@
         <table style="width:100%;border-collapse:collapse;font-size:13px;">
           <thead>
             <tr>
-              <th style="padding:10px 14px;background:rgba(90,143,166,0.1);border-bottom:1px solid var(--border);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">If you…</th>
-              <th style="padding:10px 14px;background:rgba(90,143,166,0.1);border-bottom:1px solid var(--border);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">And…</th>
-              <th style="padding:10px 14px;background:rgba(90,143,166,0.1);border-bottom:1px solid var(--border);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">You need a certificate from…</th>
+              <th style="padding:12px 14px;background:rgba(30,28,23,0.08);border-bottom:2px solid var(--border);border-left:3px solid var(--accent);color:var(--text-primary);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">If you…</th>
+              <th style="padding:12px 14px;background:rgba(30,28,23,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">And…</th>
+              <th style="padding:12px 14px;background:rgba(30,28,23,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:left;">You need a certificate from…</th>
             </tr>
           </thead>
           <tbody>
@@ -1504,9 +1514,9 @@
       <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:8px;position:relative;z-index:2;">
         <thead>
           <tr>
-            <th style="text-align:left;padding:7px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--text-secondary);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Date</th>
-            <th style="text-align:left;padding:7px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--text-secondary);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Day</th>
-            <th style="text-align:left;padding:7px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--text-secondary);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Earliest time (UK)</th>
+            <th style="text-align:left;padding:12px 12px;background:rgba(30,28,23,0.08);border-left:3px solid var(--accent);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Date</th>
+            <th style="text-align:left;padding:12px 12px;background:rgba(30,28,23,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Day</th>
+            <th style="text-align:left;padding:12px 12px;background:rgba(30,28,23,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Earliest time (UK)</th>
           </tr>
         </thead>
         <tbody>
@@ -2259,9 +2269,9 @@
       <table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0 16px;">
         <thead>
           <tr>
-            <th style="text-align:left;padding:8px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--text-secondary);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Entry</th>
-            <th style="text-align:left;padding:8px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--text-secondary);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Fee timing</th>
-            <th style="text-align:left;padding:8px 12px;background:rgba(90,143,166,0.08);border:1px solid rgba(90,143,166,0.15);color:var(--text-secondary);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">When to expect card</th>
+            <th style="text-align:left;padding:12px 12px;background:rgba(30,28,23,0.08);border-left:3px solid var(--accent);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Entry</th>
+            <th style="text-align:left;padding:12px 12px;background:rgba(30,28,23,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Fee timing</th>
+            <th style="text-align:left;padding:12px 12px;background:rgba(30,28,23,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">When to expect card</th>
           </tr>
         </thead>
         <tbody>
@@ -2275,7 +2285,7 @@
             <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Fee paid <strong>after</strong> entry</td>
             <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Up to <strong>90 days from payment date</strong></td>
           </tr>
-          <tr>
+          <tr style="background:rgba(30,28,23,0.02);">
             <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Entered on immigrant visa</td>
             <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Fee <strong>not yet paid</strong></td>
             <td style="padding:9px 12px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Card cannot be processed until fee is paid at <a href="https://my.uscis.gov/accounts/uscis-immigrant-fee/about-you" target="_blank" rel="noopener noreferrer">my.uscis.gov</a></td>
