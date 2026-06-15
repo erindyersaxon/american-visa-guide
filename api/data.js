@@ -336,14 +336,16 @@ export default async function handler(req, res) {
   const dayOfWeek = now2.getUTCDay() // 0=Sun, 1=Mon...
   const daysToNextSunday = (7 - dayOfWeek) % 7 // 0 if today is Sunday
 
-  // Upcoming week: [next Sunday 00:00, following Saturday 23:59]
-  const upcomingStart = new Date(now2)
-  upcomingStart.setUTCDate(now2.getUTCDate() + daysToNextSunday)
-  upcomingStart.setUTCHours(0,0,0,0)
-  const upcomingEnd = new Date(upcomingStart)
-  upcomingEnd.setUTCDate(upcomingStart.getUTCDate() + 6)
-  upcomingEnd.setUTCHours(23,59,59,999)
-
+  // Upcoming week: Mon–Sun. On Sunday, show the week starting tomorrow (Mon).
+// Mon–Sat: show the week starting on the most recent Monday.
+const daysToNextMonday = dayOfWeek === 0 ? 1 : (8 - dayOfWeek) % 7 || 7
+const upcomingStart = new Date(now2)
+upcomingStart.setUTCDate(now2.getUTCDate() + daysToNextMonday)
+upcomingStart.setUTCHours(0,0,0,0)
+const upcomingEnd = new Date(upcomingStart)
+upcomingEnd.setUTCDate(upcomingStart.getUTCDate() + 6)
+upcomingEnd.setUTCHours(23,59,59,999)
+  
   // Previous week: the Sunday→Saturday week immediately before the upcoming one
   const previousStart = new Date(upcomingStart)
   previousStart.setUTCDate(upcomingStart.getUTCDate() - 7)
