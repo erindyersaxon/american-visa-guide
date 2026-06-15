@@ -338,7 +338,7 @@ export default async function handler(req, res) {
 
   // Upcoming week: Mon–Sun. On Sunday, show the week starting tomorrow (Mon).
 // Mon–Sat: show the week starting on the most recent Monday.
-const daysToNextMonday = dayOfWeek === 0 ? 1 : (8 - dayOfWeek) % 7 || 7
+const daysToNextMonday = dayOfWeek === 0 ? 1 : 1 - dayOfWeek
 const upcomingStart = new Date(now2)
 upcomingStart.setUTCDate(now2.getUTCDate() + daysToNextMonday)
 upcomingStart.setUTCHours(0,0,0,0)
