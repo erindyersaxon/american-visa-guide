@@ -146,6 +146,12 @@
 
   .mobile-nav-toggle:active { transform: scale(0.95); }
 
+  .mobile-nav-toggle.hidden {
+    transform: translateY(120px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .mobile-nav-drawer {
     display: none;
     position: fixed;
@@ -2710,6 +2716,29 @@ if (mobileNavDrawer) {
       mobileNavDrawer.classList.remove('open')
       mobileNavToggle.setAttribute('aria-expanded', 'false')
     })
+  })
+}
+
+// Mobile nav auto-hide on scroll down, show on scroll up
+if (mobileNavToggle) {
+  let lastScrollY = 0
+  let ticking = false
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY
+        const isScrollingDown = currentScrollY > lastScrollY
+        const isAtTop = currentScrollY < 100
+        if (isScrollingDown && currentScrollY > 100) {
+          mobileNavToggle.classList.add('hidden')
+        } else {
+          mobileNavToggle.classList.remove('hidden')
+        }
+        lastScrollY = currentScrollY
+        ticking = false
+      })
+      ticking = true
+    }
   })
 }
 
