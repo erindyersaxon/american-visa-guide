@@ -997,7 +997,7 @@
       if (!t || t.all_time == null) return;
       const allAvg = t.all_time;
 
-      function setTrend(valId, dirId, val, ref) {
+      function setTrend(valId, dirId, val, ref, isBaseline) {
         const el = document.getElementById(dirId);
         if (val == null) {
           set(valId, '—');
@@ -1005,7 +1005,10 @@
           return;
         }
         set(valId, `${val} days`);
-        if (!el || ref == null) return;
+        if (!el || ref == null || isBaseline) {
+          if (el && isBaseline) el.style.display = 'none';
+          return;
+        }
         const diff = val - ref;
         const dir  = Math.abs(diff) < 7 ? 'flat' : diff > 0 ? 'up' : 'down';
         const icon  = { up:'↑', down:'↓', flat:'→' }[dir];
@@ -1013,8 +1016,8 @@
         el.className = `trend-card__dir trend-card__dir--${dir}`;
         el.innerHTML = `<span aria-hidden="true">${icon}</span><span>${label}</span>`;
       }
-      setTrend('t-alltime', 't-alltime-dir', allAvg,    allAvg);
-      setTrend('t-6mo',     't-6mo-dir',     t.last_6m, allAvg);
+      setTrend('t-alltime', 't-alltime-dir', allAvg,    allAvg, true);
+      setTrend('t-6mo',     't-6mo-dir',     t.last_6m, allAvg, false);
     }
 
     function renderOutcomes(stats) {
