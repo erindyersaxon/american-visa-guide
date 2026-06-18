@@ -995,7 +995,7 @@
     function renderTrends(trends) {
       const t = trends?.dq_to_il;
       if (!t || t.all_time == null) return;
-      const allAvg = t.all_time;
+      const allMedian = t.all_time.median;
 
       function setTrend(valId, dirId, val, ref, isBaseline) {
         const el = document.getElementById(dirId);
@@ -1012,12 +1012,12 @@
         const diff = val - ref;
         const dir  = Math.abs(diff) < 7 ? 'flat' : diff > 0 ? 'up' : 'down';
         const icon  = { up:'↑', down:'↓', flat:'→' }[dir];
-        const label = { up:'Longer than all-time avg (slower)', down:'Shorter than all-time avg (faster)', flat:'Similar to all-time avg' }[dir];
+        const label = { up:'Longer than all-time median (slower)', down:'Shorter than all-time median (faster)', flat:'Similar to all-time median' }[dir];
         el.className = `trend-card__dir trend-card__dir--${dir}`;
         el.innerHTML = `<span aria-hidden="true">${icon}</span><span>${label}</span>`;
       }
-      setTrend('t-alltime', 't-alltime-dir', allAvg,    allAvg, true);
-      setTrend('t-6mo',     't-6mo-dir',     t.last_6m, allAvg, false);
+      setTrend('t-alltime', 't-alltime-dir', allMedian,    allMedian, true);
+      setTrend('t-6mo',     't-6mo-dir',     t.last_6m.median, allMedian, false);
     }
 
     function renderOutcomes(stats) {

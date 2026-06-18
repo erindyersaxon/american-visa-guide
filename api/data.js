@@ -304,11 +304,21 @@ export default async function handler(req, res) {
     const v = windowFilter(months).filter(filterFn).map(mapFn).filter(n => n != null && n > 0)
     return v.length >= MIN_TREND_N ? avg(v) : null
   }
+  const windowedMedian = (months, mapFn, filterFn) => {
+    const v = windowFilter(months).filter(filterFn).map(mapFn).filter(n => n != null && n > 0)
+    return v.length >= MIN_TREND_N ? median(v) : null
+  }
   const trendDqToIL = (months) => windowedAvg(months,
+    r => daysBetween(r.dq_date, r.interview_letter), r => r.interview_letter)
+  const trendDqToILMedian = (months) => windowedMedian(months,
     r => daysBetween(r.dq_date, r.interview_letter), r => r.interview_letter)
   const trendILToInterview = (months) => windowedAvg(months,
     r => daysBetween(r.interview_letter, r.interview), r => r.interview_letter && r.interview)
+  const trendILToInterviewMedian = (months) => windowedMedian(months,
+    r => daysBetween(r.interview_letter, r.interview), r => r.interview_letter && r.interview)
   const trendDqToInterview = (months) => windowedAvg(months,
+    r => daysBetween(r.dq_date, r.interview), r => r.interview)
+  const trendDqToInterviewMedian = (months) => windowedMedian(months,
     r => daysBetween(r.dq_date, r.interview), r => r.interview)
 
   // --- Estimated next IL drop ---
@@ -409,25 +419,25 @@ upcomingEnd.setUTCHours(23,59,59,999)
     },
     trends: {
       dq_to_il: {
-        all_time: avg(dqToIL),
-        last_12m: trendDqToIL(12),
-        last_6m:  trendDqToIL(6),
-        last_3m:  trendDqToIL(3),
-        last_1m:  trendDqToIL(1),
+        all_time: { avg: avg(dqToIL), median: median(dqToIL) },
+        last_12m: { avg: trendDqToIL(12), median: trendDqToILMedian(12) },
+        last_6m:  { avg: trendDqToIL(6), median: trendDqToILMedian(6) },
+        last_3m:  { avg: trendDqToIL(3), median: trendDqToILMedian(3) },
+        last_1m:  { avg: trendDqToIL(1), median: trendDqToILMedian(1) },
       },
       il_to_interview: {
-        all_time: avg(ilToInterview),
-        last_12m: trendILToInterview(12),
-        last_6m:  trendILToInterview(6),
-        last_3m:  trendILToInterview(3),
-        last_1m:  trendILToInterview(1),
+        all_time: { avg: avg(ilToInterview), median: median(ilToInterview) },
+        last_12m: { avg: trendILToInterview(12), median: trendILToInterviewMedian(12) },
+        last_6m:  { avg: trendILToInterview(6), median: trendILToInterviewMedian(6) },
+        last_3m:  { avg: trendILToInterview(3), median: trendILToInterviewMedian(3) },
+        last_1m:  { avg: trendILToInterview(1), median: trendILToInterviewMedian(1) },
       },
       dq_to_interview: {
-        all_time: avg(dqToInterview),
-        last_12m: trendDqToInterview(12),
-        last_6m:  trendDqToInterview(6),
-        last_3m:  trendDqToInterview(3),
-        last_1m:  trendDqToInterview(1),
+        all_time: { avg: avg(dqToInterview), median: median(dqToInterview) },
+        last_12m: { avg: trendDqToInterview(12), median: trendDqToInterviewMedian(12) },
+        last_6m:  { avg: trendDqToInterview(6), median: trendDqToInterviewMedian(6) },
+        last_3m:  { avg: trendDqToInterview(3), median: trendDqToInterviewMedian(3) },
+        last_1m:  { avg: trendDqToInterview(1), median: trendDqToInterviewMedian(1) },
       },
     },
     outcomes: {
