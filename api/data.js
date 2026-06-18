@@ -415,7 +415,9 @@ upcomingEnd.setUTCHours(23,59,59,999)
       avg_passport_days:    avg(passportDays),
       median_passport_days: median(passportDays),
       avg_pickup_days:      avg(pickupDays),
+      median_pickup_days:   median(pickupDays),
       avg_mail_days:        avg(mailDays),
+      median_mail_days:     median(mailDays),
     },
     trends: {
       dq_to_il: {

@@ -713,19 +713,19 @@
       <div class="container">
         <div class="section-hd">
           <h2 class="section-hd__title" id="passport-hd">Passport Return Times</h2>
-          <p class="section-hd__sub">After visa approval at interview — average days to receive your passport with visa stamp.</p>
+          <p class="section-hd__sub">After visa approval at interview — median days to receive your passport with visa stamp.</p>
         </div>
 
         <div class="passport-grid">
           <div class="metric-card">
-            <div class="metric-card__label">Embassy Pick-Up</div>
+            <div class="metric-card__label">Mail Boxes Etc Pick-Up</div>
             <div class="metric-card__value" id="pp-pickup"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="metric-card__sub">average days</div>
+            <div class="metric-card__sub">median days</div>
           </div>
           <div class="metric-card">
             <div class="metric-card__label">Royal Mail Delivery</div>
             <div class="metric-card__value" id="pp-mail"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="metric-card__sub">average days</div>
+            <div class="metric-card__sub">median days</div>
           </div>
         </div>
       </div>
@@ -1029,8 +1029,8 @@
 
     function renderPassport(stats) {
       if (!stats) return;
-      set('pp-pickup', stats.passport_pickup_avg_days != null ? String(stats.passport_pickup_avg_days) : '—');
-      set('pp-mail',   stats.passport_mail_avg_days   != null ? String(stats.passport_mail_avg_days)   : '—');
+      set('pp-pickup', stats.median_pickup_days != null ? String(stats.median_pickup_days) : '—');
+      set('pp-mail',   stats.median_mail_days   != null ? String(stats.median_mail_days)   : '—');
     }
 
     function renderTimings(d) {
