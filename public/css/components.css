@@ -111,6 +111,34 @@
   color: var(--color-text-muted);
 }
 
+/* Metric card — dashboard metric display */
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.metric-card__label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.metric-card__value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+}
+
+.metric-card__sub {
+  font-size: var(--text-xl);
+  color: var(--color-text-secondary);
+}
+
 /* Stat block — compact horizontal stat */
 .stat-block {
   display: flex;
