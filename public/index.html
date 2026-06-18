@@ -829,8 +829,8 @@
         approved_pct: o.approval_pct ?? null,
         rejected_221g_pct: pct(o.not_approved),
         denied_pct: pct(o.denied),
-        passport_pickup_avg_days: d.key_stats?.avg_pickup_days ?? null,
-        passport_mail_avg_days:   d.key_stats?.avg_mail_days ?? null,
+        median_pickup_days: d.key_stats?.median_pickup_days ?? null,
+        median_mail_days:   d.key_stats?.median_mail_days ?? null,
       };
       return { drops, stats };
     }
