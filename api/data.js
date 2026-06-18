@@ -169,15 +169,24 @@ export default async function handler(req, res) {
   }
 
   const stageAvgs = {
-    pd_to_approval:      stageAvg(deduped, 'i130_priority_date', 'i130_approval', 730),
-    approval_to_welcome:  stageAvg(deduped, 'i130_approval', 'nvc_welcome_letter', 90),
-    welcome_to_fees:      stageAvg(deduped, 'nvc_welcome_letter', 'nvc_fees_paid', 90),
-    fees_to_docs:         stageAvg(deduped, 'nvc_fees_paid', 'nvc_docs_submitted', 180),
-    docs_to_dq:           stageAvg(deduped, 'nvc_docs_submitted', 'dq_date', 180),
-    approval_to_dq:       stageAvg(deduped, 'i130_approval', 'dq_date', 120),
-    approval_to_dq_stats: stageStats(deduped, 'i130_approval', 'dq_date', 120),
-    il_to_medical:        stageAvg(standard, 'interview_letter', 'medical', 180),
+    pd_to_approval:        stageAvg(deduped, 'i130_priority_date', 'i130_approval', 730),
+    pd_to_approval_med:    stageStats(deduped, 'i130_priority_date', 'i130_approval', 730),
+    approval_to_welcome:   stageAvg(deduped, 'i130_approval', 'nvc_welcome_letter', 90),
+    approval_to_welcome_med: stageStats(deduped, 'i130_approval', 'nvc_welcome_letter', 90),
+    welcome_to_fees:       stageAvg(deduped, 'nvc_welcome_letter', 'nvc_fees_paid', 90),
+    welcome_to_fees_med:   stageStats(deduped, 'nvc_welcome_letter', 'nvc_fees_paid', 90),
+    fees_to_docs:          stageAvg(deduped, 'nvc_fees_paid', 'nvc_docs_submitted', 180),
+    fees_to_docs_med:      stageStats(deduped, 'nvc_fees_paid', 'nvc_docs_submitted', 180),
+    docs_to_dq:            stageAvg(deduped, 'nvc_docs_submitted', 'dq_date', 180),
+    docs_to_dq_med:        stageStats(deduped, 'nvc_docs_submitted', 'dq_date', 180),
+    approval_to_dq:        stageAvg(deduped, 'i130_approval', 'dq_date', 120),
+    approval_to_dq_stats:  stageStats(deduped, 'i130_approval', 'dq_date', 120),
+    il_to_medical:         stageAvg(standard, 'interview_letter', 'medical', 180),
+    il_to_medical_med:     stageStats(standard, 'interview_letter', 'medical', 180),
+    medical_to_interview:  stageAvg(standard, 'medical', 'interview', 60),
+    medical_to_interview_med: stageStats(standard, 'medical', 'interview', 60),
     interview_to_passport: stageAvg(deduped, 'interview', 'passport_in_hand', 60),
+    interview_to_passport_med: stageStats(deduped, 'interview', 'passport_in_hand', 60),
   }
 
   // --- IL drop dates — derived from member interview_letter timestamps ---

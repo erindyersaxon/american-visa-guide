@@ -735,18 +735,18 @@
     <section class="content-section" aria-labelledby="timing-hd">
       <div class="container">
         <div class="section-hd">
-          <h2 class="section-hd__title" id="timing-hd">Average Stage-by-Stage Timings</h2>
-          <p class="section-hd__sub">Community-reported averages for each leg of the London immigrant visa process. Individual experiences vary.</p>
+          <h2 class="section-hd__title" id="timing-hd">Median Stage-by-Stage Timings</h2>
+          <p class="section-hd__sub">Community-reported median times for each leg of the London immigrant visa process. Individual experiences vary.</p>
         </div>
 
         <div class="table-wrapper" role="region" aria-labelledby="timing-hd" tabindex="0">
           <table class="table">
-            <caption class="sr-only">Average processing time for each stage of the US immigrant visa application through the US Embassy London, based on community-reported data</caption>
+            <caption class="sr-only">Median processing time for each stage of the US immigrant visa application through the US Embassy London, based on community-reported data</caption>
             <thead>
               <tr>
                 <th scope="col">Stage</th>
-                <th scope="col" class="num">Avg (days)</th>
-                <th scope="col" class="num">Avg (months)</th>
+                <th scope="col" class="num">Median (days)</th>
+                <th scope="col" class="num">Median (months)</th>
               </tr>
             </thead>
             <tbody id="timing-tbody">
@@ -1037,14 +1037,15 @@
       const tbody = document.getElementById('timing-tbody');
       if (!tbody) return;
       const sa = d.stage_avgs || {}, ks = d.key_stats || {};
+      const getMed = obj => obj?.median ?? null;
       const stages = [
-        ['I-130 Approval → NVC Welcome',    sa.approval_to_welcome],
-        ['NVC Fees → Documents Submitted',  sa.fees_to_docs],
-        ['Documents Submitted → DQ',        sa.docs_to_dq],
-        ['DQ → Interview Letter (IL)',      ks.avg_dq_to_il],
-        ['IL → Medical Appointment',        sa.il_to_medical],
-        ['Medical Appointment → Interview', sa.medical_to_interview],
-        ['Interview → Passport Return',     sa.interview_to_passport],
+        ['I-130 Approval → NVC Welcome',    getMed(sa.approval_to_welcome_med)],
+        ['NVC Fees → Documents Submitted',  getMed(sa.fees_to_docs_med)],
+        ['Documents Submitted → DQ',        getMed(sa.docs_to_dq_med)],
+        ['DQ → Interview Letter (IL)',      d.trends?.dq_to_il?.all_time?.median],
+        ['IL → Medical Appointment',        getMed(sa.il_to_medical_med)],
+        ['Medical Appointment → Interview', getMed(sa.medical_to_interview_med)],
+        ['Interview → Passport Return',     getMed(sa.interview_to_passport_med)],
       ];
       tbody.innerHTML = stages.map(([label, a]) => `<tr>
           <th scope="row" style="font-weight:var(--font-normal);">${label}</th>
