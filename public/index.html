@@ -595,10 +595,11 @@
 
         <div class="table-wrapper" role="region" aria-labelledby="drops-hd" tabindex="0">
           <table class="table table--striped">
-            <caption class="sr-only">Interview Letter drop history: drop date, time of drop, DQ date range covered, gap since previous drop, and number of ILs issued</caption>
+            <caption class="sr-only">Interview Letter drop history: drop date, day of week, time of drop, DQ date range covered, gap since previous drop, and number of ILs issued</caption>
             <thead>
               <tr>
                 <th scope="col">Drop Date</th>
+                <th scope="col">Day</th>
                 <th scope="col">Time (London)</th>
                 <th scope="col">DQ Dates Covered</th>
                 <th scope="col">Gap Since Previous</th>
@@ -607,10 +608,10 @@
             </thead>
             <tbody id="drops-tbody">
               <tr aria-hidden="true"><td colspan="5"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="5"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="5"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="5"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="5"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
             </tbody>
           </table>
         </div>
@@ -1002,8 +1003,11 @@
       if (!tbody || !drops?.length) return;
       tbody.innerHTML = drops.map(d => {
         const ds = d.drop_date || d.recorded_at;
+        const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        const dayName = ds ? DAYS[new Date(ds + 'T00:00:00Z').getUTCDay()] : '—';
         return `<tr>
           <td>${fmtDate(ds)}</td>
+          <td>${dayName}</td>
           <td>${d.drop_time || '—'}</td>
           <td>${d.dq_date_from ? fmtDate(d.dq_date_from) : '—'} – ${d.dq_date_to ? fmtDate(d.dq_date_to) : '—'}</td>
           <td>${d.gap_days != null ? d.gap_days + ' days' : '—'}</td>
