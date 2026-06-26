@@ -82,9 +82,10 @@
       margin-bottom: var(--space-6);
       background: var(--color-bg-alt);
     }
-    .il-banner--active  { background: var(--color-success-subtle);     border-color: var(--color-success); }
-    .il-banner--delayed { background: var(--color-warning-subtle);     border-color: var(--color-warning); }
-    .il-banner--paused  { background: var(--color-destructive-subtle); border-color: var(--color-destructive); }
+    .il-banner--in-range    { background: var(--color-success-subtle);     border-color: var(--color-success-border); }
+    .il-banner--approaching { background: var(--color-warning-subtle);     border-color: var(--color-warning-border); }
+    .il-banner--outside     { background: var(--color-bg-alt);             border-color: var(--color-border); }
+    .il-banner--delayed     { background: var(--color-destructive-subtle); border-color: var(--color-destructive-border); }
 
     .il-banner__chip {
       display: inline-flex;
@@ -96,9 +97,10 @@
       letter-spacing: var(--tracking-wide);
       margin-bottom: var(--space-2);
     }
-    .il-banner--active  .il-banner__chip { color: var(--color-success); }
-    .il-banner--delayed .il-banner__chip { color: var(--color-warning); }
-    .il-banner--paused  .il-banner__chip { color: var(--color-destructive); }
+    .il-banner--in-range    .il-banner__chip { color: var(--color-success); }
+    .il-banner--approaching .il-banner__chip { color: var(--color-warning); }
+    .il-banner--outside     .il-banner__chip { color: var(--color-text-secondary); }
+    .il-banner--delayed     .il-banner__chip { color: var(--color-destructive); }
 
     .status-dot {
       width: 8px; height: 8px;
@@ -106,9 +108,10 @@
       display: inline-block;
       flex-shrink: 0;
     }
-    .status-dot--active  { background: var(--color-success); }
-    .status-dot--delayed { background: var(--color-warning); }
-    .status-dot--paused  { background: var(--color-destructive); }
+    .status-dot--in-range    { background: var(--color-success); }
+    .status-dot--approaching { background: var(--color-warning); }
+    .status-dot--outside     { background: var(--color-text-secondary); }
+    .status-dot--delayed     { background: var(--color-destructive); }
 
     .il-banner__title {
       font-family: var(--font-display);
@@ -438,11 +441,11 @@
           </div>
 
           <div class="metric-card">
-            <div class="metric-card__label">Next Expected Window</div>
-            <div class="metric-card__value" id="m-next-window">
+            <div class="metric-card__label">Latest DQ with IL</div>
+            <div class="metric-card__value" id="il-latest-dq">
               <span class="skel skel--val" aria-hidden="true"></span>
             </div>
-            <div class="metric-card__sub" id="m-next-window-sub"></div>
+            <div class="metric-card__sub">Standard cases only</div>
           </div>
 
           <div class="metric-card">
@@ -789,7 +792,7 @@
       outcomes: { approved:98, not_approved:3, cleared:5, denied:1, visa_pause:3, total:110, approval_pct:94 },
       stage_avgs: { approval_to_welcome:6, welcome_to_fees:8, fees_to_docs:19, docs_to_dq:19, il_to_medical:46, interview_to_passport:6 },
       il_schedule: {
-        last_il_drop:'2026-05-29', estimated_next_window:'2026-06-21 – 2026-07-01', avg_gap_days:21,
+        last_il_drop:'2026-05-29', latest_dq_with_il:'2026-03-16', estimated_next_window:'2026-06-21 – 2026-07-01', avg_gap_days:21,
         recent_drops: [
           { date:'2026-05-29', time:'14:52', gap:35, dq_from:'2025-11-17', dq_to:'2026-03-16', dq_days:120, il_count:21 },
           { date:'2026-04-17', time:'16:02', gap:18, dq_from:'2025-09-30', dq_to:'2026-02-14', dq_days:138, il_count:11 },
@@ -831,6 +834,7 @@
         denied_pct: pct(o.denied),
         median_pickup_days: d.key_stats?.median_pickup_days ?? null,
         median_mail_days:   d.key_stats?.median_mail_days ?? null,
+        latest_dq_with_il:  sched.latest_dq_with_il ?? null,
       };
       return { drops, stats };
     }
@@ -900,23 +904,38 @@
       const last = drops?.[0];
       const lastDate = last?.drop_date || last?.recorded_at;
       const days = daysAgo(lastDate);
-      let status = stats?.il_system_status || 'active';
-      if (days != null && status === 'active') {
-        if (days > 60) status = 'paused';
-        else if (days > 35) status = 'delayed';
-      }
-      const cfg = {
-        active:  { cls:'il-banner--active',  dot:'active',  chip:'IL System Active' },
-        delayed: { cls:'il-banner--delayed', dot:'delayed', chip:'IL System Delayed' },
-        paused:  { cls:'il-banner--paused',  dot:'paused',  chip:'IL System Paused' },
-      }[status] || { cls:'il-banner--active', dot:'active', chip:'IL System Active' };
-
-      const title = lastDate
-        ? `Last IL drop: ${fmtDate(lastDate)}${days != null ? ` — ${days} days ago` : ''}`
-        : 'Awaiting first IL drop data';
       const ns = stats?.next_drop_window_start;
       const ne = stats?.next_drop_window_end;
-      const sub = ns ? `Next expected: ${fmtDate(ns)}${ne ? ' – ' + fmtDate(ne) : ''}` : '';
+
+      // Determine range status from today vs. next expected window
+      let cfg;
+      if (ns) {
+        const today = new Date(); today.setUTCHours(0,0,0,0);
+        const start = new Date(ns + 'T00:00:00Z');
+        const end   = ne ? new Date(ne + 'T00:00:00Z') : start;
+        const lastDropDate = lastDate ? new Date(lastDate + 'T00:00:00Z') : null;
+        const daysUntilStart = Math.round((start - today) / 86400000);
+        const pastWindow = today > end;
+        const noDropInWindow = !lastDropDate || lastDropDate < start;
+        if (pastWindow && noDropInWindow) {
+          cfg = { cls:'il-banner--delayed',     dot:'delayed',     chip:'IL Drop Delayed' };
+        } else if (today >= start && today <= end) {
+          cfg = { cls:'il-banner--in-range',    dot:'in-range',    chip:'In IL Drop Range' };
+        } else if (daysUntilStart > 0 && daysUntilStart <= 7) {
+          cfg = { cls:'il-banner--approaching', dot:'approaching', chip:'Approaching IL Drop Range' };
+        } else {
+          cfg = { cls:'il-banner--outside',     dot:'outside',     chip:'Outside of IL Drop Range' };
+        }
+      } else {
+        cfg = { cls:'il-banner--outside', dot:'outside', chip:'Outside of IL Drop Range' };
+      }
+
+      const title = ns
+        ? `Next expected: ${fmtDate(ns)}${ne ? ' – ' + fmtDate(ne) : ''}`
+        : 'Next drop window not yet estimated';
+      const sub = lastDate
+        ? `Last IL drop: ${fmtDate(lastDate)}${days != null ? ` — ${days} days ago` : ''}`
+        : '';
 
       banner.className = `il-banner ${cfg.cls}`;
       banner.innerHTML = `
@@ -943,6 +962,7 @@
       txt('m-next-window-sub', ns ? (ne ? `to ${fmtDate(ne)}` : 'Estimated') : 'Not yet estimated');
       const w = stats?.members_waiting;
       set('m-members', w != null ? w.toLocaleString('en-GB') : '—');
+      set('il-latest-dq', fmtDate(stats?.latest_dq_with_il));
     }
 
     function renderPipeline(stats) {
