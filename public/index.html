@@ -603,7 +603,7 @@
                 <th scope="col">Time (London)</th>
                 <th scope="col">DQ Dates Covered</th>
                 <th scope="col">Gap Since Previous</th>
-                <th scope="col" class="num">ILs Issued</th>
+                <th scope="col">ILs Issued</th>
               </tr>
             </thead>
             <tbody id="drops-tbody">
@@ -1011,7 +1011,7 @@
           <td>${d.drop_time || '—'}</td>
           <td>${d.dq_date_from ? fmtDate(d.dq_date_from) : '—'} – ${d.dq_date_to ? fmtDate(d.dq_date_to) : '—'}</td>
           <td>${d.gap_days != null ? d.gap_days + ' days' : '—'}</td>
-          <td class="num">${d.il_count != null ? Number(d.il_count).toLocaleString('en-GB') : '—'}</td>
+          <td>${d.il_count != null ? Number(d.il_count).toLocaleString('en-GB') : '—'}</td>
         </tr>`;
       }).join('');
     }
