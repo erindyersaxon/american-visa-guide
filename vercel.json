@@ -75,6 +75,11 @@
       "permanent": true
     },
     {
+      "source": "/data.html",
+      "destination": "/data",
+      "permanent": true
+    },
+    {
       "source": "/guide.html",
       "destination": "/guide",
       "permanent": true

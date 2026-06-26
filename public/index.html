@@ -13,756 +13,339 @@
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window,document,"clarity","script","wlfs757o2n");
 </script>
-  <title>American Visa Guide — UK to US Family Visa Data &amp; Community Tracker</title>
-  <meta name="description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members — DQ to IL averages, interview scheduling, passport return times, and the full London process guide.">
+  <title>American Visa Guide — UK to US Family Visa</title>
+  <meta name="description" content="A plain-language guide and community data tracker for people going through the US family immigrant visa process via the US Embassy London. Real wait times, step-by-step guidance, checklists, and more.">
   <link rel="canonical" href="https://www.americanvisaguide.com/">
-  <meta property="og:title" content="American Visa Guide — UK to US Family Visa Data &amp; Community Tracker">
-  <meta property="og:description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members.">
+  <meta property="og:title" content="American Visa Guide — UK to US Family Visa">
+  <meta property="og:description" content="A plain-language guide and community data tracker for people going through the US family immigrant visa process via the US Embassy London.">
   <meta property="og:image" content="https://www.americanvisaguide.com/images/og-home.png">
   <meta property="og:url" content="https://www.americanvisaguide.com/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 
-
-  <link rel="stylesheet" href="/css/main.css?v=20260618">
-  <link rel="stylesheet" href="/css/components.css?v=20260618">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/main.css?v=20260626">
+  <link rel="stylesheet" href="/css/components.css?v=20260626">
+  <link rel="stylesheet" href="/css/nav.css?v=20260626">
+  <script src="/js/nav.js?v=20260626" defer></script>
 
   <style>
-    /* ── Accessibility: Skip link ── */
+    /* ── Skip link ── */
     .skip-to-main:focus {
       top: 0;
       outline: 2px solid var(--color-primary);
       outline-offset: 2px;
     }
-
-    /* ── Accessibility: Focus indicators ── */
     *:focus-visible {
       outline: 2px solid var(--color-primary);
       outline-offset: 2px;
     }
-
-    /* ── Accessibility: Reduced motion ── */
     @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
 
-    /* ── Skeleton loaders ── */
-    @keyframes shimmer {
-      0%   { background-position: -400px 0; }
-      100% { background-position:  400px 0; }
+    /* ── Hero ── */
+    .home-hero {
+      padding-block: var(--space-12) var(--space-10);
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
     }
-    .skel {
-      display: inline-block;
-      background: linear-gradient(90deg,
-        var(--color-bg-alt) 25%,
-        var(--color-border) 50%,
-        var(--color-bg-alt) 75%);
-      background-size: 400px 100%;
-      animation: shimmer 1.5s ease-in-out infinite;
-      border-radius: var(--radius-sm);
-    }
-    .skel--line   { height: 1em; margin-block: .2em; }
-    .skel--wide   { width: 75%; }
-    .skel--mid    { width: 50%; }
-    .skel--narrow { width: 30%; }
-    .skel--val    { height: 2.25rem; width: 5.5rem; }
-    .skel--chip   { height: 1.5rem; width: 5rem; border-radius: var(--radius-full); }
-    .skel--row    { height: 2.25rem; width: 100%; }
-
-    /* ── Status banner ── */
-    .il-banner {
-      border-left: 4px solid var(--color-border);
-      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-      padding: var(--space-4) var(--space-5);
-      margin-bottom: var(--space-6);
-      background: var(--color-bg-alt);
-    }
-    .il-banner--in-range    { background: var(--color-success-subtle);     border-color: var(--color-success-border); }
-    .il-banner--approaching { background: var(--color-warning-subtle);     border-color: var(--color-warning-border); }
-    .il-banner--outside     { background: var(--color-bg-alt);             border-color: var(--color-border); }
-    .il-banner--delayed     { background: var(--color-destructive-subtle); border-color: var(--color-destructive-border); }
-
-    .il-banner__chip {
+    .home-hero__eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: var(--space-1);
+      gap: var(--space-2);
       font-size: var(--text-xs);
       font-weight: var(--font-semibold);
       text-transform: uppercase;
-      letter-spacing: var(--tracking-wide);
-      margin-bottom: var(--space-2);
+      letter-spacing: var(--tracking-wider);
+      color: var(--color-accent);
+      margin-bottom: var(--space-4);
     }
-    .il-banner--in-range    .il-banner__chip { color: var(--color-success); }
-    .il-banner--approaching .il-banner__chip { color: var(--color-warning); }
-    .il-banner--outside     .il-banner__chip { color: var(--color-text-secondary); }
-    .il-banner--delayed     .il-banner__chip { color: var(--color-destructive); }
-
-    .status-dot {
-      width: 8px; height: 8px;
+    .home-hero__eyebrow-dot {
+      width: 6px; height: 6px;
       border-radius: 50%;
-      display: inline-block;
-      flex-shrink: 0;
+      background: var(--color-accent);
     }
-    .status-dot--in-range    { background: var(--color-success); }
-    .status-dot--approaching { background: var(--color-warning); }
-    .status-dot--outside     { background: var(--color-text-secondary); }
-    .status-dot--delayed     { background: var(--color-destructive); }
-
-    .il-banner__title {
+    .home-hero__title {
       font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      line-height: var(--leading-tight);
+      font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+      font-weight: var(--font-bold);
       color: var(--color-text);
-      margin-bottom: var(--space-1);
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-5);
+      max-width: 22ch;
     }
-    .il-banner__sub {
-      font-size: var(--text-sm);
+    .home-hero__title em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+    .home-hero__sub {
+      font-size: var(--text-lg);
       color: var(--color-text-secondary);
-      max-width: none;
-    }
-
-    /* ── Key metrics grid ── */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4);
+      line-height: var(--leading-relaxed);
+      max-width: 58ch;
       margin-bottom: var(--space-8);
     }
-    @media (min-width: 768px) {
-      .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+    .home-hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4) var(--space-6);
+    }
+    .home-hero__stat {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .home-hero__stat strong {
+      color: var(--color-text);
+      font-weight: var(--font-semibold);
     }
 
-    .metric-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4) var(--space-5);
-      box-shadow: var(--shadow-sm);
+    /* ── Nav cards grid ── */
+    .home-nav {
+      padding-block: var(--space-10);
     }
-    .metric-card__label {
+    .home-nav__label {
       font-size: var(--text-xs);
       font-weight: var(--font-semibold);
       text-transform: uppercase;
       letter-spacing: var(--tracking-wider);
       color: var(--color-text-muted);
-      margin-bottom: var(--space-2);
+      margin-bottom: var(--space-5);
     }
-    .metric-card__value {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      color: var(--color-text);
-      line-height: 1.1;
-      min-height: 2rem;
+    .nav-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
     }
-    .metric-card__sub {
-      font-size: var(--text-xs);
-      color: var(--color-text-muted);
-      margin-top: var(--space-1);
+    @media (min-width: 560px) {
+      .nav-cards { grid-template-columns: 1fr 1fr; }
     }
-
-    /* ── Hero ── */
-    .hero-section {
-      padding-block: var(--space-8);
-      background: var(--color-bg);
-    }
-    /* ── Content sections ── */
-    .content-section {
-      padding-block: var(--space-8);
-      border-top: 1px solid var(--color-border);
-    }
-    .section-hd { margin-bottom: var(--space-5); }
-    .section-hd__title {
-      font-family: var(--font-display);
-      font-size: var(--text-xl);
-      color: var(--color-text);
-      line-height: var(--leading-tight);
-    }
-    .section-hd__sub {
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      margin-top: var(--space-1);
-      max-width: none;
+    @media (min-width: 900px) {
+      .nav-cards { grid-template-columns: repeat(3, 1fr); }
+      .nav-card--wide { grid-column: span 2; }
     }
 
-    /* ── Pipeline ── */
-    .pipeline {
+    .nav-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      overflow: hidden;
+      padding: var(--space-6);
+      text-decoration: none;
+      color: inherit;
       box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     }
-    .pipeline-row {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      padding: var(--space-4) var(--space-5);
-      background: var(--color-surface);
+    .nav-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary-border);
+      transform: translateY(-1px);
+      text-decoration: none;
     }
-    .pipeline-row + .pipeline-row { border-top: 1px solid var(--color-border); }
-    .pipeline-row__icon {
-      flex-shrink: 0;
-      width: 36px; height: 36px;
+    .nav-card:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    .nav-card__icon {
+      width: 44px; height: 44px;
       border-radius: var(--radius-md);
       display: flex; align-items: center; justify-content: center;
       background: var(--color-primary-subtle);
       color: var(--color-primary);
+      margin-bottom: var(--space-4);
+      flex-shrink: 0;
     }
-    .pipeline-row__body { flex: 1; min-width: 0; }
-    .pipeline-row__name {
+    .nav-card--data .nav-card__icon   { background: var(--color-accent-subtle); color: var(--color-accent); }
+    .nav-card--life .nav-card__icon   { background: var(--color-success-subtle); color: var(--color-success); }
+
+    .nav-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
       font-weight: var(--font-semibold);
-      font-size: var(--text-sm);
       color: var(--color-text);
+      margin-bottom: var(--space-2);
     }
-    .pipeline-row__summary {
+    .nav-card__desc {
       font-size: var(--text-sm);
       color: var(--color-text-secondary);
-      margin-top: var(--space-1);
-      max-width: none;
+      line-height: var(--leading-relaxed);
+      flex: 1;
+      margin-bottom: var(--space-4);
     }
-
-    /* ── Week cards ── */
-    .week-group { margin-top: var(--space-6); }
-    .week-group:first-of-type { margin-top: 0; }
-    .week-group__label {
-      font-size: var(--text-xs);
-      font-weight: var(--font-semibold);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wide);
-      color: var(--color-text-muted);
-      margin: 0 0 var(--space-3) 0;
-    }
-    .week-group__label em { font-style: normal; color: var(--color-primary); }
-    .week-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-3);
-      align-items: start; /* cards size to their own member list */
-    }
-    @media (min-width: 640px) { .week-grid--3 { grid-template-columns: repeat(3,1fr); } }
-
-    .week-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: var(--space-4);
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-    }
-    .week-card__value {
-      font-family: var(--font-display);
-      font-size: var(--text-3xl);
-      color: var(--color-primary);
-      line-height: 1;
-      min-height: 2.25rem;
-    }
-    .week-card__label {
-      font-size: var(--text-xs);
-      font-weight: var(--font-semibold);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wide);
-      color: var(--color-text-muted);
-      margin-top: var(--space-2);
-    }
-    .week-card__list {
-      list-style: none;
-      margin: var(--space-3) 0 0;
-      padding: 0;
-      text-align: left;
-    }
-    .week-card__list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: var(--space-2);
-      font-size: var(--text-sm);
-      padding: var(--space-1) 0;
-      border-top: 1px solid var(--color-border);
-    }
-    .week-card__list .wm-name { color: var(--color-text); }
-    .week-card__list .wm-date { color: var(--color-text-muted); white-space: nowrap; flex-shrink: 0; }
-    .week-card__list .wm-empty {
-      justify-content: center;
-      color: var(--color-text-muted);
-      font-style: italic;
-    }
-
-    /* ── Trend cards ── */
-    .trend-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-4);
-    }
-    @media (min-width: 640px) { .trend-grid { grid-template-columns: repeat(2,1fr); } }
-
-    .trend-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-5);
-      box-shadow: var(--shadow-sm);
-    }
-    .trend-card__period {
-      font-size: var(--text-xs);
-      font-weight: var(--font-semibold);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wide);
-      color: var(--color-text-muted);
-    }
-    .trend-card__value {
-      font-family: var(--font-display);
-      font-size: var(--text-3xl);
-      color: var(--color-text);
-      line-height: 1.1;
-      margin-top: var(--space-2);
-      min-height: 2.25rem;
-    }
-    .trend-card__dir {
+    .nav-card__link {
       display: inline-flex;
       align-items: center;
       gap: var(--space-1);
       font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      margin-top: var(--space-2);
+      font-weight: var(--font-semibold);
+      color: var(--color-primary);
+      text-decoration: none;
     }
-    .trend-card__dir--up   { color: var(--color-destructive); }
-    .trend-card__dir--down { color: var(--color-success); }
-    .trend-card__dir--flat { color: var(--color-text-muted); }
+    .nav-card--data .nav-card__link  { color: var(--color-accent); }
+    .nav-card--life .nav-card__link  { color: var(--color-success); }
 
-    /* ── Outcome cards ── */
-    .outcome-grid {
+    /* ── Intro strip ── */
+    .home-intro {
+      padding-block: var(--space-8);
+      border-top: 1px solid var(--color-border);
+    }
+    .home-intro__inner {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-4);
+      gap: var(--space-6);
     }
-    @media (min-width: 560px) { .outcome-grid { grid-template-columns: 1fr 1fr 1fr; } }
-    .outcome-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-5);
-      text-align: center;
-      box-shadow: var(--shadow-sm);
+    @media (min-width: 768px) {
+      .home-intro__inner { grid-template-columns: 1fr 1fr; gap: var(--space-10); }
     }
-    .outcome-card__value {
+    .home-intro__title {
       font-family: var(--font-display);
-      font-size: var(--text-4xl);
-      line-height: 1;
-      min-height: 2.75rem;
+      font-size: var(--text-xl);
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
     }
-    @media (max-width: 640px) { .outcome-card__value { font-size: var(--text-2xl); } }
-    .outcome-card--approved .outcome-card__value { color: var(--color-success); }
-    .outcome-card--221g     .outcome-card__value { color: var(--color-warning); }
-    .outcome-card--denied   .outcome-card__value { color: var(--color-destructive); }
-    .outcome-card__label { margin-top: var(--space-3); }
-
-    /* ── Passport grid ── */
-    .passport-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4);
-    }
-
-    /* ── Outdated notice ── */
-    .data-notice {
-      display: none;
-      align-items: center;
-      gap: var(--space-2);
-      padding: var(--space-3) var(--space-4);
-      background: var(--color-warning-subtle);
-      border: 1px solid var(--color-warning-border);
-      border-radius: var(--radius-md);
+    .home-intro__body {
       font-size: var(--text-sm);
-      color: var(--color-warning);
-      margin-bottom: var(--space-5);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-relaxed);
     }
-    .data-notice.is-visible { display: flex; }
-
-    /* ── Numeric table cells ── */
-    .num { font-variant-numeric: tabular-nums; text-align: right; }
+    .home-intro__body p + p { margin-top: var(--space-3); }
+    .home-intro__cta {
+      margin-top: var(--space-5);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260616">
-  <script src="/js/nav.js?v=20260616" defer></script>
 </head>
 <body>
-  <!-- Skip to main content link -->
   <a href="#main-content" class="skip-to-main" style="position: absolute; top: -40px; left: 0; background: var(--color-primary); color: white; padding: 8px 16px; text-decoration: none; z-index: 100;">Skip to main content</a>
 
   <div id="nav-placeholder"></div>
 
   <main id="main-content">
 
-    <!-- ═══ ABOVE THE FOLD — Status banner + key metrics ═══ -->
-    <section class="hero-section" aria-labelledby="page-title">
+    <!-- ═══ HERO ═══ -->
+    <section class="home-hero" aria-labelledby="home-title">
       <div class="container">
-
-        <h1 id="page-title" class="sr-only">American Visa Guide — IL Drop Tracker &amp; Community Data</h1>
-
-        <!-- Stale data notice -->
-        <div id="data-notice" class="data-notice" role="alert" aria-live="polite">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Live data temporarily unavailable — showing last-known values. Data may be outdated.
+        <div class="home-hero__eyebrow">
+          <span class="home-hero__eyebrow-dot" aria-hidden="true"></span>
+          UK → US Family Visa · London Consular Process
         </div>
-
-        <!-- IL Drop Status Banner -->
-        <div id="il-banner" class="il-banner" role="status" aria-live="polite" aria-label="Interview Letter drop system status">
-          <div class="il-banner__chip">
-            <span class="skel skel--chip" aria-hidden="true"></span>
+        <h1 id="home-title" class="home-hero__title">
+          Your guide to the United States family immigrant visa process via the U.S. Embassy, <em>London</em>
+        </h1>
+        <p class="home-hero__sub">
+          American Visa Guide is a community-powered resource for UK residents going through the US family immigrant visa process. Real wait times, plain-language guidance, and practical tools — all specific to the US Embassy London.
+        </p>
+        <div class="home-hero__meta" role="list" aria-label="Site highlights">
+          <div class="home-hero__stat" role="listitem">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            <span><strong>200+</strong> community members</span>
           </div>
-          <div class="il-banner__title">
-            <span class="skel skel--line skel--wide" aria-hidden="true"></span>
+          <div class="home-hero__stat" role="listitem">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span><strong>Real</strong> wait times &amp; outcomes</span>
           </div>
-          <p class="il-banner__sub">
-            <span class="skel skel--line skel--mid" aria-hidden="true"></span>
-          </p>
-        </div>
-
-        <!-- 4 key metrics -->
-        <div class="metrics-grid" role="region" aria-label="Key queue metrics">
-
-          <div class="metric-card">
-            <div class="metric-card__label">Last IL Drop</div>
-            <div class="metric-card__value" id="m-last-drop">
-              <span class="skel skel--val" aria-hidden="true"></span>
-            </div>
-            <div class="metric-card__sub" id="m-last-drop-sub"></div>
+          <div class="home-hero__stat" role="listitem">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            <span><strong>London</strong> Embassy specific</span>
           </div>
-
-          <div class="metric-card">
-            <div class="metric-card__label">Days Since Drop</div>
-            <div class="metric-card__value" id="m-days-since">
-              <span class="skel skel--val" aria-hidden="true"></span>
-            </div>
-            <div class="metric-card__sub" id="m-days-since-sub">days ago</div>
-          </div>
-
-          <div class="metric-card">
-            <div class="metric-card__label">Latest DQ with IL</div>
-            <div class="metric-card__value" id="il-latest-dq">
-              <span class="skel skel--val" aria-hidden="true"></span>
-            </div>
-            <div class="metric-card__sub">Standard cases only</div>
-          </div>
-
-          <div class="metric-card">
-            <div class="metric-card__label">Members Waiting</div>
-            <div class="metric-card__value" id="m-members">
-              <span class="skel skel--val" aria-hidden="true"></span>
-            </div>
-            <div class="metric-card__sub">In the London pipeline</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ PIPELINE STATUS ═══ -->
-    <section class="content-section" aria-labelledby="pipeline-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="pipeline-hd">Pipeline Status</h2>
-          <p class="section-hd__sub">Current status across all three processing stages.</p>
-        </div>
-
-        <div class="pipeline" role="list">
-
-          <div class="pipeline-row" role="listitem">
-            <div class="pipeline-row__icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <div class="pipeline-row__body">
-              <div class="pipeline-row__name">USCIS — I-130 Petition</div>
-              <p class="pipeline-row__summary" id="p-uscis-summary">
-                <span class="skel skel--line skel--wide" aria-hidden="true"></span>
-              </p>
-            </div>
-            <div id="p-uscis-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
-          </div>
-
-          <div class="pipeline-row" role="listitem">
-            <div class="pipeline-row__icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </div>
-            <div class="pipeline-row__body">
-              <div class="pipeline-row__name">NVC — National Visa Centre</div>
-              <p class="pipeline-row__summary" id="p-nvc-summary">
-                <span class="skel skel--line skel--wide" aria-hidden="true"></span>
-              </p>
-            </div>
-            <div id="p-nvc-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
-          </div>
-
-          <div class="pipeline-row" role="listitem">
-            <div class="pipeline-row__icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-            </div>
-            <div class="pipeline-row__body">
-              <div class="pipeline-row__name">US Embassy London — Interview &amp; Visa</div>
-              <p class="pipeline-row__summary" id="p-london-summary">
-                <span class="skel skel--line skel--wide" aria-hidden="true"></span>
-              </p>
-            </div>
-            <div id="p-london-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ THIS WEEK IN THE COMMUNITY ═══ -->
-    <section class="content-section" aria-labelledby="week-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="week-hd">This Week in the Community</h2>
-          <p class="section-hd__sub">Upcoming appointments and recent milestones across the community.</p>
-        </div>
-
-        <!-- Coming up — the upcoming Sunday→Saturday week -->
-        <div class="week-group">
-          <p class="week-group__label">📅 Coming up · <em><span id="week-upcoming-label">…</span></em></p>
-          <div class="week-grid week-grid--3" role="list" aria-label="Upcoming community milestones">
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-medicals">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">Medicals</div>
-              <ul class="week-card__list" id="wl-medicals" aria-label="Members with a medical this week"></ul>
-            </div>
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-interviews">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">Interviews</div>
-              <ul class="week-card__list" id="wl-interviews" aria-label="Members with an interview this week"></ul>
-            </div>
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-flights">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">Flights</div>
-              <ul class="week-card__list" id="wl-flights" aria-label="Members with a flight this week"></ul>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Just happened — the previous Sunday→Saturday week -->
-        <div class="week-group">
-          <p class="week-group__label">✅ Just happened · <em><span id="week-previous-label">…</span></em></p>
-          <div class="week-grid week-grid--2" role="list" aria-label="Recent community milestones">
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-dq">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">DQ</div>
-              <ul class="week-card__list" id="wl-dq" aria-label="Members documentarily qualified this week"></ul>
-            </div>
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-i130">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">I-130 Approvals</div>
-              <ul class="week-card__list" id="wl-i130" aria-label="Members with an I-130 approval this week"></ul>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Submit CTA -->
-        <div style="background: var(--color-primary-subtle); border: 1px solid var(--color-primary-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-top: var(--space-8); text-align: center;">
-          <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 0 0 var(--space-3) 0;">💾 Reached a milestone? Add your dates to help the community.</p>
-          <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: var(--space-2) var(--space-4); background: var(--color-primary); color: #fff; border-radius: var(--radius-md); text-decoration: none; font-size: var(--text-sm); font-weight: var(--font-semibold);">Submit your timeline →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ IL DROP HISTORY TABLE ═══ -->
-    <section class="content-section" aria-labelledby="drops-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="drops-hd">IL Drop History</h2>
-          <p class="section-hd__sub">Interview Letter drops from the US Embassy London. Most recent first.</p>
-        </div>
-
-        <div class="table-wrapper" role="region" aria-labelledby="drops-hd" tabindex="0">
-          <table class="table table--striped">
-            <caption class="sr-only">Interview Letter drop history: drop date, day of week, time of drop, DQ date range covered, gap since previous drop, and number of ILs issued</caption>
-            <thead>
-              <tr>
-                <th scope="col">Drop Date</th>
-                <th scope="col">Day</th>
-                <th scope="col">Time (London)</th>
-                <th scope="col">DQ Dates Covered</th>
-                <th scope="col">Gap Since Previous</th>
-                <th scope="col">ILs Issued</th>
-              </tr>
-            </thead>
-            <tbody id="drops-tbody">
-              <tr aria-hidden="true"><td colspan="5"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ IL → INTERVIEW SCHEDULING TABLE ═══ -->
-    <section class="content-section" aria-labelledby="sched-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="sched-hd">IL to Interview Scheduling</h2>
-          <p class="section-hd__sub">The month your Interview Letter arrived and the month interviews have been scheduled. IL → interview is typically ~2 months. Observed pattern from London community members.</p>
-        </div>
-
-        <div class="table-wrapper" role="region" aria-labelledby="sched-hd" tabindex="0">
-          <table class="table table--striped table--compact">
-            <caption class="sr-only">Observed pattern: the month an Interview Letter was received and the month the interview was scheduled</caption>
-            <thead>
-              <tr>
-                <th scope="col">IL Received</th>
-                <th scope="col">Interview Scheduled</th>
-              </tr>
-            </thead>
-            <tbody data-il-interview></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ DQ → IL WAIT TIME TRENDS ═══ -->
-    <section class="content-section" aria-labelledby="trend-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="trend-hd">DQ → IL Wait Time Trends</h2>
-          <p class="section-hd__sub">Median days from Documentarily Qualified to Interview Letter. A downward trend means the queue is moving faster.</p>
-        </div>
-
-        <div class="trend-grid">
-          <div class="trend-card">
-            <div class="trend-card__period">All Time</div>
-            <div class="trend-card__value" id="t-alltime"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="trend-card__dir" id="t-alltime-dir"></div>
-          </div>
-          <div class="trend-card">
-            <div class="trend-card__period">Last 6 Months</div>
-            <div class="trend-card__value" id="t-6mo"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="trend-card__dir" id="t-6mo-dir"></div>
+          <div class="home-hero__stat" role="listitem">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            <span>Independent &amp; <strong>free</strong> (coffee tips welcome)</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ INTERVIEW OUTCOMES ═══ -->
-    <section class="content-section" aria-labelledby="outcomes-hd">
+    <!-- ═══ NAVIGATION CARDS ═══ -->
+    <section class="home-nav" aria-labelledby="explore-label">
       <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="outcomes-hd">Interview Outcomes</h2>
-          <p class="section-hd__sub">Community-reported results at the US Embassy London.</p>
-        </div>
+        <p class="home-nav__label" id="explore-label">Explore the site</p>
 
-        <div class="outcome-grid" role="group" aria-label="Interview outcome percentages">
+        <div class="nav-cards" role="list">
 
-          <div class="outcome-card outcome-card--approved">
-            <div class="outcome-card__value" id="o-approved">
-              <span class="skel skel--val" style="display:inline-block;" aria-hidden="true"></span>
+          <!-- Guide -->
+          <a href="/guide" class="nav-card" role="listitem" aria-label="The Guide — step-by-step walkthrough of the London process">
+            <div class="nav-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
             </div>
-            <div class="outcome-card__label">
-              <span class="badge badge--success">
-                <span aria-hidden="true">✓</span> Approved
-              </span>
-            </div>
-          </div>
+            <div class="nav-card__title">The Guide</div>
+            <p class="nav-card__desc">A step-by-step walkthrough of every stage — from filing the I-130 to landing in the US. Plain language, no jargon, London-specific throughout.</p>
+            <span class="nav-card__link" aria-hidden="true">Read the guide <span>→</span></span>
+          </a>
 
-          <div class="outcome-card outcome-card--221g">
-            <div class="outcome-card__value" id="o-221g">
-              <span class="skel skel--val" style="display:inline-block;" aria-hidden="true"></span>
+          <!-- Data -->
+          <a href="/data" class="nav-card nav-card--data" role="listitem" aria-label="Data Tracker — real wait times from community members">
+            <div class="nav-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             </div>
-            <div class="outcome-card__label">
-              <span class="badge badge--warning">
-                <span aria-hidden="true">⚠</span>
-                <abbr title="Administrative Processing under Section 221(g)">221(g)</abbr>
-              </span>
-            </div>
-          </div>
+            <div class="nav-card__title">Data Tracker</div>
+            <p class="nav-card__desc">Real wait times from 200+ community members. See how long each stage actually takes, track IL drops, and understand what outcomes look like.</p>
+            <span class="nav-card__link" aria-hidden="true">View the data <span>→</span></span>
+          </a>
 
-          <div class="outcome-card outcome-card--denied">
-            <div class="outcome-card__value" id="o-denied">
-              <span class="skel skel--val" style="display:inline-block;" aria-hidden="true"></span>
+          <!-- Checklists & Templates -->
+          <a href="/checklists" class="nav-card" role="listitem" aria-label="Checklists and Templates — practical tools for each stage">
+            <div class="nav-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
             </div>
-            <div class="outcome-card__label">
-              <span class="badge badge--destructive">
-                <span aria-hidden="true">✕</span> Denied
-              </span>
+            <div class="nav-card__title">Checklists &amp; Templates</div>
+            <p class="nav-card__desc">Document checklists for I-130, NVC, the medical, and your interview. Downloadable templates and worksheets to keep your paperwork organised.</p>
+            <span class="nav-card__link" aria-hidden="true">Browse tools <span>→</span></span>
+          </a>
+
+          <!-- Life in the US -->
+          <a href="/life" class="nav-card nav-card--life" role="listitem" aria-label="Life in the US — what to expect after you arrive">
+            <div class="nav-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </div>
-          </div>
+            <div class="nav-card__title">Life in the US</div>
+            <p class="nav-card__desc">What happens after you land — Social Security, driving licences, healthcare, banking, and settling in as a new permanent resident.</p>
+            <span class="nav-card__link" aria-hidden="true">Explore <span>→</span></span>
+          </a>
+
+          <!-- About -->
+          <a href="/about" class="nav-card" role="listitem" aria-label="About — who built this and why">
+            <div class="nav-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </div>
+            <div class="nav-card__title">About</div>
+            <p class="nav-card__desc">Who made this, how the data works, what this site is and isn't, and how to get in touch. Built by Erin — someone who went through the process herself.</p>
+            <span class="nav-card__link" aria-hidden="true">Learn more <span>→</span></span>
+          </a>
 
         </div>
       </div>
     </section>
 
-    <!-- ═══ PASSPORT RETURN TIMES ═══ -->
-    <section class="content-section" aria-labelledby="passport-hd">
+    <!-- ═══ INTRO STRIP ═══ -->
+    <section class="home-intro" aria-labelledby="intro-label">
       <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="passport-hd">Passport Return Times</h2>
-          <p class="section-hd__sub">After visa approval at interview — median days to receive your passport with visa stamp.</p>
-        </div>
-
-        <div class="passport-grid">
-          <div class="metric-card">
-            <div class="metric-card__label">Mail Boxes Etc Pick-Up</div>
-            <div class="metric-card__value" id="pp-pickup"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="metric-card__sub">median days</div>
+        <div class="home-intro__inner">
+          <div>
+            <h2 class="home-intro__title" id="intro-label">What this site is</h2>
+            <div class="home-intro__body">
+              <p>American Visa Guide exists to fill the gap between the official USCIS guidance (thorough but dense) and scattered forum posts (specific but hard to trust). It's focused entirely on the <strong>US Embassy London</strong> consular process for family-based immigrant visas.</p>
+              <p>Two things: a <strong>community data tracker</strong> showing real timelines from real applicants, and a <strong>plain-language guide</strong> to every stage of the process. Both are built on what people in the community have actually experienced.</p>
+            </div>
+            <div class="home-intro__cta">
+              <a href="/guide" class="btn btn--primary btn--sm">Read the guide</a>
+              <a href="/data" class="btn btn--secondary btn--sm">View the data</a>
+            </div>
           </div>
-          <div class="metric-card">
-            <div class="metric-card__label">Royal Mail Delivery</div>
-            <div class="metric-card__value" id="pp-mail"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="metric-card__sub">median days</div>
+          <div>
+            <h2 class="home-intro__title">Not legal advice</h2>
+            <div class="home-intro__body">
+              <p>This site is independent and volunteer-run. It is <strong>not affiliated</strong> with USCIS, the US Department of State, or the US Embassy London. Nothing here constitutes legal advice.</p>
+              <p>If your case is complex — waivers, prior removals, unusual circumstances — please consult a qualified immigration attorney. This site is most useful to people in a relatively straightforward family-based immigrant visa case applying through London.</p>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ PER-STAGE TIMING TABLE ═══ -->
-    <section class="content-section" aria-labelledby="timing-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="timing-hd">Median Stage-by-Stage Timings</h2>
-          <p class="section-hd__sub">Community-reported median times for each leg of the London immigrant visa process. Individual experiences vary.</p>
-        </div>
-
-        <div class="table-wrapper" role="region" aria-labelledby="timing-hd" tabindex="0">
-          <table class="table">
-            <caption class="sr-only">Median processing time for each stage of the US immigrant visa application through the US Embassy London, based on community-reported data</caption>
-            <thead>
-              <tr>
-                <th scope="col">Stage</th>
-                <th scope="col" class="num">Median (days)</th>
-                <th scope="col" class="num">Median (months)</th>
-              </tr>
-            </thead>
-            <tbody id="timing-tbody">
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </section>
@@ -771,346 +354,7 @@
 
   <div id="footer-placeholder"></div>
 
-  <!-- Shared IL → Interview pattern (single source, also used by the guide) -->
-  <script src="/js/il-interview.js?v=20260613"></script>
-
-  <!-- Environment setup -->
-  <script src="/js/env.js?v=20260609"></script>
-
-  <script src="/js/main.js?v=20260609"></script>
-  <script type="module">
-    /* Live data comes from the /api/data serverless endpoint, which aggregates
-       the community submissions server-side. FB is a frozen last-known snapshot
-       in the same shape, shown only if /api/data is unreachable. */
-    const FB = {
-      meta: { total_members: 219 },
-      key_stats: { avg_dq_to_il:66, avg_il_to_interview:60, avg_dq_to_interview:123, avg_passport_days:7, median_passport_days:5, avg_pickup_days:4, avg_mail_days:12 },
-      trends: {
-        dq_to_il:        { all_time:63, last_6m:77, last_3m:null },
-        il_to_interview: { all_time:60, last_6m:53, last_3m:60 },
-        dq_to_interview: { all_time:123, last_6m:132, last_3m:135 },
-      },
-      outcomes: { approved:98, not_approved:3, cleared:5, denied:1, visa_pause:3, total:110, approval_pct:94 },
-      stage_avgs: { approval_to_welcome:6, welcome_to_fees:8, fees_to_docs:19, docs_to_dq:19, il_to_medical:46, interview_to_passport:6 },
-      il_schedule: {
-        last_il_drop:'2026-05-29', latest_dq_with_il:'2026-03-16', estimated_next_window:'2026-06-21 – 2026-07-01', avg_gap_days:21,
-        recent_drops: [
-          { date:'2026-05-29', time:'14:52', gap:35, dq_from:'2025-11-17', dq_to:'2026-03-16', dq_days:120, il_count:21 },
-          { date:'2026-04-17', time:'16:02', gap:18, dq_from:'2025-09-30', dq_to:'2026-02-14', dq_days:138, il_count:11 },
-          { date:'2026-03-30', time:'00:00', gap:26, dq_from:'2025-12-30', dq_to:'2026-01-27', dq_days:29, il_count:16 },
-          { date:'2026-03-04', time:'14:08', gap:15, dq_from:'2025-12-17', dq_to:'2025-12-22', dq_days:6, il_count:3 },
-          { date:'2026-02-13', time:'13:51', gap:29, dq_from:'2025-10-24', dq_to:'2026-01-26', dq_days:95, il_count:13 },
-        ],
-      },
-      this_week: { upcoming_week_of:'2026-06-14', previous_week_of:'2026-06-07', interviews:[], medicals:[], flights:[], dqs:[], approved:[] },
-    };
-
-    /* Editorial pipeline narrative — current processing conditions, not in the DB */
-    const PIPELINE = {
-      uscis:  { status:'slow',   text:'Significantly slowed — the front of the line has barely moved since mid-March 2026, with volumes running below half of normal levels.' },
-      nvc:    { status:'normal', text:'Processing normally. Documentarily Qualified typically lands ~14 calendar days after a complete submission.' },
-      london: { status:'active', text:'IL drops continuing on a regular cadence. Once you have an IL, your interview is typically about 9 weeks out.' },
-    };
-
-    /* Map the /api/data response into the shapes the render functions consume */
-    function fromApiData(d) {
-      const sched = d.il_schedule || {};
-      const drops = (sched.recent_drops || []).map(r => ({
-        drop_date: r.date, gap_days: r.gap, drop_time: r.time,
-        dq_date_from: r.dq_from, dq_date_to: r.dq_to, il_count: r.il_count,
-      }));
-      const win = (sched.estimated_next_window || '').split('–').map(s => s.trim());
-      const o = d.outcomes || {};
-      const pct = n => (o.total ? Math.round((n || 0) / o.total * 100) : null);
-      const stats = {
-        members_waiting: d.meta?.total_members ?? null,
-        il_system_status: 'active', // renderBanner upgrades to delayed/paused from the drop date
-        next_drop_window_start: win[0] || null,
-        next_drop_window_end:   win[1] || null,
-        uscis_status:  PIPELINE.uscis.status,  uscis_summary:  PIPELINE.uscis.text,
-        nvc_status:    PIPELINE.nvc.status,    nvc_summary:    PIPELINE.nvc.text,
-        london_status: PIPELINE.london.status, london_summary: PIPELINE.london.text,
-        approved_pct: o.approval_pct ?? null,
-        rejected_221g_pct: pct(o.not_approved),
-        denied_pct: pct(o.denied),
-        median_pickup_days: d.key_stats?.median_pickup_days ?? null,
-        median_mail_days:   d.key_stats?.median_mail_days ?? null,
-        latest_dq_with_il:  sched.latest_dq_with_il ?? null,
-      };
-      return { drops, stats };
-    }
-
-    /* ── Helpers ── */
-    function fmtDate(s) {
-      if (!s) return '—';
-      const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
-      return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric', timeZone:'UTC' });
-    }
-    function fmtMonth(s) {
-      if (!s) return '—';
-      const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
-      return d.toLocaleDateString('en-GB', { month:'long', year:'numeric', timeZone:'UTC' });
-    }
-    function fmtShort(s) {
-      if (!s) return '';
-      const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
-      return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', timeZone:'UTC' });
-    }
-    function daysAgo(s) {
-      if (!s) return null;
-      const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
-      return Math.round((Date.now() - d.getTime()) / 86400000);
-    }
-    function avgOf(arr, field) {
-      const vals = arr.map(r => r[field]).filter(v => v != null && !isNaN(Number(v)));
-      if (!vals.length) return null;
-      return Math.round(vals.reduce((s, v) => s + Number(v), 0) / vals.length);
-    }
-    function toMonths(d) { return d != null ? (d / 30.44).toFixed(1) : '—'; }
-    function set(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
-    function txt(id, t)    { const el = document.getElementById(id); if (el) el.textContent = t; }
-
-    /* Sunday ISO -> "14–20 Jun" (or "28 Jun – 4 Jul" across a month boundary) */
-    function fmtWeekRange(sundayISO) {
-      if (!sundayISO) return '…';
-      const start = new Date(sundayISO + 'T00:00:00Z');
-      const end = new Date(start); end.setUTCDate(start.getUTCDate() + 6);
-      const day = d => d.getUTCDate();
-      const mon = d => d.toLocaleDateString('en-GB', { month:'short', timeZone:'UTC' });
-      return start.getUTCMonth() === end.getUTCMonth()
-        ? `${day(start)}–${day(end)} ${mon(end)}`
-        : `${day(start)} ${mon(start)} – ${day(end)} ${mon(end)}`;
-    }
-    function setWeekLabels(upcomingISO, previousISO) {
-      if (upcomingISO) txt('week-upcoming-label', fmtWeekRange(upcomingISO));
-      if (previousISO) txt('week-previous-label', fmtWeekRange(previousISO));
-    }
-
-    function statusBadge(status) {
-      const map = {
-        active:  ['badge--success',     '●', 'Active'],
-        normal:  ['badge--success',     '●', 'Normal'],
-        delayed: ['badge--warning',     '⚠', 'Delayed'],
-        slow:    ['badge--warning',     '⚠', 'Slow'],
-        paused:  ['badge--destructive', '✕', 'Paused'],
-      };
-      const [cls, icon, label] = map[status] || map.normal;
-      return `<span class="badge ${cls}" aria-label="Status: ${label}"><span aria-hidden="true">${icon}</span> ${label}</span>`;
-    }
-
-    /* ── Renderers ── */
-    function renderBanner(drops, stats) {
-      const banner = document.getElementById('il-banner');
-      if (!banner) return;
-      const last = drops?.[0];
-      const lastDate = last?.drop_date || last?.recorded_at;
-      const days = daysAgo(lastDate);
-      const ns = stats?.next_drop_window_start;
-      const ne = stats?.next_drop_window_end;
-
-      // Determine range status from today vs. next expected window
-      let cfg;
-      if (ns) {
-        const today = new Date(); today.setUTCHours(0,0,0,0);
-        const start = new Date(ns + 'T00:00:00Z');
-        const end   = ne ? new Date(ne + 'T00:00:00Z') : start;
-        const lastDropDate = lastDate ? new Date(lastDate + 'T00:00:00Z') : null;
-        const daysUntilStart = Math.round((start - today) / 86400000);
-        const pastWindow = today > end;
-        const noDropInWindow = !lastDropDate || lastDropDate < start;
-        if (pastWindow && noDropInWindow) {
-          cfg = { cls:'il-banner--delayed',     dot:'delayed',     chip:'IL Drop Delayed' };
-        } else if (today >= start && today <= end) {
-          cfg = { cls:'il-banner--in-range',    dot:'in-range',    chip:'In IL Drop Range' };
-        } else if (daysUntilStart > 0 && daysUntilStart <= 7) {
-          cfg = { cls:'il-banner--approaching', dot:'approaching', chip:'Approaching IL Drop Range' };
-        } else {
-          cfg = { cls:'il-banner--outside',     dot:'outside',     chip:'Outside of IL Drop Range' };
-        }
-      } else {
-        cfg = { cls:'il-banner--outside', dot:'outside', chip:'Outside of IL Drop Range' };
-      }
-
-      const title = ns
-        ? `Next expected: ${fmtDate(ns)}${ne ? ' – ' + fmtDate(ne) : ''}`
-        : 'Next drop window not yet estimated';
-      const sub = lastDate
-        ? `Last IL drop: ${fmtDate(lastDate)}${days != null ? ` — ${days} days ago` : ''}`
-        : '';
-
-      banner.className = `il-banner ${cfg.cls}`;
-      banner.innerHTML = `
-        <div class="il-banner__chip">
-          <span class="status-dot status-dot--${cfg.dot}" aria-hidden="true"></span>
-          <span>${cfg.chip}</span>
-        </div>
-        <div class="il-banner__title">${title}</div>
-        ${sub ? `<p class="il-banner__sub">${sub}</p>` : ''}
-      `;
-    }
-
-    function renderMetrics(drops, stats) {
-      const last = drops?.[0];
-      const lastDate = last?.drop_date || last?.recorded_at;
-      const days = daysAgo(lastDate);
-      set('m-last-drop', fmtDate(lastDate));
-      txt('m-last-drop-sub', lastDate ? 'Most recent drop' : '');
-      set('m-days-since', days != null ? String(days) : '—');
-      txt('m-days-since-sub', days != null ? (days === 1 ? 'day ago' : 'days ago') : '');
-      const ns = stats?.next_drop_window_start;
-      const ne = stats?.next_drop_window_end;
-      set('m-next-window', ns ? fmtDate(ns) : '—');
-      txt('m-next-window-sub', ns ? (ne ? `to ${fmtDate(ne)}` : 'Estimated') : 'Not yet estimated');
-      const w = stats?.members_waiting;
-      set('m-members', w != null ? w.toLocaleString('en-GB') : '—');
-      set('il-latest-dq', fmtDate(stats?.latest_dq_with_il));
-    }
-
-    function renderPipeline(stats) {
-      [
-        { badge:'p-uscis-badge',   summary:'p-uscis-summary',   status: stats?.uscis_status   || 'normal', text: stats?.uscis_summary   || 'I-130 petition processing for immediate relatives of US citizens. Community average: 6–10 months.' },
-        { badge:'p-nvc-badge',     summary:'p-nvc-summary',     status: stats?.nvc_status     || 'normal', text: stats?.nvc_summary     || 'Document review and fee payment. Most cases completing NVC in 2–3 months once received.' },
-        { badge:'p-london-badge',  summary:'p-london-summary',  status: stats?.london_status  || 'active', text: stats?.london_summary  || 'IL drops are the bottleneck. Once you have an IL, interview scheduling is typically 6–10 weeks out.' },
-      ].forEach(s => { set(s.badge, statusBadge(s.status)); set(s.summary, s.text); });
-    }
-
-    /* Two-window community widget — each card shows its count plus the members
-       (name + date) who reached that milestone this week. */
-    function renderWeek(tw) {
-      if (!tw) return;
-      setWeekLabels(tw.upcoming_week_of, tw.previous_week_of);
-      const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-      const cards = [
-        ['w-medicals',   'wl-medicals',   tw.medicals],
-        ['w-interviews', 'wl-interviews', tw.interviews],
-        ['w-flights',    'wl-flights',    tw.flights],
-        ['w-dq',         'wl-dq',         tw.dqs],
-        ['w-i130',       'wl-i130',       tw.approved],
-      ];
-      for (const [countId, listId, raw] of cards) {
-        const list = (raw || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
-        set(countId, String(list.length));
-        const ul = document.getElementById(listId);
-        if (!ul) continue;
-        ul.innerHTML = list.length
-          ? list.map(m => `<li><span class="wm-name">${esc(m.name)}</span><span class="wm-date">${fmtShort(m.date)}</span></li>`).join('')
-          : '<li class="wm-empty">None this week</li>';
-      }
-    }
-
-    function renderDropTable(drops) {
-      const tbody = document.getElementById('drops-tbody');
-      if (!tbody || !drops?.length) return;
-      tbody.innerHTML = drops.map(d => {
-        const ds = d.drop_date || d.recorded_at;
-        const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        const dayName = ds ? DAYS[new Date(ds + 'T00:00:00Z').getUTCDay()] : '—';
-        return `<tr>
-          <td>${fmtDate(ds)}</td>
-          <td>${dayName}</td>
-          <td>${d.drop_time || '—'}</td>
-          <td>${d.dq_date_from ? fmtDate(d.dq_date_from) : '—'} – ${d.dq_date_to ? fmtDate(d.dq_date_to) : '—'}</td>
-          <td>${d.gap_days != null ? d.gap_days + ' days' : '—'}</td>
-          <td>${d.il_count != null ? Number(d.il_count).toLocaleString('en-GB') : '—'}</td>
-        </tr>`;
-      }).join('');
-    }
-
-    function renderTrends(trends) {
-      const t = trends?.dq_to_il;
-      if (!t || t.all_time == null) return;
-      const allMedian = t.all_time.median;
-
-      function setTrend(valId, dirId, val, ref, isBaseline) {
-        const el = document.getElementById(dirId);
-        if (val == null) {
-          set(valId, '—');
-          if (el) { el.className = 'trend-card__dir'; el.innerHTML = '<span>Not enough recent data</span>'; }
-          return;
-        }
-        set(valId, `${val} days`);
-        if (!el || ref == null || isBaseline) {
-          if (el && isBaseline) el.style.display = 'none';
-          return;
-        }
-        const diff = val - ref;
-        const dir  = Math.abs(diff) < 7 ? 'flat' : diff > 0 ? 'up' : 'down';
-        const icon  = { up:'↑', down:'↓', flat:'→' }[dir];
-        const label = { up:'Longer than all-time median (slower)', down:'Shorter than all-time median (faster)', flat:'Similar to all-time median' }[dir];
-        el.className = `trend-card__dir trend-card__dir--${dir}`;
-        el.innerHTML = `<span aria-hidden="true">${icon}</span><span>${label}</span>`;
-      }
-      setTrend('t-alltime', 't-alltime-dir', allMedian,    allMedian, true);
-      setTrend('t-6mo',     't-6mo-dir',     t.last_6m.median, allMedian, false);
-    }
-
-    function renderOutcomes(stats) {
-      if (!stats) return;
-      set('o-approved', stats.approved_pct      != null ? `${stats.approved_pct}%`      : '—');
-      set('o-221g',     stats.rejected_221g_pct != null ? `${stats.rejected_221g_pct}%` : '—');
-      set('o-denied',   stats.denied_pct        != null ? `${stats.denied_pct}%`        : '—');
-    }
-
-    function renderPassport(stats) {
-      if (!stats) return;
-      set('pp-pickup', stats.median_pickup_days != null ? String(stats.median_pickup_days) : '—');
-      set('pp-mail',   stats.median_mail_days   != null ? String(stats.median_mail_days)   : '—');
-    }
-
-    function renderTimings(d) {
-      const tbody = document.getElementById('timing-tbody');
-      if (!tbody) return;
-      const sa = d.stage_avgs || {}, ks = d.key_stats || {};
-      const getMed = obj => obj?.median ?? null;
-      const stages = [
-        ['I-130 Approval → NVC Welcome',    getMed(sa.approval_to_welcome_med)],
-        ['NVC Fees → Documents Submitted',  getMed(sa.fees_to_docs_med)],
-        ['Documents Submitted → DQ',        getMed(sa.docs_to_dq_med)],
-        ['DQ → Interview Letter (IL)',      d.trends?.dq_to_il?.all_time?.median],
-        ['IL → Medical Appointment',        getMed(sa.il_to_medical_med)],
-        ['Medical Appointment → Interview', getMed(sa.medical_to_interview_med)],
-        ['Interview → Passport Return',     getMed(sa.interview_to_passport_med)],
-      ];
-      tbody.innerHTML = stages.map(([label, a]) => `<tr>
-          <th scope="row" style="font-weight:var(--font-normal);">${label}</th>
-          <td class="num">${a != null ? a : '—'}</td>
-          <td class="num">${a != null ? toMonths(a) : '—'}</td>
-        </tr>`).join('');
-    }
-
-    /* ── Boot ── */
-    async function boot() {
-      let d, usedFallback = false;
-      try {
-        const res = await fetch('/api/data');
-        if (!res.ok) throw new Error('http ' + res.status);
-        d = await res.json();
-        if (!d || !d.meta) throw new Error('empty');
-      } catch {
-        d = FB;
-        usedFallback = true;
-      }
-      if (usedFallback) document.getElementById('data-notice')?.classList.add('is-visible');
-
-      const { drops, stats } = fromApiData(d);
-      renderBanner(drops, stats);
-      renderMetrics(drops, stats);
-      renderPipeline(stats);
-      renderDropTable(drops);
-      renderTrends(d.trends);
-      renderOutcomes(stats);
-      renderPassport(stats);
-      renderTimings(d);
-      renderWeek(d.this_week);
-    }
-
-    document.readyState === 'loading'
-      ? document.addEventListener('DOMContentLoaded', boot)
-      : boot();
-  </script>
-
-
-  <!-- WCAG 2.1 AA — audited 2026-05-30 — accessibility improvements: skip link, focus indicators, reduced motion support, semantic HTML landmarks, aria labels on status indicators, external link handling -->
-
+  <script src="/js/env.js?v=20260626"></script>
+  <script src="/js/main.js?v=20260626"></script>
 </body>
 </html>
