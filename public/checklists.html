@@ -97,6 +97,24 @@
       margin-top: auto;
     }
 
+    /* ── Legal Remedies Templates ── */
+    .legal-remedies-section { margin: var(--space-12) 0; padding: var(--space-8); background: var(--color-surface-alt); border-radius: var(--radius-lg); }
+    .legal-remedies-section h2 { margin-top: 0; margin-bottom: var(--space-4); }
+    .acc-item { border: 1px solid var(--color-border); border-left: 3px solid transparent; border-radius: var(--radius-md); margin-bottom: 8px; overflow: hidden; transition: all 0.2s; background: rgba(30,28,23,0.02); }
+    .acc-item:hover { background: rgba(30,28,23,0.04); }
+    .acc-item.open { border-color: rgba(90,143,166,0.2); border-left-color: var(--color-primary); background: #ffffff; }
+    .acc-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; background: transparent; border: none; cursor: pointer; text-align: left; transition: all 0.15s; font-size: 14px; font-weight: 700; color: var(--color-text); }
+    .acc-trigger:hover { color: var(--color-primary); }
+    .acc-item.open .acc-trigger { border-bottom: 1px solid var(--color-border); }
+    .acc-chevron { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; background: rgba(90,143,166,0.08); border-radius: 3px; color: var(--color-text-secondary); font-size: 11px; transition: all 0.25s; flex-shrink: 0; }
+    .acc-item.open .acc-chevron { transform: rotate(180deg); color: var(--color-primary); background: rgba(90,143,166,0.15); }
+    .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .acc-item.open .acc-body { max-height: 9999px; }
+    .acc-content { padding: 16px 18px; background: rgba(30,28,23,0.025); font-size: 13px; line-height: 1.6; }
+    .acc-content p { margin-bottom: 12px; }
+    .acc-content ol, .acc-content ul { margin: 8px 0 0 20px; padding: 0; }
+    .acc-content li { margin-bottom: 6px; }
+
     .tool-card__cta {
       display: inline-flex;
       align-items: center;
@@ -530,7 +548,7 @@
             </div>
             <div class="tool-card__body">
               <span class="stage-chip badge-journey">Full journey</span>
-              <div class="tool-card__title">Master Checklist & Legal Remedies</div>
+              <div class="tool-card__title">Master Checklist</div>
               <p class="tool-card__desc">Complete checklist for all stages (NVC documents, civil documents, medical, interview), plus templates for legal remedies if your I-130 is significantly delayed (Congressional inquiry, demand letter, writ of mandamus). Printable and searchable.</p>
               <div class="tool-card__footer" style="border-top:none;padding-top:var(--space-3);">
                 <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
@@ -546,79 +564,157 @@
           </div>
         </a>
 
-        <!-- Legal Remedy: Congressional Inquiry Template -->
-        <a href="/guide.html#delayed-congressional" class="tool-card-link" aria-label="Congressional inquiry template for delayed I-130 petitions">
-          <div class="tool-card">
-            <div class="tool-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                <path d="M12 6v6l4 2"/>
-              </svg>
-            </div>
-            <div class="tool-card__body">
-              <span class="stage-chip badge-journey" style="background:rgba(176,74,56,0.15);color:#8b3d28;">Legal remedy template</span>
-              <div class="tool-card__title">Congressional inquiry</div>
-              <p class="tool-card__desc">Template and checklist for requesting your Senator or House Representative file a formal inquiry with USCIS. First step for delays of 18+ months.</p>
-            </div>
-            <div class="tool-card__footer">
-              <span class="badge badge--warning">18+ months</span>
-              <span class="tool-card__cta">
-                Open template
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-          </div>
         </a>
 
-        <!-- Legal Remedy: Demand Letter Template -->
-        <a href="/guide.html#delayed-demand" class="tool-card-link" aria-label="Demand letter template for delayed I-130 petitions">
-          <div class="tool-card">
-            <div class="tool-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                <path d="M9 10h.01"/>
-                <path d="M13 10h.01"/>
-                <path d="M17 10h.01"/>
-              </svg>
-            </div>
-            <div class="tool-card__body">
-              <span class="stage-chip badge-journey" style="background:rgba(176,74,56,0.15);color:#8b3d28;">Legal remedy template</span>
-              <div class="tool-card__title">Demand letter (28 U.S.C. § 1361)</div>
-              <p class="tool-card__desc">Formal demand letter template and submission guidelines. Demand USCIS take final action after 18–24 months of delay. Send via certified mail.</p>
-            </div>
-            <div class="tool-card__footer">
-              <span class="badge badge--warning">18-24+ months</span>
-              <span class="tool-card__cta">
-                Open template
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
+      </div>
 
-        <!-- Legal Remedy: Writ of Mandamus Guidance -->
-        <a href="/guide.html#delayed-mandamus" class="tool-card-link" aria-label="Writ of mandamus guidance for delayed I-130 petitions">
-          <div class="tool-card">
-            <div class="tool-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 21v-4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v4"/>
-                <circle cx="12" cy="7" r="4"/>
-              </svg>
-            </div>
-            <div class="tool-card__body">
-              <span class="stage-chip badge-journey" style="background:rgba(176,74,56,0.15);color:#8b3d28;">Legal remedy guidance</span>
-              <div class="tool-card__title">Writ of mandamus (5 U.S.C. § 706)</div>
-              <p class="tool-card__desc">Comprehensive guidance for filing a federal court writ of mandamus. Last resort remedy. Requires immigration attorney. Most viable at 24+ months delay.</p>
-            </div>
-            <div class="tool-card__footer">
-              <span class="badge badge--warning">24+ months</span>
-              <span class="tool-card__cta">
-                View guidance
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-              </span>
+      <!-- ══ Legal Remedies Templates ══ -->
+      <section class="legal-remedies-section" id="legal-remedies" aria-labelledby="legal-title">
+        <h2 id="legal-title">Legal remedies for significantly delayed I-130 petitions</h2>
+        <p style="font-size:14px;color:var(--color-text-secondary);margin-bottom:16px;">For cases pending 18+ months beyond normal processing times. <strong>Disclaimer:</strong> This is not legal advice. Consult an <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">AILA-affiliated immigration attorney</a> before pursuing any legal remedy.</p>
+
+        <!-- Congressional Inquiry -->
+        <div class="acc-item" id="remedy-congressional">
+          <button class="acc-trigger" onclick="toggleAcc('remedy-congressional')">
+            <span>Congressional inquiry (Senator or House Representative)</span>
+            <span class="acc-chevron">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <p><strong>Timeline:</strong> 18+ months delay | <strong>Cost:</strong> Free</p>
+              <p>This is the first and least confrontational remedy. Your Senator or House Representative can file a formal inquiry with USCIS on your behalf. Most congressional offices have a form on their website under "Help with a federal agency" for immigration matters. Many cases receive approval or at least progress after a congressional inquiry.</p>
+
+              <h4 style="margin: 16px 0 8px;font-weight:700;">Steps to file a congressional inquiry</h4>
+              <ol>
+                <li>Locate your Senator's or House Representative's website and find "Help with a federal agency" form (usually under "Services").</li>
+                <li>Select "Immigration, citizenship, and visas" or similar USCIS-related category.</li>
+                <li>Complete the form and look for a privacy notice that requires your wet signature.</li>
+                <li>Prepare copies of your NOA1, current USCIS status, and a timeline showing the delay.</li>
+                <li>Mail or email the signed privacy notice, form, and supporting documents to your representative's constituent services office as instructed.</li>
+                <li>Expect a response within 4–8 weeks with a status update or decision.</li>
+              </ol>
+
+              <p style="margin-top:12px;"><strong>White House inquiry:</strong> If the congressional inquiry is unsuccessful or you prefer a different route, the White House has a petition portal at <a href="https://www.whitehouse.gov/contact/" target="_blank" rel="noopener noreferrer">whitehouse.gov/contact</a>. However, response times are longer and success rates are lower than congressional inquiries.</p>
+
+              <h4 style="margin: 16px 0 8px;font-weight:700;">Checklist for submission</h4>
+              <ul>
+                <li>Locate your Senator's and House Representative's websites</li>
+                <li>Find the "Help with a federal agency" form for immigration</li>
+                <li>Complete and print the form (look for privacy notice signature requirement)</li>
+                <li>Wet-sign the privacy notice and form</li>
+                <li>Gather copies of NOA1, current status, and timeline documents</li>
+                <li>Email or mail to the provided constituent services address</li>
+                <li>Keep documentation of submission and follow up in 4–6 weeks</li>
+              </ul>
             </div>
           </div>
-        </a>
+        </div>
+
+        <!-- Demand Letter -->
+        <div class="acc-item" id="remedy-demand">
+          <button class="acc-trigger" onclick="toggleAcc('remedy-demand')">
+            <span>Demand letter (28 U.S.C. § 1361)</span>
+            <span class="acc-chevron">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <p><strong>Timeline:</strong> 18–24+ months delay | <strong>Cost:</strong> $0–500 (attorney optional)</p>
+              <p>A demand letter is a formal written request sent to USCIS asking them to issue a final decision on your I-130. It references the law (28 U.S.C. § 1361) that gives you the right to demand agency action on a case that has been pending unreasonably long.</p>
+
+              <h4 style="margin: 16px 0 8px;font-weight:700;">Key points</h4>
+              <ul>
+                <li><strong>Timing:</strong> Generally viable after 18–24 months, stronger after 24+ months.</li>
+                <li><strong>Effect:</strong> Sends a clear message. USCIS may issue a decision (approval or denial) within 30–60 days, or may slow-roll the case.</li>
+                <li><strong>Risk:</strong> Filing a demand can sometimes trigger a denial if USCIS reviews the file and finds issues. However, if you have a strong case, approval is also common.</li>
+                <li><strong>Representation:</strong> Can be sent by you or by an immigration attorney. Attorney representation adds weight and credibility.</li>
+              </ul>
+
+              <h4 style="margin: 16px 0 8px;font-weight:700;">Demand letter template</h4>
+              <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:16px;margin:12px 0;font-family:monospace;font-size:12px;line-height:1.6;overflow-x:auto;max-height:400px;overflow-y:auto;">
+                <p style="margin:0 0 12px;"><strong>[Date]<br>Sent via Certified Mail – Return Receipt Requested</strong></p>
+                <p style="margin:0 0 12px;"><strong>TO: USCIS Service Center<br>[Appropriate Service Center Address for your case]<br>Attn: Case Management Unit</strong></p>
+                <p style="margin:0 0 12px;"><strong>RE: DEMAND FOR FINAL AGENCY ACTION (28 U.S.C. § 1361)<br>Form I-130 – Petition for Alien Relative<br>Receipt Number: [NOA1 Number]<br>Priority Date: [Date]</strong></p>
+                <p style="margin:0 0 12px;"><strong>Dear Sir/Madam,</strong></p>
+                <p style="margin:0 0 12px;">This letter constitutes a formal demand for final agency action on the above-referenced I-130 petition, filed on [filing date] and assigned priority date [date]. This petition has been unreasonably delayed in violation of applicable law.</p>
+                <p style="margin:0 0 12px;"><strong>BACKGROUND</strong></p>
+                <p style="margin:0 0 12px;">I, [Petitioner Name], filed the subject I-130 petition on [date] on behalf of my [relationship] [Beneficiary Name]. As of today's date, [current date], this petition has been pending for [X months/years] — far exceeding normal processing timeframes.</p>
+                <p style="margin:0 0 12px;"><strong>BASIS FOR DEMAND</strong></p>
+                <p style="margin:0 0 12px;">Under 28 U.S.C. § 1361, applicants have the statutory right to demand that a federal agency take final action on a pending matter when agency action is unreasonably delayed.</p>
+                <p style="margin:0 0 12px;"><strong>DEMAND FOR ACTION</strong></p>
+                <p style="margin:0 0 12px;">I hereby formally demand that USCIS take final action on my I-130 petition by [date 30–60 days from now]. Final action shall mean either: (1) Issuance of a Notice of Approval (NOA2), or (2) Issuance of a formal Notice of Denial with detailed explanation.</p>
+                <p style="margin:0 0 12px;">Absent such final action by the above date, I reserve all rights to pursue judicial remedies, including filing a writ of mandamus pursuant to 5 U.S.C. § 706.</p>
+                <p style="margin:0 0 12px;"><strong>DOCUMENTATION ATTACHED</strong></p>
+                <p style="margin:0 0 12px;">• I-130 receipt notice (NOA1) • USCIS status updates • Timeline of case activity</p>
+                <p style="margin:0;"><strong>Sincerely,<br>[Your Signature]<br>[Your Typed Name]</strong></p>
+              </div>
+
+              <h4 style="margin: 16px 0 8px;font-weight:700;">Submission guidelines</h4>
+              <ul>
+                <li>Print the letter and sign it by hand</li>
+                <li>Mail via USPS Certified Mail with Return Receipt Requested — this proves delivery</li>
+                <li>Send to the USCIS Service Center where your I-130 is being adjudicated (typically listed in your NOA1)</li>
+                <li>Include copies of NOA1 and status pages</li>
+                <li>Keep a copy for your records along with the certified mail receipt</li>
+                <li>If you have an immigration attorney, consider having them send the letter on their letterhead</li>
+              </ul>
+
+              <p style="margin-top:12px;"><strong>Next step:</strong> If USCIS does not respond or denies your petition, you can file a writ of mandamus (see below).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Writ of Mandamus -->
+        <div class="acc-item" id="remedy-mandamus">
+          <button class="acc-trigger" onclick="toggleAcc('remedy-mandamus')">
+            <span>Writ of mandamus (5 U.S.C. § 706)</span>
+            <span class="acc-chevron">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <p><strong>Timeline:</strong> 24+ months delay | <strong>Cost:</strong> $1,500–$5,000+ | <strong>Requires:</strong> Immigration attorney</p>
+              <p>A writ of mandamus is a federal court order compelling USCIS to take action (or to rule on) your petition. It is the strongest legal remedy available to immigration applicants, but also the most expensive and complex. Filing requires an immigration attorney.</p>
+
+              <div style="background:rgba(176,74,56,0.08);border:1px solid rgba(176,74,56,0.18);border-radius:var(--radius-md);padding:12px 14px;margin:12px 0;">
+                <strong>⚠️ Prerequisite: Consult an immigration attorney</strong>
+                <p style="margin:8px 0 0;">Before filing, you must consult with an immigration attorney affiliated with <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">AILA</a>. The attorney will review your case, advise on timing and likelihood of success, and either file the action themselves or refer you to litigation counsel.</p>
+              </div>
+
+              <h4 style="margin: 16px 0 8px;font-weight:700;">Requirements to file</h4>
+              <ul>
+                <li>The agency (USCIS) has a clear legal duty to act</li>
+                <li>You have exhausted or have no other adequate remedy</li>
+                <li>Delay is unreasonable — typically 24+ months is a stronger position</li>
+                <li>There is a ripe, reviewable claim (your I-130 has been pending long enough)</li>
+              </ul>
+
+              <h4 style="margin: 16px 0 8px;font-weight:700;">Likely outcomes</h4>
+              <ul>
+                <li><strong>Court orders approval:</strong> USCIS appeals or immediately issues approval. Case proceeds to NVC.</li>
+                <li><strong>Court orders expedited review:</strong> USCIS prioritises the case, typically ruling within 60–90 days.</li>
+                <li><strong>Case dismissed:</strong> Court finds delay not yet unreasonable (less common at 24+ months).</li>
+                <li><strong>Settlement:</strong> USCIS may agree to rule by a specific date.</li>
+              </ul>
+
+              <h4 style="margin: 16px 0 8px;font-weight:700;">Questions to ask your attorney</h4>
+              <ul>
+                <li>Does my case meet the legal requirements for mandamus?</li>
+                <li>What is the realistic timeline and cost for litigation?</li>
+                <li>What is the likelihood of success given case law in my district?</li>
+                <li>Should I try informal resolution (demand letter) first, or proceed directly to court?</li>
+                <li>Will USCIS likely settle or require full litigation?</li>
+                <li>If I lose, am I responsible for USCIS's attorney fees?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <div style="border-top: 2px solid var(--color-border); padding-top: var(--space-8); margin-top: var(--space-8);"></div>
+
+      </div>
+
+      <!-- ══ Key resources ══
 
       </div>
 
@@ -670,5 +766,14 @@
 
   <script src="/js/main.js?v=20260609"></script>
   <script src="/js/checklist.js?v=20260609"></script>
+  <script>
+    function toggleAcc(id) {
+      const item = document.getElementById(id)
+      if (!item) return
+      const wasOpen = item.classList.contains('open')
+      item.classList.toggle('open', !wasOpen)
+      if (!wasOpen) setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50)
+    }
+  </script>
 </body>
 </html>
