@@ -42,6 +42,21 @@ export default async function handler(req, res) {
     return valid.length % 2 ? valid[mid] : Math.round((valid[mid - 1] + valid[mid]) / 2)
   }
 
+  const statsFromArray = (arr) => {
+    const valid = arr.filter(n => n !== null && n > 0).sort((a, b) => a - b)
+    if (!valid.length) return null
+    const med = valid.length % 2 === 0
+      ? Math.round((valid[valid.length/2-1] + valid[valid.length/2]) / 2)
+      : valid[Math.floor(valid.length/2)]
+    return {
+      avg: avg(valid),
+      median: med,
+      min: valid[0],
+      max: valid[valid.length-1],
+      n: valid.length
+    }
+  }
+
   // Deduplicate by username_raw - keep latest submitted_at per user
   const byUser = {}
   for (const row of rows) {
@@ -495,6 +510,11 @@ upcomingEnd.setUTCHours(23,59,59,999)
       flights: weekFlights,       // upcoming week
       dqs: weekDQs,               // previous week
       approved: weekApproved,     // previous week
+    },
+    calculator: {
+      dq_to_interview_stats: statsFromArray(dqToInterview),
+      passport_pickup_stats: statsFromArray(pickupDays),
+      passport_mail_stats: statsFromArray(mailDays),
     },
   })
 }
