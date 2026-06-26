@@ -128,7 +128,8 @@
 
   /* Which nav item lights up for each page (sub-pages map to their hub) */
   const ACTIVE_MAP = {
-    'index': 'data',
+    'index': 'home',
+    'data': 'data',
     'tracker': 'data',
     'guide': 'guide',
     'public-charge': 'guide',
