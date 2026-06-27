@@ -101,72 +101,6 @@
     .legal-remedies-section { margin: var(--space-12) 0; }
     .legal-remedies-section h2 { margin-top: 0; margin-bottom: var(--space-2); }
 
-    /* Modal overlay */
-    .remedy-modal-overlay {
-      display: none; position: fixed; inset: 0; z-index: 1000;
-      background: rgba(0,0,0,0.45); backdrop-filter: blur(2px);
-      align-items: flex-start; justify-content: center;
-      padding: var(--space-6) var(--space-4);
-      overflow-y: auto;
-    }
-    .remedy-modal-overlay.open { display: flex; }
-    .remedy-modal {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      width: 100%; max-width: 680px;
-      padding: var(--space-8);
-      position: relative;
-      margin: auto;
-    }
-    .remedy-modal__close {
-      position: absolute; top: var(--space-4); right: var(--space-4);
-      background: var(--color-bg-alt); border: 1px solid var(--color-border);
-      border-radius: var(--radius-full); width: 32px; height: 32px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: var(--color-text-secondary); font-size: 18px;
-      line-height: 1; transition: background 0.15s;
-    }
-    .remedy-modal__close:hover { background: var(--color-border); color: var(--color-text); }
-    .remedy-modal h3 { font-family: var(--font-display); font-size: var(--text-xl); margin: 0 0 var(--space-4); padding-right: var(--space-8); }
-    .remedy-modal h4 { font-size: var(--text-sm); font-weight: var(--font-bold); margin: var(--space-5) 0 var(--space-2); }
-    .remedy-modal p { font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-3); line-height: var(--leading-relaxed); }
-    .remedy-modal ul, .remedy-modal ol { font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0 0 var(--space-3) var(--space-5); line-height: var(--leading-relaxed); }
-    .remedy-modal li { margin-bottom: var(--space-1); }
-    .remedy-template {
-      background: var(--color-bg-alt); border: 1px solid var(--color-border);
-      border-radius: var(--radius-md); padding: var(--space-4);
-      font-family: monospace; font-size: 12px; line-height: 1.7;
-      white-space: pre-wrap; overflow-x: auto; color: var(--color-text);
-    }
-    .remedy-template-wrap { position: relative; }
-    .copy-btn {
-      position: absolute; top: var(--space-2); right: var(--space-2);
-      background: var(--color-surface); border: 1px solid var(--color-border);
-      border-radius: var(--radius-md); padding: 4px 10px;
-      font-size: 11px; font-weight: var(--font-semibold); cursor: pointer;
-      color: var(--color-text-secondary); transition: all 0.15s;
-    }
-    .copy-btn:hover { background: var(--color-primary-subtle); color: var(--color-primary); }
-    .remedy-alert {
-      background: rgba(90,143,166,0.07); border: 1px solid rgba(90,143,166,0.2);
-      border-radius: var(--radius-md); padding: var(--space-3) var(--space-4);
-      font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);
-    }
-
-    .tool-card__cta {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-1);
-      font-size: var(--text-sm);
-      font-weight: var(--font-semibold);
-      color: var(--color-primary);
-      white-space: nowrap;
-    }
-    .tool-card__cta svg { width: 14px; height: 14px; flex-shrink: 0; }
-    .tool-card-link:hover .tool-card__cta { text-decoration: underline; }
-
     /* Saved progress (interactive checklists remember your ticks) */
     .card-progress {
       display: none;
@@ -616,7 +550,7 @@
         <div class="tools-grid">
 
           <!-- Congressional Inquiry -->
-          <button class="tool-card-link" onclick="openRemedy('congressional')" style="background:none;border:none;padding:0;text-align:left;cursor:pointer;">
+          <a href="/delayed-i130-remedies#congressional" class="tool-card-link">
             <div class="tool-card">
               <div class="tool-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -626,19 +560,17 @@
                 <div class="tool-card__title">Congressional Inquiry</div>
                 <p class="tool-card__desc">Ask your Senator or House Representative to file a formal inquiry with USCIS. Free, non-confrontational, and often effective.</p>
                 <div class="tool-card__footer">
-                  <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
-                    <span class="badge badge--info">Checklist</span>
-                  </div>
-                  <span class="tool-card__cta">View
+                  <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;"></div>
+                  <span class="tool-card__cta">Learn more
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                   </span>
                 </div>
               </div>
             </div>
-          </button>
+          </a>
 
           <!-- White House Contact -->
-          <button class="tool-card-link" onclick="openRemedy('whitehouse')" style="background:none;border:none;padding:0;text-align:left;cursor:pointer;">
+          <a href="/delayed-i130-remedies#whitehouse" class="tool-card-link">
             <div class="tool-card">
               <div class="tool-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
@@ -648,20 +580,17 @@
                 <div class="tool-card__title">White House Contact</div>
                 <p class="tool-card__desc">Submit a request via the White House contact portal. No attachments accepted; narrative limited to 4,000 characters.</p>
                 <div class="tool-card__footer">
-                  <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
-                    <span class="badge badge--info">Checklist</span>
-                    <span class="badge badge--warning">Template</span>
-                  </div>
-                  <span class="tool-card__cta">View
+                  <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;"></div>
+                  <span class="tool-card__cta">Learn more
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                   </span>
                 </div>
               </div>
             </div>
-          </button>
+          </a>
 
           <!-- Demand Letter -->
-          <button class="tool-card-link" onclick="openRemedy('demand')" style="background:none;border:none;padding:0;text-align:left;cursor:pointer;">
+          <a href="/delayed-i130-remedies#demand" class="tool-card-link">
             <div class="tool-card">
               <div class="tool-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
@@ -671,20 +600,17 @@
                 <div class="tool-card__title">Demand Letter</div>
                 <p class="tool-card__desc">A formal written demand to USCIS under 28 U.S.C. § 1361. Signals intent to litigate and often triggers a decision within 30–60 days.</p>
                 <div class="tool-card__footer">
-                  <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
-                    <span class="badge badge--info">Checklist</span>
-                    <span class="badge badge--warning">Template</span>
-                  </div>
-                  <span class="tool-card__cta">View
+                  <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;"></div>
+                  <span class="tool-card__cta">Learn more
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                   </span>
                 </div>
               </div>
             </div>
-          </button>
+          </a>
 
           <!-- Writ of Mandamus -->
-          <button class="tool-card-link" onclick="openRemedy('mandamus')" style="background:none;border:none;padding:0;text-align:left;cursor:pointer;">
+          <a href="/delayed-i130-remedies#mandamus" class="tool-card-link">
             <div class="tool-card">
               <div class="tool-card__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -694,388 +620,17 @@
                 <div class="tool-card__title">Writ of Mandamus</div>
                 <p class="tool-card__desc">A federal court order compelling USCIS to act. The strongest legal remedy — attorney recommended. Filing fee $300–500; with attorney $1,500–$5,000+.</p>
                 <div class="tool-card__footer">
-                  <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
-                    <span class="badge badge--info">Checklist</span>
-                  </div>
-                  <span class="tool-card__cta">View
+                  <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;"></div>
+                  <span class="tool-card__cta">Learn more
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
                   </span>
                 </div>
               </div>
             </div>
-          </button>
+          </a>
 
         </div><!-- /tools-grid -->
       </section>
-
-      <!-- ══ Remedy Modals ══ -->
-
-      <!-- Congressional Inquiry Modal -->
-      <div id="modal-congressional" class="remedy-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-congressional-title" onclick="closeRemedyOnBackdrop(event,this)">
-        <div class="remedy-modal">
-          <button class="remedy-modal__close" onclick="closeRemedy('congressional')" aria-label="Close">×</button>
-          <h3 id="modal-congressional-title">Congressional Inquiry</h3>
-          <div class="remedy-alert">Free · 15+ months delay · Response typically 4–8 weeks</div>
-          <p>Your Senator or House Representative can file a formal inquiry with USCIS or the State Department on your behalf when your case is outside normal processing timeframes. Congressional offices can request status updates, check for clerical errors, and (in some cases) submit expedite requests if you meet the agency's criteria.</p>
-          <h4>What they can do</h4>
-          <ul>
-            <li><strong>Case status requests:</strong> If your case is pending longer than USCIS's estimated processing time, they can request an update.</li>
-            <li><strong>Expedite requests:</strong> If you meet USCIS or State Department expedite criteria, they can submit a request (you must explain which criteria you meet).</li>
-            <li><strong>Clerical errors:</strong> They can help correct errors like incorrect information on a Notice of Action, address update issues, or spelling errors on immigration documents.</li>
-            <li><strong>NVC concerns:</strong> For cases at the National Visa Center, they can request status updates and clarification on required documentation.</li>
-          </ul>
-          <h4>What they cannot do</h4>
-          <ul>
-            <li>Expedite priority dates (controlled by State Department Visa Bulletin — not congressional offices).</li>
-            <li>Expedite or force a decision on petitions (controlled by USCIS — not congressional offices).</li>
-            <li>Reverse a denial or file an appeal.</li>
-            <li>Provide legal advice or representation — if you need a lawyer, contact an <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">AILA-affiliated immigration attorney</a>.</li>
-          </ul>
-          <h4>Steps to file</h4>
-          <ol>
-            <li>Find your representatives at <a href="https://www.congress.gov/members/find-your-member" target="_blank" rel="noopener noreferrer">congress.gov/members/find-your-member</a>.</li>
-            <li>Visit your Senator's and House Representative's websites. Look for "Casework," "Help with a federal agency," or "Immigration, citizenship, and visas" under Services.</li>
-            <li>Fill out their immigration casework form.</li>
-            <li>Download and print the Privacy Act Release Form (wet signature required). This authorises them to discuss your case with government agencies.</li>
-            <li>Gather supporting documents: NOA1 receipt notice, current USCIS/NVC case status, brief timeline of the delay, and any relevant correspondence.</li>
-            <li>Submit the signed Privacy Act form + documents via email (fastest), fax, or mail as instructed by the office.</li>
-            <li>Follow up if no response within 6–8 weeks.</li>
-          </ol>
-          <h4>Form fields — what to enter</h4>
-          <table style="width:100%;border-collapse:collapse;font-size:var(--text-sm);margin-bottom:var(--space-4);">
-            <colgroup><col style="width:40%"><col style="width:60%"></colgroup>
-            <thead>
-              <tr style="border-bottom:2px solid var(--color-border);">
-                <th style="text-align:left;padding:6px 8px 6px 0;color:var(--color-text);font-weight:var(--font-semibold);">Field</th>
-                <th style="text-align:left;padding:6px 0;color:var(--color-text);font-weight:var(--font-semibold);">Enter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Your Information — Title</td>
-                <td style="padding:7px 0;color:var(--color-text);">Mr., Ms., Dr., etc.</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">First &amp; Last Name</td>
-                <td style="padding:7px 0;color:var(--color-text);">Your full legal name (the person contacting the office)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Date of Birth</td>
-                <td style="padding:7px 0;color:var(--color-text);">MM/DD/YYYY</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Email &amp; Phone</td>
-                <td style="padding:7px 0;color:var(--color-text);">Best contact details; office will use this to follow up</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Address</td>
-                <td style="padding:7px 0;color:var(--color-text);">Street, city, state, ZIP (must be in representative's district)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Have you contacted this rep before?</td>
-                <td style="padding:7px 0;color:var(--color-text);">Yes or No</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Designate another person to discuss your case?</td>
-                <td style="padding:7px 0;color:var(--color-text);">No (unless you want someone else contacted — rare)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Case pending in court?</td>
-                <td style="padding:7px 0;color:var(--color-text);">No (unless you've filed a writ or lawsuit)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Select Agency</td>
-                <td style="padding:7px 0;color:var(--color-text);">Immigration, Citizenship, and Visas</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">I am the…</td>
-                <td style="padding:7px 0;color:var(--color-text);">Petitioner (if you're the US citizen filing I-130) or Beneficiary (if you're the immigrant)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Petitioner Information — Name &amp; DOB</td>
-                <td style="padding:7px 0;color:var(--color-text);">US citizen's legal name &amp; date of birth</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Country of Birth</td>
-                <td style="padding:7px 0;color:var(--color-text);">Petitioner's country of birth</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Alien Number (if applicable)</td>
-                <td style="padding:7px 0;color:var(--color-text);">A-number on USCIS documents (if available)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Do you have a beneficiary?</td>
-                <td style="padding:7px 0;color:var(--color-text);">Yes (for IR petitions, answer Yes)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Receipt Number</td>
-                <td style="padding:7px 0;color:var(--color-text);">I-130 receipt number from NOA1 (e.g., IOE0000000000)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Interview Date</td>
-                <td style="padding:7px 0;color:var(--color-text-secondary);">Only if consular interview has occurred</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Priority Date</td>
-                <td style="padding:7px 0;color:var(--color-text);">Filing date or priority date from NOA1</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">USCIS Service Center / U.S. Embassy</td>
-                <td style="padding:7px 0;color:var(--color-text);">If I-130 at USCIS, name the service center; if at NVC/Embassy, name the embassy</td>
-              </tr>
-              <tr>
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Reason for requesting assistance</td>
-                <td style="padding:7px 0;color:var(--color-text);">Paste the narrative below</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h4>"How can I help?" narrative <span style="font-size:11px;font-weight:400;color:var(--color-text-secondary);">— fill in brackets, copy this text and paste into the form</span></h4>
-          <div class="remedy-template-wrap">
-            <button class="copy-btn" onclick="copyTemplate('congress-template')">Copy</button>
-            <pre class="remedy-template" id="congress-template">I am writing to request your office's assistance with my significantly delayed Form I-130 (Immediate Relative petition) filed with USCIS.
-
-My Information
-Name: [Your full legal name]
-Constituent in [Senator/Representative Name]'s district: Yes
-Contact: [your email and phone]
-
-Petitioner: [US citizen's name], US citizen
-Beneficiary: [Spouse/relative's name], citizen of [country]
-
-Case Details
-I-130 Receipt Number: [NOA1 number, e.g. IOE0000000000]
-Filed Date: [date filed]
-Current Status: [Pending at USCIS / At National Visa Center / At U.S. Embassy London / other]
-USCIS Service Center: [if at USCIS — e.g. Vermont Service Center]
-Embassy: [if at NVC/Embassy — e.g. U.S. Embassy London]
-
-The Delay
-USCIS estimated processing time: [X months, per uscis.gov]
-Current pending time: [X months/years]
-No Request for Evidence received
-No substantive update to case status in [X months/years]
-
-Actions Taken
-- Checked case status online regularly at uscis.gov/case-status
-- Called USCIS — no resolution offered
-- [If applicable: Filed White House request on [date]]
-
-Request for Assistance
-I am requesting your office to submit a congressional inquiry to USCIS asking for:
-1. Current case status update
-2. Confirmation that all required documents have been received and reviewed
-3. Clarification on any items needed to move the case forward
-4. Timeline for adjudication
-
-I am happy to provide any supporting documentation needed.
-
-Thank you for your assistance.</pre>
-          </div>
-          <p style="margin-top:var(--space-3);font-size:12px;">After submitting the form online, you must download the Privacy Act Release Form, print it, sign it with wet ink, and email/fax/mail it along with your supporting documents to the office as instructed.</p>
-
-          <h4>Submission checklist</h4>
-          <ul>
-            <li>Identify your Senator and House Representative at congress.gov/members/find-your-member</li>
-            <li>Find the Immigration Casework form on each website</li>
-            <li>Complete all required fields (* fields)</li>
-            <li>Download the Privacy Act Release Form and print it</li>
-            <li>Sign the privacy form with a wet ink signature (required)</li>
-            <li>Gather: NOA1, USCIS/NVC case status printout, brief delay timeline, any USCIS RFE letters</li>
-            <li>Save all documents as PDF or JPEG</li>
-            <li>Submit via email (recommended for fastest response) or fax to the office</li>
-            <li>Save the confirmation email</li>
-            <li>Diarise a follow-up in 6–8 weeks if no response</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- White House Modal -->
-      <div id="modal-whitehouse" class="remedy-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-whitehouse-title" onclick="closeRemedyOnBackdrop(event,this)">
-        <div class="remedy-modal">
-          <button class="remedy-modal__close" onclick="closeRemedy('whitehouse')" aria-label="Close">×</button>
-          <h3 id="modal-whitehouse-title">White House Contact</h3>
-          <div class="remedy-alert">Free · No attachments · "How can we assist you?" limited to 4,000 characters · <a href="https://www.whitehouse.gov/contact/help/" target="_blank" rel="noopener noreferrer">whitehouse.gov/contact/help</a></div>
-          <p>Use the White House contact portal to request assistance with a significantly delayed I-130. Best used as a supplement to a congressional inquiry, not a replacement. Takes under 10 minutes.</p>
-
-          <h4>Form fields — what to enter</h4>
-          <table style="width:100%;border-collapse:collapse;font-size:var(--text-sm);margin-bottom:var(--space-4);">
-            <colgroup><col style="width:42%"><col style="width:58%"></colgroup>
-            <thead>
-              <tr style="border-bottom:2px solid var(--color-border);">
-                <th style="text-align:left;padding:6px 8px 6px 0;color:var(--color-text);font-weight:var(--font-semibold);">Field</th>
-                <th style="text-align:left;padding:6px 0;color:var(--color-text);font-weight:var(--font-semibold);">Enter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">What would you like help with?</td>
-                <td style="padding:7px 0;color:var(--color-text);">Immigration</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Have you contacted an agency before?</td>
-                <td style="padding:7px 0;color:var(--color-text);">Yes</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">What agency?</td>
-                <td style="padding:7px 0;color:var(--color-text);">United States Citizenship &amp; Immigration Service</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Have you written the White House before?</td>
-                <td style="padding:7px 0;color:var(--color-text);">No (or Yes if applicable)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Case number / Prefix</td>
-                <td style="padding:7px 0;color:var(--color-text);">Your NOA1 receipt number (e.g. IOE0000000000)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">First / Last Name</td>
-                <td style="padding:7px 0;color:var(--color-text);">Petitioner's legal name (the US citizen)</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Suffix</td>
-                <td style="padding:7px 0;color:var(--color-text-secondary);">Junior, III, etc. — leave blank if none</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Appellation</td>
-                <td style="padding:7px 0;color:var(--color-text-secondary);">Ph.D., M.D., etc. — leave blank if none</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Address / City / State / ZIP</td>
-                <td style="padding:7px 0;color:var(--color-text);">Petitioner's current US address</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--color-border);">
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">Phone / Email</td>
-                <td style="padding:7px 0;color:var(--color-text);">Best contact details for the petitioner</td>
-              </tr>
-              <tr>
-                <td style="padding:7px 8px 7px 0;color:var(--color-text-secondary);">How can we assist you?</td>
-                <td style="padding:7px 0;color:var(--color-text);">Paste the narrative below (max 4,000 chars)</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <h4>"How can we assist you?" narrative <span style="font-size:11px;font-weight:400;color:var(--color-text-secondary);">— copy, fill in brackets, paste into the form</span></h4>
-          <div class="remedy-template-wrap">
-            <button class="copy-btn" onclick="copyTemplate('wh-template')">Copy</button>
-            <pre class="remedy-template" id="wh-template">I am a US citizen requesting assistance with a significantly delayed Form I-130 (Immediate Relative petition) filed with USCIS.
-
-Petitioner: [Your Name] (US citizen)
-Beneficiary: [Spouse/Relative name], citizen of [country]
-Receipt number: [NOA1 number, e.g. IOE0000000000]
-Filed: [date]
-Current USCIS status: [as shown at uscis.gov/case-status]
-Normal processing time: [X months per USCIS website]
-
-This petition has been pending [X months/years] with no request for evidence and no substantive update.
-
-Steps already taken:
-- Contacted USCIS via the online portal: no resolution
-- Filed congressional inquiry with [Senator/Rep name]: [date, outcome if any]
-
-The delay is causing ongoing hardship: [1–2 sentences — e.g. continued family separation; my spouse cannot work or travel; we are maintaining two households at significant financial cost].
-
-I respectfully request the White House's assistance in encouraging USCIS to take final action on this petition.</pre>
-          </div>
-          <p style="margin-top:var(--space-3);font-size:12px;">Check the authorisation box before submitting. Screenshot or save the confirmation page.</p>
-        </div>
-      </div>
-
-      <!-- Demand Letter Modal -->
-      <div id="modal-demand" class="remedy-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-demand-title" onclick="closeRemedyOnBackdrop(event,this)">
-        <div class="remedy-modal">
-          <button class="remedy-modal__close" onclick="closeRemedy('demand')" aria-label="Close">×</button>
-          <h3 id="modal-demand-title">Demand Letter (28 U.S.C. § 1361)</h3>
-          <div class="remedy-alert">Free–$500 · 18–24+ months delay · Attorney optional but recommended</div>
-          <p>A formal written demand to USCIS citing your statutory right to final agency action. USCIS often issues a decision within 30–60 days. <strong>Risk:</strong> if USCIS reviews the file and finds issues, a denial is possible — evaluate your case strength first.</p>
-          <h4>Submission checklist</h4>
-          <ul>
-            <li>Confirm your I-130 has been pending 18+ months (stronger after 24 months)</li>
-            <li>Identify the USCIS Service Center adjudicating your case (on your NOA1)</li>
-            <li>Fill in the template below and print it</li>
-            <li>Sign by hand (wet signature)</li>
-            <li>Attach: copy of NOA1, USCIS status page, brief delay timeline</li>
-            <li>Send via USPS Certified Mail — Return Receipt Requested (proof of delivery)</li>
-            <li>Retain the certified mail receipt and a copy of the letter</li>
-            <li>If no response in 30–60 days, consider a writ of mandamus</li>
-          </ul>
-          <h4>Demand letter template</h4>
-          <div class="remedy-template-wrap">
-            <button class="copy-btn" onclick="copyTemplate('demand-template')">Copy</button>
-            <pre class="remedy-template" id="demand-template">[Date]
-Sent via Certified Mail – Return Receipt Requested
-
-TO: USCIS [Service Center Name]
-    [Service Center Address — see your NOA1]
-    Attn: Case Management Unit
-
-RE: DEMAND FOR FINAL AGENCY ACTION (28 U.S.C. § 1361)
-    Form I-130 – Petition for Alien Relative
-    Receipt Number: [NOA1 number]
-    Priority Date: [date on NOA1]
-
-Dear Sir/Madam,
-
-This letter constitutes a formal demand for final agency action on the above-referenced I-130 petition, filed on [filing date]. As of today, this petition has been pending for [X months/years] — far exceeding normal processing timeframes and constituting an unreasonable delay.
-
-I, [Your Name], filed this I-130 on behalf of my [spouse/child/parent], [Beneficiary Name]. No Request for Evidence has been issued; no interview has been scheduled. USCIS has provided no explanation for the delay.
-
-Under 28 U.S.C. § 1361, I have the statutory right to demand that a federal agency take final action on a pending matter when agency action is unreasonably delayed.
-
-I hereby formally demand that USCIS take final action — either approval or a formal, written Notice of Denial with detailed explanation — by [date 45 days from today].
-
-Absent such action, I reserve all rights to pursue judicial remedies, including a writ of mandamus under 5 U.S.C. § 706.
-
-Attached: NOA1 receipt notice · USCIS case status · delay timeline
-
-Sincerely,
-
-[Your Signature]
-[Your Typed Name]
-[Your Address]
-[Phone / Email]</pre>
-          </div>
-        </div>
-      </div>
-
-      <!-- Writ of Mandamus Modal -->
-      <div id="modal-mandamus" class="remedy-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-mandamus-title" onclick="closeRemedyOnBackdrop(event,this)">
-        <div class="remedy-modal">
-          <button class="remedy-modal__close" onclick="closeRemedy('mandamus')" aria-label="Close">×</button>
-          <h3 id="modal-mandamus-title">Writ of Mandamus (5 U.S.C. § 706)</h3>
-          <div class="remedy-alert">$300–500 filing fee · 24+ months delay · Attorney strongly recommended · Federal district court</div>
-          <p>A writ of mandamus is a federal court order compelling USCIS to take action. It is the strongest remedy available. You can file pro se (without an attorney) but legal representation significantly improves outcomes.</p>
-          <p>Common outcomes: court orders USCIS to rule within 60–90 days, USCIS settles by agreeing to a ruling date, or (less often at 24+ months) the case is dismissed.</p>
-          <h4>Requirements</h4>
-          <ul>
-            <li>USCIS has a clear legal duty to act on your petition</li>
-            <li>You have no other adequate remedy (demand letter sent; congressional inquiry exhausted)</li>
-            <li>Delay is unreasonable — 24+ months is a significantly stronger position</li>
-          </ul>
-          <h4>Pre-filing checklist</h4>
-          <ul>
-            <li>Confirm 24+ months have elapsed since filing</li>
-            <li>Document all prior steps: congressional inquiry, demand letter, USCIS contacts</li>
-            <li>Consult an <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">AILA-affiliated immigration attorney</a> — many offer free or low-cost consultations</li>
-            <li>Identify the correct federal district court (typically where you reside)</li>
-            <li>Obtain and review the court's pro se filing instructions if self-representing</li>
-            <li>Prepare your complaint, summons, and civil cover sheet</li>
-            <li>Pay the filing fee ($300–500, varies by district)</li>
-          </ul>
-          <h4>Questions to ask your attorney</h4>
-          <ul>
-            <li>Does my case meet the legal standard for mandamus in this district?</li>
-            <li>What is the realistic timeline, cost, and likelihood of success?</li>
-            <li>Should I send a demand letter first, or proceed directly to court?</li>
-            <li>Is USCIS likely to settle, or does this go to full litigation?</li>
-            <li>Could I be liable for USCIS's attorney fees if I lose?</li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="border-top: 2px solid var(--color-border); padding-top: var(--space-8); margin-top: var(--space-8);"></div>
-
-      </div>
 
       <!-- ══ Timeline Calculator ══ -->
       <section class="calculator-section" id="calculator" style="margin-top: var(--space-8);">
@@ -1276,41 +831,6 @@ Sincerely,
   <script src="/js/main.js?v=20260609"></script>
   <script src="/js/checklist.js?v=20260609"></script>
   <script>
-    function openRemedy(key) {
-      const el = document.getElementById('modal-' + key)
-      if (!el) return
-      el.classList.add('open')
-      document.body.style.overflow = 'hidden'
-    }
-    function closeRemedy(key) {
-      const el = document.getElementById('modal-' + key)
-      if (!el) return
-      el.classList.remove('open')
-      document.body.style.overflow = ''
-    }
-    function closeRemedyOnBackdrop(e, overlay) {
-      if (e.target === overlay) {
-        overlay.classList.remove('open')
-        document.body.style.overflow = ''
-      }
-    }
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.remedy-modal-overlay.open').forEach(function(el) {
-          el.classList.remove('open')
-        })
-        document.body.style.overflow = ''
-      }
-    })
-    function copyTemplate(id) {
-      const el = document.getElementById(id)
-      if (!el) return
-      navigator.clipboard.writeText(el.textContent).then(function() {
-        const btn = el.previousElementSibling
-        btn.textContent = 'Copied!'
-        setTimeout(function() { btn.textContent = 'Copy' }, 2000)
-      })
-    }
   </script>
 </body>
 </html>
