@@ -1,652 +1,1036 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Significantly delayed I-130 petitions: remedies and escalation | American Visa Guide</title>
-<meta name="description" content="A conservative, source-backed escalation ladder for I-130 petitions delayed past USCIS processing times: case inquiry, congressional inquiry, White House contact, demand letter, and writ of mandamus.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#14233b;
-  --navy-2:#1f3557;
-  --gold:#c89b3c;
-  --gold-deep:#8a6d1f;
-  --ink:#1c2a3a;
-  --slate:#4a5a6e;
-  --paper:#ffffff;
-  --wash:#f5f7fa;
-  --line:#dde4ec;
-  --warn-bg:#fbf4e1;
-  --warn-edge:#c89b3c;
-  --warn-ink:#5f4910;
-  --danger:#9a2820;
-  --radius:12px;
-  --maxw:880px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{
-  margin:0;
-  background:var(--wash);
-  color:var(--ink);
-  font-family:"Plus Jakarta Sans",system-ui,sans-serif;
-  font-size:17px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:32px 20px 96px}
-a{color:var(--gold-deep);text-decoration:underline;text-underline-offset:2px}
-a:hover{color:var(--navy)}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A conservative, source-backed escalation guide for I-130 petitions delayed past USCIS processing times: case inquiry, congressional inquiry, White House contact, demand letter, and writ of mandamus.">
+  <title>Significantly delayed I-130 petitions: remedies and escalation | American Visa Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-ui: 'Outfit', sans-serif;
 
-/* Header */
-.eyebrow{
-  font-family:"Outfit",sans-serif;
-  font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  font-size:.74rem;color:var(--gold-deep);margin:0 0 10px
-}
-h1{
-  font-family:"Outfit",sans-serif;font-weight:800;line-height:1.12;
-  font-size:clamp(1.7rem,4.6vw,2.5rem);color:var(--navy);margin:0 0 14px
-}
-.lede{font-size:1.06rem;color:var(--slate);max-width:62ch;margin:0 0 8px}
+      --bg:          #f4efe6;
+      --surface:     #fdfaf3;
+      --surface-alt: #ede8de;
+      --surface-hov: #e4ddcf;
+      --ink:         #1e1c17;
+      --muted:       #6a6560;
 
-/* Disclaimer */
-.disclaimer{
-  background:var(--warn-bg);border:1px solid var(--warn-edge);
-  border-left:5px solid var(--warn-edge);
-  border-radius:var(--radius);padding:16px 18px;margin:26px 0;color:var(--warn-ink)
-}
-.disclaimer strong{font-family:"Outfit",sans-serif;color:var(--warn-ink)}
-.disclaimer p{margin:.4em 0 0}
+      --accent:      #3e7188;   /* steel blue, AA on cream */
+      --accent-dark: #2f5a6e;
+      --accent-deco: #5a8fa6;
 
-/* Ladder */
-h2.section{
-  font-family:"Outfit",sans-serif;font-weight:700;color:var(--navy);
-  font-size:1.34rem;margin:42px 0 6px;padding-top:6px
-}
-.section-sub{color:var(--slate);margin:0 0 18px}
-.ladder{list-style:none;margin:0 0 8px;padding:0;border-left:2px solid var(--line)}
-.ladder li{position:relative;padding:0 0 18px 22px;margin-left:6px}
-.ladder li::before{
-  content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;
-  border-radius:50%;background:var(--gold);border:2px solid var(--paper);box-shadow:0 0 0 1px var(--line)
-}
-.ladder .step{font-family:"Outfit",sans-serif;font-weight:700;color:var(--navy)}
+      --line:        #ddd6cb;
+      --line-soft:   #e7e0d4;
 
-/* Accordion cards */
-.cards{margin-top:14px;display:flex;flex-direction:column;gap:14px}
-details.card{
-  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
-  overflow:hidden;box-shadow:0 1px 2px rgba(20,35,59,.04)
-}
-details.card[open]{box-shadow:0 6px 22px rgba(20,35,59,.08);border-color:#cdd6e1}
-summary.head{
-  list-style:none;cursor:pointer;padding:18px 20px;display:flex;gap:14px;
-  align-items:flex-start;user-select:none
-}
-summary.head::-webkit-details-marker{display:none}
-.chev{
-  flex:0 0 auto;margin-top:3px;width:18px;height:18px;color:var(--gold-deep);
-  transition:transform .18s ease
-}
-details[open] .chev{transform:rotate(90deg)}
-.head-body{flex:1 1 auto;min-width:0}
-.card-title{font-family:"Outfit",sans-serif;font-weight:700;color:var(--navy);font-size:1.12rem;margin:0}
-.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
-.pill{
-  font-family:"Outfit",sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.02em;
-  padding:3px 9px;border-radius:999px;background:var(--wash);color:var(--navy-2);border:1px solid var(--line)
-}
-.pill.free{background:#eef6ef;color:#256b3a;border-color:#cfe6d4}
-.pill.cost{background:#fbf4e1;color:var(--gold-deep);border-color:#ead9ad}
-.pill.time{background:#eef2fb;color:var(--navy-2);border-color:#d4ddf0}
-.pill.status{background:#fdf0ee;color:var(--danger);border-color:#f0cdc7}
-.body{padding:2px 20px 22px;border-top:1px solid var(--line)}
-.body h4{
-  font-family:"Outfit",sans-serif;font-weight:700;color:var(--navy);
-  font-size:1rem;margin:20px 0 6px
-}
-.body h4:first-child{margin-top:14px}
-.body p{margin:.5em 0}
-.body ul{margin:.4em 0 .8em;padding-left:1.25em}
-.body li{margin:.28em 0}
-.muted{color:var(--slate)}
+      --warn-bg:     #f6ecd9;
+      --warn-border: #e6d3b0;
+      --warn-edge:   #b07840;
+      --warn-ink:    #875325;
 
-/* Tip + risk callouts */
-.callout{border-radius:10px;padding:12px 14px;margin:14px 0;font-size:.97rem}
-.callout.tip{background:#eef6ef;border:1px solid #cfe6d4;color:#22512f}
-.callout.risk{background:#fdf0ee;border:1px solid #f0cdc7;color:var(--danger)}
-.callout.note{background:var(--wash);border:1px solid var(--line);color:var(--navy-2)}
-.callout strong{font-family:"Outfit",sans-serif}
+      --danger:      #b04a38;
+      --danger-bg:   #f7e9e6;
+      --danger-border:#ecccc4;
 
-/* Tables */
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:12px 0}
-table{border-collapse:collapse;width:100%;min-width:460px;font-size:.92rem}
-th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-thead th{background:var(--navy);color:#fff;font-family:"Outfit",sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.02em}
-tbody tr:last-child td{border-bottom:none}
-tbody tr:nth-child(even){background:#fafbfd}
-td:first-child{font-weight:600;color:var(--navy-2);white-space:nowrap}
+      --sage:        #3f6b5c;
+      --sage-bg:     #ebf1ec;
+      --sage-border: #d2e2d6;
 
-/* Checklist */
-ul.check{list-style:none;padding-left:0}
-ul.check li{position:relative;padding-left:26px}
-ul.check li::before{
-  content:"";position:absolute;left:0;top:4px;width:15px;height:15px;border:2px solid var(--gold);border-radius:4px
-}
+      --code-bg:     #2b3a42;
+      --code-text:   #cfdde3;
+    }
 
-/* Copy template block */
-.template{position:relative;margin:12px 0}
-.template pre{
-  margin:0;background:var(--navy);color:#f2f5fa;border-radius:10px;
-  padding:42px 16px 16px;overflow-x:auto;font-size:.84rem;line-height:1.5;
-  font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word
-}
-.copybtn{
-  position:absolute;top:8px;right:8px;font-family:"Outfit",sans-serif;font-weight:600;
-  font-size:.72rem;letter-spacing:.03em;color:var(--navy);background:var(--gold);
-  border:none;border-radius:7px;padding:6px 11px;cursor:pointer
-}
-.copybtn:hover{background:#d8aa46}
-.copybtn:active{transform:translateY(1px)}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 
-/* Sources */
-.sources{margin-top:46px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
-.sources h2{font-family:"Outfit",sans-serif;color:var(--navy);font-size:1.18rem;margin:0 0 4px}
-.sources p{color:var(--slate);margin:0 0 12px;font-size:.95rem}
-.sources ol{margin:0;padding-left:1.2em;font-size:.92rem;color:var(--navy-2)}
-.sources li{margin:.45em 0}
-.updated{margin-top:18px;color:var(--slate);font-size:.85rem}
-</style>
-<link rel="stylesheet" href="/css/nav.css?v=20260616">
-<script src="/js/nav.js?v=20260616" defer></script>
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav + footer styles live in /css/nav.css (shared component) */
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.25rem 1.5rem 5rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
+
+    /* ── HERO ── */
+    .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4.4vw, 2.4rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+    }
+    h1 span, h1 em { color: var(--accent); font-style: italic; font-weight: 500; }
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-left: 4px solid var(--warn-edge);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.25rem;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--warn-ink);
+    }
+    .disclaimer strong { color: var(--warn-ink); font-family: var(--font-ui); }
+    .disclaimer a { color: var(--accent-dark); }
+
+    /* ── SECTION HEADINGS ── */
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.42rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.25rem 0 0.9rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 {
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.5rem 0 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    p { margin-bottom: 0.85rem; }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+    ul, ol { padding-left: 1.35rem; margin-bottom: 0.85rem; }
+    li { margin-bottom: 0.38rem; }
+    li:last-child { margin-bottom: 0; }
+    strong { color: var(--ink); font-weight: 600; }
+    em { font-style: italic; }
+
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+    /* ── TIMELINE ── */
+    .timeline { margin: 1rem 0 1.4rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .tl-item { display: flex; gap: 0.9rem; align-items: flex-start; }
+    .tl-pill {
+      flex-shrink: 0;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.68rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 5px;
+      margin-top: 0.18rem;
+      white-space: nowrap;
+    }
+    .tl-text { font-size: 0.92rem; }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; margin: 1.1rem 0 1.4rem; border-radius: 8px; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    thead tr { background: var(--code-bg); }
+    th {
+      text-align: left;
+      padding: 0.6rem 0.9rem;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    td {
+      padding: 0.58rem 0.9rem;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+      color: var(--ink);
+    }
+    td:first-child { font-weight: 600; color: var(--accent-dark); }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
+
+    /* ── ACCORDION / REMEDY CARDS ── */
+    .remedy-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .remedy-toggle {
+      width: 100%;
+      background: var(--surface-alt);
+      border: none;
+      cursor: pointer;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-align: left;
+      transition: background 0.15s;
+    }
+    .remedy-toggle:hover { background: var(--surface-hov); }
+    .remedy-toggle[aria-expanded="true"] { background: var(--surface-hov); }
+    .remedy-toggle-inner {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .remedy-step {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.16rem 0.5rem;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+    .remedy-title {
+      font-family: var(--font-ui);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .remedy-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-left: auto; }
+    .badge {
+      font-size: 0.69rem;
+      font-weight: 600;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      font-family: var(--font-ui);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .badge-gold  { background: #e9f0f3; color: var(--accent-dark); border: 1px solid #cfe0e7; }
+    .badge-muted { background: #efe9dd; color: var(--muted); border: 1px solid #e0d8c9; }
+    .badge-warn  { background: var(--warn-bg); color: var(--warn-ink); border: 1px solid var(--warn-border); }
+    .badge-red   { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger-border); }
+    .remedy-chevron {
+      flex-shrink: 0;
+      color: var(--accent-dark);
+      font-size: 1.1rem;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+    .remedy-toggle[aria-expanded="true"] .remedy-chevron { transform: rotate(180deg); }
+    .remedy-body {
+      padding: 1.25rem 1.25rem 1.4rem;
+      border-top: 1px solid var(--line);
+    }
+    .remedy-body[hidden] { display: none; }
+
+    /* ── CALLOUTS ── */
+    .callout {
+      border-radius: 7px;
+      padding: 0.8rem 1.05rem;
+      margin: 0.9rem 0;
+      font-size: 0.895rem;
+      line-height: 1.63;
+    }
+    .callout-warn {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-left: 3px solid var(--warn-edge);
+      color: var(--warn-ink);
+    }
+    .callout-warn a { color: var(--accent-dark); }
+    .callout-info {
+      background: rgba(62,113,136,0.06);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent-deco);
+    }
+    .callout-alert {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      border-left: 3px solid var(--danger);
+      color: #7a3022;
+    }
+    .callout-alert a { color: var(--accent-dark); }
+    .callout-title {
+      display: block;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist { list-style: none; padding: 0; }
+    .checklist li {
+      padding: 0.28rem 0 0.28rem 1.55rem;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── TEMPLATE BLOCK ── */
+    .template-wrap { position: relative; margin: 0.9rem 0; }
+    .template-block {
+      background: var(--code-bg);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 7px;
+      padding: 2.4rem 1.1rem 1.1rem;
+      font-family: 'Plus Jakarta Sans', monospace;
+      font-size: 0.8rem;
+      line-height: 1.62;
+      color: var(--code-text);
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 0.55rem;
+      right: 0.65rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.7rem;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+      letter-spacing: 0.02em;
+    }
+    .copy-btn:hover { background: var(--accent-dark); }
+
+    /* ── SOURCES ── */
+    .sources {
+      margin-top: 3rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--line);
+    }
+    .sources h2 { margin-top: 0; }
+    .sources ol {
+      font-size: 0.81rem;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+    .sources li { margin-bottom: 0.45rem; }
+    .sources a { color: var(--accent); }
+    .sources a:hover { color: var(--accent-dark); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .page-wrap { padding: 1.5rem 1rem 4rem; }
+      .remedy-badges { display: none; }
+      .remedy-toggle-inner { gap: 0.5rem; }
+    }
+  </style>
+  <link rel="stylesheet" href="/css/nav.css?v=20260616">
+  <script src="/js/nav.js?v=20260616" defer></script>
 </head>
 <body>
+
 <div id="nav-placeholder"></div>
-<main class="wrap">
+
+<div class="page-wrap">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span><a href="/guide.html">Guide</a><span>/</span>Delayed I-130 remedies
+  </div>
 
   <p class="eyebrow">When your case stalls</p>
-  <h1>Significantly delayed I-130 petitions: remedies and escalation</h1>
-  <p class="lede">If your I-130 has been pending past the published USCIS processing time with no movement, several remedies can prompt agency action. They run from the lowest-risk and free, to formal litigation. Work them roughly in order, and document every step, because each one becomes evidence for the next.</p>
+
+  <h1>Significantly delayed I-130 petitions: <span>remedies and escalation</span></h1>
+
+  <p class="lead">If your I-130 has been pending past the USCIS published processing time with no movement, several remedies can prompt agency action. They run from the lowest-risk and free, to formal litigation. Work them roughly in order and document every step, because each one becomes evidence for the next.</p>
 
   <div class="disclaimer">
-    <strong>This is not legal advice.</strong>
-    <p>Demand letters and mandamus actions carry legal risk and procedural complexity. Filing can prompt USCIS to act, but a review of your file can also surface problems. Before acting, consult an immigration attorney affiliated with the <a href="https://www.aila.org/" rel="noopener">American Immigration Lawyers Association (AILA)</a>. They can assess your specific case, advise on timing, and represent you if litigation becomes necessary.</p>
+    <strong>This is not legal advice.</strong> The following remedies have strict procedural requirements, and a mandamus action is not without legal risk. Filing can prompt USCIS to adjudicate your case sooner, but adjudication can surface underlying issues with your petition. For example, if USCIS is not in a position to approve because of the petitioner's criminal history or other background check concerns, they may be compelled to deny the petition. Consider consulting an immigration attorney affiliated with the <a href="https://www.aila.org/">American Immigration Lawyers Association (AILA)</a>. They can assess your case, advise on timing, and represent you if litigation becomes necessary.
   </div>
 
-  <h2 class="section">Timeline and milestones</h2>
-  <p class="section-sub">There is no fixed legal clock. Courts assess delay on the facts of each case. The markers below reflect common community practice for immediate-relative I-130s, which carry no visa quota.</p>
-  <ul class="ladder">
-    <li><span class="step">Past your case inquiry date:</span> Submit a USCIS case inquiry. This is the foundation. It is free, carries no downside, and unlocks the steps below.</li>
-    <li><span class="step">After that inquiry sits 60 days:</span> The CIS Ombudsman would normally facilitate at this point, but it has been effectively suspended since March 2025 (see its card). For now, move to a congressional inquiry instead.</li>
-    <li><span class="step">12 to 18 months:</span> Open a congressional inquiry. If that stalls, add a White House contact request.</li>
-    <li><span class="step">18 to 24 months:</span> A demand letter becomes viable, stronger past 24 months. Send only after lower-risk steps have been tried.</li>
-    <li><span class="step">24+ months:</span> A writ of mandamus is the strongest remedy, and the only one that can force a decision. Courts are more likely to view delays of this length as unreasonable.</li>
-  </ul>
-  <div class="callout note">
-    <strong>Why immediate relatives have a stronger argument.</strong> USCIS publishes one I-130 processing time that bundles immediate relatives (IR/CR1, no quota) with quota-limited preference categories (F1, F2A, F3, F4) that carry years of visa backlog. Because that figure is inflated by quota cases, it overstates the reasonable time for an IR/CR1 petition. Spell this out when you argue your delay is unreasonable.
+  <!-- TIMELINE -->
+  <h2>Timeline overview</h2>
+
+  <p>There is no fixed legal clock. Courts assess delay on the facts of each case. The markers below reflect common community practice for immediate-relative I-130s (IR/CR1), which carry no visa quota and are not subject to priority date cutoffs.</p>
+
+  <p>A USCIS case inquiry is the foundation: submit it once your case inquiry date has passed, regardless of total pending time. A congressional inquiry is a separate track: your two Senators and House Representative can ask about a case that is outside normal processing time. In practice, most offices want to see evidence of prior USCIS contact before engaging, so filing your case inquiry first puts you in a stronger position. A White House contact request can run alongside a congressional inquiry. Treat these as parallel options, not rungs on the escalation ladder below.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-pill">Inquiry date</span>
+      <span class="tl-text">Submit a USCIS case inquiry. This is the prerequisite for every step below. Use one channel only.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-pill">Outside processing time</span>
+      <span class="tl-text">Open a congressional inquiry with all three of your federal offices simultaneously. A White House contact request can run alongside it.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-pill">18&ndash;24 months</span>
+      <span class="tl-text">A demand letter becomes viable, stronger past 24 months. Send only after lower-risk steps have been tried and documented.</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-pill">24+ months</span>
+      <span class="tl-text">A writ of mandamus is the strongest remedy and the only one that can compel adjudication. Courts are significantly more likely to find delay unreasonable at this stage. It compels a decision, not approval.</span>
+    </div>
   </div>
 
-  <h2 class="section">Progression at a glance</h2>
-  <p class="section-sub">Each step builds the record the next one relies on. Only the final step can force a decision; the rest apply pressure or facilitate.</p>
-  <div class="tablewrap">
+  <div class="callout callout-warn">
+    <span class="callout-title">Why immediate relatives have a stronger argument</span>
+    USCIS publishes a single I-130 processing time that bundles immediate relatives (IR/CR1, no quota) with preference categories (F1, F2A, F3, F4) that carry years of visa backlog. That combined figure overstates the reasonable time for an IR/CR1 petition. Make this argument explicitly when claiming your delay is unreasonable.
+  </div>
+
+  <!-- GLANCE TABLE -->
+  <h2>Progression at a glance</h2>
+
+  <p>Each step builds the record the next relies on. Only the final step can compel adjudication; the rest apply pressure or facilitate.</p>
+
+  <div class="table-wrap">
     <table>
-      <thead><tr><th scope="col">Step</th><th scope="col">Consider when</th><th scope="col">Cost</th><th scope="col">Forces a decision?</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Consider when</th>
+          <th>Cost</th>
+          <th>Compels adjudication?</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>USCIS case inquiry</td><td>Past your case inquiry date</td><td>Free</td><td>No</td></tr>
-        <tr><td>CIS Ombudsman</td><td>Suspended since March 2025; use a congressional inquiry instead</td><td>Free</td><td>No, recommends only</td></tr>
-        <tr><td>Congressional inquiry</td><td>12 to 18 months</td><td>Free</td><td>No</td></tr>
-        <tr><td>White House contact</td><td>Alongside a congressional inquiry</td><td>Free</td><td>No</td></tr>
-        <tr><td>Demand letter</td><td>18 to 24+ months</td><td>Free to about $500</td><td>Sometimes prompts one</td></tr>
-        <tr><td>Writ of mandamus</td><td>24+ months</td><td>$405</td><td>Yes, by court order</td></tr>
+        <tr>
+          <td>USCIS case inquiry</td>
+          <td>Past your case inquiry date</td>
+          <td>Free</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>CIS Ombudsman</td>
+          <td>Suspended since March 2025; use congressional inquiry</td>
+          <td>Free</td>
+          <td>No &mdash; recommends only</td>
+        </tr>
+        <tr>
+          <td>Congressional inquiry</td>
+          <td>Any time outside normal processing time</td>
+          <td>Free</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>White House contact</td>
+          <td>Alongside a congressional inquiry</td>
+          <td>Free</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Demand letter</td>
+          <td>18 to 24+ months</td>
+          <td>Free to ~$500</td>
+          <td>Sometimes prompts it</td>
+        </tr>
+        <tr>
+          <td>Writ of mandamus</td>
+          <td>24+ months</td>
+          <td>$405 filing fee</td>
+          <td>Yes &mdash; adjudication, not approval</td>
+        </tr>
       </tbody>
     </table>
   </div>
 
-  <h2 class="section">Before you escalate</h2>
-  <p class="section-sub">One free step is the foundation for everything below, and the prerequisite the CIS Ombudsman requires.</p>
-  <ul>
-    <li><strong>Submit a USCIS case inquiry.</strong> Find your case inquiry date in the "When can I ask about my case?" section of the <a href="https://egov.uscis.gov/processing-times/" rel="noopener">USCIS processing times tool</a> after selecting your form and office, then check status at <a href="https://egov.uscis.gov/" rel="noopener">egov.uscis.gov</a>. Once that date has passed, raise an inquiry through an e-Request, a secure message in your USCIS online account, Ask Emma, or the Contact Center on 1-800-375-5283. Keep the confirmation. Being outside the posted time does not, by itself, qualify you for an expedite.</li>
-  </ul>
-  <p class="muted">That inquiry creates the record a congressional office can reference, and it would also start the 60-day clock the Ombudsman counts from if that office resumes. The remedies below are detailed in order.</p>
-
-  <div class="cards">
-
-    <!-- 0. CIS OMBUDSMAN -->
-    <details class="card">
-      <summary class="head">
-        <svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="head-body">
-          <span class="card-title">CIS Ombudsman case assistance</span>
-          <span class="meta">
-            <span class="pill status">Suspended since 2025</span>
-            <span class="pill free">Free</span>
-            <span class="pill time">Recommends, cannot compel</span>
-          </span>
-        </span>
-      </summary>
-      <div class="body">
-        <div class="callout risk">
-          <strong>Currently suspended.</strong> On March 21, 2025, DHS placed the Ombudsman's staff on administrative leave, effectively halting case-assistance work. As of June 2026 the office is still not reliably operating, and the closure is being litigated (<em>Robert F. Kennedy Human Rights v. DHS</em>, No. 1:25-cv-01270, D.D.C.). The DHS case-assistance page and DHS Form 7001 remain online, so you can still submit a request, but it may not be worked. For now, treat the Ombudsman as unavailable and use a congressional inquiry as the practical substitute. The details below apply if the office resumes.
+  <!-- ── STEP 1: CASE INQUIRY ── -->
+  <div class="remedy-card">
+    <button class="remedy-toggle" aria-expanded="false" aria-controls="body-1">
+      <div class="remedy-toggle-inner">
+        <span class="remedy-step">Step 1</span>
+        <span class="remedy-title">USCIS case inquiry</span>
+        <div class="remedy-badges">
+          <span class="badge badge-gold">Free</span>
+          <span class="badge badge-muted">Required first step</span>
+          <span class="badge badge-muted">Does not compel action</span>
         </div>
-
-        <p>The Office of the Citizenship and Immigration Services Ombudsman is an independent office within the Department of Homeland Security. It is not part of USCIS. It can bring your issue to USCIS's attention and recommend solutions, but it cannot approve or deny your petition, and it cannot compel USCIS to act.</p>
-
-        <div class="callout note"><strong>What it is and is not.</strong> Treat the Ombudsman as a facilitator, not a forcing tool. It is most useful for a stalled case that USCIS customer service has not resolved, or for an expedite USCIS approved but left sitting. If you need an order that USCIS must decide, that is a writ of mandamus, not the Ombudsman.</div>
-
-        <h4>You must contact USCIS first</h4>
-        <p>For a processing-delay case where USCIS has not approved an expedite, you can request Ombudsman assistance only if all of the following are true:</p>
-        <ul class="check">
-          <li>You submitted a case inquiry to USCIS through one of its customer service tools in the last 90 days</li>
-          <li>You have given USCIS at least 60 days to respond</li>
-          <li>Your case inquiry date has already passed (find it in the "When can I ask about my case?" section of the processing times tool)</li>
-        </ul>
-
-        <h4>What they can help with</h4>
-        <ul>
-          <li>Processing delays, on the conditions above.</li>
-          <li>Undelivered USCIS notices or decisions (receipt notices, RFEs, appointment or denial notices the system shows were issued, or mail returned as non-deliverable).</li>
-          <li>A beneficiary at risk of aging out of eligibility.</li>
-          <li>Certain cases involving US military personnel and their families.</li>
-          <li>Applications improperly rejected due to clear errors of fact or obvious misapplication of law.</li>
-          <li>Typographic errors on documents such as Green Cards or work permits.</li>
-          <li>An emergency or hardship that meets the USCIS expedite criteria.</li>
-          <li>Expedite requests USCIS approved more than 60 days ago that are still pending.</li>
-          <li>Delays in sending an approved petition to the Department of State.</li>
-        </ul>
-
-        <h4>When they cannot help</h4>
-        <ul>
-          <li>Before your case inquiry date. Two exceptions: a form with a statutory or regulatory processing requirement (for example I-360 Special Immigrant Juvenile, N-400, or I-129 for L-1), or an expedite USCIS approved more than 60 days ago.</li>
-          <li>No published processing time for your form and fewer than 6 months since you filed and inquired.</li>
-          <li>Your expedite request was denied.</li>
-          <li>You want legal advice, or help with something that does not involve USCIS.</li>
-          <li>Fewer than 45 calendar days have passed since a congressional representative inquired for you.</li>
-          <li>To compel USCIS to act, replace the appeal or motion process, or change a deadline.</li>
-        </ul>
-
-        <div class="callout risk"><strong>Sequencing with a congressional inquiry.</strong> The Ombudsman will not engage within 45 days of a congressional inquiry on the same case. Run one, then the other, rather than both at once.</div>
-
-        <h4>How to submit</h4>
-        <ul>
-          <li>File <strong>DHS Form 7001, Request for Case Assistance</strong>, online through the <a href="https://www.dhs.gov/topics/cis-ombudsman" rel="noopener">CIS Ombudsman</a> page.</li>
-          <li>Enter the petitioner's or applicant's name as the person facing difficulties in section 5. Do not put the beneficiary, attorney, or representative there, or the request may be rejected.</li>
-          <li>Attorneys and accredited representatives must attach a signed Form G-28 for the form at issue.</li>
-          <li>Family members, congressional staff, school officials, and others must attach written consent from the petitioner or applicant.</li>
-          <li>Include supporting documentation: your inquiry confirmation, current status, and a short delay timeline.</li>
-        </ul>
       </div>
-    </details>
+      <span class="remedy-chevron">&#x25BE;</span>
+    </button>
+    <div class="remedy-body" id="body-1" hidden>
 
-    <!-- 1. CONGRESSIONAL INQUIRY -->
-    <details class="card">
-      <summary class="head">
-        <svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="head-body">
-          <span class="card-title">Congressional inquiry</span>
-          <span class="meta">
-            <span class="pill free">Free</span>
-            <span class="pill time">Outside processing time</span>
-            <span class="pill time">Response 4 to 8 weeks</span>
-          </span>
-        </span>
-      </summary>
-      <div class="body">
-        <p>Your Senator or House Representative can file a formal inquiry with USCIS or the State Department on your behalf when your case is outside normal processing timeframes. It is free and low-risk, and a natural next move once a USCIS case inquiry has gone unanswered.</p>
+      <p>A case inquiry is a service request asking USCIS to look at the status of your pending petition. It is the prerequisite for every step on this page. You cannot contact the CIS Ombudsman, strengthen a congressional submission, or build a demand letter without one on file.</p>
 
-        <h4>What they can do</h4>
-        <ul>
-          <li><strong>Case status requests:</strong> If your case is pending longer than USCIS's estimated processing time, they can request an update.</li>
-          <li><strong>Expedite requests:</strong> They can submit one only if you meet a published USCIS expedite criterion. You must explain which criterion applies and supply evidence. See the <a href="https://www.uscis.gov/policy-manual/volume-1-part-a-chapter-5" rel="noopener">USCIS Policy Manual, Volume 1, Part A, Chapter 5</a>.</li>
-          <li><strong>Clerical errors:</strong> They can help correct errors such as wrong information on a Notice of Action, address-update issues, or spelling errors on documents.</li>
-          <li><strong>NVC concerns:</strong> For cases at the National Visa Center, they can request status updates and clarify required documentation.</li>
-        </ul>
+      <h3>Find your case inquiry date first</h3>
 
-        <h4>What they cannot do</h4>
-        <ul>
-          <li>Advance priority dates, which are controlled by the State Department Visa Bulletin.</li>
-          <li>Force or expedite a decision on a petition, which is controlled by USCIS.</li>
-          <li>Reverse a denial or file an appeal.</li>
-          <li>Provide legal advice or representation. For that, contact an AILA-affiliated attorney.</li>
-        </ul>
+      <p>Use the <a href="https://egov.uscis.gov/processing-times/">USCIS processing times tool</a>, select Form I-130 and your service center, then look under "When can I ask about my case?" Do not submit before that date; the system will reject the request. Being outside the posted time does not, by itself, qualify you for an expedite.</p>
 
-        <div class="callout note"><strong>Expedite criteria, in short.</strong> Severe financial loss to a company or person, an emergency or urgent humanitarian situation, a request from a nonprofit furthering US cultural or social interests, US government interests, or clear USCIS error. A long wait alone is not on this list.</div>
+      <h3>Use one channel only</h3>
 
-        <h4>Steps to file</h4>
-        <ul>
-          <li>Find your representatives at <a href="https://www.congress.gov/members/find-your-member" rel="noopener">congress.gov/members/find-your-member</a>.</li>
-          <li>On each website, look for "Casework," "Help with a federal agency," or "Immigration, citizenship, and visas" under Services.</li>
-          <li>Complete the immigration casework form.</li>
-          <li>Download, print, and sign the Privacy Act release form with a wet-ink signature. This authorises the office to discuss your case with the agency.</li>
-          <li>Gather your NOA1 receipt notice, current USCIS or NVC status, a short delay timeline, and any relevant correspondence.</li>
-          <li>Submit the signed release plus documents by email (fastest), fax, or mail as instructed.</li>
-          <li>Follow up if you have no response within 6 to 8 weeks.</li>
-        </ul>
+      <div class="callout callout-alert">
+        <span class="callout-title">Do not submit through multiple channels at once</span>
+        Opening the same inquiry through several channels simultaneously can cause each request to be auto-closed as a duplicate, or none to be worked. Submit through one channel, then wait for the response window before trying another.
+      </div>
 
-        <h4>Form fields: what to enter</h4>
-        <div class="tablewrap">
-          <table>
-            <thead><tr><th scope="col">Field</th><th scope="col">Enter</th></tr></thead>
-            <tbody>
-              <tr><td>Title</td><td>Mr., Ms., Dr., and so on</td></tr>
-              <tr><td>First and last name</td><td>Your full legal name (the person contacting the office)</td></tr>
-              <tr><td>Date of birth</td><td>MM/DD/YYYY</td></tr>
-              <tr><td>Email and phone</td><td>Best contact details; the office uses these to follow up</td></tr>
-              <tr><td>Address</td><td>Street, city, state, ZIP (must be in the representative's district)</td></tr>
-              <tr><td>Contacted this office before?</td><td>Yes or No</td></tr>
-              <tr><td>Designate another person?</td><td>No, unless you want someone else contacted (rare)</td></tr>
-              <tr><td>Case pending in court?</td><td>No, unless you have filed a writ or lawsuit</td></tr>
-              <tr><td>Select agency</td><td>Immigration, Citizenship, and Visas</td></tr>
-              <tr><td>I am the...</td><td>Petitioner (the US citizen filing the I-130) or Beneficiary (the immigrant)</td></tr>
-              <tr><td>Petitioner name and DOB</td><td>The US citizen's legal name and date of birth</td></tr>
-              <tr><td>Country of birth</td><td>Petitioner's country of birth</td></tr>
-              <tr><td>Alien number (if any)</td><td>A-number on USCIS documents, if available</td></tr>
-              <tr><td>Receipt number</td><td>I-130 receipt number from the NOA1 (for example IOE0000000000)</td></tr>
-              <tr><td>Priority date</td><td>Filing date or priority date from the NOA1</td></tr>
-              <tr><td>Service center or embassy</td><td>If at USCIS, name the service center; if at NVC or the embassy, name the embassy</td></tr>
-            </tbody>
-          </table>
+      <p>Your options, most to least reliable:</p>
+
+      <ul>
+        <li><strong>e-Request (recommended).</strong> At <a href="https://egov.uscis.gov/">egov.uscis.gov</a>, select e-Request. The system validates your case inquiry date before accepting a processing-delay submission and will reject it if you are still inside the published window. Keep the confirmation number.</li>
+        <li><strong>Secure message in your USCIS online account.</strong> Log in, open your case, and send a secure message. Cases filed on paper before roughly 2023 often cannot be linked to a myUSCIS account. If your case does not appear, use e-Request instead.</li>
+        <li><strong>Contact Center: 1-800-375-5283.</strong> The first agent (Tier 1) can typically only read back what is on the public status page. To get a service request actually opened, ask to be transferred to a Tier 2 officer. Tier 2 can view internal case notes, open a service request, and take limited follow-up action. You are eligible for Tier 2 only once your case inquiry date has passed. Record the call date, the agent ID if given, and any reference number.</li>
+        <li><strong>Ask Emma is for navigation, not inquiries.</strong> The USCIS virtual assistant gives general information and can point you to the right tool or phone number. It cannot pull case-specific data, open a service request, or file an inquiry on your behalf.</li>
+      </ul>
+
+      <h3>What to expect</h3>
+
+      <p>USCIS typically responds within 30 to 60 days. The response is most often a status echo confirming the case is pending and under review, with no specific timeline. That is the normal outcome, not a sign the inquiry failed. Keep the response: it is the record a congressional office will reference, and it starts the 60-day clock the Ombudsman counts from if that office resumes.</p>
+
+    </div>
+  </div>
+
+  <!-- ── STEP 2: OMBUDSMAN ── -->
+  <div class="remedy-card">
+    <button class="remedy-toggle" aria-expanded="false" aria-controls="body-2">
+      <div class="remedy-toggle-inner">
+        <span class="remedy-step">Step 2</span>
+        <span class="remedy-title">CIS Ombudsman case assistance</span>
+        <div class="remedy-badges">
+          <span class="badge badge-red">Suspended since March 2025</span>
+          <span class="badge badge-muted">Free</span>
+          <span class="badge badge-muted">Recommends only</span>
         </div>
+      </div>
+      <span class="remedy-chevron">&#x25BE;</span>
+    </button>
+    <div class="remedy-body" id="body-2" hidden>
 
-        <h4>Narrative: copy, fill in the brackets, paste into the form</h4>
-        <div class="template">
-          <button class="copybtn" type="button">Copy</button>
-          <pre>I am writing to request your office's assistance with my significantly delayed Form I-130 (Immediate Relative petition) filed with USCIS.
+      <div class="callout callout-alert">
+        <span class="callout-title">Currently suspended</span>
+        On March 21, 2025, DHS placed Ombudsman staff on administrative leave, effectively halting case assistance. As of June 2026 the office remains non-operational, and the closure is being litigated in <em>Robert F. Kennedy Human Rights v. DHS</em>, No.&nbsp;1:25-cv-01270 (D.D.C.). DHS Form 7001 and the case-assistance page remain online, but submissions may not be worked. Treat the Ombudsman as unavailable for now and use a congressional inquiry as the practical substitute. The details below apply if the office resumes.
+      </div>
 
-My Information
+      <p>The Office of the Citizenship and Immigration Services Ombudsman is an independent DHS office, separate from USCIS. It can bring your issue to USCIS's attention and recommend solutions, but it cannot approve or deny your petition and cannot compel USCIS to act. It is a facilitator, not a forcing mechanism.</p>
+
+      <h3>Prerequisites (all must be met)</h3>
+      <ul>
+        <li>Your case inquiry date has passed.</li>
+        <li>You submitted a USCIS case inquiry within the last 90 days.</li>
+        <li>You have given USCIS at least 60 days to respond.</li>
+        <li>Fewer than 45 calendar days have passed since a congressional representative inquired on the same case. Run one, then the other.</li>
+      </ul>
+
+      <h3>What they can help with</h3>
+      <ul>
+        <li>Processing delays (on the conditions above).</li>
+        <li>Undelivered USCIS notices or decisions.</li>
+        <li>A beneficiary at risk of aging out of eligibility.</li>
+        <li>Cases involving US military personnel and their families.</li>
+        <li>Applications rejected due to clear errors of fact or obvious misapplication of law.</li>
+        <li>Typographic errors on Green Cards or work permits.</li>
+        <li>Expedite requests USCIS approved more than 60 days ago that are still pending.</li>
+        <li>Delays in forwarding an approved petition to the Department of State.</li>
+      </ul>
+
+      <h3>What they cannot do</h3>
+      <ul>
+        <li>Act before your case inquiry date (except for forms with a statutory processing requirement, or an approved expedite over 60 days old).</li>
+        <li>Help if your expedite request was denied.</li>
+        <li>Compel USCIS to act, replace the appeals process, or change a deadline.</li>
+        <li>Provide legal advice.</li>
+      </ul>
+
+      <h3>How to submit (if the office resumes)</h3>
+      <ul>
+        <li>File <strong>DHS Form 7001</strong> at <a href="https://www.dhs.gov/topics/cis-ombudsman">dhs.gov/topics/cis-ombudsman</a>.</li>
+        <li>In section 5, enter the <em>petitioner's</em> name as the person facing difficulties. Do not enter the beneficiary, attorney, or representative.</li>
+        <li>Attach: your inquiry confirmation, current case status printout, and a brief delay timeline.</li>
+        <li>Attorneys must attach a signed Form G-28.</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- ── STEP 3: CONGRESSIONAL ── -->
+  <div class="remedy-card">
+    <button class="remedy-toggle" aria-expanded="false" aria-controls="body-3">
+      <div class="remedy-toggle-inner">
+        <span class="remedy-step">Step 3</span>
+        <span class="remedy-title">Congressional inquiry</span>
+        <div class="remedy-badges">
+          <span class="badge badge-gold">Free</span>
+          <span class="badge badge-muted">Outside processing time</span>
+          <span class="badge badge-muted">Agency response: 4 to 8 weeks</span>
+        </div>
+      </div>
+      <span class="remedy-chevron">&#x25BE;</span>
+    </button>
+    <div class="remedy-body" id="body-3" hidden>
+
+      <p>Your congressional offices can file a formal inquiry with the relevant federal agency on your behalf once your case is outside normal processing timeframes. It is free, low-risk, and a natural next step once your USCIS case inquiry has gone unanswered.</p>
+
+      <div class="callout callout-warn">
+        <span class="callout-title">You have three offices &mdash; use all of them</span>
+        You are represented by two US Senators and one House Representative. File with all three simultaneously. Congressional offices vary in how actively they pursue immigration casework; submitting to all three maximizes the chance of a prompt response. Find all three at <a href="https://www.congress.gov/members/find-your-member">congress.gov/members/find-your-member</a>.
+      </div>
+
+      <div class="callout callout-warn">
+        <span class="callout-title">NVC and embassy cases: different agency, different channel</span>
+        Once your case has left USCIS and reached the National Visa Center or a US embassy, congressional offices must contact the <strong>State Department's Bureau of Consular Affairs congressional liaison</strong>, not USCIS Congressional Relations. These are entirely separate channels with different contacts and response timelines. State clearly in your casework submission where your case currently sits so the aide routes it to the right agency.
+      </div>
+
+      <h3>What they can do</h3>
+      <ul>
+        <li><strong>Case status requests:</strong> Ask the agency for an update when your case is outside normal processing time.</li>
+        <li><strong>Expedite requests:</strong> Submit one if you meet a published USCIS expedite criterion. You must identify the applicable criterion and supply evidence. See <a href="https://www.uscis.gov/policy-manual/volume-1-part-a-chapter-5">USCIS Policy Manual, Volume 1, Part A, Chapter 5</a>.</li>
+        <li><strong>Clerical corrections:</strong> Wrong information on a Notice of Action, address issues, document spelling errors.</li>
+        <li><strong>NVC coordination:</strong> Status updates and documentation clarification for cases at the NVC.</li>
+      </ul>
+
+      <h3>What they cannot do</h3>
+      <ul>
+        <li>Force USCIS to approve or deny a petition.</li>
+        <li>Advance priority dates, which are controlled by the State Department Visa Bulletin.</li>
+        <li>Reverse a denial or file an appeal.</li>
+        <li>Provide legal advice or representation.</li>
+      </ul>
+
+      <h3>What to realistically expect</h3>
+
+      <p>Your congressional office will typically acknowledge the submission within a few business days. The agency response comes back through the office to you and takes 4 to 8 weeks. In the majority of cases that response is a status echo: USCIS confirms the case is pending and under review. Receiving substantive information about the cause of delay or a specific adjudication timeline is the exception, not the rule. Document the response regardless; it builds the record for a demand letter or mandamus action.</p>
+
+      <div class="callout callout-info">
+        <span class="callout-title">Expedite criteria</span>
+        <p style="margin-bottom:0.5rem;">USCIS expedites are rare and the bar is high. Qualifying reasons are: severe financial loss to a company or person; an emergency or urgent humanitarian situation; a request from a nonprofit furthering US cultural or social interests; a US government request; or clear USCIS error.</p>
+        <p style="margin-bottom:0.5rem;"><strong>Pregnancy is not a qualifying reason.</strong> It is one of the most commonly asked about situations, but it does not meet any USCIS expedite criterion on its own. A long wait alone also does not qualify.</p>
+        <p style="margin-bottom:0;">See the full criteria at <a href="https://www.uscis.gov/policy-manual/volume-1-part-a-chapter-5">Policy Manual, Vol. 1, Part A, Ch. 5</a>.</p>
+      </div>
+
+      <h3>Steps to file</h3>
+      <ol>
+        <li>Find all three representatives at <a href="https://www.congress.gov/members/find-your-member">congress.gov/members/find-your-member</a>.</li>
+        <li>On each website, look under Services for "Casework," "Help with a federal agency," or "Immigration, citizenship, and visas."</li>
+        <li>Complete the immigration casework form.</li>
+        <li>Download, print, and sign the Privacy Act release form with a <strong>wet-ink signature</strong>. This authorizes the office to discuss your case with the agency. Without it, the office cannot proceed.</li>
+        <li>Gather: NOA1 receipt notice, USCIS or NVC status printout, brief delay timeline, and your inquiry confirmation number and date.</li>
+        <li>Submit by email (fastest), fax, or mail as instructed.</li>
+        <li>If no acknowledgement within five business days, follow up with the office. If no agency response in 8 weeks, follow up again.</li>
+      </ol>
+
+      <h3>Form fields: what to enter</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Field</th><th>Enter</th></tr></thead>
+          <tbody>
+            <tr><td>Title</td><td>Mr., Ms., Dr., etc.</td></tr>
+            <tr><td>First and last name</td><td>Your full legal name</td></tr>
+            <tr><td>Date of birth</td><td>MM/DD/YYYY</td></tr>
+            <tr><td>Email and phone</td><td>Best contact details for follow-up</td></tr>
+            <tr><td>Address</td><td>Street, city, state, ZIP &mdash; must be in the representative's district</td></tr>
+            <tr><td>Case pending in court?</td><td>No, unless you have already filed a lawsuit</td></tr>
+            <tr><td>Select agency</td><td>If at USCIS: "Immigration, Citizenship, and Visas." If at NVC/embassy: State Department / Bureau of Consular Affairs</td></tr>
+            <tr><td>I am the&hellip;</td><td>Petitioner (the US citizen) or Beneficiary (the immigrant)</td></tr>
+            <tr><td>Receipt number</td><td>I-130 receipt number from the NOA1 (e.g. IOE0000000000)</td></tr>
+            <tr><td>Priority date</td><td>Filing date or priority date from the NOA1</td></tr>
+            <tr><td>Current case location</td><td>USCIS service center / National Visa Center / US Embassy [name]</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Narrative template</h3>
+      <div class="template-wrap">
+        <div class="template-block" id="cong-tpl">I am writing to request your office's assistance with my significantly delayed Form I-130 (Immediate Relative petition).
+
+MY INFORMATION
 Name: [Your full legal name]
 Constituent in [Senator/Representative Name]'s district: Yes
 Contact: [your email and phone]
 
+PETITIONER AND BENEFICIARY
 Petitioner: [US citizen's name], US citizen
 Beneficiary: [Spouse/relative's name], citizen of [country]
 
-Case Details
+CASE DETAILS
 I-130 Receipt Number: [NOA1 number, e.g. IOE0000000000]
-Filed Date: [date filed]
-Current Status: [Pending at USCIS / At the National Visa Center / At U.S. Embassy London / other]
-USCIS Service Center: [if at USCIS, e.g. Vermont Service Center]
-Embassy: [if at NVC/Embassy, e.g. U.S. Embassy London]
+Filed: [date filed]
+Current case location: [Pending at USCIS / At the National Visa Center / At US Embassy London / other]
+USCIS Service Center (if at USCIS): [e.g. Vermont Service Center]
+Embassy (if at NVC or embassy): [e.g. US Embassy London]
 
-The Delay
+THE DELAY
 USCIS estimated processing time: [X months, per uscis.gov]
-Current pending time: [X months/years]
-No Request for Evidence received
-No substantive update to case status in [X months/years]
+Time pending as of today: [X months/years]
+No Request for Evidence has been issued.
+No substantive case status update in [X months/years].
 
-Actions Taken
-- Checked case status regularly at uscis.gov/case-status
-- Contacted USCIS, no resolution offered
-- [If applicable: Filed White House request on [date]]
+PRIOR USCIS CONTACT
+[Date]: Submitted a USCIS case inquiry via [e-Request / secure message / Contact Center].
+Confirmation or reference number: [number, if provided]
+USCIS response: [received on date / no response as of today]
 
-Request for Assistance
-I request that your office submit a congressional inquiry to USCIS asking for:
+REQUEST FOR ASSISTANCE
+I request that your office submit a formal inquiry to [USCIS / the State Department Bureau of Consular Affairs] asking for:
 1. A current case status update
-2. Confirmation that all required documents have been received and reviewed
-3. Clarification on any items needed to move the case forward
-4. A timeline for adjudication
+2. Confirmation that all required documents have been received
+3. Clarification on any outstanding items needed to move the case forward
+4. An estimated timeline for adjudication
 
-I am happy to provide any supporting documentation needed. Thank you for your assistance.</pre>
-        </div>
-
-        <h4>Submission checklist</h4>
-        <ul class="check">
-          <li>Identify your Senator and House Representative at congress.gov</li>
-          <li>Find the immigration casework form on each website</li>
-          <li>Complete all required fields</li>
-          <li>Download and print the Privacy Act release form</li>
-          <li>Sign it with wet ink (required)</li>
-          <li>Gather NOA1, USCIS or NVC status printout, delay timeline, any RFE letters</li>
-          <li>Save documents as PDF or JPEG</li>
-          <li>Submit by email (fastest) or fax</li>
-          <li>Save the confirmation email</li>
-          <li>Diarise a follow-up in 6 to 8 weeks</li>
-        </ul>
+I am happy to provide supporting documentation. Thank you.</div>
+        <button class="copy-btn" onclick="copyTpl('cong-tpl',this)">Copy</button>
       </div>
-    </details>
 
-    <!-- 2. WHITE HOUSE -->
-    <details class="card">
-      <summary class="head">
-        <svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="head-body">
-          <span class="card-title">White House contact</span>
-          <span class="meta">
-            <span class="pill free">Free</span>
-            <span class="pill time">Supplement, not a replacement</span>
-            <span class="pill time">Under 10 minutes</span>
-          </span>
-        </span>
-      </summary>
-      <div class="body">
-        <p>Use the White House contact portal to request help with a significantly delayed I-130. It works best alongside a congressional inquiry, not instead of one. Response times are longer and success rates lower than congressional casework. The message field is capped near 4,000 characters and takes no attachments. Find the current form through the contact section at <a href="https://www.whitehouse.gov/" rel="noopener">whitehouse.gov</a>.</p>
+      <h3>Submission checklist</h3>
+      <ul class="checklist">
+        <li>Located all three representatives at congress.gov</li>
+        <li>Found the immigration casework form on each website</li>
+        <li>Completed all required fields, including current case location</li>
+        <li>Downloaded, printed, and wet-ink signed the Privacy Act release</li>
+        <li>Gathered: NOA1, status printout, delay timeline, inquiry confirmation number and date</li>
+        <li>Submitted to all three offices by email or fax</li>
+        <li>Saved all confirmation emails</li>
+        <li>Set a reminder: 5 business days for office acknowledgement, 8 weeks for agency response</li>
+      </ul>
 
-        <h4>Form fields: what to enter</h4>
-        <div class="tablewrap">
-          <table>
-            <thead><tr><th scope="col">Field</th><th scope="col">Enter</th></tr></thead>
-            <tbody>
-              <tr><td>What would you like help with?</td><td>Immigration</td></tr>
-              <tr><td>Contacted an agency before?</td><td>Yes</td></tr>
-              <tr><td>What agency?</td><td>U.S. Citizenship and Immigration Services</td></tr>
-              <tr><td>Written before?</td><td>No, or Yes if applicable</td></tr>
-              <tr><td>Case number / prefix</td><td>Your NOA1 receipt number (for example IOE0000000000)</td></tr>
-              <tr><td>First and last name</td><td>Petitioner's legal name (the US citizen)</td></tr>
-              <tr><td>Suffix / appellation</td><td>Leave blank if none</td></tr>
-              <tr><td>Address, city, state, ZIP</td><td>Petitioner's current US address</td></tr>
-              <tr><td>Phone and email</td><td>Best contact details for the petitioner</td></tr>
-            </tbody>
-          </table>
+    </div>
+  </div>
+
+  <!-- ── STEP 4: WHITE HOUSE ── -->
+  <div class="remedy-card">
+    <button class="remedy-toggle" aria-expanded="false" aria-controls="body-4">
+      <div class="remedy-toggle-inner">
+        <span class="remedy-step">Step 4</span>
+        <span class="remedy-title">White House contact</span>
+        <div class="remedy-badges">
+          <span class="badge badge-gold">Free</span>
+          <span class="badge badge-muted">Supplement, not a replacement</span>
+          <span class="badge badge-muted">Under 10 minutes</span>
         </div>
+      </div>
+      <span class="remedy-chevron">&#x25BE;</span>
+    </button>
+    <div class="remedy-body" id="body-4" hidden>
 
-        <h4>Narrative: copy, fill in the brackets, paste (max 4,000 characters)</h4>
-        <div class="template">
-          <button class="copybtn" type="button">Copy</button>
-          <pre>I am a US citizen requesting assistance with a significantly delayed Form I-130 (Immediate Relative petition) filed with USCIS.
+      <p>Use the White House contact portal to request help with a significantly delayed I-130. It works best alongside a congressional inquiry, not instead of one. Response times are longer and success rates lower than congressional casework. The message field is capped near 4,000 characters and accepts no attachments. Find the current form at <a href="https://www.whitehouse.gov/">whitehouse.gov</a> under Contact.</p>
 
-Petitioner: [Your Name] (US citizen)
-Beneficiary: [Spouse/relative name], citizen of [country]
+      <h3>Form fields: what to enter</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Field</th><th>Enter</th></tr></thead>
+          <tbody>
+            <tr><td>What would you like help with?</td><td>Immigration</td></tr>
+            <tr><td>Contacted an agency before?</td><td>Yes</td></tr>
+            <tr><td>What agency?</td><td>U.S. Citizenship and Immigration Services</td></tr>
+            <tr><td>Case number</td><td>NOA1 receipt number (e.g. IOE0000000000)</td></tr>
+            <tr><td>Name</td><td>Petitioner's legal name (the US citizen)</td></tr>
+            <tr><td>Address, city, state, ZIP</td><td>Petitioner's current US address</td></tr>
+            <tr><td>Phone and email</td><td>Best contact details for the petitioner</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Narrative template</h3>
+      <div class="template-wrap">
+        <div class="template-block" id="wh-tpl">I am a US citizen requesting assistance with a significantly delayed Form I-130 (Immediate Relative petition) filed with USCIS.
+
+Petitioner: [Your Name], US citizen
+Beneficiary: [Name], citizen of [country]
 Receipt number: [NOA1 number, e.g. IOE0000000000]
 Filed: [date]
-Current USCIS status: [as shown at uscis.gov/case-status]
-Normal processing time: [X months per USCIS website]
+Current status: [as shown at uscis.gov/case-status]
+USCIS published processing time: [X months]
+Time pending: [X months/years]
 
-This petition has been pending [X months/years] with no Request for Evidence and no substantive update.
+No Request for Evidence has been issued. No substantive status update in [X months].
 
-Steps already taken:
-- Contacted USCIS through the online portal: no resolution
-- Filed a congressional inquiry with [Senator/Representative name]: [date, outcome if any]
+Prior contact:
+- USCIS case inquiry via [e-Request / Contact Center] on [date]. Confirmation: [number if given].
+- Congressional inquiries filed with [Senator A, Senator B, Representative C] on [date].
 
-The delay is causing ongoing hardship: [1 to 2 sentences, for example continued family separation; my spouse cannot work or travel; we are maintaining two households at significant cost].
+This delay is causing ongoing hardship: [1 to 2 sentences].
 
-I respectfully request the White House's assistance in encouraging USCIS to take final action on this petition.</pre>
-        </div>
-        <p class="muted">Check the authorisation box before submitting, then save or screenshot the confirmation page.</p>
+I respectfully request the White House's assistance in encouraging USCIS to adjudicate this petition.</div>
+        <button class="copy-btn" onclick="copyTpl('wh-tpl',this)">Copy</button>
       </div>
-    </details>
 
-    <!-- 3. DEMAND LETTER -->
-    <details class="card">
-      <summary class="head">
-        <svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="head-body">
-          <span class="card-title">Demand letter</span>
-          <span class="meta">
-            <span class="pill cost">Free to about $500</span>
-            <span class="pill time">18 to 24+ months</span>
-            <span class="pill time">Attorney optional</span>
-          </span>
-        </span>
-      </summary>
-      <div class="body">
-        <p>A demand letter is a formal written request to USCIS for a final decision on your I-130. It is a pre-litigation step, not a court action. It does not invoke a statute of its own; it puts USCIS on notice that you intend to seek judicial relief if the agency does not act. USCIS often issues a decision within 30 to 60 days, though it can also slow-roll the case.</p>
+      <p>Check the authorization box before submitting, then save or screenshot the confirmation page.</p>
 
-        <div class="callout note"><strong>On the citations.</strong> The relevant statutes belong to the lawsuit that follows, not the letter. The letter signals an impending claim under the Administrative Procedure Act, <a href="https://www.law.cornell.edu/uscode/text/5/706" rel="noopener">5 U.S.C. § 706(1)</a> (compel action unreasonably delayed), enforced through the Mandamus Act, <a href="https://www.law.cornell.edu/uscode/text/28/1361" rel="noopener">28 U.S.C. § 1361</a>. Reference both in the body, not as a basis for the letter itself.</div>
+    </div>
+  </div>
 
-        <h4>Key points</h4>
-        <ul>
-          <li><strong>Timing:</strong> Generally viable after 18 months, stronger past 24.</li>
-          <li><strong>Effect:</strong> A clear signal. USCIS may decide within 30 to 60 days.</li>
-          <li><strong>Representation:</strong> You can send it yourself, or an attorney can, which adds weight.</li>
-          <li><strong>Courtesy copy:</strong> Many filers send a copy to <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice" rel="noopener">uscis.serviceofprocess@uscis.dhs.gov</a> and keep the acknowledgement.</li>
-        </ul>
+  <!-- ── STEP 5: DEMAND LETTER ── -->
+  <div class="remedy-card">
+    <button class="remedy-toggle" aria-expanded="false" aria-controls="body-5">
+      <div class="remedy-toggle-inner">
+        <span class="remedy-step">Step 5</span>
+        <span class="remedy-title">Demand letter</span>
+        <div class="remedy-badges">
+          <span class="badge badge-gold">Free to ~$500</span>
+          <span class="badge badge-muted">18 to 24+ months</span>
+          <span class="badge badge-warn">Attorney optional but recommended</span>
+        </div>
+      </div>
+      <span class="remedy-chevron">&#x25BE;</span>
+    </button>
+    <div class="remedy-body" id="body-5" hidden>
 
-        <div class="callout risk"><strong>Risk.</strong> Filing a demand can prompt USCIS to review your file. A strong case often gets approved; a weak one can draw a denial. Evaluate your case strength, or have an attorney do so, before sending.</div>
+      <p>A demand letter is a formal pre-litigation notice to USCIS. It does not invoke a statute of its own. Its purpose is to put USCIS on notice that you intend to seek judicial relief if the agency does not adjudicate your petition within the stated timeframe. It is a step before court, not a court action.</p>
 
-        <h4>Submission checklist</h4>
-        <ul class="check">
-          <li>Confirm the I-130 has been pending 18+ months (stronger past 24)</li>
-          <li>Identify the USCIS service center adjudicating your case (on the NOA1)</li>
-          <li>Verify the current Director and the correct addressee at the USCIS leadership page before you write</li>
-          <li>Fill in the template and print it</li>
-          <li>Sign by hand (wet signature)</li>
-          <li>Attach a copy of the NOA1, the USCIS status page, and a brief delay timeline</li>
-          <li>Send by USPS Certified Mail, Return Receipt Requested</li>
-          <li>Retain the certified-mail receipt and a copy of the letter</li>
-          <li>If no response in 30 to 60 days, consider a writ of mandamus</li>
-        </ul>
+      <div class="callout callout-info">
+        <span class="callout-title">On the cited statutes</span>
+        The statutory basis for a mandamus action belongs in the lawsuit that follows, not the letter itself. The letter signals an impending claim under the Administrative Procedure Act, <a href="https://www.law.cornell.edu/uscode/text/5/706">5 U.S.C. &sect;&nbsp;706(1)</a> (compelling agency action unreasonably delayed), enforced through the Mandamus Act, <a href="https://www.law.cornell.edu/uscode/text/28/1361">28 U.S.C. &sect;&nbsp;1361</a>. Reference both in the body of the letter as the basis for the threatened action.
+      </div>
 
-        <div class="callout note"><strong>Addressee.</strong> Do not copy names from older templates. As of June 2026 the USCIS Director is Joseph B. Edlow and Service Center Operations is led by Carrie M. Selby, but these change. Confirm the current officials at the <a href="https://www.uscis.gov/about-us/organization/leadership" rel="noopener">USCIS leadership page</a> and address the letter to your specific service center's Case Management Unit.</div>
+      <h3>Key points</h3>
+      <ul>
+        <li><strong>Timing:</strong> Viable from 18 months; materially stronger past 24.</li>
+        <li><strong>Effect:</strong> USCIS often adjudicates within 30 to 60 days of receiving a demand letter, though it can also slow-roll the response.</li>
+        <li><strong>Representation:</strong> You can send it yourself. A letter on attorney letterhead adds weight.</li>
+        <li><strong>Courtesy copy:</strong> Many filers email a copy to <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice">uscis.serviceofprocess@uscis.dhs.gov</a> and retain the acknowledgement.</li>
+      </ul>
 
-        <h4>Demand letter template</h4>
-        <div class="template">
-          <button class="copybtn" type="button">Copy</button>
-          <pre>[Date]
+      <div class="callout callout-warn">
+        <span class="callout-title">Legal risk</span>
+        The letter itself carries no legal penalty. USCIS has no authority to disadvantage a petitioner for sending a pre-litigation demand. The risk is that the letter may prompt USCIS to adjudicate sooner. If there are underlying issues with your petition, those may surface. Evaluate your case strength, or have an attorney do so, before sending.
+      </div>
+
+      <h3>Submission checklist</h3>
+      <ul class="checklist">
+        <li>I-130 has been pending 18+ months (stronger past 24)</li>
+        <li>All lower-risk steps documented: case inquiry with confirmation number, congressional inquiries, White House contact if filed</li>
+        <li>Current USCIS Director and service center addressee verified at <a href="https://www.uscis.gov/about-us/organization/leadership">uscis.gov/about-us/organization/leadership</a></li>
+        <li>Template completed and printed</li>
+        <li>Signed by hand (wet signature)</li>
+        <li>Attachments ready: NOA1, USCIS status printout, delay timeline, inquiry confirmation</li>
+        <li>Sent by USPS Certified Mail, Return Receipt Requested</li>
+        <li>Certified-mail receipt and copy of letter retained</li>
+        <li>Set a reminder: 30 to 60 days. If no response, consider mandamus.</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <span class="callout-title">Verify the addressee before writing</span>
+        Do not copy official names from older templates. As of June 2026, the USCIS Director is Joseph B. Edlow and Service Center Operations is led by Carrie M. Selby, but these change. Confirm current officials before writing and address the letter to the Case Management Unit at your specific service center.
+      </div>
+
+      <h3>Demand letter template</h3>
+      <div class="template-wrap">
+        <div class="template-block" id="demand-tpl">[Date]
 Sent via Certified Mail, Return Receipt Requested
 
-TO: USCIS [Service Center Name]
-    [Service Center Address, see your NOA1]
-    Attn: Case Management Unit
+TO:   USCIS [Service Center Name]
+      [Service Center Address -- see your NOA1]
+      Attn: Case Management Unit
 
-RE: DEMAND FOR FINAL AGENCY ACTION
-    Form I-130, Petition for Alien Relative
-    Receipt Number: [NOA1 number]
-    Priority Date: [date on NOA1]
+RE:   DEMAND FOR FINAL AGENCY ACTION
+      Form I-130, Petition for Alien Relative
+      Receipt Number: [NOA1 number]
+      Priority Date: [date on NOA1]
 
 Dear Sir or Madam,
 
-This letter is a formal demand for final agency action on the above I-130 petition, filed on [filing date]. As of today, it has been pending for [X months/years], far exceeding normal processing timeframes and constituting an unreasonable delay.
+This letter is a formal demand for final agency action on the above I-130 petition, filed on [filing date]. As of today, it has been pending for [X months/years], far exceeding USCIS's own published processing time and constituting an unreasonable delay.
 
-I, [Your Name], filed this I-130 on behalf of my [spouse/child/parent], [Beneficiary Name]. No Request for Evidence has been issued; no interview has been scheduled. USCIS has provided no explanation for the delay.
+I, [Your Name], filed this I-130 on behalf of my [spouse/child/parent], [Beneficiary Name]. No Request for Evidence has been issued; no interview has been scheduled; and USCIS has provided no substantive explanation for the delay.
 
-I respectfully demand that USCIS take final action, either approval or a written Notice of Denial with a detailed explanation, by [date 45 days from today].
+Prior contact with USCIS:
+- Case inquiry submitted via [e-Request / Contact Center] on [date]. Confirmation: [number].
+- Congressional inquiry filed with [office(s)] on [date]. Response received [date / no response].
+- [Any other documented steps and dates]
 
-Absent such action, I reserve all rights to pursue judicial remedies, including a petition for a writ of mandamus under 28 U.S.C. § 1361 and the Administrative Procedure Act, 5 U.S.C. § 706(1), which directs courts to compel agency action unlawfully withheld or unreasonably delayed.
+I respectfully demand that USCIS take final action by [date 45 days from today].
 
-Attached: NOA1 receipt notice; USCIS case status; delay timeline.
+Absent such action by that date, I reserve all rights to pursue judicial remedies, including a petition for writ of mandamus under 28 U.S.C. SS 1361, federal-question jurisdiction under 28 U.S.C. SS 1331, and the Administrative Procedure Act, 5 U.S.C. SS 706(1), which directs courts to compel agency action unlawfully withheld or unreasonably delayed.
+
+Attached: NOA1 receipt notice; USCIS case status printout; delay timeline; inquiry confirmation.
 
 Sincerely,
 
 [Your Signature]
 [Your Typed Name]
 [Your Address]
-[Phone / Email]</pre>
-        </div>
+[Phone / Email]</div>
+        <button class="copy-btn" onclick="copyTpl('demand-tpl',this)">Copy</button>
       </div>
-    </details>
 
-    <!-- 4. WRIT OF MANDAMUS -->
-    <details class="card">
-      <summary class="head">
-        <svg class="chev" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="head-body">
-          <span class="card-title">Writ of mandamus</span>
-          <span class="meta">
-            <span class="pill cost">$405 filing fee</span>
-            <span class="pill time">24+ months</span>
-            <span class="pill time">Attorney strongly recommended</span>
-          </span>
-        </span>
-      </summary>
-      <div class="body">
-        <p>A writ of mandamus is a federal court order compelling USCIS to act on your petition. It is the strongest remedy available. You can file pro se (without an attorney), but representation meaningfully improves outcomes.</p>
-
-        <div class="callout note"><strong>Statutory basis.</strong> A delay suit is filed in federal district court under the <a href="https://www.law.cornell.edu/uscode/text/28/1361" rel="noopener">Mandamus Act, 28 U.S.C. § 1361</a>, with <a href="https://www.law.cornell.edu/uscode/text/28/1331" rel="noopener">federal-question jurisdiction, 28 U.S.C. § 1331</a>, and the <a href="https://www.law.cornell.edu/uscode/text/5/706" rel="noopener">APA, 5 U.S.C. § 706(1)</a>. Congress has also stated, at <a href="https://www.law.cornell.edu/uscode/text/8/1571" rel="noopener">8 U.S.C. § 1571(b)</a>, that benefit applications should be processed within 180 days, useful support for an unreasonable-delay argument.</div>
-
-        <h4>How courts judge "unreasonable"</h4>
-        <p>Most courts apply the TRAC factors from <em>Telecommunications Research &amp; Action Center v. FCC</em>, 750 F.2d 70 (D.C. Cir. 1984): whether a rule of reason governs the timetable, any congressional timetable, whether health and welfare are at stake, the effect of expediting on other agency priorities, the nature of the interests prejudiced, and whether bad faith is alleged (it need not be). There is no fixed number of months, but 24+ is a materially stronger position.</p>
-
-        <h4>Common outcomes</h4>
-        <ul>
-          <li>The court orders USCIS to rule within roughly 60 to 90 days.</li>
-          <li>USCIS settles by agreeing to a decision date.</li>
-          <li>Less often at 24+ months, the case is dismissed as not yet unreasonable.</li>
-        </ul>
-
-        <h4>Requirements</h4>
-        <ul>
-          <li>USCIS owes a clear, non-discretionary duty to act on your petition.</li>
-          <li>You have no other adequate remedy (demand letter sent; congressional inquiry exhausted).</li>
-          <li>The delay is unreasonable. 24+ months is significantly stronger.</li>
-        </ul>
-
-        <div class="callout note"><strong>Cost.</strong> The federal civil filing fee is a uniform <strong>$405</strong> ($350 statutory plus $55 administrative), the same in every district. If you cannot afford it, you can apply to proceed without prepayment using Form AO 240. Attorney fees, if you hire one, commonly run from about $1,500 to $5,000 or more.</div>
-
-        <h4>Pre-filing checklist</h4>
-        <ul class="check">
-          <li>Confirm 24+ months have elapsed since filing</li>
-          <li>Document every prior step: congressional inquiry, demand letter, USCIS contacts, Ombudsman</li>
-          <li>Consult an AILA-affiliated attorney; many offer free or low-cost consultations</li>
-          <li>Identify the correct federal district court (usually where you reside)</li>
-          <li>Obtain the court's pro se filing instructions if self-representing</li>
-          <li>Prepare the complaint, summons, and civil cover sheet (JS 44)</li>
-          <li>Pay the $405 filing fee, or file Form AO 240 for a fee waiver</li>
-          <li>If your case is at the embassy after NVC, the defendants change: you sue the State Department and the relevant officials, not USCIS</li>
-        </ul>
-
-        <h4>Questions to ask an attorney</h4>
-        <ul>
-          <li>Does my case meet the standard for mandamus in this district?</li>
-          <li>What is the realistic timeline, cost, and likelihood of success?</li>
-          <li>Should I send a demand letter first, or proceed directly to court?</li>
-          <li>Is USCIS likely to settle, or does this go to full litigation?</li>
-          <li>Could I be liable for the government's costs if I lose?</li>
-        </ul>
-
-        <div class="callout tip"><strong>Pro se is possible, not effortless.</strong> Filers do succeed without lawyers, but the complaint, service on each defendant, and proof of service must be done correctly. If self-representing, follow your district court's pro se guide step by step.</div>
-      </div>
-    </details>
-
+    </div>
   </div>
 
-  <section class="sources">
-    <h2>Sources</h2>
-    <p>Primary government and statutory sources. Verify current figures and officials before relying on them.</p>
-    <ol>
-      <li>USCIS, <a href="https://www.uscis.gov/policy-manual/volume-1-part-a-chapter-5" rel="noopener">Policy Manual, Volume 1, Part A, Chapter 5: Expedite Requests</a>.</li>
-      <li>USCIS, <a href="https://www.uscis.gov/forms/filing-guidance/expedite-requests" rel="noopener">Expedite Requests</a> (criteria and how to request).</li>
-      <li>USCIS, <a href="https://egov.uscis.gov/processing-times/" rel="noopener">Check Case Processing Times</a> and <a href="https://egov.uscis.gov/" rel="noopener">Case Status Online</a>.</li>
-      <li>USCIS, <a href="https://www.uscis.gov/about-us/organization/leadership" rel="noopener">Leadership</a> (current Director and directorate heads).</li>
-      <li>DHS, <a href="https://www.dhs.gov/topics/cis-ombudsman" rel="noopener">CIS Ombudsman</a> (case assistance eligibility and DHS Form 7001, Request for Case Assistance).</li>
-      <li>On the Ombudsman suspension: <a href="https://immpolicytracking.org/policies/reported-trump-fires-nearly-all-dhs-civil-rights-and-civil-liberties-employees/" rel="noopener">Immigration Policy Tracking Project</a> and <a href="https://www.boundless.com/blog/dhs-suspends-uscis-ombudsman-office-what-this-means-for-immigrants" rel="noopener">Boundless</a> (staff placed on leave March 21, 2025; litigated in <em>RFK Human Rights v. DHS</em>, No. 1:25-cv-01270, D.D.C.).</li>
-      <li>Congress, <a href="https://www.congress.gov/members/find-your-member" rel="noopener">Find Your Member</a>.</li>
-      <li>Cornell LII, <a href="https://www.law.cornell.edu/uscode/text/28/1361" rel="noopener">28 U.S.C. § 1361</a> (Mandamus Act), <a href="https://www.law.cornell.edu/uscode/text/28/1331" rel="noopener">§ 1331</a>, <a href="https://www.law.cornell.edu/uscode/text/5/706" rel="noopener">5 U.S.C. § 706</a> (APA), <a href="https://www.law.cornell.edu/uscode/text/8/1571" rel="noopener">8 U.S.C. § 1571</a>.</li>
-      <li><em>Telecommunications Research &amp; Action Center v. FCC</em>, 750 F.2d 70 (D.C. Cir. 1984) (TRAC factors).</li>
-      <li>U.S. Courts, <a href="https://www.uscourts.gov/court-programs/fees/district-court-miscellaneous-fee-schedule" rel="noopener">District Court fee schedule</a> ($405 civil filing fee, effective Dec 1, 2023).</li>
-      <li>USCIS, <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice" rel="noopener">Service of Process Notice</a>.</li>
-    </ol>
-    <p class="updated">Reviewed June 2026. This page is general information, not legal advice.</p>
-  </section>
+  <!-- ── STEP 6: MANDAMUS ── -->
+  <div class="remedy-card">
+    <button class="remedy-toggle" aria-expanded="false" aria-controls="body-6">
+      <div class="remedy-toggle-inner">
+        <span class="remedy-step">Step 6</span>
+        <span class="remedy-title">Writ of mandamus</span>
+        <div class="remedy-badges">
+          <span class="badge badge-gold">$405 filing fee</span>
+          <span class="badge badge-muted">24+ months</span>
+          <span class="badge badge-warn">Attorney strongly recommended</span>
+        </div>
+      </div>
+      <span class="remedy-chevron">&#x25BE;</span>
+    </button>
+    <div class="remedy-body" id="body-6" hidden>
 
-</main>
+      <p>A writ of mandamus is a federal court order compelling USCIS to adjudicate your petition. It is the strongest remedy available and the only one that can force a decision. It compels USCIS to act on your petition. It does not compel approval. The outcome of adjudication depends entirely on the merits of your underlying petition.</p>
+
+      <h3>Statutory basis</h3>
+
+      <p>A delay suit is filed in federal district court under the <a href="https://www.law.cornell.edu/uscode/text/28/1361">Mandamus Act, 28 U.S.C. &sect;&nbsp;1361</a>, with <a href="https://www.law.cornell.edu/uscode/text/28/1331">federal-question jurisdiction, 28 U.S.C. &sect;&nbsp;1331</a>, and the <a href="https://www.law.cornell.edu/uscode/text/5/706">APA, 5 U.S.C. &sect;&nbsp;706(1)</a>. Congress also stated at <a href="https://www.law.cornell.edu/uscode/text/8/1571">8 U.S.C. &sect;&nbsp;1571(b)</a> that benefit applications should be processed within 180 days; courts are split on whether this creates an enforceable duty or is aspirational policy, but it is routinely included in delay complaints as supporting context.</p>
+
+      <h3>How courts assess unreasonable delay</h3>
+
+      <p>Most courts apply the TRAC factors from <em>Telecommunications Research &amp; Action Center v. FCC</em>, 750 F.2d 70 (D.C. Cir. 1984): whether a rule of reason governs the timetable; any congressional deadline; whether health or welfare are at stake; the effect of expediting on other agency priorities; the nature of the interests prejudiced; and whether bad faith is alleged (it need not be). No single factor is determinative. There is no fixed number of months. A delay of 24+ months is a materially stronger position, and the IR/CR1 argument (that the published processing time is inflated by preference categories) further strengthens the claim.</p>
+
+      <h3>Requirements</h3>
+
+      <p>To succeed on mandamus under 28 U.S.C. &sect;&nbsp;1361, you must show:</p>
+      <ol>
+        <li>A clear right to the relief sought (USCIS must adjudicate your petition).</li>
+        <li>A clear, non-discretionary duty on USCIS to act.</li>
+        <li>No other adequate remedy available: demand letter sent and unanswered; congressional options exhausted.</li>
+      </ol>
+
+      <h3>Legal risks</h3>
+
+      <ul>
+        <li><strong>Dismissal.</strong> If the court finds the delay is not yet unreasonable under the TRAC factors, the case is dismissed. You have spent $405 plus attorney fees with no movement on your case.</li>
+        <li><strong>Adjudication outcome.</strong> The court compels USCIS to act, not to approve. Once USCIS takes any action, the mandamus suit becomes moot and the court's jurisdiction ends regardless of the outcome.</li>
+        <li><strong>Surfacing hidden holds.</strong> Litigation requires USCIS to file an answer and may expose the reason for delay, including security holds, name-check flags, or CARRP (Controlled Application Review and Resolution Program) designations that were causing quiet inaction. Forced adjudication of a flagged case carries meaningfully higher risk of an adverse outcome.</li>
+        <li><strong>Attorney fees exposure.</strong> Under the Equal Access to Justice Act (<a href="https://www.law.cornell.edu/uscode/text/28/2412">28 U.S.C. &sect;&nbsp;2412(d)</a>), if you prevail you can apply for attorney fees from the government. If you lose and the court finds your claim was not substantially justified, the government can seek its costs from you. In practice this is rarely pursued against individual immigration petitioners, but the exposure is real and should be discussed with an attorney before filing.</li>
+      </ul>
+
+      <h3>Common outcomes</h3>
+      <ul>
+        <li>The court orders USCIS to adjudicate within roughly 60 to 90 days.</li>
+        <li>USCIS settles before trial by agreeing to a decision date. This is the most common outcome.</li>
+        <li>Less commonly at 24+ months, the case is dismissed as not yet unreasonable.</li>
+      </ul>
+
+      <h3>Cost</h3>
+
+      <p>The federal civil filing fee is <strong>$405</strong> ($350 statutory plus $55 administrative), uniform in every district. If you cannot afford it, apply to proceed without prepayment using Form AO 240. Attorney fees commonly run from around $1,500 to $5,000 or more depending on the district and complexity.</p>
+
+      <div class="callout callout-warn">
+        <span class="callout-title">Embassy and NVC cases: different defendants</span>
+        If your case is at the National Visa Center or a US embassy, you do not sue USCIS. The defendants are the Department of State, the Secretary of State, the relevant embassy, the Ambassador or Consul General, the Attorney General, and your local US Attorney. The court forms, filing fee, and process are the same; the named parties are not.
+      </div>
+
+      <h3>Pre-filing checklist</h3>
+      <ul class="checklist">
+        <li>24+ months have elapsed since filing</li>
+        <li>Every prior step documented: case inquiry with confirmation, congressional inquiries with responses, demand letter with certified-mail receipt</li>
+        <li>Consulted an AILA-affiliated attorney; many offer free or low-cost initial consultations</li>
+        <li>Identified the correct federal district court (usually where the petitioner resides)</li>
+        <li>Obtained the court's pro se filing guide if self-representing</li>
+        <li>Prepared complaint, civil cover sheet (JS 44), and summons (Form AO 440 for each defendant)</li>
+        <li>Confirmed current names and titles of all defendants before filing</li>
+        <li>Paid the $405 filing fee, or completed Form AO 240 for a fee waiver</li>
+      </ul>
+
+      <h3>Questions to ask an attorney before filing</h3>
+      <ul>
+        <li>Does my delay meet the TRAC standard in my specific district?</li>
+        <li>What is the realistic timeline, cost, and likelihood of settlement versus full litigation?</li>
+        <li>Are there any flags on my case that could lead to an adverse outcome on adjudication?</li>
+        <li>Could I be liable for the government's costs if I lose?</li>
+        <li>Should I send a demand letter first, or proceed directly to court?</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <span class="callout-title">Pro se is possible, not effortless</span>
+        Filers do succeed without attorneys. But the complaint, service on each defendant, and proof of service must all be done correctly under the Federal Rules of Civil Procedure. If self-representing, follow your district court's pro se guide step by step.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h2>Sources</h2>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">Primary government, statutory, and judicial sources. Verify current officials, fees, and figures before relying on them.</p>
+    <ol>
+      <li>USCIS, <a href="https://www.uscis.gov/policy-manual/volume-1-part-a-chapter-5">Policy Manual, Volume 1, Part A, Chapter 5: Expedite Requests</a> (qualifying criteria; pregnancy is not listed).</li>
+      <li>USCIS, <a href="https://www.uscis.gov/forms/filing-guidance/expedite-requests">Expedite Requests</a> (criteria and how to request).</li>
+      <li>USCIS, <a href="https://egov.uscis.gov/processing-times/">Check Case Processing Times</a> and <a href="https://egov.uscis.gov/">Case Status Online</a>.</li>
+      <li>USCIS, <a href="https://www.uscis.gov/about-us/organization/leadership">Leadership</a> (current Director and directorate heads; verify before filing).</li>
+      <li>DHS, <a href="https://www.dhs.gov/topics/cis-ombudsman">CIS Ombudsman</a> (case assistance eligibility and DHS Form 7001).</li>
+      <li>On the Ombudsman suspension: <em>Robert F. Kennedy Human Rights v. DHS</em>, No.&nbsp;1:25-cv-01270 (D.D.C.); staff placed on administrative leave March 21, 2025.</li>
+      <li>Congress, <a href="https://www.congress.gov/members/find-your-member">Find Your Member</a>.</li>
+      <li>State Department, Bureau of Consular Affairs congressional liaison: contact routed through your congressional office for NVC and embassy-stage cases.</li>
+      <li>Cornell LII: <a href="https://www.law.cornell.edu/uscode/text/28/1361">28 U.S.C. &sect;&nbsp;1361</a> (Mandamus Act); <a href="https://www.law.cornell.edu/uscode/text/28/1331">28 U.S.C. &sect;&nbsp;1331</a> (federal-question jurisdiction); <a href="https://www.law.cornell.edu/uscode/text/5/706">5 U.S.C. &sect;&nbsp;706(1)</a> (APA); <a href="https://www.law.cornell.edu/uscode/text/8/1571">8 U.S.C. &sect;&nbsp;1571(b)</a> (180-day processing policy; enforceability disputed); <a href="https://www.law.cornell.edu/uscode/text/28/2412">28 U.S.C. &sect;&nbsp;2412(d)</a> (EAJA: attorney fees and cost exposure).</li>
+      <li><em>Telecommunications Research &amp; Action Center v. FCC</em>, 750 F.2d 70 (D.C. Cir. 1984) (TRAC factors for assessing unreasonable agency delay).</li>
+      <li>US Courts, <a href="https://www.uscourts.gov/court-programs/fees/district-court-miscellaneous-fee-schedule">District Court miscellaneous fee schedule</a> ($405 civil filing fee, effective December 1, 2023).</li>
+      <li>USCIS, <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice">Service of Process Notice</a> (courtesy copy address for demand letters).</li>
+    </ol>
+  </div>
+
+  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed June 2026. This page is general information, not legal advice.</p>
+
+</div>
+
+<div id="footer-placeholder"></div>
 
 <script>
-document.querySelectorAll('.copybtn').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var pre = btn.parentElement.querySelector('pre');
-    if(!pre) return;
-    navigator.clipboard.writeText(pre.innerText).then(function(){
-      var t = btn.textContent;
-      btn.textContent = 'Copied';
-      setTimeout(function(){ btn.textContent = t; }, 1600);
+  // Accordion
+  document.querySelectorAll('.remedy-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+      var bodyId = this.getAttribute('aria-controls');
+      var body = document.getElementById(bodyId);
+      if (body) body.hidden = expanded;
     });
   });
-});
+
+  // Copy template
+  function copyTpl(id, btn) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.textContent).then(function() {
+      var orig = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(function() { btn.textContent = orig; }, 1800);
+    });
+  }
 </script>
+
 </body>
 </html>
