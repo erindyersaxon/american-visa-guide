@@ -231,7 +231,7 @@ export default async function handler(req, res) {
     new Date(Math.min(...c.members.map(r => new Date(r.interview_letter)))).toISOString().split('T')[0]
   )
 
-  const ilDropsAsc = clusters.map((cluster, i) => {
+  const ilDrops = ilDropsAsc.filter(d => d.il_count >= 1).slice().reverse()
     const earliestIL = new Date(Math.min(...cluster.members.map(r => new Date(r.interview_letter))))
     const date = clusterDates[i]
 
@@ -280,12 +280,14 @@ export default async function handler(req, res) {
     return { date, time, gap, dq_from, dq_to, dq_days, il_count }
   })
 
-  // Filter out noise: clusters with fewer than 3 members are almost certainly
-  // stray submissions, not real batch drops. Real drops have 3+ ILs issued.
-  const ilDrops = ilDropsAsc.filter(d => d.il_count >= 3).slice().reverse() // newest first for API response
+  // Filter out noise: clusters with fewer than 2 members are almost certainly
+  // stray submissions, not real batch drops. Real drops have 2+ ILs issued.
+  const ilDrops = ilDropsAsc.filter(d => d.il_count >= 1).slice().reverse() // newest first for API response
 
   // --- IL → Interview month lookup (observed pattern) ---
   const ilToInterviewMonths = [
+    { il_month: '2026-06', interview_month: '2026-08' },
+    { il_month: '2026-05', interview_month: '2026-07' },
     { il_month: '2026-04', interview_month: '2026-06' },
     { il_month: '2026-03-late', interview_month: '2026-05' },
     { il_month: '2026-03-early', interview_month: '2026-04' },
