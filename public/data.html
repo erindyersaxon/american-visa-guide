@@ -819,7 +819,7 @@
         drop_date: r.date, gap_days: r.gap, drop_time: r.time,
         dq_date_from: r.dq_from, dq_date_to: r.dq_to, il_count: r.il_count,
       }));
-      const win = (sched.estimated_next_window || '').split('–').map(s => s.trim());
+      const win = (sched.estimated_next_window || '').split(' to ').map(s => s.trim());
       const o = d.outcomes || {};
       const pct = n => (o.total ? Math.round((n || 0) / o.total * 100) : null);
       const stats = {
