@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I-864 Household Size &amp; Income Calculator | American Visa Guide</title>
+<style>
+  :root {
+    --navy:     #0e1f3b;
+    --navy-mid: #1a3258;
+    --gold:     #c49b3c;
+    --gold-lt:  #e8c76e;
+    --cream:    #faf8f4;
+    --slate:    #6b7a8d;
+    --green:    #2d7a4f;
+    --green-lt: #e8f5ee;
+    --amber:    #c47a1a;
+    --amber-lt: #fff4e0;
+    --red:      #b03030;
+    --red-lt:   #fceaea;
+    --purple:   #5b3ea6;
+    --purple-lt:#f0ecfb;
+    --border:   #dde2ea;
+    --text:     #1a1a2e;
+    --font-ui:  'Outfit', system-ui, sans-serif;
+    --font-body:'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--text); min-height: 100vh; }
+
+  header { background: var(--navy); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  header .site-name { font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600; color: var(--gold-lt); letter-spacing: 0.04em; text-transform: uppercase; }
+  header .divider { color: var(--slate); }
+  header .page-title { font-family: var(--font-ui); font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.7); }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+  .intro { margin-bottom: 2rem; }
+  .intro h1 { font-family: var(--font-ui); font-size: 1.6rem; font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 0.5rem; }
+  .intro p { font-size: 0.92rem; color: var(--slate); line-height: 1.6; }
+
+  .authority-note { background: var(--navy); border-left: 3px solid var(--gold); border-radius: 6px; padding: 0.85rem 1rem; margin-bottom: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+  .authority-note strong { color: var(--gold-lt); }
+  .authority-note a { color: var(--gold-lt); text-decoration: underline; }
+
+  /* SECTION DIVIDER */
+  .section-label { font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+
+  /* STEP CARD */
+  .step-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 1.25rem; overflow: hidden; transition: border-color 0.2s; }
+  .step-card.active { border-color: var(--gold); }
+  .step-card.completed { border-color: var(--green); opacity: 0.7; }
+  .step-card.hidden { display: none; }
+
+  .step-header { display: flex; align-items: flex-start; gap: 0.85rem; padding: 1.1rem 1.25rem; }
+  .step-number { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: var(--gold-lt); font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .step-card.active .step-number { background: var(--gold); color: var(--navy); }
+  .step-card.completed .step-number { background: var(--green); color: #fff; }
+  .step-content { flex: 1; }
+  .step-label { font-family: var(--font-ui); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.2rem; }
+  .step-question { font-family: var(--font-ui); font-size: 1rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
+  .step-hint { font-size: 0.8rem; color: var(--slate); margin-top: 0.35rem; line-height: 1.5; }
+
+  .step-body { padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .step-card.completed .step-body { display: none; }
+
+  .choices { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+  .choice-btn { font-family: var(--font-ui); font-size: 0.88rem; font-weight: 500; padding: 0.55rem 1rem; border: 1.5px solid var(--border); border-radius: 6px; background: #fff; color: var(--navy); cursor: pointer; transition: all 0.15s; text-align: left; }
+  .choice-btn:hover { border-color: var(--gold); background: var(--amber-lt); }
+  .choice-btn.selected { border-color: var(--gold); background: var(--amber-lt); font-weight: 600; }
+  .choice-btn.yes-btn:hover, .choice-btn.yes-btn.selected { border-color: var(--green); background: var(--green-lt); }
+
+  .number-row { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
+  .counter-btn { width: 36px; height: 36px; border-radius: 6px; border: 1.5px solid var(--border); background: #fff; font-size: 1.1rem; color: var(--navy); cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font-ui); transition: all 0.15s; }
+  .counter-btn:hover { border-color: var(--gold); background: var(--amber-lt); }
+  .counter-display { font-family: var(--font-ui); font-size: 1.5rem; font-weight: 700; color: var(--navy); min-width: 2.5rem; text-align: center; }
+  .counter-label { font-size: 0.8rem; color: var(--slate); }
+
+  .inline-def { background: var(--amber-lt); border: 1px solid #f0d9a0; border-radius: 6px; padding: 0.75rem 0.85rem; margin-top: 0.85rem; font-size: 0.8rem; color: #5a4000; line-height: 1.55; }
+  .inline-def strong { color: var(--amber); }
+  .inline-note { background: var(--purple-lt); border: 1px solid #c9bef0; border-radius: 6px; padding: 0.75rem 0.85rem; margin-top: 0.85rem; font-size: 0.8rem; color: #3a2570; line-height: 1.55; }
+  .inline-note strong { color: var(--purple); }
+  .inline-note a { color: var(--purple); }
+
+  .completed-line { padding: 0.5rem 1.25rem 0.75rem 4rem; font-size: 0.82rem; color: var(--green); font-weight: 500; }
+
+  /* RESULT PANEL */
+  .result-panel { border-radius: 10px; overflow: hidden; margin-top: 1.5rem; display: none; }
+  .result-panel.visible { display: block; }
+  .result-header { background: var(--navy); padding: 1.25rem 1.5rem; }
+  .result-header h2 { font-family: var(--font-ui); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+  .result-header p { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+  .result-body { background: #fff; border: 1px solid var(--border); border-top: none; }
+
+  .hh-size-box { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1.25rem; }
+  .hh-number { font-family: var(--font-ui); font-size: 3.5rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .hh-breakdown { flex: 1; }
+  .hh-breakdown-title { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.5rem; }
+  .hh-row { display: flex; justify-content: space-between; font-size: 0.82rem; padding: 0.2rem 0; border-bottom: 1px dotted var(--border); }
+  .hh-row:last-child { border-bottom: none; font-weight: 600; color: var(--navy); }
+  .hh-row-label { color: var(--slate); }
+  .hh-row-value { font-weight: 600; color: var(--navy); }
+
+  .income-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
+  .income-section-title { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.85rem; }
+  .threshold-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .threshold-card { border-radius: 8px; padding: 1rem; border: 1.5px solid var(--border); }
+  .threshold-card.primary { border-color: var(--gold); background: linear-gradient(135deg, #fffdf5 0%, #fff8e5 100%); }
+  .threshold-card.secondary { background: #f8fafc; }
+  .threshold-tag { font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.35rem; }
+  .threshold-card.primary .threshold-tag { color: var(--amber); }
+  .threshold-card.secondary .threshold-tag { color: var(--slate); }
+  .threshold-amount { font-family: var(--font-ui); font-size: 1.6rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.2rem; }
+  .threshold-subtitle { font-size: 0.73rem; color: var(--slate); line-height: 1.4; }
+  .region-badge { display: inline-block; font-family: var(--font-ui); font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 3px; background: var(--navy); color: var(--gold-lt); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+
+  /* SHORTFALL + JOINT SPONSOR SECTIONS */
+  .shortfall-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
+  .shortfall-title { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.85rem; }
+  .option-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .option-item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.83rem; line-height: 1.5; }
+  .option-badge { flex-shrink: 0; font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 1px; }
+  .badge-a { background: var(--green-lt); color: var(--green); }
+  .badge-b { background: var(--amber-lt); color: var(--amber); }
+  .badge-c { background: #eef0f8; color: var(--navy-mid); }
+
+  /* JOINT SPONSOR MINI-CALCULATOR */
+  .js-calc-box { background: var(--purple-lt); border: 1.5px solid #c9bef0; border-radius: 8px; padding: 1.1rem 1.25rem; margin-top: 0.75rem; }
+  .js-calc-title { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.75rem; }
+  .js-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.82rem; color: var(--navy); }
+  .js-row label { min-width: 160px; font-size: 0.8rem; color: var(--slate); }
+  .js-toggle { display: flex; gap: 0.4rem; }
+  .js-btn { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 500; padding: 0.3rem 0.7rem; border: 1.5px solid #c9bef0; border-radius: 5px; background: #fff; color: var(--purple); cursor: pointer; transition: all 0.15s; }
+  .js-btn:hover, .js-btn.active { background: var(--purple); color: #fff; border-color: var(--purple); }
+  .js-number-row { display: flex; align-items: center; gap: 0.5rem; }
+  .js-counter-btn { width: 28px; height: 28px; border-radius: 5px; border: 1.5px solid #c9bef0; background: #fff; color: var(--purple); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+  .js-counter-btn:hover { background: var(--purple); color: #fff; }
+  .js-counter-display { font-family: var(--font-ui); font-size: 1.2rem; font-weight: 700; color: var(--purple); min-width: 1.8rem; text-align: center; }
+  .js-result { margin-top: 0.85rem; padding: 0.75rem; background: #fff; border-radius: 6px; border: 1px solid #c9bef0; font-size: 0.82rem; }
+  .js-result-label { font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.3rem; }
+  .js-result-amount { font-family: var(--font-ui); font-size: 1.4rem; font-weight: 700; color: var(--navy); }
+  .js-result-sub { font-size: 0.73rem; color: var(--slate); margin-top: 0.15rem; line-height: 1.4; }
+  .js-note { font-size: 0.75rem; color: #5b3ea6; margin-top: 0.6rem; line-height: 1.5; }
+
+  /* NOTES / CALLOUT PANELS */
+  .callout-panel { border-radius: 8px; padding: 1rem 1.1rem; margin-bottom: 0.75rem; font-size: 0.82rem; line-height: 1.55; }
+  .callout-panel.assets { background: #f0f4f8; border-left: 3px solid var(--slate); }
+  .callout-panel.ssa { background: var(--green-lt); border-left: 3px solid var(--green); }
+  .callout-panel-title { font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .callout-panel.assets .callout-panel-title { color: var(--slate); }
+  .callout-panel.ssa .callout-panel-title { color: var(--green); }
+  .callout-panel a { color: var(--navy-mid); font-weight: 600; }
+  .callout-panel.ssa a { color: var(--green); }
+
+  .notes-section { padding: 1rem 1.5rem; background: #f8fafc; }
+  .note-item { font-size: 0.78rem; color: var(--slate); line-height: 1.55; padding: 0.35rem 0; border-bottom: 1px dotted var(--border); display: flex; gap: 0.5rem; }
+  .note-item:last-child { border-bottom: none; }
+  .note-num { flex-shrink: 0; font-family: var(--font-ui); font-weight: 700; color: var(--navy); font-size: 0.72rem; }
+
+  .source-strip { padding: 1rem 1.5rem; background: var(--navy); font-size: 0.73rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+  .source-strip a { color: var(--gold-lt); text-decoration: none; }
+  .source-strip a:hover { text-decoration: underline; }
+
+  .reset-btn { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; font-family: var(--font-ui); font-size: 0.82rem; font-weight: 600; color: var(--slate); background: none; border: 1.5px solid var(--border); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; transition: all 0.15s; }
+  .reset-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+  .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 2rem; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--navy), var(--gold)); border-radius: 2px; transition: width 0.35s ease; width: 0%; }
+
+  .tooltip-wrap { position: relative; display: inline-block; }
+  .tooltip-trigger { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: var(--border); color: var(--slate); font-size: 0.65rem; font-weight: 700; cursor: help; margin-left: 4px; vertical-align: middle; flex-shrink: 0; }
+  .tooltip-box { display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; font-size: 0.73rem; line-height: 1.5; padding: 0.5rem 0.75rem; border-radius: 6px; width: 220px; z-index: 10; pointer-events: none; }
+  .tooltip-wrap:hover .tooltip-box { display: block; }
+
+  @media(max-width:520px) {
+    .threshold-grid { grid-template-columns: 1fr; }
+    .hh-size-box { flex-direction: column; align-items: flex-start; }
+    .intro h1 { font-size: 1.3rem; }
+    .js-row { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+    .js-row label { min-width: unset; }
+  }
+  a { color: var(--navy-mid); }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="site-name">American Visa Guide</span>
+  <span class="divider">›</span>
+  <span class="page-title">I-864 Household Size &amp; Income Tool</span>
+</header>
+
+<div style="background: #f5e642; color: #1a1a2e; font-family: 'Outfit', system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; text-align: center; padding: 0.55rem 1rem; letter-spacing: 0.03em;">
+  TEST VERSION — feedback welcome. Content may change before publication.
+</div>
+
+<div class="container">
+  <div class="intro">
+    <h1>Who counts in your household?<br>What income do you need?</h1>
+    <p>Answer the questions below to calculate your I-864 household size and minimum income threshold. Each question mirrors the official Form I-864 instructions. Includes a joint sponsor calculator and shortfall options.</p>
+  </div>
+
+  <div class="authority-note">
+    <strong>Official basis:</strong> INA §213A; 8 CFR 213a; 9 FAM 601.14; USCIS Form I-864 Instructions (ed. 09/17/24); I-864P HHS Poverty Guidelines (<a href="https://www.uscis.gov/i-864p" target="_blank" rel="noopener">effective Mar 1, 2026</a>); HHS Federal Register Jan 15, 2026.
+    This tool reflects the <strong>NVC consular processing</strong> pathway (CR-1/IR-1).
+  </div>
+
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+  <!-- STEP 0: LOCATION -->
+  <div class="step-card active" id="step0">
+    <div class="step-header">
+      <div class="step-number">—</div>
+      <div class="step-content">
+        <div class="step-label">Location</div>
+        <div class="step-question">Where does the sponsor live?</div>
+        <div class="step-hint">Alaska and Hawaii use higher poverty guidelines than the contiguous 48 states. The sponsor's state of domicile determines which table applies — not the applicant's location.</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="choices">
+        <button class="choice-btn yes-btn" onclick="setRegion('contiguous')">48 contiguous states or DC</button>
+        <button class="choice-btn" onclick="setRegion('alaska')">Alaska</button>
+        <button class="choice-btn" onclick="setRegion('hawaii')">Hawaii</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1: Sponsor -->
+  <div class="step-card hidden" id="step1">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <div class="step-label">Always counted</div>
+        <div class="step-question">You — the sponsor</div>
+        <div class="step-hint">The person signing the I-864 is always counted as 1. This is fixed.</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="inline-def">
+        <strong>Who is the sponsor?</strong> The US citizen or LPR petitioner who filed the I-130. A joint sponsor files their own separate I-864 — their household size is calculated independently (see the joint sponsor tool in the results). A household member who contributes income files Form I-864A and is counted in the petitioner's household size.
+      </div>
+      <div class="choices" style="margin-top:1rem;">
+        <button class="choice-btn yes-btn" onclick="confirmStep1()">Got it — that's 1 person</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Spouse -->
+  <div class="step-card hidden" id="step2">
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <div class="step-label">Current marital status</div>
+        <div class="step-question">Are you currently married?</div>
+        <div class="step-hint">Your spouse counts even if they do not live with you or are abroad. If your spouse is the intending immigrant, count them here — and do not count them again in the final question about intending immigrants.</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="choices">
+        <button class="choice-btn yes-btn" onclick="answer('married', true)">Yes — I am married</button>
+        <button class="choice-btn" onclick="answer('married', false)">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: Dependent children -->
+  <div class="step-card hidden" id="step3">
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <div class="step-label">Dependent children</div>
+        <div class="step-question">How many of your children are under 21 and unmarried?</div>
+        <div class="step-hint">Include all such children, even those not living with you and even if you do not have legal custody — unless they have reached the age of majority in their place of domicile AND you do not claim them as tax dependents.</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="number-row">
+        <button class="counter-btn" onclick="changeCount('depChildren', -1)">−</button>
+        <span class="counter-display" id="depChildrenDisplay">0</span>
+        <button class="counter-btn" onclick="changeCount('depChildren', 1)">+</button>
+        <span class="counter-label">children under 21 (unmarried)</span>
+      </div>
+      <div class="choices" style="margin-top:1rem;">
+        <button class="choice-btn yes-btn" onclick="confirmCounter('depChildren', 'step3')">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: Other tax dependents -->
+  <div class="step-card hidden" id="step4">
+    <div class="step-header">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <div class="step-label">Tax dependents</div>
+        <div class="step-question">How many other people did you claim as dependents on your most recent federal tax return?</div>
+        <div class="step-hint">Do not re-count anyone already counted in Steps 2 or 3. Includes anyone claimed — regardless of whether they live with you or are related to you.</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="number-row">
+        <button class="counter-btn" onclick="changeCount('taxDeps', -1)">−</button>
+        <span class="counter-display" id="taxDepsDisplay">0</span>
+        <button class="counter-btn" onclick="changeCount('taxDeps', 1)">+</button>
+        <span class="counter-label">other tax dependents</span>
+      </div>
+      <div class="choices" style="margin-top:1rem;">
+        <button class="choice-btn yes-btn" onclick="confirmCounter('taxDeps', 'step4')">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: Prior I-864 obligations -->
+  <div class="step-card hidden" id="step5">
+    <div class="step-header">
+      <div class="step-number">5</div>
+      <div class="step-content">
+        <div class="step-label">Prior I-864 obligations</div>
+        <div class="step-question">Have you previously sponsored immigrants on an I-864 whose obligation has not ended?
+          <span class="tooltip-wrap"><span class="tooltip-trigger">?</span><span class="tooltip-box">Obligation ends when the immigrant naturalizes, earns 40 SSA work quarters, permanently departs the US, or dies. Divorce does not end the obligation.</span></span>
+        </div>
+        <div class="step-hint">Count only those who have already become lawful permanent residents. Do not count anyone immigrating in this same petition.</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="choices">
+        <button class="choice-btn" onclick="answer('priorSponsored', false)">No prior obligations</button>
+        <button class="choice-btn" id="priorYesBtn" onclick="showPriorCount()">Yes — active prior I-864(s)</button>
+      </div>
+      <div id="priorCountArea" style="display:none; margin-top:1rem;">
+        <div class="number-row">
+          <button class="counter-btn" onclick="changeCount('priorSponsored', -1)">−</button>
+          <span class="counter-display" id="priorSponsoredDisplay">1</span>
+          <button class="counter-btn" onclick="changeCount('priorSponsored', 1)">+</button>
+          <span class="counter-label">previously sponsored, still on active I-864</span>
+        </div>
+        <div class="choices" style="margin-top:1rem;">
+          <button class="choice-btn yes-btn" onclick="confirmPrior()">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6: I-864A household members -->
+  <div class="step-card hidden" id="step6">
+    <div class="step-header">
+      <div class="step-number">6</div>
+      <div class="step-content">
+        <div class="step-label">I-864A household members</div>
+        <div class="step-question">Are any non-dependent relatives (adult children, parents, or siblings) living at your address whose income you want to include?</div>
+        <div class="step-hint">These relatives must share your principal residence, sign Form I-864A, and are counted in your household size. Only include them if you are using their income to help meet the threshold.</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="inline-def">
+        <strong>Form I-864A (Contract Between Sponsor and Household Member)</strong> is required for each such relative. Only adult children, parents, or siblings qualify — not friends or unrelated housemates. The relative's income is then combined with yours on the I-864.
+      </div>
+      <div class="choices" style="margin-top:1rem;">
+        <button class="choice-btn" onclick="answer('i864aMembers', false)">None</button>
+        <button class="choice-btn" id="i864aYesBtn" onclick="showI864ACount()">Yes — adding household members via I-864A</button>
+      </div>
+      <div id="i864aCountArea" style="display:none; margin-top:1rem;">
+        <div class="number-row">
+          <button class="counter-btn" onclick="changeCount('i864aMembers', -1)">−</button>
+          <span class="counter-display" id="i864aMembersDisplay">1</span>
+          <button class="counter-btn" onclick="changeCount('i864aMembers', 1)">+</button>
+          <span class="counter-label">household members filing I-864A</span>
+        </div>
+        <div class="choices" style="margin-top:1rem;">
+          <button class="choice-btn yes-btn" onclick="confirmI864A()">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7: Intending immigrants -->
+  <div class="step-card hidden" id="step7">
+    <div class="step-header">
+      <div class="step-number">7</div>
+      <div class="step-content">
+        <div class="step-label">Intending immigrant(s)</div>
+        <div class="step-question">How many people are immigrating in this petition — not counting anyone already counted above?</div>
+        <div class="step-hint">Do not count any person more than once. If your spouse is the intending immigrant and you already counted them in Step 2, do not count them here. Count only people immigrating in this petition who have not appeared in any earlier step.</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="number-row">
+        <button class="counter-btn" onclick="changeCount('immigrants', -1)">−</button>
+        <span class="counter-display" id="immigrantsDisplay">0</span>
+        <button class="counter-btn" onclick="changeCount('immigrants', 1)">+</button>
+        <span class="counter-label">intending immigrant(s) in this petition</span>
+      </div>
+      <div class="inline-def" style="margin-top:1rem;">
+        <strong>IR-1/CR-1 spousal visa:</strong> If your spouse is the only person immigrating and you counted them in Step 2, enter 0 here. Enter 1 or more only for additional people immigrating who were not counted in any earlier step — for example, a stepchild of yours immigrating at the same time, not already listed as your dependent in Step 3.
+      </div>
+      <div class="choices" style="margin-top:1rem;">
+        <button class="choice-btn yes-btn" onclick="confirmCounter('immigrants', 'step7')">Confirm &amp; see results</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT PANEL -->
+  <div class="result-panel" id="resultPanel">
+    <div class="result-header">
+      <h2>Your I-864 summary</h2>
+      <p>Review against your completed Form I-864 before submitting to NVC</p>
+    </div>
+    <div class="result-body">
+
+      <!-- HOUSEHOLD SIZE -->
+      <div class="hh-size-box">
+        <div class="hh-number" id="resultHHSize">—</div>
+        <div class="hh-breakdown">
+          <div class="hh-breakdown-title">Household size breakdown</div>
+          <div id="breakdownRows"></div>
+        </div>
+      </div>
+
+      <!-- INCOME THRESHOLDS -->
+      <div class="income-section">
+        <div class="income-section-title">Minimum income required — 2026 I-864P guidelines (effective Mar 1, 2026)</div>
+        <div id="regionBadgeWrap" style="margin-bottom:0.75rem;"></div>
+        <div class="threshold-grid">
+          <div class="threshold-card primary">
+            <div class="threshold-tag">125% FPG — most sponsors</div>
+            <div class="threshold-amount" id="threshold125">—</div>
+            <div class="threshold-subtitle">Annual gross income · petitioning sponsor &amp; joint sponsors</div>
+          </div>
+          <div class="threshold-card secondary">
+            <div class="threshold-tag">100% FPG — active-duty military only</div>
+            <div class="threshold-amount" id="threshold100">—</div>
+            <div class="threshold-subtitle">Sponsoring a spouse or child · per 9 FAM 601.14-2</div>
+          </div>
+        </div>
+        <div id="akHiNote" style="display:none; margin-top:0.85rem;" class="inline-note">
+          <strong>Alaska/Hawaii note:</strong> Figures above are derived from 2026 HHS base guidelines (Federal Register Jan 15, 2026). USCIS rounds I-864P figures to clean values. Always confirm against the official <a href="https://www.uscis.gov/i-864p" target="_blank" rel="noopener">uscis.gov/i-864p</a> table before filing.
+        </div>
+        <div style="margin-top:0.85rem; font-size:0.78rem; color:var(--slate); line-height:1.5;">
+          For households larger than 8, add <span id="perPersonNote">$7,100 (125%) or $5,680 (100%)</span> per additional person.
+        </div>
+      </div>
+
+      <!-- IF INCOME IS SHORT -->
+      <div class="shortfall-section">
+        <div class="shortfall-title">If your income falls below the threshold</div>
+        <div class="option-list">
+
+          <div class="option-item">
+            <span class="option-badge badge-a">I-864A</span>
+            <div>
+              <strong>Add a household member's income.</strong> A qualifying relative (adult child, parent, or sibling) who lives with you signs Form I-864A. Their income combines with yours on your I-864. They are already counted in your household size above if you included them in Step 6.
+            </div>
+          </div>
+
+          <div class="option-item">
+            <span class="option-badge badge-b">Joint sponsor</span>
+            <div>
+              <strong>Use a joint sponsor.</strong> A separate US citizen or LPR files their own independent I-864. They must <em>independently</em> meet 125% FPG for <em>their own</em> household size — the immigrant counts in the joint sponsor's household too. Once a joint sponsor is required, the petitioner's income is no longer assessed against the threshold; only the joint sponsor's income must qualify. Use the calculator below to check a joint sponsor's figures.
+              <!-- JOINT SPONSOR MINI-CALC -->
+              <div class="js-calc-box" style="margin-top:0.75rem;">
+                <div class="js-calc-title">Joint sponsor household size calculator</div>
+                <div class="js-row">
+                  <label>Joint sponsor married?</label>
+                  <div class="js-toggle">
+                    <button class="js-btn" id="jsMarriedYes" onclick="jsAnswer('married', true)">Yes</button>
+                    <button class="js-btn" id="jsMarriedNo" onclick="jsAnswer('married', false)">No</button>
+                  </div>
+                </div>
+                <div class="js-row">
+                  <label>JS children under 21 (unmarried)</label>
+                  <div class="js-number-row">
+                    <button class="js-counter-btn" onclick="jsChange('depChildren', -1)">−</button>
+                    <span class="js-counter-display" id="jsDepChildrenDisplay">0</span>
+                    <button class="js-counter-btn" onclick="jsChange('depChildren', 1)">+</button>
+                  </div>
+                </div>
+                <div class="js-row">
+                  <label>JS other tax dependents</label>
+                  <div class="js-number-row">
+                    <button class="js-counter-btn" onclick="jsChange('taxDeps', -1)">−</button>
+                    <span class="js-counter-display" id="jsTaxDepsDisplay">0</span>
+                    <button class="js-counter-btn" onclick="jsChange('taxDeps', 1)">+</button>
+                  </div>
+                </div>
+                <div class="js-row">
+                  <label>JS prior active I-864 obligations</label>
+                  <div class="js-number-row">
+                    <button class="js-counter-btn" onclick="jsChange('priorSponsored', -1)">−</button>
+                    <span class="js-counter-display" id="jsPriorSponsoredDisplay">0</span>
+                    <button class="js-counter-btn" onclick="jsChange('priorSponsored', 1)">+</button>
+                  </div>
+                </div>
+                <div class="js-result">
+                  <div class="js-result-label">Joint sponsor household size</div>
+                  <div class="js-result-amount" id="jsHHSize">—</div>
+                  <div class="js-result-sub" id="jsThresholdText">Set options above to calculate</div>
+                </div>
+                <div class="js-note">
+                  The intending immigrant(s) always count in a joint sponsor's household, even if the petitioner's spouse was already counted in the petitioner's own household. The joint sponsor is an independent third party — the immigrant is a new addition to their household for I-864 purposes. The joint sponsor files their own I-864 with their own tax returns and supporting documents. They do <em>not</em> need to live with the petitioner or the immigrant.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="option-item">
+            <span class="option-badge badge-c">Assets</span>
+            <div>
+              <strong>Bridge the gap with assets.</strong>
+              <div class="callout-panel assets" style="margin-top:0.6rem; border-left-color: var(--red);">
+                <div class="callout-panel-title" style="color: var(--red);">Community warning — London embassy</div>
+                Assets as a standalone financial basis are consistently rejected at the US Embassy London, including cases where applicants presented substantial cash savings. This is community-observed across multiple cases; it is not an official policy statement from the embassy. The consular officer retains full discretion under INA 212(a)(4) to assess public charge risk beyond what the I-864 establishes on paper.<br><br>
+                <strong>If income falls short, a joint sponsor is strongly preferred over relying on assets alone.</strong> The safest position is a petitioner with a W-2 salaried job meeting 125% FPG independently. A joint sponsor with a W-2 job is the next best option. Assets should be documented regardless, but should not be treated as a reliable substitute for income at this post.
+              </div>
+              <div class="callout-panel assets" style="margin-top:0.5rem;">
+                <div class="callout-panel-title">Assets — official rules (for reference)</div>
+                Net asset value must be at least <strong>5× the shortfall</strong> between your income and 125% FPG. Assets must be convertible to cash within 12 months without significant hardship or loss. Eligible assets include savings, stocks, bonds, and real property (including home equity, at net value). Not eligible: primary vehicle. Retirement accounts may be counted at a discounted value to account for early-withdrawal penalties — USCIS does not specify a fixed discount, but the value must reflect what you would actually receive. The applicant's foreign assets may also be used, subject to the same convertibility standard and evidence that funds can be removed from the country. Per 9 FAM 601.14-15, assets are assessed at the time of NVC submission, not the interview date.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SSA 40 QUARTERS -->
+      <div class="shortfall-section" style="border-bottom:1px solid var(--border);">
+        <div class="shortfall-title">Potential exemption from I-864 requirement</div>
+        <div class="callout-panel ssa">
+          <div class="callout-panel-title">40 SSA qualifying quarters — 9 FAM 601.14-3(b)(2)</div>
+          If the intending immigrant can demonstrate <strong>40 qualifying quarters of coverage</strong> under the Social Security Act (Title II), the I-864 requirement is waived entirely. Quarters worked by a parent (while the immigrant was under 18) or by a US-citizen spouse (during the marriage) can be credited toward the 40. No quarter earned after December 31, 1996 counts if the immigrant received any federal means-tested public benefit during that quarter.
+          <br><br>
+          To verify qualifying quarters, the immigrant can request an <a href="https://www.ssa.gov/myaccount/" target="_blank" rel="noopener">SSA Earnings and Benefits Statement</a> at ssa.gov or call 1-800-772-1213. At the NVC processing stage, the applicant self-identifies by checking a box in the CEAC portal and must submit the SSA statement. The consular officer makes the final determination.
+          <br><br>
+          <strong>Note:</strong> 40 quarters is equivalent to 10 full years of Social Security-covered work. This exemption applies primarily to immigrants who have worked extensively in the US under prior visa categories.
+        </div>
+      </div>
+
+      <!-- SELF-EMPLOYMENT -->
+      <div class="shortfall-section" style="border-bottom:1px solid var(--border);">
+        <div class="shortfall-title">Self-employment — additional evidence required</div>
+        <div class="callout-panel assets" style="border-left-color: var(--amber);">
+          <div class="callout-panel-title" style="color: var(--amber);">Applies to petitioning sponsor and joint sponsor</div>
+          Self-employed sponsors — including sole proprietors, LLC members, independent contractors, freelancers, and gig workers — must provide additional documentation beyond a tax return. This applies whether you are the petitioning sponsor or a joint sponsor.<br><br>
+          Standard evidence typically required:
+          <ul style="margin: 0.6rem 0 0.6rem 1.2rem; line-height: 1.8; font-size: 0.82rem;">
+            <li>Federal tax returns (Form 1040) for the most recent 3 years, with all schedules including Schedule C, Schedule F, or Schedule K-1 as applicable</li>
+            <li>IRS tax transcripts confirming filed returns</li>
+            <li>12 months of business bank account statements showing consistent income deposits — commonly requested by NVC, not explicitly listed in the I-864 instructions</li>
+            <li>Evidence of business registration with state authorities (e.g. state business license, Articles of Organization, Secretary of State registration)</li>
+            <li>A signed profit and loss statement for the current year if income has changed since the last tax return</li>
+          </ul>
+          For income purposes, use <strong>net profit from Schedule C or F</strong>, not gross receipts. Depreciation claimed on Schedule C may be added back. If the business is structured as an S-corp or partnership, use your share of income from Schedule K-1, not the business's gross revenue.<br><br>
+          Self-employment income is scrutinized more heavily than W-2 income because it is easier to inflate and harder for NVC or a consular officer to verify independently. Cases where self-employment is the sole income basis carry higher risk of a Request for Evidence or consular refusal. If a joint sponsor with W-2 income is available, that is a materially stronger position.
+        </div>
+      </div>
+
+      <!-- KEY NOTES -->
+      <div class="notes-section">
+        <div class="note-item"><span class="note-num">①</span><span>Do not count any person more than once. If your spouse is an already-sponsored LPR, they count once in Step 2, not again under prior obligations.</span></div>
+        <div class="note-item"><span class="note-num">②</span><span>Use <strong>current annual income</strong> (what you expect to earn this calendar year). The I-864 asks for both current income and prior tax-year figures, but the income threshold test is applied against your current-year estimate.</span></div>
+        <div class="note-item"><span class="note-num">③</span><span>Self-employed sponsors: use net profit from Schedule C/F, not gross receipts. Depreciation claimed on Schedule C may be added back. See the self-employment section above for full evidence requirements.</span></div>
+        <div class="note-item"><span class="note-num">④</span><span>If poverty guidelines change between NVC submission and the interview date, a new I-864 is not automatically required. Per 9 FAM 601.14-15(a), sufficiency is assessed at the time of NVC submission.</span></div>
+        <div class="note-item"><span class="note-num">⑤</span><span>Divorce does not end an I-864 obligation. It ends only when the immigrant naturalizes, earns 40 SSA work quarters, permanently departs the US, or dies.</span></div>
+        <div class="note-item"><span class="note-num">⑥</span><span>Alaska and Hawaii sponsors: your household size calculation is the same as any other sponsor. Only the dollar threshold differs. Use the Alaska or Hawaii columns in the official <a href="https://www.uscis.gov/i-864p" target="_blank" rel="noopener">I-864P</a>.</span></div>
+      </div>
+
+      <div class="source-strip">
+        Sources: <a href="https://fam.state.gov/fam/09FAM/09FAM060114.html" target="_blank" rel="noopener">9 FAM 601.14</a> · <a href="https://www.uscis.gov/i-864p" target="_blank" rel="noopener">USCIS I-864P (2026)</a> · <a href="https://www.uscis.gov/sites/default/files/document/forms/i-864instr.pdf" target="_blank" rel="noopener">Form I-864 Instructions</a> · INA §213A · 8 CFR 213a.1 · <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/i-864-affidavit-faqs.html" target="_blank" rel="noopener">DOS NVC FAQ</a> · HHS Federal Register Jan 15, 2026. Data current as of June 2026. Verify figures at uscis.gov before submitting.
+      </div>
+    </div>
+  </div>
+
+  <button class="reset-btn" onclick="resetAll()" id="resetBtn" style="display:none;">↺ Start over</button>
+</div>
+
+<script>
+// ── STATE ──────────────────────────────────────────────────
+const state = {
+  region: null, // 'contiguous' | 'alaska' | 'hawaii'
+  married: null,
+  depChildren: 0,
+  taxDeps: 0,
+  priorSponsored: 0,
+  i864aMembers: 0,
+  immigrants: 0,
+};
+const counters = { depChildren: 0, taxDeps: 0, priorSponsored: 1, i864aMembers: 1, immigrants: 0 };
+
+// Joint sponsor state
+const jsState = { married: null, depChildren: 0, taxDeps: 0, priorSponsored: 0 };
+const jsCounters = { depChildren: 0, taxDeps: 0, priorSponsored: 0 };
+
+// ── 2026 I-864P FPG TABLES ─────────────────────────────────
+// Contiguous 48 states & DC — source: USCIS I-864P effective Mar 1, 2026
+const tables = {
+  contiguous: {
+    100: { 1:15960, 2:21640, 3:27320, 4:33000, 5:38680, 6:44360, 7:50040, 8:55720 },
+    125: { 1:19950, 2:27050, 3:34150, 4:41250, 5:48350, 6:55450, 7:62550, 8:69650 },
+    perPerson: { 100: 5680, 125: 7100 }
+  },
+  // Alaska: base $19,950 + $7,100/person (100%); HHS Federal Register Jan 15, 2026
+  alaska: {
+    100: { 1:19950, 2:27050, 3:34150, 4:41250, 5:48350, 6:55450, 7:62550, 8:69650 },
+    125: { 1:24938, 2:33813, 3:42688, 4:51563, 5:60438, 6:69313, 7:78188, 8:87063 },
+    perPerson: { 100: 7100, 125: 8875 }
+  },
+  // Hawaii: base $18,360 + $6,530/person (100%); HHS Federal Register Jan 15, 2026
+  hawaii: {
+    100: { 1:18360, 2:24890, 3:31420, 4:37950, 5:44480, 6:51010, 7:57540, 8:64070 },
+    125: { 1:22950, 2:31113, 3:39275, 4:47438, 5:55600, 6:63763, 7:71925, 8:80088 },
+    perPerson: { 100: 6530, 125: 8163 }
+  }
+};
+
+const regionLabels = { contiguous: '48 Contiguous States & DC', alaska: 'Alaska', hawaii: 'Hawaii' };
+
+function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+
+function getThreshold(hhSize, pct, region) {
+  const t = tables[region || state.region || 'contiguous'];
+  const table = t[pct];
+  const perPerson = t.perPerson[pct];
+  if (hhSize <= 8) return table[Math.max(1, Math.min(8, hhSize))] || table[8];
+  return table[8] + (hhSize - 8) * perPerson;
+}
+
+// ── PROGRESS ───────────────────────────────────────────────
+const TOTAL_STEPS = 8; // 0-7
+function updateProgress(step) {
+  document.getElementById('progressFill').style.width = (step / TOTAL_STEPS * 100) + '%';
+}
+
+// ── CARD HELPERS ───────────────────────────────────────────
+function showStep(id) {
+  const el = document.getElementById(id);
+  el.classList.remove('hidden');
+  el.classList.add('active');
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+}
+
+function markDone(id, summaryText) {
+  const card = document.getElementById(id);
+  card.classList.remove('active');
+  card.classList.add('completed');
+  let line = card.querySelector('.completed-line');
+  if (!line) { line = document.createElement('div'); line.className = 'completed-line'; card.appendChild(line); }
+  line.textContent = '✓ ' + summaryText;
+  const body = card.querySelector('.step-body');
+  if (body) body.style.display = 'none';
+}
+
+// ── COUNTERS ───────────────────────────────────────────────
+function changeCount(key, delta) {
+  counters[key] = Math.max(0, counters[key] + delta);
+  if (['priorSponsored', 'i864aMembers', 'immigrants'].includes(key) && counters[key] < (key === 'immigrants' ? 1 : 1)) {
+    counters[key] = (key === 'immigrants' ? 0 : 0);
+  }
+  if (key === 'immigrants' && counters[key] < 0) counters[key] = 0;
+  const d = document.getElementById(key + 'Display');
+  if (d) d.textContent = counters[key];
+}
+
+// ── STEP FLOWS ─────────────────────────────────────────────
+function setRegion(region) {
+  state.region = region;
+  markDone('step0', 'Location: ' + regionLabels[region]);
+  updateProgress(1);
+  showStep('step1');
+}
+
+function confirmStep1() {
+  markDone('step1', 'Sponsor: +1');
+  updateProgress(2);
+  showStep('step2');
+}
+
+function answer(key, val) {
+  if (key === 'married') {
+    state.married = val;
+    markDone('step2', val ? 'Spouse: +1' : 'No spouse: +0');
+    updateProgress(3);
+    showStep('step3');
+    return;
+  }
+  if (key === 'priorSponsored' && val === false) {
+    state.priorSponsored = 0;
+    markDone('step5', 'Prior I-864 obligations: +0');
+    updateProgress(6);
+    showStep('step6');
+    return;
+  }
+  if (key === 'i864aMembers' && val === false) {
+    state.i864aMembers = 0;
+    markDone('step6', 'No I-864A household members: +0');
+    updateProgress(7);
+    showStep('step7');
+    return;
+  }
+}
+
+function confirmCounter(key, stepId) {
+  state[key] = counters[key];
+  const stepNum = parseInt(stepId.replace('step', ''));
+  const labels = { depChildren: 'Children under 21', taxDeps: 'Other tax dependents', immigrants: 'Intending immigrant(s)' };
+  markDone(stepId, `${labels[key]}: +${counters[key]}`);
+  updateProgress(stepNum + 1);
+  if (stepId === 'step3') showStep('step4');
+  else if (stepId === 'step4') showStep('step5');
+  else if (stepId === 'step7') showResult();
+}
+
+function showPriorCount() {
+  document.getElementById('priorCountArea').style.display = 'block';
+  document.getElementById('priorYesBtn').classList.add('selected');
+}
+function confirmPrior() {
+  state.priorSponsored = counters.priorSponsored;
+  markDone('step5', `Prior I-864 obligations: +${counters.priorSponsored}`);
+  updateProgress(6);
+  showStep('step6');
+}
+
+function showI864ACount() {
+  document.getElementById('i864aCountArea').style.display = 'block';
+  document.getElementById('i864aYesBtn').classList.add('selected');
+}
+function confirmI864A() {
+  state.i864aMembers = counters.i864aMembers;
+  markDone('step6', `I-864A household members: +${counters.i864aMembers}`);
+  updateProgress(7);
+  showStep('step7');
+}
+
+// ── HOUSEHOLD SIZE ─────────────────────────────────────────
+function calcHHSize() {
+  return 1 + (state.married ? 1 : 0) + state.depChildren + state.taxDeps
+    + state.priorSponsored + state.i864aMembers + state.immigrants;
+}
+
+// ── JOINT SPONSOR CALCULATOR ───────────────────────────────
+function jsAnswer(key, val) {
+  jsState[key] = val;
+  if (key === 'married') {
+    document.getElementById('jsMarriedYes').classList.toggle('active', val === true);
+    document.getElementById('jsMarriedNo').classList.toggle('active', val === false);
+  }
+  updateJSResult();
+}
+function jsChange(key, delta) {
+  jsCounters[key] = Math.max(0, jsCounters[key] + delta);
+  jsState[key] = jsCounters[key];
+  document.getElementById('js' + key.charAt(0).toUpperCase() + key.slice(1) + 'Display').textContent = jsCounters[key];
+  updateJSResult();
+}
+function calcJSHHSize() {
+  return 1
+    + (jsState.married ? 1 : 0)
+    + jsState.depChildren
+    + jsState.taxDeps
+    + jsState.priorSponsored
+    + Math.max(1, state.immigrants); // joint sponsor must always count the intending immigrant(s); min 1 even if petitioner's spouse was already counted in Step 2
+}
+function updateJSResult() {
+  if (jsState.married === null) {
+    document.getElementById('jsHHSize').textContent = '—';
+    document.getElementById('jsThresholdText').textContent = 'Answer "married?" above to calculate';
+    return;
+  }
+  const hhSize = calcJSHHSize();
+  const t125 = getThreshold(hhSize, 125);
+  document.getElementById('jsHHSize').textContent = hhSize;
+  document.getElementById('jsThresholdText').textContent =
+    `Min. income required at 125% FPG: ${fmt(t125)} / year (${regionLabels[state.region || 'contiguous']})`;
+}
+
+// ── RESULT DISPLAY ─────────────────────────────────────────
+function showResult() {
+  const hhSize = calcHHSize();
+  const region = state.region || 'contiguous';
+  const t125 = getThreshold(hhSize, 125, region);
+  const t100 = getThreshold(hhSize, 100, region);
+
+  document.getElementById('resultHHSize').textContent = hhSize;
+  document.getElementById('threshold125').textContent = fmt(t125);
+  document.getElementById('threshold100').textContent = fmt(t100);
+
+  // Region badge
+  const badge = document.getElementById('regionBadgeWrap');
+  badge.innerHTML = `<span class="region-badge">Region: ${regionLabels[region]}</span>`;
+
+  // AK/HI note
+  document.getElementById('akHiNote').style.display = (region !== 'contiguous') ? 'block' : 'none';
+
+  // Per-person note
+  const pp = tables[region].perPerson;
+  document.getElementById('perPersonNote').textContent = `${fmt(pp[125])} (125%) or ${fmt(pp[100])} (100%)`;
+
+  // Breakdown rows
+  const rows = [
+    ['Sponsor (you)', 1],
+    ['Spouse', state.married ? 1 : 0],
+    ['Children under 21 (unmarried)', state.depChildren],
+    ['Other tax dependents', state.taxDeps],
+    ['Prior I-864 obligations (active)', state.priorSponsored],
+    ['I-864A household members', state.i864aMembers],
+    ['Intending immigrant(s)', state.immigrants],
+  ].filter(r => r[1] > 0);
+
+  const container = document.getElementById('breakdownRows');
+  container.innerHTML = '';
+  rows.forEach(([label, count]) => {
+    const row = document.createElement('div');
+    row.className = 'hh-row';
+    row.innerHTML = `<span class="hh-row-label">${label}</span><span class="hh-row-value">+${count}</span>`;
+    container.appendChild(row);
+  });
+  const total = document.createElement('div');
+  total.className = 'hh-row';
+  total.innerHTML = `<span class="hh-row-label">Total household size</span><span class="hh-row-value">${hhSize}</span>`;
+  container.appendChild(total);
+
+  // Initialise JS calc with immigrants already set
+  updateJSResult();
+
+  document.getElementById('resultPanel').classList.add('visible');
+  document.getElementById('resetBtn').style.display = 'inline-flex';
+  document.getElementById('progressFill').style.width = '100%';
+  setTimeout(() => document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+}
+
+// ── RESET ──────────────────────────────────────────────────
+function resetAll() {
+  Object.assign(state, { region: null, married: null, depChildren: 0, taxDeps: 0, priorSponsored: 0, i864aMembers: 0, immigrants: 0 });
+  Object.assign(counters, { depChildren: 0, taxDeps: 0, priorSponsored: 1, i864aMembers: 1, immigrants: 0 });
+  Object.assign(jsState, { married: null, depChildren: 0, taxDeps: 0, priorSponsored: 0 });
+  Object.assign(jsCounters, { depChildren: 0, taxDeps: 0, priorSponsored: 0 });
+
+  ['step0','step1','step2','step3','step4','step5','step6','step7'].forEach((id, i) => {
+    const el = document.getElementById(id);
+    el.className = 'step-card' + (i === 0 ? ' active' : ' hidden');
+    const line = el.querySelector('.completed-line');
+    if (line) line.remove();
+    const body = el.querySelector('.step-body');
+    if (body) body.style.display = '';
+    el.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+    ['priorCountArea', 'i864aCountArea'].forEach(aId => {
+      const a = document.getElementById(aId);
+      if (a) a.style.display = 'none';
+    });
+  });
+  ['depChildren','taxDeps','immigrants'].forEach(k => {
+    const d = document.getElementById(k + 'Display');
+    if (d) d.textContent = 0;
+  });
+  ['priorSponsored','i864aMembers'].forEach(k => {
+    const d = document.getElementById(k + 'Display');
+    if (d) d.textContent = 1;
+  });
+  // Reset JS displays
+  ['DepChildren','TaxDeps','PriorSponsored'].forEach(k => {
+    const d = document.getElementById('js' + k + 'Display');
+    if (d) d.textContent = 0;
+  });
+  document.getElementById('jsMarriedYes').classList.remove('active');
+  document.getElementById('jsMarriedNo').classList.remove('active');
+  document.getElementById('jsHHSize').textContent = '—';
+  document.getElementById('jsThresholdText').textContent = 'Set options above to calculate';
+
+  document.getElementById('resultPanel').classList.remove('visible');
+  document.getElementById('resetBtn').style.display = 'none';
+  document.getElementById('progressFill').style.width = '0%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
