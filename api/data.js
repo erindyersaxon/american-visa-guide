@@ -232,7 +232,7 @@ export default async function handler(req, res) {
   // Historic imports stored date-only so timestamp defaults to midnight UTC;
   // these entries supply the correct displayed time for those drops.
   const observedTimes = {
-    '2026-06-26': '15:02',
+    '2026-06-29': '15:02',
     '2026-05-28': '14:52',
     '2026-04-17': '16:02',
     '2026-03-31': '15:16',
