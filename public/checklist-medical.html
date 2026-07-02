@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Microsoft Clarity — runs only after statistics consent -->
+<script type="text/plain" data-cookieconsent="statistics">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","wlfs757o2n");
+</script>
+    <title>Medical Day Checklist — American Visa Guide</title>
+    <meta name="description" content="Medical day checklist — medical and document check on the same day." />
+    <link rel="canonical" href="https://www.americanvisaguide.com/checklist-medical" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css?v=20260612" />
+    <link rel="stylesheet" href="/css/print.css?v=20260612" media="print" />
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
+    <style>
+      .checklist-container { max-width: var(--max-width-prose); margin: 0 auto; }
+      .progress-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding: var(--space-6); background: var(--color-surface-alt); border-radius: var(--radius-lg); margin: var(--space-8) 0; }
+      .progress-text { font-weight: var(--weight-medium); color: var(--color-navy); }
+      .checklist-section { margin: var(--space-12) 0; }
+      .checklist-section h3 { margin-bottom: var(--space-6); }
+      .checklist-item { display: flex; gap: var(--space-4); margin-bottom: var(--space-4); padding: var(--space-4); background: var(--color-surface); border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+      .checklist-item input[type="checkbox"] { flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: var(--color-gold); }
+      .checklist-item label { flex: 1; cursor: pointer; }
+      .warning-box { padding: var(--space-6); background: #f5ded6; border: 2px solid var(--color-error); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .warning-box strong { color: var(--color-error); }
+      .info-box { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .disclaimer { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-12) 0; font-size: var(--size-sm); }
+      .back-link { display: inline-block; margin-top: var(--space-12); color: var(--color-gold); text-decoration: none; font-weight: var(--weight-medium); }
+    </style>
+    <link rel="stylesheet" href="/css/nav.css?v=20260616">
+  <script src="/js/nav.js?v=20260616" defer></script>
+</head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation"></nav>
+
+    <main id="main">
+      <div class="container">
+        <div class="checklist-container">
+          <h1>Medical Day Checklist</h1>
+          <p class="subtitle">Your medical and document check both happen on the same day.</p>
+
+          <div class="warning-box">
+            <p><strong>🚨 Critical:</strong> You must attend the US Embassy for document check on the same day as your medical examination. Do not book them on separate days. The embassy doc check window is 11:45 AM to 1:00 PM — go even if you are running late.</p>
+          </div>
+
+          <div class="progress-bar">
+            <span class="progress-text" id="progress-medical">0 of 21 items checked</span>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">🖨 Print / save as PDF</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="copyChecklistForDocs(this)">📋 Copy for Google Docs</button>
+            <button class="btn btn-secondary btn-sm" id="reset-medical">Reset checklist</button>
+          </div>
+
+          <div data-checklist="medical">
+            <section class="checklist-section">
+              <h3>1. Night before</h3>
+              <div class="checklist-item" data-item-id="med-1">
+                <input type="checkbox" id="med-1" />
+                <label for="med-1">Passport (original, not copy)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-2">
+                <input type="checkbox" id="med-2" />
+                <label for="med-2">Interview letter (printed from email)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-3">
+                <input type="checkbox" id="med-3" />
+                <label for="med-3">DS-260 confirmation (printed from CEAC)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-4">
+                <input type="checkbox" id="med-4" />
+                <label for="med-4">IV18a questionnaire (printed)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-5">
+                <input type="checkbox" id="med-5" />
+                <label for="med-5">Vaccination records (original booklet)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-6">
+                <input type="checkbox" id="med-6" />
+                <label for="med-6">ACRO police certificate (original)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-7">
+                <input type="checkbox" id="med-7" />
+                <label for="med-7">GP summary (if requested or helpful)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-8">
+                <input type="checkbox" id="med-8" />
+                <label for="med-8">Glasses or contact lenses (if worn)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-9">
+                <input type="checkbox" id="med-9" />
+                <label for="med-9">Printed documents (NOT on phone), originals plus copies</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>2. Morning of medical</h3>
+              <div class="checklist-item" data-item-id="med-10">
+                <input type="checkbox" id="med-10" />
+                <label for="med-10">Arrive early (allow 1 to 1.5 hours for medical)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-11">
+                <input type="checkbox" id="med-11" />
+                <label for="med-11">Bring debit/credit card (preferred payment method)</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>3. At the medical clinic (VisaMedicals)</h3>
+              <div class="info-box">
+                <p><strong>Location:</strong> Bentinck Mansions, London<br/>
+                <strong>Phone:</strong> 020 7486 7822 | <strong>Email:</strong> bookings@visamedicals.co.uk</p>
+              </div>
+              <div class="checklist-item" data-item-id="med-12">
+                <input type="checkbox" id="med-12" />
+                <label for="med-12">Check-in and digital photo</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-13">
+                <input type="checkbox" id="med-13" />
+                <label for="med-13">Document review</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-14">
+                <input type="checkbox" id="med-14" />
+                <label for="med-14">Chest X-ray (15+) and physical exam</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-15">
+                <input type="checkbox" id="med-15" />
+                <label for="med-15">Blood and urine tests (18+)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-16">
+                <input type="checkbox" id="med-16" />
+                <label for="med-16">Vaccination review</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>4. Before leaving medical</h3>
+              <div class="checklist-item" data-item-id="med-17">
+                <input type="checkbox" id="med-17" />
+                <label for="med-17">Receive pink checklist slip (REQUIRED for embassy)</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>5. Same day: Embassy document check</h3>
+              <div class="warning-box">
+                <p><strong>Window: 11:45 AM to 1:00 PM</strong> at US Embassy, 33 Nine Elms Lane, London SW11 7US</p>
+              </div>
+              <div class="checklist-item" data-item-id="med-18">
+                <input type="checkbox" id="med-18" />
+                <label for="med-18">Bring passport, pink slip, DS-260, civil documents</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-21">
+                <input type="checkbox" id="med-21" />
+                <label for="med-21">1 US-style 2x2in passport photo (for embassy submission)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-19">
+                <input type="checkbox" id="med-19" />
+                <label for="med-19">Go to Pass Back window (skip main visa queue)</label>
+              </div>
+              <div class="checklist-item" data-item-id="med-20">
+                <input type="checkbox" id="med-20" />
+                <label for="med-20">Receive sealed interview packet</label>
+              </div>
+            </section>
+
+            <div class="info-box">
+              <p><strong>Bottom line:</strong> If you complete medical, receive pink slip, AND complete embassy document check on the same day, you are fully cleared for interview.</p>
+            </div>
+          </div>
+
+          <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> This is not legal advice. Verify all requirements against official sources before your appointment. If your case is complex, consult an immigration attorney.</p>
+          </div>
+
+          <a href="/guide.html#medical" class="back-link">← Back to Medical guide</a>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+    <script src="/js/shared.js?v=20260612"></script>
+    <script src="/js/checklist.js?v=20260609"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        renderPage({
+          title: 'Medical Day Checklist — American Visa Guide',
+          description: 'Medical day checklist — medical and document check on the same day.',
+          activePage: 'checklists'
+        });
+      });
+    </script>
+  </body>
+</html>
