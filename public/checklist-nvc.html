@@ -37,6 +37,18 @@
       .info-box { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
       .disclaimer { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-12) 0; font-size: var(--size-sm); }
       .back-link { display: inline-block; margin-top: var(--space-12); color: var(--color-gold); text-decoration: none; font-weight: var(--weight-medium); }
+      .back-link:hover { text-decoration: underline; }
+      .doc-summary-table { width: 100%; border-collapse: collapse; margin: var(--space-6) 0; }
+      .doc-summary-table thead { background: var(--color-navy-xlight); }
+      .doc-summary-table th { padding: var(--space-4); text-align: left; font-weight: var(--weight-semibold); color: var(--color-navy); border: 1px solid var(--color-border); }
+      .doc-summary-table td { padding: var(--space-4); border: 1px solid var(--color-border); }
+      .doc-summary-table tbody tr:nth-child(even) { background: var(--color-surface-alt); }
+      .doc-required { color: var(--color-navy); font-weight: var(--weight-medium); }
+      .doc-conditional { color: var(--color-warning); font-weight: var(--weight-medium); }
+      .doc-not-needed { color: var(--color-text-muted); }
+      .reference-box { padding: var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .reference-box a { color: var(--color-gold); font-weight: var(--weight-medium); text-decoration: none; }
+      .reference-box a:hover { text-decoration: underline; }
     </style>
     <link rel="stylesheet" href="/css/nav.css?v=20260616">
   <script src="/js/nav.js?v=20260616" defer></script>
@@ -56,7 +68,7 @@
           </div>
 
           <div class="progress-bar">
-            <span class="progress-text" id="progress-nvc">0 of 27 items checked</span>
+            <span class="progress-text" id="progress-nvc">0 of 23 items checked</span>
             <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">🖨 Print / save as PDF</button>
             <button type="button" class="btn btn-secondary btn-sm" onclick="copyChecklistForDocs(this)">📋 Copy for Google Docs</button>
             <button class="btn btn-secondary btn-sm" id="reset-nvc">Reset checklist</button>
@@ -131,22 +143,55 @@
             </section>
 
             <section class="checklist-section">
-              <h3>4. Civil documents</h3>
-              <div class="checklist-item" data-item-id="nvc-14">
-                <input type="checkbox" id="nvc-14" />
-                <label for="nvc-14">Birth certificates (certified copies)</label>
-              </div>
-              <div class="checklist-item" data-item-id="nvc-15">
-                <input type="checkbox" id="nvc-15" />
-                <label for="nvc-15">Marriage certificate (certified copy)</label>
-              </div>
-              <div class="checklist-item" data-item-id="nvc-16">
-                <input type="checkbox" id="nvc-16" />
-                <label for="nvc-16">Divorce decrees or death certificates (if previously married)</label>
-              </div>
-              <div class="checklist-item" data-item-id="nvc-17">
-                <input type="checkbox" id="nvc-17" />
-                <label for="nvc-17">All non-English documents translated (certified if required)</label>
+              <h3>4. Document categories at NVC stage</h3>
+              <table class="doc-summary-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Required</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Civil (Identity)</td>
+                    <td class="doc-required">✓</td>
+                    <td>Birth certificates for all applicants (certified copies). Marriage certificate (certified). If previously married, all divorce decrees or death certificates (certified).</td>
+                  </tr>
+                  <tr>
+                    <td>Translation</td>
+                    <td class="doc-required">✓</td>
+                    <td>All non-English documents must be translated. Certified translation required if USCIS deems it necessary.</td>
+                  </tr>
+                  <tr>
+                    <td>Financial</td>
+                    <td class="doc-required">✓</td>
+                    <td>Sponsor: IRS tax transcript, employment letter, financial evidence. Joint sponsor: Same requirements plus I-864A. See Section 3 for detailed list.</td>
+                  </tr>
+                  <tr>
+                    <td>Forms</td>
+                    <td class="doc-required">✓</td>
+                    <td>DS-260 (one per applicant, submitted in CEAC). I-864 (wet-signed by sponsor, required for all). I-864A if joint sponsor.</td>
+                  </tr>
+                  <tr>
+                    <td>Police</td>
+                    <td class="doc-required">✓</td>
+                    <td>ACRO certificate (UK) for each applicant 16+ or who lived abroad 6+ months. See Section 5 for details.</td>
+                  </tr>
+                  <tr>
+                    <td>Supporting</td>
+                    <td class="doc-conditional">*</td>
+                    <td>Passport biographic page, military records, adoption documents, name change deed (if applicable). See Section 6.</td>
+                  </tr>
+                  <tr>
+                    <td>Medical</td>
+                    <td class="doc-not-needed">—</td>
+                    <td>Medical exam not required at NVC stage. Scheduled for Medical Day closer to interview date.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="reference-box">
+                <p>For a complete breakdown of all document requirements at each stage (I-130, NVC, Medical, Interview) with detailed notes on formats and translations, see <a href="#master-checklist">Master Document Checklist</a>.</p>
               </div>
             </section>
 

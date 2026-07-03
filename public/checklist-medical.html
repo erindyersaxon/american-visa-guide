@@ -37,6 +37,18 @@
       .info-box { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
       .disclaimer { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-12) 0; font-size: var(--size-sm); }
       .back-link { display: inline-block; margin-top: var(--space-12); color: var(--color-gold); text-decoration: none; font-weight: var(--weight-medium); }
+      .back-link:hover { text-decoration: underline; }
+      .doc-summary-table { width: 100%; border-collapse: collapse; margin: var(--space-6) 0; }
+      .doc-summary-table thead { background: var(--color-navy-xlight); }
+      .doc-summary-table th { padding: var(--space-4); text-align: left; font-weight: var(--weight-semibold); color: var(--color-navy); border: 1px solid var(--color-border); }
+      .doc-summary-table td { padding: var(--space-4); border: 1px solid var(--color-border); }
+      .doc-summary-table tbody tr:nth-child(even) { background: var(--color-surface-alt); }
+      .doc-required { color: var(--color-navy); font-weight: var(--weight-medium); }
+      .doc-conditional { color: var(--color-warning); font-weight: var(--weight-medium); }
+      .doc-not-needed { color: var(--color-text-muted); }
+      .reference-box { padding: var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .reference-box a { color: var(--color-gold); font-weight: var(--weight-medium); text-decoration: none; }
+      .reference-box a:hover { text-decoration: underline; }
     </style>
     <link rel="stylesheet" href="/css/nav.css?v=20260616">
   <script src="/js/nav.js?v=20260616" defer></script>
@@ -56,7 +68,7 @@
           </div>
 
           <div class="progress-bar">
-            <span class="progress-text" id="progress-medical">0 of 21 items checked</span>
+            <span class="progress-text" id="progress-medical">0 of 12 items checked</span>
             <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">🖨 Print / save as PDF</button>
             <button type="button" class="btn btn-secondary btn-sm" onclick="copyChecklistForDocs(this)">📋 Copy for Google Docs</button>
             <button class="btn btn-secondary btn-sm" id="reset-medical">Reset checklist</button>
@@ -64,42 +76,40 @@
 
           <div data-checklist="medical">
             <section class="checklist-section">
-              <h3>1. Night before</h3>
-              <div class="checklist-item" data-item-id="med-1">
-                <input type="checkbox" id="med-1" />
-                <label for="med-1">Passport (original, not copy)</label>
-              </div>
-              <div class="checklist-item" data-item-id="med-2">
-                <input type="checkbox" id="med-2" />
-                <label for="med-2">Interview letter (printed from email)</label>
-              </div>
-              <div class="checklist-item" data-item-id="med-3">
-                <input type="checkbox" id="med-3" />
-                <label for="med-3">DS-260 confirmation (printed from CEAC)</label>
-              </div>
-              <div class="checklist-item" data-item-id="med-4">
-                <input type="checkbox" id="med-4" />
-                <label for="med-4">IV18a questionnaire (printed)</label>
-              </div>
-              <div class="checklist-item" data-item-id="med-5">
-                <input type="checkbox" id="med-5" />
-                <label for="med-5">Vaccination records (original booklet)</label>
-              </div>
-              <div class="checklist-item" data-item-id="med-6">
-                <input type="checkbox" id="med-6" />
-                <label for="med-6">ACRO police certificate (original)</label>
-              </div>
-              <div class="checklist-item" data-item-id="med-7">
-                <input type="checkbox" id="med-7" />
-                <label for="med-7">GP summary (if requested or helpful)</label>
-              </div>
-              <div class="checklist-item" data-item-id="med-8">
-                <input type="checkbox" id="med-8" />
-                <label for="med-8">Glasses or contact lenses (if worn)</label>
-              </div>
-              <div class="checklist-item" data-item-id="med-9">
-                <input type="checkbox" id="med-9" />
-                <label for="med-9">Printed documents (NOT on phone), originals plus copies</label>
+              <h3>1. What to bring — medical day</h3>
+              <table class="doc-summary-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Required</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Identity</td>
+                    <td class="doc-required">✓</td>
+                    <td>Passport (original, not copy). Interview letter (printed from email).</td>
+                  </tr>
+                  <tr>
+                    <td>Forms & Documents</td>
+                    <td class="doc-required">✓</td>
+                    <td>DS-260 confirmation (printed from CEAC), IV18a questionnaire (printed). ACRO police certificate (original). Bring all as printed documents, NOT on phone.</td>
+                  </tr>
+                  <tr>
+                    <td>Medical Records</td>
+                    <td class="doc-required">✓</td>
+                    <td>Vaccination records (original booklet). GP summary (if requested or helpful, optional but recommended).</td>
+                  </tr>
+                  <tr>
+                    <td>Personal Items</td>
+                    <td class="doc-conditional">*</td>
+                    <td>Glasses or contact lenses if worn (required for exam). Debit/credit card for payment (preferred method).</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="reference-box">
+                <p>For a complete breakdown of all document requirements at each stage (I-130, NVC, Medical, Interview) with detailed notes on formats and translations, see <a href="#master-checklist">Master Document Checklist</a>.</p>
               </div>
             </section>
 

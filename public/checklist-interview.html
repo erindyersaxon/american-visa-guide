@@ -38,6 +38,18 @@
       .badge { padding: var(--space-1) var(--space-3); background: var(--color-navy-xlight); color: var(--color-navy); border-radius: var(--radius-full); font-size: var(--size-xs); font-weight: var(--weight-semibold); }
       .disclaimer { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin: var(--space-12) 0; font-size: var(--size-sm); }
       .back-link { display: inline-block; margin-top: var(--space-12); color: var(--color-gold); text-decoration: none; font-weight: var(--weight-medium); }
+      .back-link:hover { text-decoration: underline; }
+      .doc-summary-table { width: 100%; border-collapse: collapse; margin: var(--space-6) 0; }
+      .doc-summary-table thead { background: var(--color-navy-xlight); }
+      .doc-summary-table th { padding: var(--space-4); text-align: left; font-weight: var(--weight-semibold); color: var(--color-navy); border: 1px solid var(--color-border); }
+      .doc-summary-table td { padding: var(--space-4); border: 1px solid var(--color-border); }
+      .doc-summary-table tbody tr:nth-child(even) { background: var(--color-surface-alt); }
+      .doc-required { color: var(--color-navy); font-weight: var(--weight-medium); }
+      .doc-conditional { color: var(--color-warning); font-weight: var(--weight-medium); }
+      .doc-not-needed { color: var(--color-text-muted); }
+      .reference-box { padding: var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .reference-box a { color: var(--color-gold); font-weight: var(--weight-medium); text-decoration: none; }
+      .reference-box a:hover { text-decoration: underline; }
     </style>
     <link rel="stylesheet" href="/css/nav.css?v=20260616">
   <script src="/js/nav.js?v=20260616" defer></script>
@@ -129,6 +141,10 @@
               <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);"><strong>Visa Pause:</strong> If you hold dual citizenship and one country is on a pause list, wait for DOS update.</p>
               <p style="font-size: var(--size-sm); color: var(--color-text-muted);"><strong>Denial:</strong> Rare. Officer explains reason. Limited recourse; consult attorney.</p>
             </section>
+
+            <div class="reference-box">
+              <p>For a complete breakdown of all document requirements at each stage (I-130, NVC, Medical, Interview) with detailed notes on formats and translations, see <a href="#master-checklist">Master Document Checklist</a>.</p>
+            </div>
           </div>
 
           <div class="disclaimer">
