@@ -128,12 +128,15 @@
 
   /* Which nav item lights up for each page (sub-pages map to their hub) */
   const ACTIVE_MAP = {
+    '': 'home',
     'index': 'home',
     'data': 'data',
     'tracker': 'data',
     'guide': 'guide',
     'public-charge': 'guide',
+    'delayed-i130-remedies': 'guide',
     'checklists': 'checklists',
+    'master-checklist': 'checklists',
     'checklist-i130': 'checklists',
     'checklist-nvc': 'checklists',
     'checklist-medical': 'checklists',
@@ -143,8 +146,10 @@
     'tools': 'checklists',
     'worksheet-ds260': 'checklists',
     'worksheet-i864': 'checklists',
+    'i864-household-decision-tree': 'checklists',
     'life': 'life',
     'about': 'about',
+    'privacy': 'about',
   };
 
   function mount() {
