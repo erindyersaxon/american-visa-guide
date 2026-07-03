@@ -500,6 +500,14 @@ export default async function handler(req, res) {
     expedited: {
       count: deduped.filter(r => r.interview_expedited).length,
     },
+
+    state_distribution: deduped
+      .filter(r => r.us_state && r.us_state.trim())
+      .reduce((acc, r) => {
+        const state = r.us_state.trim()
+        acc[state] = (acc[state] || 0) + 1
+        return acc
+      }, {}),
     il_to_interview_lookup: ilToInterviewMonths,
     latest_interview:       latestInterview,
     this_week: {
