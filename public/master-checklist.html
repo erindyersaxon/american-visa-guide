@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Master Checklist — American Visa Guide</title>
-<meta name="description" content="Complete printable checklist for US family immigrant visa consular processing through London embassy — all stages from NVC to interview.">
+<title>Master Document Checklist — American Visa Guide</title>
+<meta name="description" content="Consolidated document checklist for all stages: I-130, NVC, medical, and interview. Organized by document type to eliminate duplication.">
 <link rel="canonical" href="https://www.americanvisaguide.com/master-checklist">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
@@ -25,7 +25,6 @@
     --text-secondary: #6a6560;
     --card-bg: #fdfaf3;
     --border: rgba(62,113,136,0.25);
-    --border-subtle: rgba(62,113,136,0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -52,14 +51,14 @@
   .wrap {
     position: relative;
     z-index: 1;
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 40px 20px 80px;
   }
 
   .page-header {
-    margin-bottom: 48px;
-    padding-bottom: 32px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
     border-bottom: 1px solid var(--border);
   }
 
@@ -68,303 +67,655 @@
     font-size: clamp(26px, 4vw, 38px);
     font-weight: 800;
     line-height: 1.1;
-    letter-spacing: -0.02em;
     margin-bottom: 12px;
   }
-
-  h1 span { color: var(--accent); }
 
   .page-subtitle {
     font-size: 15px;
     color: var(--text-secondary);
     font-weight: 300;
-    max-width: 520px;
     margin-bottom: 20px;
   }
 
   h2 {
     font-family: var(--font-display);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--text-primary);
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 36px;
+    margin-bottom: 16px;
     padding-bottom: 12px;
     border-bottom: 2px solid var(--accent);
   }
 
-  h3 {
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+  }
+
+  .doc-table th {
+    background: rgba(62,113,136,0.08);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border);
+    font-size: 13px;
+  }
+
+  .doc-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(62,113,136,0.12);
+    color: rgba(30,28,23,0.85);
+  }
+
+  .doc-table tr:hover { background: rgba(79,133,115,0.05); }
+
+  .stage-col {
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .stage-badge {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .stage-badge.yes { background: #4caf50; }
+  .stage-badge.conditional { background: #ff9800; }
+  .stage-badge.no { color: var(--text-secondary); }
+
+  .legend {
+    display: flex;
+    gap: 20px;
+    margin: 24px 0;
+    padding: 16px;
+    background: rgba(62,113,136,0.05);
+    border-radius: 8px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .disclaimer {
+    padding: 16px;
+    background: #fff3e0;
+    border: 1px solid #ffe0b2;
+    border-radius: 8px;
+    margin: 32px 0;
+    font-size: 13px;
+    color: rgba(30,28,23,0.85);
+  }
+
+  .section-note {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .resources-box {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(62,113,136,0.08);
+    border-radius: 8px;
+  }
+
+  .resources-box h3 {
+    margin-top: 0;
     font-family: var(--font-display);
     font-size: 16px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-top: 24px;
     margin-bottom: 12px;
   }
 
-  .checklist {
+  .resources-box ul {
     list-style: none;
-    padding: 12px 14px;
-    margin: 12px 0;
-    background: rgba(30,28,23,0.02);
-    border-left: 3px solid var(--accent);
-    border-radius: 6px;
+    padding-left: 0;
   }
 
-  .checklist li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(90,143,166,0.06);
-    font-size: 13px;
-    color: rgba(30,28,23,0.85);
+  .resources-box li {
+    margin-bottom: 8px;
   }
 
-  .checklist li:last-child { border-bottom: none; }
-
-  .checklist li::before {
-    content: '☑';
-    color: var(--accent);
-    font-size: 13px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    font-weight: bold;
-  }
-
-  .section-intro {
-    background: rgba(90,143,166,0.08);
-    border: 1px solid rgba(90,143,166,0.25);
-    border-radius: 10px;
-    padding: 18px 20px;
-    margin: 20px 0 24px;
-    font-size: 14px;
-    color: rgba(30,28,23,0.85);
-  }
-
-  .print-note {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 40px 0;
-    font-size: 14px;
-    text-align: center;
-    color: var(--text-secondary);
-  }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  .resources-box a {
     color: var(--teal-light);
     text-decoration: none;
-    margin-bottom: 32px;
-    font-size: 14px;
   }
 
-  .back-link:hover { text-decoration: underline; }
-
-  a {
-    color: var(--teal-light);
-    text-decoration: none;
-    transition: all 0.15s;
-  }
-
-  a:hover { text-decoration: underline; }
-
-  a[target="_blank"]::after {
-    content: ' ↗';
-    font-size: 0.85em;
-    vertical-align: super;
+  .resources-box a:hover {
+    text-decoration: underline;
   }
 
   @media print {
+    .legend { display: none; }
     body::before { display: none; }
-    .print-note { display: none; }
-    .page-header { page-break-after: avoid; }
-    h2 { page-break-before: always; }
-    .checklist { page-break-inside: avoid; }
-  }
-
-  .sub-acc-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; background: transparent; border: none; cursor: pointer; text-align: left; transition: all 0.15s; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-primary); }
-  .sub-acc-trigger:hover { color: var(--accent); }
-  .sub-acc-trigger:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-  .sub-acc-item { border: 1px solid var(--border-subtle); border-left: 3px solid transparent; border-radius: 8px; margin-bottom: 5px; overflow: hidden; transition: all 0.2s; background: rgba(30,28,23,0.02); }
-  .sub-acc-item:hover { background: rgba(30,28,23,0.04); }
-  .sub-acc-item.open { border-color: rgba(90,143,166,0.2); border-left-color: var(--accent); background: #ffffff; }
-  .sub-acc-item.open .sub-acc-trigger { border-bottom: 1px solid var(--border-subtle); }
-  .sub-acc-label { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
-  .sub-acc-item:not(.open) .sub-acc-label::before { content: '+'; font-weight: 800; opacity: 0.5; }
-  .sub-acc-chevron { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; background: rgba(90,143,166,0.08); border-radius: 3px; color: var(--text-secondary); font-size: 11px; transition: all 0.25s; flex-shrink: 0; }
-  .sub-acc-item.open .sub-acc-chevron { transform: rotate(180deg); color: var(--accent); background: rgba(90,143,166,0.15); }
-  .sub-acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
-  .sub-acc-item.open .sub-acc-body { max-height: 9999px; }
-  .sub-acc-content { padding: 16px 18px; background: rgba(30,28,23,0.025); }
-  .sub-controls { display: flex; gap: 8px; margin-bottom: 16px; }
-  .sub-ctrl { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); color: var(--text-primary); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
-  .sub-ctrl:hover { border-color: var(--accent); color: var(--accent); }
-  .info-card { border-radius: 10px; padding: 16px 18px; margin: 16px 0; font-size: 13px; }
-  .info-card.warning { background: rgba(176,74,56,0.08); border: 1px solid rgba(176,74,56,0.18); }
-  .info-card-head { font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-  @media (max-width: 600px) {
-    .wrap { padding: 24px 16px 60px; }
-    h1 { font-size: 24px; }
-    h2 { font-size: 18px; }
   }
 </style>
 <link rel="stylesheet" href="/css/nav.css?v=20260616">
 <script src="/js/nav.js?v=20260616" defer></script>
 </head>
 <body>
+  <nav role="navigation" aria-label="Main navigation"></nav>
 
-<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:16px;background:var(--accent);color:var(--text-inverse);font-weight:700;font-size:14px;padding:8px 16px;border-radius:0 0 8px 8px;z-index:9999;transition:top 0.15s;text-decoration:none;">Skip to main content</a>
-<div id="nav-placeholder"></div>
+  <main>
+    <div class="wrap">
+      <div class="page-header">
+        <h1>Master Document Checklist</h1>
+        <p class="page-subtitle">All documents needed across I-130, NVC, medical, and interview stages — organized by document type to eliminate duplication.</p>
+      </div>
 
-<div class="wrap">
-  <a href="/guide" class="back-link">← Back to guide</a>
+      <div class="legend">
+        <div class="legend-item"><span class="stage-badge yes">✓</span> Required at this stage</div>
+        <div class="legend-item"><span class="stage-badge conditional">*</span> Conditional (scenario-dependent)</div>
+        <div class="legend-item"><span class="stage-badge no">—</span> Not required</div>
+      </div>
 
-  <div class="page-header">
-    <h1>Master <span>Checklist</span></h1>
-    <p class="page-subtitle">Complete, printable checklist for US family immigrant visa consular processing through London — all stages in one scannable reference.</p>
-  </div>
+      <!-- CIVIL & IDENTITY DOCUMENTS -->
+      <h2>Civil & Identity Documents</h2>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th class="stage-col">I-130</th>
+            <th class="stage-col">NVC</th>
+            <th class="stage-col">Medical</th>
+            <th class="stage-col">Interview</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Passport (Beneficiary)</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td>Original required at interview. Biographic page for NVC.</td>
+          </tr>
+          <tr>
+            <td><strong>Birth Certificate (Beneficiary)</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Certified copy. If UK-issued, provide translation if not in English.</td>
+          </tr>
+          <tr>
+            <td><strong>Birth Certificate (Petitioner)</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Certified copy. Establishes petitioner identity.</td>
+          </tr>
+          <tr>
+            <td><strong>Marriage Certificate</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Certified copy. Required for all spouse petitions.</td>
+          </tr>
+          <tr>
+            <td><strong>Divorce Decrees / Death Certificates</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>For any prior marriage. Required if either party previously married.</td>
+          </tr>
+          <tr>
+            <td><strong>Name Change Deed</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Only if name changed (marriage, deed poll, etc.)</td>
+          </tr>
+          <tr>
+            <td><strong>Adoption Documents</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Only if applicable (IR2/CR2 children).</td>
+          </tr>
+        </tbody>
+      </table>
 
-  <div class="print-note">
-    📋 <strong>Print-friendly:</strong> Use your browser's print function (Ctrl+P or Cmd+P) to save as PDF or print. Page breaks are optimized for readability.
-  </div>
+      <!-- FINANCIAL DOCUMENTS -->
+      <h2>Financial Documents (I-864 Affidavit of Support)</h2>
+      <p class="section-note">All financial documents are for NVC stage. Primary sponsor + any joint sponsors must each complete I-864.</p>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th class="stage-col">I-130</th>
+            <th class="stage-col">NVC</th>
+            <th class="stage-col">Medical</th>
+            <th class="stage-col">Interview</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>I-864 (Affidavit of Support)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Wet-signed (not digital). Each sponsor completes separately.</td>
+          </tr>
+          <tr>
+            <td><strong>I-864A (Joint Sponsor)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Required if primary sponsor income insufficient.</td>
+          </tr>
+          <tr>
+            <td><strong>IRS Transcript (All Sponsors)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Via IRS.gov with ID.me. Required for last 3 years minimum.</td>
+          </tr>
+          <tr>
+            <td><strong>Tax Return Complete (All Sponsors)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Full return with schedules if self-employed (C/E/F/SE).</td>
+          </tr>
+          <tr>
+            <td><strong>Employment Letter (Current Job)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Confirming employment, job title, and income for all sponsors.</td>
+          </tr>
+          <tr>
+            <td><strong>Business Bank Statements (12 months)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>If self-employed only.</td>
+          </tr>
+          <tr>
+            <td><strong>Business Registration / EIN</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Proof of business if self-employed.</td>
+          </tr>
+          <tr>
+            <td><strong>Personal Bank Statements (6+ months)</strong></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>I-130: for relationship ties. NVC: for financial evidence.</td>
+          </tr>
+        </tbody>
+      </table>
 
-  <main id="main-content">
+      <!-- RELATIONSHIP EVIDENCE -->
+      <h2>Relationship & Supporting Evidence (Spouse/Family Cases)</h2>
+      <p class="section-note">Most relationship evidence is submitted with I-130. For spouse cases (CR1/IR1), this is especially critical.</p>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th class="stage-col">I-130</th>
+            <th class="stage-col">NVC</th>
+            <th class="stage-col">Medical</th>
+            <th class="stage-col">Interview</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Relationship Timeline</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Narrative: how you met, key milestones, cohabitation start.</td>
+          </tr>
+          <tr>
+            <td><strong>Photos (Wedding & Together)</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Multiple dated photos with locations. Essential for spouse cases.</td>
+          </tr>
+          <tr>
+            <td><strong>Travel Records</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Evidence of joint travel. Booking confirmations, hotel receipts.</td>
+          </tr>
+          <tr>
+            <td><strong>Communication Logs</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Emails, text messages, call logs over time.</td>
+          </tr>
+          <tr>
+            <td><strong>Joint Financial Accounts</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Bank statements with both names. 6+ months recommended.</td>
+          </tr>
+          <tr>
+            <td><strong>Joint Lease or Mortgage</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Proof of shared residence with both names.</td>
+          </tr>
+          <tr>
+            <td><strong>Insurance Policies (Beneficiary)</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Life, health, auto insurance naming spouse as beneficiary.</td>
+          </tr>
+          <tr>
+            <td><strong>Affidavits from Friends/Family</strong></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Notarized statements. Helpful if evidence sparse.</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <!-- NVC: Financial Documents -->
-    <h2>🏦 NVC Stage: Financial Documents</h2>
-    <div class="section-intro">
-      Required financial evidence for your I-864 Affidavit of Support. Submit via CEAC under "Financial Documents."
+      <!-- POLICE & BACKGROUND -->
+      <h2>Police & Background Documents</h2>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th class="stage-col">I-130</th>
+            <th class="stage-col">NVC</th>
+            <th class="stage-col">Medical</th>
+            <th class="stage-col">Interview</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ACRO Police Certificate (UK)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Required if beneficiary aged 16+. Original only (never placeholder). Valid 12 months.</td>
+          </tr>
+          <tr>
+            <td><strong>Foreign Police Certificate</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>For each country lived 12+ months after age 16.</td>
+          </tr>
+          <tr>
+            <td><strong>Military Records</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>If applicable only.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- MEDICAL & VACCINATION -->
+      <h2>Medical & Vaccination Documents</h2>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th class="stage-col">I-130</th>
+            <th class="stage-col">NVC</th>
+            <th class="stage-col">Medical</th>
+            <th class="stage-col">Interview</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Vaccination Records</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Original booklet/records. Bring to medical exam.</td>
+          </tr>
+          <tr>
+            <td><strong>I-693 (Medical Exam Report)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td>Completed at VisaMedicals. In sealed packet for interview.</td>
+          </tr>
+          <tr>
+            <td><strong>GP Summary</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Optional if complex medical history.</td>
+          </tr>
+          <tr>
+            <td><strong>Glasses/Contact Lenses</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>If worn regularly (needed for exam).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- PHOTOS & PASSPORT -->
+      <h2>Passport Photos & Biographic Documents</h2>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th class="stage-col">I-130</th>
+            <th class="stage-col">NVC</th>
+            <th class="stage-col">Medical</th>
+            <th class="stage-col">Interview</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>US-Style 2x2" Passport Photo</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Submitted at embassy document check. Used for sealed interview packet.</td>
+          </tr>
+          <tr>
+            <td><strong>Passport Biographic Page</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Photocopy for NVC upload.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- FORMS -->
+      <h2>Forms & Applications</h2>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th class="stage-col">I-130</th>
+            <th class="stage-col">NVC</th>
+            <th class="stage-col">Medical</th>
+            <th class="stage-col">Interview</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Form I-130</strong></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Petition for Alien Relative. Petitioner signs. Beneficiary does not sign if outside US.</td>
+          </tr>
+          <tr>
+            <td><strong>I-130A (Beneficiary Supplement)</strong></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Only if filed at USCIS (not consulate). Not signed by beneficiary.</td>
+          </tr>
+          <tr>
+            <td><strong>Form DS-260 (Visa Application)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Online to NVC. All fields required. Prepare answers in advance (form times out).</td>
+          </tr>
+          <tr>
+            <td><strong>I-693 (Medical Exam Report)</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td>Completed at VisaMedicals. In sealed packet for interview.</td>
+          </tr>
+          <tr>
+            <td><strong>IV18a Questionnaire</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Printed from CEAC. Bring to medical exam.</td>
+          </tr>
+          <tr>
+            <td><strong>DS-260 Confirmation</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td>Printed from CEAC. Bring to medical exam and interview.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- INTERVIEW PACKET -->
+      <h2>Interview Packet & Day-of Documents</h2>
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th class="stage-col">I-130</th>
+            <th class="stage-col">NVC</th>
+            <th class="stage-col">Medical</th>
+            <th class="stage-col">Interview</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sealed Interview Packet</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td>From embassy document check. Contains passport photo + medical results. DO NOT OPEN.</td>
+          </tr>
+          <tr>
+            <td><strong>Pink Medical Checklist Slip</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td>From medical exam. REQUIRED for interview. Proves exam was completed.</td>
+          </tr>
+          <tr>
+            <td><strong>Interview Letter</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td class="stage-col"><span class="stage-badge yes">✓</span></td>
+            <td>Printed from email. Bring to medical and interview.</td>
+          </tr>
+          <tr>
+            <td><strong>Any Requested Documents</strong></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge no">—</span></td>
+            <td class="stage-col"><span class="stage-badge conditional">*</span></td>
+            <td>Bring any additional documents specifically requested by embassy.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="disclaimer">
+        <strong>About this checklist:</strong> This consolidated master checklist combines requirements from all four stages (I-130, NVC, medical, and interview) organized by document type to eliminate duplication. Requirements vary by visa category and individual circumstances — always refer to the stage-specific checklists and official USCIS/State Department guidance for your specific case.
+      </div>
+
+      <div class="resources-box">
+        <h3>Stage-Specific Checklists & Resources</h3>
+        <p>This master checklist provides a consolidated view. For stage-specific guidance and detailed forms:</p>
+        <ul>
+          <li><a href="/checklist-i130">I-130 Pre-Submission Checklist</a> — case classification, evidence quality, RFE prevention</li>
+          <li><a href="/checklist-nvc">NVC Submission Checklist</a> — document categories and form completion</li>
+          <li><a href="/checklist-medical">Medical Exam Checklist</a> — what to bring to VisaMedicals</li>
+          <li><a href="/checklist-interview">Interview Day Checklist</a> — what to bring to your interview</li>
+          <li><a href="/guide">Main Guide</a> — full step-by-step process walkthrough</li>
+        </ul>
+      </div>
+
     </div>
-
-    <h3>Primary Sponsor</h3>
-    <ul class="checklist">
-      <li>IRS Tax Return Transcript — most recent year, from <a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">IRS.gov</a> (create an account via ID.me if you don't have one). Use Tax Return Transcripts specifically — they have been accepted and verified by the IRS. Up to 3 years of transcripts is advised. Treat the transcript as required for London for every sponsor and joint sponsor — London has issued 221(g) after interview for a missing transcript even where DQ was granted on a return copy.</li>
-      <li>W-2s / 1099s</li>
-      <li>Proof of current employment — employment letter and recent pay stubs</li>
-      <li>Evidence of US domicile (even if not listed as required) — upload under "Other": driver's licence, job offer, lease, US bills, school enrollment, moving quotation, or intent letter</li>
-    </ul>
-
-    <h3>Self-Employed Sponsor (if applicable)</h3>
-    <ul class="checklist">
-      <li>Complete federal tax return with ALL schedules attached — Schedule C (sole proprietor / single-member LLC), Schedule E (rental / partnership / S-corp), Schedule F (farm income), Schedule SE. Most recent year required; up to 3 years strongly recommended.</li>
-      <li>Any 1099s issued to or by the business</li>
-      <li>Recommended: 12 months of business bank statements · signed, dated business description statement with role/ownership percentage · business registration or EIN confirmation letter · professional/trade license where required · current year-to-date profit and loss statement, signed and dated · client contracts or invoices showing ongoing work</li>
-      <li>Bank statements and public listings support current income and legitimacy, but do not replace the tax return — officers weigh Schedule C as the anchor evidence</li>
-    </ul>
-
-    <h3>Joint Sponsor (if applicable)</h3>
-    <ul class="checklist">
-      <li>Separate I-864 form (copy of wet signed ok)</li>
-      <li>IRS Tax Transcript (most recent year — treat as required for London, not just recommended)</li>
-      <li>Proof of US citizenship or LPR status</li>
-      <li>Proof of US domicile</li>
-    </ul>
-
-    <h3>Joint Sponsor — Documentation by Scenario</h3>
-    <div class="section-intro">
-      In addition to the items above, include income evidence matching the joint sponsor's situation.
-    </div>
-    <ul class="checklist">
-      <li><strong>W-2 employed:</strong> W-2s for most recent tax year (3 years recommended) · employment letter on company letterhead (position, start date, salary) · recent pay stubs (minimum 3, ideally 6 months)</li>
-      <li><strong>Self-employed:</strong> see "Self-Employed Sponsor" above — the same requirements apply to joint sponsors</li>
-      <li><strong>Retired:</strong> Social Security benefit statement (SSA-1099) or pension statement · proof of ongoing benefit (award letter, most recent 1099-R) · if drawing from retirement accounts, statements showing the distribution pattern</li>
-      <li><strong>Military:</strong> LES (Leave and Earnings Statement) showing base pay, BAH, BAS · most recent W-2</li>
-      <li><strong>Using a household member's income (I-864A):</strong> Form I-864A completed by the household member · their proof of income (same as their employment type above) · proof they reside with the joint sponsor · proof of relationship or lawful basis for including them</li>
-      <li><strong>Using assets instead of / alongside income:</strong> strongly recommend not using — get a joint sponsor instead · documentation of ownership, acquisition date, and value · evidence of any liens or liabilities. London has refused assets alone even when the multiplier threshold (5× shortfall for non-relatives, 3× for spouse/child of USC) is technically met — treat as last-resort evidence for London cases.</li>
-      <li><strong>Sponsor not required to file taxes (income below filing threshold):</strong> written statement explaining why no return was filed, citing the IRS filing threshold for the relevant year · alternative evidence of income (benefit statements, pay stubs, employer letter)</li>
-      <li><strong>Married filing jointly with a non-sponsoring spouse:</strong> full joint return is acceptable, but the sponsor should also submit W-2s/1099s isolating their individual income, since only the sponsor's own income counts unless the spouse also signs Form I-864A</li>
-    </ul>
-
-    <!-- NVC: Civil Documents -->
-    <h2>📄 NVC Stage: Civil Documents</h2>
-    <div class="section-intro">
-      Required civil documents to establish identity, marital status, and criminal record eligibility. All non-English documents require certified translations. Submit via CEAC under "Civil Documents."
-    </div>
-
-    <ul class="checklist">
-      <li>Birth certificate (long form with parent names)</li>
-      <li>Marriage certificate</li>
-      <li>Divorce or death certificates (if applicable — all prior marriages)</li>
-      <li>UK ACRO Police Certificate — required for all applicants aged 16+. Valid 12 months for embassy purposes regardless of any shorter local validity.</li>
-      <li>Foreign police certificates — required for every country lived in for 12+ months after age 16, or any country of citizenship. Use the decision tree below to confirm what you need.</li>
-      <li>Passport biographic page</li>
-      <li>Court, prison, or military records (if applicable)</li>
-    </ul>
-
-    <p style="font-size:13px;color:var(--text-secondary);margin-top:16px;"><strong>Translation note:</strong> Check the <a href="https://travel.state.gov/content/travel/en/us-visas/Visa-Reciprocity-and-Civil-Documents-by-Country.html" target="_blank" rel="noopener noreferrer">NVC Document Finder / Reciprocity Schedule</a> for country-specific requirements. Scans must be colour, all pages included, max 4MB per file, PDF preferred.</p>
-
-    <!-- Medical Appointment -->
-    <h2>🏥 Medical Appointment Day</h2>
-    <div class="section-intro">
-      Documents and items to bring to your medical examination appointment at the clinic. Arrive 30–45 minutes early.
-    </div>
-
-    <ul class="checklist">
-      <li>Passport</li>
-      <li>Interview letter — the email sent to you by NVC notifying you of your interview date and location</li>
-      <li>DS-260 confirmation page</li>
-      <li>Courier registration confirmation (with QR code) — generated when you register your passport return on the AIS website (ais.usvisa-info.com)</li>
-      <li>Completed <a href="https://uk.usembassy.gov/wp-content/uploads/sites/204/2023/03/USA-MEDICAL-QUESTIONNAIRE_IV.pdf" target="_blank" rel="noopener noreferrer">medical questionnaire (IV18a)</a></li>
-      <li>ACRO police certificate</li>
-      <li>GP summary dated within 2–3 weeks — does not need to be signed or stamped by the surgery or doctor; a printed or digital summary from your NHS record is sufficient</li>
-      <li>Vaccination records — does not need to be signed or stamped; a printout from your NHS app or GP patient record is accepted</li>
-      <li>Glasses or contact lenses (if applicable)</li>
-      <li>Medical reports for any chronic, serious, or mental health conditions (if applicable)</li>
-      <li>Psychiatric documentation (if applicable)</li>
-      <li>TB or STI records (if applicable)</li>
-      <li>Child health records (if applicable)</li>
-    </ul>
-
-    <!-- Interview Day -->
-    <h2>🏛️ Interview Day & Document Check</h2>
-    <div class="section-intro">
-      Final documents and items needed for your embassy interview and document verification. The document check typically happens on the same day after your interview.
-    </div>
-
-    <ul class="checklist">
-      <li>Passport</li>
-      <li>Pink checklist slip (from medical appointment)</li>
-      <li>DS-260 confirmation page</li>
-      <li>Civil documents (originals)</li>
-    </ul>
-
-    <div style="background:rgba(79,133,115,0.08);border:1px solid rgba(79,133,115,0.25);border-radius:10px;padding:18px 20px;margin:24px 0;font-size:13px;">
-      <strong style="color:var(--teal-light);">💡 Tip:</strong> The document check is usually quick. Staff will confirm everything is in order — many members find this reassuring. Realistic timing: Medical 8:40 AM → finished ~10:15 AM. Document check 11:45 AM → finished ~12:15 PM.
-    </div>
-
   </main>
-
-  <div class="print-note" style="margin-top:60px;">
-    ✅ <strong>Ready to print?</strong> Use your browser's print function to save this page as a PDF. It's optimized for clear, easy-to-read printing.
-  </div>
-
-</div>
-
-<script>
-function toggleSubAcc(id) {
-  const item = document.getElementById(id)
-  if (!item) return
-  const wasOpen = item.classList.contains('open')
-  item.classList.toggle('open', !wasOpen)
-  if (!wasOpen) setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50)
-}
-function subAccGroup(group, expand) {
-  document.querySelectorAll('[data-sub-group="' + group + '"]').forEach(el => el.classList.toggle('open', expand))
-}
-
-// Back-to-top functionality
-window.addEventListener('scroll', () => {
-  const btn = document.getElementById('back-top')
-  if (btn) btn.style.opacity = window.scrollY > 400 ? '1' : '0'
-})
-</script>
-
 </body>
 </html>
