@@ -661,7 +661,7 @@ function showStep(id) {
   const el = document.getElementById(id);
   el.classList.remove('hidden');
   el.classList.add('active');
-  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+  // Removed auto-scroll to allow user to stay in place
 }
 
 function markDone(id, summaryText) {
@@ -851,7 +851,7 @@ function showResult() {
   document.getElementById('resultPanel').classList.add('visible');
   document.getElementById('resetBtn').style.display = 'inline-flex';
   document.getElementById('progressFill').style.width = '100%';
-  setTimeout(() => document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+  // Removed auto-scroll to allow user to stay in place
 }
 
 // ── RESET ──────────────────────────────────────────────────
@@ -895,7 +895,7 @@ function resetAll() {
   document.getElementById('resultPanel').classList.remove('visible');
   document.getElementById('resetBtn').style.display = 'none';
   document.getElementById('progressFill').style.width = '0%';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Removed auto-scroll to allow user to stay in place
 }
 </script>
 </body>
