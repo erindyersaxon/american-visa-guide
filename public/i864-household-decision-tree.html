@@ -235,12 +235,12 @@
       <div class="step-content">
         <div class="step-label">Location</div>
         <div class="step-question">Where does the sponsor live?</div>
-        <div class="step-hint">Alaska and Hawaii use higher poverty guidelines than the contiguous 48 states. The sponsor's state of domicile determines which table applies — not the applicant's location.</div>
+        <div class="step-hint">Alaska and Hawaii use higher poverty guidelines. The contiguous 48 states, DC, Guam, Puerto Rico, US Virgin Islands, and other US territories all follow the same income thresholds. The sponsor's location determines which table applies — not the applicant's location.</div>
       </div>
     </div>
     <div class="step-body">
       <div class="choices">
-        <button class="choice-btn yes-btn" onclick="setRegion('contiguous')">48 contiguous states or DC</button>
+        <button class="choice-btn yes-btn" onclick="setRegion('contiguous')">48 contiguous states, DC, Guam, Puerto Rico, US Virgin Islands, or other US territory</button>
         <button class="choice-btn" onclick="setRegion('alaska')">Alaska</button>
         <button class="choice-btn" onclick="setRegion('hawaii')">Hawaii</button>
       </div>
@@ -638,7 +638,7 @@ const tables = {
   }
 };
 
-const regionLabels = { contiguous: '48 Contiguous States & DC', alaska: 'Alaska', hawaii: 'Hawaii' };
+const regionLabels = { contiguous: '48 Contiguous States, DC, Territories', alaska: 'Alaska', hawaii: 'Hawaii' };
 
 function fmt(n) { return '$' + n.toLocaleString('en-US'); }
 
