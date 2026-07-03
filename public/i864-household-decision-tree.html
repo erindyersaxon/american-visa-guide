@@ -3,8 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I-864 Household Size &amp; Income Calculator | American Visa Guide</title>
+<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Microsoft Clarity — runs only after statistics consent -->
+<script type="text/plain" data-cookieconsent="statistics">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","wlfs757o2n");
+</script>
+<title>I-864 Household Calculator — American Visa Guide</title>
+<meta name="description" content="Calculate your I-864 household size and minimum income threshold for US family immigrant visas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=20260616">
+<link rel="stylesheet" href="/css/components.css?v=20260616">
+<link rel="stylesheet" href="/css/nav.css?v=20260616">
 <style>
+  /* I-864 Calculator custom styles */
   :root {
     --navy:     #0e1f3b;
     --navy-mid: #1a3258;
@@ -22,22 +39,15 @@
     --purple-lt:#f0ecfb;
     --border:   #dde2ea;
     --text:     #1a1a2e;
-    --font-ui:  'Outfit', system-ui, sans-serif;
-    --font-body:'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-ui-calc:  'Outfit', system-ui, sans-serif;
+    --font-body-calc:'Plus Jakarta Sans', system-ui, sans-serif;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--font-body); background: var(--cream); color: var(--text); min-height: 100vh; }
+  .i864-calculator { font-family: var(--font-body-calc); background: var(--cream); color: var(--text); }
 
-  header { background: var(--navy); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
-  header .site-name { font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600; color: var(--gold-lt); letter-spacing: 0.04em; text-transform: uppercase; }
-  header .divider { color: var(--slate); }
-  header .page-title { font-family: var(--font-ui); font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.7); }
-
-  .container { max-width: 780px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  .i864-container { max-width: 780px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
 
   .intro { margin-bottom: 2rem; }
-  .intro h1 { font-family: var(--font-ui); font-size: 1.6rem; font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 0.5rem; }
+  .intro h1 { font-family: var(--font-ui-calc); font-size: 1.6rem; font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 0.5rem; }
   .intro p { font-size: 0.92rem; color: var(--slate); line-height: 1.6; }
 
   .authority-note { background: var(--navy); border-left: 3px solid var(--gold); border-radius: 6px; padding: 0.85rem 1rem; margin-bottom: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
@@ -45,7 +55,7 @@
   .authority-note a { color: var(--gold-lt); text-decoration: underline; }
 
   /* SECTION DIVIDER */
-  .section-label { font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+  .section-label { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
 
   /* STEP CARD */
   .step-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 1.25rem; overflow: hidden; transition: border-color 0.2s; }
@@ -54,27 +64,27 @@
   .step-card.hidden { display: none; }
 
   .step-header { display: flex; align-items: flex-start; gap: 0.85rem; padding: 1.1rem 1.25rem; }
-  .step-number { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: var(--gold-lt); font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .step-number { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: var(--gold-lt); font-family: var(--font-ui-calc); font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
   .step-card.active .step-number { background: var(--gold); color: var(--navy); }
   .step-card.completed .step-number { background: var(--green); color: #fff; }
   .step-content { flex: 1; }
-  .step-label { font-family: var(--font-ui); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.2rem; }
-  .step-question { font-family: var(--font-ui); font-size: 1rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
+  .step-label { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.2rem; }
+  .step-question { font-family: var(--font-ui-calc); font-size: 1rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
   .step-hint { font-size: 0.8rem; color: var(--slate); margin-top: 0.35rem; line-height: 1.5; }
 
   .step-body { padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--border); padding-top: 1rem; }
   .step-card.completed .step-body { display: none; }
 
   .choices { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-  .choice-btn { font-family: var(--font-ui); font-size: 0.88rem; font-weight: 500; padding: 0.55rem 1rem; border: 1.5px solid var(--border); border-radius: 6px; background: #fff; color: var(--navy); cursor: pointer; transition: all 0.15s; text-align: left; }
+  .choice-btn { font-family: var(--font-ui-calc); font-size: 0.88rem; font-weight: 500; padding: 0.55rem 1rem; border: 1.5px solid var(--border); border-radius: 6px; background: #fff; color: var(--navy); cursor: pointer; transition: all 0.15s; text-align: left; }
   .choice-btn:hover { border-color: var(--gold); background: var(--amber-lt); }
   .choice-btn.selected { border-color: var(--gold); background: var(--amber-lt); font-weight: 600; }
   .choice-btn.yes-btn:hover, .choice-btn.yes-btn.selected { border-color: var(--green); background: var(--green-lt); }
 
   .number-row { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
-  .counter-btn { width: 36px; height: 36px; border-radius: 6px; border: 1.5px solid var(--border); background: #fff; font-size: 1.1rem; color: var(--navy); cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font-ui); transition: all 0.15s; }
+  .counter-btn { width: 36px; height: 36px; border-radius: 6px; border: 1.5px solid var(--border); background: #fff; font-size: 1.1rem; color: var(--navy); cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font-ui-calc); transition: all 0.15s; }
   .counter-btn:hover { border-color: var(--gold); background: var(--amber-lt); }
-  .counter-display { font-family: var(--font-ui); font-size: 1.5rem; font-weight: 700; color: var(--navy); min-width: 2.5rem; text-align: center; }
+  .counter-display { font-family: var(--font-ui-calc); font-size: 1.5rem; font-weight: 700; color: var(--navy); min-width: 2.5rem; text-align: center; }
   .counter-label { font-size: 0.8rem; color: var(--slate); }
 
   .inline-def { background: var(--amber-lt); border: 1px solid #f0d9a0; border-radius: 6px; padding: 0.75rem 0.85rem; margin-top: 0.85rem; font-size: 0.8rem; color: #5a4000; line-height: 1.55; }
@@ -89,57 +99,57 @@
   .result-panel { border-radius: 10px; overflow: hidden; margin-top: 1.5rem; display: none; }
   .result-panel.visible { display: block; }
   .result-header { background: var(--navy); padding: 1.25rem 1.5rem; }
-  .result-header h2 { font-family: var(--font-ui); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+  .result-header h2 { font-family: var(--font-ui-calc); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
   .result-header p { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
   .result-body { background: #fff; border: 1px solid var(--border); border-top: none; }
 
   .hh-size-box { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1.25rem; }
-  .hh-number { font-family: var(--font-ui); font-size: 3.5rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .hh-number { font-family: var(--font-ui-calc); font-size: 3.5rem; font-weight: 700; color: var(--navy); line-height: 1; }
   .hh-breakdown { flex: 1; }
-  .hh-breakdown-title { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.5rem; }
+  .hh-breakdown-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.5rem; }
   .hh-row { display: flex; justify-content: space-between; font-size: 0.82rem; padding: 0.2rem 0; border-bottom: 1px dotted var(--border); }
   .hh-row:last-child { border-bottom: none; font-weight: 600; color: var(--navy); }
   .hh-row-label { color: var(--slate); }
   .hh-row-value { font-weight: 600; color: var(--navy); }
 
   .income-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
-  .income-section-title { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.85rem; }
+  .income-section-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.85rem; }
   .threshold-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   .threshold-card { border-radius: 8px; padding: 1rem; border: 1.5px solid var(--border); }
   .threshold-card.primary { border-color: var(--gold); background: linear-gradient(135deg, #fffdf5 0%, #fff8e5 100%); }
   .threshold-card.secondary { background: #f8fafc; }
-  .threshold-tag { font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.35rem; }
+  .threshold-tag { font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.35rem; }
   .threshold-card.primary .threshold-tag { color: var(--amber); }
   .threshold-card.secondary .threshold-tag { color: var(--slate); }
-  .threshold-amount { font-family: var(--font-ui); font-size: 1.6rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.2rem; }
+  .threshold-amount { font-family: var(--font-ui-calc); font-size: 1.6rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.2rem; }
   .threshold-subtitle { font-size: 0.73rem; color: var(--slate); line-height: 1.4; }
-  .region-badge { display: inline-block; font-family: var(--font-ui); font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 3px; background: var(--navy); color: var(--gold-lt); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+  .region-badge { display: inline-block; font-family: var(--font-ui-calc); font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 3px; background: var(--navy); color: var(--gold-lt); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
 
   /* SHORTFALL + JOINT SPONSOR SECTIONS */
   .shortfall-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
-  .shortfall-title { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.85rem; }
+  .shortfall-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.85rem; }
   .option-list { display: flex; flex-direction: column; gap: 0.75rem; }
   .option-item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.83rem; line-height: 1.5; }
-  .option-badge { flex-shrink: 0; font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 1px; }
+  .option-badge { flex-shrink: 0; font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 1px; }
   .badge-a { background: var(--green-lt); color: var(--green); }
   .badge-b { background: var(--amber-lt); color: var(--amber); }
   .badge-c { background: #eef0f8; color: var(--navy-mid); }
 
   /* JOINT SPONSOR MINI-CALCULATOR */
   .js-calc-box { background: var(--purple-lt); border: 1.5px solid #c9bef0; border-radius: 8px; padding: 1.1rem 1.25rem; margin-top: 0.75rem; }
-  .js-calc-title { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.75rem; }
+  .js-calc-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.75rem; }
   .js-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.82rem; color: var(--navy); }
   .js-row label { min-width: 160px; font-size: 0.8rem; color: var(--slate); }
   .js-toggle { display: flex; gap: 0.4rem; }
-  .js-btn { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 500; padding: 0.3rem 0.7rem; border: 1.5px solid #c9bef0; border-radius: 5px; background: #fff; color: var(--purple); cursor: pointer; transition: all 0.15s; }
+  .js-btn { font-family: var(--font-ui-calc); font-size: 0.8rem; font-weight: 500; padding: 0.3rem 0.7rem; border: 1.5px solid #c9bef0; border-radius: 5px; background: #fff; color: var(--purple); cursor: pointer; transition: all 0.15s; }
   .js-btn:hover, .js-btn.active { background: var(--purple); color: #fff; border-color: var(--purple); }
   .js-number-row { display: flex; align-items: center; gap: 0.5rem; }
   .js-counter-btn { width: 28px; height: 28px; border-radius: 5px; border: 1.5px solid #c9bef0; background: #fff; color: var(--purple); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
   .js-counter-btn:hover { background: var(--purple); color: #fff; }
-  .js-counter-display { font-family: var(--font-ui); font-size: 1.2rem; font-weight: 700; color: var(--purple); min-width: 1.8rem; text-align: center; }
+  .js-counter-display { font-family: var(--font-ui-calc); font-size: 1.2rem; font-weight: 700; color: var(--purple); min-width: 1.8rem; text-align: center; }
   .js-result { margin-top: 0.85rem; padding: 0.75rem; background: #fff; border-radius: 6px; border: 1px solid #c9bef0; font-size: 0.82rem; }
-  .js-result-label { font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.3rem; }
-  .js-result-amount { font-family: var(--font-ui); font-size: 1.4rem; font-weight: 700; color: var(--navy); }
+  .js-result-label { font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.3rem; }
+  .js-result-amount { font-family: var(--font-ui-calc); font-size: 1.4rem; font-weight: 700; color: var(--navy); }
   .js-result-sub { font-size: 0.73rem; color: var(--slate); margin-top: 0.15rem; line-height: 1.4; }
   .js-note { font-size: 0.75rem; color: #5b3ea6; margin-top: 0.6rem; line-height: 1.5; }
 
@@ -147,7 +157,7 @@
   .callout-panel { border-radius: 8px; padding: 1rem 1.1rem; margin-bottom: 0.75rem; font-size: 0.82rem; line-height: 1.55; }
   .callout-panel.assets { background: #f0f4f8; border-left: 3px solid var(--slate); }
   .callout-panel.ssa { background: var(--green-lt); border-left: 3px solid var(--green); }
-  .callout-panel-title { font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .callout-panel-title { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
   .callout-panel.assets .callout-panel-title { color: var(--slate); }
   .callout-panel.ssa .callout-panel-title { color: var(--green); }
   .callout-panel a { color: var(--navy-mid); font-weight: 600; }
@@ -156,13 +166,13 @@
   .notes-section { padding: 1rem 1.5rem; background: #f8fafc; }
   .note-item { font-size: 0.78rem; color: var(--slate); line-height: 1.55; padding: 0.35rem 0; border-bottom: 1px dotted var(--border); display: flex; gap: 0.5rem; }
   .note-item:last-child { border-bottom: none; }
-  .note-num { flex-shrink: 0; font-family: var(--font-ui); font-weight: 700; color: var(--navy); font-size: 0.72rem; }
+  .note-num { flex-shrink: 0; font-family: var(--font-ui-calc); font-weight: 700; color: var(--navy); font-size: 0.72rem; }
 
   .source-strip { padding: 1rem 1.5rem; background: var(--navy); font-size: 0.73rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
   .source-strip a { color: var(--gold-lt); text-decoration: none; }
   .source-strip a:hover { text-decoration: underline; }
 
-  .reset-btn { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; font-family: var(--font-ui); font-size: 0.82rem; font-weight: 600; color: var(--slate); background: none; border: 1.5px solid var(--border); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; transition: all 0.15s; }
+  .reset-btn { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; font-family: var(--font-ui-calc); font-size: 0.82rem; font-weight: 600; color: var(--slate); background: none; border: 1.5px solid var(--border); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; transition: all 0.15s; }
   .reset-btn:hover { border-color: var(--navy); color: var(--navy); }
 
   .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 2rem; overflow: hidden; }
@@ -183,19 +193,29 @@
   a { color: var(--navy-mid); }
 </style>
 </head>
-<body>
+<body class="i864-calculator">
 
-<header>
-  <span class="site-name">American Visa Guide</span>
-  <span class="divider">›</span>
-  <span class="page-title">I-864 Household Size &amp; Income Tool</span>
-</header>
+<!-- Nav -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="nav-placeholder"></div>
 
-<div style="background: #f5e642; color: #1a1a2e; font-family: 'Outfit', system-ui, sans-serif; font-size: 0.8rem; font-weight: 600; text-align: center; padding: 0.55rem 1rem; letter-spacing: 0.03em;">
-  TEST VERSION — feedback welcome. Content may change before publication.
+<!-- Mobile Navigation -->
+<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+<div class="mobile-nav-drawer" id="mobileNavDrawer">
+  <div class="mobile-nav-drawer-content">
+    <button class="mobile-nav-drawer-close" id="mobileNavClose" aria-label="Close navigation">✕</button>
+    <div class="sidebar-label">Tools &amp; Resources</div>
+    <ul class="sidebar-nav" role="list">
+      <li><a href="/guide.html">📖 Visa Guide</a></li>
+      <li><a href="/checklists.html">📋 Checklists &amp; Tools</a></li>
+      <li><a href="/i864-household-decision-tree.html" class="active">🧮 I-864 Calculator</a></li>
+    </ul>
+  </div>
 </div>
 
-<div class="container">
+<main id="main-content" role="main">
+  <div class="i864-container">
   <div class="intro">
     <h1>Who counts in your household?<br>What income do you need?</h1>
     <p>Answer the questions below to calculate your I-864 household size and minimum income threshold. Each question mirrors the official Form I-864 instructions. Includes a joint sponsor calculator and shortfall options.</p>
@@ -571,8 +591,14 @@
   </div>
 
   <button class="reset-btn" onclick="resetAll()" id="resetBtn" style="display:none;">↺ Start over</button>
-</div>
+  </div>
+</main>
 
+<!-- Footer -->
+<footer id="footer-placeholder"></footer>
+
+<script src="/js/main.js?v=20260616" defer></script>
+<script src="/js/nav.js?v=20260616" defer></script>
 <script>
 // ── STATE ──────────────────────────────────────────────────
 const state = {
