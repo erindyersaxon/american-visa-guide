@@ -225,72 +225,6 @@
       max-width: none;
     }
 
-    /* ── Week cards ── */
-    .week-group { margin-top: var(--space-6); }
-    .week-group:first-of-type { margin-top: 0; }
-    .week-group__label {
-      font-size: var(--text-xs);
-      font-weight: var(--font-semibold);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wide);
-      color: var(--color-text-muted);
-      margin: 0 0 var(--space-3) 0;
-    }
-    .week-group__label em { font-style: normal; color: var(--color-primary); }
-    .week-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-3);
-      align-items: start; /* cards size to their own member list */
-    }
-    @media (min-width: 640px) { .week-grid--3 { grid-template-columns: repeat(3,1fr); } }
-
-    .week-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: var(--space-4);
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-    }
-    .week-card__value {
-      font-family: var(--font-display);
-      font-size: var(--text-3xl);
-      color: var(--color-primary);
-      line-height: 1;
-      min-height: 2.25rem;
-    }
-    .week-card__label {
-      font-size: var(--text-xs);
-      font-weight: var(--font-semibold);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wide);
-      color: var(--color-text-muted);
-      margin-top: var(--space-2);
-    }
-    .week-card__list {
-      list-style: none;
-      margin: var(--space-3) 0 0;
-      padding: 0;
-      text-align: left;
-    }
-    .week-card__list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: var(--space-2);
-      font-size: var(--text-sm);
-      padding: var(--space-1) 0;
-      border-top: 1px solid var(--color-border);
-    }
-    .week-card__list .wm-name { color: var(--color-text); }
-    .week-card__list .wm-date { color: var(--color-text-muted); white-space: nowrap; flex-shrink: 0; }
-    .week-card__list .wm-empty {
-      justify-content: center;
-      color: var(--color-text-muted);
-      font-style: italic;
-    }
-
     /* ── Trend cards ── */
     .trend-grid {
       display: grid;
@@ -513,78 +447,6 @@
       </div>
     </section>
 
-    <!-- ═══ THIS WEEK IN THE COMMUNITY ═══ -->
-    <section class="content-section" aria-labelledby="week-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="week-hd">This Week in the Community</h2>
-          <p class="section-hd__sub">Upcoming appointments and recent milestones across the community.</p>
-        </div>
-
-        <!-- Coming up — the upcoming Sunday→Saturday week -->
-        <div class="week-group">
-          <p class="week-group__label">📅 Coming up · <em><span id="week-upcoming-label">…</span></em></p>
-          <div class="week-grid week-grid--3" role="list" aria-label="Upcoming community milestones">
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-medicals">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">Medicals</div>
-              <ul class="week-card__list" id="wl-medicals" aria-label="Members with a medical this week"></ul>
-            </div>
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-interviews">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">Interviews</div>
-              <ul class="week-card__list" id="wl-interviews" aria-label="Members with an interview this week"></ul>
-            </div>
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-flights">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">Flights</div>
-              <ul class="week-card__list" id="wl-flights" aria-label="Members with a flight this week"></ul>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Just happened — the previous Sunday→Saturday week -->
-        <div class="week-group">
-          <p class="week-group__label">✅ Just happened · <em><span id="week-previous-label">…</span></em></p>
-          <div class="week-grid week-grid--2" role="list" aria-label="Recent community milestones">
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-dq">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">DQ</div>
-              <ul class="week-card__list" id="wl-dq" aria-label="Members documentarily qualified this week"></ul>
-            </div>
-
-            <div class="week-card" role="listitem">
-              <div class="week-card__value" id="w-i130">
-                <span class="skel skel--val" style="display:block;margin:auto;" aria-hidden="true"></span>
-              </div>
-              <div class="week-card__label">I-130 Approvals</div>
-              <ul class="week-card__list" id="wl-i130" aria-label="Members with an I-130 approval this week"></ul>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Submit CTA -->
-        <div style="background: var(--color-primary-subtle); border: 1px solid var(--color-primary-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-top: var(--space-8); text-align: center;">
-          <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 0 0 var(--space-3) 0;">💾 Reached a milestone? Add your dates to help the community.</p>
-          <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: var(--space-2) var(--space-4); background: var(--color-primary); color: #fff; border-radius: var(--radius-md); text-decoration: none; font-size: var(--text-sm); font-weight: var(--font-semibold);">Submit your timeline →</a>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══ IL DROP HISTORY TABLE ═══ -->
     <section class="content-section" aria-labelledby="drops-hd">
       <div class="container">
@@ -802,7 +664,6 @@
           { date:'2026-02-13', time:'13:51', gap:29, dq_from:'2025-10-24', dq_to:'2026-01-26', dq_days:95, il_count:13 },
         ],
       },
-      this_week: { upcoming_week_of:'2026-06-14', previous_week_of:'2026-06-07', interviews:[], medicals:[], flights:[], dqs:[], approved:[] },
     };
 
     /* Editorial pipeline narrative — current processing conditions, not in the DB */
@@ -851,11 +712,6 @@
       const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
       return d.toLocaleDateString('en-GB', { month:'long', year:'numeric', timeZone:'UTC' });
     }
-    function fmtShort(s) {
-      if (!s) return '';
-      const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
-      return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', timeZone:'UTC' });
-    }
     function daysAgo(s) {
       if (!s) return null;
       const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
@@ -869,22 +725,6 @@
     function toMonths(d) { return d != null ? (d / 30.44).toFixed(1) : '—'; }
     function set(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
     function txt(id, t)    { const el = document.getElementById(id); if (el) el.textContent = t; }
-
-    /* Sunday ISO -> "14–20 Jun" (or "28 Jun – 4 Jul" across a month boundary) */
-    function fmtWeekRange(sundayISO) {
-      if (!sundayISO) return '…';
-      const start = new Date(sundayISO + 'T00:00:00Z');
-      const end = new Date(start); end.setUTCDate(start.getUTCDate() + 6);
-      const day = d => d.getUTCDate();
-      const mon = d => d.toLocaleDateString('en-GB', { month:'short', timeZone:'UTC' });
-      return start.getUTCMonth() === end.getUTCMonth()
-        ? `${day(start)}–${day(end)} ${mon(end)}`
-        : `${day(start)} ${mon(start)} – ${day(end)} ${mon(end)}`;
-    }
-    function setWeekLabels(upcomingISO, previousISO) {
-      if (upcomingISO) txt('week-upcoming-label', fmtWeekRange(upcomingISO));
-      if (previousISO) txt('week-previous-label', fmtWeekRange(previousISO));
-    }
 
     function statusBadge(status) {
       const map = {
@@ -973,30 +813,6 @@
         { badge:'p-nvc-badge',     summary:'p-nvc-summary',     status: stats?.nvc_status     || 'normal', text: stats?.nvc_summary     || 'Document review and fee payment. Most cases completing NVC in 2–3 months once received.' },
         { badge:'p-london-badge',  summary:'p-london-summary',  status: stats?.london_status  || 'active', text: stats?.london_summary  || 'IL drops are the bottleneck. Once you have an IL, interview scheduling is typically 6–10 weeks out.' },
       ].forEach(s => { set(s.badge, statusBadge(s.status)); set(s.summary, s.text); });
-    }
-
-    /* Two-window community widget — each card shows its count plus the members
-       (name + date) who reached that milestone this week. */
-    function renderWeek(tw) {
-      if (!tw) return;
-      setWeekLabels(tw.upcoming_week_of, tw.previous_week_of);
-      const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-      const cards = [
-        ['w-medicals',   'wl-medicals',   tw.medicals],
-        ['w-interviews', 'wl-interviews', tw.interviews],
-        ['w-flights',    'wl-flights',    tw.flights],
-        ['w-dq',         'wl-dq',         tw.dqs],
-        ['w-i130',       'wl-i130',       tw.approved],
-      ];
-      for (const [countId, listId, raw] of cards) {
-        const list = (raw || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
-        set(countId, String(list.length));
-        const ul = document.getElementById(listId);
-        if (!ul) continue;
-        ul.innerHTML = list.length
-          ? list.map(m => `<li><span class="wm-name">${esc(m.name)}</span><span class="wm-date">${fmtShort(m.date)}</span></li>`).join('')
-          : '<li class="wm-empty">None this week</li>';
-      }
     }
 
     function renderDropTable(drops) {
@@ -1102,7 +918,6 @@
       renderOutcomes(stats);
       renderPassport(stats);
       renderTimings(d);
-      renderWeek(d.this_week);
     }
 
     document.readyState === 'loading'
