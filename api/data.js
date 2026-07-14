@@ -285,7 +285,20 @@ export default async function handler(req, res) {
     const dq_days  = (dq_from && dq_to) ? daysBetween(dq_from, dq_to) + 1 : null
     const il_count = cluster.members.length
 
-    return { date, time, gap, dq_from, dq_to, dq_days, il_count }
+    // Interview dates assigned in this drop's ILs (members report them after
+    // scheduling, so recent drops may have fewer reported than il_count).
+    // An interview can't predate its IL — such rows are data-entry errors
+    // and would poison the min–max range.
+    const ivDates = cluster.members
+      .filter(r => r.interview && String(r.interview).slice(0, 10) > String(r.interview_letter).slice(0, 10))
+      .map(r => String(r.interview).slice(0, 10))
+      .sort()
+
+    const iv_from  = ivDates.length ? ivDates[0] : null
+    const iv_to    = ivDates.length ? ivDates[ivDates.length - 1] : null
+    const iv_count = ivDates.length
+
+    return { date, time, gap, dq_from, dq_to, dq_days, il_count, iv_from, iv_to, iv_count }
   })
 
   // Include all clusters with at least 1 member — the clustering logic (2-day
