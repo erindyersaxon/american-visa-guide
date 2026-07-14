@@ -131,10 +131,16 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--space-4);
-      margin-bottom: var(--space-8);
+      margin-bottom: var(--space-3);
     }
     @media (min-width: 768px) {
       .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .metrics-note {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      max-width: none;
+      min-height: 1.25em;
     }
 
     .metric-card {
@@ -383,14 +389,18 @@
           </div>
 
           <div class="metric-card">
-            <div class="metric-card__label">Members Waiting</div>
-            <div class="metric-card__value" id="m-members">
+            <div class="metric-card__label">Interview Dates</div>
+            <div class="metric-card__value" id="m-interview-range">
               <span class="skel skel--val" aria-hidden="true"></span>
             </div>
-            <div class="metric-card__sub">In the London pipeline</div>
+            <div class="metric-card__sub" id="m-interview-range-sub"></div>
           </div>
 
         </div>
+
+        <p class="metrics-note" id="m-members-note">
+          <span class="skel skel--line skel--narrow" aria-hidden="true"></span>
+        </p>
       </div>
     </section>
 
@@ -457,23 +467,24 @@
 
         <div class="table-wrapper" role="region" aria-labelledby="drops-hd" tabindex="0">
           <table class="table table--striped">
-            <caption class="sr-only">Interview Letter drop history: drop date, day of week, time of drop, DQ date range covered, gap since previous drop, and number of ILs issued</caption>
+            <caption class="sr-only">Interview Letter drop history: drop date, day of week, time of drop, DQ date range covered, interview date range scheduled, gap since previous drop, and number of ILs issued</caption>
             <thead>
               <tr>
                 <th scope="col">Drop Date</th>
                 <th scope="col">Day</th>
                 <th scope="col">Time (London)</th>
                 <th scope="col">DQ Dates Covered</th>
+                <th scope="col">Interview Dates</th>
                 <th scope="col">Gap Since Previous</th>
                 <th scope="col">ILs Issued</th>
               </tr>
             </thead>
             <tbody id="drops-tbody">
-              <tr aria-hidden="true"><td colspan="5"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="6"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
             </tbody>
           </table>
         </div>
@@ -655,13 +666,13 @@
       outcomes: { approved:98, not_approved:3, cleared:5, denied:1, visa_pause:3, total:110, approval_pct:94 },
       stage_avgs: { approval_to_welcome:6, welcome_to_fees:8, fees_to_docs:19, docs_to_dq:19, il_to_medical:46, interview_to_passport:6 },
       il_schedule: {
-        last_il_drop:'2026-05-29', latest_dq_with_il:'2026-03-16', estimated_next_window:'2026-06-21 – 2026-07-01', avg_gap_days:21,
+        last_il_drop:'2026-05-29', latest_dq_with_il:'2026-03-16', estimated_next_window:'2026-06-21 to 2026-07-01', avg_gap_days:21,
         recent_drops: [
-          { date:'2026-05-29', time:'14:52', gap:35, dq_from:'2025-11-17', dq_to:'2026-03-16', dq_days:120, il_count:21 },
-          { date:'2026-04-17', time:'16:02', gap:18, dq_from:'2025-09-30', dq_to:'2026-02-14', dq_days:138, il_count:11 },
-          { date:'2026-03-30', time:'00:00', gap:26, dq_from:'2025-12-30', dq_to:'2026-01-27', dq_days:29, il_count:16 },
-          { date:'2026-03-04', time:'14:08', gap:15, dq_from:'2025-12-17', dq_to:'2025-12-22', dq_days:6, il_count:3 },
-          { date:'2026-02-13', time:'13:51', gap:29, dq_from:'2025-10-24', dq_to:'2026-01-26', dq_days:95, il_count:13 },
+          { date:'2026-05-29', time:'14:52', gap:35, dq_from:'2025-11-17', dq_to:'2026-03-16', dq_days:120, il_count:21, iv_from:'2026-07-01', iv_to:'2026-07-29', iv_count:21 },
+          { date:'2026-04-17', time:'16:02', gap:18, dq_from:'2025-09-30', dq_to:'2026-02-14', dq_days:138, il_count:11, iv_from:'2026-06-01', iv_to:'2026-06-29', iv_count:12 },
+          { date:'2026-03-30', time:'00:00', gap:26, dq_from:'2025-12-30', dq_to:'2026-01-27', dq_days:29, il_count:16, iv_from:'2026-05-01', iv_to:'2026-07-23', iv_count:16 },
+          { date:'2026-03-04', time:'14:08', gap:15, dq_from:'2025-12-17', dq_to:'2025-12-22', dq_days:6, il_count:3, iv_from:'2026-04-08', iv_to:'2026-04-29', iv_count:3 },
+          { date:'2026-02-13', time:'13:51', gap:29, dq_from:'2025-10-24', dq_to:'2026-01-26', dq_days:95, il_count:13, iv_from:'2026-04-01', iv_to:'2026-04-29', iv_count:12 },
         ],
       },
     };
@@ -679,6 +690,7 @@
       const drops = (sched.recent_drops || []).map(r => ({
         drop_date: r.date, gap_days: r.gap, drop_time: r.time,
         dq_date_from: r.dq_from, dq_date_to: r.dq_to, il_count: r.il_count,
+        iv_date_from: r.iv_from, iv_date_to: r.iv_to, iv_count: r.iv_count,
       }));
       const win = (sched.estimated_next_window || '').split(' to ').map(s => s.trim());
       const o = d.outcomes || {};
@@ -706,6 +718,18 @@
       if (!s) return '—';
       const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
       return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric', timeZone:'UTC' });
+    }
+    function fmtRange(from, to) {
+      if (!from && !to) return '—';
+      if (!from || !to || from === to) return fmtDate(from || to);
+      const a = new Date(from + 'T00:00:00Z');
+      const b = new Date(to + 'T00:00:00Z');
+      // Same year: "15 Jul – 2 Aug 2026"; otherwise full dates on both sides
+      if (a.getUTCFullYear() === b.getUTCFullYear()) {
+        const short = a.toLocaleDateString('en-GB', { day:'numeric', month:'short', timeZone:'UTC' });
+        return `${short} – ${fmtDate(to)}`;
+      }
+      return `${fmtDate(from)} – ${fmtDate(to)}`;
     }
     function fmtMonth(s) {
       if (!s) return '—';
@@ -803,8 +827,16 @@
       set('m-next-window', ns ? fmtDate(ns) : '—');
       txt('m-next-window-sub', ns ? (ne ? `to ${fmtDate(ne)}` : 'Estimated') : 'Not yet estimated');
       const w = stats?.members_waiting;
-      set('m-members', w != null ? w.toLocaleString('en-GB') : '—');
+      txt('m-members-note', w != null
+        ? `Community data from ${w.toLocaleString('en-GB')} members in the London pipeline.`
+        : '');
       set('il-latest-dq', fmtDate(stats?.latest_dq_with_il));
+      // Interview date range from the most recent drop with reported interviews
+      const ivDrop = drops?.find(d => d.iv_date_from);
+      set('m-interview-range', ivDrop ? fmtRange(ivDrop.iv_date_from, ivDrop.iv_date_to) : '—');
+      txt('m-interview-range-sub', ivDrop
+        ? `From the ${fmtDate(ivDrop.drop_date || ivDrop.recorded_at)} IL drop`
+        : 'Not yet reported');
     }
 
     function renderPipeline(stats) {
@@ -827,6 +859,7 @@
           <td>${dayName}</td>
           <td>${d.drop_time || '—'}</td>
           <td>${d.dq_date_from ? fmtDate(d.dq_date_from) : '—'} – ${d.dq_date_to ? fmtDate(d.dq_date_to) : '—'}</td>
+          <td>${fmtRange(d.iv_date_from, d.iv_date_to)}</td>
           <td>${d.gap_days != null ? d.gap_days + ' days' : '—'}</td>
           <td>${d.il_count != null ? Number(d.il_count).toLocaleString('en-GB') : '—'}</td>
         </tr>`;
