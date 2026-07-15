@@ -210,6 +210,67 @@ export default async function handler(req, res) {
     interview_to_passport_med: stageStats(deduped, 'interview', 'passport_in_hand', 60),
   }
 
+  // --- Entry airport distribution ---
+  // entry_location is free text and arrives in several shapes:
+  //   "Boston (BOS)", "Boston, MA (BOS)", '["Austin, TX (AUS)"]', "[]",
+  //   "Dublin (pre-clearance)", "Dublin, Ireland (DUB); Cleveland, OH (CLE)",
+  //   "Phoenix Sky Harbor, Arizona"
+  // Normalise to a canonical "City (CODE)" label. Where multiple locations are
+  // listed, the first is where entry was cleared — pre-clearance (Dublin,
+  // Shannon, Montreal etc.) counts as the official port of entry.
+  const AIRPORT_NAMES = {
+    DUB: 'Dublin pre-clearance', SNN: 'Shannon pre-clearance', YUL: 'Montreal pre-clearance',
+    ATL: 'Atlanta', AUS: 'Austin', BNA: 'Nashville', BOS: 'Boston', BWI: 'Baltimore',
+    CLE: 'Cleveland', CLT: 'Charlotte', CVG: 'Cincinnati', DEN: 'Denver',
+    DFW: 'Dallas/Fort Worth', DTW: 'Detroit', EWR: 'Newark', IAD: 'Washington Dulles',
+    IAH: 'Houston', JFK: 'New York JFK', LAS: 'Las Vegas', LAX: 'Los Angeles',
+    MCO: 'Orlando', MIA: 'Miami', MSP: 'Minneapolis', ORD: "Chicago O'Hare",
+    PDX: 'Portland', PHL: 'Philadelphia', PHX: 'Phoenix', PIT: 'Pittsburgh',
+    RDU: 'Raleigh-Durham', SAN: 'San Diego', SEA: 'Seattle', SFO: 'San Francisco',
+    SJU: 'San Juan', SLC: 'Salt Lake City', STL: 'St Louis', TPA: 'Tampa',
+  }
+  // Fallbacks for entries with no IATA code in the text
+  const AIRPORT_KEYWORDS = [
+    ['dublin', 'DUB'], ['shannon', 'SNN'], ['montreal', 'YUL'],
+    ['boston', 'BOS'], ['seattle', 'SEA'], ['phoenix', 'PHX'], ['atlanta', 'ATL'],
+    ['los angeles', 'LAX'], ['chicago', 'ORD'], ['dulles', 'IAD'], ['newark', 'EWR'],
+    ['jfk', 'JFK'], ['dallas', 'DFW'], ['denver', 'DEN'], ['orlando', 'MCO'],
+    ['san juan', 'SJU'], ['austin', 'AUS'], ['philadelphia', 'PHL'], ['houston', 'IAH'],
+    ['miami', 'MIA'], ['san francisco', 'SFO'],
+  ]
+
+  const normalizeEntryLocation = (raw) => {
+    if (!raw) return null
+    let s = String(raw).trim()
+    // Some submissions arrive as a JSON array string
+    if (s.startsWith('[')) {
+      try {
+        const arr = JSON.parse(s)
+        s = Array.isArray(arr) ? String(arr[0] || '') : s
+      } catch { /* keep raw string */ }
+      s = s.trim()
+    }
+    if (!s) return null
+    // Multiple locations: first one is where entry was cleared
+    s = s.split(';')[0].trim()
+    const codeMatch = s.toUpperCase().match(/\(([A-Z]{3})\)/)
+    let code = codeMatch ? codeMatch[1] : null
+    if (!code) {
+      const lower = s.toLowerCase()
+      for (const [kw, c] of AIRPORT_KEYWORDS) {
+        if (lower.includes(kw)) { code = c; break }
+      }
+    }
+    if (!code) return s // unrecognised — keep the raw text so it still counts
+    return AIRPORT_NAMES[code] ? `${AIRPORT_NAMES[code]} (${code})` : code
+  }
+
+  const entryAirports = {}
+  for (const r of deduped) {
+    const label = normalizeEntryLocation(r.entry_location)
+    if (label) entryAirports[label] = (entryAirports[label] || 0) + 1
+  }
+
   // --- IL drop dates — derived from member interview_letter timestamps ---
   // Cluster members into drops: any ILs within 2 days of each other = same drop.
   // interview_letter is timestamptz so we have exact time of each drop from the data.
@@ -514,6 +575,7 @@ export default async function handler(req, res) {
       count: deduped.filter(r => r.interview_expedited).length,
     },
 
+    entry_airports: entryAirports,
     state_distribution: deduped
       .filter(r => r.us_state && r.us_state.trim())
       .reduce((acc, r) => {
