@@ -255,6 +255,25 @@
     </div>
   </div>
 
+  <!-- TOP ENTRY AIRPORTS -->
+  <div class="map-section" style="margin-bottom:40px">
+    <div class="map-header">
+      <div class="map-header-left">
+        <h2>🛬 Entry airports</h2>
+        <p>Where members first entered the US and activated their green cards. Pre-clearance (Dublin, Shannon) counts as the port of entry.</p>
+      </div>
+      <div class="map-stats">
+        <div class="map-stat">
+          <div class="map-stat-num" id="airport-total">—</div>
+          <div class="map-stat-label">members with entry data</div>
+        </div>
+      </div>
+    </div>
+    <div class="state-board" id="airport-board" style="margin-top:0;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+      <div style="font-size:13px;color:var(--muted);">Loading...</div>
+    </div>
+  </div>
+
   <!-- TRACKER MEMO -->
   <div class="tracker-memo">
     <span style="font-size:15px">✏️</span>
@@ -1006,19 +1025,40 @@ const colorScale = (count, max) => {
   return `rgba(${r},${g},${b},${a})`;
 };
 
-async function buildMap() {
-  // Load US TopoJSON
-  const us = await d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
-  const stateFeatures = topojson.feature(us, us.objects.states).features;
-  const stateMesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
+function renderAirports(airports) {
+  const board = document.getElementById('airport-board');
+  const sorted = Object.entries(airports)
+    .filter(([,c]) => c > 0)
+    .sort(([,a],[,b]) => b - a);
+  const total = sorted.reduce((sum, [,c]) => sum + c, 0);
+  document.getElementById('airport-total').textContent = total || '—';
 
-  // Load community data
+  if (sorted.length === 0) {
+    board.innerHTML = '<div style="font-size:13px;color:var(--muted);grid-column:1/-1">No entry airport data yet — be the first to submit yours.</div>';
+    return;
+  }
+  board.innerHTML = sorted.map(([name, count], i) => `
+    <div class="state-row${i < 3 ? ' top' : ''}">
+      <span class="state-rank">${i+1}</span>
+      <span class="state-name">${name}</span>
+      <span class="state-count">${count}</span>
+    </div>`).join('');
+}
+
+async function buildMap() {
+  // Load community data first — airport stats render even if the map CDN fails
   let dist = {};
   try {
     const res = await fetch('/api/data');
     const data = await res.json();
     dist = data.state_distribution || {};
+    renderAirports(data.entry_airports || {});
   } catch(e) { console.warn('API error', e); }
+
+  // Load US TopoJSON
+  const us = await d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
+  const stateFeatures = topojson.feature(us, us.objects.states).features;
+  const stateMesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
 
   // Normalise — map full state names to counts
   const fipsByName = {};
