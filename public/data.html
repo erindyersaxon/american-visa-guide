@@ -491,6 +491,50 @@
       </div>
     </section>
 
+    <!-- ═══ DQ BACKLOG — AWAITING IL ═══ -->
+    <section class="content-section" aria-labelledby="backlog-hd">
+      <div class="container">
+        <div class="section-hd">
+          <h2 class="section-hd__title" id="backlog-hd">DQ Backlog — Awaiting Interview Letters</h2>
+          <p class="section-hd__sub">Tracked members who are Documentarily Qualified but haven't received an Interview Letter yet, grouped by DQ month with the drop expected to reach them.</p>
+        </div>
+
+        <div class="passport-grid" style="margin-bottom: var(--space-5);">
+          <div class="metric-card">
+            <div class="metric-card__label">Members Awaiting IL</div>
+            <div class="metric-card__value" id="bk-total"><span class="skel skel--val" aria-hidden="true"></span></div>
+            <div class="metric-card__sub" id="bk-total-sub"></div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__label">Oldest Waiting DQ</div>
+            <div class="metric-card__value" id="bk-oldest"><span class="skel skel--val" aria-hidden="true"></span></div>
+            <div class="metric-card__sub">First in line for the next drop</div>
+          </div>
+        </div>
+
+        <div class="table-wrapper" role="region" aria-labelledby="backlog-hd" tabindex="0">
+          <table class="table table--striped">
+            <caption class="sr-only">Members Documentarily Qualified and awaiting an Interview Letter: DQ month, number waiting, DQ date range, and the estimated IL drop expected to cover them</caption>
+            <thead>
+              <tr>
+                <th scope="col">DQ Month</th>
+                <th scope="col" class="num">Members Waiting</th>
+                <th scope="col">DQ Dates</th>
+                <th scope="col">Expected Batch</th>
+              </tr>
+            </thead>
+            <tbody id="backlog-tbody">
+              <tr aria-hidden="true"><td colspan="4"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="4"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="4"><span class="skel skel--row" style="display:block;"></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="section-hd__sub" id="bk-note" style="margin-top: var(--space-4);"></p>
+      </div>
+    </section>
+
     <!-- ═══ IL → INTERVIEW SCHEDULING TABLE ═══ -->
     <section class="content-section" aria-labelledby="sched-hd">
       <div class="container">
@@ -1247,6 +1291,92 @@
       }).join('');
     }
 
+    /* How fast the IL frontier (furthest DQ date with an IL) advances, in
+       DQ-days per calendar day — same measurement the DQ → Interview
+       calculator uses, on the cumulative furthest-DQ-covered across drops. */
+    function frontierRate(drops) {
+      let cum = null;
+      const pts = [];
+      for (let i = drops.length - 1; i >= 0; i--) { // oldest first
+        const d = drops[i];
+        if (!d.dq_date_to || !d.drop_date) continue;
+        if (!cum || d.dq_date_to > cum) cum = d.dq_date_to;
+        pts.push({ date: d.drop_date, dqTo: cum });
+      }
+      if (pts.length < 2) return null;
+      const lastPt = pts[pts.length - 1];
+      let basePt = pts[0];
+      for (const p of pts) {
+        if (calcDaysBetweenISO(p.date, lastPt.date) <= 180) { basePt = p; break; }
+      }
+      if (calcDaysBetweenISO(basePt.date, lastPt.date) < 30) basePt = pts[0];
+      const span = calcDaysBetweenISO(basePt.date, lastPt.date);
+      const adv  = calcDaysBetweenISO(basePt.dqTo, lastPt.dqTo);
+      if (span < 30 || adv <= 0) return null;
+      return Math.min(Math.max(adv / span, 0.15), 3);
+    }
+
+    /* Which drop should reach a waiting DQ month: project how many days the
+       frontier needs to advance to cover the month's midpoint, then convert
+       to drops using the average gap between drops. */
+    function expectedBatchLabel(m, sched, rate) {
+      if (!sched?.latest_dq_with_il || !sched?.last_il_drop) return null;
+      const frontier = String(sched.latest_dq_with_il).slice(0, 10);
+      const gap = sched.avg_gap_days || 28;
+      const win = (sched.estimated_next_window || '').split(' to ').map(s => s.trim());
+      const ws = calcNextEmbassyDayISO(win[0] || calcAddDaysISO(sched.last_il_drop, 23));
+      const we = calcNextEmbassyDayISO(win[1] || calcAddDaysISO(sched.last_il_drop, 33));
+      const rep = calcAddDaysISO(m.dq_from, Math.round(calcDaysBetweenISO(m.dq_from, m.dq_to) / 2));
+      if (rep <= frontier) return `Next drop (est. ${fmtRange(ws, we)})`;
+      if (!rate) return null;
+      const daysOut = Math.round(calcDaysBetweenISO(frontier, rep) / rate);
+      const dropsAway = Math.max(1, Math.round(daysOut / gap));
+      if (dropsAway === 1) return `Next drop (est. ${fmtRange(ws, we)})`;
+      const est = calcNextEmbassyDayISO(calcAddDaysISO(sched.last_il_drop, daysOut));
+      if (dropsAway === 2) return `Next drop or the one after (est. ${fmtMonth(est)})`;
+      return `≈${dropsAway} drops away (est. ${fmtMonth(est)})`;
+    }
+
+    function renderAwaiting(d, drops) {
+      const a = d.awaiting_il;
+      const tbody = document.getElementById('backlog-tbody');
+      if (!a || !Array.isArray(a.months)) {
+        set('bk-total', '—');
+        txt('bk-total-sub', 'Needs live data');
+        set('bk-oldest', '—');
+        if (tbody) tbody.innerHTML = '<tr><td colspan="4">Backlog counts need live data — check back shortly.</td></tr>';
+        return;
+      }
+
+      set('bk-total', a.total.toLocaleString('en-GB'));
+      txt('bk-total-sub', a.frontier
+        ? `DQ dates after ${fmtDate(a.frontier)} — the latest DQ with an IL`
+        : 'Tracked members without an IL');
+      set('bk-oldest', a.months.length ? fmtDate(a.months[0].dq_from) : '—');
+
+      if (tbody) {
+        if (!a.months.length) {
+          tbody.innerHTML = '<tr><td colspan="4">No tracked members are currently waiting — every recorded DQ has an Interview Letter.</td></tr>';
+        } else {
+          const rate = frontierRate(drops);
+          tbody.innerHTML = a.months.map(m => `<tr>
+            <td>${fmtMonth(m.month + '-01')}</td>
+            <td class="num">${m.count.toLocaleString('en-GB')}</td>
+            <td>${fmtRange(m.dq_from, m.dq_to)}</td>
+            <td>${expectedBatchLabel(m, d.il_schedule, rate) || '—'}</td>
+          </tr>`).join('');
+        }
+      }
+
+      const note = document.getElementById('bk-note');
+      if (note) {
+        const stale = a.stale_count
+          ? ` ${a.stale_count.toLocaleString('en-GB')} other member${a.stale_count === 1 ? ' has a DQ date' : 's have DQ dates'} already covered by past drops but no IL recorded — likely just not updated yet, so they're excluded from the counts above.`
+          : '';
+        note.textContent = `Counts cover tracked community members only — the embassy's real queue is larger. Expected batches are estimates from the observed drop cadence, not guarantees.${stale}`;
+      }
+    }
+
     function renderTrends(trends) {
       const t = trends?.dq_to_il;
       if (!t || t.all_time == null) return;
@@ -1328,6 +1458,7 @@
       renderMetrics(drops, stats);
       renderPipeline(stats);
       renderDropTable(drops);
+      renderAwaiting(d, drops);
       renderTrends(d.trends);
       renderOutcomes(stats);
       renderPassport(stats);
