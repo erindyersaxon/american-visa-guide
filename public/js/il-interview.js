@@ -9,6 +9,8 @@
   'use strict';
 
   const ROWS = [
+    { il: 'July 2026',        interview: 'September 2026' },
+    { il: 'June 2026',        interview: 'August 2026' },
     { il: 'May 2026',         interview: 'July 2026' },
     { il: 'April 2026',       interview: 'June 2026' },
     { il: 'Late March 2026',  interview: 'May 2026' },
