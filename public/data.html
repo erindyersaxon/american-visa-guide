@@ -736,9 +736,34 @@
         '2028-01-03', '2028-04-14', '2028-04-17', '2028-05-01', '2028-05-29', '2028-08-28', '2028-12-25', '2028-12-26'
       ]);
 
+      function calcToISO(date) {
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+      }
+
       function calcIsBankHoliday(date) {
-        const iso = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-        return calcUkBankHolidays.has(iso);
+        return calcUkBankHolidays.has(calcToISO(date));
+      }
+
+      /* The embassy also closes for US federal holidays (observed dates,
+         2025–2028) — no interviews on these, on UK bank holidays, or weekends. */
+      const calcUsFederalHolidays = new Set([
+        '2025-01-01', '2025-01-20', '2025-02-17', '2025-05-26', '2025-06-19', '2025-07-04', '2025-09-01', '2025-10-13', '2025-11-11', '2025-11-27', '2025-12-25',
+        '2026-01-01', '2026-01-19', '2026-02-16', '2026-05-25', '2026-06-19', '2026-07-03', '2026-09-07', '2026-10-12', '2026-11-11', '2026-11-26', '2026-12-25',
+        '2027-01-01', '2027-01-18', '2027-02-15', '2027-05-31', '2027-06-18', '2027-07-05', '2027-09-06', '2027-10-11', '2027-11-11', '2027-11-25', '2027-12-24', '2027-12-31',
+        '2028-01-17', '2028-02-21', '2028-05-29', '2028-06-19', '2028-07-04', '2028-09-04', '2028-10-09', '2028-11-10', '2028-11-23', '2028-12-25'
+      ]);
+
+      function calcIsEmbassyClosed(date) {
+        const day = date.getDay();
+        if (day === 0 || day === 6) return true;
+        const iso = calcToISO(date);
+        return calcUkBankHolidays.has(iso) || calcUsFederalHolidays.has(iso);
+      }
+
+      function calcNextEmbassyDay(date) {
+        const d = new Date(date);
+        while (calcIsEmbassyClosed(d)) d.setDate(d.getDate() + 1);
+        return d;
       }
 
       function calcIsMbeClosed(date) {
@@ -791,7 +816,11 @@
       function calcAddDaysISO(iso, days) {
         const d = calcParseISO(iso);
         d.setDate(d.getDate() + days);
-        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+        return calcToISO(d);
+      }
+
+      function calcNextEmbassyDayISO(iso) {
+        return calcToISO(calcNextEmbassyDay(calcParseISO(iso)));
       }
 
       function calcMedianOf(arr) {
@@ -829,9 +858,10 @@
 
         const latestDq = sched.latest_dq_with_il;
         const gapDays = sched.avg_gap_days || 28;
+        // IL drops go out on embassy working days too — snap window bounds
         const win = (sched.estimated_next_window || '').split(' to ').map(s => s.trim());
-        const nextWinStart = win[0] || calcAddDaysISO(sched.last_il_drop, 23);
-        const nextWinEnd   = win[1] || calcAddDaysISO(sched.last_il_drop, 33);
+        const nextWinStart = calcNextEmbassyDayISO(win[0] || calcAddDaysISO(sched.last_il_drop, 23));
+        const nextWinEnd   = calcNextEmbassyDayISO(win[1] || calcAddDaysISO(sched.last_il_drop, 33));
 
         // The backlog has already reached this DQ date
         if (dqIso <= latestDq) {
@@ -887,6 +917,8 @@
         // An IL can't arrive before the next expected drop
         if (ilEarly < nextWinStart) ilEarly = nextWinStart;
         if (ilLate < nextWinEnd) ilLate = nextWinEnd;
+        ilEarly = calcNextEmbassyDayISO(ilEarly);
+        ilLate = calcNextEmbassyDayISO(ilLate);
 
         return {
           ivEarly: calcAddDaysISO(ilEarly, offFrom),
@@ -911,10 +943,15 @@
 
         const proj = calcProjectDQToInterview(data, dqInput);
         if (proj) {
-          const midDays = Math.round(calcDaysBetweenISO(proj.ivEarly, proj.ivLate) / 2);
-          document.getElementById('dq-interview-date').textContent = calcFmtISO(calcAddDaysISO(proj.ivEarly, midDays));
+          // Interviews only happen when the embassy is open — snap each
+          // predicted date forward past weekends and US/UK holidays.
+          const ivEarly = calcNextEmbassyDayISO(proj.ivEarly);
+          const ivLate = calcNextEmbassyDayISO(proj.ivLate);
+          const midDays = Math.round(calcDaysBetweenISO(ivEarly, ivLate) / 2);
+          const expected = calcNextEmbassyDayISO(calcAddDaysISO(ivEarly, midDays));
+          document.getElementById('dq-interview-date').textContent = calcFmtISO(expected);
           document.getElementById('dq-il-estimate').textContent = proj.ilLine;
-          document.getElementById('dq-range').textContent = `Range: ${calcFmtISO(proj.ivEarly)} – ${calcFmtISO(proj.ivLate)}`;
+          document.getElementById('dq-range').textContent = `Range: ${calcFmtISO(ivEarly)} – ${calcFmtISO(ivLate)}`;
           document.getElementById('dq-confidence').textContent = proj.methodology;
           document.getElementById('dq-result').style.display = 'block';
           return;
@@ -928,9 +965,9 @@
         }
 
         const dqDate = new Date(dqInput);
-        const expectedDate = calcAddDays(dqDate, stats.median);
-        const minDate = calcAddDays(dqDate, stats.min);
-        const maxDate = calcAddDays(dqDate, stats.max);
+        const expectedDate = calcNextEmbassyDay(calcAddDays(dqDate, stats.median));
+        const minDate = calcNextEmbassyDay(calcAddDays(dqDate, stats.min));
+        const maxDate = calcNextEmbassyDay(calcAddDays(dqDate, stats.max));
 
         document.getElementById('dq-interview-date').textContent = calcFormatDate(expectedDate);
         document.getElementById('dq-il-estimate').textContent = '';
