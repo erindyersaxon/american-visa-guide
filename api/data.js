@@ -400,6 +400,33 @@ export default async function handler(req, res) {
     .filter(r => r.interview)
     .sort((a, b) => new Date(b.interview) - new Date(a.interview))[0]?.interview || null
 
+  // --- DQ backlog: members awaiting an Interview Letter ---
+  // A row with a DQ date but no IL means either genuinely waiting, or the
+  // member received their IL and never updated their submission. DQ dates
+  // on/before the IL frontier (latest DQ known to have an IL) were covered
+  // by past drops, so those rows count as stale rather than waiting.
+  const frontierDq = latestDQWithIL ? String(latestDQWithIL).slice(0, 10) : null
+  const dqNoIl = standard
+    .filter(r => r.dq_date && !r.interview_letter)
+    .map(r => String(r.dq_date).slice(0, 10))
+  const waitingDqs = frontierDq ? dqNoIl.filter(dq => dq > frontierDq) : dqNoIl
+  const staleDqNoIl = dqNoIl.length - waitingDqs.length
+
+  const awaitingByMonth = {}
+  for (const dq of waitingDqs) {
+    const m = dq.slice(0, 7)
+    const cur = awaitingByMonth[m]
+    if (!cur) {
+      awaitingByMonth[m] = { month: m, count: 1, dq_from: dq, dq_to: dq }
+    } else {
+      cur.count++
+      if (dq < cur.dq_from) cur.dq_from = dq
+      if (dq > cur.dq_to) cur.dq_to = dq
+    }
+  }
+  const awaitingMonths = Object.values(awaitingByMonth)
+    .sort((a, b) => a.month.localeCompare(b.month))
+
   // --- Trend calculation ---
   const now = new Date()
   const windowFilter = (months) => {
@@ -563,6 +590,12 @@ export default async function handler(req, res) {
       dq_to_interview_stats: statsFromArray(dqToInterview),
       passport_pickup_stats: statsFromArray(pickupDays),
       passport_mail_stats:   statsFromArray(mailDays),
+    },
+    awaiting_il: {
+      total:       waitingDqs.length,
+      stale_count: staleDqNoIl,
+      frontier:    frontierDq,
+      months:      awaitingMonths,
     },
     il_schedule: {
       latest_dq_with_il:     latestDQWithIL,
