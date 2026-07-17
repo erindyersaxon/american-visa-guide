@@ -302,6 +302,7 @@ export default async function handler(req, res) {
   // these entries supply the correct displayed time for those drops.
   const observedTimes = {
     '2026-06-29': '15:02',
+    '2026-05-29': '14:52',
     '2026-05-28': '14:52',
     '2026-04-17': '16:02',
     '2026-03-31': '15:16',
@@ -369,6 +370,7 @@ export default async function handler(req, res) {
 
   // --- IL to Interview month lookup (observed pattern) ---
   const ilToInterviewMonths = [
+    { il_month: '2026-07', interview_month: '2026-09' },
     { il_month: '2026-06', interview_month: '2026-08' },
     { il_month: '2026-05', interview_month: '2026-07' },
     { il_month: '2026-04', interview_month: '2026-06' },
