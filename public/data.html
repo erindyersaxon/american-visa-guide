@@ -725,6 +725,32 @@
         return result;
       }
 
+      /* MBE is closed on weekends and UK bank holidays, so pickup timelines are
+         counted in working days only. England & Wales bank holidays through 2028. */
+      const calcUkBankHolidays = new Set([
+        '2025-01-01', '2025-04-18', '2025-04-21', '2025-05-05', '2025-05-26', '2025-08-25', '2025-12-25', '2025-12-26',
+        '2026-01-01', '2026-04-03', '2026-04-06', '2026-05-04', '2026-05-25', '2026-08-31', '2026-12-25', '2026-12-28',
+        '2027-01-01', '2027-03-26', '2027-03-29', '2027-05-03', '2027-05-31', '2027-08-30', '2027-12-27', '2027-12-28',
+        '2028-01-03', '2028-04-14', '2028-04-17', '2028-05-01', '2028-05-29', '2028-08-28', '2028-12-25', '2028-12-26'
+      ]);
+
+      function calcIsMbeClosed(date) {
+        const day = date.getDay();
+        if (day === 0 || day === 6) return true;
+        const iso = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        return calcUkBankHolidays.has(iso);
+      }
+
+      function calcAddWorkingDays(date, days) {
+        const result = new Date(date);
+        let remaining = days;
+        while (remaining > 0) {
+          result.setDate(result.getDate() + 1);
+          if (!calcIsMbeClosed(result)) remaining--;
+        }
+        return result;
+      }
+
       function calcFormatDate(date) {
         return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
       }
@@ -784,14 +810,16 @@
           return;
         }
 
-        const expectedDate = calcAddDays(interviewDate, stats.median);
-        const minDate = calcAddDays(interviewDate, stats.min);
-        const maxDate = calcAddDays(interviewDate, stats.max);
+        const addDays = method === 'Pickup' ? calcAddWorkingDays : calcAddDays;
+        const expectedDate = addDays(interviewDate, stats.median);
+        const minDate = addDays(interviewDate, stats.min);
+        const maxDate = addDays(interviewDate, stats.max);
         const methodLabel = method === 'Pickup' ? 'MBE pickup' : 'home delivery';
+        const dayLabel = method === 'Pickup' ? 'working days' : 'days';
 
         document.getElementById('passport-date').textContent = calcFormatDate(expectedDate);
         document.getElementById('passport-range').textContent = `Range: ${calcFormatDate(minDate)} – ${calcFormatDate(maxDate)}`;
-        document.getElementById('passport-confidence').textContent = `Based on ${stats.n} ${methodLabel} cases (median ${stats.median} days)`;
+        document.getElementById('passport-confidence').textContent = `Based on ${stats.n} ${methodLabel} cases (median ${stats.median} ${dayLabel})`;
         document.getElementById('passport-result').style.display = 'block';
       }
     </script>
