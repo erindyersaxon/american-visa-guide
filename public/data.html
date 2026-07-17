@@ -1332,9 +1332,19 @@
       const daysOut = Math.round(calcDaysBetweenISO(frontier, rep) / rate);
       const dropsAway = Math.max(1, Math.round(daysOut / gap));
       if (dropsAway === 1) return `Next drop (est. ${fmtRange(ws, we)})`;
-      const est = calcNextEmbassyDayISO(calcAddDaysISO(sched.last_il_drop, daysOut));
-      if (dropsAway === 2) return `Next drop or the one after (est. ${fmtMonth(est)})`;
-      return `≈${dropsAway} drops away (est. ${fmtMonth(est)})`;
+      // Estimated IL window for later groups: centre the window on the
+      // projected frontier arrival, half a drop-gap either side — the same
+      // window shape the DQ → Interview calculator uses. Re-anchors to the
+      // newest drop each load, so it tightens as drops arrive.
+      const half = Math.ceil(gap / 2);
+      let early = calcAddDaysISO(sched.last_il_drop, daysOut - half);
+      let late  = calcAddDaysISO(sched.last_il_drop, daysOut + half);
+      // An IL can't arrive before the next expected drop
+      if (early < ws) early = ws;
+      if (late < we) late = we;
+      early = calcNextEmbassyDayISO(early);
+      late  = calcNextEmbassyDayISO(late);
+      return `Est. ${fmtRange(early, late)}`;
     }
 
     function renderAwaiting(d, drops) {
