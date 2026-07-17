@@ -667,6 +667,7 @@
             <div id="dq-result" style="display: none; padding: var(--space-4); background: rgba(79, 133, 115, 0.08); border-radius: 6px; border-left: 3px solid var(--color-primary);">
               <div style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 6px;">Expected interview</div>
               <div style="font-size: 18px; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-3);" id="dq-interview-date"></div>
+              <div style="font-size: 12px; color: var(--color-text); margin-bottom: 6px;" id="dq-il-estimate"></div>
               <div style="font-size: 12px; color: var(--color-text-secondary);" id="dq-range"></div>
               <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 8px;" id="dq-confidence"></div>
             </div>
@@ -773,6 +774,128 @@
         return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
       }
 
+      /* ISO date-string helpers — all arithmetic in local time at noon so
+         formatting never shifts a day across timezones. */
+      function calcParseISO(iso) {
+        return new Date(iso + 'T12:00:00');
+      }
+
+      function calcFmtISO(iso) {
+        return calcFormatDate(calcParseISO(iso));
+      }
+
+      function calcDaysBetweenISO(a, b) {
+        return Math.round((calcParseISO(b) - calcParseISO(a)) / 86400000);
+      }
+
+      function calcAddDaysISO(iso, days) {
+        const d = calcParseISO(iso);
+        d.setDate(d.getDate() + days);
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+      }
+
+      function calcMedianOf(arr) {
+        const v = arr.slice().sort((a, b) => a - b);
+        if (!v.length) return null;
+        const mid = Math.floor(v.length / 2);
+        return v.length % 2 ? v[mid] : Math.round((v[mid - 1] + v[mid]) / 2);
+      }
+
+      /* Structural DQ → Interview projection.
+         London schedules in two observable steps: Interview Letters go out in
+         discrete drops that clear the DQ backlog oldest-first, and each drop's
+         interviews land a fairly stable number of days after the drop. Walking
+         those two steps gives a far tighter range than the all-time min–max of
+         flat DQ→interview day counts. Returns null when drop data is too thin,
+         in which case the caller falls back to the flat statistics. */
+      function calcProjectDQToInterview(data, dqIso) {
+        const sched = data.il_schedule;
+        if (!sched || !Array.isArray(sched.recent_drops) || sched.recent_drops.length < 3
+            || !sched.latest_dq_with_il || !sched.last_il_drop) return null;
+        const drops = sched.recent_drops; // newest first
+
+        // Median days from an IL drop to its earliest/latest scheduled
+        // interview, over the 6 most recent drops with reported interviews.
+        const offFromArr = [], offToArr = [];
+        for (const d of drops) {
+          if (d.date && d.iv_count >= 1 && d.iv_from && d.iv_to) {
+            offFromArr.push(calcDaysBetweenISO(d.date, d.iv_from));
+            offToArr.push(calcDaysBetweenISO(d.date, d.iv_to));
+            if (offFromArr.length >= 6) break;
+          }
+        }
+        const offFrom = offFromArr.length ? calcMedianOf(offFromArr) : 45;
+        const offTo   = offToArr.length   ? calcMedianOf(offToArr)   : 65;
+
+        const latestDq = sched.latest_dq_with_il;
+        const gapDays = sched.avg_gap_days || 28;
+        const win = (sched.estimated_next_window || '').split(' to ').map(s => s.trim());
+        const nextWinStart = win[0] || calcAddDaysISO(sched.last_il_drop, 23);
+        const nextWinEnd   = win[1] || calcAddDaysISO(sched.last_il_drop, 33);
+
+        // The backlog has already reached this DQ date
+        if (dqIso <= latestDq) {
+          const drop = drops.find(d => d.dq_from && d.dq_to && d.dq_from <= dqIso && dqIso <= d.dq_to);
+          if (drop && drop.iv_from && drop.iv_to) {
+            return {
+              ivEarly: drop.iv_from,
+              ivLate: drop.iv_to,
+              ilLine: `Your DQ date falls inside the ${calcFmtISO(drop.date)} IL drop.`,
+              methodology: `Interviews from that drop were scheduled ${calcFmtISO(drop.iv_from)} – ${calcFmtISO(drop.iv_to)}. If you haven't received an IL yet, expect the next drop (est. ${calcFmtISO(nextWinStart)} – ${calcFmtISO(nextWinEnd)}).`,
+            };
+          }
+          return {
+            ivEarly: calcAddDaysISO(nextWinStart, offFrom),
+            ivLate:  calcAddDaysISO(nextWinEnd, offTo),
+            ilLine: `IL expected in the next drop, estimated ${calcFmtISO(nextWinStart)} – ${calcFmtISO(nextWinEnd)}.`,
+            methodology: `DQs up to ${calcFmtISO(latestDq)} have already received ILs — if yours hasn't arrived it should come in the next drop. Interviews typically run ${offFrom}–${offTo} days after a drop (based on ${offFromArr.length} recent drops).`,
+          };
+        }
+
+        // Project when the backlog will reach this DQ date. Advancement rate =
+        // DQ-days cleared per calendar day, measured on the cumulative
+        // furthest-DQ-covered across drops (stragglers in later drops can
+        // report older DQ dates, so raw dq_to is not monotonic).
+        let cum = null;
+        const points = [];
+        for (let i = drops.length - 1; i >= 0; i--) { // oldest first
+          const d = drops[i];
+          if (!d.dq_to || !d.date) continue;
+          if (!cum || d.dq_to > cum) cum = d.dq_to;
+          points.push({ date: d.date, dqTo: cum });
+        }
+        if (points.length < 2) return null;
+        const lastPt = points[points.length - 1];
+        // Measure over roughly the last 6 months; stretch further back only if
+        // that window is too short to be meaningful.
+        let basePt = points[0];
+        for (const p of points) {
+          if (calcDaysBetweenISO(p.date, lastPt.date) <= 180) { basePt = p; break; }
+        }
+        if (calcDaysBetweenISO(basePt.date, lastPt.date) < 30) basePt = points[0];
+        const spanDays = calcDaysBetweenISO(basePt.date, lastPt.date);
+        const advanceDays = calcDaysBetweenISO(basePt.dqTo, lastPt.dqTo);
+        if (spanDays < 30 || advanceDays <= 0) return null;
+        const rate = Math.min(Math.max(advanceDays / spanDays, 0.15), 3);
+
+        const daysOut = Math.round(calcDaysBetweenISO(latestDq, dqIso) / rate);
+        const dropsAway = Math.max(1, Math.round(daysOut / gapDays));
+        const ilCenter = calcAddDaysISO(sched.last_il_drop, daysOut);
+        const halfGap = Math.ceil(gapDays / 2);
+        let ilEarly = calcAddDaysISO(ilCenter, -halfGap);
+        let ilLate  = calcAddDaysISO(ilCenter, halfGap);
+        // An IL can't arrive before the next expected drop
+        if (ilEarly < nextWinStart) ilEarly = nextWinStart;
+        if (ilLate < nextWinEnd) ilLate = nextWinEnd;
+
+        return {
+          ivEarly: calcAddDaysISO(ilEarly, offFrom),
+          ivLate:  calcAddDaysISO(ilLate, offTo),
+          ilLine: `IL expected around ${calcFmtISO(ilEarly)} – ${calcFmtISO(ilLate)} (≈${dropsAway} drop${dropsAway > 1 ? 's' : ''} away).`,
+          methodology: `Projected from ${points.length} observed IL drops: the backlog is clearing ~${Math.round(rate * 30)} DQ-days per month (furthest DQ with an IL: ${calcFmtISO(latestDq)}), and interviews typically run ${offFrom}–${offTo} days after a drop.`,
+        };
+      }
+
       async function calculateDQToInterview() {
         const dqInput = document.getElementById('dq-date').value;
         if (!dqInput) {
@@ -781,19 +904,36 @@
         }
 
         const data = await fetchTimelineData();
-        if (!data || !data.calculator || !data.calculator.dq_to_interview_stats) {
+        if (!data) {
           alert('Unable to load timeline data');
           return;
         }
 
-        const stats = data.calculator.dq_to_interview_stats;
-        const dqDate = new Date(dqInput);
+        const proj = calcProjectDQToInterview(data, dqInput);
+        if (proj) {
+          const midDays = Math.round(calcDaysBetweenISO(proj.ivEarly, proj.ivLate) / 2);
+          document.getElementById('dq-interview-date').textContent = calcFmtISO(calcAddDaysISO(proj.ivEarly, midDays));
+          document.getElementById('dq-il-estimate').textContent = proj.ilLine;
+          document.getElementById('dq-range').textContent = `Range: ${calcFmtISO(proj.ivEarly)} – ${calcFmtISO(proj.ivLate)}`;
+          document.getElementById('dq-confidence').textContent = proj.methodology;
+          document.getElementById('dq-result').style.display = 'block';
+          return;
+        }
 
+        // Fallback when drop data is unavailable: flat all-time statistics
+        const stats = data.calculator && data.calculator.dq_to_interview_stats;
+        if (!stats) {
+          alert('Unable to load timeline data');
+          return;
+        }
+
+        const dqDate = new Date(dqInput);
         const expectedDate = calcAddDays(dqDate, stats.median);
         const minDate = calcAddDays(dqDate, stats.min);
         const maxDate = calcAddDays(dqDate, stats.max);
 
         document.getElementById('dq-interview-date').textContent = calcFormatDate(expectedDate);
+        document.getElementById('dq-il-estimate').textContent = '';
         document.getElementById('dq-range').textContent = `Range: ${calcFormatDate(minDate)} – ${calcFormatDate(maxDate)}`;
         document.getElementById('dq-confidence').textContent = `Based on ${stats.n} cases (median ${stats.median} days)`;
         document.getElementById('dq-result').style.display = 'block';
