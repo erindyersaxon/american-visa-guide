@@ -725,8 +725,9 @@
         return result;
       }
 
-      /* MBE is closed on weekends and UK bank holidays, so pickup timelines are
-         counted in working days only. England & Wales bank holidays through 2028. */
+      /* MBE is closed on weekends and UK bank holidays (pickup counts working
+         days), and Royal Mail doesn't deliver on Sundays or bank holidays
+         (mail counts delivery days). England & Wales bank holidays through 2028. */
       const calcUkBankHolidays = new Set([
         '2025-01-01', '2025-04-18', '2025-04-21', '2025-05-05', '2025-05-26', '2025-08-25', '2025-12-25', '2025-12-26',
         '2026-01-01', '2026-04-03', '2026-04-06', '2026-05-04', '2026-05-25', '2026-08-31', '2026-12-25', '2026-12-28',
@@ -734,21 +735,38 @@
         '2028-01-03', '2028-04-14', '2028-04-17', '2028-05-01', '2028-05-29', '2028-08-28', '2028-12-25', '2028-12-26'
       ]);
 
-      function calcIsMbeClosed(date) {
-        const day = date.getDay();
-        if (day === 0 || day === 6) return true;
+      function calcIsBankHoliday(date) {
         const iso = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
         return calcUkBankHolidays.has(iso);
       }
 
-      function calcAddWorkingDays(date, days) {
+      function calcIsMbeClosed(date) {
+        const day = date.getDay();
+        if (day === 0 || day === 6) return true;
+        return calcIsBankHoliday(date);
+      }
+
+      function calcIsMailNonDeliveryDay(date) {
+        if (date.getDay() === 0) return true;
+        return calcIsBankHoliday(date);
+      }
+
+      function calcAddCountedDays(date, days, isSkipped) {
         const result = new Date(date);
         let remaining = days;
         while (remaining > 0) {
           result.setDate(result.getDate() + 1);
-          if (!calcIsMbeClosed(result)) remaining--;
+          if (!isSkipped(result)) remaining--;
         }
         return result;
+      }
+
+      function calcAddWorkingDays(date, days) {
+        return calcAddCountedDays(date, days, calcIsMbeClosed);
+      }
+
+      function calcAddMailDays(date, days) {
+        return calcAddCountedDays(date, days, calcIsMailNonDeliveryDay);
       }
 
       function calcFormatDate(date) {
@@ -810,12 +828,12 @@
           return;
         }
 
-        const addDays = method === 'Pickup' ? calcAddWorkingDays : calcAddDays;
+        const addDays = method === 'Pickup' ? calcAddWorkingDays : calcAddMailDays;
         const expectedDate = addDays(interviewDate, stats.median);
         const minDate = addDays(interviewDate, stats.min);
         const maxDate = addDays(interviewDate, stats.max);
         const methodLabel = method === 'Pickup' ? 'MBE pickup' : 'home delivery';
-        const dayLabel = method === 'Pickup' ? 'working days' : 'days';
+        const dayLabel = method === 'Pickup' ? 'working days' : 'delivery days';
 
         document.getElementById('passport-date').textContent = calcFormatDate(expectedDate);
         document.getElementById('passport-range').textContent = `Range: ${calcFormatDate(minDate)} – ${calcFormatDate(maxDate)}`;
