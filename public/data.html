@@ -858,9 +858,10 @@
 
         const latestDq = sched.latest_dq_with_il;
         const gapDays = sched.avg_gap_days || 28;
+        // IL drops go out on embassy working days too — snap window bounds
         const win = (sched.estimated_next_window || '').split(' to ').map(s => s.trim());
-        const nextWinStart = win[0] || calcAddDaysISO(sched.last_il_drop, 23);
-        const nextWinEnd   = win[1] || calcAddDaysISO(sched.last_il_drop, 33);
+        const nextWinStart = calcNextEmbassyDayISO(win[0] || calcAddDaysISO(sched.last_il_drop, 23));
+        const nextWinEnd   = calcNextEmbassyDayISO(win[1] || calcAddDaysISO(sched.last_il_drop, 33));
 
         // The backlog has already reached this DQ date
         if (dqIso <= latestDq) {
@@ -916,6 +917,8 @@
         // An IL can't arrive before the next expected drop
         if (ilEarly < nextWinStart) ilEarly = nextWinStart;
         if (ilLate < nextWinEnd) ilLate = nextWinEnd;
+        ilEarly = calcNextEmbassyDayISO(ilEarly);
+        ilLate = calcNextEmbassyDayISO(ilLate);
 
         return {
           ivEarly: calcAddDaysISO(ilEarly, offFrom),
