@@ -103,13 +103,19 @@ export default async function handler(req, res) {
 
   // --- Interview outcomes ---
   const withOutcome = deduped.filter(r => r.interview_outcome)
+  // Outcome strings vary ("221g", "221(g)/Administrative Processing (AP)"),
+  // so strip punctuation before matching 221g.
+  const is221gOutcome = (r) => {
+    const o = r.interview_outcome?.toLowerCase() || ''
+    return o.replace(/[^a-z0-9]/g, '').includes('221g') ||
+      o.includes('not approved') || o.includes('administrative processing')
+  }
   const approved = withOutcome.filter(r =>
     r.interview_outcome?.toLowerCase() === 'approved'
   ).length
   const cleared = withOutcome.filter(r => {
     const res = r.resolution_outcome?.toLowerCase() || ''
-    const o = r.interview_outcome?.toLowerCase() || ''
-    return (o.includes('not approved') || o.includes('221g')) && (res.includes('cleared') || res.includes('approved'))
+    return is221gOutcome(r) && (res.includes('cleared') || res.includes('approved'))
   }).length
   const notApproved = withOutcome.filter(r => {
     const o = r.interview_outcome?.toLowerCase() || ''
@@ -118,12 +124,13 @@ export default async function handler(req, res) {
     const notes = r.notes?.toLowerCase() || ''
     if (notes.includes('visa pause')) return false
     if (o === 'denied' || res === 'denied') return false
-    return o.includes('221g') || o.includes('not approved') || o.includes('administrative processing')
+    return is221gOutcome(r)
   }).length
   const visaPause = withOutcome.filter(r => {
+    const o = r.interview_outcome?.toLowerCase() || ''
     const notes = r.notes?.toLowerCase() || ''
     const res = r.resolution_outcome?.toLowerCase() || ''
-    return notes.includes('visa pause') && !res.includes('cleared')
+    return (notes.includes('visa pause') || o.includes('visa pause')) && !res.includes('cleared')
   }).length
   const denied = withOutcome.filter(r => {
     const o = r.interview_outcome?.toLowerCase() || ''

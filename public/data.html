@@ -609,7 +609,7 @@
             <div class="outcome-card__label">
               <span class="badge badge--warning">
                 <span aria-hidden="true">⚠</span>
-                <abbr title="Administrative Processing under Section 221(g)">221(g)</abbr>
+                <abbr title="Administrative Processing under Section 221(g), including cases attributed to the 2025 visa pause">221(g)</abbr>
               </span>
             </div>
           </div>
@@ -1129,7 +1129,10 @@
         nvc_status:    PIPELINE.nvc.status,    nvc_summary:    PIPELINE.nvc.text,
         london_status: PIPELINE.london.status, london_summary: PIPELINE.london.text,
         approved_pct: o.approval_pct ?? null,
-        rejected_221g_pct: pct(o.not_approved),
+        // Unresolved 221(g) plus cases attributed to the 2025 visa pause —
+        // both are pending AP, so together they make the three cards cover
+        // every reported outcome.
+        rejected_221g_pct: pct((o.not_approved ?? 0) + (o.visa_pause ?? 0)),
         denied_pct: pct(o.denied),
         median_pickup_days: d.key_stats?.median_pickup_days ?? null,
         median_mail_days:   d.key_stats?.median_mail_days ?? null,
