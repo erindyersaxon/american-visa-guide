@@ -14,9 +14,9 @@
 })(window,document,"clarity","script","wlfs757o2n");
 </script>
     <title>Moving to the USA Workbook — American Visa Guide</title>
-    <meta name="description" content="Complete immigration and relocation checklist covering every stage from USCIS through to settling in the US. Created by Nikki." />
+    <meta name="description" content="Complete immigration and relocation workbook: London CR1/IR1 tracker, savings &amp; expenses, and moving boxes inventory. Created by Nikki." />
     <meta property="og:title" content="Moving to the USA Workbook — American Visa Guide" />
-    <meta property="og:description" content="Complete immigration and relocation checklist: USCIS → NVC → Embassy. Download the Excel file or copy to Google Sheets." />
+    <meta property="og:description" content="Complete immigration and relocation workbook: USCIS → NVC → Embassy → Immigrant Fee → Green Card, plus savings and moving tabs. Download the Excel file or copy to Google Sheets." />
     <meta property="og:image" content="https://www.americanvisaguide.com/images/og-home.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.americanvisaguide.com/workbook" />
@@ -127,6 +127,11 @@
       td.status.false   { color: var(--color-border); }
       td.status.pending { color: var(--color-gold); }
 
+      /* Sheet tab headings */
+      .sheet-heading { font-family: var(--font-display); font-size: var(--size-lg); font-weight: var(--weight-bold); color: var(--color-navy); margin-bottom: var(--space-2); }
+      .sheet-heading span { color: var(--color-gold); font-size: var(--size-xs); font-weight: var(--weight-semibold); letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: var(--space-1); }
+      .sheet-sub { font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4); max-width: 640px; }
+
       /* Disclaimer */
       .disclaimer { padding: var(--space-5); background: var(--color-gold-xlight); border: 1px solid rgba(90,143,166,0.25); border-radius: var(--radius-lg); font-size: var(--size-sm); color: var(--color-text); margin-bottom: var(--space-8); }
     </style>
@@ -144,7 +149,7 @@
           <div class="workbook-header">
             <div class="workbook-eyebrow">Community Resource</div>
             <h1>Moving to the <span>USA Workbook</span></h1>
-            <p class="workbook-sub">A complete immigration and relocation checklist covering every stage from USCIS through to settling in the US. Download your own copy to track your progress.</p>
+            <p class="workbook-sub">A complete immigration and relocation workbook across three tabs: a London CR1/IR1 tracker covering every stage from USCIS through to your green card, a savings &amp; expenses tracker, and a moving boxes inventory. Download your own copy to track your progress.</p>
           </div>
 
           <div class="attribution">
@@ -157,9 +162,11 @@
             <span class="download-note">Download the Excel file or make your own Google Sheets copy — fill it in as you go through the process.</span>
           </div>
 
+          <h2 class="sheet-heading"><span>Tab 1</span>Personal Immigration Tracker</h2>
+          <p class="sheet-sub">London CR1/IR1 immigration tracker — five phases from filing with USCIS through to receiving your green card.</p>
           <div class="table-wrap">
             <table class="workbook-table">
-              <caption class="sr-only">Moving to the USA Workbook — USCIS, NVC, and Embassy checklist with costs, dates, and status</caption>
+              <caption class="sr-only">Personal Immigration Tracker — USCIS, NVC, Embassy, Immigrant Fee, and Green Card checklist with costs, dates, and status</caption>
               <tbody>
 
                 <!-- PHASE 1: USCIS -->
@@ -181,43 +188,60 @@
                   <td scope="col">Paid</td>
                   <td scope="col"></td>
                 </tr>
+                <tr class="item-row"><td>I-864</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Immigrant Visa</td><td></td><td></td><td class="status false">—</td><td></td></tr>
 
-                <tr class="section-row"><td colspan="5">BENEFICIARY</td></tr>
+                <tr class="section-row"><td colspan="5">CEAC CHECKLIST — PREPARE THE FOLLOWING</td></tr>
+
+                <tr class="section-row"><td colspan="5">BENEFICIARY / APPLICANT</td></tr>
                 <tr class="item-row"><td>Passport (Photo Page)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>Old Passport (If Renewed)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>Birth Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>Marriage Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Address History List</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Work History List</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Travel History (All countries)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Parents — Full Name, DOB, Place of Birth, Current Address</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>DS-260 Form</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Public Charge Statement</td><td></td><td></td><td class="status false">—</td><td></td></tr>
 
                 <tr class="section-row"><td colspan="5">PETITIONER</td></tr>
                 <tr class="item-row"><td>Proof of U.S. Citizenship (Passport / Birth Certificate)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Proof of U.S. Domicile or Intent to Re-Establish U.S. Domicile</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>W-2s / 1099s</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Form I-864 (wet-signed original)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Tax Transcripts</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-
-                <tr class="section-row"><td colspan="5">JOINT SPONSOR (if applicable)</td></tr>
-                <tr class="item-row"><td>Tax Transcripts</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>W-2s / 1099s</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Proof of Status (Passport)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Proof of U.S. Address</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>Form I-864</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Latest Tax Transcripts (x3)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+
+                <tr class="section-row"><td colspan="5">PETITIONER U.S. DOMICILE?</td></tr>
+                <tr class="note-row"><td colspan="5">If the petitioner lives outside the U.S., you need to prove intent to re-establish U.S. domicile. This means showing that you are actively breaking ties with the UK to move back to the U.S. You MUST also upload a statement of intent. Failure to show strong ties to the U.S. will likely result in a 221(g).</td></tr>
+
+                <tr class="section-row"><td colspan="5">DOMICILE CHECKLIST</td></tr>
+                <tr class="item-row"><td>Statement of Intent [Mandatory]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>U.S. Bank Account [Optional]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Voting History [Optional]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Signed Lease [Highly Recommended]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Employment Letter or Proof of Applying for Work in the U.S. [Highly Recommended]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Booked One-Way Flight [Highly Recommended]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Children: Proof of School Enrollment or Enquiries [Borderline Mandatory]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Termination of Tenancy or Selling Property [Optional]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Termination of Employment Following Steps to Move to U.S. [Optional]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Moving Quotes [Weaker Evidence]</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+
+                <tr class="section-row"><td colspan="5">JOINT SPONSOR (may not apply to all)</td></tr>
+                <tr class="item-row"><td>Form I-864</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Latest Tax Transcripts (x3)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>[Self-Employment] Latest 1099s</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>Latest W-2 and Earnings Summary</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="item-row"><td>[Retirement] Annuity Statements</td><td></td><td></td><td class="status false">—</td><td></td></tr>
 
                 <tr class="section-row"><td colspan="5">DOCUMENTARILY QUALIFIED</td></tr>
                 <tr class="note-row"><td colspan="5">Date Reviewed</td></tr>
-                <tr class="note-row"><td colspan="5">Request for Evidence</td></tr>
+                <tr class="note-row"><td colspan="5">RFE (If Applicable)</td></tr>
                 <tr class="note-row"><td colspan="5">Date Approved</td></tr>
 
-                <!-- PHASE 3: EMBASSY -->
-                <tr class="phase-row"><td colspan="5">PHASE 3: EMBASSY</td></tr>
+                <!-- PHASE 3: U.S. LONDON EMBASSY -->
+                <tr class="phase-row"><td colspan="5">PHASE 3: U.S. LONDON EMBASSY</td></tr>
 
                 <tr class="section-row"><td colspan="5">INTERVIEW LETTER</td></tr>
+                <tr class="note-row"><td colspan="5">Date Received</td></tr>
 
                 <tr class="section-row"><td colspan="5">MEDICAL EXAM &amp; DOCUMENT CHECK</td></tr>
+                <tr class="note-row"><td colspan="5">Book an early morning appointment if possible. (If not possible, VisaMedicals will tell the embassy if you are running late!)</td></tr>
                 <tr class="col-header">
                   <td scope="col">Appointment</td>
                   <td scope="col">Cost</td>
@@ -226,47 +250,82 @@
                   <td scope="col">Booked</td>
                 </tr>
                 <tr class="item-row"><td>VisaMedicals</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="note-row"><td colspan="5">No. 4 Ground Floor, Bentinck Mansions, 12–16 Bentinck St, London W1U 2ER — Book early morning appointment</td></tr>
+                <tr class="note-row"><td colspan="5">No. 4 Ground Floor, Bentinck Mansions, 12–16 Bentinck St, London W1U 2ER</td></tr>
 
                 <tr class="section-row"><td colspan="5">MEDICAL EXAM / DOCUMENTS NEEDED</td></tr>
                 <tr class="item-row"><td>Interview Letter from the U.S. Embassy</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>DS-260 Confirmation Page</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>Valid Passport</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>4 Identical U.S.-Sized Photographs</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>Medical Questionnaire (Form IV18A)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
                 <tr class="item-row"><td>Vaccination Records with Original Certification</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>GP Care Summary (Request 2 Weeks Prior)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="note-row"><td colspan="5">Immediately after your medical, head to the U.S. Embassy at 33 Nine Elms Ln, London SW11 7US.
-Check in at the "Visa Services" tent (Visa Passport &amp; Consular Door). Go through airport-style security.
-SUBMIT: Passport, medical receipt, police certificate, civil documents, DS-260 confirmation, fingerprint scan.
-Receive sealed envelope labelled "Do Not Tamper" for interview day.</td></tr>
+                <tr class="item-row"><td>GP Care Summary (Request 2–3 Weeks Prior)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="note-row"><td colspan="5">Immediately after your medical, head to the U.S. Embassy at 33 Nine Elms Ln, London SW11 7US — go even if running late!</td></tr>
 
                 <tr class="section-row"><td colspan="5">VISA INTERVIEW</td></tr>
                 <tr class="note-row"><td colspan="5">U.S. Embassy, 33 Nine Elms Ln, London SW11 7US — Go to the front of the line. Do not wait.</td></tr>
+                <tr class="note-row"><td colspan="5">Result: Pending</td></tr>
 
-                <tr class="section-row"><td colspan="5">INTERVIEW BINDER — ORIGINAL DOCUMENTS</td></tr>
-                <tr class="item-row"><td>Interview Letter</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Petitioner I-864</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Joint Sponsor I-864 (if applicable)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Marriage Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Birth Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <!-- PHASE 4: USCIS IMMIGRANT FEE -->
+                <tr class="phase-row"><td colspan="5">PHASE 4: USCIS IMMIGRANT FEE</td></tr>
+                <tr class="col-header">
+                  <td scope="col">Link</td>
+                  <td scope="col">Cost</td>
+                  <td scope="col">Date Completed</td>
+                  <td scope="col">Paid</td>
+                  <td scope="col"></td>
+                </tr>
+                <tr class="item-row"><td>Pay via your USCIS account: my.uscis.gov → USCIS Immigrant Fee</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <tr class="note-row"><td colspan="5">Record your A-Number and DOS Case ID</td></tr>
 
-                <tr class="section-row"><td colspan="5">INTERVIEW BINDER — PRINTED COPIES</td></tr>
-                <tr class="item-row"><td>2 U.S.-Sized Passport Photos</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>DS-260 Confirmation Page</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Petitioner IRS Transcripts</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Petitioner W-2s / 1099s</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Petitioner Proof of Status</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Joint Sponsor Proof of Status (if applicable)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Joint Sponsor IRS Transcripts (if applicable)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Joint Sponsor W-2s / 1099s (if applicable)</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Domicile Documentation</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>ACRO Police Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Marriage Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
-                <tr class="item-row"><td>Birth Certificate</td><td></td><td></td><td class="status false">—</td><td></td></tr>
+                <!-- PHASE 5: GREEN CARD (FORM I-551) -->
+                <tr class="phase-row"><td colspan="5">PHASE 5: GREEN CARD (FORM I-551)</td></tr>
+                <tr class="note-row"><td colspan="5">Track your green card case at egov.uscis.gov — record your IOE Number</td></tr>
 
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sheet-heading"><span>Tab 2</span>Savings &amp; Expenses</h2>
+          <p class="sheet-sub">A running-balance savings tracker. As you add money coming in or out, it automatically adjusts your savings total in both pounds and dollars (the Google Sheets copy converts GBP→USD live).</p>
+          <div class="table-wrap">
+            <table class="workbook-table">
+              <caption class="sr-only">Savings and Expenses — running balance tracker in pounds and dollars</caption>
+              <tbody>
+                <tr class="col-header">
+                  <td scope="col">Date</td>
+                  <td scope="col">Description</td>
+                  <td scope="col">Income/Savings (+)</td>
+                  <td scope="col">Expense (−)</td>
+                  <td scope="col">Running Balance</td>
+                  <td scope="col">Dollars (USD)</td>
+                </tr>
+                <tr class="item-row"><td></td><td>Starting balance</td><td></td><td></td><td></td><td></td></tr>
+                <tr class="item-row"><td></td><td>Savings</td><td></td><td></td><td></td><td></td></tr>
+                <tr class="note-row"><td colspan="6">Fill in each deposit or expense as a row — the running balance and dollar columns update automatically.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sheet-heading"><span>Tab 3</span>Moving Boxes Inventory</h2>
+          <p class="sheet-sub">Log every box you ship — contents, weight, value, and shipping company — plus packing checklists, so your customs declaration is easy.</p>
+          <div class="table-wrap">
+            <table class="workbook-table">
+              <caption class="sr-only">Moving Boxes Inventory — box contents, weights, values, and packing checklists</caption>
+              <tbody>
+                <tr class="section-row"><td colspan="8">MOVING DAY / SHIP ITEMS BY</td></tr>
+                <tr class="note-row"><td colspan="8">Customs declaration: declare as personal belongings (used PC, used clothing, etc.). Honesty and proof of your move will clear customs fees.</td></tr>
+                <tr class="col-header">
+                  <td scope="col">Contents</td>
+                  <td scope="col">Weight (lbs)</td>
+                  <td scope="col">Box No.</td>
+                  <td scope="col">Box Size (Inches)</td>
+                  <td scope="col">Colour Code</td>
+                  <td scope="col">Company</td>
+                  <td scope="col">Value</td>
+                  <td scope="col">Cost</td>
+                </tr>
+                <tr class="note-row"><td colspan="8">Includes two side-by-side packing checklists (Item / Packed) for ticking off belongings as you box them up.</td></tr>
               </tbody>
             </table>
           </div>
@@ -285,7 +344,7 @@ Receive sealed envelope labelled "Do Not Tamper" for interview day.</td></tr>
       document.addEventListener('DOMContentLoaded', function() {
         renderPage({
           title: 'Moving to the USA Workbook — American Visa Guide',
-          description: 'Complete immigration and relocation checklist covering every stage from USCIS through to settling in the US. Created by Nikki.',
+          description: 'Complete immigration and relocation workbook: London CR1/IR1 tracker, savings & expenses, and moving boxes inventory. Created by Nikki.',
           activePage: ''
         });
       });
