@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A complete guide to Section 221(g) at the US Embassy London: what the green refusal sheet means, every box explained, how to prevent a 221(g) at each stage, and how to resolve one if you get it.">
+  <title>221(g) at London: prevent it and resolve it | American Visa Guide</title>
+  <link rel="canonical" href="https://www.americanvisaguide.com/221g">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-ui: 'Outfit', sans-serif;
+
+      --bg:          #f4efe6;
+      --surface:     #fdfaf3;
+      --surface-alt: #ede8de;
+      --surface-hov: #e4ddcf;
+      --ink:         #1e1c17;
+      --muted:       #6a6560;
+
+      --accent:      #3e7188;   /* steel blue, AA on cream */
+      --accent-dark: #2f5a6e;
+      --accent-deco: #5a8fa6;
+
+      --line:        #ddd6cb;
+      --line-soft:   #e7e0d4;
+
+      --warn-bg:     #f6ecd9;
+      --warn-border: #e6d3b0;
+      --warn-edge:   #b07840;
+      --warn-ink:    #875325;
+
+      --danger:      #b04a38;
+      --danger-bg:   #f7e9e6;
+      --danger-border:#ecccc4;
+
+      --sage:        #3f6b5c;
+      --sage-bg:     #ebf1ec;
+      --sage-border: #d2e2d6;
+
+      --code-bg:     #2b3a42;
+      --code-text:   #cfdde3;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav + footer styles live in /css/nav.css (shared component) */
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.25rem 1.5rem 5rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
+
+    /* ── HERO ── */
+    .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4.4vw, 2.4rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+    }
+    h1 span, h1 em { color: var(--accent); font-style: italic; font-weight: 500; }
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-left: 4px solid var(--warn-edge);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.25rem;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--warn-ink);
+    }
+    .disclaimer strong { color: var(--warn-ink); font-family: var(--font-ui); }
+    .disclaimer a { color: var(--accent-dark); }
+
+    /* ── SECTION HEADINGS ── */
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.42rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.5rem 0 0.9rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 {
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.6rem 0 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    p { margin-bottom: 0.85rem; }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+    ul, ol { padding-left: 1.35rem; margin-bottom: 0.85rem; }
+    li { margin-bottom: 0.38rem; }
+    li:last-child { margin-bottom: 0; }
+    strong { color: var(--ink); font-weight: 600; }
+    em { font-style: italic; }
+
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+    /* ── ON THIS PAGE ── */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.35rem;
+      margin-bottom: 2.25rem;
+    }
+    .toc-title {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .toc ol { margin: 0; padding-left: 1.1rem; columns: 2; column-gap: 1.75rem; }
+    .toc li { font-size: 0.88rem; margin-bottom: 0.3rem; }
+    @media (max-width: 560px) { .toc ol { columns: 1; } }
+
+    /* ── FIGURE / IMAGES ── */
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.1rem 0 0.6rem;
+    }
+    @media (max-width: 620px) { .sheet-grid { grid-template-columns: 1fr; } }
+    figure { margin: 0; }
+    figure img {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: block;
+    }
+    figcaption {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 0.45rem;
+      text-align: center;
+    }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; margin: 1.1rem 0 1.4rem; border-radius: 8px; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    thead tr { background: var(--code-bg); }
+    th {
+      text-align: left;
+      padding: 0.6rem 0.9rem;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    td {
+      padding: 0.58rem 0.9rem;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+      color: var(--ink);
+    }
+    td:first-child { font-weight: 600; color: var(--accent-dark); }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
+
+    /* ── STAGE / MITIGATION CARDS ── */
+    .stage-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.15rem 1.3rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .stage-head {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    .stage-pill {
+      font-family: var(--font-ui);
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.18rem 0.55rem;
+      border-radius: 5px;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .stage-title {
+      font-family: var(--font-ui);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* ── CALLOUTS ── */
+    .callout {
+      border-radius: 7px;
+      padding: 0.8rem 1.05rem;
+      margin: 0.9rem 0;
+      font-size: 0.895rem;
+      line-height: 1.63;
+    }
+    .callout-warn {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-left: 3px solid var(--warn-edge);
+      color: var(--warn-ink);
+    }
+    .callout-warn a { color: var(--accent-dark); }
+    .callout-info {
+      background: rgba(62,113,136,0.06);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent-deco);
+    }
+    .callout-alert {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      border-left: 3px solid var(--danger);
+      color: #7a3022;
+    }
+    .callout-alert a { color: var(--accent-dark); }
+    .callout-good {
+      background: var(--sage-bg);
+      border: 1px solid var(--sage-border);
+      border-left: 3px solid var(--sage);
+    }
+    .callout-title {
+      display: block;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist { list-style: none; padding: 0; }
+    .checklist li {
+      padding: 0.28rem 0 0.28rem 1.55rem;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    .checklist li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── BACK TO GUIDE ── */
+    .guide-return {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 7px;
+      margin-top: 0.5rem;
+    }
+    .guide-return:hover { background: var(--accent-dark); color: #fff; text-decoration: none; }
+
+    /* ── SOURCES ── */
+    .sources {
+      margin-top: 3rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--line);
+    }
+    .sources h2 { margin-top: 0; }
+    .sources ol {
+      font-size: 0.81rem;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+    .sources li { margin-bottom: 0.45rem; }
+    .sources a { color: var(--accent); }
+    .sources a:hover { color: var(--accent-dark); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .page-wrap { padding: 1.5rem 1rem 4rem; }
+    }
+  </style>
+  <link rel="stylesheet" href="/css/nav.css?v=20260616">
+  <script src="/js/nav.js?v=20260616" defer></script>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="page-wrap">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span><a href="/guide.html">Guide</a><span>/</span>221(g)
+  </div>
+
+  <p class="eyebrow">US Embassy London · Immigrant Visa Unit</p>
+
+  <h1>Section 221(g): <span>how to prevent it, and how to resolve it</span></h1>
+
+  <p class="lead">A 221(g) is the single most common way a London immigrant visa case stalls at the window &mdash; and almost every one is preventable. This page explains what the green refusal sheet means, walks through every box on it, and sets out the planned mitigations that keep a case out of 221(g) in the first place. If you already have one, the resolution steps are here too.</p>
+
+  <div class="disclaimer">
+    <strong>This is not legal advice.</strong> American Visa Guide is an independent community resource based on official US government sources and observed US Embassy London patterns. A 221(g) is a refusal, not necessarily a final denial &mdash; but how it is handled matters. If your case involves an inadmissibility ground, a prior refusal, or anything beyond a routine document request, consider consulting an immigration attorney affiliated with the <a href="https://www.aila.org/">American Immigration Lawyers Association (AILA)</a>.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">On this page</div>
+    <ol>
+      <li><a href="#what">What a 221(g) actually is</a></li>
+      <li><a href="#sheet">The green sheet, box by box</a></li>
+      <li><a href="#financial">The dominant cause: financial</a></li>
+      <li><a href="#prevent">Prevent it: mitigations by stage</a></li>
+      <li><a href="#resolve">If you already have a 221(g)</a></li>
+      <li><a href="#confusions">221(g) vs AP vs visa pause</a></li>
+      <li><a href="#dv">2026 Diversity Visa note</a></li>
+    </ol>
+  </div>
+
+  <!-- ── WHAT IS IT ── -->
+  <h2 id="what">What a 221(g) actually is</h2>
+
+  <p>Section 221(g) of the Immigration and Nationality Act lets a consular officer refuse a visa when the application is incomplete or needs further review, rather than denying it outright. It is a <strong>temporary refusal</strong>, and in the large majority of London cases it means one thing: something the officer needs is not yet on the file. Supply it, and the case resumes.</p>
+
+  <p>At London it is issued at the window on a green <strong>Consular Section &mdash; Immigrant Visa Unit</strong> sheet, with the applicable boxes ticked and a submission email address printed at the top: <strong>LNDIVSubmissions@state.gov</strong>. The ticked boxes are the entire bar to clear &mdash; nothing more, nothing less. The sheet splits 221(g) into two distinct types, and which one you get changes everything about what happens next:</p>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-pill">Type 1</span>
+      <span class="stage-title">Additional administrative processing</span>
+    </div>
+    <p style="margin-bottom:0;">Mandatory background or eligibility review. Per the sheet, it <strong>cannot be expedited or waived</strong>, there is no set timeframe, and there is no mechanism to check its status &mdash; the Embassy contacts you when it is complete. There is usually nothing to submit; this is not about missing paperwork. It is the less common and less controllable of the two.</p>
+  </div>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-pill">Type 2</span>
+      <span class="stage-title">Submission of additional evidence</span>
+    </div>
+    <p style="margin-bottom:0;">The documents ticked on the sheet are required to continue processing. This is the common London 221(g), it is almost always financial, and it is the one this page is built to help you avoid. You control the outcome: send exactly what is ticked, and the case moves again.</p>
+  </div>
+
+  <div class="callout callout-good">
+    <span class="callout-title">A 221(g) is not a denial</span>
+    Being placed in 221(g) does not mean your case has been refused on the merits. Most resolve once the requested item is supplied. It does, however, add weeks to months of delay &mdash; which is exactly why preventing it is worth the effort up front.
+  </div>
+
+  <!-- ── THE SHEET ── -->
+  <h2 id="sheet">The green sheet, box by box</h2>
+
+  <p>Below is a real green 221(g) sheet issued at London. On this example the Section 221(g) refusal box is ticked on page 1, and on page 2 the box requiring a <strong>joint sponsor</strong> is ticked &mdash; the classic London financial 221(g). Your sheet will have different boxes ticked; the point is to recognise the form and read only the ticked boxes.</p>
+
+  <div class="sheet-grid">
+    <figure>
+      <img src="/images/221g-green-sheet-p1.jpg" alt="Page 1 of the green 221(g) refusal sheet from the US Embassy London Immigrant Visa Unit. The submission email address LNDIVSubmissions@state.gov is printed at the top, and the Section 221(g) refusal box is ticked, with sub-boxes for additional administrative processing and submission of additional evidence." loading="lazy">
+      <figcaption>Page 1 &mdash; the refusal notice. Note the submission email at the top and the 221(g) box ticked, with its two sub-types.</figcaption>
+    </figure>
+    <figure>
+      <img src="/images/221g-green-sheet-p2.jpg" alt="Page 2 of the green 221(g) refusal sheet showing the document checklist. The box stating the sponsor has not met the minimum income level is ticked, listing the required joint sponsor documents: Form I-864, tax transcript or 1040 with W-2, proof of US status, and Form I-864A if applicable." loading="lazy">
+      <figcaption>Page 2 &mdash; the document checklist. Here the &ldquo;sponsor has not met the minimum income level&rdquo; box is ticked, requiring a joint sponsor.</figcaption>
+    </figure>
+  </div>
+
+  <p style="font-size:0.82rem;color:var(--muted);">Real green sheet issued at US Embassy London, July 2026. Personal details removed.</p>
+
+  <h3>Every box that can appear on the sheet</h3>
+
+  <p>The two pages carry the full checklist below. Only the ticked items apply to you &mdash; but knowing what the form <em>can</em> ask for tells you exactly what to have watertight before interview day.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Ticked box</th><th>What it requires</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Petition returned to USCIS</td>
+          <td>Your petition has been sent back to USCIS for review. Enquiries go to the USCIS office that adjudicated it, not the Embassy.</td>
+        </tr>
+        <tr>
+          <td>Ineligible under INA 212(a)</td>
+          <td>An inadmissibility ground was found. A waiver (Form I-212 or I-601) may be possible; USCIS, not the Embassy, decides it. For ESTA purposes this counts as a visa denial.</td>
+        </tr>
+        <tr>
+          <td>Refused under 221(g)</td>
+          <td>The core refusal box, with two sub-types: <strong>additional administrative processing</strong> (mandatory, no timeframe) or <strong>submission of additional evidence</strong> (the ticked documents below).</td>
+        </tr>
+        <tr>
+          <td>Affidavit of Support (I-864 / I-864EZ)</td>
+          <td>A missing or deficient I-864 from the petitioner/sponsor. If a household member's income is used, add Form I-864A.</td>
+        </tr>
+        <tr>
+          <td>IRS transcript or tax return (1040)</td>
+          <td>An IRS-generated transcript, or a photocopy of the properly executed return, for the sponsor's most recent tax year. If no return was filed, a signed statement explaining why.</td>
+        </tr>
+        <tr>
+          <td>Evidence of personal assets</td>
+          <td>Bank statements, real estate, stocks, bonds, insurance policies, investments &mdash; used where income alone does not meet the requirement. See Form I-864 instructions.</td>
+        </tr>
+        <tr>
+          <td>Sponsor below the minimum income (213A)</td>
+          <td>The classic London financial box. Requires a <strong>joint sponsor</strong> providing: I-864 (one per applicant), an IRS transcript or 1040 with most recent W-2, proof of US citizenship/LPR status, and I-864A if applicable. The joint sponsor must be 18+, a US citizen or LPR, and US-domiciled.</td>
+        </tr>
+        <tr>
+          <td>Proof of US domicile</td>
+          <td>That the sponsor is domiciled in the US: proof of US tax filing, US property, a signed US lease, US bank accounts, utility bills, or a valid state ID.</td>
+        </tr>
+        <tr>
+          <td>Recent employer job letter</td>
+          <td>On letterhead, dated within 12 months, stating job title, salary, and dates of employment. Job transfers and signed job offers are acceptable.</td>
+        </tr>
+        <tr>
+          <td>Intent-to-marry letter (K-1)</td>
+          <td>A letter from the petitioner confirming their intention to marry you within 90 days of your arrival in the US.</td>
+        </tr>
+        <tr>
+          <td>School leaving certificate</td>
+          <td>From the named school.</td>
+        </tr>
+        <tr>
+          <td>Police certificate</td>
+          <td>From the named country/authority (for the UK, an ACRO certificate).</td>
+        </tr>
+        <tr>
+          <td>Long-form birth certificate</td>
+          <td>For the named person, with a certified translation if applicable.</td>
+        </tr>
+        <tr>
+          <td>Original marriage / divorce certificate</td>
+          <td>For the named person, with a certified translation if applicable.</td>
+        </tr>
+        <tr>
+          <td>Medical examination results</td>
+          <td>Schedule with Visa Medicals (020 7486 7822); results are sent directly to the Embassy by the clinic.</td>
+        </tr>
+        <tr>
+          <td>Passport validity</td>
+          <td>A passport valid for at least six months beyond your expected date of entry into the US.</td>
+        </tr>
+        <tr>
+          <td>Other</td>
+          <td>A free-text line for anything not covered above.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── FINANCIAL ── -->
+  <h2 id="financial">The dominant cause: financial</h2>
+
+  <p>The overwhelming majority of London 221(g)s are financial. Two patterns account for most of them, and both are avoidable before interview day.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">1. The missing IRS tax transcript</span>
+    NVC officially accepts either an IRS tax transcript <em>or</em> a complete copy of the filed return. London does not always agree at interview: cases have been placed in 221(g) specifically for a missing transcript <strong>even after DQ was granted</strong> and the full return, W-2, and pay stubs were on file. This applies to <strong>every</strong> financial sponsor on the case, including joint sponsors. Reaching DQ on a return copy is not the finish line &mdash; the interview is.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">2. Income judged too low &mdash; no joint sponsor lined up</span>
+    London is notably sceptical of cases resting on income near the 125% poverty-guideline threshold, or on assets alone. Officers have judged income &ldquo;too low&rdquo; at the window and requested a joint sponsor even where the figures cleared the guideline on paper, and cases relying primarily on savings, property equity, or investments have drawn a 221(g) despite technically meeting asset thresholds. If your margin is thin or you are leaning on assets, have a joint sponsor prepared in advance.
+  </div>
+
+  <p>The through-line: <strong>where NVC's minimum and London's practice diverge, meet the higher standard before submission.</strong> Reaching DQ on lesser evidence and then hitting a 221(g) for the same document costs far more time than getting it right up front.</p>
+
+  <!-- ── PREVENT ── -->
+  <h2 id="prevent">Prevent it: planned mitigations by stage</h2>
+
+  <p>A 221(g) is not bad luck &mdash; it is almost always a gap that was visible earlier in the process. Here is what to lock down at each stage so nothing is left to be requested at the window.</p>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-pill">Stage 1 &middot; I-130</span>
+      <span class="stage-title">Get the sponsorship picture right early</span>
+    </div>
+    <ul style="margin-bottom:0;">
+      <li>Assess the petitioner's income against the current I-864 poverty guidelines honestly. If it is near the line, start identifying a potential joint sponsor now &mdash; not the week before interview.</li>
+      <li>If the sponsor is self-employed, understand that Schedule C is the anchor evidence officers weigh, and begin keeping business records clean.</li>
+    </ul>
+  </div>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-pill">Stage 2 &middot; NVC</span>
+      <span class="stage-title">Meet London's bar, not just the DQ minimum</span>
+    </div>
+    <ul style="margin-bottom:0;">
+      <li><strong>Upload the actual IRS tax transcript</strong> for every sponsor and joint sponsor, from <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/individuals/get-transcript</a> &mdash; even if DQ was granted on a 1040 copy. This is the single highest-value mitigation.</li>
+      <li>If the transcript genuinely is not yet available, upload the complete signed 1040, W-2s, pay stubs, and IRS e-file acceptance, and note in CEAC that the transcript will follow before interview.</li>
+      <li>Provide a full joint-sponsor package if income is marginal: separate I-864, their transcript, proof of US status, and proof of US domicile.</li>
+      <li>Upload domicile evidence even where NVC does not demand it &mdash; driver's license, US lease, job offer, US bills.</li>
+    </ul>
+    <p style="margin:0.6rem 0 0;font-size:0.84rem;color:var(--muted);">See the full breakdown in the <a href="/guide.html#nvc">NVC stage of the guide</a> and the <a href="/checklist-nvc.html">NVC checklist</a>.</p>
+  </div>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-pill">Stage 3 &middot; Waiting for IL</span>
+      <span class="stage-title">Refresh everything before interview day</span>
+    </div>
+    <ul style="margin-bottom:0;">
+      <li>If your financials have crossed a tax-filing deadline since DQ, upload the newest tax year's transcript to CEAC so the officer reviews current figures.</li>
+      <li>Confirm your passport is valid at least six months beyond your intended entry date; renew now if not.</li>
+      <li>Get your ACRO police certificate (valid 12 months for Embassy purposes) and confirm civil-document originals are accessible.</li>
+      <li>Prepare a voluntary <a href="/public-charge.html">public charge statement</a> covering housing, employment, and health insurance &mdash; it removes a line of questioning at the window.</li>
+    </ul>
+  </div>
+
+  <div class="stage-card">
+    <div class="stage-head">
+      <span class="stage-pill">Stage 5 &middot; Interview day</span>
+      <span class="stage-title">Everything must already be in CEAC</span>
+    </div>
+    <ul style="margin-bottom:0;">
+      <li><strong>If a financial document is not in CEAC before interview day, it is too late</strong> &mdash; the officer will not accept unuploaded financial evidence at the window. Bring originals, but do not rely on handing them over.</li>
+      <li>One exception: a paper copy of something <em>already uploaded</em> to CEAC can rescue a visibility glitch where staff cannot see it on their side. This has saved cases at document check.</li>
+      <li>Answers must match your DS-260 and CEAC exactly &mdash; inconsistencies invite scrutiny.</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-title">The one-line summary</span>
+    Upload the real IRS transcript for every sponsor before interview, line up a joint sponsor if income is anywhere near the line, and make sure every document the officer could ask for is already in CEAC. Do those three things and the common financial 221(g) largely disappears.
+  </div>
+
+  <!-- ── RESOLVE ── -->
+  <h2 id="resolve">If you already have a 221(g)</h2>
+
+  <p>If you were handed the green sheet at the window, work the ticked boxes &mdash; and only the ticked boxes. Here is the process.</p>
+
+  <ol>
+    <li><strong>Read exactly what is ticked.</strong> That is the complete bar to clear. Do not send more than is asked; extra material only slows review.</li>
+    <li><strong>Wait for the follow-up email.</strong> Within 1&ndash;2 days of the interview you will receive instructions on how to submit, sent to the email address you registered with the courier service.</li>
+    <li><strong>Submit as instructed.</strong> That usually means emailing the documents to <strong>LNDIVSubmissions@state.gov</strong> with your case number, and/or uploading to <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a> and/or sending physical documents by the courier service (no charge).</li>
+    <li><strong>Send everything in one go.</strong> If multiple documents are requested, do not submit piecemeal &mdash; wait until you have them all and send together.</li>
+  </ol>
+
+  <div class="callout callout-good">
+    <span class="callout-title">If you can produce the documents quickly, say so</span>
+    Where the officer expects you to return documents within days, they may keep your passport rather than hand it back &mdash; which shortens the turnaround once the case resumes. If you indicate a fast turnaround, be ready to deliver on it.
+  </div>
+
+  <div class="callout callout-alert">
+    <span class="callout-title">The one-year deadline &mdash; INA &sect;203(g)</span>
+    The sheet warns that if you do not take the requested action within <strong>one year of the date on the letter</strong>, the application is cancelled under INA &sect;203(g). This is a hard limit &mdash; but there is no reason to wait. Submit as soon as your documents are ready.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">Type 1 (administrative processing) is different</span>
+    If the ticked sub-box is <em>additional administrative processing</em> rather than a document request, there is usually nothing to submit. It cannot be expedited or waived and has no published timeframe; the Embassy contacts you when it completes. Add <strong>LNDIVSubmissions@state.gov</strong> and the courier senders to your safe-senders list and watch for their email.
+  </div>
+
+  <!-- ── CONFUSIONS ── -->
+  <h2 id="confusions">221(g) vs administrative processing vs the visa pause</h2>
+
+  <p>Three things get conflated. They are not the same:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>What</th><th>What it means</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>221(g) refusal</td>
+          <td>A formal refusal at the window pending documents or review, issued on the green sheet. Resolves when the ticked items are supplied (or the review completes).</td>
+        </tr>
+        <tr>
+          <td>Routine post-approval AP</td>
+          <td>Short-term &ldquo;Administrative Processing&rdquo; in CEAC during final checks and visa printing <em>after</em> a successful interview. This is normal and is <strong>not</strong> a 221(g).</td>
+        </tr>
+        <tr>
+          <td>Visa pause</td>
+          <td>If the beneficiary holds citizenship of a country under the current visa pause, the visa cannot be approved at this time. Not a denial and not AP. If they hold another unaffected passport, use it &mdash; and make sure it is uploaded to CEAC.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── DV ── -->
+  <h2 id="dv">2026 Diversity Visa Program note</h2>
+
+  <div class="callout callout-alert">
+    <span class="callout-title">DV applicants: the &sect;203(g) clock does not help you</span>
+    For 2026 Diversity Visa cases, the sheet carries a separate warning: because of the limited number of DV visas, visas may cease to be available even before the deadline &mdash; especially closer to September 30. Under no circumstances can a DV visa be issued, or status adjusted, after <strong>September 30, 2026</strong>. If you are a DV applicant in 221(g), resolve it with maximum urgency; the general one-year window does not apply to you.
+  </div>
+
+  <div style="margin-top:2rem;">
+    <a href="/guide.html#interview" class="guide-return">&larr; Back to the interview stage of the guide</a>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h2>Sources &amp; related pages</h2>
+    <ol>
+      <li>US Embassy London Immigrant Visa Unit green 221(g) sheet (community-supplied, July 2026), the primary document reproduced above.</li>
+      <li>Department of State, <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-5-collect-financial-evidence-and-other-supporting-documents.html" target="_blank" rel="noopener noreferrer">Step 5: Collect Financial Evidence and Other Supporting Documents</a> (transcript vs return-copy acceptance).</li>
+      <li>USCIS, <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864, Affidavit of Support</a> and instructions (sponsor, joint sponsor, and I-864A requirements).</li>
+      <li>IRS, <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">Get Transcript</a> (obtaining the tax return transcript).</li>
+      <li>USCIS, <a href="https://www.uscis.gov/i-601" target="_blank" rel="noopener noreferrer">Form I-601, Waiver of Grounds of Inadmissibility</a> (for 212(a) findings).</li>
+      <li>Related on this site: <a href="/guide.html#nvc">NVC stage</a> &middot; <a href="/checklist-nvc.html">NVC checklist</a> &middot; <a href="/public-charge.html">Public charge statement template</a> &middot; <a href="/guide.html#interview">Interview stage</a>.</li>
+    </ol>
+  </div>
+
+  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed July 2026. This page is general information, not legal advice.</p>
+
+</div>
+
+<div id="footer-placeholder"></div>
+
+</body>
+</html>

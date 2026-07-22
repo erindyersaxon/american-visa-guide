@@ -135,6 +135,7 @@
     'guide': 'guide',
     'public-charge': 'guide',
     'delayed-i130-remedies': 'guide',
+    '221g': 'guide',
     'checklists': 'checklists',
     'master-checklist': 'checklists',
     'checklist-i130': 'checklists',
