@@ -145,6 +145,11 @@
       "permanent": true
     },
     {
+      "source": "/221g.html",
+      "destination": "/221g",
+      "permanent": true
+    },
+    {
       "source": "/workbook.html",
       "destination": "/workbook",
       "permanent": true
