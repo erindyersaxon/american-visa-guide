@@ -22,9 +22,17 @@ contradicts the doc's April 2026 snapshot, the live number governs.
 > and censored counts); the passport denominator was unified (dropped the
 > `Approved`-only filter). At the 180-day window all three intervals clear the
 > n=30 floor (46 / 84 / 62). The DQ→IL 180-day median is 86 days vs. the 65-day
-> all-time figure — the rolling window surfaces the recent slowdown. Remaining:
-> §3.2/3.3 schema work (`submissions` drift, `interview_outcome` enum) and §6
-> re-solicitation of passport-in-hand.
+> all-time figure — the rolling window surfaces the recent slowdown.
+>
+> **Update 3 (2026-07-24):** §3.2/3.3 schema normalization **applied** (migration
+> `db/migrations/0002_...`). Added a STORED generated column `outcome_status`
+> (`approved | cleared | not_approved | visa_pause | denied | null`) that
+> reproduces the old string-matching counts exactly (155/6/6/3/2, 61 null);
+> `api/data.js` now tallies it instead of ~30 lines of pattern matching. Ported
+> `not_approved_reason` onto `form_responses` and dropped the dead, empty
+> `submissions` table (`form_responses` documented as canonical in
+> `SUPABASE_SETUP.md`). Remaining: §6 re-solicitation of passport-in-hand — a
+> data-collection task, not a code change.
 
 ---
 

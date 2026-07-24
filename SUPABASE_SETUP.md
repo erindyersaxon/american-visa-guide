@@ -2,6 +2,23 @@
 
 This document describes how to wire up Supabase data sources to American Visa Guide.
 
+## Canonical schema
+
+`public.form_responses` is the **single source of truth**. Both `api/submit.js`
+(write path — upserts one row per member, keyed on `username_raw`) and
+`api/data.js` (read path) use it exclusively. The old `submissions` table was an
+abandoned redesign and was dropped in migration `0002` — do not reintroduce it.
+
+Notable columns beyond the raw milestone dates:
+
+- `outcome_status` — **generated column** (do not write to it). Canonicalises the
+  free-text `interview_outcome` / `resolution_outcome` / `notes` into one of
+  `approved | cleared | not_approved | visa_pause | denied | NULL`. Query this
+  instead of pattern-matching outcome strings.
+- `not_approved_reason` — free text, why an interview was not approved.
+- CHECK constraints enforce milestone ordering (DQ ≤ IL ≤ interview ≤ passport);
+  impossible dates are rejected at write time. See `db/migrations/`.
+
 ## Overview
 
 The site fetches live community data from Supabase tables:
