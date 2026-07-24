@@ -97,14 +97,34 @@ function renderThisWeek(data) {
   widget.innerHTML = html;
 }
 
+// Render a signature interval as median + IQR + sample size + censored tail.
+// Honours the API's suppression/small-sample flags: below n=10 the number is
+// hidden, below n=30 it carries a small-sample warning.
+function renderInterval(iv, label) {
+  const subtle = "font-size: var(--size-sm); color: var(--color-text-muted); margin-top: var(--space-2);";
+  if (!iv || iv.suppressed || iv.median == null) {
+    return `<p class="stat-value">—</p><p class="stat-label">${label}</p>` +
+      `<p style="${subtle}">Insufficient data${iv && iv.n ? ` (n=${iv.n})` : ""}</p>`;
+  }
+  const parts = [];
+  if (iv.p25 != null && iv.p75 != null) parts.push(`IQR ${iv.p25}–${iv.p75}`);
+  parts.push(`n=${iv.n}`);
+  if (iv.small_sample) parts.push(`<span style="color: var(--color-error);">small sample</span>`);
+  if (iv.censored) parts.push(`${iv.censored} ${iv.censored_label || "still waiting"}`);
+  parts.push(iv.window_days ? `${iv.window_days}-day window` : "all time");
+  return `<p class="stat-value">${iv.median}</p>` +
+    `<p class="stat-label">${label} (median days)</p>` +
+    `<p style="${subtle}">${parts.join(" · ")}</p>`;
+}
+
 function renderKeyStats(data) {
   const statsCards = document.querySelectorAll("#key-stats .stat-card");
 
   if (statsCards[0]) {
-    statsCards[0].innerHTML = `<p class="stat-value">${safeDays(data.key_stats?.avg_dq_to_il)}</p><p class="stat-label">DQ to interview letter (avg days)</p>`;
+    statsCards[0].innerHTML = renderInterval(data.intervals?.dq_to_il, "DQ to interview letter");
   }
   if (statsCards[1]) {
-    statsCards[1].innerHTML = `<p class="stat-value">${safeDays(data.key_stats?.avg_il_to_interview)}</p><p class="stat-label">IL to interview (avg days)</p>`;
+    statsCards[1].innerHTML = renderInterval(data.intervals?.il_to_interview, "IL to interview");
   }
   if (statsCards[2]) {
     const approvalPct = data.outcomes?.approval_pct ? Math.round(data.outcomes.approval_pct) : "—";

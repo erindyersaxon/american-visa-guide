@@ -14,8 +14,17 @@ contradicts the doc's April 2026 snapshot, the live number governs.
 > `public.form_responses` (migration `db/migrations/0001_milestone_ordering_constraints.sql`).
 > A **fourth** bad row surfaced during cleanup — `id 182` (sptd143), whose
 > interview date was a year typo (`2025-07-01` → `2026-07-01`) — so four rows
-> were corrected, not three. The remaining items (§4 API proposal, §3.2/3.3
-> schema work, §6 re-solicitation) are still open.
+> were corrected, not three.
+>
+> **Update 2 (2026-07-24):** Checklist item 4 (§4 display changes) is now
+> **applied** to `api/data.js` and `public/js/tracker.js`. The API emits an
+> `intervals` block (median + IQR + p90, `n=`, rolling window with auto-widen,
+> and censored counts); the passport denominator was unified (dropped the
+> `Approved`-only filter). At the 180-day window all three intervals clear the
+> n=30 floor (46 / 84 / 62). The DQ→IL 180-day median is 86 days vs. the 65-day
+> all-time figure — the rolling window surfaces the recent slowdown. Remaining:
+> §3.2/3.3 schema work (`submissions` drift, `interview_outcome` enum) and §6
+> re-solicitation of passport-in-hand.
 
 ---
 
