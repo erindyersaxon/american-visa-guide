@@ -567,7 +567,7 @@
       <div class="container">
         <div class="section-hd">
           <h2 class="section-hd__title" id="intervals-hd">Signature Wait Times</h2>
-          <p class="section-hd__sub">Median days over a rolling window, cohorted by milestone date. The sub-line shows the interquartile range (middle 50%), the completed sample size, and how many members have started but not yet reached the end milestone.</p>
+          <p class="section-hd__sub">The typical wait at each stage, from recent cases. The big number is the middle of the pack — half of people waited less, half waited more. The line beneath it shows the range most people fall in, how many finished cases it's based on, and how many are still in the queue.</p>
         </div>
 
         <div class="metrics-grid" role="region" aria-label="Signature interval wait times">
@@ -1430,11 +1430,11 @@
         }
         set(id, `${o.median} <span style="font-size:var(--size-sm,0.85rem);font-weight:var(--font-normal,400);">days</span>`);
         const parts = [];
-        if (o.p25 != null && o.p75 != null) parts.push(`IQR ${o.p25}–${o.p75}`);
-        parts.push(`n=${o.n}`);
-        if (o.small_sample) parts.push('small sample');
+        if (o.p25 != null && o.p75 != null) parts.push(`most: ${o.p25}–${o.p75} days`);
+        parts.push(`from ${o.n} cases`);
+        if (o.small_sample) parts.push('few cases so far — treat as rough');
         if (o.censored) parts.push(`${o.censored} ${o.censored_label || waitingWord}`);
-        parts.push(o.window_days ? `${o.window_days}-day window` : 'all time');
+        parts.push(o.window_days ? `last ${o.window_days} days` : 'all time');
         txt(id + '-sub', parts.join(' · '));
       };
       card(iv.dq_to_il,              'iv-dqil', 'still waiting');
