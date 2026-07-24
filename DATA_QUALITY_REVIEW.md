@@ -9,6 +9,14 @@ All figures were measured directly from the database (deduplicated to the
 latest submission per `LOWER(TRIM(username_raw))`, London only). Where a number
 contradicts the doc's April 2026 snapshot, the live number governs.
 
+> **Status update (2026-07-24):** Checklist items 1 and 3 are **done**. The bad
+> rows were cleaned and three ordering constraints were added to
+> `public.form_responses` (migration `db/migrations/0001_milestone_ordering_constraints.sql`).
+> A **fourth** bad row surfaced during cleanup — `id 182` (sptd143), whose
+> interview date was a year typo (`2025-07-01` → `2026-07-01`) — so four rows
+> were corrected, not three. The remaining items (§4 API proposal, §3.2/3.3
+> schema work, §6 re-solicitation) are still open.
+
 ---
 
 ## 1. Headline: the baseline snapshot (doc §8) is stale and now misleading
