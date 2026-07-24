@@ -562,6 +562,34 @@
       </div>
     </section>
 
+    <!-- ═══ SIGNATURE WAIT TIMES ═══ -->
+    <section class="content-section" aria-labelledby="intervals-hd">
+      <div class="container">
+        <div class="section-hd">
+          <h2 class="section-hd__title" id="intervals-hd">Signature Wait Times</h2>
+          <p class="section-hd__sub">Median days over a rolling window, cohorted by milestone date. The sub-line shows the interquartile range (middle 50%), the completed sample size, and how many members have started but not yet reached the end milestone.</p>
+        </div>
+
+        <div class="metrics-grid" role="region" aria-label="Signature interval wait times">
+          <div class="metric-card">
+            <div class="metric-card__label">DQ → Interview Letter</div>
+            <div class="metric-card__value" id="iv-dqil"><span class="skel skel--val" aria-hidden="true"></span></div>
+            <div class="metric-card__sub" id="iv-dqil-sub"></div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__label">IL → Interview</div>
+            <div class="metric-card__value" id="iv-iliv"><span class="skel skel--val" aria-hidden="true"></span></div>
+            <div class="metric-card__sub" id="iv-iliv-sub"></div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__label">Interview → Passport</div>
+            <div class="metric-card__value" id="iv-ivpp"><span class="skel skel--val" aria-hidden="true"></span></div>
+            <div class="metric-card__sub" id="iv-ivpp-sub"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══ DQ → IL WAIT TIME TRENDS ═══ -->
     <section class="content-section" aria-labelledby="trend-hd">
       <div class="container">
@@ -1090,6 +1118,11 @@
         il_to_interview: { all_time:60, last_6m:53, last_3m:60 },
         dq_to_interview: { all_time:123, last_6m:132, last_3m:135 },
       },
+      intervals: {
+        dq_to_il:              { median:86, p25:70, p75:95, p90:100, n:46, window_days:180, censored:14, suppressed:false, small_sample:false },
+        il_to_interview:       { median:50, p25:42, p75:59, p90:73,  n:84, window_days:180, censored:13, suppressed:false, small_sample:false },
+        interview_to_passport: { median:5,  p25:3,  p75:7,  p90:9,   n:62, window_days:180, censored:96, censored_label:'passport not reported', suppressed:false, small_sample:false },
+      },
       outcomes: { approved:98, not_approved:3, cleared:5, denied:1, visa_pause:3, total:110, approval_pct:94 },
       stage_avgs: { approval_to_welcome:6, welcome_to_fees:8, fees_to_docs:19, docs_to_dq:19, il_to_medical:46, interview_to_passport:6 },
       il_schedule: {
@@ -1384,6 +1417,31 @@
       }
     }
 
+    /* Signature intervals: median + IQR + sample size + right-censored tail.
+       Honours the API's suppression flags (hide below n=10, warn below n=30). */
+    function renderIntervals(d) {
+      const iv = d.intervals || {};
+      const card = (obj, id, waitingWord) => {
+        const o = obj || {};
+        if (o.suppressed || o.median == null) {
+          set(id, '—');
+          txt(id + '-sub', o.n ? `Insufficient data (n=${o.n})` : 'Insufficient data');
+          return;
+        }
+        set(id, `${o.median} <span style="font-size:var(--size-sm,0.85rem);font-weight:var(--font-normal,400);">days</span>`);
+        const parts = [];
+        if (o.p25 != null && o.p75 != null) parts.push(`IQR ${o.p25}–${o.p75}`);
+        parts.push(`n=${o.n}`);
+        if (o.small_sample) parts.push('small sample');
+        if (o.censored) parts.push(`${o.censored} ${o.censored_label || waitingWord}`);
+        parts.push(o.window_days ? `${o.window_days}-day window` : 'all time');
+        txt(id + '-sub', parts.join(' · '));
+      };
+      card(iv.dq_to_il,              'iv-dqil', 'still waiting');
+      card(iv.il_to_interview,       'iv-iliv', 'still waiting');
+      card(iv.interview_to_passport, 'iv-ivpp', 'passport not reported');
+    }
+
     function renderTrends(trends) {
       const t = trends?.dq_to_il;
       if (!t || t.all_time == null) return;
@@ -1466,6 +1524,7 @@
       renderPipeline(stats);
       renderDropTable(drops);
       renderAwaiting(d, drops);
+      renderIntervals(d);
       renderTrends(d.trends);
       renderOutcomes(stats);
       renderPassport(stats);

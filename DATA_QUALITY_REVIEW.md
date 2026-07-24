@@ -33,6 +33,16 @@ contradicts the doc's April 2026 snapshot, the live number governs.
 > `submissions` table (`form_responses` documented as canonical in
 > `SUPABASE_SETUP.md`). Remaining: §6 re-solicitation of passport-in-hand — a
 > data-collection task, not a code change.
+>
+> **Update 4 (2026-07-24):** The interval display is now wired into the **real**
+> stats page, `public/data.html` (served at `/data`) — the earlier edit had gone
+> into `public/js/tracker.js`, which no page loads; that file was reverted. A new
+> "Signature Wait Times" section renders median + IQR + `n=` + the censored tail
+> for DQ→IL, IL→Interview, and Interview→Passport from the API's `intervals`
+> block, with a matching fallback snapshot for when the API is unreachable. Note
+> all code changes are still on the `claude/...` branch only — production deploys
+> from `main`, so they go live when the branch is merged and Vercel redeploys.
+> The DB changes are already live in production.
 
 ---
 
