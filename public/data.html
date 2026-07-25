@@ -547,6 +547,12 @@
           <p class="section-hd__sub">The month your Interview Letter arrived and the month interviews have been scheduled. IL → interview is typically ~2 months. Observed pattern from London community members.</p>
         </div>
 
+        <div class="metric-card" style="margin-bottom: var(--space-5);">
+          <div class="metric-card__label">Typical recent wait</div>
+          <div class="metric-card__value" id="iv-iliv"><span class="skel skel--val" aria-hidden="true"></span></div>
+          <div class="metric-card__sub" id="iv-iliv-sub"></div>
+        </div>
+
         <div class="table-wrapper" role="region" aria-labelledby="sched-hd" tabindex="0">
           <table class="table table--striped table--compact">
             <caption class="sr-only">Observed pattern: the month an Interview Letter was received and the month the interview was scheduled</caption>
@@ -562,40 +568,18 @@
       </div>
     </section>
 
-    <!-- ═══ SIGNATURE WAIT TIMES ═══ -->
-    <section class="content-section" aria-labelledby="intervals-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="intervals-hd">Signature Wait Times</h2>
-          <p class="section-hd__sub">The typical wait at each stage, from recent cases. The big number is the middle of the pack — half of people waited less, half waited more. The line beneath it shows the range most people fall in, how many finished cases it's based on, and how many are still in the queue.</p>
-        </div>
-
-        <div class="metrics-grid" role="region" aria-label="Signature interval wait times">
-          <div class="metric-card">
-            <div class="metric-card__label">DQ → Interview Letter</div>
-            <div class="metric-card__value" id="iv-dqil"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="metric-card__sub" id="iv-dqil-sub"></div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-card__label">IL → Interview</div>
-            <div class="metric-card__value" id="iv-iliv"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="metric-card__sub" id="iv-iliv-sub"></div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-card__label">Interview → Passport</div>
-            <div class="metric-card__value" id="iv-ivpp"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="metric-card__sub" id="iv-ivpp-sub"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══ DQ → IL WAIT TIME TRENDS ═══ -->
     <section class="content-section" aria-labelledby="trend-hd">
       <div class="container">
         <div class="section-hd">
           <h2 class="section-hd__title" id="trend-hd">DQ → IL Wait Time Trends</h2>
           <p class="section-hd__sub">Median days from Documentarily Qualified to Interview Letter. A downward trend means the queue is moving faster.</p>
+        </div>
+
+        <div class="metric-card" style="margin-bottom: var(--space-5);">
+          <div class="metric-card__label">Typical recent wait</div>
+          <div class="metric-card__value" id="iv-dqil"><span class="skel skel--val" aria-hidden="true"></span></div>
+          <div class="metric-card__sub" id="iv-dqil-sub"></div>
         </div>
 
         <div class="trend-grid">
@@ -667,6 +651,12 @@
         <div class="section-hd">
           <h2 class="section-hd__title" id="passport-hd">Passport Return Times</h2>
           <p class="section-hd__sub">After visa approval at interview — median days to receive your passport with visa stamp.</p>
+        </div>
+
+        <div class="metric-card" style="margin-bottom: var(--space-5);">
+          <div class="metric-card__label">Overall (all methods)</div>
+          <div class="metric-card__value" id="iv-ivpp"><span class="skel skel--val" aria-hidden="true"></span></div>
+          <div class="metric-card__sub" id="iv-ivpp-sub"></div>
         </div>
 
         <div class="passport-grid">
