@@ -57,6 +57,42 @@ export default async function handler(req, res) {
     }
   }
 
+  // Robust summary for the signature intervals: median, IQR and p90, plus the
+  // NCHS-derived display flags (suppress the statistic below n=10, warn below
+  // n=30). Percentiles use linear interpolation, matching Postgres
+  // percentile_cont. Means are deliberately not exposed here — the interval
+  // distributions are right-skewed and a mean is dragged by the long tail.
+  const robustStats = (arr) => {
+    const valid = arr.filter(n => n !== null && n > 0).sort((a, b) => a - b)
+    const n = valid.length
+    if (!n) return { n: 0, median: null, p25: null, p75: null, p90: null,
+                     min: null, max: null, suppressed: true, small_sample: true }
+    const q = (p) => {
+      const idx = (n - 1) * p, lo = Math.floor(idx), hi = Math.ceil(idx)
+      return Math.round(valid[lo] + (valid[hi] - valid[lo]) * (idx - lo))
+    }
+    return { n, median: q(0.5), p25: q(0.25), p75: q(0.75), p90: q(0.9),
+             min: valid[0], max: valid[n - 1],
+             suppressed: n < 10, small_sample: n < 30 }
+  }
+
+  // Headline interval over a rolling window, cohorted by milestone date rather
+  // than by record insertion. Starts at 180 days and widens automatically until
+  // the completed count clears the stability floor; window_days reports the
+  // width actually used so the UI can surface it.
+  const FLOOR = 30
+  const rollingWindow = (rows, cohortField, valueFn, filterFn) => {
+    for (const days of [180, 270, 365, 545, 730, Infinity]) {
+      const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - days)
+      const vals = rows
+        .filter(r => filterFn(r) && r[cohortField] &&
+          (days === Infinity || new Date(r[cohortField]) >= cutoff))
+        .map(valueFn).filter(v => v !== null && v > 0)
+      if (vals.length >= FLOOR || days === Infinity)
+        return { ...robustStats(vals), window_days: days === Infinity ? null : days }
+    }
+  }
+
   // Deduplicate by username_raw - keep latest submitted_at per user
   const byUser = {}
   for (const row of rows) {
@@ -97,46 +133,29 @@ export default async function handler(req, res) {
     .filter(r => r.dq_date && r.interview)
     .map(r => daysBetween(r.dq_date, r.interview))
 
+  // Passport-return interval: anyone with both dates. The old 'Approved'-only
+  // filter left this on a different denominator from the pickup/mail arrays
+  // below; the DB ordering constraint now guarantees passport >= interview, so
+  // no negative intervals can slip in.
   const passportDays = deduped
-    .filter(r => r.interview && r.passport_in_hand && r.interview_outcome === 'Approved')
+    .filter(r => r.interview && r.passport_in_hand)
     .map(r => daysBetween(r.interview, r.passport_in_hand))
 
   // --- Interview outcomes ---
+  // outcome_status is a STORED generated column in Postgres that canonicalises
+  // the free-text interview_outcome / resolution_outcome / notes fields into
+  // one of: approved | cleared | not_approved | visa_pause | denied | null.
+  // Tally it directly rather than re-deriving categories from strings here.
   const withOutcome = deduped.filter(r => r.interview_outcome)
-  // Outcome strings vary ("221g", "221(g)/Administrative Processing (AP)"),
-  // so strip punctuation before matching 221g.
-  const is221gOutcome = (r) => {
-    const o = r.interview_outcome?.toLowerCase() || ''
-    return o.replace(/[^a-z0-9]/g, '').includes('221g') ||
-      o.includes('not approved') || o.includes('administrative processing')
+  const tally = { approved: 0, cleared: 0, not_approved: 0, visa_pause: 0, denied: 0 }
+  for (const r of deduped) {
+    if (r.outcome_status && tally[r.outcome_status] !== undefined) tally[r.outcome_status]++
   }
-  const approved = withOutcome.filter(r =>
-    r.interview_outcome?.toLowerCase() === 'approved'
-  ).length
-  const cleared = withOutcome.filter(r => {
-    const res = r.resolution_outcome?.toLowerCase() || ''
-    return is221gOutcome(r) && (res.includes('cleared') || res.includes('approved'))
-  }).length
-  const notApproved = withOutcome.filter(r => {
-    const o = r.interview_outcome?.toLowerCase() || ''
-    const res = r.resolution_outcome?.toLowerCase() || ''
-    if (res.includes('cleared') || res.includes('approved')) return false
-    const notes = r.notes?.toLowerCase() || ''
-    if (notes.includes('visa pause')) return false
-    if (o === 'denied' || res === 'denied') return false
-    return is221gOutcome(r)
-  }).length
-  const visaPause = withOutcome.filter(r => {
-    const o = r.interview_outcome?.toLowerCase() || ''
-    const notes = r.notes?.toLowerCase() || ''
-    const res = r.resolution_outcome?.toLowerCase() || ''
-    return (notes.includes('visa pause') || o.includes('visa pause')) && !res.includes('cleared')
-  }).length
-  const denied = withOutcome.filter(r => {
-    const o = r.interview_outcome?.toLowerCase() || ''
-    const res = r.resolution_outcome?.toLowerCase() || ''
-    return o === 'denied' || res === 'denied'
-  }).length
+  const approved   = tally.approved
+  const cleared    = tally.cleared
+  const notApproved = tally.not_approved
+  const visaPause  = tally.visa_pause
+  const denied     = tally.denied
 
   // --- Passport by method ---
   const pickupDays = deduped
@@ -154,6 +173,42 @@ export default async function handler(req, res) {
       return m === 'mail' || m === 'delivery'
     })
     .map(r => daysBetween(r.interview, r.passport_in_hand))
+
+  // --- Right-censored counts per interval ---
+  // A start milestone present with no end milestone. These are counted in the
+  // denominator and surfaced as a "still waiting" / "not reported" figure, but
+  // excluded from the median (§2/§3 of the methodology). The passport interval
+  // is labelled "not reported" rather than "still waiting": members who reached
+  // interview but never logged a passport date average ~150 days since
+  // interview against a ~5-day real return, i.e. reporting attrition, not queue.
+  const censored = {
+    dq_to_il:              standard.filter(r => r.dq_date && !r.interview_letter).length,
+    il_to_interview:       standard.filter(r => r.interview_letter && !r.interview).length,
+    interview_to_passport: deduped.filter(r => r.interview && !r.passport_in_hand).length,
+  }
+
+  // --- Signature intervals: robust, rolling-window, censoring-aware ---
+  const intervals = {
+    dq_to_il: {
+      ...rollingWindow(standard, 'dq_date',
+        r => daysBetween(r.dq_date, r.interview_letter),
+        r => r.dq_date && r.interview_letter),
+      censored: censored.dq_to_il,
+    },
+    il_to_interview: {
+      ...rollingWindow(standard, 'interview_letter',
+        r => daysBetween(r.interview_letter, r.interview),
+        r => r.interview_letter && r.interview),
+      censored: censored.il_to_interview,
+    },
+    interview_to_passport: {
+      ...rollingWindow(deduped, 'interview',
+        r => daysBetween(r.interview, r.passport_in_hand),
+        r => r.interview && r.passport_in_hand),
+      censored: censored.interview_to_passport,
+      censored_label: 'passport not reported',
+    },
+  }
 
   // --- Stage counts ---
   const counts = {
@@ -557,6 +612,7 @@ export default async function handler(req, res) {
       avg_mail_days:        avg(mailDays),
       median_mail_days:     median(mailDays),
     },
+    intervals,
     trends: {
       dq_to_il: {
         all_time: { avg: avg(dqToIL),     median: median(dqToIL) },
