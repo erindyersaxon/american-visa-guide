@@ -12,6 +12,21 @@ export default async function handler(req, res) {
     ])
   )
 
+  // Null out future-dated past-only milestones before writing. These are
+  // data-entry errors — almost always a wrong year picked in a date picker
+  // (e.g. an Interview Letter dated 2027 instead of 2026). The read path
+  // (api/data.js) already discards them for the same reason, so nulling here
+  // loses nothing, and it keeps a single bad date from tripping the
+  // milestone-ordering CHECK constraints and 500-ing the whole submission —
+  // the rest of the respondent's answers still save. Appointment fields
+  // (interview / medical / flight) are legitimately future-dated and left alone.
+  const todayEnd = new Date(); todayEnd.setUTCHours(23, 59, 59, 999)
+  const PAST_ONLY = ['dq_date', 'interview_letter', 'i130_approval', 'sent_to_dos',
+    'nvc_welcome_letter', 'nvc_fees_paid', 'nvc_docs_submitted', 'passport_in_hand']
+  for (const f of PAST_ONLY) {
+    if (cleaned[f] && new Date(cleaned[f]) > todayEnd) cleaned[f] = null
+  }
+
   const username = cleaned.username_raw?.trim?.() || null
   const baseHeaders = {
     'apikey': process.env.SUPABASE_SERVICE_ROLE_KEY,
