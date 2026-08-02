@@ -322,6 +322,20 @@
     }
     .data-notice.is-visible { display: flex; }
 
+    /* ── Editorial narrative note (neutral, non-alarmist) ── */
+    .trend-note {
+      margin-top: var(--space-5);
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      line-height: var(--leading-body);
+      color: var(--color-text-muted);
+    }
+    .trend-note strong { color: var(--color-text); font-weight: var(--font-semibold); }
+
     /* ── Numeric table cells ── */
     .num { font-variant-numeric: tabular-nums; text-align: right; }
   </style>
@@ -594,6 +608,14 @@
             <div class="trend-card__dir" id="t-6mo-dir"></div>
           </div>
         </div>
+
+        <p class="trend-note">
+          <strong>What we're seeing:</strong> IL drops are still landing on their usual cadence, but
+          the wait from DQ to Interview Letter has been gradually lengthening in recent months — the
+          last six months are running longer than the all-time median. Based on our community data
+          this is a slow drift rather than a stop: cases keep moving through the queue, they're just
+          taking a little longer to reach an Interview Letter.
+        </p>
       </div>
     </section>
 
@@ -1133,7 +1155,7 @@
     const PIPELINE = {
       uscis:  { status:'halted', text:'I-130 processing for consular cases has effectively stopped. <a href="/guide#uscis">Full explanation on the guide page →</a>' },
       nvc:    { status:'normal', text:'Processing normally. Documentarily Qualified typically lands ~14 calendar days after a complete submission.' },
-      london: { status:'active', text:'IL drops continuing on a regular cadence. Once you have an IL, your interview is typically about 9 weeks out.' },
+      london: { status:'active', text:'IL drops are continuing on a regular cadence, though the wait from DQ to IL has been gradually lengthening in recent months. Once you have an IL, your interview is typically about 9 weeks out.' },
     };
 
     /* Map the /api/data response into the shapes the render functions consume */
