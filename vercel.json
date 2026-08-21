@@ -120,6 +120,11 @@
       "permanent": true
     },
     {
+      "source": "/interview-questions.html",
+      "destination": "/interview-questions",
+      "permanent": true
+    },
+    {
       "source": "/checklist-nvc.html",
       "destination": "/checklist-nvc",
       "permanent": true
