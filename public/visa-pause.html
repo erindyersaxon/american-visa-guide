@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A federal court has vacated the January 2026 nationality visa pause (CLINIC v. Rubio). What the decision means if you interviewed at US Embassy London but are not a UK national, what it does and does not do, and how to read the ruling yourself.">
+  <title>The nationality visa pause, struck down: what it means for London cases | American Visa Guide</title>
+  <link rel="canonical" href="https://www.americanvisaguide.com/visa-pause">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-ui: 'Outfit', sans-serif;
+
+      --bg:          #f4efe6;
+      --surface:     #fdfaf3;
+      --surface-alt: #ede8de;
+      --surface-hov: #e4ddcf;
+      --ink:         #1e1c17;
+      --muted:       #6a6560;
+
+      --accent:      #3e7188;   /* steel blue, AA on cream */
+      --accent-dark: #2f5a6e;
+      --accent-deco: #5a8fa6;
+
+      --line:        #ddd6cb;
+      --line-soft:   #e7e0d4;
+
+      --warn-bg:     #f6ecd9;
+      --warn-border: #e6d3b0;
+      --warn-edge:   #b07840;
+      --warn-ink:    #875325;
+
+      --danger:      #b04a38;
+      --danger-bg:   #f7e9e6;
+      --danger-border:#ecccc4;
+
+      --sage:        #3f6b5c;
+      --sage-bg:     #ebf1ec;
+      --sage-border: #d2e2d6;
+
+      --code-bg:     #2b3a42;
+      --code-text:   #cfdde3;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav + footer styles live in /css/nav.css (shared component) */
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.25rem 1.5rem 5rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
+
+    /* ── HERO ── */
+    .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4.4vw, 2.4rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+    }
+    h1 span, h1 em { color: var(--accent); font-style: italic; font-weight: 500; }
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-left: 4px solid var(--warn-edge);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.25rem;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--warn-ink);
+    }
+    .disclaimer strong { color: var(--warn-ink); font-family: var(--font-ui); }
+    .disclaimer a { color: var(--accent-dark); }
+
+    /* ── SECTION HEADINGS ── */
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.42rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 2.5rem 0 0.9rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 {
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.6rem 0 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    p { margin-bottom: 0.85rem; }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+    ul, ol { padding-left: 1.35rem; margin-bottom: 0.85rem; }
+    li { margin-bottom: 0.38rem; }
+    li:last-child { margin-bottom: 0; }
+    strong { color: var(--ink); font-weight: 600; }
+    em { font-style: italic; }
+
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+    /* ── ON THIS PAGE ── */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.1rem 1.35rem;
+      margin-bottom: 2.25rem;
+    }
+    .toc-title {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .toc ol { margin: 0; padding-left: 1.1rem; columns: 2; column-gap: 1.75rem; }
+    .toc li { font-size: 0.88rem; margin-bottom: 0.3rem; }
+    @media (max-width: 560px) { .toc ol { columns: 1; } }
+
+    /* ── FIGURE / IMAGES ── */
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.1rem 0 0.6rem;
+    }
+    @media (max-width: 620px) { .sheet-grid { grid-template-columns: 1fr; } }
+    figure { margin: 0; }
+    figure img {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: block;
+    }
+    figcaption {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 0.45rem;
+      text-align: center;
+    }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; margin: 1.1rem 0 1.4rem; border-radius: 8px; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    thead tr { background: var(--code-bg); }
+    th {
+      text-align: left;
+      padding: 0.6rem 0.9rem;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    td {
+      padding: 0.58rem 0.9rem;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+      color: var(--ink);
+    }
+    td:first-child { font-weight: 600; color: var(--accent-dark); }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
+
+    /* ── STAGE / MITIGATION CARDS ── */
+    .stage-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.15rem 1.3rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .stage-head {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    .stage-pill {
+      font-family: var(--font-ui);
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.18rem 0.55rem;
+      border-radius: 5px;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .stage-title {
+      font-family: var(--font-ui);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* ── CALLOUTS ── */
+    .callout {
+      border-radius: 7px;
+      padding: 0.8rem 1.05rem;
+      margin: 0.9rem 0;
+      font-size: 0.895rem;
+      line-height: 1.63;
+    }
+    .callout-warn {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-left: 3px solid var(--warn-edge);
+      color: var(--warn-ink);
+    }
+    .callout-warn a { color: var(--accent-dark); }
+    .callout-info {
+      background: rgba(62,113,136,0.06);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent-deco);
+    }
+    .callout-alert {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      border-left: 3px solid var(--danger);
+      color: #7a3022;
+    }
+    .callout-alert a { color: var(--accent-dark); }
+    .callout-good {
+      background: var(--sage-bg);
+      border: 1px solid var(--sage-border);
+      border-left: 3px solid var(--sage);
+    }
+    .callout-title {
+      display: block;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist { list-style: none; padding: 0; }
+    .checklist li {
+      padding: 0.28rem 0 0.28rem 1.55rem;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    .checklist li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── BACK TO GUIDE ── */
+    .guide-return {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 7px;
+      margin-top: 0.5rem;
+    }
+    .guide-return:hover { background: var(--accent-dark); color: #fff; text-decoration: none; }
+
+    /* ── SOURCES ── */
+    .sources {
+      margin-top: 3rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--line);
+    }
+    .sources h2 { margin-top: 0; }
+    .sources ol {
+      font-size: 0.81rem;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+    .sources li { margin-bottom: 0.45rem; }
+    .sources a { color: var(--accent); }
+    .sources a:hover { color: var(--accent-dark); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .page-wrap { padding: 1.5rem 1rem 4rem; }
+    }
+  </style>
+  <link rel="stylesheet" href="/css/nav.css?v=20260722">
+  <script src="/js/nav.js?v=20260722" defer></script>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="page-wrap">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span><a href="/guide.html">Guide</a><span>/</span>Visa pause struck down
+  </div>
+
+  <p class="eyebrow">US Embassy London &middot; Nationality visa pause</p>
+
+  <h1>The nationality visa pause has been <span>struck down</span></h1>
+
+  <p class="lead">On 21 August 2026 a federal court vacated the State Department policy that suspended immigrant visas for nationals of 75 countries. The ban was triggered by <strong>nationality, not by the embassy you interviewed at</strong> &mdash; so if you interviewed at US Embassy London on a non-UK passport and were caught by the pause, this is the decision that undoes it. Here is what it does, what it does not do, and how to read it yourself.</p>
+
+  <div class="disclaimer">
+    <strong>This is not legal advice.</strong> American Visa Guide is an independent community resource based on official US government sources and the text of the court&rsquo;s order. This is a US <em>district court</em> ruling and the government may appeal or seek to pause it &mdash; check the current status before relying on it for travel. If your case involves an inadmissibility ground, a prior refusal, or anything beyond the pause itself, consider consulting an immigration attorney affiliated with the <a href="https://www.aila.org/">American Immigration Lawyers Association (AILA)</a>.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">On this page</div>
+    <ol>
+      <li><a href="#what">What the pause was</a></li>
+      <li><a href="#decided">What the court decided</a></li>
+      <li><a href="#london">If you interviewed in London</a></li>
+      <li><a href="#notmean">What it does not mean</a></li>
+      <li><a href="#do">What to do now</a></li>
+      <li><a href="#read">Read the decision yourself</a></li>
+    </ol>
+  </div>
+
+  <div class="callout callout-good">
+    <span class="callout-title">Bottom line</span>
+    The nationality-based immigrant visa ban is <strong>void</strong>. Refusals issued <em>solely</em> because of it have been set aside and sent back to consular officers to be decided again on the merits &mdash; for everyone affected, not just the people who sued. It is not an automatic visa, and a refusal that had a separate, genuine ground still stands.
+  </div>
+
+  <h2 id="what">What the pause was</h2>
+
+  <p>On 14 January 2026 the State Department announced that, effective 21 January 2026, it would <strong>suspend the issuance of immigrant visas to nationals of 75 countries</strong>, on the theory that immigrants from those countries posed a high risk of becoming a &ldquo;public charge.&rdquo; A cable from Secretary of State Marco Rubio ordered consular officers to refuse those applicants <strong>even where the officer had already determined, individually, that the person was not a public-charge risk and was otherwise eligible for the visa</strong>.</p>
+
+  <p>In practice the policy operated as a categorical ban keyed to the applicant&rsquo;s country of nationality &mdash; nearly 40% of the world&rsquo;s countries &mdash; regardless of the individual&rsquo;s circumstances.</p>
+
+  <h2 id="decided">What the court decided</h2>
+
+  <p>In <em>Catholic Legal Immigration Network, Inc. (CLINIC) v. Rubio</em>, No. 26-cv-00858, the US District Court for the Southern District of New York (Judge Jeannette A. Vargas) held the policy <strong>contrary to law and beyond the Secretary of State&rsquo;s authority</strong>, and vacated it under the Administrative Procedure Act. The court found the ban violated:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Provision</th><th>Why the ban broke it</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>8 U.S.C. &sect; 1201(g)</td>
+          <td>Requires an individualized eligibility assessment by a consular officer. The ban ordered officers to refuse applicants they had found eligible.</td>
+        </tr>
+        <tr>
+          <td>8 U.S.C. &sect; 1152(a)(1)(A)</td>
+          <td>Prohibits discrimination in issuing immigrant visas based on nationality. The ban did exactly that &mdash; it sorted applicants by their passport.</td>
+        </tr>
+        <tr>
+          <td>22 C.F.R. &sect; 40.6</td>
+          <td>A visa may be refused only on a ground specifically set out in law. &ldquo;Nationality on a list&rdquo; is not such a ground.</td>
+        </tr>
+        <tr>
+          <td>8 U.S.C. &sect; 1104(a)</td>
+          <td>Strips the Secretary of State of authority over the consular adjudication of individual immigrant visas. The policy overrode that discretion.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>What the order actually does:</p>
+
+  <ul>
+    <li><strong>Cancels the policy entirely.</strong> The court rejected the government&rsquo;s argument that relief should be limited to the named plaintiffs: vacatur under the APA nullifies an unlawful policy <em>in full</em>, for everyone, not just those who sued.</li>
+    <li><strong>Sets aside refusals based solely on the ban</strong> and remands those cases to consular officers to be re-adjudicated, with the instruction that a refusal may not rest on the policy. The court does not dictate the outcome &mdash; only that the ban cannot be the reason.</li>
+    <li><strong>Enters a declaratory judgment</strong> that the policy was unlawful, which makes it harder for the agency to simply reissue the same ban in a new wrapper.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">Important limit</span>
+    The vacatur does <strong>not</strong> reach a refusal where the officer found the applicant ineligible on some other ground &mdash; for example a genuine individualized public-charge finding, a missing-document 221(g), or another inadmissibility &mdash; <strong>even if the refusal paperwork also cited the ban</strong>. If your refusal named a real, case-specific reason, that reason still stands and still has to be resolved.
+  </div>
+
+  <h2 id="london">If you interviewed in London and are not a UK national</h2>
+
+  <p>This is the key point for London cases: <strong>the ban was triggered by your country of nationality, never by the embassy you attended.</strong> US Embassy London processes many immigrant-visa applicants who live lawfully in the UK but hold a different passport &mdash; third-country nationals. If that other nationality was one of the 75 listed countries, your case was caught by the pause <strong>at London exactly as it would have been anywhere else in the world</strong>.</p>
+
+  <ul>
+    <li>If you are a <strong>British national</strong>, the pause never applied to you &mdash; this decision does not change your case.</li>
+    <li>If you interviewed at London on the passport of a <strong>listed country</strong> and were refused, held, or told the visa &ldquo;could not be approved at this time&rdquo; because of the pause, you are squarely within the group this ruling helps.</li>
+    <li>If you hold <strong>a second, unaffected nationality</strong>, that route was always open &mdash; make sure the unaffected passport is uploaded to CEAC. With the ban vacated, the listed-country passport is no longer a bar either.</li>
+  </ul>
+
+  <h2 id="notmean">What it does not mean</h2>
+
+  <ul>
+    <li><strong>It is not an automatic visa.</strong> Vacatur restores the <em>prior</em> status quo: your case goes back to a consular officer for a normal, individualized decision. A visa still never guarantees admission at the US port of entry.</li>
+    <li><strong>It is a trial-court ruling.</strong> The government can appeal or ask for the decision to be stayed. It is the current state of the law, not necessarily the last word &mdash; watch for updates before booking flights.</li>
+    <li><strong>It does not fix a separate problem.</strong> If your refusal rested on anything other than the pause, treat that as the live issue.</li>
+  </ul>
+
+  <h2 id="do">What to do now</h2>
+
+  <ol>
+    <li><strong>Find out exactly why you were refused.</strong> Pull your 221(g) sheet or refusal notice and read the stated ground. If the <em>only</em> reason was the nationality suspension, your case falls within this decision and should be re-processed.</li>
+    <li><strong>Separate the pause from everything else.</strong> If any other reason was cited &mdash; finances, a document, an inadmissibility &mdash; work that the normal way; see our <a href="/221g.html">221(g)</a> and <a href="/public-charge.html">public charge</a> pages.</li>
+    <li><strong>Check CEAC and keep your case current.</strong> Make sure your civil and financial documents are up to date so the case can move as soon as it is picked back up.</li>
+    <li><strong>Watch the case status.</strong> Because the government may appeal, follow the docket (linked below) before making irreversible plans.</li>
+    <li><strong>Get advice for anything complex.</strong> A prior refusal, an inadmissibility finding, or an unusual fact pattern is worth an <a href="https://www.aila.org/">AILA</a>-affiliated attorney.</li>
+  </ol>
+
+  <h2 id="read">Read the decision yourself</h2>
+
+  <p>You do not have to take anyone&rsquo;s summary on trust &mdash; the full 61-page Opinion and Order is public.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-title">The ruling</span>
+    <em>Catholic Legal Immigration Network, Inc. v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y. Aug. 21, 2026), Opinion and Order (ECF No. 83).
+    <ul style="margin-top:0.55rem;margin-bottom:0;">
+      <li><a href="https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/" target="_blank" rel="noopener noreferrer">Full docket and opinion on CourtListener</a> (free; the Opinion and Order is document&nbsp;83)</li>
+      <li><a href="https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.83.0.pdf" target="_blank" rel="noopener noreferrer">Direct PDF of the Opinion and Order</a></li>
+      <li><a href="https://www.nilc.org/litigation/clinic-v-rubio/" target="_blank" rel="noopener noreferrer">Case background from the National Immigration Law Center</a></li>
+      <li><a href="https://clearinghouse.net/case/47789/" target="_blank" rel="noopener noreferrer">Filings archive at the Civil Rights Litigation Clearinghouse</a></li>
+    </ul>
+  </div>
+
+  <div style="margin-top:2rem;">
+    <a href="/guide.html#interview" class="guide-return">&larr; Back to the interview stage of the guide</a>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h2>Sources &amp; related pages</h2>
+    <ol>
+      <li><em>Catholic Legal Immigration Network, Inc. v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y. Aug. 21, 2026), Opinion and Order (ECF No. 83) &mdash; the primary document this page summarizes. <a href="https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/" target="_blank" rel="noopener noreferrer">CourtListener docket</a>.</li>
+      <li>Statutes construed by the court: 8 U.S.C. &sect;&sect; 1104(a), 1152(a)(1)(A), 1201(g); 22 C.F.R. &sect; 40.6; Administrative Procedure Act, 5 U.S.C. &sect; 706.</li>
+      <li>Department of State, <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process.html" target="_blank" rel="noopener noreferrer">The Immigrant Visa Process</a> (consular adjudication overview).</li>
+      <li>Related on this site: <a href="/221g.html">221(g) at London</a> &middot; <a href="/public-charge.html">Public charge</a> &middot; <a href="/guide.html#interview">Interview stage</a>.</li>
+    </ol>
+  </div>
+
+  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed August 2026. This page is general information, not legal advice, and describes a district-court ruling that may be appealed.</p>
+
+</div>
+
+<div id="footer-placeholder"></div>
+
+</body>
+</html>

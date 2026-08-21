@@ -155,6 +155,11 @@
       "permanent": true
     },
     {
+      "source": "/visa-pause.html",
+      "destination": "/visa-pause",
+      "permanent": true
+    },
+    {
       "source": "/workbook.html",
       "destination": "/workbook",
       "permanent": true

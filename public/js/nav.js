@@ -142,6 +142,7 @@
     'tracker': 'data',
     'guide': 'guide',
     'public-charge': 'guide',
+    'visa-pause': 'guide',
     'delayed-i130-remedies': 'guide',
     '221g': '221g',
     'checklists': 'checklists',
