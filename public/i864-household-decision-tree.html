@@ -21,176 +21,210 @@
 <link rel="stylesheet" href="/css/components.css?v=20260616">
 <link rel="stylesheet" href="/css/nav.css?v=20260722">
 <style>
-  /* I-864 Calculator custom styles */
+  /* ─────────────────────────────────────────────────────────────
+     I-864 Household Calculator — page styles
+     Palette + type follow the site design system (cream + steel blue,
+     Fraunces display / Outfit UI / Plus Jakarta Sans body).
+     Legacy local var names (--navy, --gold) are kept and repointed at
+     house values, matching the convention in css/design-system.css.
+     ───────────────────────────────────────────────────────────── */
   :root {
-    --navy:     #0e1f3b;
-    --navy-mid: #1a3258;
-    --gold:     #c49b3c;
-    --gold-lt:  #e8c76e;
-    --cream:    #faf8f4;
-    --slate:    #6b7a8d;
-    --green:    #2d7a4f;
-    --green-lt: #e8f5ee;
-    --amber:    #c47a1a;
-    --amber-lt: #fff4e0;
-    --red:      #b03030;
-    --red-lt:   #fceaea;
-    --purple:   #5b3ea6;
-    --purple-lt:#f0ecfb;
-    --border:   #dde2ea;
-    --text:     #1a1a2e;
+    --navy:     #2b3a42;   /* charcoal blue — dark surfaces */
+    --navy-mid: #3d5260;
+    --gold:     #3e7188;   /* steel blue accent, AA on cream */
+    --gold-lt:  #c8dde6;   /* accent tint for use on dark surfaces */
+    --cream:    #f4efe6;   /* page background */
+    --surface:  #fdfaf3;   /* card surface */
+    --surface-alt: #ede8de;
+    --slate:    #6a6560;
+    --green:    #3f6b5c;
+    --green-lt: #ebf1ec;
+    --green-bd: #d2e2d6;
+    --amber:    #875325;
+    --amber-lt: #f6ecd9;
+    --amber-bd: #e6d3b0;
+    --red:      #b04a38;
+    --red-lt:   #f7e9e6;
+    --red-bd:   #ecccc4;
+    --purple:    #2f5a6e;  /* legacy name — now deep steel */
+    --purple-lt: #edf4f8;
+    --purple-bd: #bcd6e0;
+    --border:   #ddd6cb;
+    --border-soft: #e7e0d4;
+    --text:     #1e1c17;
+    --font-display-calc: 'Fraunces', Georgia, 'Times New Roman', serif;
     --font-ui-calc:  'Outfit', system-ui, sans-serif;
     --font-body-calc:'Plus Jakarta Sans', system-ui, sans-serif;
   }
-  .i864-calculator { font-family: var(--font-body-calc); background: var(--cream); color: var(--text); }
+  .i864-calculator { font-family: var(--font-body-calc); background: var(--cream); color: var(--text); line-height: 1.72; }
 
-  .i864-container { max-width: 780px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  .i864-container { max-width: 860px; margin: 0 auto; padding: 2.25rem 1.5rem 5rem; }
 
-  .intro { margin-bottom: 2rem; }
-  .intro h1 { font-family: var(--font-ui-calc); font-size: 1.6rem; font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 0.5rem; }
-  .intro p { font-size: 0.92rem; color: var(--slate); line-height: 1.6; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  .i864-calculator :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
 
-  .authority-note { background: var(--navy); border-left: 3px solid var(--gold); border-radius: 6px; padding: 0.85rem 1rem; margin-bottom: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
-  .authority-note strong { color: var(--gold-lt); }
-  .authority-note a { color: var(--gold-lt); text-decoration: underline; }
+  /* BREADCRUMB + HERO */
+  .breadcrumb { font-size: 0.78rem; color: var(--slate); margin-bottom: 1.5rem; }
+  .breadcrumb a { color: var(--gold); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--purple); text-decoration: underline; }
+  .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
+
+  .intro { margin-bottom: 1.75rem; }
+  .eyebrow { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  .intro h1 { font-family: var(--font-display-calc); font-size: clamp(1.7rem, 4.4vw, 2.4rem); font-weight: 600; color: var(--text); line-height: 1.15; margin-bottom: 0.9rem; letter-spacing: -0.01em; }
+  .intro h1 em { font-style: italic; font-weight: 500; color: var(--gold); }
+  .intro p { font-size: 1.05rem; color: var(--slate); line-height: 1.7; max-width: 680px; }
+
+  .authority-note { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 0.85rem; color: var(--slate); line-height: 1.65; }
+  .authority-note strong { color: var(--navy); font-family: var(--font-ui-calc); font-weight: 600; }
+  .authority-note a { color: var(--gold); text-decoration: underline; }
 
   /* SECTION DIVIDER */
-  .section-label { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+  .section-label { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
 
   /* STEP CARD */
-  .step-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 1.25rem; overflow: hidden; transition: border-color 0.2s; }
-  .step-card.active { border-color: var(--gold); }
-  .step-card.completed { border-color: var(--green); opacity: 0.7; }
+  .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 1rem; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+  .step-card.active { border-color: var(--gold); box-shadow: 0 1px 3px rgba(43,58,66,0.07); }
+  .step-card.completed { border-color: var(--green-bd); background: var(--surface-alt); }
   .step-card.hidden { display: none; }
 
   .step-header { display: flex; align-items: flex-start; gap: 0.85rem; padding: 1.1rem 1.25rem; }
   .step-number { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: var(--gold-lt); font-family: var(--font-ui-calc); font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
-  .step-card.active .step-number { background: var(--gold); color: var(--navy); }
+  .step-card.active .step-number { background: var(--gold); color: #fff; }
   .step-card.completed .step-number { background: var(--green); color: #fff; }
   .step-content { flex: 1; }
-  .step-label { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.2rem; }
-  .step-question { font-family: var(--font-ui-calc); font-size: 1rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
-  .step-hint { font-size: 0.8rem; color: var(--slate); margin-top: 0.35rem; line-height: 1.5; }
+  .step-label { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; }
+  .step-question { font-family: var(--font-display-calc); font-size: 1.15rem; font-weight: 600; color: var(--text); line-height: 1.3; letter-spacing: -0.01em; }
+  .step-hint { font-size: 0.85rem; color: var(--slate); margin-top: 0.4rem; line-height: 1.6; }
 
-  .step-body { padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .step-body { padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--border-soft); padding-top: 1rem; }
   .step-card.completed .step-body { display: none; }
 
   .choices { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
   .choice-btn { font-family: var(--font-ui-calc); font-size: 0.88rem; font-weight: 500; padding: 0.55rem 1rem; border: 1.5px solid var(--border); border-radius: 6px; background: #fff; color: var(--navy); cursor: pointer; transition: all 0.15s; text-align: left; }
-  .choice-btn:hover { border-color: var(--gold); background: var(--amber-lt); }
-  .choice-btn.selected { border-color: var(--gold); background: var(--amber-lt); font-weight: 600; }
+  .choice-btn:hover { border-color: var(--gold); background: var(--purple-lt); }
+  .choice-btn.selected { border-color: var(--gold); background: var(--purple-lt); font-weight: 600; }
   .choice-btn.yes-btn:hover, .choice-btn.yes-btn.selected { border-color: var(--green); background: var(--green-lt); }
 
   .number-row { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
   .counter-btn { width: 36px; height: 36px; border-radius: 6px; border: 1.5px solid var(--border); background: #fff; font-size: 1.1rem; color: var(--navy); cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font-ui-calc); transition: all 0.15s; }
-  .counter-btn:hover { border-color: var(--gold); background: var(--amber-lt); }
+  .counter-btn:hover { border-color: var(--gold); background: var(--purple-lt); }
   .counter-display { font-family: var(--font-ui-calc); font-size: 1.5rem; font-weight: 700; color: var(--navy); min-width: 2.5rem; text-align: center; }
-  .counter-label { font-size: 0.8rem; color: var(--slate); }
+  .counter-label { font-size: 0.82rem; color: var(--slate); }
 
-  .inline-def { background: var(--amber-lt); border: 1px solid #f0d9a0; border-radius: 6px; padding: 0.75rem 0.85rem; margin-top: 0.85rem; font-size: 0.8rem; color: #5a4000; line-height: 1.55; }
-  .inline-def strong { color: var(--amber); }
-  .inline-note { background: var(--purple-lt); border: 1px solid #c9bef0; border-radius: 6px; padding: 0.75rem 0.85rem; margin-top: 0.85rem; font-size: 0.8rem; color: #3a2570; line-height: 1.55; }
-  .inline-note strong { color: var(--purple); }
+  .inline-def { background: var(--amber-lt); border: 1px solid var(--amber-bd); border-left: 3px solid var(--amber); border-radius: 6px; padding: 0.8rem 0.95rem; margin-top: 0.85rem; font-size: 0.83rem; color: var(--amber); line-height: 1.6; }
+  .inline-def strong { color: var(--amber); font-family: var(--font-ui-calc); font-weight: 600; }
+  .inline-note { background: var(--purple-lt); border: 1px solid var(--purple-bd); border-left: 3px solid var(--gold); border-radius: 6px; padding: 0.8rem 0.95rem; margin-top: 0.85rem; font-size: 0.83rem; color: var(--purple); line-height: 1.6; }
+  .inline-note strong { color: var(--purple); font-family: var(--font-ui-calc); font-weight: 600; }
   .inline-note a { color: var(--purple); }
 
-  .completed-line { padding: 0.5rem 1.25rem 0.75rem 4rem; font-size: 0.82rem; color: var(--green); font-weight: 500; }
+  .completed-line { padding: 0.5rem 1.25rem 0.75rem 4rem; font-size: 0.83rem; color: var(--green); font-weight: 500; }
 
   /* RESULT PANEL */
-  .result-panel { border-radius: 10px; overflow: hidden; margin-top: 1.5rem; display: none; }
+  .result-panel { border-radius: 10px; overflow: hidden; margin-top: 1.75rem; display: none; border: 1px solid var(--border); }
   .result-panel.visible { display: block; }
-  .result-header { background: var(--navy); padding: 1.25rem 1.5rem; }
-  .result-header h2 { font-family: var(--font-ui-calc); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
-  .result-header p { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
-  .result-body { background: #fff; border: 1px solid var(--border); border-top: none; }
+  .result-header { background: var(--navy); padding: 1.35rem 1.5rem; }
+  .result-header h2 { font-family: var(--font-display-calc); font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
+  .result-header p { font-size: 0.85rem; color: var(--gold-lt); }
+  .result-body { background: var(--surface); }
 
-  .hh-size-box { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1.25rem; }
-  .hh-number { font-family: var(--font-ui-calc); font-size: 3.5rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .hh-size-box { padding: 1.5rem; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; gap: 1.25rem; }
+  .hh-number { font-family: var(--font-display-calc); font-size: 3.5rem; font-weight: 600; color: var(--gold); line-height: 1; }
   .hh-breakdown { flex: 1; }
-  .hh-breakdown-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.5rem; }
-  .hh-row { display: flex; justify-content: space-between; font-size: 0.82rem; padding: 0.2rem 0; border-bottom: 1px dotted var(--border); }
+  .hh-breakdown-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .hh-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 0.25rem 0; border-bottom: 1px dotted var(--border); }
   .hh-row:last-child { border-bottom: none; font-weight: 600; color: var(--navy); }
   .hh-row-label { color: var(--slate); }
   .hh-row-value { font-weight: 600; color: var(--navy); }
 
-  .income-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
-  .income-section-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.85rem; }
+  .income-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-soft); }
+  .income-section-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.85rem; }
   .threshold-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .threshold-card { border-radius: 8px; padding: 1rem; border: 1.5px solid var(--border); }
-  .threshold-card.primary { border-color: var(--gold); background: linear-gradient(135deg, #fffdf5 0%, #fff8e5 100%); }
-  .threshold-card.secondary { background: #f8fafc; }
+  .threshold-card { border-radius: 8px; padding: 1rem; border: 1.5px solid var(--border); background: #fff; }
+  .threshold-card.primary { border-color: var(--gold); background: var(--purple-lt); }
+  .threshold-card.secondary { background: var(--surface-alt); }
   .threshold-tag { font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.35rem; }
-  .threshold-card.primary .threshold-tag { color: var(--amber); }
+  .threshold-card.primary .threshold-tag { color: var(--purple); }
   .threshold-card.secondary .threshold-tag { color: var(--slate); }
-  .threshold-amount { font-family: var(--font-ui-calc); font-size: 1.6rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.2rem; }
-  .threshold-subtitle { font-size: 0.73rem; color: var(--slate); line-height: 1.4; }
-  .region-badge { display: inline-block; font-family: var(--font-ui-calc); font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 3px; background: var(--navy); color: var(--gold-lt); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+  .threshold-amount { font-family: var(--font-display-calc); font-size: 1.7rem; font-weight: 600; color: var(--navy); line-height: 1.1; margin-bottom: 0.25rem; }
+  .threshold-subtitle { font-size: 0.75rem; color: var(--slate); line-height: 1.45; }
+  .region-badge { display: inline-block; font-family: var(--font-ui-calc); font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px; background: var(--navy); color: var(--gold-lt); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
 
   /* SHORTFALL + JOINT SPONSOR SECTIONS */
-  .shortfall-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
-  .shortfall-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.85rem; }
-  .option-list { display: flex; flex-direction: column; gap: 0.75rem; }
-  .option-item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.83rem; line-height: 1.5; }
-  .option-badge { flex-shrink: 0; font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 1px; }
+  .shortfall-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-soft); }
+  .shortfall-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.85rem; }
+  .option-list { display: flex; flex-direction: column; gap: 0.9rem; }
+  .option-item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.87rem; line-height: 1.65; }
+  .option-badge { flex-shrink: 0; font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; padding: 0.18rem 0.45rem; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
   .badge-a { background: var(--green-lt); color: var(--green); }
   .badge-b { background: var(--amber-lt); color: var(--amber); }
-  .badge-c { background: #eef0f8; color: var(--navy-mid); }
+  .badge-c { background: var(--surface-alt); color: var(--navy-mid); }
 
   /* JOINT SPONSOR MINI-CALCULATOR */
-  .js-calc-box { background: var(--purple-lt); border: 1.5px solid #c9bef0; border-radius: 8px; padding: 1.1rem 1.25rem; margin-top: 0.75rem; }
+  .js-calc-box { background: var(--purple-lt); border: 1px solid var(--purple-bd); border-radius: 8px; padding: 1.1rem 1.25rem; margin-top: 0.75rem; }
   .js-calc-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.75rem; }
   .js-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.82rem; color: var(--navy); }
   .js-row label { min-width: 160px; font-size: 0.8rem; color: var(--slate); }
   .js-toggle { display: flex; gap: 0.4rem; }
-  .js-btn { font-family: var(--font-ui-calc); font-size: 0.8rem; font-weight: 500; padding: 0.3rem 0.7rem; border: 1.5px solid #c9bef0; border-radius: 5px; background: #fff; color: var(--purple); cursor: pointer; transition: all 0.15s; }
+  .js-btn { font-family: var(--font-ui-calc); font-size: 0.8rem; font-weight: 500; padding: 0.3rem 0.7rem; border: 1.5px solid var(--purple-bd); border-radius: 5px; background: #fff; color: var(--purple); cursor: pointer; transition: all 0.15s; }
   .js-btn:hover, .js-btn.active { background: var(--purple); color: #fff; border-color: var(--purple); }
   .js-number-row { display: flex; align-items: center; gap: 0.5rem; }
-  .js-counter-btn { width: 28px; height: 28px; border-radius: 5px; border: 1.5px solid #c9bef0; background: #fff; color: var(--purple); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+  .js-counter-btn { width: 28px; height: 28px; border-radius: 5px; border: 1.5px solid var(--purple-bd); background: #fff; color: var(--purple); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
   .js-counter-btn:hover { background: var(--purple); color: #fff; }
   .js-counter-display { font-family: var(--font-ui-calc); font-size: 1.2rem; font-weight: 700; color: var(--purple); min-width: 1.8rem; text-align: center; }
-  .js-result { margin-top: 0.85rem; padding: 0.75rem; background: #fff; border-radius: 6px; border: 1px solid #c9bef0; font-size: 0.82rem; }
+  .js-result { margin-top: 0.85rem; padding: 0.85rem; background: #fff; border-radius: 6px; border: 1px solid var(--purple-bd); font-size: 0.82rem; }
   .js-result-label { font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.3rem; }
-  .js-result-amount { font-family: var(--font-ui-calc); font-size: 1.4rem; font-weight: 700; color: var(--navy); }
-  .js-result-sub { font-size: 0.73rem; color: var(--slate); margin-top: 0.15rem; line-height: 1.4; }
-  .js-note { font-size: 0.75rem; color: #5b3ea6; margin-top: 0.6rem; line-height: 1.5; }
+  .js-result-amount { font-family: var(--font-display-calc); font-size: 1.5rem; font-weight: 600; color: var(--navy); line-height: 1.1; }
+  .js-result-sub { font-size: 0.75rem; color: var(--slate); margin-top: 0.2rem; line-height: 1.45; }
+  .js-note { font-size: 0.78rem; color: var(--slate); margin-top: 0.6rem; line-height: 1.6; }
 
   /* NOTES / CALLOUT PANELS */
-  .callout-panel { border-radius: 8px; padding: 1rem 1.1rem; margin-bottom: 0.75rem; font-size: 0.82rem; line-height: 1.55; }
-  .callout-panel.assets { background: #f0f4f8; border-left: 3px solid var(--slate); }
-  .callout-panel.ssa { background: var(--green-lt); border-left: 3px solid var(--green); }
-  .callout-panel-title { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .callout-panel { border-radius: 8px; padding: 1rem 1.1rem; margin-bottom: 0.75rem; font-size: 0.85rem; line-height: 1.65; }
+  .callout-panel.assets { background: var(--surface-alt); border: 1px solid var(--border); border-left: 3px solid var(--slate); color: var(--text); }
+  .callout-panel.ssa { background: var(--green-lt); border: 1px solid var(--green-bd); border-left: 3px solid var(--green); color: var(--text); }
+  .callout-panel-title { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.45rem; }
   .callout-panel.assets .callout-panel-title { color: var(--slate); }
   .callout-panel.ssa .callout-panel-title { color: var(--green); }
-  .callout-panel a { color: var(--navy-mid); font-weight: 600; }
+  .callout-panel a { color: var(--gold); font-weight: 600; }
   .callout-panel.ssa a { color: var(--green); }
 
-  .notes-section { padding: 1rem 1.5rem; background: #f8fafc; }
-  .note-item { font-size: 0.78rem; color: var(--slate); line-height: 1.55; padding: 0.35rem 0; border-bottom: 1px dotted var(--border); display: flex; gap: 0.5rem; }
-  .note-item:last-child { border-bottom: none; }
-  .note-num { flex-shrink: 0; font-family: var(--font-ui-calc); font-weight: 700; color: var(--navy); font-size: 0.72rem; }
+  /* Community warning — danger variant of the assets panel */
+  .callout-panel.assets.warning { background: var(--red-lt); border-color: var(--red-bd); border-left-color: var(--red); }
+  .callout-panel.assets.warning .callout-panel-title { color: var(--red); }
+  /* Self-employment — caution variant */
+  .callout-panel.assets.caution { background: var(--amber-lt); border-color: var(--amber-bd); border-left-color: var(--amber); }
+  .callout-panel.assets.caution .callout-panel-title { color: var(--amber); }
 
-  .source-strip { padding: 1rem 1.5rem; background: var(--navy); font-size: 0.73rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+  .notes-section { padding: 1.1rem 1.5rem; background: var(--surface-alt); }
+  .note-item { font-size: 0.82rem; color: var(--slate); line-height: 1.6; padding: 0.4rem 0; border-bottom: 1px dotted var(--border); display: flex; gap: 0.5rem; }
+  .note-item:last-child { border-bottom: none; }
+  .note-item strong { color: var(--text); }
+  .note-num { flex-shrink: 0; font-weight: 700; color: var(--gold); font-size: 1rem; line-height: 1.3; }
+
+  .source-strip { padding: 1rem 1.5rem; background: var(--navy); font-size: 0.75rem; color: rgba(244,239,230,0.7); line-height: 1.65; }
   .source-strip a { color: var(--gold-lt); text-decoration: none; }
   .source-strip a:hover { text-decoration: underline; }
 
-  .reset-btn { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; font-family: var(--font-ui-calc); font-size: 0.82rem; font-weight: 600; color: var(--slate); background: none; border: 1.5px solid var(--border); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; transition: all 0.15s; }
-  .reset-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .reset-btn { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; font-family: var(--font-ui-calc); font-size: 0.82rem; font-weight: 600; color: var(--slate); background: var(--surface); border: 1.5px solid var(--border); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; transition: all 0.15s; }
+  .reset-btn:hover { border-color: var(--gold); color: var(--gold); }
 
   .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 2rem; overflow: hidden; }
   .progress-fill { height: 100%; background: linear-gradient(90deg, var(--navy), var(--gold)); border-radius: 2px; transition: width 0.35s ease; width: 0%; }
 
   .tooltip-wrap { position: relative; display: inline-block; }
-  .tooltip-trigger { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: var(--border); color: var(--slate); font-size: 0.65rem; font-weight: 700; cursor: help; margin-left: 4px; vertical-align: middle; flex-shrink: 0; }
-  .tooltip-box { display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; font-size: 0.73rem; line-height: 1.5; padding: 0.5rem 0.75rem; border-radius: 6px; width: 220px; z-index: 10; pointer-events: none; }
-  .tooltip-wrap:hover .tooltip-box { display: block; }
+  .tooltip-trigger { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: var(--gold-lt); color: var(--purple); font-family: var(--font-ui-calc); font-size: 0.65rem; font-weight: 700; cursor: help; margin-left: 4px; vertical-align: middle; flex-shrink: 0; }
+  .tooltip-box { display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: var(--navy); color: var(--gold-lt); font-family: var(--font-body-calc); font-size: 0.75rem; font-weight: 400; line-height: 1.55; padding: 0.55rem 0.75rem; border-radius: 6px; width: 220px; z-index: 10; pointer-events: none; }
+  .tooltip-wrap:hover .tooltip-box, .tooltip-wrap:focus-within .tooltip-box { display: block; }
 
   @media(max-width:520px) {
+    .i864-container { padding: 1.5rem 1rem 3.5rem; }
     .threshold-grid { grid-template-columns: 1fr; }
     .hh-size-box { flex-direction: column; align-items: flex-start; }
-    .intro h1 { font-size: 1.3rem; }
     .js-row { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
     .js-row label { min-width: unset; }
   }
-  a { color: var(--navy-mid); }
+  .i864-calculator a { color: var(--gold); }
+  .i864-calculator a:hover { color: var(--purple); }
 </style>
 </head>
 <body class="i864-calculator">
@@ -199,25 +233,15 @@
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="nav-placeholder"></div>
 
-<!-- Mobile Navigation -->
-<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-
-<div class="mobile-nav-drawer" id="mobileNavDrawer">
-  <div class="mobile-nav-drawer-content">
-    <button class="mobile-nav-drawer-close" id="mobileNavClose" aria-label="Close navigation">✕</button>
-    <div class="sidebar-label">Tools &amp; Resources</div>
-    <ul class="sidebar-nav" role="list">
-      <li><a href="/guide.html">📖 Visa Guide</a></li>
-      <li><a href="/checklists.html">📋 Checklists &amp; Tools</a></li>
-      <li><a href="/i864-household-decision-tree.html" class="active">🧮 I-864 Calculator</a></li>
-    </ul>
-  </div>
-</div>
-
 <main id="main-content" role="main">
   <div class="i864-container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a><span>/</span><a href="/checklists.html">Checklists &amp; Tools</a><span>/</span>I-864 household calculator
+  </nav>
+
   <div class="intro">
-    <h1>Who counts in your household?<br>What income do you need?</h1>
+    <div class="eyebrow">Affidavit of support</div>
+    <h1>Who counts in your household?<br><em>What income do you need?</em></h1>
     <p>Answer the questions below to calculate your I-864 household size and minimum income threshold. Each question mirrors the official Form I-864 instructions. Includes a joint sponsor calculator and shortfall options.</p>
   </div>
 
@@ -456,7 +480,7 @@
         <div id="akHiNote" style="display:none; margin-top:0.85rem;" class="inline-note">
           <strong>Alaska/Hawaii note:</strong> Figures above are derived from 2026 HHS base guidelines (Federal Register Jan 15, 2026). USCIS rounds I-864P figures to clean values. Always confirm against the official <a href="https://www.uscis.gov/i-864p" target="_blank" rel="noopener">uscis.gov/i-864p</a> table before filing.
         </div>
-        <div style="margin-top:0.85rem; font-size:0.78rem; color:var(--slate); line-height:1.5;">
+        <div style="margin-top:0.85rem; font-size:0.8rem; color:var(--slate); line-height:1.6;">
           For households larger than 8, add <span id="perPersonNote">$7,100 (125%) or $5,680 (100%)</span> per additional person.
         </div>
       </div>
@@ -527,12 +551,12 @@
             <span class="option-badge badge-c">Assets</span>
             <div>
               <strong>Bridge the gap with assets.</strong>
-              <div class="callout-panel assets" style="margin-top:0.6rem; border-left-color: var(--red);">
-                <div class="callout-panel-title" style="color: var(--red);">Community warning — London embassy</div>
+              <div class="callout-panel assets warning" style="margin-top:0.6rem;">
+                <div class="callout-panel-title">Community warning — London embassy</div>
                 Assets as a standalone financial basis are consistently rejected at the US Embassy London, including cases where applicants presented substantial cash savings. This is community-observed across multiple cases; it is not an official policy statement from the embassy. The consular officer retains full discretion under INA 212(a)(4) to assess public charge risk beyond what the I-864 establishes on paper.<br><br>
                 <strong>If income falls short, a joint sponsor is strongly preferred over relying on assets alone.</strong> The safest position is a petitioner with a W-2 salaried job meeting 125% FPG independently. A joint sponsor with a W-2 job is the next best option. Assets should be documented regardless, but should not be treated as a reliable substitute for income at this post.
               </div>
-              <div class="callout-panel assets" style="margin-top:0.5rem; border-left-color: var(--amber);">
+              <div class="callout-panel assets caution" style="margin-top:0.5rem;">
                 <div class="callout-panel-title">Meeting the threshold is only the starting point</div>
                 Clearing 125% FPG gets the affidavit accepted; it does not settle public charge. Consular officers are directed to look behind the figure at the sponsor's <strong>financial stability and history</strong> rather than just the latest return, the sponsor's <strong>own use of public benefits</strong>, the <strong>genuineness of the sponsor&ndash;applicant relationship</strong>, and whether the sponsor is realistically likely to make that income and those assets available to the applicant. <strong>Joint sponsors face heightened review</strong> &mdash; employment, assets and domicile may all be verified.<br><br>
                 <strong>The NVC document review does not bind the consular officer.</strong> Clearing NVC means the paperwork was complete, not that the finances were accepted. Cases pass NVC and still draw a <a href="221g.html">221(g)</a> at London on exactly this ground.
@@ -548,7 +572,7 @@
       </div>
 
       <!-- SSA 40 QUARTERS -->
-      <div class="shortfall-section" style="border-bottom:1px solid var(--border);">
+      <div class="shortfall-section">
         <div class="shortfall-title">Potential exemption from I-864 requirement</div>
         <div class="callout-panel ssa">
           <div class="callout-panel-title">40 SSA qualifying quarters — 9 FAM 601.14-3(b)(2)</div>
@@ -561,13 +585,13 @@
       </div>
 
       <!-- SELF-EMPLOYMENT -->
-      <div class="shortfall-section" style="border-bottom:1px solid var(--border);">
+      <div class="shortfall-section">
         <div class="shortfall-title">Self-employment — additional evidence required</div>
-        <div class="callout-panel assets" style="border-left-color: var(--amber);">
-          <div class="callout-panel-title" style="color: var(--amber);">Applies to petitioning sponsor and joint sponsor</div>
+        <div class="callout-panel assets caution">
+          <div class="callout-panel-title">Applies to petitioning sponsor and joint sponsor</div>
           Self-employed sponsors — including sole proprietors, LLC members, independent contractors, freelancers, and gig workers — must provide additional documentation beyond a tax return. This applies whether you are the petitioning sponsor or a joint sponsor.<br><br>
           Standard evidence typically required:
-          <ul style="margin: 0.6rem 0 0.6rem 1.2rem; line-height: 1.8; font-size: 0.82rem;">
+          <ul style="margin: 0.6rem 0 0.6rem 1.2rem; line-height: 1.75; font-size: 0.85rem;">
             <li>Federal tax returns (Form 1040) for the most recent 3 years, with all schedules including Schedule C, Schedule F, or Schedule K-1 as applicable</li>
             <li>IRS tax transcripts confirming filed returns</li>
             <li>12 months of business bank account statements showing consistent income deposits — commonly requested by NVC, not explicitly listed in the I-864 instructions</li>
