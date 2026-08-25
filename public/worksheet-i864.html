@@ -138,22 +138,22 @@
           <div class="table-wrapper">
             <table class="poverty-table">
               <thead>
-                <tr><th>Household Size</th><th>2025 Poverty Line</th><th>125% Threshold</th></tr>
+                <tr><th>Household Size</th><th>100% FPG</th><th>125% Threshold</th></tr>
               </thead>
               <tbody>
-                <tr><td>1</td><td>$15,650</td><td>$19,563</td></tr>
-                <tr><td>2</td><td>$21,150</td><td>$26,438</td></tr>
-                <tr><td>3</td><td>$26,650</td><td>$33,313</td></tr>
-                <tr><td>4</td><td>$32,150</td><td>$40,188</td></tr>
-                <tr><td>5</td><td>$37,650</td><td>$47,063</td></tr>
-                <tr><td>6</td><td>$43,150</td><td>$53,938</td></tr>
-                <tr><td>7</td><td>$48,650</td><td>$60,813</td></tr>
-                <tr><td>8+</td><td>$54,150</td><td>$67,688</td></tr>
+                <tr><td>1</td><td>$15,960</td><td>$19,950</td></tr>
+                <tr><td>2</td><td>$21,640</td><td>$27,050</td></tr>
+                <tr><td>3</td><td>$27,320</td><td>$34,150</td></tr>
+                <tr><td>4</td><td>$33,000</td><td>$41,250</td></tr>
+                <tr><td>5</td><td>$38,680</td><td>$48,350</td></tr>
+                <tr><td>6</td><td>$44,360</td><td>$55,450</td></tr>
+                <tr><td>7</td><td>$50,040</td><td>$62,550</td></tr>
+                <tr><td>8</td><td>$55,720</td><td>$69,650</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="ws-note" style="margin-top: var(--space-2);">Add $5,500 per additional person beyond 8.</p>
-          <div class="ws-field-group"><label class="ws-label"><strong>125% Threshold for Your Size:</strong> <span class="ws-inline-calc" id="threshold">$26,438</span></label></div>
+          <p class="ws-note" style="margin-top: var(--space-2);">2026 I-864P guidelines (effective 1 Mar 2026), contiguous 48 states and DC. For households larger than 8, add <strong>$7,100</strong> (125%) or <strong>$5,680</strong> (100%) per additional person. <strong>Alaska and Hawaii use higher figures</strong> — see the <a href="i864-household-decision-tree.html">household decision tree</a>, which also covers the 100% active-duty military threshold. Always confirm against the official <a href="https://www.uscis.gov/i-864p" target="_blank" rel="noopener noreferrer">uscis.gov/i-864p</a> table before filing.</p>
+          <div class="ws-field-group"><label class="ws-label"><strong>125% Threshold for Your Size:</strong> <span class="ws-inline-calc" id="threshold">$27,050</span></label></div>
           <div class="ws-field-group"><label class="ws-label"><strong>Do you meet requirement?</strong> <span class="ws-inline-calc" id="meetsReq">—</span></label></div>
         </section>
         <section class="ws-section">
@@ -197,10 +197,12 @@
   </main>
   <div id="footer-placeholder"></div>
   <script>
-    const povertyGuidelines = { 1: 15650, 2: 21150, 3: 26650, 4: 32150, 5: 37650, 6: 43150, 7: 48650, 8: 54150 };
+    // 2026 I-864P, contiguous 48 states & DC (effective Mar 1, 2026). Alaska/Hawaii differ —
+    // see i864-household-decision-tree.html, which carries all three tables.
+    const povertyGuidelines = { 1: 15960, 2: 21640, 3: 27320, 4: 33000, 5: 38680, 6: 44360, 7: 50040, 8: 55720 };
     function parseAmount(str) { return parseInt(str.replace(/\D/g, '')) || 0; }
     function formatAmount(n) { return '$' + n.toLocaleString(); }
-    function getThreshold(size) { if (size <= 8) return povertyGuidelines[size] * 1.25; else return (54150 + (size - 8) * 5500) * 1.25; }
+    function getThreshold(size) { if (size <= 8) return povertyGuidelines[size] * 1.25; else return (55720 + (size - 8) * 5680) * 1.25; }
     function updateHouseholdSize() {
       let size = 2;
       if (document.querySelector('input[name="hasSpouse"]').checked) size++;
