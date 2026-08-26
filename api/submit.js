@@ -5,11 +5,22 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end()
 
   const raw = req.body
+  // Fillout sends multi-select answers (e.g. entry_location) as arrays. Every
+  // column in form_responses is a scalar type, so an array handed to PostgREST
+  // gets JSON-stringified into the text column ('["Austin, TX (AUS)"]') and the
+  // column ends up double-encoded. Flatten to the '; ' convention used by the
+  // rest of the data — see db/migrations/0004.
   const cleaned = Object.fromEntries(
-    Object.entries(raw).map(([key, value]) => [
-      key,
-      value === '' || (Array.isArray(value) && value.length === 0) ? null : value
-    ])
+    Object.entries(raw).map(([key, value]) => {
+      if (Array.isArray(value)) {
+        const joined = value
+          .filter(v => v !== null && v !== undefined && String(v).trim() !== '')
+          .map(v => String(v).trim())
+          .join('; ')
+        return [key, joined === '' ? null : joined]
+      }
+      return [key, value === '' ? null : value]
+    })
   )
 
   const username = cleaned.username_raw?.trim?.() || null

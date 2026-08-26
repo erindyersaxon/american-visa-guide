@@ -273,10 +273,12 @@ export default async function handler(req, res) {
   }
 
   // --- Entry airport distribution ---
-  // entry_location is free text and arrives in several shapes:
-  //   "Boston (BOS)", "Boston, MA (BOS)", '["Austin, TX (AUS)"]', "[]",
-  //   "Dublin (pre-clearance)", "Dublin, Ireland (DUB); Cleveland, OH (CLE)",
-  //   "Phoenix Sky Harbor, Arizona"
+  // entry_location is free text with inconsistent labelling:
+  //   "Boston (BOS)", "Boston, MA (BOS)", "Dublin (pre-clearance)",
+  //   "Dublin, Ireland (DUB); Cleveland, OH (CLE)", "Phoenix Sky Harbor, Arizona"
+  // The column no longer holds JSON-array strings (migration 0004 unwrapped
+  // them and a CHECK constraint keeps them out); the parse below stays as a
+  // defensive fallback only.
   // Normalise to a canonical "City (CODE)" label. Where multiple locations are
   // listed, the first is where entry was cleared — pre-clearance (Dublin,
   // Shannon, Montreal etc.) counts as the official port of entry.
@@ -304,7 +306,7 @@ export default async function handler(req, res) {
   const normalizeEntryLocation = (raw) => {
     if (!raw) return null
     let s = String(raw).trim()
-    // Some submissions arrive as a JSON array string
+    // Defensive: legacy JSON-array string (no longer stored, see migration 0004)
     if (s.startsWith('[')) {
       try {
         const arr = JSON.parse(s)
