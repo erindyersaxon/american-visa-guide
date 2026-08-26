@@ -273,12 +273,15 @@ export default async function handler(req, res) {
   }
 
   // --- Entry airport distribution ---
-  // entry_location is free text with inconsistent labelling:
-  //   "Boston (BOS)", "Boston, MA (BOS)", "Dublin (pre-clearance)",
-  //   "Dublin, Ireland (DUB); Cleveland, OH (CLE)", "Phoenix Sky Harbor, Arizona"
-  // The column no longer holds JSON-array strings (migration 0004 unwrapped
-  // them and a CHECK constraint keeps them out); the parse below stays as a
-  // defensive fallback only.
+  // entry_location is now stored canonically as "City, ST (CODE)" - migration
+  // 0004 fixed the encoding (no more JSON-array strings) and 0005 the labelling
+  // (one spelling per airport, enforced on write by a trigger). The parsing
+  // below is therefore a defensive fallback for legacy or unmapped values, not
+  // the normal path.
+  // Note this maps to a SHORTER display label than the stored one: stored
+  // "Chicago, IL (ORD)" renders as "Chicago O'Hare (ORD)". The two vocabularies
+  // are deliberate - AIRPORT_NAMES is tuned for chart labels - but if they
+  // should ever agree, this whole block collapses to a pass-through.
   // Normalise to a canonical "City (CODE)" label. Where multiple locations are
   // listed, the first is where entry was cleared — pre-clearance (Dublin,
   // Shannon, Montreal etc.) counts as the official port of entry.
