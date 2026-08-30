@@ -513,6 +513,99 @@
   .info-card.tip .info-card-head { color: var(--teal-light); }
   .info-card.tip .info-card-head::before { content: '💡'; }
 
+  /* ── Interview cancellation notice (Aug 2026) ── */
+  .alert-banner {
+    background: rgba(176,74,56,0.09);
+    border: 1px solid rgba(176,74,56,0.32);
+    border-left: 4px solid var(--red);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 0 0 28px;
+  }
+
+  .alert-banner__head {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .alert-banner__head::before { content: '⚠️'; }
+
+  .alert-banner__title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+  }
+
+  .alert-banner p { font-size: 13px; margin-bottom: 10px; }
+  .alert-banner p:last-child { margin-bottom: 0; }
+
+  .alert-banner__figure {
+    margin: 16px 0 12px;
+  }
+
+  .alert-banner__figure img {
+    max-width: min(100%, 520px);
+    display: block;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #fff;
+  }
+
+  .alert-banner__figure figcaption {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+  }
+
+  .alert-banner__meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* Compact per-stage repeat of the notice */
+  .stage-alert {
+    background: rgba(176,74,56,0.07);
+    border: 1px solid rgba(176,74,56,0.25);
+    border-left: 3px solid var(--red);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  }
+
+  .stage-alert__head {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .stage-alert__head::before { content: '⚠️'; }
+
+  .stage-alert p {
+    font-size: 12.5px;
+    margin: 0 0 6px;
+    color: rgba(30,28,23,0.85);
+  }
+
+  .stage-alert p:last-child { margin-bottom: 0; }
+
   /* ── Steps ── */
   .steps {
     display: flex;
@@ -851,6 +944,22 @@
     <div class="page-header">
     </div>
 
+    <!-- Interview cancellations — Aug 2026 -->
+    <div class="alert-banner" id="interview-cancellations" role="region" aria-labelledby="interview-cancellations-title">
+      <div class="alert-banner__head">Live notice · Interview cancellations</div>
+      <div class="alert-banner__title" id="interview-cancellations-title">Immigrant visa interviews and embassy document checks have been cancelled</div>
+      <p>Scheduled immigrant visa interviews have been cancelled. The notice issued to applicants says a rescheduled appointment will follow by email, but no date has been given and no reason offered — <strong>we do not know if or when these appointments will be rescheduled</strong>. Applicants have been told <strong>not to attend the consular section until a rescheduled appointment directs them to do so</strong>.</p>
+      <p><strong>Same-day embassy document checks are cancelled too</strong>, not only the interviews. <strong>Medicals appear to be unaffected</strong> and are going ahead as booked — but the trip to the embassy that normally follows on the same day is not.</p>
+      <p>At US Embassy London, appointments <strong>up to and including 16 September 2026</strong> are affected. This is <strong>not limited to London</strong> — it is affecting immigrant visa beneficiaries worldwide.</p>
+      <p><strong>We are waiting for further detail and will update this guide as soon as we have it.</strong> Nothing on this page should be read as a forecast of when interviews resume; at this point there is no basis for one.</p>
+      <p><strong>Make your representatives aware.</strong> The US citizen petitioner on your case is represented by two Senators and one House Representative, and any of them can raise a cancelled appointment with the State Department. Find all three at <a href="https://www.congress.gov/members/find-your-member" target="_blank" rel="noopener noreferrer">congress.gov/members/find-your-member</a>. Our <a href="delayed-i130-remedies.html#congressional">guidance on congressional inquiries</a> explains how to approach an office and what to send — written for I-130 delays, but the same approach applies here. The more offices that hear about this, the harder it is to overlook.</p>
+      <figure class="alert-banner__figure">
+        <img src="images/interview-reschedule-notice-aug2026.png" alt="Notice from the GDIT Visa Appointment and Information Service Team reading: Your Immigrant Visa appointment has been rescheduled. You will receive email confirmation of your new appointment date and time. Please do not appear at the consular section until directed to do so with a rescheduled appointment. We apologize in advance for any inconvenience that this may cause.">
+        <figcaption>The notice shown to affected applicants by the GDIT Visa Appointment and Information Service.</figcaption>
+      </figure>
+      <p class="alert-banner__meta">Posted 30 August 2026. If your case is affected, keep watching the email address on your case and your <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS account</a> — that is where a new date would appear, whenever one comes.</p>
+    </div>
+
     <!-- Stage jump -->
     <div class="stage-jump">
       <div class="stage-jump-label">Start at your stage</div>
@@ -1006,6 +1115,12 @@
           <div class="section-number">Stage 1</div>
           <div class="section-title">USCIS / I-130</div>
         </div>
+      </div>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> your I-130 filing is not affected — keep filing, responding, and gathering evidence as normal. The one thing to hold loosely is the interview wait you are planning around; the queue ahead of you will not behave as it did before.</p>
       </div>
 
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
@@ -1219,6 +1334,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> nothing here changes. Delay remedies for a pending I-130 are separate from consular scheduling, and a mandamus or service request is unaffected by the cancellations.</p>
+      </div>
+
             <p style="font-size:13px;margin-bottom:16px;">If your I-130 petition has been pending significantly longer than typical processing times — generally 12+ months after your priority date without approval, with the strongest position after 15–17 months — there are legal remedies available to encourage USCIS action. This section outlines those options in the order you might pursue them.</p>
 
             <div class="info-card warning">
@@ -1252,6 +1373,12 @@
           <div class="section-number">Stage 1B</div>
           <div class="section-title">CRBA — Consular Report of Birth Abroad</div>
         </div>
+      </div>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> CRBA appointments are booked separately from immigrant visa interviews, and we have seen no reports of CRBA appointments being cancelled. Confirm your appointment is still standing before travelling to the embassy.</p>
       </div>
 
       <p>If a child is born in the UK to a US citizen parent, they may already be a US citizen at birth. If so, they do not need an immigrant visa — they need a <strong>CRBA (Consular Report of Birth Abroad)</strong> to prove that citizenship, plus a US passport to travel. This is handled entirely separately from the I-130 process.</p>
@@ -1481,6 +1608,12 @@
           <div class="section-number">Stage 2</div>
           <div class="section-title">National Visa Center (NVC)</div>
         </div>
+      </div>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> NVC processing continues — keep working towards Documentarily Qualified. Reaching DQ is still the right goal; what is now uncertain is how long the queue beyond DQ takes.</p>
       </div>
 
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
@@ -1920,6 +2053,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> treat the IL drop patterns and the two-month IL-to-interview rule below as a record of what happened before the cancellations, not a forecast. If you hold an interview letter for a date on or before 16 September 2026, that appointment is cancelled and we have no basis for saying when a replacement might come.</p>
+      </div>
+
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
         <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your interview letter date to the community tracker →</a></p>
@@ -2001,7 +2140,7 @@
       <h3>Actions after receiving your IL</h3>
       <div class="info-card">
         <div class="info-card-head">Two things to action as soon as you can</div>
-        <p style="font-size:13px;margin-bottom:8px;"><strong>1. Book your medical via <a href="https://visamedicals.co.uk/united-states/" target="_blank" rel="noopener noreferrer">VisaMedicals</a></strong> — appointment windows open monthly and fill quickly. The medical must be 10 working days before your interview date. You are required to attend the same-day embassy document check afterwards (window: 11:45 AM – 2:30 PM).</p>
+        <p style="font-size:13px;margin-bottom:8px;"><strong>1. Book your medical via <a href="https://visamedicals.co.uk/united-states/" target="_blank" rel="noopener noreferrer">VisaMedicals</a></strong> — appointment windows open monthly and fill quickly. The medical must be 10 working days before your interview date. You are required to attend the same-day embassy document check afterwards (window: 11:45 AM – 2:30 PM). <strong style="color:var(--red);">Currently cancelled — see the <a href="#interview-cancellations" style="color:var(--red);">interview cancellation notice</a>.</strong></p>
         <p style="font-size:13px;margin:0;"><strong>2. Register your interview via <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a></strong> — you must select your passport return method at this stage: home delivery or Mail Boxes Etc collection (Holborn, Angel, or Belfast). If you do not complete this, the embassy has no way to return your passport to you. Note: registration may take a few days to appear after the IL arrives.</p>
       </div>
       <p style="font-size:13px;color:var(--text-secondary);">Registration on AIS may take a few days after the IL arrives. If you have previously used AIS for a non-immigrant visa (e.g. B1/B2), you will likely need to create a new account for the immigrant visa process. Escalate after ~5 business days if unresolved: <a href="mailto:UK.Visas@gdit-gss.com">UK.Visas@gdit-gss.com</a></p>
@@ -2228,6 +2367,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> medicals themselves appear to be unaffected and are going ahead as booked. The <strong>same-day embassy document check</strong> that normally follows your medical is cancelled — everything described below under <a href="#doc-check-cancelled">Same-day embassy document check</a> is on hold. Medical results have a limited validity window, so note the date of your exam: with no known reschedule date, an interview far enough out could fall outside it and mean repeating parts of the examination. Do not book or rebook a medical on that assumption until you have a confirmed interview date.</p>
+      </div>
+
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
         <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your medical exam date to the community tracker →</a></p>
@@ -2250,7 +2395,7 @@
       </div>
 
       <h3>Timing and booking</h3>
-      <p>The medical must be <strong>10 working days before your interview</strong>. Visa Medicals appointment windows open monthly (e.g. May interviews can book from approximately 1 April). Book as soon as the window opens — slots fill quickly. You are required to attend the same-day embassy document check after your medical (window: 11:45 AM – 2:30 PM). VisaMedicals will contact the embassy on your behalf if you are running late. You will be charged £100 if you cancel within 3 working days of your appointment.</p>
+      <p>The medical must be <strong>10 working days before your interview</strong>. Visa Medicals appointment windows open monthly (e.g. May interviews can book from approximately 1 April). Book as soon as the window opens — slots fill quickly. You are required to attend the same-day embassy document check after your medical (window: 11:45 AM – 2:30 PM). <strong style="color:var(--red);">Currently cancelled — see the <a href="#interview-cancellations" style="color:var(--red);">interview cancellation notice</a>.</strong> VisaMedicals will contact the embassy on your behalf if you are running late. You will be charged £100 if you cancel within 3 working days of your appointment.</p>
 
       <p>Have the following ready when you call to book: full name and date of birth of all applicants, case (LND) number, visa category, interview date, ACRO police certificate, and a contact phone number or email. The medical must be 10 working days before your interview date.</p>
 
@@ -2286,7 +2431,7 @@
         <li>Physical examination (in a gown)</li>
         <li>Vaccine review and administration</li>
       </ul>
-      <p>You will receive a <strong>pink checklist slip</strong> at the end. Bring this to the same-day embassy document check — do not lose it.</p>
+      <p>You will receive a <strong>pink checklist slip</strong> at the end. Bring this to the same-day embassy document check — do not lose it. With document checks cancelled, keep it safe until they resume.</p>
 
       <h3>Vaccinations</h3>
       <p>Common requirements: MMR, Tetanus/Diphtheria, Hepatitis A &amp; B, Varicella (or documented history), <a href="https://www.cdc.gov/immigrant-refugee-health/hcp/panel-physicians/polio-addendum.html" target="_blank" rel="noopener noreferrer">Polio (within 12 months — see CDC Polio addendum for UK-specific requirements)</a>, Flu (Oct–Mar only). COVID-19 is no longer required. Hepatitis B requires three doses but you only need to have started the series — remaining doses can be completed in the US. Bring official documentation of past vaccinations; they will often take your word that you had chickenpox as a child.</p>
@@ -2379,7 +2524,14 @@
 
       <p style="font-size:12px;color:var(--text-secondary);margin-top:6px;">Prices subject to change. Vaccines are billed separately if needed. Check <a href="https://visamedicals.co.uk/united-states/" target="_blank" rel="noopener noreferrer">VisaMedicals</a> for current pricing.</p>
 
-      <h3>Same-day embassy document check</h3>
+      <h3 id="doc-check-cancelled">Same-day embassy document check</h3>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Cancelled — updated 30 August 2026</div>
+        <p>Same-day embassy document checks are cancelled alongside the interviews, for London appointments up to and including <strong>16 September 2026</strong>. <strong>Do not travel to the embassy after your medical</strong> until you are told to. We do not know if or when document checks will be rescheduled. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p>Everything below describes how the document check ran before the cancellations. It is kept here because it is what you will need when they resume — but none of it applies while the pause is in force.</p>
+      </div>
+
       <p>After the medical, go directly to the embassy.</p>
 
       <div class="info-card">
@@ -2606,6 +2758,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> if your appointment was on or before 16 September 2026, <strong>do not attend the embassy</strong> — for the interview or for a document check. Watch for an email confirming a new date, but be aware that no timeline has been given and we do not know if or when one will arrive. Everything below still describes the interview itself accurately and is worth preparing now.</p>
+      </div>
+
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
         <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your interview date and outcome to the community tracker →</a></p>
@@ -2768,6 +2926,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> we have seen no reports of cases that have already been interviewed being affected — administrative processing, passport return, and visa issuance appear to be continuing as described below.</p>
+      </div>
+
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
         <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your visa approval date and passport in hand date to the community tracker →</a></p>
@@ -2920,6 +3084,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> if you had timed flights, shipping, notice periods, or a tenancy end around a cancelled interview date, hold off on anything non-refundable until a rescheduled appointment is confirmed in writing.</p>
+      </div>
+
       <p>Once your visa is in hand and your flight is booked, there are UK-side obligations to address before departure. Some have time-sensitive deadlines that can affect your finances or rights after you leave.</p>
 
       <h3>UK obligations — before you leave</h3>
@@ -2984,6 +3154,12 @@
           <div class="section-number">Stage 8</div>
           <div class="section-title">Travel &amp; US Entry</div>
         </div>
+      </div>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews <strong>and same-day embassy document checks</strong> have been cancelled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. <strong>We do not know if or when they will be rescheduled.</strong> Medicals appear to be unaffected. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> we have seen no reports of visas already issued being affected. If you hold a visa, travel within its validity as planned.</p>
       </div>
 
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
