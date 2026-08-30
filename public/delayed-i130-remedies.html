@@ -596,7 +596,7 @@
   </div>
 
   <!-- ── STEP 3: CONGRESSIONAL ── -->
-  <div class="remedy-card">
+  <div class="remedy-card" id="congressional">
     <button class="remedy-toggle" aria-expanded="false" aria-controls="body-3">
       <div class="remedy-toggle-inner">
         <span class="remedy-step">Step 3</span>
@@ -1027,6 +1027,18 @@ Sincerely,
       if (body) body.hidden = expanded;
     });
   });
+
+  // Open the card named in the URL hash, so deep links land on readable content
+  function openFromHash() {
+    var target = location.hash ? document.querySelector(location.hash) : null;
+    if (!target) return;
+    var btn = target.querySelector('.remedy-toggle');
+    if (!btn || btn.getAttribute('aria-expanded') === 'true') return;
+    btn.click();
+    target.scrollIntoView();
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
 
   // Copy template
   function copyTpl(id, btn) {
