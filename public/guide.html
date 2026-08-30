@@ -513,6 +513,99 @@
   .info-card.tip .info-card-head { color: var(--teal-light); }
   .info-card.tip .info-card-head::before { content: '💡'; }
 
+  /* ── Interview cancellation notice (Aug 2026) ── */
+  .alert-banner {
+    background: rgba(176,74,56,0.09);
+    border: 1px solid rgba(176,74,56,0.32);
+    border-left: 4px solid var(--red);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 0 0 28px;
+  }
+
+  .alert-banner__head {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .alert-banner__head::before { content: '⚠️'; }
+
+  .alert-banner__title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+  }
+
+  .alert-banner p { font-size: 13px; margin-bottom: 10px; }
+  .alert-banner p:last-child { margin-bottom: 0; }
+
+  .alert-banner__figure {
+    margin: 16px 0 12px;
+  }
+
+  .alert-banner__figure img {
+    max-width: min(100%, 520px);
+    display: block;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #fff;
+  }
+
+  .alert-banner__figure figcaption {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+  }
+
+  .alert-banner__meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* Compact per-stage repeat of the notice */
+  .stage-alert {
+    background: rgba(176,74,56,0.07);
+    border: 1px solid rgba(176,74,56,0.25);
+    border-left: 3px solid var(--red);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  }
+
+  .stage-alert__head {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .stage-alert__head::before { content: '⚠️'; }
+
+  .stage-alert p {
+    font-size: 12.5px;
+    margin: 0 0 6px;
+    color: rgba(30,28,23,0.85);
+  }
+
+  .stage-alert p:last-child { margin-bottom: 0; }
+
   /* ── Steps ── */
   .steps {
     display: flex;
@@ -851,6 +944,20 @@
     <div class="page-header">
     </div>
 
+    <!-- Interview cancellations — Aug 2026 -->
+    <div class="alert-banner" id="interview-cancellations" role="region" aria-labelledby="interview-cancellations-title">
+      <div class="alert-banner__head">Live notice · Interview cancellations</div>
+      <div class="alert-banner__title" id="interview-cancellations-title">Immigrant visa interviews have been cancelled and are to be rescheduled</div>
+      <p>Scheduled immigrant visa interviews have been cancelled, with a promise that they will be rescheduled at a future date. Applicants have been told to expect an email confirming a new appointment date and time, and <strong>not to attend the consular section until a rescheduled appointment directs them to do so</strong>.</p>
+      <p>At US Embassy London, appointments <strong>up to and including 16 September 2026</strong> are affected. This is <strong>not limited to London</strong> — it is affecting immigrant visa beneficiaries worldwide.</p>
+      <p>No reason for the cancellations, and no timeline for rescheduling, has been given. <strong>We are waiting for further detail and will update this guide as soon as we have it.</strong> Nothing on this page should be read as a forecast of when interviews resume.</p>
+      <figure class="alert-banner__figure">
+        <img src="images/interview-reschedule-notice-aug2026.png" alt="Notice from the GDIT Visa Appointment and Information Service Team reading: Your Immigrant Visa appointment has been rescheduled. You will receive email confirmation of your new appointment date and time. Please do not appear at the consular section until directed to do so with a rescheduled appointment. We apologize in advance for any inconvenience that this may cause.">
+        <figcaption>The notice shown to affected applicants by the GDIT Visa Appointment and Information Service.</figcaption>
+      </figure>
+      <p class="alert-banner__meta">Posted 30 August 2026. If your case is affected, keep watching the email address on your case and your <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS account</a> for the rescheduled date.</p>
+    </div>
+
     <!-- Stage jump -->
     <div class="stage-jump">
       <div class="stage-jump-label">Start at your stage</div>
@@ -1006,6 +1113,12 @@
           <div class="section-number">Stage 1</div>
           <div class="section-title">USCIS / I-130</div>
         </div>
+      </div>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> your I-130 filing is not affected — keep filing, responding, and gathering evidence as normal. The one thing to hold loosely is the interview wait you are planning around; the queue ahead of you will not behave as it did before.</p>
       </div>
 
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
@@ -1219,6 +1332,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> nothing here changes. Delay remedies for a pending I-130 are separate from consular scheduling, and a mandamus or service request is unaffected by the cancellations.</p>
+      </div>
+
             <p style="font-size:13px;margin-bottom:16px;">If your I-130 petition has been pending significantly longer than typical processing times — generally 12+ months after your priority date without approval, with the strongest position after 15–17 months — there are legal remedies available to encourage USCIS action. This section outlines those options in the order you might pursue them.</p>
 
             <div class="info-card warning">
@@ -1252,6 +1371,12 @@
           <div class="section-number">Stage 1B</div>
           <div class="section-title">CRBA — Consular Report of Birth Abroad</div>
         </div>
+      </div>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> CRBA appointments are booked separately from immigrant visa interviews, and we have seen no reports of CRBA appointments being cancelled. Confirm your appointment is still standing before travelling to the embassy.</p>
       </div>
 
       <p>If a child is born in the UK to a US citizen parent, they may already be a US citizen at birth. If so, they do not need an immigrant visa — they need a <strong>CRBA (Consular Report of Birth Abroad)</strong> to prove that citizenship, plus a US passport to travel. This is handled entirely separately from the I-130 process.</p>
@@ -1481,6 +1606,12 @@
           <div class="section-number">Stage 2</div>
           <div class="section-title">National Visa Center (NVC)</div>
         </div>
+      </div>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> NVC processing continues — keep working towards Documentarily Qualified. Reaching DQ is still the right goal; what is now uncertain is how long the queue beyond DQ takes.</p>
       </div>
 
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
@@ -1920,6 +2051,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> treat the IL drop patterns and the two-month IL-to-interview rule below as a record of what happened before the cancellations, not a forecast. Anyone holding an interview letter for a date on or before 16 September 2026 should expect that date to be replaced.</p>
+      </div>
+
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
         <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your interview letter date to the community tracker →</a></p>
@@ -2226,6 +2363,12 @@
           <div class="section-number">Stage 4</div>
           <div class="section-title">Medical Exam</div>
         </div>
+      </div>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> your medical results have a limited validity window. If your interview has been cancelled, note the date of your exam — a long rescheduling delay could push the new interview date beyond it, and you may be asked to repeat parts of the examination. Do not book a new medical on the assumption that you will need one until a rescheduled interview date is confirmed.</p>
       </div>
 
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
@@ -2606,6 +2749,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> if your appointment was on or before 16 September 2026, <strong>do not attend the embassy</strong> — wait for the email confirming a new date and time. Everything below still describes the interview itself accurately and is worth preparing now.</p>
+      </div>
+
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
         <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your interview date and outcome to the community tracker →</a></p>
@@ -2768,6 +2917,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> we have seen no reports of cases that have already been interviewed being affected — administrative processing, passport return, and visa issuance appear to be continuing as described below.</p>
+      </div>
+
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
         <span style="font-size:15px;flex-shrink:0;">✏️</span>
         <p style="font-size:12px;color:rgba(30,28,23,0.78);margin:0;">Reached a milestone in this section? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your visa approval date and passport in hand date to the community tracker →</a></p>
@@ -2920,6 +3075,12 @@
         </div>
       </div>
 
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> if you had timed flights, shipping, notice periods, or a tenancy end around a cancelled interview date, hold off on anything non-refundable until a rescheduled appointment is confirmed in writing.</p>
+      </div>
+
       <p>Once your visa is in hand and your flight is booked, there are UK-side obligations to address before departure. Some have time-sensitive deadlines that can affect your finances or rights after you leave.</p>
 
       <h3>UK obligations — before you leave</h3>
@@ -2984,6 +3145,12 @@
           <div class="section-number">Stage 8</div>
           <div class="section-title">Travel &amp; US Entry</div>
         </div>
+      </div>
+
+      <div class="stage-alert" role="note">
+        <div class="stage-alert__head">Interview cancellations — updated 30 August 2026</div>
+        <p>Immigrant visa interviews have been cancelled and are to be rescheduled — London appointments up to and including <strong>16 September 2026</strong>, and reports indicate this is affecting immigrant visa beneficiaries worldwide, not only London. No reason or timeline has been given and we are waiting for further detail. <a href="#interview-cancellations">Read the full notice →</a></p>
+        <p><strong>At this stage:</strong> we have seen no reports of visas already issued being affected. If you hold a visa, travel within its validity as planned.</p>
       </div>
 
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
