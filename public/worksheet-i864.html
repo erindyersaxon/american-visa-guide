@@ -83,10 +83,11 @@
       <div class="privacy-warning"><strong>⚠️ Privacy Notice (cannot be dismissed):</strong> This is a personal planning tool. It is not connected to USCIS, NVC, or any official system. Do not submit it, share it, or send it to anyone. Your answers are only stored in your current browser tab — if you close or refresh this tab, your answers are gone. Save your work using the Print or Copy buttons below before closing.</div>
       <div class="save-buttons"><button type="button" class="btn" onclick="window.print()">🖨️ Print Worksheet</button><button type="button" class="btn" onclick="copyToClipboard()">📋 Copy to Clipboard</button></div>
       <div class="warning-banner">⚠️ <strong>Wet Signature Required:</strong> The I-864 MUST be wet signed — print, sign by hand, scan back in. Do NOT use a digital or e-signature. Standard I-864 is recommended over I-864EZ even for simple cases.</div>
+      <div class="warning-banner">🆕 <strong>New 08/24/26 edition — mandatory since 31 August 2026, no grace period.</strong> USCIS accepts only the <strong>08/24/26</strong> edition of the I-864, I-864A and I-864EZ; the previous 10/17/24 edition is no longer processed. Check the edition date at the foot of every page, and re-download from <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">uscis.gov/i-864</a> if your blank form is older. That edition also adds a <strong>consumer-report authorization</strong> to the signature block — see Part 7 below before anyone signs.</div>
       <form id="worksheetForm">
         <section class="ws-section">
           <h2 class="ws-section-title">Part 0 — EZ Eligibility Check</h2>
-          <p class="ws-note" style="margin-bottom: var(--space-4);">You may only use the I-864EZ if ALL three apply. Recommendation: use standard I-864 regardless.</p>
+          <p class="ws-note" style="margin-bottom: var(--space-4);">You may only use the I-864EZ if ALL three apply. Recommendation: use standard I-864 regardless. The EZ is on the same <strong>08/24/26</strong> edition and carries the <strong>same consumer-report authorization</strong> as the full form — it is not a way around the credit check.</p>
           <div class="ws-checkbox-group">
             <label class="ws-checkbox-label"><input type="checkbox" name="ez1"> I am the petitioner who filed the I-130</label>
           </div>
@@ -135,6 +136,7 @@
           <div class="ws-field-group"><label class="ws-label">Current individual annual income *</label><input type="text" class="ws-input" placeholder="$" autocomplete="off" oninput="updateIncome()" required></div>
           <div class="ws-field-group"><label class="ws-label">Household income (if using)</label><input type="text" class="ws-input" placeholder="$" autocomplete="off" oninput="updateIncome()"></div>
           <p class="ws-note">Must be at least 125% of Federal Poverty Guidelines. If uncertain or borderline, a joint sponsor is strongly recommended.</p>
+          <p class="ws-note">USCIS runs a free <strong>Sponsor Eligibility Tool</strong> at <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">uscis.gov/i-864</a> that estimates whether your income and assets meet the sponsorship guidelines. It is optional, does not replace the statute, regulations or form instructions, and its result does not bind USCIS or the consular officer — use it as a sanity check, not a decision.</p>
           <div class="table-wrapper">
             <table class="poverty-table">
               <thead>
@@ -178,7 +180,24 @@
           <div class="ws-field-group"><label class="ws-label"><strong>Total assets:</strong> <span class="ws-inline-calc" id="totalAssets">$0</span></label></div>
         </section>
         <section class="ws-section">
-          <h2 class="ws-section-title">Part 7 — Checklist Before Filing</h2>
+          <h2 class="ws-section-title">Part 7 — Credit File Check (new for the 08/24/26 edition)</h2>
+          <p class="ws-note" style="margin-bottom: var(--space-4);">Signing the 08/24/26 edition authorizes USCIS and DOS to request — and any consumer reporting agency to provide — information including <strong>credit reports and scores</strong>, in connection with the sufficiency determination on the affidavit. It is part of what the signature covers, not a separate box, so it cannot be declined. It applies to <strong>every person signing a form in the I-864 family</strong>: the petitioning sponsor, every joint sponsor, and every household member signing an I-864A. Complete this section once per sponsor.</p>
+          <p class="ws-note" style="margin-bottom: var(--space-4);"><strong>Freezes are the thing to deal with now.</strong> Nothing forbids a credit or security freeze, but USCIS says that with one in place it "may not be able to access the information necessary to assess the sufficiency" of the affidavit, and that you should respond promptly to any request to release it. A frozen file does not produce a clean refusal — it produces a stalled case, then an RFE or a 221(g).</p>
+          <div class="ws-field-group"><label class="ws-label">Which sponsor is this section for?</label><input type="text" class="ws-input" placeholder="e.g. petitioner / joint sponsor name" autocomplete="off"></div>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cr1"> Checked for a freeze or lock at <strong>Equifax</strong></label></div>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cr2"> Checked for a freeze or lock at <strong>Experian</strong></label></div>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cr3"> Checked for a freeze or lock at <strong>TransUnion</strong></label></div>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cr4"> Any freeze lifted or thawed <strong>before signing</strong>, and set to stay lifted until the visa is issued (the authorization runs for the life of the case, not one pull)</label></div>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cr5"> Own credit reports pulled and reviewed for errors before USCIS or DOS sees them</label></div>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cr6"> Any errors disputed with the bureau, with the dispute correspondence kept</label></div>
+          <div class="ws-field-group"><label class="ws-label">Date any freeze was lifted</label><input type="text" class="ws-input" placeholder="MM/DD/YYYY" autocomplete="off"></div>
+          <p class="ws-note">Free reports from all three bureaus: <a href="https://www.annualcreditreport.com" target="_blank" rel="noopener noreferrer">annualcreditreport.com</a> — the source mandated by federal law. Freezes are lifted directly with each bureau; a lift can be temporary (a date range) or permanent, and given the authorization runs for the life of the case, permanent until the visa issues is the safer choice.</p>
+          <p class="ws-note">The authorization runs until the earliest of: the sponsored immigrant's and any derivatives' applications being approved; a refusal where the one-year period to overcome it under 22 CFR 42.81(e) has lapsed (it stays valid throughout administrative processing); or a properly submitted withdrawal of the I-864 taking effect. A fresh authorization may be needed to sponsor anyone later, including following-to-join derivatives. Derogatory information from a report may be disclosed to the immigrant being sponsored so it can be rebutted under 8 CFR 103.2(b)(16).</p>
+        </section>
+        <section class="ws-section">
+          <h2 class="ws-section-title">Part 8 — Checklist Before Filing</h2>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl0"> Form is the <strong>08/24/26</strong> edition — edition date visible at the foot of every page, and no pages mixed between editions</label></div>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl0b"> Credit file checked and any freeze lifted for <strong>every</strong> sponsor and I-864A household member on the case (Part 7)</label></div>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl1"> I-864 printed and wet signed by hand</label></div>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl2"> IRS Tax Transcript obtained for every sponsor and joint sponsor on the case (not a copy of return)</label></div>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl2b"> Transcript uploaded to CEAC before the interview date, even if DQ was granted on a 1040 copy — London has issued 221(g) for a missing transcript despite DQ</label></div>
