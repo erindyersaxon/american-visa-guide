@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A federal court has vacated the January 2026 nationality visa pause (CLINIC v. Rubio). What the decision means if you interviewed at US Embassy London but are not a UK national, what it does and does not do, and how to read the ruling yourself.">
+  <meta name="description" content="A federal court has vacated the January 2026 nationality visa pause (CLINIC v. Rubio), but the case continues — the State Department has not restarted processing and owes the court a status report on 8 September 2026. What the decision means if you interviewed at US Embassy London but are not a UK national, what it does and does not do, and how to read the ruling yourself.">
   <title>The nationality visa pause, struck down: what it means for London cases | American Visa Guide</title>
   <link rel="canonical" href="https://www.americanvisaguide.com/visa-pause">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -298,6 +298,76 @@
       margin-bottom: 0.3rem;
     }
 
+    /* ── KEY DATES ── */
+    .keydates {
+      display: grid;
+      gap: 0.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+      margin: 1.15rem 0;
+    }
+    .keydate {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0.7rem 0.9rem;
+    }
+    .keydate b {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+    }
+    .keydate span {
+      display: block;
+      margin-top: 0.12rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .keydate.next {
+      background: var(--warn-bg);
+      border-color: var(--warn-border);
+    }
+    .keydate.next b { color: var(--warn-ink); }
+
+    /* ── ARGUMENT VOICES ── */
+    .voices {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1rem 0 1.3rem;
+    }
+    .voice {
+      display: grid;
+      grid-template-columns: 8.5rem 1fr;
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.85rem 1.05rem;
+    }
+    .voice-who {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-dark);
+      padding-top: 0.12rem;
+    }
+    .voice-what { font-size: 0.9rem; }
+    .voice-what p:last-child { margin-bottom: 0; }
+    @media (max-width: 600px) {
+      .voice { grid-template-columns: 1fr; gap: 0.25rem; }
+    }
+
+    .provenance {
+      font-size: 0.79rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 1.1rem;
+    }
+
     /* ── CHECKLIST ── */
     .checklist { list-style: none; padding: 0; }
     .checklist li {
@@ -378,6 +448,8 @@
     <ol>
       <li><a href="#what">What the pause was</a></li>
       <li><a href="#decided">What the court decided</a></li>
+      <li><a href="#since">The case continues</a></li>
+      <li><a href="#hearing">The 31 August conference</a></li>
       <li><a href="#london">If you interviewed in London</a></li>
       <li><a href="#notmean">What it does not mean</a></li>
       <li><a href="#do">What to do now</a></li>
@@ -388,6 +460,11 @@
   <div class="callout callout-good">
     <span class="callout-title">Bottom line</span>
     The nationality-based immigrant visa ban is <strong>void</strong>. Refusals issued <em>solely</em> because of it have been set aside and sent back to consular officers to be decided again on the merits &mdash; for everyone affected, not just the people who sued. It is not an automatic visa, and a refusal that had a separate, genuine ground still stands.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">Update &middot; 31 August 2026</span>
+    The pause is dead on paper, but the State Department has not restarted processing &mdash; it cancelled immigrant visa interviews <strong>worldwide</strong> instead, a pause that now reaches London appointments through 30 September 2026. Plaintiffs moved to enforce the judgment, and on 31 August the court ordered the government to file a status report by <strong>Tuesday 8 September 2026</strong> explaining what it is doing, what applicants will have to produce, and how long it will take. <a href="#since">What has happened since judgment</a>, and <a href="#hearing">what was said in court on 31 August</a>.
   </div>
 
   <h2 id="what">What the pause was</h2>
@@ -439,6 +516,71 @@
     The vacatur does <strong>not</strong> reach a refusal where the officer found the applicant ineligible on some other ground &mdash; for example a genuine individualized public-charge finding, a missing-document 221(g), or another inadmissibility &mdash; <strong>even if the refusal paperwork also cited the ban</strong>. If your refusal named a real, case-specific reason, that reason still stands and still has to be resolved.
   </div>
 
+  <h2 id="since">The case continues: what has happened since judgment</h2>
+
+  <p>The 21 August decision was a <strong>partial</strong> summary judgment. Plaintiffs won Counts One and Seven &mdash; the statutory and ultra vires claims set out above &mdash; and the government won Count Three, the notice-and-comment claim. Final judgment was entered on <strong>24 August 2026 (ECF&nbsp;84)</strong> under Rule 54(b), which makes the ruling immediately appealable. The rest of the case, including a challenge to the separate <a href="/public-charge.html">November 2025 public charge cable</a>, carries on.</p>
+
+  <p>Vacating the policy did not, by itself, restart anyone&rsquo;s case. In the days after the ruling the State Department <strong>cancelled immigrant visa interviews worldwide</strong>, told applicants the pause had &ldquo;not yet been formally approved or implemented&rdquo; and so remained in effect, and left the ban published unchanged on travel.state.gov. The stated reason for the worldwide stop is training on the November 2025 public charge cable. On 26 August the plaintiffs filed an <strong>emergency motion to enforce the judgment (ECF&nbsp;86)</strong>, arguing that the government was treating a vacated policy as if it were still live.</p>
+
+  <p>Judge Vargas heard that motion at a status conference on <strong>31 August 2026</strong> and granted it in part. The section below sets out what was said and what she ordered.</p>
+
+  <div class="keydates">
+    <div class="keydate next"><b>8 September 2026</b><span>State Department status report and declaration due: remand progress, documents required, timeframes.</span></div>
+    <div class="keydate"><b>11 September 2026</b><span>Joint letter from the parties on the remaining claims, including the November 2025 public charge rules.</span></div>
+    <div class="keydate"><b>30 September 2026</b><span>FY2026 diversity visa eligibility expires &mdash; the hardest deadline in the case.</span></div>
+  </div>
+
+  <h2 id="hearing">Inside the 31 August status conference</h2>
+
+  <h3>What each side argued</h3>
+
+  <div class="voices">
+    <div class="voice">
+      <div class="voice-who">Plaintiffs</div>
+      <div class="voice-what">
+        <p>The government is treating a vacated policy as if it were still live. Cancellations began within hours of the order. The training explanation does not hold up: the November 2025 public charge cable that officers are being trained on has been operative for roughly ten months everywhere outside the 75 countries. Repeated requests for information went unanswered. Their ask was modest, they said &mdash; tell the court and the applicants what is going on, because the only other conclusion available is that something is being built to replace the ban.</p>
+      </div>
+    </div>
+    <div class="voice">
+      <div class="voice-who">Government</div>
+      <div class="voice-what">
+        <p>Counsel acknowledged the judgment and said the policy is vacated. The pause is temporary and is for global public charge training. The Department can identify affected cases because they carry tags. But counsel could not say how many people are affected, would not give a date for written compliance instructions, and would not commit to a rescheduling timeline. He did confirm that many applicants will need to resubmit time-limited evidence such as police certificates, medicals and vaccination records, and that reinterviews will be required.</p>
+      </div>
+    </div>
+    <div class="voice">
+      <div class="voice-who">The judge</div>
+      <div class="voice-what">
+        <p>Vargas asked what training requires a six-week stop on visa processing, and why, ten days after judgment, there was still no plan and no date. She pressed the point that the people covered by her order are ones consular officers had <em>already</em> assessed and refused solely under the vacated policy &mdash; so a fresh public charge review should not arise for them.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>What the court ordered</h3>
+
+  <ol>
+    <li><strong>Granted in part, denied in part.</strong> On the record in front of her there was no evidence of non-compliance. A paused interview schedule is not by itself proof of defying the order.</li>
+    <li><strong>A status report and declaration from the State Department by Tuesday 8 September 2026,</strong> covering how far the remand process has progressed, what steps have been taken to restart processing, what beneficiaries will be required to produce, and the timeframes involved.</li>
+    <li><strong>No starting from scratch.</strong> Vargas made government counsel reconfirm that remanded cases should not be re-assessed under new public charge requirements, and required the report to address it. Counsel affirmed that as his understanding, while leaving himself room by saying some cases may need re-evaluation. Restarting these applicants from zero would, in her words, be grossly inequitable.</li>
+    <li><strong>Global training left out of scope.</strong> Plaintiffs asked her to reach the worldwide training initiative. She held it was not relevant to this enforcement motion and pointed them to discovery.</li>
+    <li><strong>Remaining claims continue.</strong> Under the 21 August order the parties owe a joint letter by 11 September on how to handle what is left of the case, which includes the November 2025 public charge rules.</li>
+  </ol>
+
+  <h3>What this means if you are in the queue</h3>
+
+  <ul>
+    <li><strong>The vacatur is in force and the government accepts that it is.</strong> It is an obligation to decide, not an obligation to approve. Cases refused solely under the 75-country policy go back to a consular officer.</li>
+    <li><strong>The UK was never on the 75-country list.</strong> If your London appointment has been cancelled, that is the worldwide interview pause, not this ruling. The cancellations now reach London appointments up to and including <strong>30 September 2026</strong>, and take same-day embassy document checks with them; medicals appear unaffected. <a href="/guide#interview-cancellations">Read the full notice on the guide</a>.</li>
+    <li><strong>The November 2025 public charge standards still apply everywhere</strong> and are still being litigated in the rest of this case. Nothing here changes how you should prepare your <a href="/public-charge.html">public charge evidence</a> and the I-864.</li>
+    <li><strong>The next date that matters is 8 September.</strong> That filing should be the first document stating what applicants will actually be asked to do, and when.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">Expect friction on restart</span>
+    Government counsel confirmed at the hearing that many applicants will need <strong>reinterviews</strong>, and that time-limited evidence &mdash; police certificates, medicals, vaccination records &mdash; will have to be resubmitted where it has expired. Keep yours current rather than letting it lapse while you wait.
+  </div>
+
+  <p class="provenance">Our account of the 31 August conference is summarised from notes taken during the public conference call and checked against ECF&nbsp;83, 84 and 86. It is a paraphrase, not a transcript.</p>
+
   <h2 id="london">If you interviewed in London and are not a UK national</h2>
 
   <p>This is the key point for London cases: <strong>the ban was triggered by your country of nationality, never by the embassy you attended.</strong> US Embassy London processes many immigrant-visa applicants who live lawfully in the UK but hold a different passport &mdash; third-country nationals. If that other nationality was one of the 75 listed countries, your case was caught by the pause <strong>at London exactly as it would have been anywhere else in the world</strong>.</p>
@@ -463,7 +605,7 @@
     <li><strong>Find out exactly why you were refused.</strong> Pull your 221(g) sheet or refusal notice and read the stated ground. If the <em>only</em> reason was the nationality suspension, your case falls within this decision and should be re-processed.</li>
     <li><strong>Separate the pause from everything else.</strong> If any other reason was cited &mdash; finances, a document, an inadmissibility &mdash; work that the normal way; see our <a href="/221g.html">221(g)</a> and <a href="/public-charge.html">public charge</a> pages.</li>
     <li><strong>Check CEAC and keep your case current.</strong> Make sure your civil and financial documents are up to date so the case can move as soon as it is picked back up.</li>
-    <li><strong>Watch the case status.</strong> Because the government may appeal, follow the docket (linked below) before making irreversible plans.</li>
+    <li><strong>Watch the case status.</strong> Because the government may appeal &mdash; and because processing has not actually restarted &mdash; follow the docket (linked below) before making irreversible plans. The <a href="#since">8 September status report</a> should be the first document saying what applicants will be asked to do, and when.</li>
     <li><strong>Get advice for anything complex.</strong> A prior refusal, an inadmissibility finding, or an unusual fact pattern is worth an <a href="https://www.aila.org/">AILA</a>-affiliated attorney.</li>
   </ol>
 
@@ -479,6 +621,8 @@
       <li><a href="https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.83.0.pdf" target="_blank" rel="noopener noreferrer">Direct PDF of the Opinion and Order</a></li>
       <li><a href="https://www.nilc.org/litigation/clinic-v-rubio/" target="_blank" rel="noopener noreferrer">Case background from the National Immigration Law Center</a></li>
       <li><a href="https://clearinghouse.net/case/47789/" target="_blank" rel="noopener noreferrer">Filings archive at the Civil Rights Litigation Clearinghouse</a></li>
+      <li><a href="https://democracyforward.org/wp-content/uploads/2026/08/ECF-86-Mem.-iso-Motion-to-Enforce-1.pdf" target="_blank" rel="noopener noreferrer">ECF No.&nbsp;86</a> &mdash; memorandum supporting the emergency motion to enforce (PDF)</li>
+      <li><a href="https://ccrjustice.org/home/what-we-do/our-cases/clinic-v-rubio" target="_blank" rel="noopener noreferrer">Case page at the Center for Constitutional Rights</a></li>
     </ul>
   </div>
 
@@ -493,11 +637,13 @@
       <li><em>Catholic Legal Immigration Network, Inc. v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y. Aug. 21, 2026), Opinion and Order (ECF No. 83) &mdash; the primary document this page summarizes. <a href="https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/" target="_blank" rel="noopener noreferrer">CourtListener docket</a>.</li>
       <li>Statutes construed by the court: 8 U.S.C. &sect;&sect; 1104(a), 1152(a)(1)(A), 1201(g); 22 C.F.R. &sect; 40.6; Administrative Procedure Act, 5 U.S.C. &sect; 706.</li>
       <li>Department of State, <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process.html" target="_blank" rel="noopener noreferrer">The Immigrant Visa Process</a> (consular adjudication overview).</li>
+      <li>Emergency motion to enforce the judgment (ECF No. 86, filed 26 Aug. 2026), partial final judgment under Rule 54(b) (ECF No. 84, 24 Aug. 2026), and the status conference of 31 Aug. 2026 &mdash; summarised in <a href="#hearing">Inside the 31 August status conference</a> above.</li>
+      <li>Practitioner write-ups of the worldwide interview pause: <a href="https://www.fragomen.com/insights/united-states-state-department-temporarily-pauses-immigrant-visa-interviews-worldwide.html" target="_blank" rel="noopener noreferrer">Fragomen</a> &middot; <a href="https://www.gtlaw-insidebusinessimmigration.com/public-charge-rule/state-department-pauses-immigrant-visa-interviews-worldwide-as-consular-officers-undergo-new-public-charge-training/" target="_blank" rel="noopener noreferrer">Greenberg Traurig</a> &middot; <a href="https://lawandborder.com/immigrant-visa-interviews-canceled-worldwide-as-officers-trained-on-updated-public-charge-rules/" target="_blank" rel="noopener noreferrer">Chodorow Law Offices</a>. Department of State, <a href="https://travel.state.gov/content/travel/en/News/visas-news.html" target="_blank" rel="noopener noreferrer">visa news</a>.</li>
       <li>Related on this site: <a href="/221g.html">221(g) at London</a> &middot; <a href="/public-charge.html">Public charge</a> &middot; <a href="/guide.html#interview">Interview stage</a>.</li>
     </ol>
   </div>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed August 2026. This page is general information, not legal advice, and describes a district-court ruling that may be appealed.</p>
+  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 31 August 2026. This page is general information, not legal advice, and describes a district-court ruling that may be appealed. The case is ongoing &mdash; the next filing is due 8 September 2026.</p>
 
 </div>
 
