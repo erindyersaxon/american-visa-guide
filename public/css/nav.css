@@ -3,7 +3,7 @@
    Single source of truth for the top nav and footer on every page.
    Markup is injected by /js/nav.js.
 
-   Colour/font values fall back to palette literals so the nav
+   Color/font values fall back to palette literals so the nav
    renders identically on pages that don't load the token files
    (guide.html / life.html use their own embedded tokens).
    ───────────────────────────────────────────────────────────── */

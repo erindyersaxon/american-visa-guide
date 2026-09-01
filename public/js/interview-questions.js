@@ -6,7 +6,7 @@
    the US Embassy London (see checklist-interview.html for the full
    write-ups). Officers are confirming what they already know from your
    DS-260 and petition — they are not testing you. Answer honestly and
-   consistently; the point of this bank is rehearsal, not memorisation.
+   consistently; the point of this bank is rehearsal, not memorization.
 
    HOW TO ADD A QUESTION (this file is the only place to edit):
      {
@@ -100,7 +100,7 @@
     // ── Travel & logistics ──
     { q: 'When are you planning to fly out?', theme: 'logistics', cats: 'all', from: 'Multiple reports' },
     { q: 'Are you flying out alone?', theme: 'logistics', cats: 'all', from: 'Multiple reports' },
-    { q: 'Have you travelled to the US before? (Prior visits, or any prior petition?)', theme: 'logistics', cats: 'all', from: 'Crimsonak' },
+    { q: 'Have you traveled to the US before? (Prior visits, or any prior petition?)', theme: 'logistics', cats: 'all', from: 'Crimsonak' },
   ];
 
   window.AVG_INTERVIEW_QB = { CATEGORIES: CATEGORIES, THEMES: THEMES, QUESTIONS: QUESTIONS };
