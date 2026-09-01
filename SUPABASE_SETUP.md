@@ -11,7 +11,7 @@ abandoned redesign and was dropped in migration `0002` — do not reintroduce it
 
 Notable columns beyond the raw milestone dates:
 
-- `outcome_status` — **generated column** (do not write to it). Canonicalises the
+- `outcome_status` — **generated column** (do not write to it). Canonicalizes the
   free-text `interview_outcome` / `resolution_outcome` / `notes` into one of
   `approved | cleared | not_approved | visa_pause | denied | NULL`. Query this
   instead of pattern-matching outcome strings.

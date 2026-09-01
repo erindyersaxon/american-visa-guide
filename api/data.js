@@ -142,7 +142,7 @@ export default async function handler(req, res) {
     .map(r => daysBetween(r.interview, r.passport_in_hand))
 
   // --- Interview outcomes ---
-  // outcome_status is a STORED generated column in Postgres that canonicalises
+  // outcome_status is a STORED generated column in Postgres that canonicalizes
   // the free-text interview_outcome / resolution_outcome / notes fields into
   // one of: approved | cleared | not_approved | visa_pause | denied | null.
   // Tally it directly rather than re-deriving categories from strings here.
@@ -178,7 +178,7 @@ export default async function handler(req, res) {
   // A start milestone present with no end milestone. These are counted in the
   // denominator and surfaced as a "still waiting" / "not reported" figure, but
   // excluded from the median (§2/§3 of the methodology). The passport interval
-  // is labelled "not reported" rather than "still waiting": members who reached
+  // is labeled "not reported" rather than "still waiting": members who reached
   // interview but never logged a passport date average ~150 days since
   // interview against a ~5-day real return, i.e. reporting attrition, not queue.
   const censored = {
@@ -277,7 +277,7 @@ export default async function handler(req, res) {
   //   "Boston (BOS)", "Boston, MA (BOS)", '["Austin, TX (AUS)"]', "[]",
   //   "Dublin (pre-clearance)", "Dublin, Ireland (DUB); Cleveland, OH (CLE)",
   //   "Phoenix Sky Harbor, Arizona"
-  // Normalise to a canonical "City (CODE)" label. Where multiple locations are
+  // Normalize to a canonical "City (CODE)" label. Where multiple locations are
   // listed, the first is where entry was cleared — pre-clearance (Dublin,
   // Shannon, Montreal etc.) counts as the official port of entry.
   const AIRPORT_NAMES = {
@@ -323,7 +323,7 @@ export default async function handler(req, res) {
         if (lower.includes(kw)) { code = c; break }
       }
     }
-    if (!code) return s // unrecognised — keep the raw text so it still counts
+    if (!code) return s // unrecognized — keep the raw text so it still counts
     return AIRPORT_NAMES[code] ? `${AIRPORT_NAMES[code]} (${code})` : code
   }
 
@@ -521,7 +521,7 @@ export default async function handler(req, res) {
 
   // --- Estimated next IL drop ---
   // Derived entirely from live clusters — no hardcoded dates needed.
-  // Exclude outlier gaps (>40 days) from average to match spreadsheet behaviour.
+  // Exclude outlier gaps (>40 days) from average to match spreadsheet behavior.
   const normalGaps = ilDrops.filter(d => d.gap && d.gap <= 40)
   const avgGap = normalGaps.length
     ? Math.round(normalGaps.reduce((a, b) => a + b.gap, 0) / normalGaps.length)

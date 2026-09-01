@@ -177,7 +177,7 @@ Concrete display pattern to adopt (updated from §9 for the live numbers):
 The live approval calculation (`api/data.js` 104–139) reverse-engineers outcome
 categories from free text and `notes` (`visa pause`, `221g`, `not approved`).
 With `interview_outcome` now populated on 172 rows and a clean enum available
-(§3.3), this logic can be deleted in favour of a `GROUP BY` on a normalized
+(§3.3), this logic can be deleted in favor of a `GROUP BY` on a normalized
 column. Until then, publish the approval rate with its `n =` denominator (172),
 not as a bare percentage — the current `renderKeyStats` shows a bare `%`.
 
