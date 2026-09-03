@@ -178,6 +178,16 @@
 }
 
 /* Mobile / narrow nav — 7 menu items need ~1050px inline */
+/* The nine links need ~1290px of row at full size, but .nav-container caps at
+   1280px minus 48px of padding, so the full-size row never fits - it overflowed
+   at every width above the 1050px hamburger breakpoint. Tighten the links for
+   the whole horizontal range. */
+@media (min-width: 1051px) {
+  .site-nav .nav-link svg { display: none; }
+  .site-nav .nav-link { padding: 0.5rem; font-size: 0.8125rem; gap: 0; }
+  .nav-menu { gap: 0.125rem; }
+}
+
 @media (max-width: 1050px) {
   .nav-toggle {
     display: flex;
@@ -271,7 +281,7 @@
 
 .avg-footer__cols {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
   gap: 1.5rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(244, 239, 230, 0.15);
@@ -288,6 +298,9 @@
 .avg-footer a {
   color: rgba(244, 239, 230, 0.85);
   text-decoration: underline;
+  /* The contact address is one 286px unbreakable token; without this it sets
+     the column's min-content width and pushes the footer past the viewport. */
+  overflow-wrap: anywhere;
 }
 
 .avg-footer a:hover {

@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
   if (username) {
     // UPSERT — match on username_raw (case-insensitive via ilike not possible in upsert,
-    // so we normalise to lowercase before upserting)
+    // so we normalize to lowercase before upserting)
     cleaned.username_raw = username.toLowerCase()
 
     url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/form_responses`

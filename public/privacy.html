@@ -24,6 +24,9 @@
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
     <style>
       .privacy-container { max-width: var(--max-width-prose); margin: 0 auto; }
+      /* The contact address is one long unbreakable token — let it wrap rather
+         than push the page sideways on narrow phones. */
+      .privacy-container a[href^="mailto:"] { overflow-wrap: anywhere; }
       .privacy-header { margin-bottom: var(--space-8); padding-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); }
       .privacy-title { font-size: var(--size-3xl); font-weight: var(--weight-bold); color: var(--color-navy); margin-bottom: var(--space-2); }
       .privacy-subtitle { font-size: var(--size-sm); color: var(--color-text-muted); }
@@ -87,7 +90,7 @@
               <li><strong>Right to erasure:</strong> If you submitted a timeline and wish to have it removed, we will delete your submission and recalculate aggregate statistics</li>
               <li><strong>Right to object:</strong> You can object to the processing of your personal data</li>
             </ul>
-            <p>To exercise any of these rights, contact us at <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a>.</p>
+            <p>To exercise any of these rights, contact us at <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo<wbr>@gmail.com</a>.</p>
           </section>
 
           <section class="privacy-section">
@@ -117,7 +120,7 @@
             <h2>Contact Us</h2>
             <div class="contact-info">
               <strong>For privacy concerns or to exercise your rights:</strong>
-              <p>Email: <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a></p>
+              <p>Email: <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo<wbr>@gmail.com</a></p>
             </div>
           </section>
 

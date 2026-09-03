@@ -119,7 +119,7 @@
     <div class="avg-footer__cols">
       <div>
         <p class="avg-footer__hd">Contact</p>
-        <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo@gmail.com</a>
+        <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo<wbr>@gmail.com</a>
       </div>
       <div>
         <p class="avg-footer__hd">Legal</p>

@@ -87,7 +87,7 @@
 
 
     /* State leaderboard */
-    .state-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:24px}
+    .state-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px, 100%), 1fr));gap:8px;margin-top:24px}
     .state-row{display:flex;align-items:center;gap:10px;background:#fdfaf3;border:1px solid var(--border-subtle);border-radius:8px;padding:8px 12px}
     .state-row.top{background:rgba(79,133,115,0.08);border-color:rgba(79,133,115,0.2)}
     .state-rank{font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--muted);width:18px;flex-shrink:0}
@@ -262,7 +262,7 @@
       </button>
       <div class="sub-acc-body">
         <div class="sub-acc-content">
-          <p>London members have set up regional Signal groups for ongoing support after arrival. These are independent community groups, not affiliated with American Visa Guide or any official organisation. They use Signal so you do not need to exchange phone numbers until you are ready.</p>
+          <p>London members have set up regional Signal groups for ongoing support after arrival. These are independent community groups, not affiliated with American Visa Guide or any official organization. They use Signal so you do not need to exchange phone numbers until you are ready.</p>
       <div class="info-card">
         <div class="info-card-head">Signal groups by region</div>
         <ul style="font-size:13px;margin:0;">
@@ -303,7 +303,7 @@
         </div>
       </div>
     </div>
-    <div class="state-board" id="airport-board" style="margin-top:0;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+    <div class="state-board" id="airport-board" style="margin-top:0;grid-template-columns:repeat(auto-fill,minmax(min(220px, 100%), 1fr))">
       <div style="font-size:13px;color:var(--muted);">Loading...</div>
     </div>
   </div>
@@ -344,7 +344,7 @@
     </div>
 
     <!-- Summary stat cards -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:24px" id="tl-stats"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(140px, 100%), 1fr));gap:8px;margin-bottom:24px" id="tl-stats"></div>
 
     <!-- State median table -->
     <p style="font-size:11px;color:var(--muted);margin-top:16px">Days measured from date of US entry. Intervention = any action beyond automatic processing: SSA office visit, USCIS call, I-90 filing, live agent contact for tracking, congressional inquiry, etc. Single-state entries show exact days rather than median.</p>
@@ -364,12 +364,12 @@
       <!-- ID DOCUMENTS -->
       <div class="sub-acc-item" id="life_1" data-sub-group="life">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life_1')">
-          <span class="sub-acc-label">Getting ID: driver's licence and Real ID</span>
+          <span class="sub-acc-label">Getting ID: driver's license and Real ID</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <p>Your first priority for US identification is a <strong>state driver's licence or state ID</strong>. <a href="https://www.dhs.gov/real-id" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[DHS: REAL ID]</a> Your green card and passport with visa stamp serve as ID in the meantime, but a state-issued ID is required for many everyday purposes. If settling in a US territory (Puerto Rico, US Virgin Islands, Guam, American Samoa, or the Northern Mariana Islands), the same process applies — territories issue their own IDs which are valid US identification.</p>
+            <p>Your first priority for US identification is a <strong>state driver's license or state ID</strong>. <a href="https://www.dhs.gov/real-id" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[DHS: REAL ID]</a> Your green card and passport with visa stamp serve as ID in the meantime, but a state-issued ID is required for many everyday purposes. If settling in a US territory (Puerto Rico, US Virgin Islands, Guam, American Samoa, or the Northern Mariana Islands), the same process applies — territories issue their own IDs which are valid US identification.</p>
 
       <div class="info-card warning">
         <div class="info-card-head">Real ID vs Standard ID</div>
@@ -381,7 +381,7 @@
       </div>
       <div class="sub-acc-item" id="life_2" data-sub-group="life">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life_2')">
-          <span class="sub-acc-label">What you need for a Real ID driver's licence</span>
+          <span class="sub-acc-label">What you need for a Real ID driver's license</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
@@ -416,14 +416,14 @@
         </div>
         <div class="info-card">
           <div class="info-card-head">Name match requirement</div>
-          <p style="font-size:13px;margin:0;">Your name must match across all documents. If your name has changed (e.g. marriage), bring a marriage certificate issued by a municipality, divorce decree, or court document. This is required for Real ID; not required for a standard licence.</p>
+          <p style="font-size:13px;margin:0;">Your name must match across all documents. If your name has changed (e.g. marriage), bring a marriage certificate issued by a municipality, divorce decree, or court document. This is required for Real ID; not required for a standard license.</p>
         </div>
       </div>
 
       <div class="info-card tip">
         <div class="info-card-head">Massachusetts residents — additional note</div>
-        <p style="font-size:13px;margin-bottom:6px;">Massachusetts allows residents to obtain a standard driver's licence regardless of immigration status under the Work and Family Mobility Act (effective July 2023). For a standard licence you need proof of identity, date of birth, and Massachusetts residency — but not necessarily an SSN if it cannot be validated yet.</p>
-        <p style="font-size:13px;margin:0;">Start your application online and schedule a Class D learner's permit exam at your local RMV Service Center. The $30 exam is available in 34 languages; you must score at least 18/25 within 25 minutes. After the permit, you sit a road test to get the full licence. Check <a href="https://mass.gov/ID" target="_blank" rel="noopener noreferrer">mass.gov/ID</a> to get ready online before going in.</p>
+        <p style="font-size:13px;margin-bottom:6px;">Massachusetts allows residents to obtain a standard driver's license regardless of immigration status under the Work and Family Mobility Act (effective July 2023). For a standard license you need proof of identity, date of birth, and Massachusetts residency — but not necessarily an SSN if it cannot be validated yet.</p>
+        <p style="font-size:13px;margin:0;">Start your application online and schedule a Class D learner's permit exam at your local RMV Service Center. The $30 exam is available in 34 languages; you must score at least 18/25 within 25 minutes. After the permit, you sit a road test to get the full license. Check <a href="https://mass.gov/ID" target="_blank" rel="noopener noreferrer">mass.gov/ID</a> to get ready online before going in.</p>
       </div>
 
       <p style="font-size:12px;color:var(--muted);">Requirements vary by state. Check your state's DMV website for the exact documents required in your state. The above reflects Massachusetts as an example.</p>
@@ -445,7 +445,7 @@
         <li>Some banks allow account opening without an SSN initially — you provide it later once received</li>
         <li>Consider a <strong>credit union</strong> if you are new to the area — often more flexible for new residents</li>
         <li>Start building US credit immediately: apply for a secured credit card if you have no US credit history</li>
-        <li>Your UK credit history does not transfer to the US — but you do not necessarily start from zero. Being added as an <strong>authorised user</strong> on a US person's card, using a credit-building secured card, or transferring an existing <strong>Amex card from the UK to the US</strong> (Amex has a global transfer programme) are all options members have used to start with some history already in place.</li>
+        <li>Your UK credit history does not transfer to the US — but you do not necessarily start from zero. Being added as an <strong>authorized user</strong> on a US person's card, using a credit-building secured card, or transferring an existing <strong>Amex card from the UK to the US</strong> (Amex has a global transfer program) are all options members have used to start with some history already in place.</li>
       </ul>
 
       <div class="info-card tip">
@@ -564,7 +564,7 @@
             <div class="info-card warning">
         <div class="info-card-head">⚠️ Required by law for males aged 18–25</div>
         <p style="font-size:13px;margin-bottom:8px;">Male immigrants are required by law to register with the Selective Service System within 30 days of their 18th birthday, or within 30 days of entry into the United States if they are between the ages of 18 and 25. This applies to legal permanent residents entering on an immigrant visa.</p>
-        <p style="font-size:13px;margin-bottom:8px;">Registration does not mean military service — it is a legal administrative requirement. Failure to register can affect eligibility for federal employment, student loans, and naturalisation.</p>
+        <p style="font-size:13px;margin-bottom:8px;">Registration does not mean military service — it is a legal administrative requirement. Failure to register can affect eligibility for federal employment, student loans, and naturalization.</p>
         <p style="font-size:13px;margin-bottom:8px;"><strong>Exempt:</strong> those who were on a valid non-immigrant visa continuously until age 26. Immigrant visa holders (CR1, IR1, IR2, IR5 etc.) are <strong>not</strong> exempt — registration is required.</p>
         <p style="font-size:13px;margin:0;">Register at <a href="https://www.sss.gov/register/" target="_blank" rel="noopener noreferrer">sss.gov/register</a> — takes a few minutes online. <a href="https://www.sss.gov/register/who-needs-to-register/" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[SSS: Who needs to register]</a></p>
       </div>
@@ -574,12 +574,12 @@
       </div>
       <div class="sub-acc-item" id="life_10" data-sub-group="life">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life_10')">
-          <span class="sub-acc-label">Global Entry — trusted traveller program</span>
+          <span class="sub-acc-label">Global Entry — trusted traveler program</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <p style="font-size:13px;margin-bottom:12px;">Global Entry is a US Customs and Border Protection (CBP) program that allows pre-approved travellers to clear customs faster when entering the United States. As a permanent resident, you are eligible to apply — British citizens can participate. It is worth doing!</p>
+            <p style="font-size:13px;margin-bottom:12px;">Global Entry is a US Customs and Border Protection (CBP) program that allows pre-approved travelers to clear customs faster when entering the United States. As a permanent resident, you are eligible to apply — British citizens can participate. It is worth doing!</p>
 
             <div class="info-card tip">
               <div class="info-card-head">What you get</div>
@@ -630,10 +630,10 @@
     <!-- Reentry Permit Checklist card -->
     <div class="info-card tip" style="margin-bottom:20px;">
       <div class="info-card-head">📋 Key forms at a glance</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:4px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px, 100%), 1fr));gap:8px;margin-top:4px;">
         <a href="https://www.uscis.gov/i-131" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:13px;font-weight:700;color:var(--white);">Form I-131</span>
-          <span style="font-size:12px;color:var(--muted);">Reentry Permit — travelling for 1+ year</span>
+          <span style="font-size:12px;color:var(--muted);">Reentry Permit — traveling for 1+ year</span>
         </a>
         <a href="https://www.uscis.gov/i-751" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:13px;font-weight:700;color:var(--white);">Form I-751</span>
@@ -693,7 +693,7 @@
                 <li>Whether you maintained a US home, employment, and bank accounts</li>
                 <li>Whether you filed US income taxes as a resident</li>
                 <li>Whether your immediate family remained in the US</li>
-                <li>Whether you held a valid US driver's licence and maintained a US mailing address</li>
+                <li>Whether you held a valid US driver's license and maintained a US mailing address</li>
                 <li>Whether you owned property or ran a business in the US</li>
               </ul>
             </div>
@@ -849,12 +849,12 @@
 
             <div class="info-card">
               <div class="info-card-head">Applying for the child's US passport (Form DS-11)</div>
-              <p style="font-size:13px;margin-bottom:6px;">Apply in person at a passport acceptance facility — most commonly a USPS post office. Both parents/guardians must appear with the child, or the absent parent must provide a notarised Form DS-3053 consent. Per the State Department, submit:</p>
+              <p style="font-size:13px;margin-bottom:6px;">Apply in person at a passport acceptance facility — most commonly a USPS post office. Both parents/guardians must appear with the child, or the absent parent must provide a notarized Form DS-3053 consent. Per the State Department, submit:</p>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:8px;">
                 <li><strong>Proof of relationship to the US citizen parent:</strong> certified copy of the child's foreign birth certificate (with translation if not in English)</li>
                 <li><strong>Proof of LPR admission:</strong> the child's permanent resident card, or foreign passport with I-551 stamp</li>
-                <li><strong>Evidence of the US citizen parent's citizenship</strong> (e.g. US passport or naturalisation certificate) <strong>and photo ID</strong></li>
-                <li><strong>Evidence the child resides in the US with the US citizen parent</strong> — the green card alone is <em>not</em> proof of residence. Provide at least two documents such as a lease or rental agreement naming the household, school enrolment records, or medical/doctor records</li>
+                <li><strong>Evidence of the US citizen parent's citizenship</strong> (e.g. US passport or naturalization certificate) <strong>and photo ID</strong></li>
+                <li><strong>Evidence the child resides in the US with the US citizen parent</strong> — the green card alone is <em>not</em> proof of residence. Provide at least two documents such as a lease or rental agreement naming the household, school enrollment records, or medical/doctor records</li>
                 <li>Completed <strong>Form DS-11</strong>, passport photo, and fees</li>
               </ul>
               <p style="font-size:13px;margin-bottom:6px;"><strong>Fees:</strong> $135 total for a child's passport book ($100 application fee paid to the Department of State plus $35 execution fee paid to the acceptance facility). Expedited service is an additional $60. Routine processing is typically 4–6 weeks; expedited 2–3 weeks, plus mailing time. Check the current fee chart before applying.</p>
@@ -887,8 +887,8 @@
                 <li>Child's <strong>physical green card</strong> (original and photocopy of front and back)</li>
                 <li>US citizen parent's proof of citizenship and photo ID (originals and photocopies)</li>
                 <li>Two or more documents showing the child lives with the US citizen parent (lease/rental agreement, school records, medical records)</li>
-                <li>Both parents present, or notarised DS-3053 from the absent parent</li>
-                <li>Passport photo, application fee ($100 cheque to US Department of State) and $35 execution fee — plus $60 if expediting</li>
+                <li>Both parents present, or notarized DS-3053 from the absent parent</li>
+                <li>Passport photo, application fee ($100 check to US Department of State) and $35 execution fee — plus $60 if expediting</li>
               </ul>
             </div>
           </div>
@@ -955,7 +955,7 @@
               </div>
               <div style="display:flex;gap:12px;align-items:flex-start;">
                 <div style="width:26px;height:26px;border-radius:50%;background:rgba(79,133,115,0.15);border:1px solid rgba(79,133,115,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--teal-light);flex-shrink:0;margin-top:2px;">2</div>
-                <div><strong style="color:var(--white);font-size:13px;">Biometrics appointment</strong><br><span style="font-size:13px;color:rgba(30,28,23,0.78);">Fingerprinting at a USCIS Application Support Centre.</span></div>
+                <div><strong style="color:var(--white);font-size:13px;">Biometrics appointment</strong><br><span style="font-size:13px;color:rgba(30,28,23,0.78);">Fingerprinting at a USCIS Application Support Center.</span></div>
               </div>
               <div style="display:flex;gap:12px;align-items:flex-start;">
                 <div style="width:26px;height:26px;border-radius:50%;background:rgba(79,133,115,0.15);border:1px solid rgba(79,133,115,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--teal-light);flex-shrink:0;margin-top:2px;">3</div>
@@ -988,8 +988,8 @@
             <ul style="font-size:13px;color:rgba(30,28,23,0.85);padding-left:16px;margin-bottom:8px;">
               <li><a href="https://www.uscis.gov/citizenship/find-study-materials-and-resources" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS official civics question bank and practice materials</a></li>
               <li>Public libraries — ESL classes, citizenship prep, 1:1 tutoring (free)</li>
-              <li>Community college adult education and literacy programmes</li>
-              <li>State adult literacy programmes</li>
+              <li>Community college adult education and literacy programs</li>
+              <li>State adult literacy programs</li>
             </ul>
             <p style="font-size:12px;color:var(--muted);margin:0;">Private tutors and paid prep courses exist but are generally unnecessary — free resources are typically sufficient. Source: <a href="https://www.uscis.gov/n-400" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS — Form N-400</a></p>
             <div class="info-card" style="margin-top:12px;">
@@ -1020,7 +1020,7 @@
 const INSETS = new Set(['Alaska','Hawaii','Puerto Rico','US Virgin Islands','Guam','American Samoa','Northern Mariana Islands']);
 const INSET_ABBR = {'Alaska':'AK','Hawaii':'HI','Puerto Rico':'PR','US Virgin Islands':'VI','Guam':'GU','American Samoa':'AS','Northern Mariana Islands':'MP'};
 
-// Colour scale: none → deep teal → gold
+// Color scale: none → deep teal → gold
 const colorScale = (count, max) => {
   if (!count || count === 0) return 'rgba(43,58,66,0.07)';
   const t = Math.sqrt(count / max); // sqrt for perceptual balance
@@ -1067,7 +1067,7 @@ async function buildMap() {
   const stateFeatures = topojson.feature(us, us.objects.states).features;
   const stateMesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
 
-  // Normalise — map full state names to counts
+  // Normalize — map full state names to counts
   const fipsByName = {};
   stateFeatures.forEach(f => { fipsByName[f.properties.name] = f.id; });
 

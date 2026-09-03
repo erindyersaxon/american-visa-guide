@@ -202,33 +202,57 @@
       overflow: hidden;
       box-shadow: var(--shadow-sm);
     }
+    /* Two-row grid: the status badge shares a line with the stage name, so it
+       never competes with the summary for width. A nowrap badge in the same
+       flex line as the text squeezed the summary into a narrow ragged column
+       on phones. */
     .pipeline-row {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      grid-template-areas:
+        "icon head"
+        "body body";
+      column-gap: var(--space-4);
+      row-gap: var(--space-2);
       padding: var(--space-4) var(--space-5);
       background: var(--color-surface);
     }
     .pipeline-row + .pipeline-row { border-top: 1px solid var(--color-border); }
     .pipeline-row__icon {
-      flex-shrink: 0;
+      grid-area: icon;
       width: 36px; height: 36px;
       border-radius: var(--radius-md);
       display: flex; align-items: center; justify-content: center;
       background: var(--color-primary-subtle);
       color: var(--color-primary);
     }
-    .pipeline-row__body { flex: 1; min-width: 0; }
+    .pipeline-row__head {
+      grid-area: head;
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
     .pipeline-row__name {
+      min-width: 0;          /* wrap the name rather than shoving the badge out */
       font-weight: var(--font-semibold);
       font-size: var(--text-sm);
       color: var(--color-text);
     }
+    .pipeline-row__badge { margin-left: auto; flex-shrink: 0; }
     .pipeline-row__summary {
+      grid-area: body;
       font-size: var(--text-sm);
       color: var(--color-text-secondary);
-      margin-top: var(--space-1);
-      max-width: none;
+      max-width: 68ch;
+    }
+    /* Once there is room, indent the summary under the stage name */
+    @media (min-width: 640px) {
+      .pipeline-row {
+        grid-template-areas:
+          "icon head"
+          ".    body";
+      }
     }
 
     /* ── Trend cards ── */
@@ -436,45 +460,45 @@
             <div class="pipeline-row__icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
             </div>
-            <div class="pipeline-row__body">
+            <div class="pipeline-row__head">
               <div class="pipeline-row__name">USCIS — I-130 Petition</div>
-              <p class="pipeline-row__summary" id="p-uscis-summary">
-                <span class="skel skel--line skel--wide" aria-hidden="true"></span>
-              </p>
+              <div class="pipeline-row__badge" id="p-uscis-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
             </div>
-            <div id="p-uscis-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
+            <p class="pipeline-row__summary" id="p-uscis-summary">
+              <span class="skel skel--line skel--wide" aria-hidden="true"></span>
+            </p>
           </div>
 
           <div class="pipeline-row" role="listitem">
             <div class="pipeline-row__icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             </div>
-            <div class="pipeline-row__body">
-              <div class="pipeline-row__name">NVC — National Visa Centre</div>
-              <p class="pipeline-row__summary" id="p-nvc-summary">
-                <span class="skel skel--line skel--wide" aria-hidden="true"></span>
-              </p>
+            <div class="pipeline-row__head">
+              <div class="pipeline-row__name">NVC — National Visa Center</div>
+              <div class="pipeline-row__badge" id="p-nvc-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
             </div>
-            <div id="p-nvc-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
+            <p class="pipeline-row__summary" id="p-nvc-summary">
+              <span class="skel skel--line skel--wide" aria-hidden="true"></span>
+            </p>
           </div>
 
           <div class="pipeline-row" role="listitem">
             <div class="pipeline-row__icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
             </div>
-            <div class="pipeline-row__body">
+            <div class="pipeline-row__head">
               <div class="pipeline-row__name">US Embassy London — Interview &amp; Visa</div>
-              <p class="pipeline-row__summary" id="p-london-summary">
-                <span class="skel skel--line skel--wide" aria-hidden="true"></span>
-              </p>
+              <div class="pipeline-row__badge" id="p-london-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
             </div>
-            <div id="p-london-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
+            <p class="pipeline-row__summary" id="p-london-summary">
+              <span class="skel skel--line skel--wide" aria-hidden="true"></span>
+            </p>
           </div>
 
         </div>
 
         <p class="metrics-note" style="margin-top: var(--space-4);">
-          <strong>Updated 30 August 2026.</strong> Two things changed at the London end. First, the embassy is sending interview cancellation notices covering <strong>all immigrant visa categories</strong>, now reaching appointments <strong>up to and including 30 September 2026</strong> &mdash; extended from an initial window that ran to 16 September. Same-day embassy document checks are cancelled alongside the interviews; medicals appear to be unaffected. The notice gives no new date, tells applicants not to appear at the consular section until directed to, and says the new appointment will be confirmed in a separate email, but no timeline has been offered. The same wording is going out from other posts, so this is not London-specific. <a href="/guide#interview-cancellations">Full notice on the guide page &rarr;</a> Second, the court in <em>CLINIC v. Rubio</em> entered partial final judgment on 24 August 2026 under Rule 54(b), formally vacating the 75-country immigrant visa suspension and any refusal based solely on it, and making that ruling immediately appealable &mdash; <a href="/visa-pause.html">what the decision means for London cases</a>.
+          <strong>Updated 30 August 2026.</strong> Two things changed at the London end. First, the embassy is sending interview cancellation notices covering <strong>all immigrant visa categories</strong>, now reaching appointments <strong>up to and including 30 September 2026</strong> &mdash; extended from an initial window that ran to 16 September. Same-day embassy document checks are canceled alongside the interviews; medicals appear to be unaffected. The notice gives no new date, tells applicants not to appear at the consular section until directed to, and says the new appointment will be confirmed in a separate email, but no timeline has been offered. The same wording is going out from other posts, so this is not London-specific. <a href="/guide#interview-cancellations">Full notice on the guide page &rarr;</a> Second, the court in <em>CLINIC v. Rubio</em> entered partial final judgment on 24 August 2026 under Rule 54(b), formally vacating the 75-country immigrant visa suspension and any refusal based solely on it, and making that ruling immediately appealable &mdash; <a href="/visa-pause.html">what the decision means for London cases</a>.
         </p>
       </div>
     </section>
@@ -747,7 +771,7 @@
           <strong style="color: var(--color-text);">Predictions — not guarantees!</strong> These are estimates based on historical community timelines. Individual cases may vary. Use these for ballpark planning only.
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: var(--space-6);">
 
           <!-- DQ to Interview Calculator -->
           <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6);">
@@ -1162,7 +1186,7 @@
     const PIPELINE = {
       uscis:  { status:'halted', text:'I-130 processing for consular cases has effectively stopped. <a href="/guide#uscis">Full explanation on the guide page →</a>' },
       nvc:    { status:'normal', text:'Processing normally. Documentarily Qualified typically lands ~14 calendar days after a complete submission.' },
-      london: { status:'halted', text:'All immigrant visa interviews at London are now cancelled through 30 September 2026, along with same-day document checks; medicals appear unaffected. The embassy has given no replacement date and asks applicants not to attend until it confirms one. Interview Letters have stopped too &mdash; none since 14 July 2026, and other posts report the same, so the pause looks system-wide. Treat the DQ-to-IL figures here as history, not a forecast.' },
+      london: { status:'halted', text:'All immigrant visa interviews at London are now canceled through 30 September 2026, along with same-day document checks; medicals appear unaffected. The embassy has given no replacement date and asks applicants not to attend until it confirms one. Interview Letters have stopped too &mdash; none since 14 July 2026, and other posts report the same, so the pause looks system-wide. Treat the DQ-to-IL figures here as history, not a forecast.' },
     };
 
     /* Map the /api/data response into the shapes the render functions consume */
@@ -1240,7 +1264,7 @@
         normal:  ['badge--success',     '●', 'Normal'],
         delayed: ['badge--warning',     '⚠', 'Delayed'],
         slow:    ['badge--warning',     '⚠', 'Slow'],
-        halted:  ['badge--destructive', '⏸', 'Effectively paused'],
+        halted:  ['badge--destructive', '■', 'Stopped'],
         paused:  ['badge--destructive', '✕', 'Paused'],
       };
       const [cls, icon, label] = map[status] || map.normal;
@@ -1444,7 +1468,7 @@
     }
 
     /* Signature intervals: median + IQR + sample size + right-censored tail.
-       Honours the API's suppression flags (hide below n=10, warn below n=30). */
+       Honors the API's suppression flags (hide below n=10, warn below n=30). */
     function renderIntervals(d) {
       const iv = d.intervals || {};
       const card = (obj, id, waitingWord) => {
