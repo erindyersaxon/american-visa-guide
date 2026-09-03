@@ -298,6 +298,9 @@
 .avg-footer a {
   color: rgba(244, 239, 230, 0.85);
   text-decoration: underline;
+  /* The contact address is one 286px unbreakable token; without this it sets
+     the column's min-content width and pushes the footer past the viewport. */
+  overflow-wrap: anywhere;
 }
 
 .avg-footer a:hover {
