@@ -614,11 +614,14 @@
         </div>
 
         <p class="trend-note">
-          <strong>What we're seeing:</strong> IL drops are still landing on their usual cadence, but
-          the wait from DQ to Interview Letter has been gradually lengthening in recent months — the
-          last six months are running longer than the all-time median. Based on our community data
-          this is a slow drift rather than a stop: cases keep moving through the queue, they're just
-          taking a little longer to reach an Interview Letter.
+          <strong>What we're seeing:</strong> IL drops have stopped. Nothing has landed since
+          14 July 2026<span id="tn-days-since"></span> &mdash; the 6&ndash;16 August window we projected passed with no
+          drop, and the gap is now longer than any in our recorded drop history. Members waiting at
+          other posts report the same silence, so this does not look like a London-specific problem.
+          The trend figures above describe the period up to that last drop, when the wait from DQ to
+          Interview Letter was already lengthening &mdash; the last six months ran longer than the
+          all-time median. Until drops resume, treat those numbers as a record of what happened, not
+          a prediction of when your letter will arrive.
         </p>
       </div>
     </section>
@@ -1159,7 +1162,7 @@
     const PIPELINE = {
       uscis:  { status:'halted', text:'I-130 processing for consular cases has effectively stopped. <a href="/guide#uscis">Full explanation on the guide page →</a>' },
       nvc:    { status:'normal', text:'Processing normally. Documentarily Qualified typically lands ~14 calendar days after a complete submission.' },
-      london: { status:'delayed', text:'Scheduled interviews are being cancelled across all immigrant visa categories, now covering London appointments up to and including 30 September 2026. Same-day embassy document checks are cancelled with them; medicals appear unaffected. The cancellation email carries no replacement date &mdash; it says the embassy will confirm a new appointment separately, and asks applicants not to attend the consular section until it does, but no timeline has been given. IL drops themselves are continuing, though the wait from DQ to IL has been gradually lengthening in recent months, and an IL still puts your interview about 9 weeks out.' },
+      london: { status:'halted', text:'Scheduled interviews are being cancelled across all immigrant visa categories, now covering London appointments up to and including 30 September 2026. Same-day embassy document checks are cancelled with them; medicals appear unaffected. The cancellation email carries no replacement date &mdash; it says the embassy will confirm a new appointment separately, and asks applicants not to attend the consular section until it does, but no timeline has been given. Interview Letters have stopped too: no IL has been reported since the drop on 14 July 2026, and the 6&ndash;16 August window we projected passed with nothing. Members waiting at other posts report the same silence, so this appears to be a system-wide pause rather than a London-specific one. Treat the DQ-to-IL figures on this page as history up to 14 July, not a current forecast.' },
     };
 
     /* Map the /api/data response into the shapes the render functions consume */
@@ -1256,6 +1259,7 @@
 
       // Determine range status from today vs. next expected window
       let cfg;
+      let missedWindow = false;   // window has passed with no drop in it
       if (ns) {
         const today = new Date(); today.setUTCHours(0,0,0,0);
         const start = new Date(ns + 'T00:00:00Z');
@@ -1265,6 +1269,7 @@
         const pastWindow = today > end;
         const noDropInWindow = !lastDropDate || lastDropDate < start;
         if (pastWindow && noDropInWindow) {
+          missedWindow = true;
           cfg = { cls:'il-banner--delayed',     dot:'delayed',     chip:'IL Drop Delayed' };
         } else if (today >= start && today <= end) {
           cfg = { cls:'il-banner--in-range',    dot:'in-range',    chip:'In IL Drop Range' };
@@ -1277,8 +1282,11 @@
         cfg = { cls:'il-banner--outside', dot:'outside', chip:'Outside of IL Drop Range' };
       }
 
+      // Once the window has passed with nothing in it, the estimate is a missed
+      // forecast rather than an upcoming one — it stays put until a drop lands
+      // and the API recomputes it from that date.
       const title = ns
-        ? `Next expected: ${fmtDate(ns)}${ne ? ' – ' + fmtDate(ne) : ''}`
+        ? `${missedWindow ? 'Was expected' : 'Next expected'}: ${fmtDate(ns)}${ne ? ' – ' + fmtDate(ne) : ''}`
         : 'Next drop window not yet estimated';
       const sub = lastDate
         ? `Last IL drop: ${fmtDate(lastDate)}${days != null ? ` — ${days} days ago` : ''}`
@@ -1307,6 +1315,8 @@
       const ne = stats?.next_drop_window_end;
       set('m-next-window', ns ? fmtDate(ns) : '—');
       txt('m-next-window-sub', ns ? (ne ? `to ${fmtDate(ne)}` : 'Estimated') : 'Not yet estimated');
+      const tn = document.getElementById('tn-days-since');
+      if (tn) tn.textContent = days != null ? `, ${days} days ago` : '';
       const w = stats?.members_waiting;
       txt('m-members-note', w != null
         ? `Community data from ${w.toLocaleString('en-GB')} members in the London pipeline.`
