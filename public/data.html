@@ -1259,6 +1259,7 @@
 
       // Determine range status from today vs. next expected window
       let cfg;
+      let missedWindow = false;   // window has passed with no drop in it
       if (ns) {
         const today = new Date(); today.setUTCHours(0,0,0,0);
         const start = new Date(ns + 'T00:00:00Z');
@@ -1268,6 +1269,7 @@
         const pastWindow = today > end;
         const noDropInWindow = !lastDropDate || lastDropDate < start;
         if (pastWindow && noDropInWindow) {
+          missedWindow = true;
           cfg = { cls:'il-banner--delayed',     dot:'delayed',     chip:'IL Drop Delayed' };
         } else if (today >= start && today <= end) {
           cfg = { cls:'il-banner--in-range',    dot:'in-range',    chip:'In IL Drop Range' };
@@ -1280,8 +1282,11 @@
         cfg = { cls:'il-banner--outside', dot:'outside', chip:'Outside of IL Drop Range' };
       }
 
+      // Once the window has passed with nothing in it, the estimate is a missed
+      // forecast rather than an upcoming one — it stays put until a drop lands
+      // and the API recomputes it from that date.
       const title = ns
-        ? `Next expected: ${fmtDate(ns)}${ne ? ' – ' + fmtDate(ne) : ''}`
+        ? `${missedWindow ? 'Was expected' : 'Next expected'}: ${fmtDate(ns)}${ne ? ' – ' + fmtDate(ne) : ''}`
         : 'Next drop window not yet estimated';
       const sub = lastDate
         ? `Last IL drop: ${fmtDate(lastDate)}${days != null ? ` — ${days} days ago` : ''}`
