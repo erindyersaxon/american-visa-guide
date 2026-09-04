@@ -1,11 +1,11 @@
-/* ─────────────────────────────────────────────────────────────
-   American Visa Guide — Shared site chrome (nav + footer)
+/*
+   American Visa Guide: Shared site chrome (nav + footer)
    Single source of truth for nav and footer markup on every page.
    Styles live in /css/nav.css.
 
    Mounts into <div id="nav-placeholder"> if present, otherwise
    replaces the page's first <nav> element.
-   ───────────────────────────────────────────────────────────── */
+ */
 
 (function () {
   'use strict';
@@ -14,7 +14,7 @@
 <nav class="site-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-container">
 
-    <a href="/index.html" class="nav-brand" aria-label="American Visa Guide — home">
+    <a href="/index.html" class="nav-brand" aria-label="American Visa Guide: home">
       <span class="nav-brand-mark" aria-hidden="true">
         <svg width="32" height="32" viewBox="0 0 24 24">
           <rect width="24" height="24" rx="5" fill="#ece5d6"/>
@@ -115,7 +115,7 @@
   const FOOTER_HTML = `
 <footer class="avg-footer" role="contentinfo">
   <div class="avg-footer__container">
-    <p class="avg-footer__note"><strong>This is not legal advice.</strong> American Visa Guide is an independent community resource, based on official US government sources and observed London embassy patterns — written by Erin with input from community members, not lawyers or embassy staff.</p>
+    <p class="avg-footer__note"><strong>This is not legal advice.</strong> American Visa Guide is an independent community resource, based on official US government sources and observed London embassy patterns: written by Erin with input from community members, not lawyers or embassy staff.</p>
     <div class="avg-footer__cols">
       <div>
         <p class="avg-footer__hd">Contact</p>

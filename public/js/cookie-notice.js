@@ -1,4 +1,4 @@
-// Cookie Notice — GDPR Compliance
+// Cookie Notice: GDPR Compliance
 // Displays once per session, stored in sessionStorage only (cleared on browser close)
 
 function initCookieNotice() {

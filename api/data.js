@@ -60,7 +60,7 @@ export default async function handler(req, res) {
   // Robust summary for the signature intervals: median, IQR and p90, plus the
   // NCHS-derived display flags (suppress the statistic below n=10, warn below
   // n=30). Percentiles use linear interpolation, matching Postgres
-  // percentile_cont. Means are deliberately not exposed here — the interval
+  // percentile_cont. Means are deliberately not exposed here. The interval
   // distributions are right-skewed and a mean is dragged by the long tail.
   const robustStats = (arr) => {
     const valid = arr.filter(n => n !== null && n > 0).sort((a, b) => a - b)
@@ -104,7 +104,7 @@ export default async function handler(req, res) {
   }
   const deduped = Object.values(byUser)
 
-  // Drop impossible future dates on past-only milestones — data-entry errors
+  // Drop impossible future dates on past-only milestones: data-entry errors
   // (e.g. an Interview Letter dated next year) otherwise poison the averages.
   // Appointment fields (interview / medical / flight) are intentionally left
   // alone, since those are legitimately future-dated for upcoming events.
@@ -278,7 +278,7 @@ export default async function handler(req, res) {
   //   "Dublin (pre-clearance)", "Dublin, Ireland (DUB); Cleveland, OH (CLE)",
   //   "Phoenix Sky Harbor, Arizona"
   // Normalize to a canonical "City (CODE)" label. Where multiple locations are
-  // listed, the first is where entry was cleared — pre-clearance (Dublin,
+  // listed, the first is where entry was cleared: pre-clearance (Dublin,
   // Shannon, Montreal etc.) counts as the official port of entry.
   const AIRPORT_NAMES = {
     DUB: 'Dublin pre-clearance', SNN: 'Shannon pre-clearance', YUL: 'Montreal pre-clearance',
@@ -323,7 +323,7 @@ export default async function handler(req, res) {
         if (lower.includes(kw)) { code = c; break }
       }
     }
-    if (!code) return s // unrecognized — keep the raw text so it still counts
+    if (!code) return s // unrecognized. Keep the raw text so it still counts
     return AIRPORT_NAMES[code] ? `${AIRPORT_NAMES[code]} (${code})` : code
   }
 
@@ -333,7 +333,7 @@ export default async function handler(req, res) {
     if (label) entryAirports[label] = (entryAirports[label] || 0) + 1
   }
 
-  // --- IL drop dates — derived from member interview_letter timestamps ---
+  // --- IL drop dates: derived from member interview_letter timestamps ---
   // Cluster members into drops: any ILs within 2 days of each other = same drop.
   // interview_letter is timestamptz so we have exact time of each drop from the data.
   const membersWithIL = standard
@@ -359,7 +359,7 @@ export default async function handler(req, res) {
     new Date(Math.min(...c.members.map(r => new Date(r.interview_letter)))).toISOString().split('T')[0]
   )
 
-  // Observed UK drop times — community-sourced.
+  // Observed UK drop times: community-sourced.
   // Historic imports stored date-only so timestamp defaults to midnight UTC;
   // these entries supply the correct displayed time for those drops.
   const observedTimes = {
@@ -411,7 +411,7 @@ export default async function handler(req, res) {
 
     // Interview dates assigned in this drop's ILs (members report them after
     // scheduling, so recent drops may have fewer reported than il_count).
-    // An interview can't predate its IL — such rows are data-entry errors
+    // An interview can't predate its IL: such rows are data-entry errors
     // and would poison the min–max range.
     const ivDates = cluster.members
       .filter(r => r.interview && String(r.interview).slice(0, 10) > String(r.interview_letter).slice(0, 10))
@@ -425,7 +425,7 @@ export default async function handler(req, res) {
     return { date, time, gap, dq_from, dq_to, dq_days, il_count, iv_from, iv_to, iv_count }
   })
 
-  // Include all clusters with at least 1 member — the clustering logic (2-day
+  // Include all clusters with at least 1 member: the clustering logic (2-day
   // gap) already separates real drops from noise; a count threshold is not needed
   // and would hide new drops before all recipients have submitted.
   const ilDrops = ilDropsAsc.filter(d => d.il_count >= 1).slice().reverse() // newest first
@@ -520,7 +520,7 @@ export default async function handler(req, res) {
     r => daysBetween(r.dq_date, r.interview), r => r.interview)
 
   // --- Estimated next IL drop ---
-  // Derived entirely from live clusters — no hardcoded dates needed.
+  // Derived entirely from live clusters, no hardcoded dates needed.
   // Exclude outlier gaps (>40 days) from average to match spreadsheet behaviour.
   const normalGaps = ilDrops.filter(d => d.gap && d.gap <= 40)
   const avgGap = normalGaps.length

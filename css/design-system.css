@@ -1,7 +1,7 @@
-/* American Visa Guide — Design System */
+/* American Visa Guide, Design System */
 
 :root {
-  /* COLOURS — WCAG AA Compliant */
+  /* COLOURS: WCAG AA Compliant */
   --color-navy: #1a3a52;
   --color-navy-light: #3d5a7a;
   --color-navy-xlight: #f1f4f8;
@@ -22,7 +22,7 @@
   /* TYPOGRAPHY */
   --font-display: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* FONT SIZES */
   --size-xs: 0.75rem; /* 12px */
@@ -146,8 +146,6 @@ h5 {
 
 h6 {
   font-size: var(--size-lg);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 p {
@@ -339,11 +337,9 @@ small {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-1) var(--space-3);
-  font-size: var(--size-xs);
+  font-size: var(--size-sm);
   font-weight: var(--weight-semibold);
   border-radius: var(--radius-full);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .badge-pending {
@@ -389,8 +385,6 @@ small {
   display: block;
   font-size: var(--size-sm);
   color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   margin-top: var(--space-2);
 }
 
@@ -467,11 +461,7 @@ small {
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--color-gold),
-    var(--color-navy)
-  );
+  background: var(--color-gold);
   border-radius: var(--radius-full);
   transition: width var(--transition-base);
 }
