@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<!-- Cookiebot consent manager: must be the first script so auto-blocking works -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Microsoft Clarity — runs only after statistics consent -->
+<!-- Microsoft Clarity: runs only after statistics consent -->
 <script type="text/plain" data-cookieconsent="statistics">
 (function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -13,23 +13,23 @@
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window,document,"clarity","script","wlfs757o2n");
 </script>
-<title>I-864 Household Calculator — American Visa Guide</title>
+<title>I-864 Household Calculator | American Visa Guide</title>
 <meta name="description" content="Calculate your I-864 household size and minimum income threshold for US family immigrant visas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/main.css?v=20260616">
 <link rel="stylesheet" href="/css/components.css?v=20260616">
 <link rel="stylesheet" href="/css/nav.css?v=20260722">
 <style>
-  /* ─────────────────────────────────────────────────────────────
-     I-864 Household Calculator — page styles
+  /*
+     I-864 Household Calculator: page styles
      Palette + type follow the site design system (cream + steel blue,
-     Fraunces display / Outfit UI / Plus Jakarta Sans body).
+     Georgia display / Public Sans UI and body).
      Legacy local var names (--navy, --gold) are kept and repointed at
      house values, matching the convention in css/design-system.css.
-     ───────────────────────────────────────────────────────────── */
+ */
   :root {
-    --navy:     #2b3a42;   /* charcoal blue — dark surfaces */
+    --navy:     #2b3a42;   /* charcoal blue: dark surfaces */
     --navy-mid: #3d5260;
     --gold:     #3e7188;   /* steel blue accent, AA on cream */
     --gold-lt:  #c8dde6;   /* accent tint for use on dark surfaces */
@@ -46,15 +46,15 @@
     --red:      #b04a38;
     --red-lt:   #f7e9e6;
     --red-bd:   #ecccc4;
-    --purple:    #2f5a6e;  /* legacy name — now deep steel */
+    --purple:    #2f5a6e;  /* legacy name: now deep steel */
     --purple-lt: #edf4f8;
     --purple-bd: #bcd6e0;
     --border:   #ddd6cb;
     --border-soft: #e7e0d4;
     --text:     #1e1c17;
-    --font-display-calc: 'Fraunces', Georgia, 'Times New Roman', serif;
-    --font-ui-calc:  'Outfit', system-ui, sans-serif;
-    --font-body-calc:'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-display-calc: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
+    --font-ui-calc:  'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body-calc:'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   .i864-calculator { font-family: var(--font-body-calc); background: var(--cream); color: var(--text); line-height: 1.72; }
 
@@ -70,8 +70,8 @@
   .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
 
   .intro { margin-bottom: 1.75rem; }
-  .eyebrow { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
-  .intro h1 { font-family: var(--font-display-calc); font-size: clamp(1.7rem, 4.4vw, 2.4rem); font-weight: 600; color: var(--text); line-height: 1.15; margin-bottom: 0.9rem; letter-spacing: -0.01em; }
+  .eyebrow { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700;color: var(--gold); margin-bottom: 0.6rem; }
+  .intro h1 { font-family: var(--font-display-calc); font-size: clamp(1.7rem, 4.4vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 0.9rem; letter-spacing: -0.01em; }
   .intro h1 em { font-style: italic; font-weight: 500; color: var(--gold); }
   .intro p { font-size: 1.05rem; color: var(--slate); line-height: 1.7; max-width: 680px; }
 
@@ -80,7 +80,7 @@
   .authority-note a { color: var(--gold); text-decoration: underline; }
 
   /* SECTION DIVIDER */
-  .section-label { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+  .section-label { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700;color: var(--gold); margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
 
   /* STEP CARD */
   .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 1rem; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
@@ -93,8 +93,8 @@
   .step-card.active .step-number { background: var(--gold); color: #fff; }
   .step-card.completed .step-number { background: var(--green); color: #fff; }
   .step-content { flex: 1; }
-  .step-label { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; }
-  .step-question { font-family: var(--font-display-calc); font-size: 1.15rem; font-weight: 600; color: var(--text); line-height: 1.3; letter-spacing: -0.01em; }
+  .step-label { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 600;color: var(--gold); margin-bottom: 0.25rem; }
+  .step-question { font-family: var(--font-display-calc); font-size: 1.15rem; font-weight: 700; color: var(--text); line-height: 1.3; letter-spacing: -0.01em; }
   .step-hint { font-size: 0.85rem; color: var(--slate); margin-top: 0.4rem; line-height: 1.6; }
 
   .step-body { padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--border-soft); padding-top: 1rem; }
@@ -124,45 +124,45 @@
   .result-panel { border-radius: 10px; overflow: hidden; margin-top: 1.75rem; display: none; border: 1px solid var(--border); }
   .result-panel.visible { display: block; }
   .result-header { background: var(--navy); padding: 1.35rem 1.5rem; }
-  .result-header h2 { font-family: var(--font-display-calc); font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
+  .result-header h2 { font-family: var(--font-display-calc); font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
   .result-header p { font-size: 0.85rem; color: var(--gold-lt); }
   .result-body { background: var(--surface); }
 
   .hh-size-box { padding: 1.5rem; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; gap: 1.25rem; }
-  .hh-number { font-family: var(--font-display-calc); font-size: 3.5rem; font-weight: 600; color: var(--gold); line-height: 1; }
+  .hh-number { font-family: var(--font-body-calc); font-variant-numeric: tabular-nums; font-size: 3.5rem; font-weight: 600; color: var(--gold); line-height: 1; }
   .hh-breakdown { flex: 1; }
-  .hh-breakdown-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .hh-breakdown-title { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700;color: var(--gold); margin-bottom: 0.5rem; }
   .hh-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 0.25rem 0; border-bottom: 1px dotted var(--border); }
   .hh-row:last-child { border-bottom: none; font-weight: 600; color: var(--navy); }
   .hh-row-label { color: var(--slate); }
   .hh-row-value { font-weight: 600; color: var(--navy); }
 
   .income-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-soft); }
-  .income-section-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.85rem; }
+  .income-section-title { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700;color: var(--gold); margin-bottom: 0.85rem; }
   .threshold-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   .threshold-card { border-radius: 8px; padding: 1rem; border: 1.5px solid var(--border); background: #fff; }
   .threshold-card.primary { border-color: var(--gold); background: var(--purple-lt); }
   .threshold-card.secondary { background: var(--surface-alt); }
-  .threshold-tag { font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.35rem; }
+  .threshold-tag { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700;margin-bottom: 0.35rem; }
   .threshold-card.primary .threshold-tag { color: var(--purple); }
   .threshold-card.secondary .threshold-tag { color: var(--slate); }
-  .threshold-amount { font-family: var(--font-display-calc); font-size: 1.7rem; font-weight: 600; color: var(--navy); line-height: 1.1; margin-bottom: 0.25rem; }
+  .threshold-amount { font-family: var(--font-body-calc); font-variant-numeric: tabular-nums; font-size: 1.7rem; font-weight: 700; color: var(--navy); line-height: 1.1; margin-bottom: 0.25rem; }
   .threshold-subtitle { font-size: 0.75rem; color: var(--slate); line-height: 1.45; }
   .region-badge { display: inline-block; font-family: var(--font-ui-calc); font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px; background: var(--navy); color: var(--gold-lt); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
 
   /* SHORTFALL + JOINT SPONSOR SECTIONS */
   .shortfall-section { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-soft); }
-  .shortfall-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.85rem; }
+  .shortfall-title { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700;color: var(--gold); margin-bottom: 0.85rem; }
   .option-list { display: flex; flex-direction: column; gap: 0.9rem; }
   .option-item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.87rem; line-height: 1.65; }
-  .option-badge { flex-shrink: 0; font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; padding: 0.18rem 0.45rem; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
+  .option-badge { flex-shrink: 0; font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700; padding: 0.18rem 0.45rem; border-radius: 5px;letter-spacing: 0.04em; margin-top: 2px; }
   .badge-a { background: var(--green-lt); color: var(--green); }
   .badge-b { background: var(--amber-lt); color: var(--amber); }
   .badge-c { background: var(--surface-alt); color: var(--navy-mid); }
 
   /* JOINT SPONSOR MINI-CALCULATOR */
   .js-calc-box { background: var(--purple-lt); border: 1px solid var(--purple-bd); border-radius: 8px; padding: 1.1rem 1.25rem; margin-top: 0.75rem; }
-  .js-calc-title { font-family: var(--font-ui-calc); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.75rem; }
+  .js-calc-title { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700;color: var(--purple); margin-bottom: 0.75rem; }
   .js-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.82rem; color: var(--navy); }
   .js-row label { min-width: 160px; font-size: 0.8rem; color: var(--slate); }
   .js-toggle { display: flex; gap: 0.4rem; }
@@ -173,8 +173,8 @@
   .js-counter-btn:hover { background: var(--purple); color: #fff; }
   .js-counter-display { font-family: var(--font-ui-calc); font-size: 1.2rem; font-weight: 700; color: var(--purple); min-width: 1.8rem; text-align: center; }
   .js-result { margin-top: 0.85rem; padding: 0.85rem; background: #fff; border-radius: 6px; border: 1px solid var(--purple-bd); font-size: 0.82rem; }
-  .js-result-label { font-family: var(--font-ui-calc); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.3rem; }
-  .js-result-amount { font-family: var(--font-display-calc); font-size: 1.5rem; font-weight: 600; color: var(--navy); line-height: 1.1; }
+  .js-result-label { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700;color: var(--purple); margin-bottom: 0.3rem; }
+  .js-result-amount { font-family: var(--font-body-calc); font-variant-numeric: tabular-nums; font-size: 1.5rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
   .js-result-sub { font-size: 0.75rem; color: var(--slate); margin-top: 0.2rem; line-height: 1.45; }
   .js-note { font-size: 0.78rem; color: var(--slate); margin-top: 0.6rem; line-height: 1.6; }
 
@@ -182,16 +182,16 @@
   .callout-panel { border-radius: 8px; padding: 1rem 1.1rem; margin-bottom: 0.75rem; font-size: 0.85rem; line-height: 1.65; }
   .callout-panel.assets { background: var(--surface-alt); border: 1px solid var(--border); border-left: 3px solid var(--slate); color: var(--text); }
   .callout-panel.ssa { background: var(--green-lt); border: 1px solid var(--green-bd); border-left: 3px solid var(--green); color: var(--text); }
-  .callout-panel-title { font-family: var(--font-ui-calc); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.45rem; }
+  .callout-panel-title { font-family: var(--font-ui-calc); font-size: 0.78rem; font-weight: 700;margin-bottom: 0.45rem; }
   .callout-panel.assets .callout-panel-title { color: var(--slate); }
   .callout-panel.ssa .callout-panel-title { color: var(--green); }
   .callout-panel a { color: var(--gold); font-weight: 600; }
   .callout-panel.ssa a { color: var(--green); }
 
-  /* Community warning — danger variant of the assets panel */
+  /* Community warning: danger variant of the assets panel */
   .callout-panel.assets.warning { background: var(--red-lt); border-color: var(--red-bd); border-left-color: var(--red); }
   .callout-panel.assets.warning .callout-panel-title { color: var(--red); }
-  /* Self-employment — caution variant */
+  /* Self-employment: caution variant */
   .callout-panel.assets.caution { background: var(--amber-lt); border-color: var(--amber-bd); border-left-color: var(--amber); }
   .callout-panel.assets.caution .callout-panel-title { color: var(--amber); }
 
@@ -209,7 +209,7 @@
   .reset-btn:hover { border-color: var(--gold); color: var(--gold); }
 
   .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 2rem; overflow: hidden; }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--navy), var(--gold)); border-radius: 2px; transition: width 0.35s ease; width: 0%; }
+  .progress-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.35s ease; width: 0%; }
 
   .tooltip-wrap { position: relative; display: inline-block; }
   .tooltip-trigger { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: var(--gold-lt); color: var(--purple); font-family: var(--font-ui-calc); font-size: 0.65rem; font-weight: 700; cursor: help; margin-left: 4px; vertical-align: middle; flex-shrink: 0; }
@@ -255,11 +255,11 @@
   <!-- STEP 0: LOCATION -->
   <div class="step-card active" id="step0">
     <div class="step-header">
-      <div class="step-number">—</div>
+      <div class="step-number">0</div>
       <div class="step-content">
         <div class="step-label">Location</div>
         <div class="step-question">Where does the sponsor live?</div>
-        <div class="step-hint">Alaska and Hawaii use higher poverty guidelines. The contiguous 48 states, DC, Guam, Puerto Rico, US Virgin Islands, and other US territories all follow the same income thresholds. The sponsor's location determines which table applies — not the applicant's location.</div>
+        <div class="step-hint">Alaska and Hawaii use higher poverty guidelines. The contiguous 48 states, DC, Guam, Puerto Rico, US Virgin Islands, and other US territories all follow the same income thresholds. The sponsor's location determines which table applies, not the applicant's location.</div>
       </div>
     </div>
     <div class="step-body">
@@ -277,16 +277,16 @@
       <div class="step-number">1</div>
       <div class="step-content">
         <div class="step-label">Always counted</div>
-        <div class="step-question">You — the sponsor</div>
+        <div class="step-question">You: the sponsor</div>
         <div class="step-hint">The person signing the I-864 is always counted as 1. This is fixed.</div>
       </div>
     </div>
     <div class="step-body">
       <div class="inline-def">
-        <strong>Who is the sponsor?</strong> The US citizen or LPR petitioner who filed the I-130. A joint sponsor files their own separate I-864 — their household size is calculated independently (see the joint sponsor tool in the results). A household member who contributes income files Form I-864A and is counted in the petitioner's household size.
+        <strong>Who is the sponsor?</strong> The US citizen or LPR petitioner who filed the I-130. A joint sponsor files their own separate I-864. Their household size is calculated independently (see the joint sponsor tool in the results). A household member who contributes income files Form I-864A and is counted in the petitioner's household size.
       </div>
       <div class="choices" style="margin-top:1rem;">
-        <button class="choice-btn yes-btn" onclick="confirmStep1()">Got it — that's 1 person</button>
+        <button class="choice-btn yes-btn" onclick="confirmStep1()">Got it: that's 1 person</button>
       </div>
     </div>
   </div>
@@ -298,12 +298,12 @@
       <div class="step-content">
         <div class="step-label">Current marital status</div>
         <div class="step-question">Are you currently married?</div>
-        <div class="step-hint">Your spouse counts even if they do not live with you or are abroad. If your spouse is the intending immigrant, count them here — and do not count them again in the final question about intending immigrants.</div>
+        <div class="step-hint">Your spouse counts even if they do not live with you or are abroad. If your spouse is the intending immigrant, count them here, and do not count them again in the final question about intending immigrants.</div>
       </div>
     </div>
     <div class="step-body">
       <div class="choices">
-        <button class="choice-btn yes-btn" onclick="answer('married', true)">Yes — I am married</button>
+        <button class="choice-btn yes-btn" onclick="answer('married', true)">Yes: I am married</button>
         <button class="choice-btn" onclick="answer('married', false)">No</button>
       </div>
     </div>
@@ -316,7 +316,7 @@
       <div class="step-content">
         <div class="step-label">Dependent children</div>
         <div class="step-question">How many of your children are under 21 and unmarried?</div>
-        <div class="step-hint">Include all such children, even those not living with you and even if you do not have legal custody — unless they have reached the age of majority in their place of domicile AND you do not claim them as tax dependents.</div>
+        <div class="step-hint">Include all such children, even those not living with you and even if you do not have legal custody, unless they have reached the age of majority in their place of domicile and you do not claim them as tax dependents.</div>
       </div>
     </div>
     <div class="step-body">
@@ -339,7 +339,7 @@
       <div class="step-content">
         <div class="step-label">Tax dependents</div>
         <div class="step-question">How many other people did you claim as dependents on your most recent federal tax return?</div>
-        <div class="step-hint">Do not re-count anyone already counted in Steps 2 or 3. Includes anyone claimed — regardless of whether they live with you or are related to you.</div>
+        <div class="step-hint">Do not re-count anyone already counted in Steps 2 or 3. Includes anyone claimed, regardless of whether they live with you or are related to you.</div>
       </div>
     </div>
     <div class="step-body">
@@ -370,7 +370,7 @@
     <div class="step-body">
       <div class="choices">
         <button class="choice-btn" onclick="answer('priorSponsored', false)">No prior obligations</button>
-        <button class="choice-btn" id="priorYesBtn" onclick="showPriorCount()">Yes — active prior I-864(s)</button>
+        <button class="choice-btn" id="priorYesBtn" onclick="showPriorCount()">Yes: active prior I-864(s)</button>
       </div>
       <div id="priorCountArea" style="display:none; margin-top:1rem;">
         <div class="number-row">
@@ -398,11 +398,11 @@
     </div>
     <div class="step-body">
       <div class="inline-def">
-        <strong>Form I-864A (Contract Between Sponsor and Household Member)</strong> is required for each such relative. Only adult children, parents, or siblings qualify — not friends or unrelated housemates. The relative's income is then combined with yours on the I-864.
+        <strong>Form I-864A (Contract Between Sponsor and Household Member)</strong> is required for each such relative. Only adult children, parents, or siblings qualify, not friends or unrelated housemates. The relative's income is then combined with yours on the I-864.
       </div>
       <div class="choices" style="margin-top:1rem;">
         <button class="choice-btn" onclick="answer('i864aMembers', false)">None</button>
-        <button class="choice-btn" id="i864aYesBtn" onclick="showI864ACount()">Yes — adding household members via I-864A</button>
+        <button class="choice-btn" id="i864aYesBtn" onclick="showI864ACount()">Yes: adding household members via I-864A</button>
       </div>
       <div id="i864aCountArea" style="display:none; margin-top:1rem;">
         <div class="number-row">
@@ -424,7 +424,7 @@
       <div class="step-number">7</div>
       <div class="step-content">
         <div class="step-label">Intending immigrant(s)</div>
-        <div class="step-question">How many people are immigrating in this petition — not counting anyone already counted above?</div>
+        <div class="step-question">How many people are immigrating in this petition, not counting anyone already counted above?</div>
         <div class="step-hint">Do not count any person more than once. If your spouse is the intending immigrant and you already counted them in Step 2, do not count them here. Count only people immigrating in this petition who have not appeared in any earlier step.</div>
       </div>
     </div>
@@ -436,7 +436,7 @@
         <span class="counter-label">intending immigrant(s) in this petition</span>
       </div>
       <div class="inline-def" style="margin-top:1rem;">
-        <strong>IR-1/CR-1 spousal visa:</strong> If your spouse is the only person immigrating and you counted them in Step 2, enter 0 here. Enter 1 or more only for additional people immigrating who were not counted in any earlier step — for example, a stepchild of yours immigrating at the same time, not already listed as your dependent in Step 3.
+        <strong>IR-1/CR-1 spousal visa:</strong> If your spouse is the only person immigrating and you counted them in Step 2, enter 0 here. Enter 1 or more only for additional people immigrating who were not counted in any earlier step, for example, a stepchild of yours immigrating at the same time, not already listed as your dependent in Step 3.
       </div>
       <div class="choices" style="margin-top:1rem;">
         <button class="choice-btn yes-btn" onclick="confirmCounter('immigrants', 'step7')">Confirm &amp; see results</button>
@@ -454,7 +454,7 @@
 
       <!-- HOUSEHOLD SIZE -->
       <div class="hh-size-box">
-        <div class="hh-number" id="resultHHSize">—</div>
+        <div class="hh-number" id="resultHHSize">n/a</div>
         <div class="hh-breakdown">
           <div class="hh-breakdown-title">Household size breakdown</div>
           <div id="breakdownRows"></div>
@@ -463,17 +463,17 @@
 
       <!-- INCOME THRESHOLDS -->
       <div class="income-section">
-        <div class="income-section-title">Minimum income required — 2026 I-864P guidelines (effective Mar 1, 2026)</div>
+        <div class="income-section-title">Minimum income required, 2026 I-864P guidelines (effective Mar 1, 2026)</div>
         <div id="regionBadgeWrap" style="margin-bottom:0.75rem;"></div>
         <div class="threshold-grid">
           <div class="threshold-card primary">
-            <div class="threshold-tag">125% FPG — most sponsors</div>
-            <div class="threshold-amount" id="threshold125">—</div>
+            <div class="threshold-tag">125% FPG: most sponsors</div>
+            <div class="threshold-amount" id="threshold125">n/a</div>
             <div class="threshold-subtitle">Annual gross income · petitioning sponsor &amp; joint sponsors</div>
           </div>
           <div class="threshold-card secondary">
-            <div class="threshold-tag">100% FPG — active-duty military only</div>
-            <div class="threshold-amount" id="threshold100">—</div>
+            <div class="threshold-tag">100% FPG: active-duty military only</div>
+            <div class="threshold-amount" id="threshold100">n/a</div>
             <div class="threshold-subtitle">Sponsoring a spouse or child · per 9 FAM 601.14-2</div>
           </div>
         </div>
@@ -500,7 +500,7 @@
           <div class="option-item">
             <span class="option-badge badge-b">Joint sponsor</span>
             <div>
-              <strong>Use a joint sponsor.</strong> A separate US citizen or LPR files their own independent I-864. They must <em>independently</em> meet 125% FPG for <em>their own</em> household size — the immigrant counts in the joint sponsor's household too. Once a joint sponsor is required, the petitioner's income is no longer assessed against the threshold; only the joint sponsor's income must qualify. Use the calculator below to check a joint sponsor's figures.
+              <strong>Use a joint sponsor.</strong> A separate US citizen or LPR files their own independent I-864. They must <em>independently</em> meet 125% FPG for <em>their own</em> household size. The immigrant counts in the joint sponsor's household too. Once a joint sponsor is required, the petitioner's income is no longer assessed against the threshold; only the joint sponsor's income must qualify. Use the calculator below to check a joint sponsor's figures.
               <!-- JOINT SPONSOR MINI-CALC -->
               <div class="js-calc-box" style="margin-top:0.75rem;">
                 <div class="js-calc-title">Joint sponsor household size calculator</div>
@@ -537,11 +537,11 @@
                 </div>
                 <div class="js-result">
                   <div class="js-result-label">Joint sponsor household size</div>
-                  <div class="js-result-amount" id="jsHHSize">—</div>
+                  <div class="js-result-amount" id="jsHHSize">n/a</div>
                   <div class="js-result-sub" id="jsThresholdText">Set options above to calculate</div>
                 </div>
                 <div class="js-note">
-                  The intending immigrant(s) always count in a joint sponsor's household, even if the petitioner's spouse was already counted in the petitioner's own household. The joint sponsor is an independent third party — the immigrant is a new addition to their household for I-864 purposes. The joint sponsor files their own I-864 with their own tax returns and supporting documents. They do <em>not</em> need to live with the petitioner or the immigrant.
+                  The intending immigrant(s) always count in a joint sponsor's household, even if the petitioner's spouse was already counted in the petitioner's own household. The joint sponsor is an independent third party. The immigrant is a new addition to their household for I-864 purposes. The joint sponsor files their own I-864 with their own tax returns and supporting documents. They do <em>not</em> need to live with the petitioner or the immigrant.
                 </div>
               </div>
             </div>
@@ -552,18 +552,18 @@
             <div>
               <strong>Bridge the gap with assets.</strong>
               <div class="callout-panel assets warning" style="margin-top:0.6rem;">
-                <div class="callout-panel-title">Community warning — London embassy</div>
+                <div class="callout-panel-title">Community warning: London embassy</div>
                 Assets as a standalone financial basis are consistently rejected at the US Embassy London, including cases where applicants presented substantial cash savings. This is community-observed across multiple cases; it is not an official policy statement from the embassy. The consular officer retains full discretion under INA 212(a)(4) to assess public charge risk beyond what the I-864 establishes on paper.<br><br>
                 <strong>If income falls short, a joint sponsor is strongly preferred over relying on assets alone.</strong> The safest position is a petitioner with a W-2 salaried job meeting 125% FPG independently. A joint sponsor with a W-2 job is the next best option. Assets should be documented regardless, but should not be treated as a reliable substitute for income at this post.
               </div>
               <div class="callout-panel assets caution" style="margin-top:0.5rem;">
                 <div class="callout-panel-title">Meeting the threshold is only the starting point</div>
-                Clearing 125% FPG gets the affidavit accepted; it does not settle public charge. Consular officers are directed to look behind the figure at the sponsor's <strong>financial stability and history</strong> rather than just the latest return, the sponsor's <strong>own use of public benefits</strong>, the <strong>genuineness of the sponsor&ndash;applicant relationship</strong>, and whether the sponsor is realistically likely to make that income and those assets available to the applicant. <strong>Joint sponsors face heightened review</strong> &mdash; employment, assets and domicile may all be verified.<br><br>
+                Clearing 125% FPG gets the affidavit accepted; it does not settle public charge. Consular officers are directed to look behind the figure at the sponsor's <strong>financial stability and history</strong> rather than just the latest return, the sponsor's <strong>own use of public benefits</strong>, the <strong>genuineness of the sponsor&ndash;applicant relationship</strong>, and whether the sponsor is realistically likely to make that income and those assets available to the applicant. <strong>Joint sponsors face heightened review</strong>: employment, assets and domicile may all be verified.<br><br>
                 <strong>The NVC document review does not bind the consular officer.</strong> Clearing NVC means the paperwork was complete, not that the finances were accepted. Cases pass NVC and still draw a <a href="221g.html">221(g)</a> at London on exactly this ground.
               </div>
               <div class="callout-panel assets" style="margin-top:0.5rem;">
-                <div class="callout-panel-title">Assets — official rules (for reference)</div>
-                Net asset value must be at least <strong>3× the shortfall</strong> between your income and 125% FPG where the intending immigrant is the <strong>spouse or child of a US citizen</strong> — the usual position on an IR-1/CR-1 case — and <strong>5×</strong> in most other cases, including a US citizen’s parent or sibling. (An orphan being adopted by a US citizen needs assets merely equal to the shortfall.) See 8 CFR 213a.2(c)(2)(iii). Assets must be convertible to cash within 12 months without significant hardship or loss. Eligible assets include savings, stocks, bonds, and real property (including home equity, at net value). Not eligible: primary vehicle. Retirement accounts may be counted at a discounted value to account for early-withdrawal penalties — USCIS does not specify a fixed discount, but the value must reflect what you would actually receive. The applicant's foreign assets may also be used, subject to the same convertibility standard and evidence that funds can be removed from the country. Per 9 FAM 601.14-15, assets are assessed at the time of NVC submission, not the interview date.
+                <div class="callout-panel-title">Assets: official rules (for reference)</div>
+                Net asset value must be at least <strong>3× the shortfall</strong> between your income and 125% FPG where the intending immigrant is the <strong>spouse or child of a US citizen</strong>: the usual position on an IR-1/CR-1 case, and <strong>5×</strong> in most other cases, including a US citizen’s parent or sibling. (An orphan being adopted by a US citizen needs assets merely equal to the shortfall.) See 8 CFR 213a.2(c)(2)(iii). Assets must be convertible to cash within 12 months without significant hardship or loss. Eligible assets include savings, stocks, bonds, and real property (including home equity, at net value). Not eligible: primary vehicle. Retirement accounts may be counted at a discounted value to account for early-withdrawal penalties. USCIS does not specify a fixed discount, but the value must reflect what you would actually receive. The applicant's foreign assets may also be used, subject to the same convertibility standard and evidence that funds can be removed from the country. Per 9 FAM 601.14-15, assets are assessed at the time of NVC submission, not the interview date.
               </div>
             </div>
           </div>
@@ -575,7 +575,7 @@
       <div class="shortfall-section">
         <div class="shortfall-title">Potential exemption from I-864 requirement</div>
         <div class="callout-panel ssa">
-          <div class="callout-panel-title">40 SSA qualifying quarters — 9 FAM 601.14-3(b)(2)</div>
+          <div class="callout-panel-title">40 SSA qualifying quarters: 9 FAM 601.14-3(b)(2)</div>
           If the intending immigrant can demonstrate <strong>40 qualifying quarters of coverage</strong> under the Social Security Act (Title II), the I-864 requirement is waived entirely. Quarters worked by a parent (while the immigrant was under 18) or by a US-citizen spouse (during the marriage) can be credited toward the 40. No quarter earned after December 31, 1996 counts if the immigrant received any federal means-tested public benefit during that quarter.
           <br><br>
           To verify qualifying quarters, the immigrant can request an <a href="https://www.ssa.gov/myaccount/" target="_blank" rel="noopener">SSA Earnings and Benefits Statement</a> at ssa.gov or call 1-800-772-1213. At the NVC processing stage, the applicant self-identifies by checking a box in the CEAC portal and must submit the SSA statement. The consular officer makes the final determination.
@@ -586,15 +586,15 @@
 
       <!-- SELF-EMPLOYMENT -->
       <div class="shortfall-section">
-        <div class="shortfall-title">Self-employment — additional evidence required</div>
+        <div class="shortfall-title">Self-employment: additional evidence required</div>
         <div class="callout-panel assets caution">
           <div class="callout-panel-title">Applies to petitioning sponsor and joint sponsor</div>
-          Self-employed sponsors — including sole proprietors, LLC members, independent contractors, freelancers, and gig workers — must provide additional documentation beyond a tax return. This applies whether you are the petitioning sponsor or a joint sponsor.<br><br>
+          Self-employed sponsors, including sole proprietors, LLC members, independent contractors, freelancers, and gig workers: must provide additional documentation beyond a tax return. This applies whether you are the petitioning sponsor or a joint sponsor.<br><br>
           Standard evidence typically required:
           <ul style="margin: 0.6rem 0 0.6rem 1.2rem; line-height: 1.75; font-size: 0.85rem;">
             <li>Federal tax returns (Form 1040) for the most recent 3 years, with all schedules including Schedule C, Schedule F, or Schedule K-1 as applicable</li>
             <li>IRS tax transcripts confirming filed returns</li>
-            <li>12 months of business bank account statements showing consistent income deposits — commonly requested by NVC, not explicitly listed in the I-864 instructions</li>
+            <li>12 months of business bank account statements showing consistent income deposits: commonly requested by NVC, not explicitly listed in the I-864 instructions</li>
             <li>Evidence of business registration with state authorities (e.g. state business license, Articles of Organization, Secretary of State registration)</li>
             <li>A signed profit and loss statement for the current year if income has changed since the last tax return</li>
           </ul>
@@ -629,7 +629,7 @@
 <script src="/js/main.js?v=20260616" defer></script>
 <script src="/js/nav.js?v=20260722" defer></script>
 <script>
-// ── STATE ──────────────────────────────────────────────────
+// STATE
 const state = {
   region: null, // 'contiguous' | 'alaska' | 'hawaii'
   married: null,
@@ -645,8 +645,8 @@ const counters = { depChildren: 0, taxDeps: 0, priorSponsored: 1, i864aMembers: 
 const jsState = { married: null, depChildren: 0, taxDeps: 0, priorSponsored: 0 };
 const jsCounters = { depChildren: 0, taxDeps: 0, priorSponsored: 0 };
 
-// ── 2026 I-864P FPG TABLES ─────────────────────────────────
-// Contiguous 48 states & DC — source: USCIS I-864P effective Mar 1, 2026
+// 2026 I-864P FPG TABLES
+// Contiguous 48 states & DC: source: USCIS I-864P effective Mar 1, 2026
 const tables = {
   contiguous: {
     100: { 1:15960, 2:21640, 3:27320, 4:33000, 5:38680, 6:44360, 7:50040, 8:55720 },
@@ -679,13 +679,13 @@ function getThreshold(hhSize, pct, region) {
   return table[8] + (hhSize - 8) * perPerson;
 }
 
-// ── PROGRESS ───────────────────────────────────────────────
+// PROGRESS
 const TOTAL_STEPS = 8; // 0-7
 function updateProgress(step) {
   document.getElementById('progressFill').style.width = (step / TOTAL_STEPS * 100) + '%';
 }
 
-// ── CARD HELPERS ───────────────────────────────────────────
+// CARD HELPERS
 function showStep(id) {
   const el = document.getElementById(id);
   el.classList.remove('hidden');
@@ -704,7 +704,7 @@ function markDone(id, summaryText) {
   if (body) body.style.display = 'none';
 }
 
-// ── COUNTERS ───────────────────────────────────────────────
+// COUNTERS
 function changeCount(key, delta) {
   counters[key] = Math.max(0, counters[key] + delta);
   if (['priorSponsored', 'i864aMembers', 'immigrants'].includes(key) && counters[key] < (key === 'immigrants' ? 1 : 1)) {
@@ -715,7 +715,7 @@ function changeCount(key, delta) {
   if (d) d.textContent = counters[key];
 }
 
-// ── STEP FLOWS ─────────────────────────────────────────────
+// STEP FLOWS
 function setRegion(region) {
   state.region = region;
   markDone('step0', 'Location: ' + regionLabels[region]);
@@ -786,13 +786,13 @@ function confirmI864A() {
   showStep('step7');
 }
 
-// ── HOUSEHOLD SIZE ─────────────────────────────────────────
+// HOUSEHOLD SIZE
 function calcHHSize() {
   return 1 + (state.married ? 1 : 0) + state.depChildren + state.taxDeps
     + state.priorSponsored + state.i864aMembers + state.immigrants;
 }
 
-// ── JOINT SPONSOR CALCULATOR ───────────────────────────────
+// JOINT SPONSOR CALCULATOR
 function jsAnswer(key, val) {
   jsState[key] = val;
   if (key === 'married') {
@@ -817,7 +817,7 @@ function calcJSHHSize() {
 }
 function updateJSResult() {
   if (jsState.married === null) {
-    document.getElementById('jsHHSize').textContent = '—';
+    document.getElementById('jsHHSize').textContent = 'n/a';
     document.getElementById('jsThresholdText').textContent = 'Answer "married?" above to calculate';
     return;
   }
@@ -828,7 +828,7 @@ function updateJSResult() {
     `Min. income required at 125% FPG: ${fmt(t125)} / year (${regionLabels[state.region || 'contiguous']})`;
 }
 
-// ── RESULT DISPLAY ─────────────────────────────────────────
+// RESULT DISPLAY
 function showResult() {
   const hhSize = calcHHSize();
   const region = state.region || 'contiguous';
@@ -883,7 +883,7 @@ function showResult() {
   // Removed auto-scroll to allow user to stay in place
 }
 
-// ── RESET ──────────────────────────────────────────────────
+// RESET
 function resetAll() {
   Object.assign(state, { region: null, married: null, depChildren: 0, taxDeps: 0, priorSponsored: 0, i864aMembers: 0, immigrants: 0 });
   Object.assign(counters, { depChildren: 0, taxDeps: 0, priorSponsored: 1, i864aMembers: 1, immigrants: 0 });
@@ -918,7 +918,7 @@ function resetAll() {
   });
   document.getElementById('jsMarriedYes').classList.remove('active');
   document.getElementById('jsMarriedNo').classList.remove('active');
-  document.getElementById('jsHHSize').textContent = '—';
+  document.getElementById('jsHHSize').textContent = 'n/a';
   document.getElementById('jsThresholdText').textContent = 'Set options above to calculate';
 
   document.getElementById('resultPanel').classList.remove('visible');

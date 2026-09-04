@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <script src="js/env.js"></script>
-<!-- WCAG 2.1 AA — audited June 09, 2026 — all major issues resolved -->
+<!-- WCAG 2.1 AA, audited June 09, 2026, all major issues resolved -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<!-- Cookiebot consent manager: must be the first script so auto-blocking works -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Microsoft Clarity — runs only after statistics consent -->
+<!-- Microsoft Clarity: runs only after statistics consent -->
 <script type="text/plain" data-cookieconsent="statistics">
 (function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -15,19 +15,20 @@
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window,document,"clarity","script","wlfs757o2n");
 </script>
-  <title>Life in the USA — American Visa Guide</title>
-  <meta name="description" content="Practical first steps after arriving in the US — green card, SSN, banking, tax obligations, and more. Community data showing where London visa holders have settled.">
+  <title>Life in the USA | American Visa Guide</title>
+  <meta name="description" content="Practical first steps after arriving in the US: green card, SSN, banking, tax obligations, and more. Community data showing where London visa holders have settled.">
 <link rel="canonical" href="https://www.americanvisaguide.com/life">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
   <style>
     :root {
-    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-    --font-ui: 'Outfit', sans-serif;
+    --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
+    --font-ui: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --navy:#2b3a42;--navy-mid:#233038;--blue:#3d5260;
       --bg:#f4efe6;
       --accent:#3e7188;--accent-light:#5a8fa6;
@@ -38,8 +39,7 @@
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.75}
-    body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% -10%,rgba(43,58,66,0.05) 0%,transparent 60%);pointer-events:none;z-index:0}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.75}
 
     .skip-link{position:absolute;top:-100px;left:8px;z-index:200;padding:8px 16px;background:var(--navy);color:#fff;font-size:13px;font-weight:700;border-radius:6px;text-decoration:none;transition:top 0.15s ease}
     .skip-link:focus{top:8px;outline:2px solid var(--accent);outline-offset:2px}
@@ -50,19 +50,19 @@
     .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 20px 80px}
 
     .page-hero{padding:64px 0 48px;border-bottom:1px solid var(--border);margin-bottom:56px}
-    .page-hero-eyebrow{font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-light);margin-bottom:12px}
-    .page-hero h1{font-family:var(--font-display);font-size:clamp(28px,5vw,42px);font-weight:600;line-height:1.1;margin-bottom:14px}
+    .page-hero-eyebrow{font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--teal-light);margin-bottom:12px}
+    .page-hero h1{font-family:var(--font-display);font-size:clamp(28px,5vw,42px);font-weight:700;line-height:1.1;margin-bottom:14px}
     .page-hero h1 span{color:var(--accent);font-style:italic;font-weight:500}
     .page-hero p{font-size:15px;color:rgba(30,28,23,0.78);max-width:560px;line-height:1.7}
 
     /* MAP */
     .map-section{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:40px}
     .map-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap}
-    .map-header-left h2{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--white);margin-bottom:4px}
+    .map-header-left h2{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--white);margin-bottom:4px}
     .map-header-left p{font-size:13px;color:var(--muted)}
     .map-stats{display:flex;gap:24px;flex-wrap:wrap}
     .map-stat{text-align:right}
-    .map-stat-num{font-family:var(--font-display);font-size:28px;font-weight:600;color:var(--accent);line-height:1}
+    .map-stat-num{font-family:var(--font-body);font-variant-numeric:tabular-nums;font-size:28px;font-weight:600;color:var(--accent);line-height:1}
     .map-stat-label{font-size:11px;color:var(--muted);margin-top:2px}
 
     .map-wrap{position:relative;width:100%}
@@ -96,8 +96,8 @@
 
     /* CONTENT */
     .content-section{margin-bottom:72px}
-    .section-label{font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
-    .content-section h3{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--white);margin:20px 0 10px}
+    .section-label{font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+    .content-section h3{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--white);margin:20px 0 10px}
     .content-section h3:first-child{margin-top:0}
     .content-section p{font-size:14px;color:rgba(30,28,23,0.85);margin-bottom:10px;line-height:1.75}
     .content-section ul,.content-section ol{font-size:14px;color:rgba(30,28,23,0.85);padding-left:20px;margin-bottom:10px}
@@ -106,7 +106,7 @@
     .content-section a:hover{text-decoration:underline}
     .content-section strong{color:var(--white)}
     .info-card{background:#fdfaf3;border:1px solid var(--border-subtle);border-radius:10px;padding:16px;margin-bottom:12px}
-    .info-card-head{font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .info-card-head{font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--accent);margin-bottom:8px}
     .info-card p{font-size:13px;color:rgba(30,28,23,0.85);margin-bottom:6px}
     .info-card p:last-child{margin-bottom:0}
     .info-card.warning{border-color:rgba(176,74,56,0.3);background:rgba(176,74,56,0.06)}
@@ -129,28 +129,27 @@
     .tracker-memo p{font-size:12px;color:rgba(30,28,23,0.78);margin:0}
     .tracker-memo a{color:var(--teal-light);font-weight:600;text-decoration:none}
     table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:12px}
-    th{padding:8px 12px;background:rgba(90,143,166,0.08);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;text-align:left;border:1px solid var(--border-subtle)}
+    th{padding:8px 12px;background:rgba(90,143,166,0.08);color:var(--muted);font-size:12px;text-align:left;border:1px solid var(--border-subtle)}
     td{padding:8px 12px;border:1px solid rgba(30,28,23,0.1);color:rgba(30,28,23,0.85)}
     @media(max-width:600px){.map-stats{gap:12px}}
     .tl-btn{font-family:var(--font-ui);font-size:11px;font-weight:600;color:var(--muted);background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:5px;padding:4px 12px;cursor:pointer;transition:all 0.15s}
     .tl-btn:hover{color:var(--white);border-color:rgba(90,143,166,0.4)}
     .tl-btn.active{color:var(--accent);border-color:rgba(90,143,166,0.4);background:rgba(90,143,166,0.06)}
     .tl-stat-card{background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:10px;padding:12px 14px}
-    .tl-stat-val{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--accent);line-height:1;margin-bottom:3px}
+    .tl-stat-val{font-family:var(--font-body);font-variant-numeric:tabular-nums;font-size:22px;font-weight:600;color:var(--accent);line-height:1;margin-bottom:3px}
     .tl-stat-label{font-size:11px;color:var(--muted)}
     .tl-pill{display:inline-block;font-size:11px;padding:2px 7px;border-radius:4px;font-weight:700;font-family:var(--font-ui)}
     .tl-pill-yes{background:rgba(176,74,56,0.15);color:var(--red)}
     .tl-pill-no{background:rgba(79,133,115,0.12);color:var(--teal-light)}
   
-  /* ── Shared page hero ── */
+  /* Shared page hero */
   .page-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
-  .page-hero-flags { font-size: 24px; margin-bottom: 10px; letter-spacing: 4px; }
-  .page-hero-eyebrow { font-family:var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-  .page-hero-h1 { font-family:var(--font-display); font-size: clamp(32px,7vw,52px); font-weight:600; line-height: 1.05; margin-bottom: 14px; }
+  .page-hero-eyebrow { font-family:var(--font-ui); font-size: 12px; font-weight: 700;color: var(--accent); margin-bottom: 12px; }
+  .page-hero-h1 { font-family:var(--font-display); font-size: clamp(32px,7vw,52px); font-weight:700; line-height: 1.05; margin-bottom: 14px; }
   .page-hero-h1 span { color: var(--accent); font-style: italic; font-weight: 500; }
   .page-hero-sub { font-size: 15px; color: rgba(30,28,23,0.78); max-width: 560px; line-height: 1.7; }
 
-  /* ── Shared footer ── */
+  /* Shared footer */
   .site-footer { border-top: 1px solid var(--border); margin-top: 48px; padding: 28px 0 20px; }
   .footer-inner { display: flex; flex-direction: column; gap: 10px; }
   .footer-note { font-size: 12px; color: var(--muted); line-height: 1.6; max-width: 620px; }
@@ -160,7 +159,7 @@
   .coffee-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; font-family:var(--font-ui); font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 999px; text-decoration: none; transition: opacity 0.15s; align-self: flex-start; }
   .coffee-btn:hover { opacity: 0.9; }
 
-  /* ── Image-style nav icons ── */
+  /* Image-style nav icons */
   /* Nav styles live in /css/nav.css (shared component) */
 
   /* Print styles */
@@ -180,34 +179,33 @@
   <div class="tt-label" id="tt-label"></div>
 </div>
 
-<!-- Skip to main content — WCAG 2.4.1 -->
+<!-- Skip to main content: WCAG 2.4.1 -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <main id="main-content">
 <div class="wrap">
   <div class="page-hero">
-    <div class="page-hero-flags">🇬🇧 → 🇺🇸</div>
     <div class="page-hero-eyebrow">After Arrival · Green Card · Practical First Steps</div>
     <h1 class="page-hero-h1">Life in the <span>USA</span></h1>
-    <p class="page-hero-sub">Practical first steps after arriving — green card, SSN, banking, tax, and where the London community has settled.</p>
+    <p class="page-hero-sub">Practical first steps after arriving: green card, SSN, banking, tax, and where the London community has settled.</p>
   </div>
 
   <!-- POST-APPROVAL ENTRY POINT -->
   <div class="sub-acc-item" id="life_approved" data-sub-group="approved" style="margin-bottom:40px;border-color:rgba(90,143,166,0.3);">
     <button class="sub-acc-trigger" onclick="toggleSubAcc('life_approved')" style="background:rgba(90,143,166,0.08);">
-      <span class="sub-acc-label" style="font-size:15px;">🎉 You got approved — congratulations</span>
+      <span class="sub-acc-label" style="font-size:15px;">You got approved: congratulations</span>
       <span class="sub-acc-chevron">▼</span>
     </button>
     <div class="sub-acc-body">
       <div class="sub-acc-content">
         <p style="font-size:14px;margin-bottom:12px;">Here's what to do from here:</p>
         <ul style="font-size:14px;padding-left:20px;margin-bottom:8px;">
-          <li><strong>Pay the USCIS Immigrant Fee ($235)</strong> at <a href="https://my.uscis.gov" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">my.uscis.gov</a> — recommended before you travel to start the clock earlier, but can be paid after entry. Card takes up to 90 days from entry date (if paid before) or payment date (if paid after)</li>
-          <li><strong>Your passport will be returned via courier</strong> — pick-up averages 4 days, mail averages 12 days</li>
-          <li><strong>You can book a flight</strong> — if it departs soon after the projected passport return date, make sure it's a flexible ticket. One-way or return is up to you. Your green card is activated when you arrive at a US port of entry — not before — so you'll travel as a 'visitor'. Remember that you must enter the US within 6 months of your medical — this is the visa expiry date in your passport</li>
+          <li><strong>Pay the USCIS Immigrant Fee ($235)</strong> at <a href="https://my.uscis.gov" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">my.uscis.gov</a>: recommended before you travel to start the clock earlier, but can be paid after entry. Card takes up to 90 days from entry date (if paid before) or payment date (if paid after)</li>
+          <li><strong>Your passport will be returned via courier</strong>: pick-up averages 4 days, mail averages 12 days</li>
+          <li><strong>You can book a flight</strong>: if it departs soon after the projected passport return date, make sure it's a flexible ticket. One-way or return is up to you. Your green card is activated when you arrive at a US port of entry, not before, so you'll travel as a 'visitor'. Remember that you must enter the US within 6 months of your medical. This is the visa expiry date in your passport</li>
           <li><strong>Confirm your address with the Customs &amp; Border Patrol official when you arrive</strong>, and be sure to update your myUSCIS account with your new US address so that your green card is mailed to the correct place</li>
-          <li><strong>Green card is typically mailed within 90 days of entry</strong> to the address on file — check the <a href="#gc-ssn-section" style="color:var(--teal-light);">Green card &amp; SSN timelines</a> section below for community data. You can track your green card status at <a href="https://egov.uscis.gov" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">egov.uscis.gov</a> by entering the IOE receipt number from paying the USCIS Immigrant Fee. <strong>In the meantime, the temporary I-551 stamp in your passport acts as your green card</strong> for employment, travel, and identification purposes — <a href="https://www.uscis.gov/i-9-central/temporary-i-551-stamps-and-mrivs" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">see USCIS guidance on temporary I-551 stamps</a></li>
-          <li><strong>SSN initiates automatically if selected on DS-260</strong> — if it hasn't arrived within 10 business days, make an appointment with your local SSA office. Some make an appointment in advance just in case so they don't have to wait. SSN cannot be tracked — instead, folks use Informed Delivery to track incoming mail and this will give you a slight advance notice of its arrival</li>
+          <li><strong>Green card is typically mailed within 90 days of entry</strong> to the address on file. Check the <a href="#gc-ssn-section" style="color:var(--teal-light);">Green card &amp; SSN timelines</a> section below for community data. You can track your green card status at <a href="https://egov.uscis.gov" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">egov.uscis.gov</a> by entering the IOE receipt number from paying the USCIS Immigrant Fee. <strong>In the meantime, the temporary I-551 stamp in your passport acts as your green card</strong> for employment, travel, and identification purposes: <a href="https://www.uscis.gov/i-9-central/temporary-i-551-stamps-and-mrivs" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">see USCIS guidance on temporary I-551 stamps</a></li>
+          <li><strong>SSN initiates automatically if selected on DS-260</strong>: if it hasn't arrived within 10 business days, make an appointment with your local SSA office. Some make an appointment in advance just in case so they don't have to wait. SSN cannot be tracked: instead, folks use Informed Delivery to track incoming mail and this will give you a slight advance notice of its arrival</li>
           <li><strong>Register for <a href="https://informeddelivery.usps.com/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USPS Informed Delivery</a></strong> to track your green card and SSN card</li>
         </ul>
       </div>
@@ -218,16 +216,16 @@
   <div class="map-section">
     <div class="map-header">
       <div class="map-header-left">
-        <h2>🗺️ Where the community has settled</h2>
+        <h2>Where the community has settled</h2>
         <p>Community-submitted data. Updates as members report their state of residence.</p>
       </div>
       <div class="map-stats">
         <div class="map-stat">
-          <div class="map-stat-num" id="stat-total">—</div>
+          <div class="map-stat-num" id="stat-total">n/a</div>
           <div class="map-stat-label">members with state data</div>
         </div>
         <div class="map-stat">
-          <div class="map-stat-num" id="stat-states">—</div>
+          <div class="map-stat-num" id="stat-states">n/a</div>
           <div class="map-stat-label">states represented</div>
         </div>
       </div>
@@ -240,15 +238,15 @@
     <div class="map-legend">
       <span class="map-legend-label">Members:</span>
       <svg width="200" height="10" id="legend-svg" style="border-radius:3px;overflow:hidden"></svg>
-      <div class="legend-ends" id="legend-ends" style="min-width:200px"><span>1</span><span id="legend-max">—</span></div>
+      <div class="legend-ends" id="legend-ends" style="min-width:200px"><span>1</span><span id="legend-max">n/a</span></div>
     </div>
 
 
 
     <!-- State leaderboard -->
     <div style="display:flex;align-items:center;justify-content:space-between;margin-top:24px;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
-      <div style="font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);">By state</div>
-      <div style="font-size:11px;color:var(--muted);">Community data — <a href="https://www.americanvisaguide.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);text-decoration:none;font-weight:600;">americanvisaguide.com</a></div>
+      <div style="font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--muted);">By state</div>
+      <div style="font-size:11px;color:var(--muted);">Community data: <a href="https://www.americanvisaguide.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);text-decoration:none;font-weight:600;">americanvisaguide.com</a></div>
     </div>
     <div class="state-board" id="state-board">
       <div style="font-size:13px;color:var(--muted);">Loading...</div>
@@ -280,10 +278,10 @@
 
       <div style="text-align:center;margin:32px 0 8px;">
         <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);font-family:var(--font-ui);font-size:14px;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;">
-          📊 Submit your timeline to the community tracker
+          Submit your timeline to the community tracker
         </a>
       </div>
-      <p style="font-size:12px;color:var(--muted);text-align:center;">Your data helps the community — takes 5 minutes</p>
+      <p style="font-size:12px;color:var(--muted);text-align:center;">Your data helps the community: takes 5 minutes</p>
         </div>
       </div>
     </div>
@@ -293,12 +291,12 @@
   <div class="map-section" style="margin-bottom:40px">
     <div class="map-header">
       <div class="map-header-left">
-        <h2>🛬 Entry airports</h2>
+        <h2>Entry airports</h2>
         <p>Where members first entered the US and activated their green cards. Pre-clearance (Dublin, Shannon) counts as the port of entry.</p>
       </div>
       <div class="map-stats">
         <div class="map-stat">
-          <div class="map-stat-num" id="airport-total">—</div>
+          <div class="map-stat-num" id="airport-total">n/a</div>
           <div class="map-stat-label">members with entry data</div>
         </div>
       </div>
@@ -310,7 +308,7 @@
 
   <!-- TRACKER MEMO -->
   <div class="tracker-memo">
-    <span style="font-size:15px">✏️</span>
+    <span style="font-size:15px"></span>
     <p>Settled in the US? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">Add your green card and SSN received dates to the community tracker →</a></p>
   </div>
 
@@ -318,16 +316,16 @@
   <div class="map-section" style="margin-bottom:40px" id="gc-ssn-section">
     <div class="map-header">
       <div class="map-header-left">
-        <h2>🗂️ Green card &amp; SSN timelines — community data</h2>
+        <h2>Green card &amp; SSN timelines: community data</h2>
         <p>Days from entry date, by state. Based on community submissions. Median shown where 2+ data points exist.</p>
       </div>
       <div class="map-stats">
         <div class="map-stat">
-          <div class="map-stat-num" id="tl-count">—</div>
+          <div class="map-stat-num" id="tl-count">n/a</div>
           <div class="map-stat-label">submissions</div>
         </div>
         <div class="map-stat">
-          <div class="map-stat-num" id="tl-int-rate">—</div>
+          <div class="map-stat-num" id="tl-int-rate">n/a</div>
           <div class="map-stat-label">intervention rate</div>
         </div>
       </div>
@@ -335,7 +333,7 @@
 
     <!-- Filter controls -->
     <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center">
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-right:4px">Filter</span>
+      <span style="font-size:12px;font-weight:700;color:var(--muted);margin-right:4px">Filter</span>
       <button class="tl-btn active" data-f="all" onclick="tlFilter('all',this)">All</button>
       <button class="tl-btn" data-f="ssn-int" onclick="tlFilter('ssn-int',this)">SSN intervention</button>
       <button class="tl-btn" data-f="gc-int" onclick="tlFilter('gc-int',this)">GC intervention</button>
@@ -350,11 +348,11 @@
     <p style="font-size:11px;color:var(--muted);margin-top:16px">Days measured from date of US entry. Intervention = any action beyond automatic processing: SSA office visit, USCIS call, I-90 filing, live agent contact for tracking, congressional inquiry, etc. Single-state entries show exact days rather than median.</p>
   </div>
 
-  <!-- STAGE 9 CONTENT placeholder — will be populated from guide content -->
+  <!-- STAGE 9 CONTENT placeholder: will be populated from guide content -->
   <div class="content-section" id="life-content">
     <div class="section-label">Practical first steps</div>
     
-      <p>This section covers what to do after you arrive as a permanent resident — IDs, banking, driving, and the UK financial and tax obligations you need to manage from day one.</p>
+      <p>This section covers what to do after you arrive as a permanent resident: IDs, banking, driving, and the UK financial and tax obligations you need to manage from day one.</p>
 
 
             <div class="sub-controls">
@@ -369,12 +367,12 @@
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <p>Your first priority for US identification is a <strong>state driver's license or state ID</strong>. <a href="https://www.dhs.gov/real-id" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[DHS: REAL ID]</a> Your green card and passport with visa stamp serve as ID in the meantime, but a state-issued ID is required for many everyday purposes. If settling in a US territory (Puerto Rico, US Virgin Islands, Guam, American Samoa, or the Northern Mariana Islands), the same process applies — territories issue their own IDs which are valid US identification.</p>
+            <p>Your first priority for US identification is a <strong>state driver's license or state ID</strong>. <a href="https://www.dhs.gov/real-id" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[DHS: REAL ID]</a> Your green card and passport with visa stamp serve as ID in the meantime, but a state-issued ID is required for many everyday purposes. If settling in a US territory (Puerto Rico, US Virgin Islands, Guam, American Samoa, or the Northern Mariana Islands), the same process applies: territories issue their own IDs which are valid US identification.</p>
 
       <div class="info-card warning">
         <div class="info-card-head">Real ID vs Standard ID</div>
-        <p style="font-size:13px;margin-bottom:6px;"><strong>Real ID</strong> is federally compliant — required for domestic flights and entry to federal buildings from May 2025. It requires more documentation than a standard ID.</p>
-        <p style="font-size:13px;margin:0;"><strong>Standard ID</strong> is valid for driving and general purposes but cannot be used to board domestic flights or enter federal buildings. If you have a passport you can use that for flights instead — but a Real ID is the cleaner long-term solution.</p>
+        <p style="font-size:13px;margin-bottom:6px;"><strong>Real ID</strong> is federally compliant: required for domestic flights and entry to federal buildings from May 2025. It requires more documentation than a standard ID.</p>
+        <p style="font-size:13px;margin:0;"><strong>Standard ID</strong> is valid for driving and general purposes but cannot be used to board domestic flights or enter federal buildings. If you have a passport you can use that for flights instead, but a Real ID is the cleaner long-term solution.</p>
       </div>
           </div>
         </div>
@@ -421,8 +419,8 @@
       </div>
 
       <div class="info-card tip">
-        <div class="info-card-head">Massachusetts residents — additional note</div>
-        <p style="font-size:13px;margin-bottom:6px;">Massachusetts allows residents to obtain a standard driver's license regardless of immigration status under the Work and Family Mobility Act (effective July 2023). For a standard license you need proof of identity, date of birth, and Massachusetts residency — but not necessarily an SSN if it cannot be validated yet.</p>
+        <div class="info-card-head">Massachusetts residents: additional note</div>
+        <p style="font-size:13px;margin-bottom:6px;">Massachusetts allows residents to obtain a standard driver's license regardless of immigration status under the Work and Family Mobility Act (effective July 2023). For a standard license you need proof of identity, date of birth, and Massachusetts residency, but not necessarily an SSN if it cannot be validated yet.</p>
         <p style="font-size:13px;margin:0;">Start your application online and schedule a Class D learner's permit exam at your local RMV Service Center. The $30 exam is available in 34 languages; you must score at least 18/25 within 25 minutes. After the permit, you sit a road test to get the full license. Check <a href="https://mass.gov/ID" target="_blank" rel="noopener noreferrer">mass.gov/ID</a> to get ready online before going in.</p>
       </div>
 
@@ -441,16 +439,16 @@
           <div class="sub-acc-content">
             <p>Opening a US bank account is one of the first practical priorities. You need it for direct deposit, bill payments, and to pay the USCIS immigrant fee.</p>
       <ul style="font-size:13px;">
-        <li>Most major banks (Chase, Bank of America, Wells Fargo, Citi) accept permanent residents — bring your passport with visa stamp or green card, SSN (or ITIN if SSN not yet arrived), and proof of address</li>
-        <li>Some banks allow account opening without an SSN initially — you provide it later once received</li>
-        <li>Consider a <strong>credit union</strong> if you are new to the area — often more flexible for new residents</li>
+        <li>Most major banks (Chase, Bank of America, Wells Fargo, Citi) accept permanent residents. Bring your passport with visa stamp or green card, SSN (or ITIN if SSN not yet arrived), and proof of address</li>
+        <li>Some banks allow account opening without an SSN initially. You provide it later once received</li>
+        <li>Consider a <strong>credit union</strong> if you are new to the area, often more flexible for new residents</li>
         <li>Start building US credit immediately: apply for a secured credit card if you have no US credit history</li>
-        <li>Your UK credit history does not transfer to the US — but you do not necessarily start from zero. Being added as an <strong>authorized user</strong> on a US person's card, using a credit-building secured card, or transferring an existing <strong>Amex card from the UK to the US</strong> (Amex has a global transfer program) are all options members have used to start with some history already in place.</li>
+        <li>Your UK credit history does not transfer to the US, but you do not necessarily start from zero. Being added as an <strong>authorized user</strong> on a US person's card, using a credit-building secured card, or transferring an existing <strong>Amex card from the UK to the US</strong> (Amex has a global transfer program) are all options members have used to start with some history already in place.</li>
       </ul>
 
       <div class="info-card tip">
         <div class="info-card-head">Building US credit from scratch</div>
-        <p style="font-size:13px;margin:0;">A secured credit card (you deposit a fixed amount as collateral) is the standard starting point. Use it for small regular purchases and pay it off in full each month. After 6–12 months of on-time payments you will have enough history to apply for unsecured cards. Do not carry a balance — the interest rates are high and it is unnecessary for building credit.</p>
+        <p style="font-size:13px;margin:0;">A secured credit card (you deposit a fixed amount as collateral) is the standard starting point. Use it for small regular purchases and pay it off in full each month. After 6–12 months of on-time payments you will have enough history to apply for unsecured cards. Do not carry a balance. The interest rates are high and it is unnecessary for building credit.</p>
       </div>
 
       <!-- UK OBLIGATIONS BEFORE LEAVING -->
@@ -473,14 +471,14 @@
 
       <div class="info-card accent">
         <div class="info-card-head">Welcome to the IRS</div>
-        <p style="margin:0;font-size:13px;">As a green card holder you must file US taxes annually and report <strong>worldwide income</strong> — regardless of where income is earned or whether tax was already paid in the UK. A tax treaty generally prevents double taxation, but you still must report everything. For the first year, use a tax preparer experienced in international/expat filings.</p>
+        <p style="margin:0;font-size:13px;">As a green card holder you must file US taxes annually and report <strong>worldwide income</strong>, regardless of where income is earned or whether tax was already paid in the UK. A tax treaty generally prevents double taxation, but you still must report everything. For the first year, use a tax preparer experienced in international/expat filings.</p>
       </div>
           </div>
         </div>
       </div>
       <div class="sub-acc-item" id="life_5" data-sub-group="life">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life_5')">
-          <span class="sub-acc-label">FBAR — Foreign Bank Account Reporting</span>
+          <span class="sub-acc-label">FBAR: Foreign Bank Account Reporting</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
@@ -497,7 +495,7 @@
       </div>
       <div class="sub-acc-item" id="life_6" data-sub-group="life">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life_6')">
-          <span class="sub-acc-label">FATCA — Form 8938</span>
+          <span class="sub-acc-label">FATCA: Form 8938</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
@@ -508,7 +506,7 @@
       </div>
       <div class="sub-acc-item" id="life_7" data-sub-group="life">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life_7')">
-          <span class="sub-acc-label">Form 3520 — Foreign gifts</span>
+          <span class="sub-acc-label">Form 3520: Foreign gifts</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
@@ -519,12 +517,12 @@
       </div>
       <div class="sub-acc-item" id="life_8" data-sub-group="life">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life_8')">
-          <span class="sub-acc-label">Tax preparation — UK → US transition</span>
+          <span class="sub-acc-label">Tax preparation: UK → US transition</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <p>Many UK-based US tax preparers do not support clients after relocation. Register with an expat specialist early — before your first US filing year — and expect higher costs for that first year. It is worth it to get it right.</p>
+            <p>Many UK-based US tax preparers do not support clients after relocation. Register with an expat specialist early, before your first US filing year, and expect higher costs for that first year. It is worth it to get it right.</p>
 
       <div class="two-col">
         <div class="info-card">
@@ -547,10 +545,10 @@
       <!-- REGIONAL CHATS -->
       <div style="text-align:center;margin:32px 0 8px;">
         <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);font-family:var(--font-ui);font-size:14px;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;">
-          📊 Submit your timeline to the community tracker
+          Submit your timeline to the community tracker
         </a>
       </div>
-      <p style="font-size:12px;color:var(--muted);text-align:center;">Your data helps the community — takes 5 minutes</p>
+      <p style="font-size:12px;color:var(--muted);text-align:center;">Your data helps the community: takes 5 minutes</p>
           </div>
         </div>
       </div>
@@ -562,11 +560,11 @@
         <div class="sub-acc-body">
           <div class="sub-acc-content">
             <div class="info-card warning">
-        <div class="info-card-head">⚠️ Required by law for males aged 18–25</div>
+        <div class="info-card-head">Required by law for males aged 18–25</div>
         <p style="font-size:13px;margin-bottom:8px;">Male immigrants are required by law to register with the Selective Service System within 30 days of their 18th birthday, or within 30 days of entry into the United States if they are between the ages of 18 and 25. This applies to legal permanent residents entering on an immigrant visa.</p>
-        <p style="font-size:13px;margin-bottom:8px;">Registration does not mean military service — it is a legal administrative requirement. Failure to register can affect eligibility for federal employment, student loans, and naturalization.</p>
-        <p style="font-size:13px;margin-bottom:8px;"><strong>Exempt:</strong> those who were on a valid non-immigrant visa continuously until age 26. Immigrant visa holders (CR1, IR1, IR2, IR5 etc.) are <strong>not</strong> exempt — registration is required.</p>
-        <p style="font-size:13px;margin:0;">Register at <a href="https://www.sss.gov/register/" target="_blank" rel="noopener noreferrer">sss.gov/register</a> — takes a few minutes online. <a href="https://www.sss.gov/register/who-needs-to-register/" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[SSS: Who needs to register]</a></p>
+        <p style="font-size:13px;margin-bottom:8px;">Registration does not mean military service. It is a legal administrative requirement. Failure to register can affect eligibility for federal employment, student loans, and naturalization.</p>
+        <p style="font-size:13px;margin-bottom:8px;"><strong>Exempt:</strong> those who were on a valid non-immigrant visa continuously until age 26. Immigrant visa holders (CR1, IR1, IR2, IR5 etc.) are <strong>not</strong> exempt: registration is required.</p>
+        <p style="font-size:13px;margin:0;">Register at <a href="https://www.sss.gov/register/" target="_blank" rel="noopener noreferrer">sss.gov/register</a>: takes a few minutes online. <a href="https://www.sss.gov/register/who-needs-to-register/" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[SSS: Who needs to register]</a></p>
       </div>
 
           </div>
@@ -574,18 +572,18 @@
       </div>
       <div class="sub-acc-item" id="life_10" data-sub-group="life">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life_10')">
-          <span class="sub-acc-label">Global Entry — trusted traveler program</span>
+          <span class="sub-acc-label">Global Entry: trusted traveler program</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <p style="font-size:13px;margin-bottom:12px;">Global Entry is a US Customs and Border Protection (CBP) program that allows pre-approved travelers to clear customs faster when entering the United States. As a permanent resident, you are eligible to apply — British citizens can participate. It is worth doing!</p>
+            <p style="font-size:13px;margin-bottom:12px;">Global Entry is a US Customs and Border Protection (CBP) program that allows pre-approved travelers to clear customs faster when entering the United States. As a permanent resident, you are eligible to apply. British citizens can participate. It is worth doing!</p>
 
             <div class="info-card tip">
               <div class="info-card-head">What you get</div>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:8px;">
-                <li>Use dedicated Global Entry kiosks at US airports — skip the regular customs queue entirely</li>
-                <li>Includes <strong>TSA PreCheck</strong> automatically — no separate application needed. Means expedited security screening at US domestic airports: no removing shoes, laptops, or liquids</li>
+                <li>Use dedicated Global Entry kiosks at US airports. Skip the regular customs queue entirely</li>
+                <li>Includes <strong>TSA PreCheck</strong> automatically, no separate application needed. Means expedited security screening at US domestic airports: no removing shoes, laptops, or liquids</li>
                 <li>Makes re-entry to the US significantly faster, especially at busy international airports like JFK, LAX, and Heathrow. Also available at U.S. pre-clearance in Dublin and Shannon. Can use at land borders re-entering the U.S. from Canada</li>
               </ul>
             </div>
@@ -594,19 +592,19 @@
               <div class="info-card-head">Cost and eligibility</div>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:8px;">
                 <li>Fee: <strong>$120</strong> for a 5-year membership</li>
-                <li><strong>Children under 18 are free</strong> — they can be added to a parent's account at no extra cost</li>
-                <li>Many US credit cards cover the application fee as a benefit — check cards like Chase Sapphire, Amex Platinum, Capital One Venture, and Citi cards. If you or your US citizen spouse hold one of these, the fee is likely covered</li>
-                <li>Permanent residents are eligible — green card holders can apply regardless of nationality</li>
+                <li><strong>Children under 18 are free</strong>: they can be added to a parent's account at no extra cost</li>
+                <li>Many US credit cards cover the application fee as a benefit. Check cards like Chase Sapphire, Amex Platinum, Capital One Venture, and Citi cards. If you or your US citizen spouse hold one of these, the fee is likely covered</li>
+                <li>Permanent residents are eligible: green card holders can apply regardless of nationality</li>
               </ul>
-              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.cbp.gov/travel/trusted-traveler-programs/global-entry" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">CBP — Global Entry</a></p>
+              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.cbp.gov/travel/trusted-traveler-programs/global-entry" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">CBP: Global Entry</a></p>
             </div>
 
             <div class="info-card">
               <div class="info-card-head">How to apply</div>
               <ol style="font-size:13px;padding-left:16px;margin-bottom:8px;">
                 <li>Create an account at <a href="https://ttp.cbp.dhs.gov" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">ttp.cbp.dhs.gov</a> (Trusted Traveler Programs portal)</li>
-                <li>Complete the online application — takes around 20 minutes. Provide travel history, employment, and background information</li>
-                <li>Wait for conditional approval — typically a few days to a few weeks</li>
+                <li>Complete the online application: takes around 20 minutes. Provide travel history, employment, and background information</li>
+                <li>Wait for conditional approval, typically a few days to a few weeks</li>
                 <li>Schedule an in-person interview at a Global Entry Enrollment Center. Alternatively, your Global Entry enrollment interview can be completed without the need to schedule an appointment at an Enrollment Center. Enrollment on Departure (EoD) and Enrollment on Arrival (EoA) are two convenient options.</li>
                 <li>Bring your green card, passport, and any other documents listed in your approval notice</li>
                 <li>Note that flight bookings must include your Known Traveler Number aka your Global Entry number on your booking to get the benefit!</li>
@@ -621,23 +619,23 @@
   </div>
 
 
-  <!-- ── Maintaining Residency / Citizenship Section ── -->
+  <!-- Maintaining Residency / Citizenship Section -->
   <div class="content-section">
     <div class="section-label">Maintaining residency, removing conditions &amp; becoming a US citizen</div>
 
-    <p style="font-size:14px;color:rgba(30,28,23,0.85);margin-bottom:20px;">Once you have arrived as a lawful permanent resident, there are further steps to understand — protecting your status when you travel, removing the conditions on a CR1 green card, and eventually applying for US citizenship. Each section below includes a checklist of the key forms involved.</p>
+    <p style="font-size:14px;color:rgba(30,28,23,0.85);margin-bottom:20px;">Once you have arrived as a lawful permanent resident, there are further steps to understand: protecting your status when you travel, removing the conditions on a CR1 green card, and eventually applying for US citizenship. Each section below includes a checklist of the key forms involved.</p>
 
     <!-- Reentry Permit Checklist card -->
     <div class="info-card tip" style="margin-bottom:20px;">
-      <div class="info-card-head">📋 Key forms at a glance</div>
+      <div class="info-card-head">Key forms at a glance</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px, 100%), 1fr));gap:8px;margin-top:4px;">
         <a href="https://www.uscis.gov/i-131" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:13px;font-weight:700;color:var(--white);">Form I-131</span>
-          <span style="font-size:12px;color:var(--muted);">Reentry Permit — traveling for 1+ year</span>
+          <span style="font-size:12px;color:var(--muted);">Reentry Permit: traveling for 1+ year</span>
         </a>
         <a href="https://www.uscis.gov/i-751" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:13px;font-weight:700;color:var(--white);">Form I-751</span>
-          <span style="font-size:12px;color:var(--muted);">Remove conditions — CR1/CR2 holders</span>
+          <span style="font-size:12px;color:var(--muted);">Remove conditions: CR1/CR2 holders</span>
         </a>
         <a href="https://www.uscis.gov/i-90" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:13px;font-weight:700;color:var(--white);">Form I-90</span>
@@ -653,7 +651,7 @@
         </a>
         <a href="https://www.uscis.gov/n-600" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:13px;font-weight:700;color:var(--white);">Form N-600</span>
-          <span style="font-size:12px;color:var(--muted);">Certificate of Citizenship — children under CCA</span>
+          <span style="font-size:12px;color:var(--muted);">Certificate of Citizenship: children under CCA</span>
         </a>
       </div>
     </div>
@@ -676,14 +674,14 @@
             <p style="font-size:13px;margin-bottom:12px;">Your green card grants lawful permanent resident (LPR) status, but that status can be lost if you abandon it. The key question USCIS and CBP ask is: do you intend to make the United States your permanent home?</p>
 
             <div class="info-card warning">
-              <div class="info-card-head">⚠️ Travel outside the US — what you need to know</div>
+              <div class="info-card-head">Travel outside the US: what you need to know</div>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:8px;">
-                <li><strong>Under 6 months:</strong> generally fine — green card is valid for re-entry</li>
+                <li><strong>Under 6 months:</strong> generally fine, the green card is valid for re-entry</li>
                 <li><strong>6 months to 1 year:</strong> CBP may question whether you have abandoned residence. Be prepared to show strong US ties (employment, home, tax filings, family)</li>
-                <li><strong>Over 1 year:</strong> your green card alone is not sufficient for re-entry. You should apply for a <strong>Reentry Permit (Form I-131)</strong> before leaving the US — processing takes 3–6 months and must be filed while physically in the US</li>
+                <li><strong>Over 1 year:</strong> your green card alone is not sufficient for re-entry. You should apply for a <strong>Reentry Permit (Form I-131)</strong> before leaving the US: processing takes 3–6 months and must be filed while physically in the US</li>
                 <li><strong>Over 2 years:</strong> a reentry permit will have expired. You may need to apply for a Returning Resident Visa (SB-1) at a US Embassy</li>
               </ul>
-              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.uscis.gov/green-card/after-we-grant-your-green-card/international-travel-as-a-permanent-resident" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS — International Travel as a Permanent Resident</a></p>
+              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.uscis.gov/green-card/after-we-grant-your-green-card/international-travel-as-a-permanent-resident" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS: International Travel as a Permanent Resident</a></p>
             </div>
 
             <div class="info-card">
@@ -699,25 +697,25 @@
             </div>
 
             <div class="info-card warning">
-              <div class="info-card-head">⚠️ Reentry permit does not protect naturalization eligibility</div>
+              <div class="info-card-head">Reentry permit does not protect naturalization eligibility</div>
               <p style="font-size:13px;margin:0;">A reentry permit preserves your green card status but does not protect continuous residence for naturalization purposes. An absence of 6 months or more may disrupt the continuous residence clock. An absence of 1 year or more will generally break it entirely, resetting your eligibility unless you file <strong>Form N-470</strong> (Application to Preserve Residence for Naturalization Purposes) before leaving. Source: <a href="https://www.uscis.gov/sites/default/files/document/forms/i-131instr.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS Form I-131 Instructions</a></p>
             </div>
 
             <div class="info-card tip">
               <div class="info-card-head">Green card renewal (Form I-90)</div>
-              <p style="font-size:13px;margin:0;">10-year green cards should be renewed using <strong>Form I-90</strong> before they expire. USCIS recommends filing 6 months before expiry. An expired card does not mean you have lost LPR status, but it may affect employment verification and travel. Source: <a href="https://www.uscis.gov/i-90" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS — Form I-90</a></p>
+              <p style="font-size:13px;margin:0;">10-year green cards should be renewed using <strong>Form I-90</strong> before they expire. USCIS recommends filing 6 months before expiry. An expired card does not mean you have lost LPR status, but it may affect employment verification and travel. Source: <a href="https://www.uscis.gov/i-90" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS: Form I-90</a></p>
             </div>
           
             <div class="info-card" style="margin-top:12px;">
-              <div class="info-card-head">✅ I-131 Reentry Permit — checklist</div>
+              <div class="info-card-head">I-131 Reentry Permit: checklist</div>
               <ul style="font-size:13px;padding-left:16px;margin:0;">
-                <li>Must be filed while <strong>physically in the US</strong> — cannot be filed from abroad</li>
+                <li>Must be filed while <strong>physically in the US</strong>: cannot be filed from abroad</li>
                 <li>Form I-131 completed online or by mail</li>
                 <li>Copy of your green card (front and back)</li>
                 <li>Passport-style photo</li>
                 <li>Filing fee: check <a href="https://www.uscis.gov/feeschedule" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS fee schedule</a></li>
                 <li>Biometrics appointment will be scheduled after filing</li>
-                <li>Permit is valid for 2 years — apply at least 3–6 months before departure</li>
+                <li>Permit is valid for 2 years. Apply at least 3–6 months before departure</li>
               </ul>
             </div>
           </div>
@@ -732,29 +730,29 @@
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <p style="font-size:13px;margin-bottom:12px;">Once you are a US permanent resident living in the US, NHS access changes. The NHS is <strong>residence-based, not citizenship-based</strong> — you lose free access once you move abroad permanently.</p>
+            <p style="font-size:13px;margin-bottom:12px;">Once you are a US permanent resident living in the US, NHS access changes. The NHS is <strong>residence-based, not citizenship-based</strong>: you lose free access once you move abroad permanently.</p>
 
             <div class="info-card warning">
-              <div class="info-card-head">⚠️ NHS charges for non-residents</div>
+              <div class="info-card-head">NHS charges for non-residents</div>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:8px;">
-                <li><strong>A&E (Accident &amp; Emergency):</strong> Always free — anyone can attend A&E in the UK regardless of where they live</li>
+                <li><strong>A&E (Accident &amp; Emergency):</strong> Always free: anyone can attend A&E in the UK regardless of where they live</li>
                 <li><strong>GP (family doctor):</strong> Charged to overseas residents, typically £80–200+ per visit</li>
-                <li><strong>Hospital treatment:</strong> Charged for overseas residents — costs vary from hundreds to thousands of pounds depending on treatment</li>
+                <li><strong>Hospital treatment:</strong> charged for overseas residents, and costs vary from hundreds to thousands of pounds depending on treatment</li>
                 <li><strong>Prescriptions:</strong> Standard prescription charges apply (£9.90 per item as of 2026), or overseas residents may be charged private rates</li>
               </ul>
-              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.nhs.uk/nhs-services/visiting-or-moving-to-england/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">NHS — Visiting or moving to England</a></p>
+              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.nhs.uk/nhs-services/visiting-or-moving-to-england/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">NHS: Visiting or moving to England</a></p>
             </div>
 
             <div class="info-card tip">
               <div class="info-card-head">If you return to live in the UK</div>
-              <p style="font-size:13px;margin:0;">You regain free NHS access immediately upon re-establishing UK residence. Register with a GP as soon as you return — there is no waiting period for residents. Source: <a href="https://www.gov.uk/guidance/using-the-nhs-when-you-return-to-live-in-the-uk" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">gov.uk — Using the NHS when you return to live in the UK</a></p>
+              <p style="font-size:13px;margin:0;">You regain free NHS access immediately upon re-establishing UK residence. Register with a GP as soon as you return. There is no waiting period for residents. Source: <a href="https://www.gov.uk/guidance/using-the-nhs-when-you-return-to-live-in-the-uk" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">gov.uk: Using the NHS when you return to live in the UK</a></p>
             </div>
 
             <div class="info-card">
               <div class="info-card-head">Healthcare planning</div>
               <ul style="font-size:13px;padding-left:16px;margin:0;">
-                <li>Arrange <strong>private health insurance in the US</strong> before you move — do not rely on NHS access for ongoing healthcare</li>
-                <li>If you return to the UK temporarily (holidays, visiting family), plan for potential medical costs — travel insurance may help but often excludes pre-existing conditions</li>
+                <li>Arrange <strong>private health insurance in the US</strong> before you move. Do not rely on NHS access for ongoing healthcare</li>
+                <li>If you return to the UK temporarily (holidays, visiting family), plan for potential medical costs: travel insurance may help but often excludes pre-existing conditions</li>
                 <li>Check both UK and US insurance requirements when planning long-term healthcare</li>
               </ul>
             </div>
@@ -765,17 +763,17 @@
       <!-- Removing Conditions (I-751) -->
       <div class="sub-acc-item" id="life-i751" data-sub-group="citizenship">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life-i751')">
-          <span class="sub-acc-label">Removing conditions on your green card — Form I-751 (CR1/CR2 holders)</span>
+          <span class="sub-acc-label">Removing conditions on your green card: Form I-751 (CR1/CR2 holders)</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <span class="acc-tag niche" style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;background:rgba(106,101,96,0.1);color:var(--muted);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;margin-bottom:12px;">CR1 / CR2 holders only</span>
+            <span class="acc-tag niche" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;background:rgba(106,101,96,0.1);color:var(--muted);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;margin-bottom:12px;">CR1 / CR2 holders only</span>
             <p style="font-size:13px;margin-bottom:12px;">If you entered on a <strong>CR1</strong> visa (married less than 2 years at the time of US entry), you received a 2-year conditional green card. You must file <strong>Form I-751 (Petition to Remove Conditions on Residence)</strong> to upgrade it to a permanent 10-year green card. If you do not file, your conditional status terminates automatically when the card expires.</p>
 
             <div class="info-card warning">
-              <div class="info-card-head">⚠️ Filing window — do not miss this</div>
-              <p style="font-size:13px;margin-bottom:6px;">You must file I-751 during the <strong>90-day window immediately before your 2-year green card expires</strong>. Look at the "Card Expires" date on your green card and count back 90 days — that is your earliest filing date.</p>
+              <div class="info-card-head">Filing window: do not miss this</div>
+              <p style="font-size:13px;margin-bottom:6px;">You must file I-751 during the <strong>90-day window immediately before your 2-year green card expires</strong>. Look at the "Card Expires" date on your green card and count back 90 days. That is your earliest filing date.</p>
               <ul style="font-size:13px;padding-left:16px;margin:0;">
                 <li>Filing even one day too early: USCIS will reject and return the petition</li>
                 <li>Filing after expiry: your conditional status automatically terminates</li>
@@ -785,11 +783,11 @@
             <div class="info-card">
               <div class="info-card-head">What happens after you file</div>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:8px;">
-                <li>USCIS sends a <strong>Form I-797C Receipt Notice</strong> — this automatically extends your conditional green card for <strong>48 months</strong> past its expiry date, allowing you to live and work legally while your petition is processed</li>
-                <li>Processing time as of 2026: typically <strong>21–24 months</strong> — some cases longer</li>
+                <li>USCIS sends a <strong>Form I-797C Receipt Notice</strong>: this automatically extends your conditional green card for <strong>48 months</strong> past its expiry date, allowing you to live and work legally while your petition is processed</li>
+                <li>Processing time as of 2026: typically <strong>21–24 months</strong>, with some cases longer</li>
                 <li>USCIS has increased scrutiny in 2026 and may require an in-person interview</li>
               </ul>
-              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.uscis.gov/i-751" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS — Form I-751</a></p>
+              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.uscis.gov/i-751" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS: Form I-751</a></p>
             </div>
 
             <div class="info-card">
@@ -808,11 +806,11 @@
 
             <div class="info-card tip">
               <div class="info-card-head">I-751 and naturalization can overlap</div>
-              <p style="font-size:13px;margin:0;">You can file Form N-400 (naturalization) while your I-751 is still pending — you do not need to wait for I-751 approval before applying for citizenship, as long as you are otherwise eligible. Filing N-400 can sometimes prompt USCIS to adjudicate the I-751 more quickly. This is a legitimate and commonly used strategy. Seek legal advice if you are unsure of your timing.</p>
+              <p style="font-size:13px;margin:0;">You can file Form N-400 (naturalization) while your I-751 is still pending. You do not need to wait for I-751 approval before applying for citizenship, as long as you are otherwise eligible. Filing N-400 can sometimes prompt USCIS to adjudicate the I-751 more quickly. This is a legitimate and commonly used strategy. Seek legal advice if you are unsure of your timing.</p>
             </div>
           
             <div class="info-card" style="margin-top:12px;">
-              <div class="info-card-head">✅ I-751 Removal of Conditions — checklist</div>
+              <div class="info-card-head">I-751 Removal of Conditions: checklist</div>
               <ul style="font-size:13px;padding-left:16px;margin:0;">
                 <li>Form I-751 (joint petition with spouse, or waiver)</li>
                 <li>Copy of your 2-year conditional green card (front and back)</li>
@@ -820,7 +818,7 @@
                 <li>Evidence of bona fide marriage: joint accounts, lease/mortgage, tax returns, photos, insurance</li>
                 <li>Passport-style photos (if filing by mail)</li>
                 <li>If divorced: divorce decree or evidence proceedings have begun</li>
-                <li>File during the <strong>90-day window before card expires</strong> — not before, not after</li>
+                <li>File during the <strong>90-day window before card expires</strong>, not before, not after</li>
               </ul>
             </div>
           </div>
@@ -830,65 +828,65 @@
       <!-- Child Citizenship Act -->
       <div class="sub-acc-item" id="life-cca" data-sub-group="citizenship">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life-cca')">
-          <span class="sub-acc-label">Children who immigrated with you — automatic US citizenship (Child Citizenship Act)</span>
+          <span class="sub-acc-label">Children who immigrated with you: automatic US citizenship (Child Citizenship Act)</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <span class="acc-tag niche" style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;background:rgba(106,101,96,0.1);color:var(--muted);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;margin-bottom:12px;">IR2 / CR2 children under 18</span>
+            <span class="acc-tag niche" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;background:rgba(106,101,96,0.1);color:var(--muted);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;margin-bottom:12px;">IR2 / CR2 children under 18</span>
 
-            <p style="font-size:13px;margin-bottom:12px;">If your minor children immigrated with you on IR2 or CR2 visas, they may already be US citizens — automatically, by operation of law. Under the <strong>Child Citizenship Act of 2000</strong> (INA &sect;320), a child born outside the US automatically acquires US citizenship the moment all of the following are true:</p>
+            <p style="font-size:13px;margin-bottom:12px;">If your minor children immigrated with you on IR2 or CR2 visas, they may already be US citizens automatically, by operation of law. Under the <strong>Child Citizenship Act of 2000</strong> (INA &sect;320), a child born outside the US automatically acquires US citizenship the moment all of the following are true:</p>
             <ul style="font-size:13px;color:rgba(30,28,23,0.85);padding-left:16px;margin-bottom:12px;">
               <li>At least one parent is a US citizen (by birth or naturalization)</li>
               <li>The child is under 18</li>
               <li>The child is a lawful permanent resident (green card or I-551 stamp)</li>
               <li>The child resides in the US in the legal and physical custody of the US citizen parent</li>
             </ul>
-            <p style="font-size:13px;margin-bottom:12px;">No application is needed to <em>acquire</em> citizenship — it happens automatically when the last condition is met. What you do need is <strong>proof</strong>. There are two ways to document it: a <strong>US passport</strong> (Form DS-11, through the Department of State) and a <strong>Certificate of Citizenship</strong> (Form N-600, through USCIS). The passport is faster and cheaper; the certificate never expires and is the permanent record. Many families start with the passport.</p>
-            <p style="font-size:12px;color:var(--muted);margin-bottom:12px;">Sources: <a href="https://travel.state.gov/content/travel/en/legal/travel-legal-considerations/us-citizenship/child-citizenship-act-of-2000.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">US Department of State — Obtaining US Citizenship under the Child Citizenship Act</a> &middot; <a href="https://www.uscis.gov/policy-manual/volume-12-part-h-chapter-4" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS Policy Manual, Vol. 12, Part H, Ch. 4 — Automatic Acquisition of Citizenship after Birth (INA 320)</a></p>
+            <p style="font-size:13px;margin-bottom:12px;">No application is needed to <em>acquire</em> citizenship. It happens automatically when the last condition is met. What you do need is <strong>proof</strong>. There are two ways to document it: a <strong>US passport</strong> (Form DS-11, through the Department of State) and a <strong>Certificate of Citizenship</strong> (Form N-600, through USCIS). The passport is faster and cheaper; the certificate never expires and is the permanent record. Many families start with the passport.</p>
+            <p style="font-size:12px;color:var(--muted);margin-bottom:12px;">Sources: <a href="https://travel.state.gov/content/travel/en/legal/travel-legal-considerations/us-citizenship/child-citizenship-act-of-2000.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">US Department of State: Obtaining US Citizenship under the Child Citizenship Act</a> &middot; <a href="https://www.uscis.gov/policy-manual/volume-12-part-h-chapter-4" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS Policy Manual, Vol. 12, Part H, Ch. 4: Automatic Acquisition of Citizenship after Birth (INA 320)</a></p>
 
             <div class="info-card">
               <div class="info-card-head">Applying for the child's US passport (Form DS-11)</div>
-              <p style="font-size:13px;margin-bottom:6px;">Apply in person at a passport acceptance facility — most commonly a USPS post office. Both parents/guardians must appear with the child, or the absent parent must provide a notarized Form DS-3053 consent. Per the State Department, submit:</p>
+              <p style="font-size:13px;margin-bottom:6px;">Apply in person at a passport acceptance facility: most commonly a USPS post office. Both parents/guardians must appear with the child, or the absent parent must provide a notarized Form DS-3053 consent. Per the State Department, submit:</p>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:8px;">
                 <li><strong>Proof of relationship to the US citizen parent:</strong> certified copy of the child's foreign birth certificate (with translation if not in English)</li>
                 <li><strong>Proof of LPR admission:</strong> the child's permanent resident card, or foreign passport with I-551 stamp</li>
                 <li><strong>Evidence of the US citizen parent's citizenship</strong> (e.g. US passport or naturalization certificate) <strong>and photo ID</strong></li>
-                <li><strong>Evidence the child resides in the US with the US citizen parent</strong> — the green card alone is <em>not</em> proof of residence. Provide at least two documents such as a lease or rental agreement naming the household, school enrollment records, or medical/doctor records</li>
+                <li><strong>Evidence the child resides in the US with the US citizen parent</strong>: the green card alone is <em>not</em> proof of residence. Provide at least two documents such as a lease or rental agreement naming the household, school enrollment records, or medical/doctor records</li>
                 <li>Completed <strong>Form DS-11</strong>, passport photo, and fees</li>
               </ul>
               <p style="font-size:13px;margin-bottom:6px;"><strong>Fees:</strong> $135 total for a child's passport book ($100 application fee paid to the Department of State plus $35 execution fee paid to the acceptance facility). Expedited service is an additional $60. Routine processing is typically 4–6 weeks; expedited 2–3 weeks, plus mailing time. Check the current fee chart before applying.</p>
-              <p style="font-size:12px;color:var(--muted);margin:0;">Sources: <a href="https://travel.state.gov/content/travel/en/passports/how-apply/under-16.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">State Department — Apply for a Child's Passport (Under 16)</a> &middot; <a href="https://travel.state.gov/content/travel/en/passports/how-apply/fees.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">State Department — Passport Fees</a></p>
+              <p style="font-size:12px;color:var(--muted);margin:0;">Sources: <a href="https://travel.state.gov/content/travel/en/passports/how-apply/under-16.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">State Department: Apply for a Child's Passport (Under 16)</a> &middot; <a href="https://travel.state.gov/content/travel/en/passports/how-apply/fees.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">State Department: Passport Fees</a></p>
             </div>
 
             <div class="info-card warning">
-              <div class="info-card-head">⚠️ Community experience — send the physical green card</div>
+              <div class="info-card-head">Community experience: send the physical green card</div>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:8px;">
-                <li>Members report being told at the post office that a photocopy of the green card is sufficient — and then receiving a request for the original, delaying the application by weeks. The State Department requires original or certified documents with photocopies, so include the child's <strong>physical green card</strong> with the application even if the acceptance agent says a copy will do. You will then have to mail it separately if it is requested later</li>
-                <li>Once the child's citizenship is documented, the green card no longer reflects their status — do not expect to rely on it again</li>
+                <li>Members report being told at the post office that a photocopy of the green card is sufficient, and then receiving a request for the original, delaying the application by weeks. The State Department requires original or certified documents with photocopies, so include the child's <strong>physical green card</strong> with the application even if the acceptance agent says a copy will do. You will then have to mail it separately if it is requested later</li>
+                <li>Once the child's citizenship is documented, the green card no longer reflects their status. Do not expect to rely on it again</li>
                 <li>Including a copy of your lease or rental agreement showing the child living at the US citizen parent's address has worked well as residence evidence</li>
                 <li>Community timelines: passports received in roughly 3–4 weeks with expedited service, around 6 weeks routine</li>
               </ul>
-              <p style="font-size:12px;color:var(--muted);margin:0;">Community-reported experience, 2026. Official document requirements: <a href="https://travel.state.gov/content/travel/en/passports/how-apply/citizenship-evidence.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">State Department — Citizenship Evidence</a></p>
+              <p style="font-size:12px;color:var(--muted);margin:0;">Community-reported experience, 2026. Official document requirements: <a href="https://travel.state.gov/content/travel/en/passports/how-apply/citizenship-evidence.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">State Department: Citizenship Evidence</a></p>
             </div>
 
             <div class="info-card tip">
-              <div class="info-card-head">Certificate of Citizenship (Form N-600) — optional but permanent</div>
-              <p style="font-size:13px;margin-bottom:6px;">The passport proves citizenship but expires (5 years for under-16s). A <strong>Certificate of Citizenship</strong> from USCIS never expires and is the definitive lifetime record that citizenship was acquired under INA &sect;320. It is not required, and the filing fee is substantial — check the current fee before deciding. Many families obtain the passport first and file the N-600 later, or keep careful certified copies of the underlying evidence instead.</p>
-              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.uscis.gov/n-600" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS — Form N-600, Application for Certificate of Citizenship</a></p>
+              <div class="info-card-head">Certificate of Citizenship (Form N-600), optional but permanent</div>
+              <p style="font-size:13px;margin-bottom:6px;">The passport proves citizenship but expires (5 years for under-16s). A <strong>Certificate of Citizenship</strong> from USCIS never expires and is the definitive lifetime record that citizenship was acquired under INA &sect;320. It is not required, and the filing fee is substantial. Check the current fee before deciding. Many families obtain the passport first and file the N-600 later, or keep careful certified copies of the underlying evidence instead.</p>
+              <p style="font-size:12px;color:var(--muted);margin:0;">Source: <a href="https://www.uscis.gov/n-600" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS: Form N-600, Application for Certificate of Citizenship</a></p>
             </div>
 
             <div class="info-card" style="margin-top:12px;">
-              <div class="info-card-head">✅ Child's first US passport — checklist</div>
+              <div class="info-card-head">Child's first US passport: checklist</div>
               <ul style="font-size:13px;padding-left:16px;margin:0;">
                 <li>Wait until the child has their physical green card (and ideally their SSN card) in hand</li>
-                <li>Form DS-11 — do not sign until instructed by the acceptance agent</li>
+                <li>Form DS-11. Do not sign until instructed by the acceptance agent</li>
                 <li>Child's certified foreign birth certificate + translation if needed (original and photocopy)</li>
                 <li>Child's <strong>physical green card</strong> (original and photocopy of front and back)</li>
                 <li>US citizen parent's proof of citizenship and photo ID (originals and photocopies)</li>
                 <li>Two or more documents showing the child lives with the US citizen parent (lease/rental agreement, school records, medical records)</li>
                 <li>Both parents present, or notarized DS-3053 from the absent parent</li>
-                <li>Passport photo, application fee ($100 check to US Department of State) and $35 execution fee — plus $60 if expediting</li>
+                <li>Passport photo, application fee ($100 check to US Department of State) and $35 execution fee, plus $60 if expediting</li>
               </ul>
             </div>
           </div>
@@ -898,7 +896,7 @@
       <!-- Naturalization -->
       <div class="sub-acc-item" id="life-n400" data-sub-group="citizenship">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life-n400')">
-          <span class="sub-acc-label">From green card to US citizenship — Form N-400</span>
+          <span class="sub-acc-label">From green card to US citizenship: Form N-400</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body">
@@ -907,18 +905,18 @@
             <h3 style="font-family:var(--font-ui);font-size:15px;font-weight:800;color:var(--white);margin-bottom:10px;">Eligibility pathways</h3>
 
             <div class="info-card">
-              <div class="info-card-head">A — Spouse of US citizen (CR1 / IR1) — 3-year rule</div>
+              <div class="info-card-head">A: Spouse of US citizen (CR1 / IR1): 3-year rule</div>
               <ul style="font-size:13px;padding-left:16px;margin-bottom:8px;">
                 <li>Must be married to and living with your US citizen spouse</li>
                 <li>3 years continuous residence as an LPR</li>
                 <li>Physical presence in the US for at least 18 months of those 3 years</li>
                 <li>Can apply up to 90 days before the 3-year mark</li>
               </ul>
-              <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">CR1 holders:</strong> I-751 must be filed before or alongside N-400. You cannot receive citizenship without conditions being removed — but you can file both simultaneously.</p>
+              <p style="font-size:12px;color:var(--muted);margin-bottom:4px;"><strong style="color:rgba(30,28,23,0.75);">CR1 holders:</strong> I-751 must be filed before or alongside N-400. You cannot receive citizenship without conditions being removed, but you can file both simultaneously.</p>
             </div>
 
             <div class="info-card">
-              <div class="info-card-head">B — All other family categories — 5-year rule</div>
+              <div class="info-card-head">B, All other family categories, 5-year rule</div>
               <p style="font-size:13px;margin-bottom:6px;">Applies to: IR2 (child), IR5 (parent), F1/F2/F3/F4, and IR1/CR1 holders no longer living with their US citizen spouse.</p>
               <ul style="font-size:13px;padding-left:16px;margin:0;">
                 <li>5 years continuous residence as an LPR</li>
@@ -944,14 +942,14 @@
               <li>Physical presence requirement met</li>
               <li>Good moral character</li>
               <li>Basic English proficiency (reading, writing, speaking)</li>
-              <li>Pass the civics test (100 questions — 10 asked, 6 correct required)</li>
+              <li>Pass the civics test (100 questions: 10 asked, 6 correct required)</li>
             </ul>
 
             <h3 style="font-family:var(--font-ui);font-size:15px;font-weight:800;color:var(--white);margin:16px 0 10px;">Application process</h3>
             <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px;">
               <div style="display:flex;gap:12px;align-items:flex-start;">
                 <div style="width:26px;height:26px;border-radius:50%;background:rgba(79,133,115,0.15);border:1px solid rgba(79,133,115,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--teal-light);flex-shrink:0;margin-top:2px;">1</div>
-                <div><strong style="color:var(--white);font-size:13px;">File N-400</strong><br><span style="font-size:13px;color:rgba(30,28,23,0.78);">Online via USCIS account. Fee: $710 online / $760 paper. Biometrics included — no separate fee.</span></div>
+                <div><strong style="color:var(--white);font-size:13px;">File N-400</strong><br><span style="font-size:13px;color:rgba(30,28,23,0.78);">Online via USCIS account. Fee: $710 online / $760 paper. Biometrics included, no separate fee.</span></div>
               </div>
               <div style="display:flex;gap:12px;align-items:flex-start;">
                 <div style="width:26px;height:26px;border-radius:50%;background:rgba(79,133,115,0.15);border:1px solid rgba(79,133,115,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--teal-light);flex-shrink:0;margin-top:2px;">2</div>
@@ -963,7 +961,7 @@
               </div>
               <div style="display:flex;gap:12px;align-items:flex-start;">
                 <div style="width:26px;height:26px;border-radius:50%;background:rgba(79,133,115,0.15);border:1px solid rgba(79,133,115,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--teal-light);flex-shrink:0;margin-top:2px;">4</div>
-                <div><strong style="color:var(--white);font-size:13px;">Oath ceremony</strong><br><span style="font-size:13px;color:rgba(30,28,23,0.78);">Take the Oath of Allegiance — you become a US citizen at this moment.</span></div>
+                <div><strong style="color:var(--white);font-size:13px;">Oath ceremony</strong><br><span style="font-size:13px;color:rgba(30,28,23,0.78);">Take the Oath of Allegiance. You become a US citizen at this moment.</span></div>
               </div>
             </div>
 
@@ -974,12 +972,12 @@
             <h3 style="font-family:var(--font-ui);font-size:15px;font-weight:800;color:var(--white);margin:16px 0 10px;">English &amp; civics test exemptions</h3>
             <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:8px;">
               <thead><tr>
-                <th style="padding:7px 10px;background:rgba(90,143,166,0.08);color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;text-align:left;border:1px solid var(--border-subtle);">Condition</th>
-                <th style="padding:7px 10px;background:rgba(90,143,166,0.08);color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;text-align:left;border:1px solid var(--border-subtle);">Exemption</th>
+                <th style="padding:7px 10px;background:rgba(90,143,166,0.08);color:var(--muted);font-size:12px;text-align:left;border:1px solid var(--border-subtle);">Condition</th>
+                <th style="padding:7px 10px;background:rgba(90,143,166,0.08);color:var(--muted);font-size:12px;text-align:left;border:1px solid var(--border-subtle);">Exemption</th>
               </tr></thead>
               <tbody>
-                <tr><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Age 50+ with 20 years as LPR</td><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">English test waived — interview in native language</td></tr>
-                <tr style="background:rgba(30,28,23,0.02);"><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Age 55+ with 15 years as LPR</td><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">English test waived — interview in native language</td></tr>
+                <tr><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Age 50+ with 20 years as LPR</td><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">English test waived: interview in native language</td></tr>
+                <tr style="background:rgba(30,28,23,0.02);"><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Age 55+ with 15 years as LPR</td><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">English test waived: interview in native language</td></tr>
                 <tr><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Age 65+ with 20 years as LPR</td><td style="padding:7px 10px;border:1px solid rgba(30,28,23,0.08);color:rgba(30,28,23,0.85);">Simplified civics test (65/20 list)</td></tr>
               </tbody>
             </table>
@@ -987,13 +985,13 @@
             <h3 style="font-family:var(--font-ui);font-size:15px;font-weight:800;color:var(--white);margin:16px 0 10px;">Free test preparation resources</h3>
             <ul style="font-size:13px;color:rgba(30,28,23,0.85);padding-left:16px;margin-bottom:8px;">
               <li><a href="https://www.uscis.gov/citizenship/find-study-materials-and-resources" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS official civics question bank and practice materials</a></li>
-              <li>Public libraries — ESL classes, citizenship prep, 1:1 tutoring (free)</li>
+              <li>Public libraries: ESL classes, citizenship prep, 1:1 tutoring (free)</li>
               <li>Community college adult education and literacy programs</li>
               <li>State adult literacy programs</li>
             </ul>
-            <p style="font-size:12px;color:var(--muted);margin:0;">Private tutors and paid prep courses exist but are generally unnecessary — free resources are typically sufficient. Source: <a href="https://www.uscis.gov/n-400" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS — Form N-400</a></p>
+            <p style="font-size:12px;color:var(--muted);margin:0;">Private tutors and paid prep courses exist but are generally unnecessary, free resources are typically sufficient. Source: <a href="https://www.uscis.gov/n-400" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS: Form N-400</a></p>
             <div class="info-card" style="margin-top:12px;">
-              <div class="info-card-head">✅ N-400 Naturalization — checklist</div>
+              <div class="info-card-head">N-400 Naturalization: checklist</div>
               <ul style="font-size:13px;padding-left:16px;margin:0;">
                 <li>Form N-400 filed online via <a href="https://myaccount.uscis.gov" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">USCIS online account</a></li>
                 <li>Filing fee: $710 online / $760 paper (biometrics included)</li>
@@ -1038,10 +1036,10 @@ function renderAirports(airports) {
     .filter(([,c]) => c > 0)
     .sort(([,a],[,b]) => b - a);
   const total = sorted.reduce((sum, [,c]) => sum + c, 0);
-  document.getElementById('airport-total').textContent = total || '—';
+  document.getElementById('airport-total').textContent = total || 'n/a';
 
   if (sorted.length === 0) {
-    board.innerHTML = '<div style="font-size:13px;color:var(--muted);grid-column:1/-1">No entry airport data yet — be the first to submit yours.</div>';
+    board.innerHTML = '<div style="font-size:13px;color:var(--muted);grid-column:1/-1">No entry airport data yet: be the first to submit yours.</div>';
     return;
   }
   board.innerHTML = sorted.map(([name, count], i) => `
@@ -1053,7 +1051,7 @@ function renderAirports(airports) {
 }
 
 async function buildMap() {
-  // Load community data first — airport stats render even if the map CDN fails
+  // Load community data first: airport stats render even if the map CDN fails
   let dist = {};
   try {
     const res = await fetch('/api/data');
@@ -1067,7 +1065,7 @@ async function buildMap() {
   const stateFeatures = topojson.feature(us, us.objects.states).features;
   const stateMesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
 
-  // Normalize — map full state names to counts
+  // Normalize: map full state names to counts
   const fipsByName = {};
   stateFeatures.forEach(f => { fipsByName[f.properties.name] = f.id; });
 
@@ -1084,8 +1082,8 @@ async function buildMap() {
   // Total + states count
   const total = Object.values(counts).reduce((a,b) => a+b, 0);
   const statesCount = Object.keys(mainCounts).filter(k => counts[k] > 0).length;
-  document.getElementById('stat-total').textContent = total || '—';
-  document.getElementById('stat-states').textContent = statesCount || '—';
+  document.getElementById('stat-total').textContent = total || 'n/a';
+  document.getElementById('stat-states').textContent = statesCount || 'n/a';
   document.getElementById('legend-max').textContent = max;
 
   // Draw map
@@ -1137,7 +1135,7 @@ async function buildMap() {
 
   // State leaderboard
   const board = document.getElementById('state-board');
-  // Include all locations with data — states + territories
+  // Include all locations with data: states + territories
   const allCounts = {};
   for (const [k, v] of Object.entries(counts)) {
     allCounts[k] = v;
@@ -1147,7 +1145,7 @@ async function buildMap() {
     .sort(([,a],[,b]) => b - a);
 
   if (sorted.length === 0) {
-    board.innerHTML = '<div style="font-size:13px;color:var(--muted);grid-column:1/-1">No state data yet — be the first to submit yours.</div>';
+    board.innerHTML = '<div style="font-size:13px;color:var(--muted);grid-column:1/-1">No state data yet: be the first to submit yours.</div>';
   } else {
     board.innerHTML = sorted.map(([name, count], i) => `
       <div class="state-row${i < 3 ? ' top' : ''}">
@@ -1168,12 +1166,12 @@ function subAccGroup(group, expand) {
   document.querySelectorAll('[data-sub-group="'+group+'"]').forEach(el => el.classList.toggle('open', expand));
 }
 
-// ── GC & SSN Timeline Data ──────────────────────────────────────────────
+// GC & SSN Timeline Data
 const TL_DATA = [
   {name:"Surikou",state:"Arkansas",entry:"2025-09-19",ssn:"2025-09-30",gc:"2025-10-29",ssn_int:false,gc_int:false,ssn_note:"",gc_note:"Called USCIS at 30 days; told to wait 90 days"},
   {name:"Lib",state:"Arizona",entry:"2025-10-06",ssn:"2025-10-17",gc:"2025-10-23",ssn_int:false,gc_int:false,ssn_note:"",gc_note:""},
-  {name:"Rei",state:"Florida",entry:"2025-08-12",ssn:"2025-10-15",gc:"2025-10-27",ssn_int:true,gc_int:true,ssn_note:"Had to go twice to SSA — card mailed but not received, address missing apt #",gc_note:"USCIS sent biometrics request for new photograph; card produced 5 days after appointment"},
-  {name:"researchscientist89",state:"California",entry:"2025-11-01",ssn:null,gc:"2025-11-24",ssn_int:false,gc_int:false,ssn_note:"Already had SSN from grad school",gc_note:"Address zip wrong by one digit — corrected in USCIS account after arrival"},
+  {name:"Rei",state:"Florida",entry:"2025-08-12",ssn:"2025-10-15",gc:"2025-10-27",ssn_int:true,gc_int:true,ssn_note:"Had to go twice to SSA: card mailed but not received, address missing apt #",gc_note:"USCIS sent biometrics request for new photograph; card produced 5 days after appointment"},
+  {name:"researchscientist89",state:"California",entry:"2025-11-01",ssn:null,gc:"2025-11-24",ssn_int:false,gc_int:false,ssn_note:"Already had SSN from grad school",gc_note:"Address zip wrong by one digit: corrected in USCIS account after arrival"},
   {name:"CJ@NYC317",state:"New York",entry:"2025-10-16",ssn:"2025-10-24",gc:"2025-11-17",ssn_int:true,gc_int:false,ssn_note:"SSA visit to fix name on card",gc_note:""},
   {name:"Binalmenda",state:"California",entry:"2025-09-26",ssn:"2025-10-31",gc:"2025-11-03",ssn_int:true,gc_int:false,ssn_note:"SSA visit required",gc_note:"Contacted community channel for tracking number"},
   {name:"Ami",state:"Virginia",entry:"2025-06-11",ssn:"2025-06-20",gc:"2025-07-21",ssn_int:false,gc_int:false,ssn_note:"",gc_note:"Very quick turnaround"},
@@ -1195,7 +1193,7 @@ const TL_DATA = [
   {name:"Han",state:"Washington",entry:"2026-01-07",ssn:"2026-01-17",gc:"2026-01-22",ssn_int:false,gc_int:false,ssn_note:"",gc_note:""},
   {name:"waitingpatiently777",state:"New York",entry:"2026-01-31",ssn:"2026-02-06",gc:"2026-02-26",ssn_int:false,gc_int:false,ssn_note:"",gc_note:""},
   {name:"Vanessa",state:"New York",entry:"2025-12-30",ssn:"2026-01-12",gc:"2026-02-27",ssn_int:false,gc_int:false,ssn_note:"",gc_note:""},
-  {name:"MOD shyskunk",state:"Virginia",entry:"2026-01-31",ssn:"2026-02-10",gc:"2026-02-25",ssn_int:false,gc_int:true,ssn_note:"",gc_note:"Called USCIS — missing letter in middle name on card"},
+  {name:"MOD shyskunk",state:"Virginia",entry:"2026-01-31",ssn:"2026-02-10",gc:"2026-02-25",ssn_int:false,gc_int:true,ssn_note:"",gc_note:"Called USCIS: missing letter in middle name on card"},
   {name:"Wood12",state:"Massachusetts",entry:"2025-12-17",ssn:"2026-03-10",gc:"2026-01-26",ssn_int:true,gc_int:false,ssn_note:"SSN not initiated despite DS-260; new application at SSA office; 8+ week wait",gc_note:""},
   {name:"Krista",state:"Wisconsin",entry:"2026-01-02",ssn:"2026-01-12",gc:"2026-03-03",ssn_int:false,gc_int:false,ssn_note:"",gc_note:"Passport stamped CR1; received IR1 green card"},
   {name:"Rozi",state:"Michigan",entry:"2026-01-17",ssn:"2026-02-04",gc:"2026-03-09",ssn_int:false,gc_int:false,ssn_note:"Went to SSA proactively at 2 weeks; SSN arrived in mail the next day anyway",gc_note:""},
@@ -1205,7 +1203,7 @@ const TL_DATA = [
   {name:"rainbowchannie",state:"South Carolina",entry:"2026-02-23",ssn:"2026-03-03",gc:"2026-03-21",ssn_int:true,gc_int:false,ssn_note:"Husband had prior J1 SSN; updated in person at SSA",gc_note:""},
   {name:"Ash",state:"Alabama",entry:"2026-02-05",ssn:"2026-02-18",gc:"2026-03-23",ssn_int:false,gc_int:false,ssn_note:"",gc_note:""},
   {name:"Proctor",state:"Illinois",entry:"2026-02-04",ssn:"2026-02-14",gc:"2026-03-24",ssn_int:false,gc_int:false,ssn_note:"",gc_note:""},
-  {name:"HannahReyenne",state:"West Virginia",entry:"2026-02-21",ssn:"2026-03-30",gc:"2026-04-04",ssn_int:true,gc_int:false,ssn_note:"SSA staff refused to process without I-94; persisted using A# — processed fine",gc_note:""},
+  {name:"HannahReyenne",state:"West Virginia",entry:"2026-02-21",ssn:"2026-03-30",gc:"2026-04-04",ssn_int:true,gc_int:false,ssn_note:"SSA staff refused to process without I-94; persisted using A#: processed fine",gc_note:""},
   {name:"margaux",state:"Florida",entry:"2026-03-08",ssn:"2026-03-16",gc:"2026-04-02",ssn_int:false,gc_int:false,ssn_note:"",gc_note:""},
   {name:"prabas_",state:"Texas",entry:"2026-02-17",ssn:"2026-02-25",gc:"2026-04-02",ssn_int:false,gc_int:false,ssn_note:"",gc_note:""},
   {name:"Majera",state:"Maryland",entry:"2026-02-22",ssn:null,gc:"2026-04-04",ssn_int:false,gc_int:false,ssn_note:"Already had SSN from J-1 visa",gc_note:""},
@@ -1269,15 +1267,15 @@ const TL_DATA = [
     const medSSN   = median(validSSN.map(r=>r.ssn_days));
     const medGC    = median(validGC.map(r=>r.gc_days));
 
-    document.getElementById('tl-count').textContent = rows.length||'—';
-    document.getElementById('tl-int-rate').textContent = rows.length ? Math.round(intCount/rows.length*100)+'%' : '—';
+    document.getElementById('tl-count').textContent = rows.length||'n/a';
+    document.getElementById('tl-int-rate').textContent = rows.length ? Math.round(intCount/rows.length*100)+'%' : 'n/a';
 
     document.getElementById('tl-stats').innerHTML = `
       <div class="tl-stat-card"><div class="tl-stat-val">${rows.length}</div><div class="tl-stat-label">cases shown</div></div>
-      <div class="tl-stat-card"><div class="tl-stat-val">${medSSN!==null?medSSN+'d':'—'}</div><div class="tl-stat-label">median SSN (days from entry)</div></div>
-      <div class="tl-stat-card"><div class="tl-stat-val">${medGC!==null?medGC+'d':'—'}</div><div class="tl-stat-label">median GC (days from entry)</div></div>
+      <div class="tl-stat-card"><div class="tl-stat-val">${medSSN!==null?medSSN+'d':'n/a'}</div><div class="tl-stat-label">median SSN (days from entry)</div></div>
+      <div class="tl-stat-card"><div class="tl-stat-val">${medGC!==null?medGC+'d':'n/a'}</div><div class="tl-stat-label">median GC (days from entry)</div></div>
       <div class="tl-stat-card"><div class="tl-stat-val">${intCount}</div><div class="tl-stat-label">intervention cases</div></div>
-      <div class="tl-stat-card"><div class="tl-stat-val">${rows.length?Math.round(intCount/rows.length*100)+'%':'—'}</div><div class="tl-stat-label">intervention rate</div></div>
+      <div class="tl-stat-card"><div class="tl-stat-val">${rows.length?Math.round(intCount/rows.length*100)+'%':'n/a'}</div><div class="tl-stat-label">intervention rate</div></div>
     `;
   }
 

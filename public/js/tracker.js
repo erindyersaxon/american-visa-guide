@@ -1,4 +1,4 @@
-/* American Visa Guide — Data Tracker JS */
+/* American Visa Guide: Data Tracker JS */
 
 async function renderTracker() {
   try {
@@ -22,7 +22,7 @@ async function renderTracker() {
 }
 
 function formatDate(dateStr) {
-  if (!dateStr) return "—";
+  if (!dateStr) return "n/a";
   const date = new Date(dateStr);
   return date.toLocaleDateString("en-US", {
     month: "short",
@@ -32,7 +32,7 @@ function formatDate(dateStr) {
 }
 
 function formatDateShort(dateStr) {
-  if (!dateStr) return "—";
+  if (!dateStr) return "n/a";
   const date = new Date(dateStr);
   return date.toLocaleDateString("en-US", {
     month: "short",
@@ -41,7 +41,7 @@ function formatDateShort(dateStr) {
 }
 
 function safeDays(num) {
-  return num ? Math.round(num) : "—";
+  return num ? Math.round(num) : "n/a";
 }
 
 function renderThisWeek(data) {
@@ -65,7 +65,7 @@ function renderThisWeek(data) {
     html += '<div class="week-column">';
     html += '<h3>Interviews</h3>';
     thisWeek.interviews.forEach((item) => {
-      html += `<div class="week-item"><strong>${item.date || "—"}</strong></div>`;
+      html += `<div class="week-item"><strong>${item.date || "n/a"}</strong></div>`;
     });
     html += "</div>";
   }
@@ -75,7 +75,7 @@ function renderThisWeek(data) {
     html += '<div class="week-column">';
     html += '<h3>Medicals</h3>';
     thisWeek.medicals.forEach((item) => {
-      html += `<div class="week-item"><strong>${item.date || "—"}</strong></div>`;
+      html += `<div class="week-item"><strong>${item.date || "n/a"}</strong></div>`;
     });
     html += "</div>";
   }
@@ -85,7 +85,7 @@ function renderThisWeek(data) {
     html += '<div class="week-column">';
     html += '<h3>Flights</h3>';
     thisWeek.flights.forEach((item) => {
-      html += `<div class="week-item"><strong>${item.date || "—"}</strong></div>`;
+      html += `<div class="week-item"><strong>${item.date || "n/a"}</strong></div>`;
     });
     html += "</div>";
   }
@@ -107,15 +107,15 @@ function renderKeyStats(data) {
     statsCards[1].innerHTML = `<p class="stat-value">${safeDays(data.key_stats?.avg_il_to_interview)}</p><p class="stat-label">IL to interview (avg days)</p>`;
   }
   if (statsCards[2]) {
-    const approvalPct = data.outcomes?.approval_pct ? Math.round(data.outcomes.approval_pct) : "—";
-    statsCards[2].innerHTML = `<p class="stat-value">${approvalPct}${approvalPct !== "—" ? "%" : ""}</p><p class="stat-label">Interview approval rate</p>`;
+    const approvalPct = data.outcomes?.approval_pct ? Math.round(data.outcomes.approval_pct) : "n/a";
+    statsCards[2].innerHTML = `<p class="stat-value">${approvalPct}${approvalPct !== "n/a" ? "%" : ""}</p><p class="stat-label">Interview approval rate</p>`;
   }
   if (statsCards[3]) {
-    const count = data.meta?.total_members || "—";
+    const count = data.meta?.total_members || "n/a";
     statsCards[3].innerHTML = `<p class="stat-value">${count}</p><p class="stat-label">Community members</p>`;
   }
 
-  document.getElementById("memberCount").textContent = data.meta?.total_members || "—";
+  document.getElementById("memberCount").textContent = data.meta?.total_members || "n/a";
 }
 
 function renderPipeline(data) {
@@ -129,7 +129,7 @@ function renderPipeline(data) {
       avgDays: data.stage_avgs?.pd_to_approval,
       warning:
         data.stage_counts?.i130_approval < 50
-          ? '<p style="color: var(--color-error); font-size: var(--size-sm); margin-top: var(--space-2);">⚠️ Significantly slowed. <a href="https://www.trackmy visa.com/" target="_blank" rel="noopener" style="color: var(--color-error);">Track My Visa</a></p>'
+          ? '<p style="color: var(--color-error); font-size: var(--size-sm); margin-top: var(--space-2);">Significantly slowed. <a href="https://www.trackmy visa.com/" target="_blank" rel="noopener" style="color: var(--color-error);">Track My Visa</a></p>'
           : "",
     },
     {
@@ -149,7 +149,7 @@ function renderPipeline(data) {
   stages.forEach((stage) => {
     html += `<div class="pipeline-card">`;
     html += `<h3>${stage.name}</h3>`;
-    html += `<div class="pipeline-stat"><span>Members</span><span class="pipeline-value">${stage.count || "—"}</span></div>`;
+    html += `<div class="pipeline-stat"><span>Members</span><span class="pipeline-value">${stage.count || "n/a"}</span></div>`;
     html += `<div class="pipeline-stat"><span>Avg days</span><span class="pipeline-value">${safeDays(stage.avgDays)}</span></div>`;
     if (stage.warning) html += stage.warning;
     if (stage.info) html += stage.info;
@@ -182,8 +182,8 @@ function renderWaitingForIL(data) {
     data.il_to_interview_lookup.forEach((item, idx) => {
       const isCurrent = idx === 0;
       html += `<tr${isCurrent ? ' style="background: var(--color-gold-xlight);"' : ""}>`;
-      html += `<td>${item.il_month || "—"}${isCurrent ? ' <span class="badge">Current</span>' : ""}</td>`;
-      html += `<td>${item.interview_month || "—"}</td>`;
+      html += `<td>${item.il_month || "n/a"}${isCurrent ? ' <span class="badge">Current</span>' : ""}</td>`;
+      html += `<td>${item.interview_month || "n/a"}</td>`;
       html += `</tr>`;
     });
 
@@ -256,7 +256,7 @@ function renderTrends(data) {
     html += `<td>${metric.last_3m === null ? "Not enough data" : safeDays(metric.last_3m)}</td>`;
 
     // Trend indicator
-    let trend = '<span class="trend-indicator trend-neutral">—<span class="sr-only">Stable</span></span>';
+    let trend = '<span class="trend-indicator trend-neutral"><span class="trend-arrow">→</span><span class="sr-only">Stable</span></span>';
     if (metric.last_3m !== null && metric.last_6m !== null) {
       const isGettingLonger = metric.last_3m > metric.last_6m;
       if (isGettingLonger) {
@@ -278,7 +278,7 @@ function renderOutcomes(data) {
 
   // Approval bar
   const bar = document.getElementById("approvalBar");
-  bar.innerHTML = `<div class="approval-fill" style="width: ${approvalPct}%; background: linear-gradient(90deg, var(--color-gold), var(--color-navy));">
+  bar.innerHTML = `<div class="approval-fill" style="width: ${approvalPct}%; background: var(--color-gold);">
     <span>${Math.round(approvalPct)}%</span>
   </div>`;
 

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<!-- Cookiebot consent manager: must be the first script so auto-blocking works -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Microsoft Clarity — runs only after statistics consent -->
+<!-- Microsoft Clarity: runs only after statistics consent -->
 <script type="text/plain" data-cookieconsent="statistics">
 (function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -13,10 +13,10 @@
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window,document,"clarity","script","wlfs757o2n");
 </script>
-  <title>Data Tracker — American Visa Guide</title>
-  <meta name="description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members — DQ to IL averages, interview scheduling, passport return times.">
+  <title>Data Tracker | American Visa Guide</title>
+  <meta name="description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members: DQ to IL averages, interview scheduling, passport return times.">
   <link rel="canonical" href="https://www.americanvisaguide.com/data">
-  <meta property="og:title" content="Data Tracker — American Visa Guide">
+  <meta property="og:title" content="Data Tracker | American Visa Guide">
   <meta property="og:description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members.">
   <meta property="og:image" content="https://www.americanvisaguide.com/images/og-home.png">
   <meta property="og:url" content="https://www.americanvisaguide.com/data">
@@ -29,20 +29,20 @@
   <link rel="stylesheet" href="/css/components.css?v=20260618">
 
   <style>
-    /* ── Accessibility: Skip link ── */
+    /* Accessibility: Skip link */
     .skip-to-main:focus {
       top: 0;
       outline: 2px solid var(--color-primary);
       outline-offset: 2px;
     }
 
-    /* ── Accessibility: Focus indicators ── */
+    /* Accessibility: Focus indicators */
     *:focus-visible {
       outline: 2px solid var(--color-primary);
       outline-offset: 2px;
     }
 
-    /* ── Accessibility: Reduced motion ── */
+    /* Accessibility: Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       * {
         animation-duration: 0.01ms !important;
@@ -51,7 +51,7 @@
       }
     }
 
-    /* ── Skeleton loaders ── */
+    /* Skeleton loaders */
     @keyframes shimmer {
       0%   { background-position: -400px 0; }
       100% { background-position:  400px 0; }
@@ -74,7 +74,7 @@
     .skel--chip   { height: 1.5rem; width: 5rem; border-radius: var(--radius-full); }
     .skel--row    { height: 2.25rem; width: 100%; }
 
-    /* ── Status banner ── */
+    /* Status banner */
     .il-banner {
       border-left: 4px solid var(--color-border);
       border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
@@ -91,9 +91,8 @@
       display: inline-flex;
       align-items: center;
       gap: var(--space-1);
-      font-size: var(--text-xs);
+      font-size: var(--text-sm);
       font-weight: var(--font-semibold);
-      text-transform: uppercase;
       letter-spacing: var(--tracking-wide);
       margin-bottom: var(--space-2);
     }
@@ -115,6 +114,7 @@
 
     .il-banner__title {
       font-family: var(--font-display);
+      font-weight: var(--weight-bold);
       font-size: var(--text-2xl);
       line-height: var(--leading-tight);
       color: var(--color-text);
@@ -126,7 +126,7 @@
       max-width: none;
     }
 
-    /* ── Key metrics grid ── */
+    /* Key metrics grid */
     .metrics-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -151,15 +151,15 @@
       box-shadow: var(--shadow-sm);
     }
     .metric-card__label {
-      font-size: var(--text-xs);
+      font-size: var(--text-sm);
       font-weight: var(--font-semibold);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wider);
       color: var(--color-text-muted);
       margin-bottom: var(--space-2);
     }
     .metric-card__value {
-      font-family: var(--font-display);
+      font-family: var(--font-body);
+      font-variant-numeric: tabular-nums;
+      font-weight: var(--weight-semibold);
       font-size: var(--text-2xl);
       color: var(--color-text);
       line-height: 1.1;
@@ -171,12 +171,12 @@
       margin-top: var(--space-1);
     }
 
-    /* ── Hero ── */
+    /* Hero */
     .hero-section {
       padding-block: var(--space-8);
       background: var(--color-bg);
     }
-    /* ── Content sections ── */
+    /* Content sections */
     .content-section {
       padding-block: var(--space-8);
       border-top: 1px solid var(--color-border);
@@ -195,7 +195,7 @@
       max-width: none;
     }
 
-    /* ── Pipeline ── */
+    /* Pipeline */
     .pipeline {
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
@@ -255,7 +255,7 @@
       }
     }
 
-    /* ── Trend cards ── */
+    /* Trend cards */
     .trend-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -271,14 +271,15 @@
       box-shadow: var(--shadow-sm);
     }
     .trend-card__period {
-      font-size: var(--text-xs);
+      font-size: var(--text-sm);
       font-weight: var(--font-semibold);
-      text-transform: uppercase;
       letter-spacing: var(--tracking-wide);
       color: var(--color-text-muted);
     }
     .trend-card__value {
-      font-family: var(--font-display);
+      font-family: var(--font-body);
+      font-variant-numeric: tabular-nums;
+      font-weight: var(--weight-semibold);
       font-size: var(--text-3xl);
       color: var(--color-text);
       line-height: 1.1;
@@ -297,7 +298,7 @@
     .trend-card__dir--down { color: var(--color-success); }
     .trend-card__dir--flat { color: var(--color-text-muted); }
 
-    /* ── Outcome cards ── */
+    /* Outcome cards */
     .outcome-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -313,7 +314,9 @@
       box-shadow: var(--shadow-sm);
     }
     .outcome-card__value {
-      font-family: var(--font-display);
+      font-family: var(--font-body);
+      font-variant-numeric: tabular-nums;
+      font-weight: var(--weight-semibold);
       font-size: var(--text-4xl);
       line-height: 1;
       min-height: 2.75rem;
@@ -324,14 +327,14 @@
     .outcome-card--denied   .outcome-card__value { color: var(--color-destructive); }
     .outcome-card__label { margin-top: var(--space-3); }
 
-    /* ── Passport grid ── */
+    /* Passport grid */
     .passport-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--space-4);
     }
 
-    /* ── Outdated notice ── */
+    /* Outdated notice */
     .data-notice {
       display: none;
       align-items: center;
@@ -346,7 +349,7 @@
     }
     .data-notice.is-visible { display: flex; }
 
-    /* ── Editorial narrative note (neutral, non-alarmist) ── */
+    /* Editorial narrative note (neutral, non-alarmist) */
     .trend-note {
       margin-top: var(--space-5);
       padding: var(--space-3) var(--space-4);
@@ -360,7 +363,7 @@
     }
     .trend-note strong { color: var(--color-text); font-weight: var(--font-semibold); }
 
-    /* ── Numeric table cells ── */
+    /* Numeric table cells */
     .num { font-variant-numeric: tabular-nums; text-align: right; }
   </style>
   <link rel="stylesheet" href="/css/nav.css?v=20260722">
@@ -374,16 +377,16 @@
 
   <main id="main-content">
 
-    <!-- ═══ ABOVE THE FOLD — Status banner + key metrics ═══ -->
+    <!-- ABOVE THE FOLD: Status banner + key metrics -->
     <section class="hero-section" aria-labelledby="page-title">
       <div class="container">
 
-        <h1 id="page-title" class="sr-only">American Visa Guide — IL Drop Tracker &amp; Community Data</h1>
+        <h1 id="page-title" class="sr-only">American Visa Guide: IL Drop Tracker &amp; Community Data</h1>
 
         <!-- Stale data notice -->
         <div id="data-notice" class="data-notice" role="alert" aria-live="polite">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Live data temporarily unavailable — showing last-known values. Data may be outdated.
+          Live data temporarily unavailable: showing last-known values. Data may be outdated.
         </div>
 
         <!-- IL Drop Status Banner -->
@@ -441,12 +444,12 @@
         </p>
 
         <p class="metrics-note" style="margin-top: var(--space-2);">
-          IL drop figures reflect <strong>Immediate Relative (IR)</strong> visas, based on the volume of data submitted. Family-Sponsored Preference cases follow the same London process but are currently tracking about a month behind IR. This tracker can only count people who submit their information — for the broader official picture, see the <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/iv-wait-times.html" target="_blank" rel="noopener noreferrer">NVC immigrant visa scheduling status tool</a>, or read more on the <a href="/guide#waiting">guide page</a>.
+          IL drop figures reflect <strong>Immediate Relative (IR)</strong> visas, based on the volume of data submitted. Family-Sponsored Preference cases follow the same London process but are currently tracking about a month behind IR. This tracker can only count people who submit their information, for the broader official picture, see the <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/iv-wait-times.html" target="_blank" rel="noopener noreferrer">NVC immigrant visa scheduling status tool</a>, or read more on the <a href="/guide#waiting">guide page</a>.
         </p>
       </div>
     </section>
 
-    <!-- ═══ PIPELINE STATUS ═══ -->
+    <!-- PIPELINE STATUS -->
     <section class="content-section" aria-labelledby="pipeline-hd">
       <div class="container">
         <div class="section-hd">
@@ -461,7 +464,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
             </div>
             <div class="pipeline-row__head">
-              <div class="pipeline-row__name">USCIS — I-130 Petition</div>
+              <div class="pipeline-row__name">USCIS: I-130 Petition</div>
               <div class="pipeline-row__badge" id="p-uscis-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
             </div>
             <p class="pipeline-row__summary" id="p-uscis-summary">
@@ -474,7 +477,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             </div>
             <div class="pipeline-row__head">
-              <div class="pipeline-row__name">NVC — National Visa Center</div>
+              <div class="pipeline-row__name">NVC: National Visa Center</div>
               <div class="pipeline-row__badge" id="p-nvc-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
             </div>
             <p class="pipeline-row__summary" id="p-nvc-summary">
@@ -487,7 +490,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
             </div>
             <div class="pipeline-row__head">
-              <div class="pipeline-row__name">US Embassy London — Interview &amp; Visa</div>
+              <div class="pipeline-row__name">US Embassy London: Interview &amp; Visa</div>
               <div class="pipeline-row__badge" id="p-london-badge"><span class="skel skel--chip" aria-hidden="true"></span></div>
             </div>
             <p class="pipeline-row__summary" id="p-london-summary">
@@ -498,12 +501,12 @@
         </div>
 
         <p class="metrics-note" style="margin-top: var(--space-4);">
-          <strong>Updated 30 August 2026.</strong> Two things changed at the London end. First, the embassy is sending interview cancellation notices covering <strong>all immigrant visa categories</strong>, now reaching appointments <strong>up to and including 30 September 2026</strong> &mdash; extended from an initial window that ran to 16 September. Same-day embassy document checks are canceled alongside the interviews; medicals appear to be unaffected. The notice gives no new date, tells applicants not to appear at the consular section until directed to, and says the new appointment will be confirmed in a separate email, but no timeline has been offered. The same wording is going out from other posts, so this is not London-specific. <a href="/guide#interview-cancellations">Full notice on the guide page &rarr;</a> Second, the court in <em>CLINIC v. Rubio</em> entered partial final judgment on 24 August 2026 under Rule 54(b), formally vacating the 75-country immigrant visa suspension and any refusal based solely on it, and making that ruling immediately appealable &mdash; <a href="/visa-pause.html">what the decision means for London cases</a>.
+          <strong>Updated 30 August 2026.</strong> Two things changed at the London end. First, the embassy is sending interview cancellation notices covering <strong>all immigrant visa categories</strong>, now reaching appointments <strong>up to and including 30 September 2026</strong>: extended from an initial window that ran to 16 September. Same-day embassy document checks are canceled alongside the interviews; medicals appear to be unaffected. The notice gives no new date, tells applicants not to appear at the consular section until directed to, and says the new appointment will be confirmed in a separate email, but no timeline has been offered. The same wording is going out from other posts, so this is not London-specific. <a href="/guide#interview-cancellations">Full notice on the guide page &rarr;</a> Second, the court in <em>CLINIC v. Rubio</em> entered partial final judgment on 24 August 2026 under Rule 54(b), formally vacating the 75-country immigrant visa suspension and any refusal based solely on it, and making that ruling immediately appealable: <a href="/visa-pause.html">what the decision means for London cases</a>.
         </p>
       </div>
     </section>
 
-    <!-- ═══ IL DROP HISTORY TABLE ═══ -->
+    <!-- IL DROP HISTORY TABLE -->
     <section class="content-section" aria-labelledby="drops-hd">
       <div class="container">
         <div class="section-hd">
@@ -537,11 +540,11 @@
       </div>
     </section>
 
-    <!-- ═══ DQ BACKLOG — AWAITING IL ═══ -->
+    <!-- DQ BACKLOG: AWAITING IL -->
     <section class="content-section" aria-labelledby="backlog-hd">
       <div class="container">
         <div class="section-hd">
-          <h2 class="section-hd__title" id="backlog-hd">DQ Backlog — Awaiting Interview Letters</h2>
+          <h2 class="section-hd__title" id="backlog-hd">DQ Backlog: Awaiting Interview Letters</h2>
           <p class="section-hd__sub">Tracked members who are Documentarily Qualified but haven't received an Interview Letter yet, grouped by DQ month with the drop expected to reach them.</p>
         </div>
 
@@ -581,7 +584,7 @@
       </div>
     </section>
 
-    <!-- ═══ IL → INTERVIEW SCHEDULING TABLE ═══ -->
+    <!-- IL → INTERVIEW SCHEDULING TABLE -->
     <section class="content-section" aria-labelledby="sched-hd">
       <div class="container">
         <div class="section-hd">
@@ -610,7 +613,7 @@
       </div>
     </section>
 
-    <!-- ═══ DQ → IL WAIT TIME TRENDS ═══ -->
+    <!-- DQ → IL WAIT TIME TRENDS -->
     <section class="content-section" aria-labelledby="trend-hd">
       <div class="container">
         <div class="section-hd">
@@ -639,18 +642,18 @@
 
         <p class="trend-note">
           <strong>What we're seeing:</strong> IL drops have stopped. Nothing has landed since
-          14 July 2026<span id="tn-days-since"></span> &mdash; the 6&ndash;16 August window we projected passed with no
+          14 July 2026<span id="tn-days-since"></span>: the 6&ndash;16 August window we projected passed with no
           drop, and the gap is now longer than any in our recorded drop history. Members waiting at
           other posts report the same silence, so this does not look like a London-specific problem.
           The trend figures above describe the period up to that last drop, when the wait from DQ to
-          Interview Letter was already lengthening &mdash; the last six months ran longer than the
+          Interview Letter was already lengthening. The last six months ran longer than the
           all-time median. Until drops resume, treat those numbers as a record of what happened, not
           a prediction of when your letter will arrive.
         </p>
       </div>
     </section>
 
-    <!-- ═══ INTERVIEW OUTCOMES ═══ -->
+    <!-- INTERVIEW OUTCOMES -->
     <section class="content-section" aria-labelledby="outcomes-hd">
       <div class="container">
         <div class="section-hd">
@@ -677,7 +680,7 @@
             </div>
             <div class="outcome-card__label">
               <span class="badge badge--warning">
-                <span aria-hidden="true">⚠</span>
+                <span aria-hidden="true">▲</span>
                 <abbr title="Administrative Processing under Section 221(g), including cases attributed to the 2025 visa pause">221(g)</abbr>
               </span>
             </div>
@@ -698,12 +701,12 @@
       </div>
     </section>
 
-    <!-- ═══ PASSPORT RETURN TIMES ═══ -->
+    <!-- PASSPORT RETURN TIMES -->
     <section class="content-section" aria-labelledby="passport-hd">
       <div class="container">
         <div class="section-hd">
           <h2 class="section-hd__title" id="passport-hd">Passport Return Times</h2>
-          <p class="section-hd__sub">After visa approval at interview — median days to receive your passport with visa stamp.</p>
+          <p class="section-hd__sub">After visa approval at interview: median days to receive your passport with visa stamp.</p>
         </div>
 
         <div class="metric-card" style="margin-bottom: var(--space-5);">
@@ -727,7 +730,7 @@
       </div>
     </section>
 
-    <!-- ═══ PER-STAGE TIMING TABLE ═══ -->
+    <!-- PER-STAGE TIMING TABLE -->
     <section class="content-section" aria-labelledby="timing-hd">
       <div class="container">
         <div class="section-hd">
@@ -759,7 +762,7 @@
       </div>
     </section>
 
-    <!-- ═══ TIMELINE CALCULATOR ═══ -->
+    <!-- TIMELINE CALCULATOR -->
     <section class="content-section" id="calculator" aria-labelledby="calc-hd">
       <div class="container">
         <div class="section-hd">
@@ -768,7 +771,7 @@
         </div>
 
         <div style="background: rgba(176, 74, 56, 0.08); border: 1px solid rgba(176, 74, 56, 0.25); border-radius: 8px; padding: var(--space-4); margin-bottom: var(--space-6); font-size: var(--text-sm); color: rgba(30, 28, 23, 0.75);">
-          <strong style="color: var(--color-text);">Predictions — not guarantees!</strong> These are estimates based on historical community timelines. Individual cases may vary. Use these for ballpark planning only.
+          <strong style="color: var(--color-text);">Predictions, not guarantees!</strong> These are estimates based on historical community timelines. Individual cases may vary. Use these for ballpark planning only.
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: var(--space-6);">
@@ -819,7 +822,7 @@
 
         </div>
 
-        <p style="margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-secondary); font-style: italic; text-align: center;">Please don't sue Erin — this is about numbers, not magic balls, and I am too poor to be held liable for playing with data and having you take it as a promise 😭</p>
+        <p style="margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-secondary); font-style: italic; text-align: center;">Please don't sue Erin. This is about numbers, not magic balls, and I am too poor to be held liable for playing with data and having you take it as a promise </p>
       </div>
     </section>
 
@@ -864,7 +867,7 @@
       }
 
       /* The embassy also closes for US federal holidays (observed dates,
-         2025–2028) — no interviews on these, on UK bank holidays, or weekends. */
+         2025–2028), no interviews on these, on UK bank holidays, or weekends. */
       const calcUsFederalHolidays = new Set([
         '2025-01-01', '2025-01-20', '2025-02-17', '2025-05-26', '2025-06-19', '2025-07-04', '2025-09-01', '2025-10-13', '2025-11-11', '2025-11-27', '2025-12-25',
         '2026-01-01', '2026-01-19', '2026-02-16', '2026-05-25', '2026-06-19', '2026-07-03', '2026-09-07', '2026-10-12', '2026-11-11', '2026-11-26', '2026-12-25',
@@ -918,7 +921,7 @@
         return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
       }
 
-      /* ISO date-string helpers — all arithmetic in local time at noon so
+      /* ISO date-string helpers: all arithmetic in local time at noon so
          formatting never shifts a day across timezones. */
       function calcParseISO(iso) {
         return new Date(iso + 'T12:00:00');
@@ -977,7 +980,7 @@
 
         const latestDq = sched.latest_dq_with_il;
         const gapDays = sched.avg_gap_days || 28;
-        // IL drops go out on embassy working days too — snap window bounds
+        // IL drops go out on embassy working days too. Snap window bounds
         const win = (sched.estimated_next_window || '').split(' to ').map(s => s.trim());
         const nextWinStart = calcNextEmbassyDayISO(win[0] || calcAddDaysISO(sched.last_il_drop, 23));
         const nextWinEnd   = calcNextEmbassyDayISO(win[1] || calcAddDaysISO(sched.last_il_drop, 33));
@@ -997,7 +1000,7 @@
             ivEarly: calcAddDaysISO(nextWinStart, offFrom),
             ivLate:  calcAddDaysISO(nextWinEnd, offTo),
             ilLine: `IL expected in the next drop, estimated ${calcFmtISO(nextWinStart)} – ${calcFmtISO(nextWinEnd)}.`,
-            methodology: `DQs up to ${calcFmtISO(latestDq)} have already received ILs — if yours hasn't arrived it should come in the next drop. Interviews typically run ${offFrom}–${offTo} days after a drop (based on ${offFromArr.length} recent drops).`,
+            methodology: `DQs up to ${calcFmtISO(latestDq)} have already received ILs: if yours hasn't arrived it should come in the next drop. Interviews typically run ${offFrom}–${offTo} days after a drop (based on ${offFromArr.length} recent drops).`,
           };
         }
 
@@ -1062,7 +1065,7 @@
 
         const proj = calcProjectDQToInterview(data, dqInput);
         if (proj) {
-          // Interviews only happen when the embassy is open — snap each
+          // Interviews only happen when the embassy is open. Snap each
           // predicted date forward past weekends and US/UK holidays.
           const ivEarly = calcNextEmbassyDayISO(proj.ivEarly);
           const ivLate = calcNextEmbassyDayISO(proj.ivLate);
@@ -1182,11 +1185,11 @@
       },
     };
 
-    /* Editorial pipeline narrative — current processing conditions, not in the DB */
+    /* Editorial pipeline narrative: current processing conditions, not in the DB */
     const PIPELINE = {
       uscis:  { status:'halted', text:'I-130 processing for consular cases has effectively stopped. <a href="/guide#uscis">Full explanation on the guide page →</a>' },
       nvc:    { status:'normal', text:'Processing normally. Documentarily Qualified typically lands ~14 calendar days after a complete submission.' },
-      london: { status:'halted', text:'All immigrant visa interviews at London are now canceled through 30 September 2026, along with same-day document checks; medicals appear unaffected. The embassy has given no replacement date and asks applicants not to attend until it confirms one. Interview Letters have stopped too &mdash; none since 14 July 2026, and other posts report the same, so the pause looks system-wide. Treat the DQ-to-IL figures here as history, not a forecast.' },
+      london: { status:'halted', text:'All immigrant visa interviews at London are now canceled through 30 September 2026, along with same-day document checks; medicals appear unaffected. The embassy has given no replacement date and asks applicants not to attend until it confirms one. Interview Letters have stopped too: none since 14 July 2026, and other posts report the same, so the pause looks system-wide. Treat the DQ-to-IL figures here as history, not a forecast.' },
     };
 
     /* Map the /api/data response into the shapes the render functions consume */
@@ -1209,7 +1212,7 @@
         nvc_status:    PIPELINE.nvc.status,    nvc_summary:    PIPELINE.nvc.text,
         london_status: PIPELINE.london.status, london_summary: PIPELINE.london.text,
         approved_pct: o.approval_pct ?? null,
-        // Unresolved 221(g) plus cases attributed to the 2025 visa pause —
+        // Unresolved 221(g) plus cases attributed to the 2025 visa pause
         // both are pending AP, so together they make the three cards cover
         // every reported outcome.
         rejected_221g_pct: pct((o.not_approved ?? 0) + (o.visa_pause ?? 0)),
@@ -1221,14 +1224,14 @@
       return { drops, stats };
     }
 
-    /* ── Helpers ── */
+    /* Helpers */
     function fmtDate(s) {
-      if (!s) return '—';
+      if (!s) return 'n/a';
       const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
       return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric', timeZone:'UTC' });
     }
     function fmtRange(from, to) {
-      if (!from && !to) return '—';
+      if (!from && !to) return 'n/a';
       if (!from || !to || from === to) return fmtDate(from || to);
       const a = new Date(from + 'T00:00:00Z');
       const b = new Date(to + 'T00:00:00Z');
@@ -1240,7 +1243,7 @@
       return `${fmtDate(from)} – ${fmtDate(to)}`;
     }
     function fmtMonth(s) {
-      if (!s) return '—';
+      if (!s) return 'n/a';
       const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
       return d.toLocaleDateString('en-GB', { month:'long', year:'numeric', timeZone:'UTC' });
     }
@@ -1254,7 +1257,7 @@
       if (!vals.length) return null;
       return Math.round(vals.reduce((s, v) => s + Number(v), 0) / vals.length);
     }
-    function toMonths(d) { return d != null ? (d / 30.44).toFixed(1) : '—'; }
+    function toMonths(d) { return d != null ? (d / 30.44).toFixed(1) : 'n/a'; }
     function set(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
     function txt(id, t)    { const el = document.getElementById(id); if (el) el.textContent = t; }
 
@@ -1262,8 +1265,8 @@
       const map = {
         active:  ['badge--success',     '●', 'Active'],
         normal:  ['badge--success',     '●', 'Normal'],
-        delayed: ['badge--warning',     '⚠', 'Delayed'],
-        slow:    ['badge--warning',     '⚠', 'Slow'],
+        delayed: ['badge--warning',     '▲', 'Delayed'],
+        slow:    ['badge--warning',     '▲', 'Slow'],
         halted:  ['badge--destructive', '■', 'Stopped'],
         paused:  ['badge--destructive', '✕', 'Paused'],
       };
@@ -1271,7 +1274,7 @@
       return `<span class="badge ${cls}" aria-label="Status: ${label}"><span aria-hidden="true">${icon}</span> ${label}</span>`;
     }
 
-    /* ── Renderers ── */
+    /* Renderers */
     function renderBanner(drops, stats) {
       const banner = document.getElementById('il-banner');
       if (!banner) return;
@@ -1307,13 +1310,13 @@
       }
 
       // Once the window has passed with nothing in it, the estimate is a missed
-      // forecast rather than an upcoming one — it stays put until a drop lands
+      // forecast rather than an upcoming one. It stays put until a drop lands
       // and the API recomputes it from that date.
       const title = ns
         ? `${missedWindow ? 'Was expected' : 'Next expected'}: ${fmtDate(ns)}${ne ? ' – ' + fmtDate(ne) : ''}`
         : 'Next drop window not yet estimated';
       const sub = lastDate
-        ? `Last IL drop: ${fmtDate(lastDate)}${days != null ? ` — ${days} days ago` : ''}`
+        ? `Last IL drop: ${fmtDate(lastDate)}${days != null ? ` (${days} days ago)` : ''}`
         : '';
 
       banner.className = `il-banner ${cfg.cls}`;
@@ -1333,11 +1336,11 @@
       const days = daysAgo(lastDate);
       set('m-last-drop', fmtDate(lastDate));
       txt('m-last-drop-sub', lastDate ? 'Most recent drop' : '');
-      set('m-days-since', days != null ? String(days) : '—');
+      set('m-days-since', days != null ? String(days) : 'n/a');
       txt('m-days-since-sub', days != null ? (days === 1 ? 'day ago' : 'days ago') : '');
       const ns = stats?.next_drop_window_start;
       const ne = stats?.next_drop_window_end;
-      set('m-next-window', ns ? fmtDate(ns) : '—');
+      set('m-next-window', ns ? fmtDate(ns) : 'n/a');
       txt('m-next-window-sub', ns ? (ne ? `to ${fmtDate(ne)}` : 'Estimated') : 'Not yet estimated');
       const tn = document.getElementById('tn-days-since');
       if (tn) tn.textContent = days != null ? `, ${days} days ago` : '';
@@ -1348,7 +1351,7 @@
       set('il-latest-dq', fmtDate(stats?.latest_dq_with_il));
       // Interview date range from the most recent drop with reported interviews
       const ivDrop = drops?.find(d => d.iv_date_from);
-      set('m-interview-range', ivDrop ? fmtRange(ivDrop.iv_date_from, ivDrop.iv_date_to) : '—');
+      set('m-interview-range', ivDrop ? fmtRange(ivDrop.iv_date_from, ivDrop.iv_date_to) : 'n/a');
       txt('m-interview-range-sub', ivDrop
         ? `From the ${fmtDate(ivDrop.drop_date || ivDrop.recorded_at)} IL drop`
         : 'Not yet reported');
@@ -1368,21 +1371,21 @@
       tbody.innerHTML = drops.map(d => {
         const ds = d.drop_date || d.recorded_at;
         const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        const dayName = ds ? DAYS[new Date(ds + 'T00:00:00Z').getUTCDay()] : '—';
+        const dayName = ds ? DAYS[new Date(ds + 'T00:00:00Z').getUTCDay()] : 'n/a';
         return `<tr>
           <td>${fmtDate(ds)}</td>
           <td>${dayName}</td>
-          <td>${d.drop_time || '—'}</td>
-          <td>${d.dq_date_from ? fmtDate(d.dq_date_from) : '—'} – ${d.dq_date_to ? fmtDate(d.dq_date_to) : '—'}</td>
+          <td>${d.drop_time || 'n/a'}</td>
+          <td>${d.dq_date_from ? fmtDate(d.dq_date_from) : 'n/a'} – ${d.dq_date_to ? fmtDate(d.dq_date_to) : 'n/a'}</td>
           <td>${fmtRange(d.iv_date_from, d.iv_date_to)}</td>
-          <td>${d.gap_days != null ? d.gap_days + ' days' : '—'}</td>
-          <td>${d.il_count != null ? Number(d.il_count).toLocaleString('en-GB') : '—'}</td>
+          <td>${d.gap_days != null ? d.gap_days + ' days' : 'n/a'}</td>
+          <td>${d.il_count != null ? Number(d.il_count).toLocaleString('en-GB') : 'n/a'}</td>
         </tr>`;
       }).join('');
     }
 
     /* How fast the IL frontier (furthest DQ date with an IL) advances, in
-       DQ-days per calendar day — same measurement the DQ → Interview
+       DQ-days per calendar day: same measurement the DQ → Interview
        calculator uses, on the cumulative furthest-DQ-covered across drops. */
     function frontierRate(drops) {
       let cum = null;
@@ -1431,29 +1434,29 @@
       const a = d.awaiting_il;
       const tbody = document.getElementById('backlog-tbody');
       if (!a || !Array.isArray(a.months)) {
-        set('bk-total', '—');
+        set('bk-total', 'n/a');
         txt('bk-total-sub', 'Needs live data');
-        set('bk-oldest', '—');
-        if (tbody) tbody.innerHTML = '<tr><td colspan="4">Backlog counts need live data — check back shortly.</td></tr>';
+        set('bk-oldest', 'n/a');
+        if (tbody) tbody.innerHTML = '<tr><td colspan="4">Backlog counts need live data. Check back shortly.</td></tr>';
         return;
       }
 
       set('bk-total', a.total.toLocaleString('en-GB'));
       txt('bk-total-sub', a.frontier
-        ? `DQ dates after ${fmtDate(a.frontier)} — the latest DQ with an IL`
+        ? `DQ dates after ${fmtDate(a.frontier)}, the latest DQ with an IL`
         : 'Tracked members without an IL');
-      set('bk-oldest', a.months.length ? fmtDate(a.months[0].dq_from) : '—');
+      set('bk-oldest', a.months.length ? fmtDate(a.months[0].dq_from) : 'n/a');
 
       if (tbody) {
         if (!a.months.length) {
-          tbody.innerHTML = '<tr><td colspan="4">No tracked members are currently waiting — every recorded DQ has an Interview Letter.</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="4">No tracked members are currently waiting, every recorded DQ has an Interview Letter.</td></tr>';
         } else {
           const rate = frontierRate(drops);
           tbody.innerHTML = a.months.map(m => `<tr>
             <td>${fmtMonth(m.month + '-01')}</td>
             <td class="num">${m.count.toLocaleString('en-GB')}</td>
             <td>${fmtRange(m.dq_from, m.dq_to)}</td>
-            <td>${expectedBatchLabel(m, d.il_schedule, rate) || '—'}</td>
+            <td>${expectedBatchLabel(m, d.il_schedule, rate) || 'n/a'}</td>
           </tr>`).join('');
         }
       }
@@ -1461,9 +1464,9 @@
       const note = document.getElementById('bk-note');
       if (note) {
         const stale = a.stale_count
-          ? ` ${a.stale_count.toLocaleString('en-GB')} other member${a.stale_count === 1 ? ' has a DQ date' : 's have DQ dates'} already covered by past drops but no IL recorded — likely just not updated yet, so they're excluded from the counts above.`
+          ? ` ${a.stale_count.toLocaleString('en-GB')} other member${a.stale_count === 1 ? ' has a DQ date' : 's have DQ dates'} already covered by past drops but no IL recorded: likely just not updated yet, so they're excluded from the counts above.`
           : '';
-        note.textContent = `Counts cover tracked community members only — the embassy's real queue is larger. Expected batches are estimates from the observed drop cadence, not guarantees.${stale}`;
+        note.textContent = `Counts cover tracked community members only. The embassy's real queue is larger. Expected batches are estimates from the observed drop cadence, not guarantees.${stale}`;
       }
     }
 
@@ -1474,7 +1477,7 @@
       const card = (obj, id, waitingWord) => {
         const o = obj || {};
         if (o.suppressed || o.median == null) {
-          set(id, '—');
+          set(id, 'n/a');
           txt(id + '-sub', o.n ? `Insufficient data (n=${o.n})` : 'Insufficient data');
           return;
         }
@@ -1482,7 +1485,7 @@
         const parts = [];
         if (o.p25 != null && o.p75 != null) parts.push(`most: ${o.p25}–${o.p75} days`);
         parts.push(`from ${o.n} cases`);
-        if (o.small_sample) parts.push('few cases so far — treat as rough');
+        if (o.small_sample) parts.push('few cases so far, treat as rough');
         if (o.censored) parts.push(`${o.censored} ${o.censored_label || waitingWord}`);
         parts.push(o.window_days ? `last ${o.window_days} days` : 'all time');
         txt(id + '-sub', parts.join(' · '));
@@ -1500,7 +1503,7 @@
       function setTrend(valId, dirId, val, ref, isBaseline) {
         const el = document.getElementById(dirId);
         if (val == null) {
-          set(valId, '—');
+          set(valId, 'n/a');
           if (el) { el.className = 'trend-card__dir'; el.innerHTML = '<span>Not enough recent data</span>'; }
           return;
         }
@@ -1522,15 +1525,15 @@
 
     function renderOutcomes(stats) {
       if (!stats) return;
-      set('o-approved', stats.approved_pct      != null ? `${stats.approved_pct}%`      : '—');
-      set('o-221g',     stats.rejected_221g_pct != null ? `${stats.rejected_221g_pct}%` : '—');
-      set('o-denied',   stats.denied_pct        != null ? `${stats.denied_pct}%`        : '—');
+      set('o-approved', stats.approved_pct      != null ? `${stats.approved_pct}%`      : 'n/a');
+      set('o-221g',     stats.rejected_221g_pct != null ? `${stats.rejected_221g_pct}%` : 'n/a');
+      set('o-denied',   stats.denied_pct        != null ? `${stats.denied_pct}%`        : 'n/a');
     }
 
     function renderPassport(stats) {
       if (!stats) return;
-      set('pp-pickup', stats.median_pickup_days != null ? String(stats.median_pickup_days) : '—');
-      set('pp-mail',   stats.median_mail_days   != null ? String(stats.median_mail_days)   : '—');
+      set('pp-pickup', stats.median_pickup_days != null ? String(stats.median_pickup_days) : 'n/a');
+      set('pp-mail',   stats.median_mail_days   != null ? String(stats.median_mail_days)   : 'n/a');
     }
 
     function renderTimings(d) {
@@ -1549,12 +1552,12 @@
       ];
       tbody.innerHTML = stages.map(([label, a]) => `<tr>
           <th scope="row" style="font-weight:var(--font-normal);">${label}</th>
-          <td class="num">${a != null ? a : '—'}</td>
-          <td class="num">${a != null ? toMonths(a) : '—'}</td>
+          <td class="num">${a != null ? a : 'n/a'}</td>
+          <td class="num">${a != null ? toMonths(a) : 'n/a'}</td>
         </tr>`).join('');
     }
 
-    /* ── Boot ── */
+    /* Boot */
     async function boot() {
       let d, usedFallback = false;
       try {
@@ -1587,7 +1590,7 @@
   </script>
 
 
-  <!-- WCAG 2.1 AA — audited 2026-05-30 — accessibility improvements: skip link, focus indicators, reduced motion support, semantic HTML landmarks, aria labels on status indicators, external link handling -->
+  <!-- WCAG 2.1 AA, audited 2026-05-30, accessibility improvements: skip link, focus indicators, reduced motion support, semantic HTML landmarks, aria labels on status indicators, external link handling -->
 
 </body>
 </html>

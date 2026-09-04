@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   }
 
   if (username) {
-    // UPSERT — match on username_raw (case-insensitive via ilike not possible in upsert,
+    // UPSERT. Match on username_raw (case-insensitive via ilike not possible in upsert,
     // so we normalize to lowercase before upserting)
     cleaned.username_raw = username.toLowerCase()
 
@@ -38,11 +38,11 @@ export default async function handler(req, res) {
     headers = {
       ...baseHeaders,
       // On conflict with username_raw, update all supplied fields
-      // Requires a unique index on username_raw — see note below
+      // Requires a unique index on username_raw. See note below
       'Prefer': 'resolution=merge-duplicates,return=minimal',
     }
   } else {
-    // No username — plain insert
+    // No username: plain insert
     url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/form_responses`
     method = 'POST'
     headers = {
