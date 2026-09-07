@@ -380,7 +380,7 @@ export default async function handler(req, res) {
   // a member's stored timestamp is when they logged the IL, not when it landed;
   // these entries supply the correct displayed time for those drops.
   const observedTimes = {
-    '2026-07-14': '14:53',   // reported by SQ235
+    '2026-07-14': '14:53',   // SQ235, corroborated by other recipients
     '2026-06-29': '15:02',
     '2026-05-29': '14:52',
     '2026-05-28': '14:52',
