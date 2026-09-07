@@ -1,3 +1,19 @@
+// UK wall-clock time for an instant. Europe/London handles the BST switchovers
+// (last Sunday in March / October) that a month-range test gets wrong at the
+// edges. h23 is explicit so midnight formats as 00:00, not 24:00.
+const ukTimeFormatter = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Europe/London',
+  hour: '2-digit',
+  minute: '2-digit',
+  hourCycle: 'h23',
+})
+
+const ukTime = (d) => {
+  const parts = ukTimeFormatter.formatToParts(d)
+  const part = (type) => parts.find(p => p.type === type)?.value ?? '00'
+  return `${part('hour')}:${part('minute')}`
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).end()
 
@@ -360,9 +376,11 @@ export default async function handler(req, res) {
   )
 
   // Observed UK drop times: community-sourced.
-  // Historic imports stored date-only so timestamp defaults to midnight UTC;
+  // Historic imports stored date-only so timestamp defaults to midnight UTC, and
+  // a member's stored timestamp is when they logged the IL, not when it landed;
   // these entries supply the correct displayed time for those drops.
   const observedTimes = {
+    '2026-07-14': '14:53',   // SQ235, corroborated by other recipients
     '2026-06-29': '15:02',
     '2026-05-29': '14:52',
     '2026-05-28': '14:52',
@@ -387,13 +405,7 @@ export default async function handler(req, res) {
     const earliestIL = new Date(Math.min(...cluster.members.map(r => new Date(r.interview_letter))))
     const date = clusterDates[i]
 
-    const time = observedTimes[date] || (() => {
-      const month = earliestIL.getUTCMonth()
-      const isBST = month >= 3 && month <= 9
-      const ukHours = (earliestIL.getUTCHours() + (isBST ? 1 : 0)) % 24
-      const ukMins = earliestIL.getUTCMinutes()
-      return String(ukHours).padStart(2,'0') + ':' + String(ukMins).padStart(2,'0')
-    })()
+    const time = observedTimes[date] || ukTime(earliestIL)
 
     // Gap = days since previous drop (previous entry in oldest-first order)
     const prevDate = i > 0 ? clusterDates[i - 1] : null
