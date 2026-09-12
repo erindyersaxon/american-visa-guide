@@ -10,6 +10,20 @@
 (function () {
   'use strict';
 
+  /* Sitewide policy banner. Flip BANNER_ENABLED to true to show it, and
+     update BANNER_HTML for the notice of the day. Styles: .site-banner
+     in /css/nav.css. */
+  const BANNER_ENABLED = false;
+
+  const BANNER_HTML = `
+<div class="site-banner" role="region" aria-label="Site policy notice">
+  <div class="site-banner-inner">
+    <span class="site-banner-label">Policy update</span>
+    <p>Both the immigrant visa and the diversity visa pauses have been struck down, and the State Department has rescinded the guidance behind them. <a href="/september-2026-update.html">Where things stand &rarr;</a></p>
+  </div>
+</div>
+`;
+
   const NAV_HTML = `
 <nav class="site-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-container">
@@ -183,9 +197,19 @@
       }
     }
 
+    mountBanner(nav);
     markActive(nav);
     wireToggle(nav);
     mountFooter();
+  }
+
+  function mountBanner(nav) {
+    if (!BANNER_ENABLED) return;
+    if (document.querySelector('.site-banner')) return;
+    if (!nav.parentNode) return;
+    const tpl = document.createElement('template');
+    tpl.innerHTML = BANNER_HTML.trim();
+    nav.parentNode.insertBefore(tpl.content.firstElementChild, nav);
   }
 
   function mountFooter() {
