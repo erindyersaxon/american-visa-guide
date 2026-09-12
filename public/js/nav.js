@@ -10,6 +10,11 @@
 (function () {
   'use strict';
 
+  /* Sitewide policy banner. Flip BANNER_ENABLED to true to show it, and
+     update BANNER_HTML for the notice of the day. Styles: .site-banner
+     in /css/nav.css. */
+  const BANNER_ENABLED = false;
+
   const BANNER_HTML = `
 <div class="site-banner" role="region" aria-label="Site policy notice">
   <div class="site-banner-inner">
@@ -199,6 +204,7 @@
   }
 
   function mountBanner(nav) {
+    if (!BANNER_ENABLED) return;
     if (document.querySelector('.site-banner')) return;
     if (!nav.parentNode) return;
     const tpl = document.createElement('template');
