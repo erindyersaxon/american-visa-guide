@@ -8,6 +8,66 @@
    (guide.html / life.html use their own embedded tokens).
  */
 
+/* Sitewide policy banner: sits above the nav, injected by /js/nav.js.
+   Palette literals mirror the fallbacks used throughout this file so the
+   banner renders on pages that do not load the token files. */
+
+.site-banner {
+  background-color: var(--color-navy, #2e4a7d);
+  color: #fdfaf3;
+  font-family: var(--font-body, 'Public Sans', system-ui, -apple-system, sans-serif);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.site-banner-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.7rem;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 0.6rem 1.5rem;
+}
+
+.site-banner-label {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.site-banner p {
+  margin: 0;
+}
+
+.site-banner a {
+  color: #fdfaf3;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.site-banner a:hover {
+  text-decoration: none;
+}
+
+.site-banner a:focus-visible {
+  outline: 2px solid #fdfaf3;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .site-banner-inner {
+    padding: 0.55rem 1rem;
+  }
+}
+
+@media print {
+  .site-banner { display: none; }
+}
+
 .site-nav {
   position: sticky;
   top: 0;
