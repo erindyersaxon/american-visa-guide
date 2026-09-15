@@ -2,11 +2,22 @@
    American Visa Guide: Interview Question Bank
    Single source of truth for the consular interview question bank.
 
-   Every question here comes from a real community interview report at
-   the US Embassy London (see checklist-interview.html for the full
-   write-ups). Officers are confirming what they already know from your
-   DS-260 and petition. They are not testing you. Answer honestly and
-   consistently; the point of this bank is rehearsal, not memorization.
+   Almost every question here comes from a real community interview
+   report at the US Embassy London (see checklist-interview.html for the
+   full write-ups). The exceptions are attributed to 'Written
+   questionnaire': those are taken verbatim from a written public charge
+   questionnaire a post issued to an applicant ahead of interview, and
+   are included because the same factors drive the questioning at London.
+
+   Officers are confirming what they already know from your DS-260 and
+   petition. They are not testing you. Answer honestly and consistently;
+   the point of this bank is rehearsal, not memorization.
+
+   A note on the 'publiccharge' theme: those questions are newer and
+   sharper than the rest of the bank. Since the public charge assessment
+   changed in November 2025 the financial questioning has become a
+   sustained line of enquiry rather than a box-tick, and reports describe
+   interviews running 30 to 40 minutes on it. See public-charge.html.
 
    HOW TO ADD A QUESTION (this file is the only place to edit):
      {
@@ -45,6 +56,7 @@
     { key: 'living',       label: 'Where you’ll live & US plans' },
     { key: 'work',         label: 'Work & employment' },
     { key: 'finances',     label: 'Finances, sponsorship & benefits' },
+    { key: 'publiccharge', label: 'Public charge: the deep financial dive' },
     { key: 'medical',      label: 'Medical, insurance & conditions' },
     { key: 'family',       label: 'Family & prior relationships' },
     { key: 'logistics',    label: 'Travel & logistics' },
@@ -71,6 +83,9 @@
     { q: 'What does your petitioner do for work?', theme: 'petitioner', cats: 'all', tip: 'Officers often review the sponsor’s income documents right after this: know their job and roughly what they earn.', from: 'Multiple reports' },
     { q: 'Where does your petitioner currently live?', theme: 'petitioner', cats: 'all', from: 'Multiple reports' },
     { q: 'What do your petitioner’s parents do for work?', theme: 'petitioner', cats: ['spouse'], tip: 'Comes up especially if you’ll be living with them at first.', from: 'Mia' },
+    { q: 'Does your petitioner have a mortgage?', theme: 'petitioner', cats: 'all', tip: 'The largest of the debts the officer weighs. Know whether there is one and roughly what is outstanding.', from: 'Esther' },
+    { q: 'Is your petitioner in a union?', theme: 'petitioner', cats: 'all', tip: 'Asked of a petitioner working somewhere unionised. Union membership speaks to job security and health coverage, so it helps you: know the answer.', from: 'Esther' },
+    { q: 'Who else lives at the address?', theme: 'petitioner', cats: 'all', tip: 'Everyone, not just the people on the petition. Family status is a statutory public charge factor.', from: 'Esther' },
 
     // Where you'll live & US plans
     { q: 'Where will you live in the US?', theme: 'living', cats: 'all', from: 'Multiple reports' },
@@ -79,6 +94,12 @@
     // Work & employment
     { q: 'Are you currently employed? What do you do?', theme: 'work', cats: 'all', from: 'Multiple reports' },
     { q: 'What do you plan to do for work once you get to America?', theme: 'work', cats: 'all', tip: 'A general direction is fine. You don’t need a signed job offer.', from: 'Mia' },
+    { q: 'Who do you work for, and what does the company do?', theme: 'work', cats: 'all', tip: 'Expect the full background. One officer searched the applicant’s employer online during the interview and read the results back to her.', from: 'Esther' },
+    { q: 'When did you join your current company?', theme: 'work', cats: 'all', from: 'Esther' },
+    { q: 'Who was your previous employer?', theme: 'work', cats: 'all', tip: 'Continuity of employment is weighed as heavily as the current role. Have the whole history, not just the latest job.', from: 'Esther' },
+    { q: 'Is your work remote?', theme: 'work', cats: 'all', tip: 'A gateway question. The two that follow it matter more.', from: 'Esther' },
+    { q: 'Will your company allow you to work from the US? If not, what is your plan?', theme: 'work', cats: 'all', tip: 'Do not assume a remote job survives the move: many employers will not permit it, for tax and payroll reasons. Get written confirmation if you are relying on it, and have a fallback if you are not.', from: 'Esther' },
+    { q: 'What did you study, and where? Do you have any other certifications?', theme: 'work', cats: 'all', tip: 'Have the full list, not just the highest qualification. Posts ask for education history as a list with subject, institution and year.', from: 'Esther' },
 
     // Finances, sponsorship & benefits
     { q: 'Have you, or your petitioner, ever received financial aid or benefits from the government?', theme: 'finances', cats: 'all', from: 'Multiple reports' },
@@ -86,10 +107,23 @@
     { q: 'Do you have savings you’re bringing with you? Roughly how much? Does your petitioner have savings?', theme: 'finances', cats: 'all', tip: 'Have a ballpark figure ready. You won’t need exact numbers.', from: 'Multiple reports' },
     { q: 'Do you have a joint sponsor? Who are they, and what do they do?', theme: 'finances', cats: 'all', tip: 'Know their name, relationship to you, job and income. One member was told he “probably” needed one and was still approved.', from: 'Multiple reports' },
 
+    // Public charge: the deep financial dive
+    { q: 'Why was your petitioner’s income below the minimum in a given tax year?', theme: 'publiccharge', cats: 'all', tip: 'The officer reads the tax transcript in front of you and asks the beneficiary to explain it. Know the reason and know what changed. One petitioner’s 2025 income was low because he had just opened a business.', from: 'Esther' },
+    { q: 'What is your petitioner’s business? If it fails, what will he or she do?', theme: 'publiccharge', cats: 'all', tip: 'Asked of any self-employed sponsor, and the contingency half is asked directly. Have an answer that does not depend on the business surviving.', from: 'Esther' },
+    { q: 'How much do you earn a month?', theme: 'publiccharge', cats: 'all', tip: 'Have the figure ready in US dollars. Converting under pressure is an avoidable stumble.', from: 'Esther' },
+    { q: 'Can I see your savings balance?', theme: 'publiccharge', cats: 'all', tip: 'Not a question, a request. Bring printed bank and investment statements: officers ask to see the balance, not just hear it.', from: 'Esther' },
+    { q: 'Can you show proof of the property you own?', theme: 'publiccharge', cats: 'all', tip: 'Bring documentary proof for every property you claim, co-owned ones included. One applicant named two and could evidence only one.', from: 'Esther' },
+    { q: 'Tell me about your side business. Do you get paid a salary for it?', theme: 'publiccharge', cats: 'all', tip: 'Cash or informal income draws detailed questioning because it cannot be evidenced like a payslip. Describe it accurately, do not inflate it, and lead on income you can document.', from: 'Esther' },
+    { q: 'How many people does your petitioner support financially?', theme: 'publiccharge', cats: 'all', tip: 'Wider than the I-864 definition: it includes extended family or friends being supported, who appear nowhere on the affidavit. Work out both numbers.', from: 'Written questionnaire' },
+    { q: 'Has either of you ever been institutionalized at government expense?', theme: 'publiccharge', cats: 'all', tip: 'A long-term stay in a mental health or nursing facility funded by the state. Ordinary NHS treatment is not this. Asked about the petitioner as well as you.', from: 'Written questionnaire' },
+    { q: 'What is your petitioner’s salary after taxes?', theme: 'publiccharge', cats: 'all', tip: 'Written questionnaires ask for net, while the I-864 works in gross. Have both figures and say which one you are quoting.', from: 'Written questionnaire' },
+
     // Medical, insurance & conditions
     { q: 'Do you have any medical conditions?', theme: 'medical', cats: 'all', from: 'Mia' },
     { q: 'Do you have a plan for medication or treatment once you’re in the US?', theme: 'medical', cats: 'all', from: 'Mia' },
     { q: 'How will you get health insurance in the US?', theme: 'medical', cats: 'all', tip: 'Even a general plan (spouse’s employer, marketplace, etc.) is reassuring.', from: 'Mia' },
+    { q: 'Are you on your petitioner’s insurance plan?', theme: 'medical', cats: 'all', tip: 'If not yet, say when you will be and what covers you until then.', from: 'Esther' },
+    { q: 'Do you know what your medication costs in the US? Have you looked into it?', theme: 'medical', cats: 'all', tip: 'The health factor is about cost, not just coverage. An applicant with Type 1 diabetes was asked what insulin costs in the US. Price your own treatment in dollars before you go.', from: 'Esther' },
 
     // Family & prior relationships
     { q: 'Have you been married before? Has your petitioner?', theme: 'family', cats: 'all', from: 'Multiple reports' },

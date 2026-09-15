@@ -263,7 +263,7 @@
               return '<li class="qb-item"><p>' + escapeHtml(q.q) + '</p>' + tip + from + '</li>';
             }).join('');
             section.innerHTML =
-              '<h3><span class="qb-theme-icon" aria-hidden="true">' + t.icon + '</span>' +
+              '<h3>' + (t.icon ? '<span class="qb-theme-icon" aria-hidden="true">' + t.icon + '</span>' : '') +
               escapeHtml(t.label) +
               '<span class="qb-theme-count">' + inTheme.length + '</span></h3>' +
               '<ul class="qb-list">' + items + '</ul>';
@@ -281,7 +281,7 @@
         }
         function themeLabelFor(key) {
           var t = THEMES.filter(function (x) { return x.key === key; })[0];
-          return t ? (t.icon + ' ' + t.label) : '';
+          return t ? ((t.icon ? t.icon + ' ' : '') + t.label) : '';
         }
 
         // Flashcards
