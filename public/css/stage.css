@@ -991,3 +991,79 @@
   .qb-list li { margin-bottom: 6px; }
   .qb-q { display: block; }
   .qb-tip { display: block; font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+  /* ─── Guide Hub (/guide) ─────────────────────────────────────────── */
+  .hub-reviewed { margin: 12px 0 0; }
+
+  .hub-toc .section-title { margin-bottom: 8px; }
+  .hub-toc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 12px 0 0;
+  }
+  .hub-toc-table thead th {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    background: rgba(30,28,23,0.06);
+  }
+  .hub-toc-table tbody th,
+  .hub-toc-table td {
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-subtle);
+    color: rgba(30,28,23,0.85);
+  }
+  .hub-toc-table tbody th { font-weight: 700; white-space: nowrap; }
+  .hub-toc-table tbody th a { color: var(--accent); text-decoration: none; }
+  .hub-toc-table tbody th a:hover { text-decoration: underline; }
+  .hub-toc-table tbody tr:nth-child(odd) > * { background: rgba(30,28,23,0.025); }
+
+  /* Phones: each stage becomes a card, labels from data-label */
+  @media (max-width: 700px) {
+    .hub-toc-table thead { position: absolute; left: -9999px; }
+    .hub-toc-table, .hub-toc-table tbody, .hub-toc-table tr,
+    .hub-toc-table tbody th, .hub-toc-table td { display: block; width: 100%; }
+    .hub-toc-table tr {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background: var(--card-bg);
+      overflow: hidden;
+    }
+    /* Undo the generic ≤600px table rule (nowrap, scroll box, 500px tbody) */
+    .hub-toc-table { white-space: normal; overflow: visible; }
+    .hub-toc-table tbody { max-height: none; overflow: visible; }
+    .hub-toc-table tbody tr:nth-child(odd) > * { background: transparent; }
+    .hub-toc-table tbody th { white-space: normal; font-size: 15px; border-bottom: 1px solid var(--border-subtle); }
+    .hub-toc-table td { border-bottom: none; padding: 4px 12px; }
+    .hub-toc-table td:last-child { padding-bottom: 12px; }
+    .hub-toc-table td::before {
+      content: attr(data-label) ': ';
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+  }
+
+  .hub-list { font-size: 14px; }
+  .hub-list li { margin-bottom: 8px; }
+  .hub-list a { font-weight: 600; }
+
+  .hub-docs { font-size: 14px; margin: 0; }
+  .hub-docs dt {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 14px;
+  }
+  .hub-docs dt:first-child { margin-top: 0; }
+  .hub-docs dt a { color: var(--text-primary); }
+  .hub-docs dd { margin: 4px 0 0; color: rgba(30,28,23,0.85); }
