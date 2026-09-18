@@ -632,6 +632,9 @@ These were found during review. They are **out of scope** for the restructure an
 | L6 | The CR1 and IR1 "Evidence at filing" paragraphs are byte-identical (70 words). |
 | ~~L7~~ | *Resolved by Phase 2A task 3 — the owner directed that the interview stage carry the full bank.* |
 | ~~L8~~ | *Resolved by Phase 2A task 1 — the owner set both totals to 1.5–4.5 hours, with the prior 30-minutes-to-2-hours range retained as context.* |
+| L9 | `interview-questions.html:110` still says "Most London interviews run 2–10 minutes", which now contradicts the 20–35 minute guidance figure. Outside Phase 2A's two-file scope, so unchanged. *(Found in Phase 2A.)* |
+| L10 | `/guide/interview` Community interview experiences opens "The pattern is consistent: short interview, long wait, professional officers." The date-qualification on the closing pattern line covers the six accounts, but this lead line now sits above Esther's 35–40 minute account. *(Found in Phase 2A.)* |
+| L11 | Four of the ten hardcoded Stage 5 questions are not (fully) in the bank: "When did you meet in person?" (bank asks *where*), "When and where did you marry?" (bank asks *where*), "Children or stepchildren?" (bank omits stepchildren), "Arrest or residence history?" (no arrest question). C1 forbids deleting them and Phase 2A forbids editing the bank, so they stay on `/guide/interview` as a short list under the rendered bank. Adding them to `/js/interview-questions.js` would let that list go. *(Found in Phase 2A.)* |
 
 ---
 

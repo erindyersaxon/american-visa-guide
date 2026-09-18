@@ -101,6 +101,7 @@
     <h1 class="stage-h1">Stage 5: Embassy Interview</h1>
 
     <p class="stage-meta">
+      <span><span aria-hidden="true">⏱</span> Interview 20–35 minutes; 1.5–4.5 hours in the embassy</span>
       <span>Arrive 30–45 minutes before your appointment</span>
       <span>South Pavilion, 33 Nine Elms Lane, London SW11 7US</span>
       <span>Reviewed 18 Sept 2026</span>
@@ -222,34 +223,21 @@
           <div class="step-num">2</div>
           <div class="step-body">
             <div class="step-title">Interview window</div>
-            <div class="step-desc">Take oath. Answer brief questions, typically 2–5 minutes. Receive decision. Total time in embassy: approximately 90–120 minutes.</div>
+            <div class="step-desc">Take oath. Answer questions. <strong>Expect 20–35 minutes</strong>: since the public charge worksheet was deployed to consular officers, the financial questioning is a sustained line of enquiry rather than a box-tick. Receive decision. Total time in embassy: <strong>1.5–4.5 hours</strong>. Before the public charge worksheet, community members reported 30 minutes to 2 hours; the longer financial questioning has moved both ends of that.</div>
           </div>
         </div>
       </div>
 
       <h2>Common interview questions</h2>
-      <div class="two-col">
-        <div>
-          <p style="font-size:12px;font-weight:600;color:var(--text-secondary);margin-bottom:8px;">Relationship</p>
-          <ul style="font-size:13px;">
-            <li>How and when did you meet?</li>
-            <li>When did you meet in person?</li>
-            <li>When and where did you marry?</li>
-            <li>Prior marriages?</li>
-            <li>Children or stepchildren?</li>
-          </ul>
-        </div>
-        <div>
-          <p style="font-size:12px;font-weight:600;color:var(--text-secondary);margin-bottom:8px;">Living &amp; financial</p>
-          <ul style="font-size:13px;">
-            <li>Where does your spouse live?</li>
-            <li>Where will you live in the US?</li>
-            <li>What does your spouse do for work?</li>
-            <li>Who is your joint sponsor?</li>
-            <li>Arrest or residence history?</li>
-          </ul>
-        </div>
-      </div>
+      <p>All <span data-question-count>53</span> questions in the community question bank, grouped by topic: almost all reported by members interviewed at London, plus a few taken from a written public charge questionnaire issued by another post. To rehearse them as flashcards or filter by visa category, use the <a href="/interview-questions">interview question bank</a>.</p>
+      <div data-question-bank></div>
+      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">Also asked at London, and not yet in the question bank:</p>
+      <ul style="font-size:13px;">
+        <li>When did you meet in person?</li>
+        <li>When and where did you marry?</li>
+        <li>Children or stepchildren?</li>
+        <li>Arrest or residence history?</li>
+      </ul>
       <p style="font-size:13px;color:var(--text-secondary);">Answers must match your DS-260 and CEAC documents exactly. The interview is a consistency check, not a new evaluation.</p>
 
 
@@ -281,7 +269,13 @@
           <div style="font-size:13px;color:rgba(30,28,23,0.85);">Did not join queue. Submitted sealed folder and passport. Questions: how did your son become a citizen, relationship to joint sponsor, light background discussion. Interview ~5 minutes. Total time: ~1.5 hours. Approved.</div>
         </div>
       </div>
-      <p style="font-size:12px;color:var(--text-secondary);">Common pattern across all cases: skip the main queue, state "immigrant visa," two-step process (document window then interview window), interview 1–10 minutes, decision immediate. Check your sticker has the correct name and case number.</p>
+      <p style="font-size:12px;color:var(--text-secondary);">Common pattern across all cases: skip the main queue, state "immigrant visa," two-step process (document window then interview window), interview 1–10 minutes, decision immediate. Check your sticker has the correct name and case number. All six accounts above pre-date the public charge worksheet. Expect substantially longer now — see the timing note in Interview structure.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;margin:12px 0;">
+        <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 16px;">
+          <div style="font-size:12px;font-weight:600;color:var(--accent-light);margin-bottom:4px;">Esther: spouse visa, 2026 (after the public charge change)</div>
+          <div style="font-size:13px;color:rgba(30,28,23,0.85);">Had submitted a public charge statement in advance. The officer had read it and the medical report, and consulted a supervisor throughout. Questions: why the sponsor’s 2025 income was slightly below the minimum (he had opened a new business) and what he would do if it failed, whether he is in a union and has a mortgage, who she works for and whether her employer would permit her to work from the US, her savings balance and proof of the property she owns (asked for at the window), cash income from a family business, and whether she knew what insulin costs in the US. Interview duration: <strong>35–40 minutes</strong>. Outcome not reported in the account. <a href="/public-charge#questions">Read the full account on the public charge page →</a></div>
+        </div>
+      </div>
 
       <div class="info-card">
         <div class="info-card-head">Embassy contact</div>
@@ -318,5 +312,8 @@
 <script src="/js/live-notice.js?v=20260918"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
 <script src="/js/stage.js?v=20260918"></script>
+<!-- Question bank: single source, rendered statically into [data-question-bank] -->
+<script src="/js/interview-questions.js?v=20260820"></script>
+<script src="/js/question-bank-render.js?v=20260918"></script>
 </body>
 </html>
