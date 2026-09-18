@@ -68,6 +68,7 @@
     { q: 'What is your petitioner’s full name?', theme: 'relationship', cats: 'all', from: 'Mia' },
     { q: 'How and when did you meet?', theme: 'relationship', cats: ['spouse'], tip: 'A short, honest story is better than a rehearsed speech.', from: 'Multiple reports' },
     { q: 'Where was your first meeting in person?', theme: 'relationship', cats: ['spouse'], from: 'Mia' },
+    { q: 'When did you first meet in person?', theme: 'relationship', cats: ['spouse'], from: 'Multiple reports' },
     { q: 'Did you meet in person alone, or was someone with you?', theme: 'relationship', cats: ['spouse'], from: 'Mia' },
     { q: 'When did you first fly out to America, and for how long?', theme: 'relationship', cats: ['spouse'], from: 'Mia' },
     { q: 'Tell me the full story of how your relationship progressed.', theme: 'relationship', cats: ['spouse'], tip: 'Have a natural timeline in your head: meeting → dating → engagement → marriage.', from: 'Mia' },
@@ -76,6 +77,7 @@
 
     // The wedding & ceremony
     { q: 'Where did you get married?', theme: 'wedding', cats: ['spouse'], from: 'Mia' },
+    { q: 'When and where did you get married?', theme: 'wedding', cats: ['spouse'], from: 'Multiple reports' },
     { q: 'Who was there for the wedding?', theme: 'wedding', cats: ['spouse'], from: 'Mia' },
     { q: 'Did you have any other ceremonies (religious, cultural, or a second celebration)?', theme: 'wedding', cats: ['spouse'], from: 'Mia' },
 
@@ -128,8 +130,10 @@
     // Family & prior relationships
     { q: 'Have you been married before? Has your petitioner?', theme: 'family', cats: 'all', from: 'Multiple reports' },
     { q: 'Do you have any children?', theme: 'family', cats: 'all', from: 'Multiple reports' },
+    { q: 'Do you have any children or stepchildren?', theme: 'family', cats: 'all', from: 'Multiple reports' },
     { q: 'How does your family feel about you leaving? Have they met your partner?', theme: 'family', cats: ['spouse'], from: 'Mia' },
     { q: 'Have you ever lived anywhere else (another country)? Has your petitioner?', theme: 'family', cats: 'all', from: 'Multiple reports' },
+    { q: 'Have you ever been arrested, in any country? Where have you lived?', theme: 'family', cats: 'all', tip: 'Any arrest anywhere, whatever the outcome, needs a police certificate from that country. Keep your answer consistent with your DS-260 and your certificates.', from: 'Multiple reports' },
 
     // Travel & logistics
     { q: 'When are you planning to fly out?', theme: 'logistics', cats: 'all', from: 'Multiple reports' },
