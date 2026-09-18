@@ -633,10 +633,10 @@ These were found during review. They are **out of scope** for the restructure an
 | ~~L7~~ | *Resolved by Phase 2A task 3 — the owner directed that the interview stage carry the full bank.* |
 | ~~L8~~ | *Resolved by Phase 2A task 1 — the owner set both totals to 1.5–4.5 hours, with the prior 30-minutes-to-2-hours range retained as context.* |
 | L9 | `interview-questions.html:110` still says "Most London interviews run 2–10 minutes", which now contradicts the 20–35 minute guidance figure. Outside Phase 2A's two-file scope, so unchanged. *(Found in Phase 2A.)* |
-| L10 | `/guide/interview` Community interview experiences opens "The pattern is consistent: short interview, long wait, professional officers." The date-qualification on the closing pattern line covers the six accounts, but this lead line now sits above Esther's 35–40 minute account. *(Found in Phase 2A.)* |
-| L11 | Four of the ten hardcoded Stage 5 questions are not (fully) in the bank: "When did you meet in person?" (bank asks *where*), "When and where did you marry?" (bank asks *where*), "Children or stepchildren?" (bank omits stepchildren), "Arrest or residence history?" (no arrest question). C1 forbids deleting them and Phase 2A forbids editing the bank, so they stay on `/guide/interview` as a short list under the rendered bank. Adding them to `/js/interview-questions.js` would let that list go. *(Found in Phase 2A.)* |
-| L12 | `checklist-i130.html`, `checklist-interview.html`, `checklist-medical.html` and `checklist-nvc.html` each link to `#master-checklist`, an id none of them has. Broken before this work; checklists are out of scope (§13). Likely intended target: `/master-checklist`. *(Found in Phase 7 link check.)* |
-| L13 | The Overview's "All categories: same London process once current" card says "The timelines on the data page reflect IR cases" but links to the homepage (`index.html`, now `/`), not `/data`. Link text and target disagree; unchanged. *(Found in Phase 3.)* |
+| ~~L10~~ | *Resolved 18 Sept 2026 (owner): the Stage 5 lead line now reads "The pattern is consistent: long wait, professional officers." Esther's account is also now marked approved, so "All reported outcomes below are approvals" still holds.* |
+| ~~L11~~ | *Resolved 18 Sept 2026 (owner): the four questions were added to `/js/interview-questions.js` as new "Multiple reports" entries (existing attributed questions left as they were), taking the bank to 57, and the interim list on `/guide/interview` was removed.* |
+| ~~L12~~ | *Resolved 18 Sept 2026 (owner): the four checklist links now point to `/master-checklist`.* |
+| ~~L13~~ | *Resolved 18 Sept 2026 (owner): the Overview's "data page" link now points to `/data` (data.html).* |
 
 ---
 
