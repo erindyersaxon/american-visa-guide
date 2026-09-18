@@ -22,10 +22,11 @@
     --border: rgba(62,113,136,0.25);
     --border-subtle: rgba(62,113,136,0.12);
     /* Role colours (owner-specified, WCAG 2.2 checked): white text on each
-       is 6.29-7.64:1; each is >= 5.07:1 on cream down to #EFE6D2. Too dark
+       is 6.29-7.64:1; each is >= 5.07:1 on cream down to #EFE6D2. Beneficiary
+       is green, kept distinct from the alert red (--red). Too dark
        for a dark background: define alternatives if dark mode is added. */
     --role-petitioner: #1A5FB4;
-    --role-beneficiary: #B71C1C;
+    --role-beneficiary: #1E6B34;
     --role-either: #6A3D9A;
   }
 
@@ -885,7 +886,7 @@
     margin-bottom: 20px;
   }
   .stage-actions ol { margin: 0; padding-left: 22px; }
-  .stage-actions li { font-size: 14px; margin-bottom: 8px; }
+  .stage-actions li { font-size: 16px; margin-bottom: 8px; }
 
   /* Role tag. Colour is never the only signal: the role name is always
      shown. 16px bold per the owner's accessibility rules. */
@@ -919,6 +920,9 @@
 
   .stage-verify { margin: 8px 0 32px; }
   .stage-verify .checklist { margin-top: 0; }
+  /* Body size, so the 16px role tags sit level with the text */
+  .stage-verify .checklist li,
+  .stage-verify .checklist li::before { font-size: 16px; }
 
   .stage-prevnext {
     display: grid;
