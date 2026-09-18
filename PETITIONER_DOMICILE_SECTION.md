@@ -1,11 +1,10 @@
-# Proposed: petitioner US domicile section
+# Petitioner US domicile: decision record
 
-**Status:** Checklists aligned and shipped. The `/221g.html` explanatory section
-is still drafted-not-inserted, pending decisions 2-4 (§2).
+**Status: SHIPPED, 2026-09-18.** All four decisions taken, section live at
+`/221g.html#domicile`, checklists aligned, cross-links in place.
 **Sourcing:** Closed. Grounded in primary text, 9 FAM 601.14.
 
-**Shipped 2026-09-18:** `checklist-nvc.html`, `checklist-binder.html`,
-`checklist-interview.html`, `master-checklist.html` — see §7.
+Retained as the record of what was decided and why. See §7 for what shipped.
 
 ---
 
@@ -30,21 +29,20 @@ is still drafted-not-inserted, pending decisions 2-4 (§2).
    the rules provided "no mechanism" for a joint sponsor to cure petitioner
    domicile, rather than an express prohibition. That was too cautious and it
    was wrong. There is an express rule. Corrected throughout.
-5. **The checklists are now aligned** (§7). The remaining work is the
-   explanatory section on `/221g.html`, which is drafted and awaiting
-   decisions 2-4.
+5. **All of it is now live** (§7): the explanatory section on `/221g.html`,
+   the four aligned checklists, and cross-links from the guide, the I-864
+   worksheet and the public charge page.
 
 ## 2. Decisions needed
 
 | # | Decision | My recommendation | If we get it wrong |
 |---|---|---|---|
 | 1 | ~~Do we tell readers a lease/mortgage carries little weight?~~ | **TAKEN, and implemented.** Framed as weight, not admissibility: "include it, but never as your only domicile evidence." | — |
-| 2 | Publish the community-reported London case? | **No.** The rules make that outcome predictable from the text. Citing the source beats citing one second-hand case. | Publishing n=1 as a pattern damages the site's credibility, which is its main asset. |
-| 3 | Section on `/221g.html`, or a new `/domicile.html`? | **Section now.** Revisit if it runs long — the topic has grown to four sub-cases. | Premature page split fragments a topic readers meet at one moment. |
-| 4 | Does the "good news" employment carve-out get its own callout? | **Yes.** It is the only constructive item in the topic and it is missing site-wide. | Buried in prose, the people it would help will skim past it. |
+| 2 | ~~Publish the community-reported London case?~~ | **TAKEN: no.** The section cites 9 FAM 601.14-7 instead. The anecdote appears nowhere on the site. | — |
+| 3 | ~~Section on `/221g.html`, or a new `/domicile.html`?~~ | **TAKEN: section.** Live at `/221g.html#domicile`, in the page TOC. Revisit a dedicated page only if it outgrows the slot. | — |
+| 4 | ~~Does the employment carve-out get its own callout?~~ | **TAKEN: yes.** Its own green callout on `/221g.html`, plus an info box on the NVC checklist. | — |
 
-Decision 1 is taken and live across the four checklists. Decisions 2-4 affect
-only the `/221g.html` section and remain open; none is high-stakes.
+All four decisions are taken and live. Nothing in this brief is outstanding.
 
 ## 3. Why this matters more than the site currently implies
 
@@ -147,9 +145,9 @@ has not shipped.
 | `public/checklist-binder.html` | Rewrote the "mortgage/lease/job offer" item that contradicted decision 1. Added re-domicile and joint-sponsor items; noted the US Domicile tab covers both parties. | **Done** |
 | `public/checklist-interview.html` | Sharpened the domicile question to name the petitioner and the joint-sponsor limit. Added two questions (the moving-back timeline, the temporary-absence test plus the employment carve-out) and a "what to bring" item. | **Done** |
 | `public/master-checklist.html` | Reworded the lease/mortgage row, which asserted it as domicile proof. Promoted "Intent to Re-Domicile" from optional. Added the joint-sponsor limit to the financial section note. | **Done** |
-| `public/221g.html` | New `<h2 id="domicile">` between `#financial` and `#prevent`. Copy drafted, §9. | **Pending decisions 2-4** |
-| `public/221g.html:633` | I-130 stage note attaches no weight to domicile. | Pending |
-| `public/guide.html:1720`, `worksheet-i864.html:168`, `public-charge.html:619` | Domicile framed as a joint-sponsor concern only. Cross-link at minimum. | Pending |
+| `public/221g.html` | New `<h2 id="domicile">` section between `#financial` and `#prevent`: the joint-sponsor rule as an alert callout, a four-position table, the qualifying-employment carve-out as its own callout, the evidence warning, and citizenship-is-not-domicile and K-1 notes. Added to the page TOC and the sources list. | **Done** |
+| `public/221g.html` I-130 and NVC stage bullets | Both now point at the new section; the NVC bullet no longer implies a lease is sufficient. | **Done** |
+| `public/guide.html`, `worksheet-i864.html`, `public-charge.html` | Cross-linked, each stating the joint-sponsor limit inline rather than only by link. | **Done** |
 
 **Consistency check:** the checklists now say the same thing in the same order of
 priority — petitioner domicile is not curable by a joint sponsor; lease and
@@ -157,9 +155,8 @@ mortgage evidence an address, not a residence; the petitioner must be resident o
 arriving by the date the beneficiary immigrates; qualifying US employment abroad
 is an automatic exemption. No page now contradicts another.
 
-**Deliberate choice:** the new checklist items do not link to `/221g.html#domicile`
-because that anchor does not exist yet. They cite 9 FAM 601.14 directly instead,
-so they stand alone whatever is decided on the section.
+**Checklists cite the FAM directly** as well as linking to the section, so each
+one stands alone if a reader never clicks through.
 
 **Not in scope:** rewriting the I-864 or public charge material.
 
@@ -179,7 +176,7 @@ charge assessment, the intent to marry **and reside**, and the fact that the
 full requirement lands at adjustment. Deferred, not avoided. **Write the section
 for IR/CR/F cases and give K-1 a short labelled carve-out** — drafted in §9.
 
-## 9. Draft copy (ready to insert, not inserted)
+## 9. Copy as shipped (reference)
 
 > ### The petitioner's domicile problem
 >
