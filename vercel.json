@@ -60,6 +60,11 @@
   ],
   "redirects": [
     {
+      "source": "/I-130_Visual_Decision_Tree.png",
+      "destination": "/I-130_Visual.png",
+      "permanent": true
+    },
+    {
       "source": "/erindyersaxon.github.io/london-visa-tracker/:splat*",
       "destination": "https://www.americanvisaguide.com/:splat*",
       "permanent": true
