@@ -632,7 +632,7 @@ These were found during review. They are **out of scope** for the restructure an
 | L6 | The CR1 and IR1 "Evidence at filing" paragraphs are byte-identical (70 words). |
 | ~~L7~~ | *Resolved by Phase 2A task 3 — the owner directed that the interview stage carry the full bank.* |
 | ~~L8~~ | *Resolved by Phase 2A task 1 — the owner set both totals to 1.5–4.5 hours, with the prior 30-minutes-to-2-hours range retained as context.* |
-| L9 | `interview-questions.html:110` still says "Most London interviews run 2–10 minutes", which now contradicts the 20–35 minute guidance figure. Outside Phase 2A's two-file scope, so unchanged. *(Found in Phase 2A.)* |
+| ~~L9~~ | *Resolved 18 Sept 2026 (owner): `interview-questions.html` now reads "Expect London interviews to run 20–35 minutes", with the same public charge worksheet reason clause as `/guide/interview`.* |
 | ~~L10~~ | *Resolved 18 Sept 2026 (owner): the Stage 5 lead line now reads "The pattern is consistent: long wait, professional officers." Esther's account is also now marked approved, so "All reported outcomes below are approvals" still holds.* |
 | ~~L11~~ | *Resolved 18 Sept 2026 (owner): the four questions were added to `/js/interview-questions.js` as new "Multiple reports" entries (existing attributed questions left as they were), taking the bank to 57, and the interim list on `/guide/interview` was removed.* |
 | ~~L12~~ | *Resolved 18 Sept 2026 (owner): the four checklist links now point to `/master-checklist`.* |
