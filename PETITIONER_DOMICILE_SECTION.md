@@ -8,7 +8,9 @@ Proposed primary home: `public/221g.html`, new `<h2 id="domicile">` between
 `#financial` ("The dominant cause: financial") and `#prevent` ("Prevent it").
 Secondary touch points listed in [§6](#6-where-the-site-already-touches-this).
 
-Logged 2026-09-18.
+Logged 2026-09-18. Updated same day against the text of 9 FAM 601.14
+(CT:VISA-2149, 04-22-2025), supplied directly after the egress block described
+in [§10](#10-sources-with-verification-status).
 
 ---
 
@@ -22,16 +24,56 @@ Domicile is not a document. For the petitioner it is an **eligibility condition
 to be a sponsor at all**, and it is the one financial problem a joint sponsor
 cannot fix.
 
-- A joint sponsor exists to cure **insufficient income** (INA 213A(f)(5)).
-- The petitioner must file an I-864 as sponsor **regardless** of whether a joint
-  sponsor also files.
-- To be a sponsor, INA 213A(f)(1)(C) requires the person to be **domiciled** in
-  a State, DC, or a US territory or possession.
-- Therefore: petitioner income can be $0 and the case survives on a joint
-  sponsor. Petitioner **domicile** cannot be zero. There is no substitute filer.
+- **The sponsor *is* the petitioner.** 9 FAM 601.14-5(a)(3): "The 'sponsor' for
+  purposes of the AOS is the petitioner; anyone else is either a joint or
+  substitute sponsor. All references to requirements for the 'sponsor' or
+  'sponsors' would apply not only to the petitioner sponsor, but also to any
+  substitute sponsor, household members executing Form I-864A, and joint
+  sponsors submitting a Form I-864."
+- **Domicile is in the qualifying list.** 9 FAM 601.14-5(a)(1)(d): to qualify as
+  a sponsor an individual must be "domiciled in any of the 50 States of the
+  United States, the District of Columbia, or any territory or possession of the
+  United States." Statutory basis: INA 213A / 8 U.S.C. 1183a; regulatory,
+  8 CFR 213a and 22 CFR 40.41 (9 FAM 601.14-1).
+- **The petitioner files either way.** 9 FAM 601.14-5(b)(1): the petitioner must
+  submit the I-864 "even if they cannot meet the requirements outlined in
+  paragraph (1) above," and 601.14-5(c): "Regardless, a Form I-864 would have to
+  be executed by the petitioner for all applicants. Only then could a joint
+  sponsor be used if needed."
+- **The named cure is income, and only income.** Every time the FAM describes
+  what a joint sponsor fixes, it says income: 601.14-5(a)(2) ("if the relative
+  petitioner sponsor cannot meet the income guidelines... the visa applicant
+  will require a joint sponsor"), 601.14-5(b)(1) ("since a joint sponsor may be
+  used to meet the Federal poverty level income requirements"), 601.14-5(b)(2),
+  601.14-5(c). No provision anywhere names a joint sponsor as a cure for the
+  petitioner's domicile.
+
+Therefore: petitioner income can be $0 and the case survives on a joint sponsor.
+Petitioner **domicile** cannot be zero, and there is no second filer who can
+supply it.
+
+**One honest caveat on the FAM wording.** 601.14-5(b)(1) is loosely drafted: it
+says the petitioner files "even if they cannot meet the requirements outlined in
+paragraph (1)" — and paragraph (1) is the whole qualifying list, domicile
+included — then adds that "such adverse circumstances would not necessarily mean
+that the applicant would be ineligible under INA 212(a)(4) since a joint sponsor
+may be used to meet the Federal poverty level **income** requirements." Read
+loosely, the first clause could be taken to imply a domicile failure is
+survivable too. Read on its own terms, the sentence offers exactly one cure and
+that cure is income-scoped. The section should rest on the second reading and
+should not overclaim: the accurate statement is that **the FAM provides no
+mechanism by which a joint sponsor substitutes for the petitioner's domicile**,
+not that a named rule forbids it.
 
 That asymmetry is the whole section. It is not currently stated anywhere on the
 site.
+
+**Still outstanding:** 601.14-5(a)(1)(d) cross-refers to **9 FAM 601.14-7** for
+domicile, and that subsection was not included in the text supplied. It is the
+provision that defines domicile, governs temporary absence abroad, and sets the
+intent-to-re-establish standard — i.e. the substance of [§3](#3-the-evidence-calibration-the-substantive-edit)
+and [§5](#5-if-the-petitioner-has-genuinely-left-the-us). Get 601.14-7 before
+drafting final copy.
 
 ## 2. Why this is getting sharper, not softer
 
@@ -103,6 +145,34 @@ Both must be US-domiciled. The consequence of failing differs:
 This is why the section belongs on the 221(g) page rather than only in the I-864
 material. It is a refusal-risk topic, not a form-filling topic.
 
+## 4a. Scope: which cases this section is about
+
+**The I-864 domicile requirement does not reach K-1 applicants at the consular
+stage.** 9 FAM 601.14-3(b)(3)(d): "The I-864 is not required for K visa
+applicants. However, such applicants will have to submit Form I-864 to
+DHS/USCIS at the time of adjustment of status to that of an LPR." The petitioner
+in a K-1 case files Form I-134 at the consular stage; the I-864 and its
+213A domicile condition arrive later, at adjustment (and 601.14-3(a)(1)(d)
+confirms K nonimmigrants adjusting to LPR status must then present one).
+
+This is a correction to the first draft of this note, which addressed "your
+spouse or fiancé(e)" in one breath. The London green sheet is a combined sheet —
+it carries both the I-864 boxes and the K-1 intent-to-marry box — which makes
+the conflation easy and the published copy must not repeat it.
+
+The petitioner-domicile risk is still real for K-1s, but it rests on different
+footing and should be written separately if it is written at all:
+
+- the I-134 and the public charge assessment under INA 212(a)(4), where a
+  petitioner who is not in the US is a live negative factor;
+- the intent to marry **and reside** — a petitioner with no US presence
+  undercuts the premise of the visa;
+- the I-864 domicile requirement lands in full at adjustment, so a K-1
+  petitioner with no domicile has deferred the problem, not avoided it.
+
+So: **write the section for IR/CR/F-preference cases, and give K-1s a short
+labelled carve-out** rather than folding them in.
+
 ## 5. If the petitioner has genuinely left the US
 
 Two distinct postures, and the site should make people pick one:
@@ -117,6 +187,9 @@ Two distinct postures, and the site should make people pick one:
   arranged, school or childcare enquiries, a moving/shipping quotation or
   contract, funds moved to US accounts, a booked return itinerary. Volume and
   concreteness matter — one letter of intent with no dates is the weak case.
+  *The "on or before admission" standard and this evidence list come from
+  practitioner summaries and the Department's public-facing guidance, not yet
+  from primary text — they live in 9 FAM 601.14-7, which is still outstanding.*
 
 The site already has a row for this (`public/master-checklist.html:396`,
 "Intent to Re-Domicile (If Applicable)"). It reads as optional. Under this
@@ -195,8 +268,15 @@ domicile-related 221(g) reasons before publishing anything quantitative.
 > route: a dated written statement of intent, a US job offer or transfer, housing
 > arranged, schools or childcare contacted, a moving quotation, funds moved to US
 > accounts, a booked return. You must show you will be domiciled in the US on or
-> before the date your spouse or fiancé(e) is admitted. Several concrete items
-> beat one letter.
+> before the date the person you are sponsoring is admitted. Several concrete
+> items beat one letter.
+>
+> **If you are the petitioner on a K-1,** this section is not describing your
+> paperwork: the I-864 is not required of K visa applicants at the interview, and
+> you file an I-134 instead. It is still describing your risk. A petitioner who
+> is not in the United States weakens the public charge picture and the premise
+> that you will marry and live there — and the full I-864 domicile requirement
+> arrives when your fiancé(e) adjusts status. Deferred, not avoided.
 >
 > **Citizenship is not domicile.** A US citizen who has lived abroad since
 > childhood may have no adult US domicile to point back to, no US earned income
@@ -214,25 +294,36 @@ domicile-related 221(g) reasons before publishing anything quantitative.
 3. **Does this warrant its own page** (`/domicile.html`) rather than a 221(g)
    section, given it also belongs to the I-864, NVC, and public-charge stories?
    A section on `/221g.html` plus cross-links is the cheaper first move.
-4. **K-1 interaction.** For K-1s a non-relocating petitioner also undercuts the
-   intent-to-marry-and-reside picture. Worth a sentence, or out of scope?
+4. **K-1 interaction — resolved, see §4a.** The I-864 is not required of K visa
+   applicants at the consular stage (9 FAM 601.14-3(b)(3)(d)), so the section
+   must not address K-1 petitioners as though 213A domicile applied to them now.
+   Remaining question is only whether the carve-out drafted in §8 is the right
+   length, or whether K-1 domicile deserves its own treatment.
 5. **Primary sources need re-verification before publish** — see below.
 
 ## 10. Sources, with verification status
 
-Both `travel.state.gov` and `fam.state.gov` are blocked by this environment's
-network egress proxy, so the primary texts could **not** be fetched or quoted
-verbatim while writing this file. Citations below are given so they can be
-checked; the exact wording of each must be confirmed against the source before
-any of this copy is published.
+`travel.state.gov` and `fam.state.gov` are both blocked by this environment's
+network egress proxy. The text of **9 FAM 601.14 (CT:VISA-2149, 04-22-2025)**
+was subsequently supplied directly and is the basis for the citations marked
+verified below — but the copy supplied ran from 601.14-1 to 601.14-5(e) and was
+cut off there, so **9 FAM 601.14-7, the domicile subsection itself, has still
+not been read.** That is the single biggest remaining gap.
 
 | Source | Status |
 |---|---|
-| INA 213A(f)(1)(C) / 8 U.S.C. §1183a(f)(1)(C) — sponsor must be domiciled in a State, DC, or a US territory or possession | Cited from standing knowledge. **Verify wording.** |
-| INA 213A(f)(5) / 8 U.S.C. §1183a(f)(5) — joint sponsor provisions; petitioner's own I-864 still required | Cited from standing knowledge. **Verify.** |
-| [9 FAM 601.14, Affidavit of Support](https://fam.state.gov/fam/09FAM/09FAM060114.html) — domicile provisions, temporary-absence and intent-to-re-establish treatment | **Egress-blocked, not fetched.** Subsection numbers deliberately omitted rather than guessed. |
-| [Department of State, I-864 Affidavit of Support FAQs](https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition/i-864-affidavit-faqs.html) and the Department's domicile-requirement page | **Egress-blocked, not fetched.** |
-| [USCIS, Form I-864 and instructions](https://www.uscis.gov/i-864) — domicile evidence list | Not fetched this session. **Verify the evidence list against §3's tiering.** |
+| 9 FAM 601.14-5(a)(1)(d) — sponsor must be "domiciled in any of the 50 States of the United States, the District of Columbia, or any territory or possession of the United States" | **Verified**, quoted verbatim. |
+| 9 FAM 601.14-5(a)(3) — the sponsor *is* the petitioner; sponsor requirements apply to the petitioner sponsor as well as joint/substitute sponsors | **Verified**, quoted verbatim. Load-bearing for §1. |
+| 9 FAM 601.14-5(b)(1), (b)(2), (c) and 601.14-5(a)(2) — petitioner files the I-864 regardless; joint sponsor named only as a cure for **income** | **Verified.** See the drafting caveat in §1 — the copy must not overclaim here. |
+| 9 FAM 601.14-3(b)(3)(d) — "The I-864 is not required for K visa applicants" at the consular stage; required at adjustment | **Verified.** Corrected a scope error in the first draft; see §4a. |
+| 9 FAM 601.14-1 — authority: INA 213A (8 U.S.C. 1183a); 8 CFR 213a; 22 CFR 40.41 | **Verified.** |
+| **9 FAM 601.14-7 — the domicile subsection: definition, temporary absence abroad, intent-to-re-establish standard and evidence** | **NOT READ.** Egress-blocked and outside the supplied excerpt. §3 and §5 rest on secondary sources until this is obtained. |
+| INA 213A(f)(1)(C) / 8 U.S.C. §1183a(f)(1)(C); INA 213A(f)(5) | Statute not read directly; the FAM restatement is verified and is what §1 now cites. |
+| [USCIS, Form I-864 and instructions](https://www.uscis.gov/i-864) — domicile evidence list | Not fetched. **Verify the evidence list against §3's tiering.** |
 | US Embassy London green 221(g) sheet, community-supplied July 2026 — `public/images/221g-green-sheet-p2.jpg` | **Verified directly.** Quoted in §3 from the image. |
-| Secondary practitioner summaries corroborating the intent-to-re-establish evidence list: [CitizenPath](https://citizenpath.com/reestablish-us-domicile-filing-form-i-864/), [Boundless](https://www.boundless.com/immigration-resources/prove-domicile-form-i-864) | Retrieved via search. **Secondary — do not cite on-site in place of the FAM or the Department.** |
+| Secondary practitioner summaries for the intent-to-re-establish evidence list: [CitizenPath](https://citizenpath.com/reestablish-us-domicile-filing-form-i-864/), [Boundless](https://www.boundless.com/immigration-resources/prove-domicile-form-i-864) | Retrieved via search. **Secondary — do not cite on-site in place of the FAM or the Department.** |
 | London domicile 221(g) case (§7) | **Single community report. Uncorroborated.** |
+
+**To close out the sourcing:** 9 FAM 601.14-7 (domicile), and 601.14-5(e)
+onward, which was truncated mid-sentence in the supplied text at the substitute
+sponsor provisions (INA 213A(f)(5)(B)).
