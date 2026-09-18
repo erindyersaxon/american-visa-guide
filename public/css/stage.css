@@ -888,11 +888,18 @@
     font-weight: 700;
     color: var(--accent-light);
     background: rgba(62,113,136,0.10);
+    border: 1px solid transparent;
     border-radius: 4px;
     padding: 1px 6px;
     margin-right: 6px;
     vertical-align: 1px;
   }
+
+  /* Role colours, from the approved palette: amber = Either,
+     steel blue = Petitioner, sage green = Beneficiary. */
+  .role--either      { color: #875325;             background: #f7efdc;               border-color: #d9bb86; }
+  .role--petitioner  { color: var(--accent-light); background: rgba(62,113,136,0.12); border-color: rgba(62,113,136,0.35); }
+  .role--beneficiary { color: var(--teal-light);   background: rgba(79,133,115,0.12); border-color: rgba(79,133,115,0.35); }
 
   .stage-docs {
     background: rgba(90,143,166,0.08);
