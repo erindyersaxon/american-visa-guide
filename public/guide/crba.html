@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20260918">
+<link rel="stylesheet" href="/css/stage.css?v=20260918b">
 <link rel="stylesheet" href="/css/nav.css?v=20260722">
 <script src="/js/nav.js?v=20260722" defer></script>
 </head>
@@ -140,11 +140,11 @@
         <button class="sub-ctrl" onclick="subAccGroup('crba', false)">Collapse all</button>
       </div>
       <div class="sub-acc-item" id="crba_0" data-sub-group="crba">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('crba_0')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="crba_0-body" onclick="toggleSubAcc('crba_0')">
           <span class="sub-acc-label">What the CRBA is</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="crba_0-body">
           <div class="sub-acc-content">
             <ul style="font-size:13px;">
         <li>Official proof of US citizenship at birth for a child born abroad to a US citizen parent</li>
@@ -156,11 +156,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="crba_1" data-sub-group="crba">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('crba_1')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="crba_1-body" onclick="toggleSubAcc('crba_1')">
           <span class="sub-acc-label">Jurisdiction: where to apply</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="crba_1-body">
           <div class="sub-acc-content">
             <ul style="font-size:13px;">
         <li><strong>Child born in UK</strong> → apply at US Embassy London</li>
@@ -171,11 +171,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="crba_2" data-sub-group="crba">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('crba_2')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="crba_2-body" onclick="toggleSubAcc('crba_2')">
           <span class="sub-acc-label">Core eligibility: physical presence requirement</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="crba_2-body">
           <div class="sub-acc-content">
             <p>The US citizen parent must prove they lived in the US for <strong>at least 5 years before the child's birth, including at least 2 years after age 14</strong>. This is where most cases succeed or fail: weak evidence here causes delays or refusal. <a href="https://travel.state.gov/content/travel/en/international-travel/while-abroad/birth-abroad.html" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[travel.state.gov: Birth Abroad]</a></p>
 
@@ -219,11 +219,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="crba_3" data-sub-group="crba">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('crba_3')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="crba_3-body" onclick="toggleSubAcc('crba_3')">
           <span class="sub-acc-label">The process: step by step</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="crba_3-body">
           <div class="sub-acc-content">
             <div class="steps">
         <div class="step">
@@ -273,11 +273,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="crba_4" data-sub-group="crba">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('crba_4')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="crba_4-body" onclick="toggleSubAcc('crba_4')">
           <span class="sub-acc-label">Documents required</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="crba_4-body">
           <div class="sub-acc-content">
             <div class="two-col">
         <div class="info-card">
@@ -322,11 +322,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="crba_5" data-sub-group="crba">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('crba_5')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="crba_5-body" onclick="toggleSubAcc('crba_5')">
           <span class="sub-acc-label">Key risks and edge cases</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="crba_5-body">
           <div class="sub-acc-content">
             <ul style="font-size:13px;">
         <li><strong>Not eligible for CRBA</strong>: if the physical presence requirement is not met, the child may need the Child Citizenship Act route or an I-130 immigrant visa instead</li>
@@ -373,6 +373,6 @@
 <!-- Shared live policy notice (single source, mounted into [data-live-notice]) -->
 <script src="/js/live-notice.js?v=20260918"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
-<script src="/js/stage.js?v=20260918"></script>
+<script src="/js/stage.js?v=20260918b"></script>
 </body>
 </html>

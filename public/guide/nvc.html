@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20260918">
+<link rel="stylesheet" href="/css/stage.css?v=20260918b">
 <link rel="stylesheet" href="/css/nav.css?v=20260722">
 <script src="/js/nav.js?v=20260722" defer></script>
 </head>
@@ -152,11 +152,11 @@
 
       <h2 style="margin-top:32px;">Most common RFEs (Request for Evidence)</h2>
       <div class="sub-acc-item open" id="nvc_rfe" data-sub-group="nvc-alerts">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_rfe')">
+        <button class="sub-acc-trigger" aria-expanded="true" aria-controls="nvc_rfe-body" onclick="toggleSubAcc('nvc_rfe')">
           <span class="sub-acc-label">Avoid these common pitfalls</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_rfe-body">
           <div class="sub-acc-content">
             <ul style="font-size:13px;margin-bottom:12px;">
               <li><strong>Missing or incomplete Form I-864 (Affidavit of Support):</strong> Petitioners (Primary sponsors) and Joint sponsors must complete separate I-864s. Household members must complete I-864As.</li>
@@ -181,22 +181,22 @@
 
       <h3 style="margin-top:32px;margin-bottom:16px;font-size:15px;color:var(--text-primary);">Getting Started</h3>
       <div class="sub-acc-item" id="nvc_0" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_0')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_0-body" onclick="toggleSubAcc('nvc_0')">
           <span class="sub-acc-label">Step 1: Welcome Letter</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_0-body">
           <div class="sub-acc-content">
             <p>Usually 1–7 days after I-130 approval (occasionally 2–3 weeks, not a cause for concern). NVC emails both the petitioner and beneficiary from <strong>National_Visa_Center@state.gov</strong> with the subject <em>Notice of Immigrant Visa Case Creation</em>. The email contains your <strong>NVC Case Number</strong> (3 letters + 10 digits) and <strong>Invoice ID Number</strong> (IVSCA + 11 digits). Save both: you need them to access CEAC.</p>
           </div>
         </div>
       </div>
       <div class="sub-acc-item" id="nvc_1" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_1')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_1-body" onclick="toggleSubAcc('nvc_1')">
           <span class="sub-acc-label">Step 2: CEAC</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_1-body">
           <div class="sub-acc-content">
             <p>Log in at <a href="https://ceac.state.gov/IV/Login.aspx" target="_blank" rel="noopener noreferrer">ceac.state.gov/IV</a> using your Case Number and Invoice ID. It can take up to 72 hours after the Welcome Letter for the account to activate. CEAC is where you pay fees, submit the DS-260, upload documents, and receive messages from NVC.</p>
 
@@ -210,11 +210,11 @@
 
       <h3 style="margin-top:32px;margin-bottom:16px;font-size:15px;color:var(--text-primary);">Payments & Application</h3>
       <div class="sub-acc-item" id="nvc_2" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_2')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_2-body" onclick="toggleSubAcc('nvc_2')">
           <span class="sub-acc-label">Step 3: Fees</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_2-body">
           <div class="sub-acc-content">
             <table class="fee-table">
         <thead><tr><th>Fee</th><th>Amount</th></tr></thead>
@@ -228,11 +228,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="nvc_3" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_3')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_3-body" onclick="toggleSubAcc('nvc_3')">
           <span class="sub-acc-label">Step 4: I-864 Affidavit of Support</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_3-body">
           <div class="sub-acc-content">
             <p>The petitioner must meet <strong>125% of the US Federal Poverty Guidelines</strong> based on household size. If income is insufficient or the petitioner lives abroad (foreign income typically counts as $0), a <strong>joint sponsor</strong> is required. Use the <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition/affidavit-of-support.html" target="_blank" rel="noopener noreferrer">NVC Poverty Guidelines Calculator</a> to check eligibility.</p>
       <p>The I-864 must be <strong>wet signed</strong>: print, sign by hand, scan back in. Do not use a digital or e-signature. The I-864EZ is available for simple cases but many users encounter issues with it; the standard I-864 is recommended for all.</p>
@@ -253,11 +253,11 @@
 
       <h3 style="margin-top:32px;margin-bottom:16px;font-size:15px;color:var(--text-primary);">Documents & Verification</h3>
       <div class="sub-acc-item" id="nvc_4" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_4')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_4-body" onclick="toggleSubAcc('nvc_4')">
           <span class="sub-acc-label">Step 5: Financial documents</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_4-body">
           <div class="sub-acc-content">
             <div class="info-card warning">
         <div class="info-card-head">IRS Tax Transcript: treat as required for London, not just recommended</div>
@@ -343,11 +343,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="nvc_9" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_9')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_9-body" onclick="toggleSubAcc('nvc_9')">
           <span class="sub-acc-label">Joint sponsor: documentation by scenario</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_9-body">
           <div class="sub-acc-content">
             <p style="font-size:13px;"><strong>Joint sponsors, regardless of scenario, need:</strong></p>
             <ul style="font-size:13px;margin-bottom:12px;">
@@ -404,11 +404,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="nvc_5" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_5')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_5-body" onclick="toggleSubAcc('nvc_5')">
           <span class="sub-acc-label">Step 6: DS-260</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_5-body">
           <div class="sub-acc-content">
             <p>The DS-260 is the immigrant visa application form, completed in CEAC. <a href="https://ceac.state.gov/IV/Login.aspx" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[CEAC DS-260]</a> <strong>CEAC times out after ~10 minutes of inactivity and progress is lost.</strong> Prepare all answers in advance using the worksheet before logging in. Once submitted you cannot edit it: double-check everything.</p>
       <p style="font-size:13px;">You will need: passport details, all addresses from age 16, employment history (10 years), travel history (5 years), family information, and US contact details. Print the DS-260 confirmation page after submitting. It is required at the medical and interview.</p>
@@ -426,11 +426,11 @@
 
       <h3 style="margin-top:32px;margin-bottom:16px;font-size:15px;color:var(--text-primary);">Final Steps to NVC</h3>
       <div class="sub-acc-item" id="nvc_8" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_8')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_8-body" onclick="toggleSubAcc('nvc_8')">
           <span class="sub-acc-label">Police certificate decision tree</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_8-body">
           <div class="sub-acc-content">
             <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">Use this to work out which police certificates you need. You may need more than one. All must be original or certified: photocopies not accepted. <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-5-collect-financial-evidence-and-other-supporting-documents/step-7-collect-civil-documents.html" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;">[travel.state.gov: Civil Documents]</a></p>
 
@@ -482,11 +482,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="nvc_6" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_6')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_6-body" onclick="toggleSubAcc('nvc_6')">
           <span class="sub-acc-label">Steps 7–9: Civil documents, scanning, and submission</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_6-body">
           <div class="sub-acc-content">
             <ul class="checklist">
         <li>Birth certificate (long form with parent names)</li>
@@ -503,11 +503,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="nvc_7" data-sub-group="nvc">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('nvc_7')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_7-body" onclick="toggleSubAcc('nvc_7')">
           <span class="sub-acc-label">Step 10: DQ (Documentarily Qualified)</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="nvc_7-body">
           <div class="sub-acc-content">
             <p>After submission, NVC reviews your case. Typical review time is 14 days if no issues.</p>
 
@@ -620,6 +620,6 @@
 <!-- Shared live policy notice (single source, mounted into [data-live-notice]) -->
 <script src="/js/live-notice.js?v=20260918"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
-<script src="/js/stage.js?v=20260918"></script>
+<script src="/js/stage.js?v=20260918b"></script>
 </body>
 </html>

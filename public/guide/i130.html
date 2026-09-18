@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20260918">
+<link rel="stylesheet" href="/css/stage.css?v=20260918b">
 <link rel="stylesheet" href="/css/nav.css?v=20260722">
 <script src="/js/nav.js?v=20260722" defer></script>
 </head>
@@ -204,11 +204,11 @@
         <button class="sub-ctrl" onclick="subAccGroup('uscis-extra', false)">Collapse all</button>
       </div>
       <div class="sub-acc-item" id="filing-i130" data-sub-group="uscis-extra">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('filing-i130')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="filing-i130-body" onclick="toggleSubAcc('filing-i130')">
           <span class="sub-acc-label">How to file the I-130 online: quick guide</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="filing-i130-body">
           <div class="sub-acc-content">
             <p style="font-size:13px;margin-bottom:12px;">Filing the I-130 online is the recommended route for consular cases. You get instant receipt of your NOA1, document uploads instead of posting originals, and a portal to track the case. The steps below sequence the process; each links to where the detail lives, so you are never guessing what comes next.</p>
       <div class="steps">
@@ -271,11 +271,11 @@
         </div>
       </div>
       <div class="sub-acc-item" id="linking-i130" data-sub-group="uscis-extra">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('linking-i130')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="linking-i130-body" onclick="toggleSubAcc('linking-i130')">
           <span class="sub-acc-label">Linking family I-130 applications (IR2, IR5)</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="linking-i130-body">
           <div class="sub-acc-content">
             <p style="font-size:13px;margin-bottom:12px;">If you are filing I-130 petitions for multiple family members, for example, a spouse and a child, or a parent and a sibling. USCIS will not automatically link them. You need to make the connection explicit so the cases move through NVC together. Follow these steps:</p>
       <div class="steps">
@@ -361,6 +361,6 @@
 <!-- Shared live policy notice (single source, mounted into [data-live-notice]) -->
 <script src="/js/live-notice.js?v=20260918"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
-<script src="/js/stage.js?v=20260918"></script>
+<script src="/js/stage.js?v=20260918b"></script>
 </body>
 </html>

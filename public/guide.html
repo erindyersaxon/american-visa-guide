@@ -18,7 +18,7 @@
 <link rel="canonical" href="https://www.americanvisaguide.com/guide">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20260918">
+<link rel="stylesheet" href="/css/stage.css?v=20260918b">
 <link rel="stylesheet" href="/css/nav.css?v=20260722">
 <script src="/js/nav.js?v=20260722" defer></script>
 <!-- Legacy /guide#<stage> deep links → /guide/<stage> (fragments never reach the server) -->
@@ -227,11 +227,11 @@
         <button class="sub-ctrl" onclick="subAccGroup('visa-cats', false)">Collapse all</button>
       </div>
       <div class="sub-acc-item" id="visa-ir" data-sub-group="visa-cats">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('visa-ir')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="visa-ir-body" onclick="toggleSubAcc('visa-ir')">
           <span class="sub-acc-label">Immediate Relatives (IR), no annual cap: CR1, IR1, IR2, IR5</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="visa-ir-body">
           <div class="sub-acc-content">
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px, 100%), 1fr));gap:12px;margin-bottom:16px;">
               <div class="info-card">
@@ -268,11 +268,11 @@
       </div>
 
       <div class="sub-acc-item" id="visa-f" data-sub-group="visa-cats" style="margin-top:6px;">
-        <button class="sub-acc-trigger" onclick="toggleSubAcc('visa-f')">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="visa-f-body" onclick="toggleSubAcc('visa-f')">
           <span class="sub-acc-label">Family Preference (F): subject to annual caps (F1, F2A, F2B, F3, F4)</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
-        <div class="sub-acc-body">
+        <div class="sub-acc-body" id="visa-f-body">
           <div class="sub-acc-content">
             <p style="font-size:13px;color:rgba(30,28,23,0.85);margin-bottom:12px;">These categories require the priority date to be current on the <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer">monthly Visa Bulletin</a> before NVC processing begins. Waits can range from months to over a decade depending on category and country of chargeability.</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px, 100%), 1fr));gap:12px;margin-bottom:16px;">
@@ -378,6 +378,6 @@
 <!-- Shared live policy notice (single source, mounted into [data-live-notice]) -->
 <script src="/js/live-notice.js?v=20260918"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
-<script src="/js/stage.js?v=20260918"></script>
+<script src="/js/stage.js?v=20260918b"></script>
 </body>
 </html>

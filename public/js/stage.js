@@ -31,16 +31,26 @@ window.addEventListener('scroll', () => {
   if (btn) btn.style.opacity = window.scrollY > 400 ? '1' : '0'
 })
 
+// Keep each accordion trigger's aria-expanded in step with its item's open state
+function syncSubAccAria(item) {
+  const trigger = item.querySelector('.sub-acc-trigger')
+  if (trigger) trigger.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false')
+}
 function toggleSubAcc(id) {
   const item = document.getElementById(id)
   if (!item) return
   const wasOpen = item.classList.contains('open')
   item.classList.toggle('open', !wasOpen)
+  syncSubAccAria(item)
   if (!wasOpen) setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50)
 }
 function subAccGroup(group, expand) {
-  document.querySelectorAll('[data-sub-group="' + group + '"]').forEach(el => el.classList.toggle('open', expand))
+  document.querySelectorAll('[data-sub-group="' + group + '"]').forEach(el => {
+    el.classList.toggle('open', expand)
+    syncSubAccAria(el)
+  })
 }
+document.querySelectorAll('.sub-acc-item').forEach(syncSubAccAria)
 
 // Mobile navigation
 const mobileNavToggle = document.getElementById('mobileNavToggle')
