@@ -635,6 +635,8 @@ These were found during review. They are **out of scope** for the restructure an
 | L9 | `interview-questions.html:110` still says "Most London interviews run 2–10 minutes", which now contradicts the 20–35 minute guidance figure. Outside Phase 2A's two-file scope, so unchanged. *(Found in Phase 2A.)* |
 | L10 | `/guide/interview` Community interview experiences opens "The pattern is consistent: short interview, long wait, professional officers." The date-qualification on the closing pattern line covers the six accounts, but this lead line now sits above Esther's 35–40 minute account. *(Found in Phase 2A.)* |
 | L11 | Four of the ten hardcoded Stage 5 questions are not (fully) in the bank: "When did you meet in person?" (bank asks *where*), "When and where did you marry?" (bank asks *where*), "Children or stepchildren?" (bank omits stepchildren), "Arrest or residence history?" (no arrest question). C1 forbids deleting them and Phase 2A forbids editing the bank, so they stay on `/guide/interview` as a short list under the rendered bank. Adding them to `/js/interview-questions.js` would let that list go. *(Found in Phase 2A.)* |
+| L12 | `checklist-i130.html`, `checklist-interview.html`, `checklist-medical.html` and `checklist-nvc.html` each link to `#master-checklist`, an id none of them has. Broken before this work; checklists are out of scope (§13). Likely intended target: `/master-checklist`. *(Found in Phase 7 link check.)* |
+| L13 | The Overview's "All categories: same London process once current" card says "The timelines on the data page reflect IR cases" but links to the homepage (`index.html`, now `/`), not `/data`. Link text and target disagree; unchanged. *(Found in Phase 3.)* |
 
 ---
 
