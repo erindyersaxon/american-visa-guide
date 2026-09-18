@@ -21,6 +21,12 @@
     --card-bg: #fdfaf3;
     --border: rgba(62,113,136,0.25);
     --border-subtle: rgba(62,113,136,0.12);
+    /* Role colours (owner-specified, WCAG 2.2 checked): white text on each
+       is 6.29-7.64:1; each is >= 5.07:1 on cream down to #EFE6D2. Too dark
+       for a dark background: define alternatives if dark mode is added. */
+    --role-petitioner: #1A5FB4;
+    --role-beneficiary: #B71C1C;
+    --role-either: #6A3D9A;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -881,25 +887,23 @@
   .stage-actions ol { margin: 0; padding-left: 22px; }
   .stage-actions li { font-size: 14px; margin-bottom: 8px; }
 
+  /* Role tag. Colour is never the only signal: the role name is always
+     shown. 16px bold per the owner's accessibility rules. */
   .role {
     display: inline-block;
     font-family: var(--font-ui);
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 700;
-    color: var(--accent-light);
-    background: rgba(62,113,136,0.10);
-    border: 1px solid transparent;
+    line-height: 1.4;
+    color: #ffffff;
     border-radius: 4px;
-    padding: 1px 6px;
+    padding: 0 8px;
     margin-right: 6px;
-    vertical-align: 1px;
   }
 
-  /* Role colours, from the approved palette: amber = Either,
-     steel blue = Petitioner, sage green = Beneficiary. */
-  .role--either      { color: #875325;             background: #f7efdc;               border-color: #d9bb86; }
-  .role--petitioner  { color: var(--accent-light); background: rgba(62,113,136,0.12); border-color: rgba(62,113,136,0.35); }
-  .role--beneficiary { color: var(--teal-light);   background: rgba(79,133,115,0.12); border-color: rgba(79,133,115,0.35); }
+  .role--petitioner  { background: var(--role-petitioner); }
+  .role--beneficiary { background: var(--role-beneficiary); }
+  .role--either      { background: var(--role-either); }
 
   .stage-docs {
     background: rgba(90,143,166,0.08);
