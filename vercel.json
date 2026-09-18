@@ -85,6 +85,56 @@
       "permanent": true
     },
     {
+      "source": "/guide/i130.html",
+      "destination": "/guide/i130",
+      "permanent": true
+    },
+    {
+      "source": "/guide/delayed-i130.html",
+      "destination": "/guide/delayed-i130",
+      "permanent": true
+    },
+    {
+      "source": "/guide/crba.html",
+      "destination": "/guide/crba",
+      "permanent": true
+    },
+    {
+      "source": "/guide/nvc.html",
+      "destination": "/guide/nvc",
+      "permanent": true
+    },
+    {
+      "source": "/guide/waiting.html",
+      "destination": "/guide/waiting",
+      "permanent": true
+    },
+    {
+      "source": "/guide/medical.html",
+      "destination": "/guide/medical",
+      "permanent": true
+    },
+    {
+      "source": "/guide/interview.html",
+      "destination": "/guide/interview",
+      "permanent": true
+    },
+    {
+      "source": "/guide/after-interview.html",
+      "destination": "/guide/after-interview",
+      "permanent": true
+    },
+    {
+      "source": "/guide/before-you-leave.html",
+      "destination": "/guide/before-you-leave",
+      "permanent": true
+    },
+    {
+      "source": "/guide/us-entry.html",
+      "destination": "/guide/us-entry",
+      "permanent": true
+    },
+    {
       "source": "/tracker.html",
       "destination": "/",
       "permanent": true
