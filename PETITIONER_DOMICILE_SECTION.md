@@ -1,8 +1,11 @@
 # Proposed: petitioner US domicile section
 
-**Status:** Researched, drafted, not implemented. No site files changed.
-**Owner decision needed on 4 points** (§2). Draft copy ready to drop in (§8).
+**Status:** Checklists aligned and shipped. The `/221g.html` explanatory section
+is still drafted-not-inserted, pending decisions 2-4 (§2).
 **Sourcing:** Closed. Grounded in primary text, 9 FAM 601.14.
+
+**Shipped 2026-09-18:** `checklist-nvc.html`, `checklist-binder.html`,
+`checklist-interview.html`, `master-checklist.html` — see §7.
 
 ---
 
@@ -27,20 +30,21 @@
    the rules provided "no mechanism" for a joint sponsor to cure petitioner
    domicile, rather than an express prohibition. That was too cautious and it
    was wrong. There is an express rule. Corrected throughout.
-5. **Effort to ship:** one new section on `/221g.html`, plus one contradictory
-   line elsewhere to reword. Draft copy is written. Half a day, not a project.
+5. **The checklists are now aligned** (§7). The remaining work is the
+   explanatory section on `/221g.html`, which is drafted and awaiting
+   decisions 2-4.
 
 ## 2. Decisions needed
 
 | # | Decision | My recommendation | If we get it wrong |
 |---|---|---|---|
-| 1 | Do we tell readers a lease/mortgage carries little weight, when the Embassy's own sheet lists it? | **Yes, framed as weight not admissibility.** The Department's list of what establishes domicile omits property entirely. | Overstate it and we tell people a valid document will be rejected. Understate it and people submit a lease and nothing else. |
+| 1 | ~~Do we tell readers a lease/mortgage carries little weight?~~ | **TAKEN, and implemented.** Framed as weight, not admissibility: "include it, but never as your only domicile evidence." | — |
 | 2 | Publish the community-reported London case? | **No.** The rules make that outcome predictable from the text. Citing the source beats citing one second-hand case. | Publishing n=1 as a pattern damages the site's credibility, which is its main asset. |
 | 3 | Section on `/221g.html`, or a new `/domicile.html`? | **Section now.** Revisit if it runs long — the topic has grown to four sub-cases. | Premature page split fragments a topic readers meet at one moment. |
 | 4 | Does the "good news" employment carve-out get its own callout? | **Yes.** It is the only constructive item in the topic and it is missing site-wide. | Buried in prose, the people it would help will skim past it. |
 
-Decision 1 is the only one with downside risk in either direction. The rest are
-low-stakes.
+Decision 1 is taken and live across the four checklists. Decisions 2-4 affect
+only the `/221g.html` section and remain open; none is high-stakes.
 
 ## 3. Why this matters more than the site currently implies
 
@@ -131,18 +135,33 @@ evidence. Weight, not admissibility.
 and voting are both on the Department's list, and both are available to a
 citizen who has never lived in the US as an adult.
 
-## 7. Work required if this ships
+## 7. Work status
 
-| File | Change | Size |
+**Done — checklists aligned, 2026-09-18.** Each checklist now carries the
+operative facts itself rather than depending on the `/221g.html` section, which
+has not shipped.
+
+| File | Change | Status |
 |---|---|---|
-| `public/221g.html` | New `<h2 id="domicile">` between `#financial` and `#prevent`. Copy drafted, §8. | New section |
-| `public/checklist-binder.html:220` | **Contradicts decision 1** — currently offers "mortgage/lease/job offer" as domicile proof. Must be reworded or the site argues with itself. | One line |
-| `public/master-checklist.html:396` | "Intent to Re-Domicile (If Applicable)" reads as optional; it is not, for an overseas petitioner. Its evidence list is good — promote, don't rewrite. | Reframe |
-| `public/221g.html:633` | I-130 stage note is correctly staged but attaches no weight. Add a pointer to the new section. | One line |
-| `public/guide.html:1720`, `worksheet-i864.html:168`, `public-charge.html:619` | Domicile framed as a joint-sponsor concern only. Cross-link at minimum. | Links |
+| `public/checklist-nvc.html` | Had **no domicile coverage at all** — the largest gap found. Added a warning box on the joint-sponsor limit, three items (petitioner domicile, re-establishment evidence if abroad, joint sponsor domicile), and an info box on the qualifying-employment route. | **Done** |
+| `public/checklist-binder.html` | Rewrote the "mortgage/lease/job offer" item that contradicted decision 1. Added re-domicile and joint-sponsor items; noted the US Domicile tab covers both parties. | **Done** |
+| `public/checklist-interview.html` | Sharpened the domicile question to name the petitioner and the joint-sponsor limit. Added two questions (the moving-back timeline, the temporary-absence test plus the employment carve-out) and a "what to bring" item. | **Done** |
+| `public/master-checklist.html` | Reworded the lease/mortgage row, which asserted it as domicile proof. Promoted "Intent to Re-Domicile" from optional. Added the joint-sponsor limit to the financial section note. | **Done** |
+| `public/221g.html` | New `<h2 id="domicile">` between `#financial` and `#prevent`. Copy drafted, §9. | **Pending decisions 2-4** |
+| `public/221g.html:633` | I-130 stage note attaches no weight to domicile. | Pending |
+| `public/guide.html:1720`, `worksheet-i864.html:168`, `public-charge.html:619` | Domicile framed as a joint-sponsor concern only. Cross-link at minimum. | Pending |
 
-**Not in scope:** rewriting the I-864 or public charge material. This is a
-refusal-risk topic and belongs on the 221(g) page; the other pages get links.
+**Consistency check:** the checklists now say the same thing in the same order of
+priority — petitioner domicile is not curable by a joint sponsor; lease and
+mortgage evidence an address, not a residence; the petitioner must be resident or
+arriving by the date the beneficiary immigrates; qualifying US employment abroad
+is an automatic exemption. No page now contradicts another.
+
+**Deliberate choice:** the new checklist items do not link to `/221g.html#domicile`
+because that anchor does not exist yet. They cite 9 FAM 601.14 directly instead,
+so they stand alone whatever is decided on the section.
+
+**Not in scope:** rewriting the I-864 or public charge material.
 
 ## 8. Scope note: K-1 cases are different
 
