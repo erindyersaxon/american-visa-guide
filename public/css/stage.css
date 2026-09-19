@@ -796,6 +796,19 @@
   .sub-acc-item.open .sub-acc-body { max-height: 9999px; }
   .sub-acc-content { padding: 16px 18px; background: rgba(30,28,23,0.025); }
 
+  /* Inline code: stage pages do not load design-system.css, so style it here.
+     Long values (URLs, receipt numbers) must wrap rather than overflow on mobile. */
+  .stage-content code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    background: rgba(62,113,136,0.09);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 1px 5px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
   /* Shared page hero */
   .page-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
   .page-hero-eyebrow { font-family:var(--font-ui); font-size: 12px; font-weight: 700;color: var(--accent); margin-bottom: 12px; }
