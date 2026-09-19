@@ -833,6 +833,10 @@
         if (calcCachedData) return calcCachedData;
         try {
           const response = await fetch('/api/data');
+          // An error body ({error, missing}) is truthy, so returning it here
+          // slipped past the `if (!data)` guard at the call sites and reached
+          // the projection maths as garbage. Treat any non-2xx as no data.
+          if (!response.ok) throw new Error('http ' + response.status);
           const data = await response.json();
           calcCachedData = data;
           return data;
