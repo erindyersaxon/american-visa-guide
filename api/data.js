@@ -20,6 +20,22 @@ export default async function handler(req, res) {
   const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
   const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
+  // Without these, the template literal below builds the string
+  // "undefined/rest/v1/..." and fetch throws ERR_INVALID_URL, which surfaces as
+  // an opaque 500. Name the missing variables instead: this is a deploy-time
+  // configuration gap, not a request the caller can fix by retrying.
+  const missing = [
+    !SUPABASE_URL && 'NEXT_PUBLIC_SUPABASE_URL',
+    !SUPABASE_KEY && 'NEXT_PUBLIC_SUPABASE_ANON_KEY',
+  ].filter(Boolean)
+
+  if (missing.length) {
+    return res.status(503).json({
+      error: 'Data source not configured',
+      missing,
+    })
+  }
+
   // Fetch all relevant rows - only London embassy
   const url = `${SUPABASE_URL}/rest/v1/form_responses?embassy=eq.London%2C%20United%20Kingdom&select=*&order=submitted_at.desc`
 
