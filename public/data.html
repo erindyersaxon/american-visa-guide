@@ -1359,7 +1359,7 @@
 
     function renderPipeline(stats) {
       [
-        { badge:'p-uscis-badge',   summary:'p-uscis-summary',   status: stats?.uscis_status   || 'normal', text: stats?.uscis_summary   || 'I-130 petition processing for immediate relatives of US citizens. Community average: 6–10 months.' },
+        { badge:'p-uscis-badge',   summary:'p-uscis-summary',   status: stats?.uscis_status   || 'normal', text: stats?.uscis_summary   || 'I-130 petition processing for immediate relatives of US citizens. Stalled since February 2026: the front of the line has not moved past priority dates of around 25 February 2025.' },
         { badge:'p-nvc-badge',     summary:'p-nvc-summary',     status: stats?.nvc_status     || 'normal', text: stats?.nvc_summary     || 'Document review and fee payment. Most cases completing NVC in 2–3 months once received.' },
         { badge:'p-london-badge',  summary:'p-london-summary',  status: stats?.london_status  || 'active', text: stats?.london_summary  || 'IL drops are the bottleneck. Once you have an IL, interview scheduling is typically 6–10 weeks out.' },
       ].forEach(s => { set(s.badge, statusBadge(s.status)); set(s.summary, s.text); });
