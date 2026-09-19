@@ -129,7 +129,7 @@ function renderPipeline(data) {
       avgDays: data.stage_avgs?.pd_to_approval,
       warning:
         data.stage_counts?.i130_approval < 50
-          ? '<p style="color: var(--color-error); font-size: var(--size-sm); margin-top: var(--space-2);">Significantly slowed. <a href="https://www.trackmy visa.com/" target="_blank" rel="noopener" style="color: var(--color-error);">Track My Visa</a></p>'
+          ? '<p style="color: var(--color-error); font-size: var(--size-sm); margin-top: var(--space-2);">Significantly slowed. <a href="https://trackmyvisa.com/" target="_blank" rel="noopener" style="color: var(--color-error);">Track My Visa</a></p>'
           : "",
     },
     {
