@@ -52,6 +52,20 @@ function subAccGroup(group, expand) {
 }
 document.querySelectorAll('.sub-acc-item').forEach(syncSubAccAria)
 
+// Deep links (e.g. /guide/i130#uscis-api-check) should open the target
+// accordion, not just scroll to a collapsed heading.
+function openSubAccFromHash() {
+  const id = window.location.hash.slice(1)
+  if (!id) return
+  const item = document.getElementById(id)
+  if (!item || !item.classList.contains('sub-acc-item')) return
+  item.classList.add('open')
+  syncSubAccAria(item)
+  item.scrollIntoView({ block: 'start' })
+}
+openSubAccFromHash()
+window.addEventListener('hashchange', openSubAccFromHash)
+
 // Mobile navigation
 const mobileNavToggle = document.getElementById('mobileNavToggle')
 const mobileNavDrawer = document.getElementById('mobileNavDrawer')
