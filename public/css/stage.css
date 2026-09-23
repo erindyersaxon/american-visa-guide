@@ -553,6 +553,15 @@
 
   .stage-alert p:last-child { margin-bottom: 0; }
 
+  .stage-alert ul {
+    font-size: 12.5px;
+    margin: 0 0 6px;
+    padding-left: 18px;
+    color: rgba(30,28,23,0.85);
+  }
+
+  .stage-alert li { margin-bottom: 4px; }
+
   /* Steps */
   .steps {
     display: flex;
