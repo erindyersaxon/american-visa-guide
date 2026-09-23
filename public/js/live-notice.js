@@ -61,8 +61,16 @@
     interview: fullHref => `
     <div class="stage-alert" role="note">
       <div class="stage-alert__head">Interview rescheduling: updated 23 September 2026</div>
-      ${summary(fullHref)}
-      <p><strong>At this stage:</strong> do not attend the embassy on a canceled appointment, but <strong>do attend a rescheduled one</strong>. New dates are arriving by email direct from the Immigrant Visa Unit, at very short notice, and asking for a reply to confirm attendance. Be packed and ready to travel to Nine Elms. Rescheduling through AIS is only possible to a date <strong>after</strong> your assigned one. If you never had a document check, bring every original and one passport photo: <a href="#no-document-check">see below</a>. Everything below describes the interview itself accurately and is worth preparing now.</p>
+      <p>London interviews through <strong>30 September 2026</strong> were canceled for a global public charge training initiative. At this time, interviews that were originally booked in <strong>early September</strong> are being rescheduled to <strong>early October 2026</strong>. We have not yet seen where later September interviews are landing. New dates are arriving by email direct from the Immigrant Visa Unit, in at least one case with <strong>less than 24 hours' notice</strong>, with a request to reply confirming attendance. <a href="${fullHref}">Read the full notice →</a></p>
+      <p><strong>At this stage:</strong></p>
+      <ul>
+        <li><strong>Do not attend a canceled appointment, but do attend a rescheduled one.</strong> Reply to confirm as soon as the email arrives, and be packed and ready to travel to Nine Elms.</li>
+        <li><strong>You can only reschedule to a later date.</strong> Rescheduling through AIS is only possible to a date <em>after</em> your assigned appointment, so moving a short-notice slot pushes your case back.</li>
+        <li><strong>No document check? Bring every original.</strong> The interview pack now emailed with the notice asks for all original documents and one passport photo at the interview itself. <a href="#no-document-check">See what to bring</a>.</li>
+        <li><strong>Check your passport and medical dates.</strong> Your passport should be valid for six months beyond your intended date of entry, and your medical must be at least two weeks before the new interview date and still valid on it.</li>
+        <li><strong>DV-2026 selectees:</strong> the pack states no diversity visa can be issued after <strong>30 September 2026</strong>, so an October date is past the deadline. <a href="/september-2026-update.html">Escalate now</a>.</li>
+      </ul>
+      <p style="margin-bottom:0;">Everything below describes the interview itself accurately and is worth preparing now.</p>
     </div>`,
   };
 
