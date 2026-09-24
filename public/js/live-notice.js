@@ -69,7 +69,6 @@
         <li><strong>You can only reschedule to a later date.</strong> Rescheduling through AIS is only possible to a date <em>after</em> your assigned appointment, so moving a short-notice slot pushes your case back.</li>
         <li><strong>No document check? Bring every original.</strong> The interview pack now emailed with the notice asks for all original documents and one passport photo at the interview itself. <a href="#no-document-check">See what to bring</a>.</li>
         <li><strong>Check your passport and medical dates.</strong> Your passport should be valid for six months beyond your intended date of entry, and your medical must be at least two weeks before the new interview date and still valid on it.</li>
-        <li><strong>DV-2026 selectees:</strong> the pack states no diversity visa can be issued after <strong>30 September 2026</strong>, so an October date is past the deadline. <a href="/september-2026-update.html">Escalate now</a>.</li>
       </ul>
       <p style="margin-bottom:0;">Everything below describes the interview itself accurately and is worth preparing now.</p>
     </div>`,
