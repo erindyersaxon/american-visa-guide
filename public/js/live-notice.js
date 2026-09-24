@@ -29,7 +29,6 @@
       <li><strong>Keep your documents packed:</strong> passport, the plastic wallet from your document review, and your full document set. Know how you would reach <strong>33 Nine Elms Lane, London SW11 7US</strong> for an early slot.</li>
       <li><strong>No document check? Bring every original,</strong> plus one passport photo and your courier confirmation page. Missing documents may mean your appointment is canceled. <a href="/guide/interview#no-document-check">What to bring</a>.</li>
       <li><strong>You can only reschedule later, never earlier.</strong> Moving a short-notice date in <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a> pushes your case back.</li>
-      <li><strong>DV-2026 selectees:</strong> no diversity visa can be issued after <strong>30 September 2026</strong>. If you have an October date, <a href="/september-2026-update.html">escalate now</a>.</li>
     </ul>
     <p><strong>Example:</strong> on 8 September one applicant was emailed a 10:00 appointment for the next morning, told to bring their passport and document-review wallet, and warned that &ldquo;availability for appointments will be limited going forward&rdquo;. They attended and were approved.</p>
     <p>There is no general timetable; the Department says only that applicants will be told as appointments become available. Background: <a href="/september-2026-update.html">both visa pauses vacated</a> and <a href="/public-charge.html">public charge</a>.</p>
