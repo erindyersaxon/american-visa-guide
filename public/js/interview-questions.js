@@ -8,6 +8,11 @@
    questionnaire': those are taken verbatim from a written public charge
    questionnaire a post issued to an applicant ahead of interview, and
    are included because the same factors drive the questioning at London.
+   Questions attributed to 'Interview at another post' or 'Follow-up form,
+   another post' come from one interview account, and the personal
+   history form issued after it, at a post other than London, shared
+   publicly in September 2026. They are included for the same reason,
+   and for applicants in technical fields.
 
    Officers are confirming what they already know from your DS-260 and
    petition. They are not testing you. Answer honestly and consistently;
@@ -58,6 +63,7 @@
     { key: 'finances',     label: 'Finances, sponsorship & benefits' },
     { key: 'publiccharge', label: 'Public charge: the deep financial dive' },
     { key: 'medical',      label: 'Medical, insurance & conditions' },
+    { key: 'background',   label: 'Background & technical review' },
     { key: 'family',       label: 'Family & prior relationships' },
     { key: 'logistics',    label: 'Travel & logistics' },
   ];
@@ -108,6 +114,8 @@
     { q: 'Do you have any debt? Does your petitioner?', theme: 'finances', cats: 'all', from: 'Multiple reports' },
     { q: 'Do you have savings you’re bringing with you? Roughly how much? Does your petitioner have savings?', theme: 'finances', cats: 'all', tip: 'Have a ballpark figure ready. You won’t need exact numbers.', from: 'Multiple reports' },
     { q: 'Do you have a joint sponsor? Who are they, and what do they do?', theme: 'finances', cats: 'all', tip: 'Know their name, relationship to you, job and income. One member was told he “probably” needed one and was still approved.', from: 'Multiple reports' },
+    { q: 'Why did you add a joint sponsor if your petitioner’s income was enough?', theme: 'finances', cats: 'all', tip: 'Have the real reason in one sentence. “We weren’t sure” invites the next question. A short US tax history is not a reason: the I-864 requires only the most recent tax year, though the last three are strongly recommended.', from: 'Interview at another post' },
+    { q: 'Has your joint sponsor sponsored anyone else before, or ever received public assistance?', theme: 'finances', cats: 'all', tip: 'You answer this, not the sponsor. An earlier I-864 that has not ended adds to their household size, so check it before you file.', from: 'Interview at another post' },
 
     // Public charge: the deep financial dive
     { q: 'Why was your petitioner’s income below the minimum in a given tax year?', theme: 'publiccharge', cats: 'all', tip: 'The officer reads the tax transcript in front of you and asks the beneficiary to explain it. Know the reason and know what changed. One petitioner’s 2025 income was low because he had just opened a business.', from: 'Esther' },
@@ -126,6 +134,14 @@
     { q: 'How will you get health insurance in the US?', theme: 'medical', cats: 'all', tip: 'Even a general plan (spouse’s employer, marketplace, etc.) is reassuring.', from: 'Mia' },
     { q: 'Are you on your petitioner’s insurance plan?', theme: 'medical', cats: 'all', tip: 'If not yet, say when you will be and what covers you until then.', from: 'Esther' },
     { q: 'Do you know what your medication costs in the US? Have you looked into it?', theme: 'medical', cats: 'all', tip: 'The health factor is about cost, not just coverage. An applicant with Type 1 diabetes was asked what insulin costs in the US. Price your own treatment in dollars before you go.', from: 'Esther' },
+
+    // Background & technical review
+    { q: 'Explain your field in detail. What exactly does your work involve?', theme: 'background', cats: 'all', tip: 'In technical fields officers may go deep: one cybersecurity graduate was asked about specific attacks and how vulnerability testing is done, while the officer looked things up. Answer plainly and accurately, and neither overstate nor play down what you do.', from: 'Interview at another post' },
+    { q: 'What was your thesis or dissertation about?', theme: 'background', cats: 'all', tip: 'Have a two-sentence summary a non-specialist can follow. It should match what your CV says.', from: 'Interview at another post' },
+    { q: 'Can you list every country you have travelled to in the last 15 years, with dates?', theme: 'background', cats: 'all', tip: 'Some posts send a follow-up form asking for 15 years of travel, addresses, employers and education, plus prior passports. Build the list before the interview and check it against your DS-260.', from: 'Follow-up form, another post' },
+    { q: 'Where have you lived, and who have you worked for, over the last 15 years?', theme: 'background', cats: 'all', tip: 'Addresses and employers, with a one-line description of each job. It must be consistent with your DS-260 and your CV.', from: 'Follow-up form, another post' },
+    { q: 'Have you served in the military? Branch, dates, rank and specialty?', theme: 'background', cats: 'all', tip: 'Asked on the same follow-up form. If you have not served, say so.', from: 'Follow-up form, another post' },
+    { q: 'Can you send us your CV and a list of your publications?', theme: 'background', cats: 'all', tip: 'Not a question, a request, and it usually comes with administrative processing. It is commonly linked to technical review. Keep a current CV ready, and a publications list if you have published.', from: 'Follow-up form, another post' },
 
     // Family & prior relationships
     { q: 'Have you been married before? Has your petitioner?', theme: 'family', cats: 'all', from: 'Multiple reports' },
