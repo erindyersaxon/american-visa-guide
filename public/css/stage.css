@@ -500,6 +500,14 @@
   .alert-banner p { font-size: 13px; margin-bottom: 10px; }
   .alert-banner p:last-child { margin-bottom: 0; }
 
+  .alert-banner ul {
+    font-size: 13px;
+    margin: 0 0 10px;
+    padding-left: 18px;
+  }
+
+  .alert-banner li { margin-bottom: 6px; }
+
   .alert-banner__figure {
     margin: 16px 0 12px;
   }
