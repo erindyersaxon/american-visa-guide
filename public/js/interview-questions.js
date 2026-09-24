@@ -114,7 +114,7 @@
     { q: 'Do you have any debt? Does your petitioner?', theme: 'finances', cats: 'all', from: 'Multiple reports' },
     { q: 'Do you have savings you’re bringing with you? Roughly how much? Does your petitioner have savings?', theme: 'finances', cats: 'all', tip: 'Have a ballpark figure ready. You won’t need exact numbers.', from: 'Multiple reports' },
     { q: 'Do you have a joint sponsor? Who are they, and what do they do?', theme: 'finances', cats: 'all', tip: 'Know their name, relationship to you, job and income. One member was told he “probably” needed one and was still approved.', from: 'Multiple reports' },
-    { q: 'Why did you add a joint sponsor if your petitioner’s income was enough?', theme: 'finances', cats: 'all', tip: 'Have the real reason in one sentence. “We weren’t sure” invites the next question. A short US tax history is not a reason: the I-864 requires only the most recent tax year.', from: 'Interview at another post' },
+    { q: 'Why did you add a joint sponsor if your petitioner’s income was enough?', theme: 'finances', cats: 'all', tip: 'Have the real reason in one sentence. “We weren’t sure” invites the next question. A short US tax history is not a reason: the I-864 requires only the most recent tax year, though the last three are strongly recommended.', from: 'Interview at another post' },
     { q: 'Has your joint sponsor sponsored anyone else before, or ever received public assistance?', theme: 'finances', cats: 'all', tip: 'You answer this, not the sponsor. An earlier I-864 that has not ended adds to their household size, so check it before you file.', from: 'Interview at another post' },
 
     // Public charge: the deep financial dive
