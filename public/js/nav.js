@@ -174,6 +174,7 @@
     'worksheet-ds260': 'checklists',
     'worksheet-i864': 'checklists',
     'i864-household-decision-tree': 'checklists',
+    'english-test': 'checklists',
     'life': 'life',
     'naturalization': 'life',
     'about': 'about',

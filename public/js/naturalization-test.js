@@ -1,18 +1,15 @@
 /*
    American Visa Guide: naturalization test study data
-   Single source of truth for the civics flashcards and the English
-   vocabulary lists on naturalization.html. Transcribed verbatim from:
+   Single source of truth for the civics flashcards on
+   naturalization.html. Transcribed verbatim from:
 
    2025 civics test: USCIS, "128 Civics Questions and Answers (2025
      version)", M-1778 (09/25). For Form N-400 filed on or after
-     20 October 2025: up to 20 questions asked, 12 correct to pass.
+     October 20, 2025: up to 20 questions asked, 12 correct to pass.
      Checked against "One Nation, One People: The USCIS 2025 Civics
-     Test Study Guide" (M-1175). Applicants who filed before 20 October
+     Test Study Guide" (M-1175). Applicants who filed before October 20,
      2025 take the 2008 test; the page links to USCIS for that list
      rather than reproducing it.
-   English vocabulary: USCIS, "Reading Vocabulary for the
-     Naturalization Test" and "Writing Vocabulary for the
-     Naturalization Test" (rev. 07/14).
 
    star:  one of the 20 questions for the 65/20 special consideration
           (age 65+ with 20+ years as a permanent resident): up to 10
@@ -28,7 +25,7 @@
 
   const TESTS = {
     '2025': {
-      label: '2025 test (N-400 filed on or after 20 Oct 2025)',
+      label: '2025 test (N-400 filed on or after Oct 20, 2025)',
       asked: 20, pass: 12,
       source: 'https://www.uscis.gov/sites/default/files/document/questions-and-answers/2025-Civics-Test-128-Questions-and-Answers.pdf',
       topics: [
@@ -98,7 +95,7 @@
       {"n": 54, "q": "How many Supreme Court justices are usually needed to decide a case?", "a": ["Five (5)"], "topic": "system"},
       {"n": 55, "q": "How long do Supreme Court justices serve?", "a": ["(For) life", "Lifetime appointment", "(Until) retirement"], "topic": "system"},
       {"n": 56, "q": "Supreme Court justices serve for life. Why?", "a": ["To be independent (of politics)", "To limit outside (political) influence"], "topic": "system"},
-      {"n": 57, "q": "Who is the Chief Justice of the United States now?", "a": ["See uscis.gov/citizenship/testupdates"], "topic": "system", "note": "As of September 2026: John G. Roberts, Jr.. Answer with whoever holds the office on the day of your interview, and check uscis.gov/citizenship/testupdates first."},
+      {"n": 57, "q": "Who is the Chief Justice of the United States now?", "a": ["See uscis.gov/citizenship/testupdates"], "topic": "system", "note": "As of September 2026: John G. Roberts, Jr. Answer with whoever holds the office on the day of your interview, and check uscis.gov/citizenship/testupdates first."},
       {"n": 58, "q": "Name one power that is only for the federal government.", "a": ["Print paper money", "Mint coins", "Declare war", "Create an army", "Make treaties", "Set foreign policy"], "topic": "system"},
       {"n": 59, "q": "Name one power that is only for the states.", "a": ["Provide schooling and education", "Provide protection (police)", "Provide safety (fire departments)", "Give a driver’s license", "Approve zoning and land use"], "topic": "system"},
       {"n": 60, "q": "What is the purpose of the 10th Amendment?", "a": ["(It states that the) powers not given to the federal government belong to the states or to the people."], "topic": "system"},
@@ -174,28 +171,5 @@
     },
   };
 
-  const VOCAB = {
-    reading: [
-      {"group": "People", "words": ["Abraham Lincoln", "George Washington"]},
-      {"group": "Civics", "words": ["American flag", "Bill of Rights", "capital", "citizen", "city", "Congress", "country", "Father of Our Country", "government", "President", "right", "Senators", "state/states", "White House"]},
-      {"group": "Places", "words": ["America", "United States", "U.S."]},
-      {"group": "Holidays", "words": ["Presidents’ Day", "Memorial Day", "Flag Day", "Independence Day", "Labor Day", "Columbus Day", "Thanksgiving"]},
-      {"group": "Question Words", "words": ["How", "What", "When", "Where", "Who", "Why"]},
-      {"group": "Verbs", "words": ["can", "come", "do/does", "elects", "have/has", "is/are/was/be", "lives/lived", "meet", "name", "pay", "vote", "want"]},
-      {"group": "Other (function words)", "words": ["a", "for", "here", "in", "of", "on", "the", "to", "we"]},
-      {"group": "Other (content words)", "words": ["colors", "dollar bill", "first", "largest", "many", "most", "north", "one", "people", "second", "south"]}
-    ],
-    writing: [
-      {"group": "People", "words": ["Adams", "Lincoln", "Washington"]},
-      {"group": "Civics", "words": ["American Indians", "capital", "citizens", "Civil War", "Congress", "Father of Our Country", "flag", "free", "freedom of speech", "President", "right", "Senators", "state/states", "White House"]},
-      {"group": "Places", "words": ["Alaska", "California", "Canada", "Delaware", "Mexico", "New York City", "United States", "Washington", "Washington, D.C."]},
-      {"group": "Months", "words": ["February", "May", "June", "July", "September", "October", "November"]},
-      {"group": "Holidays", "words": ["Presidents’ Day", "Memorial Day", "Flag Day", "Independence Day", "Labor Day", "Columbus Day", "Thanksgiving"]},
-      {"group": "Verbs", "words": ["can", "come", "elect", "have/has", "is/was/be", "lives/lived", "meets", "pay", "vote", "want"]},
-      {"group": "Other (function words)", "words": ["and", "during", "for", "here", "in", "of", "on", "the", "to", "we"]},
-      {"group": "Other (content words)", "words": ["blue", "dollar bill", "fifty/50", "first", "largest", "most", "north", "one", "one hundred/100", "people", "red", "second", "south", "taxes", "white"]}
-    ],
-  };
-
-  window.AVG_NATZ_TEST = { TESTS: TESTS, VOCAB: VOCAB };
+  window.AVG_NATZ_TEST = { TESTS: TESTS };
 })();

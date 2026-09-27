@@ -10,9 +10,9 @@
         period. The 3 years of marriage and of the spouse's citizenship
         must be complete on the day you file (8 CFR 319.1(a)(3)).
       - Fees follow the USCIS fee schedule (G-1055) in force since
-        1 April 2024. Update FEES below if the schedule changes.
+        April 1, 2024. Update FEES below if the schedule changes.
    2. Preparation checklist. Ticks are saved in localStorage only.
-   3. 2025 civics test flashcards and vocabulary lists. Data lives in
+   3. 2025 civics test flashcards. Data lives in
       /js/naturalization-test.js.
  */
 (function () {
@@ -44,7 +44,7 @@
   }
   function addYears(d, n) {
     const r = new Date(Date.UTC(d.getUTCFullYear() + n, d.getUTCMonth(), d.getUTCDate()));
-    // 29 February anniversaries fall on 1 March in non-leap years
+    // February 29 anniversaries fall on March 1 in non-leap years
     return r;
   }
   function addMonths(d, n) {
@@ -383,7 +383,7 @@
       ['a1', 'Attend your biometrics appointment', 'Bring the appointment notice and photo ID.'],
       ['a2', 'Report any change of address within 10 days', 'Through your USCIS account or Form AR-11. Missed notices are a common reason for delays and denials.'],
       ['a3', 'Keep trips abroad short', 'Continuous residence must continue until your oath.'],
-      ['a4', 'Study for the civics and English tests', 'Use the <a href="#civics">flashcards</a>, and practise saying your N-400 answers aloud.'],
+      ['a4', 'Study for the civics test', 'Use the <a href="#civics">civics flashcards</a>, and practice saying your N-400 answers aloud. English practice sheets are on <a href="/checklists.html#naturalization">Checklists &amp; Tools</a>.'],
       ['a5', 'Keep filing taxes, and avoid any new arrest or citation', 'Good moral character runs until the oath.'],
       ['a6', 'Reply to any request for evidence before the deadline', 'Send everything asked for in one response.'],
     ]},
@@ -438,7 +438,7 @@
   renderPrep();
 
   /* =============================================================
-     3. CIVICS FLASHCARDS + VOCABULARY
+     3. CIVICS FLASHCARDS
      ============================================================= */
   const DATA = window.AVG_NATZ_TEST;
   if (!DATA) return;
@@ -591,18 +591,4 @@
   });
   build();
 
-  // Vocabulary lists
-  const vocabBox = document.getElementById('vocab');
-  if (vocabBox && DATA.VOCAB) {
-    const card = function (title, sub, groups) {
-      return '<div class="vocab-card"><h4>' + title + '</h4><p class="vocab-sub">' + sub + '</p>' +
-        groups.map(function (g) {
-          return '<div class="vocab-group"><div class="vocab-label">' + esc(g.group) + '</div><div class="vocab-words">' +
-            g.words.map(function (w) { return '<span>' + esc(w) + '</span>'; }).join('') + '</div></div>';
-        }).join('') + '</div>';
-    };
-    vocabBox.innerHTML =
-      card('Reading vocabulary', 'You read one of up to three questions aloud, for example "Who was the first President?"', DATA.VOCAB.reading) +
-      card('Writing vocabulary', 'You write one of up to three sentences the officer reads, for example "Washington was the first President."', DATA.VOCAB.writing);
-  }
 })();
