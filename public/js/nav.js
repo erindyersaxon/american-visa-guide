@@ -175,6 +175,7 @@
     'worksheet-i864': 'checklists',
     'i864-household-decision-tree': 'checklists',
     'life': 'life',
+    'naturalization': 'life',
     'about': 'about',
     'privacy': 'about',
   };
