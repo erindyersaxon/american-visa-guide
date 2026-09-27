@@ -335,6 +335,14 @@
   color: rgba(244, 239, 230, 0.75);
 }
 
+.avg-footer__note p {
+  margin: 0;
+}
+
+.avg-footer__note .avg-footer__note-hd {
+  margin-bottom: 0.5rem;
+}
+
 .avg-footer__note strong {
   color: var(--color-text-on-dark, #f4efe6);
 }

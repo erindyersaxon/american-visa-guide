@@ -129,7 +129,10 @@
   const FOOTER_HTML = `
 <footer class="avg-footer" role="contentinfo">
   <div class="avg-footer__container">
-    <p class="avg-footer__note"><strong>This is not legal advice.</strong> American Visa Guide is an independent community resource, based on official US government sources and observed London embassy patterns: written by Erin with input from community members, not lawyers or embassy staff.</p>
+    <div class="avg-footer__note">
+      <p class="avg-footer__note-hd"><strong>Not legal advice</strong></p>
+      <p>This page is based on published government sources, court filings and community experience. It is not legal advice, and your situation may differ. If you have complex circumstances, such as prior public benefits use, gaps in employment, or a medical condition, consider consulting an immigration attorney affiliated with the <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">American Immigration Lawyers Association</a> before your interview.</p>
+    </div>
     <div class="avg-footer__cols">
       <div>
         <p class="avg-footer__hd">Contact</p>
