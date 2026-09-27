@@ -99,6 +99,11 @@
 
     /* Legal Remedies Tiles */
     .legal-remedies-section { margin: var(--space-12) 0; }
+    .natz-section { margin: var(--space-12) 0; scroll-margin-top: 80px; }
+    .natz-section h2 { margin-top: 0; margin-bottom: var(--space-2); }
+    .tool-card--static .tool-card__title a { color: inherit; text-decoration: none; }
+    .tool-card--static .tool-card__title a:hover { text-decoration: underline; }
+    .dl-links { display: flex; flex-wrap: wrap; gap: var(--space-2); }
     .legal-remedies-section h2 { margin-top: 0; margin-bottom: var(--space-2); }
 
     /* Saved progress (interactive checklists remember your ticks) */
@@ -590,6 +595,67 @@
         </a>
 
       </div>
+
+      <!-- Naturalization -->
+      <section class="natz-section" id="naturalization" aria-labelledby="natz-title">
+        <h2 id="natz-title">Naturalization: Form N-400</h2>
+        <p style="font-size:var(--text-sm);color:var(--color-text-secondary);margin-bottom:var(--space-6);">Printable versions of the <a href="/naturalization.html">Naturalization guide</a>. The PDF is ready to print. The Google Doc link makes your own editable copy. The flashcard PDFs print double-sided: choose "flip on long edge" so each answer lands behind its question, then cut along the dashed lines.</p>
+
+        <div class="tools-grid">
+
+          <div class="tool-card tool-card--static">
+            <div class="tool-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+            </div>
+            <div class="tool-card__body">
+              <span class="stage-chip badge-journey">After the green card</span>
+              <div class="tool-card__title"><a href="/naturalization.html#prepare">Naturalization Checklist</a></div>
+              <p class="tool-card__desc">Every step from deciding to file through to the oath ceremony, with a tick box for each: records to gather, filing, the interview and what to do after you become a citizen.</p>
+            </div>
+            <div class="tool-card__footer">
+              <div class="dl-links">
+                <a class="btn btn--secondary btn--sm" href="/downloads/naturalization-checklist.pdf">PDF</a>
+                <a class="btn btn--secondary btn--sm" href="https://docs.google.com/document/d/1R_5c-GMs370lYfbWQwDh6rLVWuwuUWRUzZquImbjFyA/copy" target="_blank" rel="noopener noreferrer">Google Doc</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-card tool-card--static">
+            <div class="tool-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 2h12a2 2 0 012 2v12"/></svg>
+            </div>
+            <div class="tool-card__body">
+              <span class="stage-chip badge-journey">2025 civics test</span>
+              <div class="tool-card__title"><a href="/naturalization.html#civics">Civics Test Flashcards</a></div>
+              <p class="tool-card__desc">All 128 questions and answers of the 2025 civics test, word for word from USCIS. The 20 questions for applicants 65 and over are marked. Cut-out cards in the PDF, a fold-in-half table in the Doc.</p>
+            </div>
+            <div class="tool-card__footer">
+              <div class="dl-links">
+                <a class="btn btn--secondary btn--sm" href="/downloads/naturalization-civics-flashcards.pdf">PDF</a>
+                <a class="btn btn--secondary btn--sm" href="https://docs.google.com/document/d/15hFt4fZMi1fs_eXtvLjWOXNIjw1KiH72BKfcuZwfSko/copy" target="_blank" rel="noopener noreferrer">Google Doc</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-card tool-card--static">
+            <div class="tool-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l4-12 4 12"/><path d="M5.5 15h5"/><path d="M15 7v12h3a3 3 0 000-6h-3"/><path d="M15 13h2.5a3 3 0 000-6H15"/></svg>
+            </div>
+            <div class="tool-card__body">
+              <span class="stage-chip badge-journey">English test</span>
+              <div class="tool-card__title"><a href="/english-test.html">English Test Flashcards</a></div>
+              <p class="tool-card__desc">The 20 N-400 interview words USCIS uses in its practice test, and every word on the USCIS reading and writing vocabulary lists. Most UK applicants will not need these.</p>
+            </div>
+            <div class="tool-card__footer">
+              <div class="dl-links">
+                <a class="btn btn--secondary btn--sm" href="/downloads/naturalization-english-flashcards.pdf">PDF</a>
+                <a class="btn btn--secondary btn--sm" href="https://docs.google.com/document/d/1Dp2y-YP69-Q9Fl4acl5oBwreDhOpm62xeoQzGNVz2S0/copy" target="_blank" rel="noopener noreferrer">Google Doc</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       <!-- Legal Remedies -->
       <section class="legal-remedies-section" id="legal-remedies" aria-labelledby="legal-title">
