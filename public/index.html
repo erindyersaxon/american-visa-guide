@@ -352,6 +352,15 @@
     }
     .week-card__list .wm-name { color: var(--color-text); }
     .week-card__list .wm-date { color: var(--color-text-muted); white-space: nowrap; flex-shrink: 0; }
+    .week-card__list .wm-note { display: block; font-size: var(--text-xs); color: var(--color-text-muted); }
+    .week-card__sublabel {
+      margin: var(--space-3) 0 0;
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
     .week-card__list .wm-empty {
       justify-content: center;
       color: var(--color-text-muted);
@@ -429,6 +438,10 @@
               </div>
               <div class="week-card__label">Interviews</div>
               <ul class="week-card__list" id="wl-interviews" aria-label="Members with an interview this week"></ul>
+              <div id="wl-interviews-next-wrap" hidden>
+                <p class="week-card__sublabel">Next week · <span id="week-next-label">…</span></p>
+                <ul class="week-card__list" id="wl-interviews-next" aria-label="Members with an interview next week"></ul>
+              </div>
             </div>
 
             <div class="week-card" role="listitem">
@@ -615,14 +628,26 @@
         ['w-dq',         'wl-dq',         tw.dqs],
         ['w-i130',       'wl-i130',       tw.approved],
       ];
+      const sorted = raw => (raw || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+      const items = list => list.map(m =>
+        `<li><span class="wm-name">${esc(m.name)}${m.note ? `<span class="wm-note">${esc(m.note)}</span>` : ''}</span><span class="wm-date">${fmtShort(m.date)}</span></li>`
+      ).join('');
       for (const [countId, listId, raw] of cards) {
-        const list = (raw || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+        const list = sorted(raw);
         set(countId, String(list.length));
         const ul = document.getElementById(listId);
         if (!ul) continue;
-        ul.innerHTML = list.length
-          ? list.map(m => `<li><span class="wm-name">${esc(m.name)}</span><span class="wm-date">${fmtShort(m.date)}</span></li>`).join('')
-          : '<li class="wm-empty">None this week</li>';
+        ul.innerHTML = list.length ? items(list) : '<li class="wm-empty">None this week</li>';
+      }
+
+      /* Interviews card also lists the following week, so short-notice
+         reschedules show before their week starts. Hidden when empty. */
+      const next = sorted(tw.interviews_next);
+      const wrap = document.getElementById('wl-interviews-next-wrap');
+      if (wrap) {
+        wrap.hidden = !next.length;
+        if (tw.next_week_of) txt('week-next-label', fmtWeekRange(tw.next_week_of));
+        set('wl-interviews-next', items(next));
       }
     }
 

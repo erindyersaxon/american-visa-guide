@@ -594,10 +594,36 @@ export default async function handler(req, res) {
   const inUpcoming = (dateStr) => inWindow(dateStr, upcomingStart, upcomingEnd)
   const inPrevious = (dateStr) => inWindow(dateStr, previousStart, previousEnd)
 
-  const weekInterviews = deduped
-    .filter(r => r.username_raw && inUpcoming(r.interview))
-    .map(r => ({ name: r.username_raw, date: r.interview }))
-    .sort((a, b) => new Date(a.date) - new Date(b.date))
+  // The week after the upcoming one, so rescheduled interviews announced at
+  // short notice are visible before their week begins.
+  const nextStart = new Date(upcomingStart)
+  nextStart.setUTCDate(upcomingStart.getUTCDate() + 7)
+  const nextEnd = new Date(upcomingEnd)
+  nextEnd.setUTCDate(upcomingEnd.getUTCDate() + 7)
+  const inNext = (dateStr) => inWindow(dateStr, nextStart, nextEnd)
+
+  // Interview dates reported directly to the admin (rescheduled or recalled
+  // cases) that are not in form_responses. Kept out of the table so they
+  // never feed the interval statistics; they only appear in the weekly list,
+  // and replace any form entry for the same member within the window.
+  const MANUAL_INTERVIEWS = [
+    { name: 'Ilma',       date: '2026-10-02', note: '221(g) second interview (75-country pause)' },
+    { name: 'Carl Ralph', date: '2026-10-06', note: 'Rescheduled interview' },
+    { name: 'Ashley',     date: '2026-10-06', note: 'Rescheduled interview' },
+  ]
+  const nameKey = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '')
+  const interviewsIn = (inRange) => {
+    const manual = MANUAL_INTERVIEWS.filter(m => inRange(m.date))
+    const manualKeys = new Set(MANUAL_INTERVIEWS.map(m => nameKey(m.name)))
+    return deduped
+      .filter(r => r.username_raw && inRange(r.interview) && !manualKeys.has(nameKey(r.username_raw)))
+      .map(r => ({ name: r.username_raw, date: r.interview }))
+      .concat(manual)
+      .sort((a, b) => new Date(a.date) - new Date(b.date))
+  }
+
+  const weekInterviews = interviewsIn(inUpcoming)
+  const nextWeekInterviews = interviewsIn(inNext)
 
   const weekMedicals = deduped
     .filter(r => r.username_raw && inUpcoming(r.medical))
@@ -713,8 +739,11 @@ export default async function handler(req, res) {
     latest_interview:       latestInterview,
     this_week: {
       week_of:          upcomingWeekOf,
+      upcoming_week_of: upcomingWeekOf,
       previous_week_of: previousWeekOf,
+      next_week_of:     nextStart.toISOString().split('T')[0],
       interviews:       weekInterviews,
+      interviews_next:  nextWeekInterviews,
       medicals:         weekMedicals,
       flights:          weekFlights,
       dqs:              weekDQs,
