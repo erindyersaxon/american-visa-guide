@@ -6,21 +6,17 @@
    2025 civics test: USCIS, "128 Civics Questions and Answers (2025
      version)", M-1778 (09/25). For Form N-400 filed on or after
      20 October 2025: up to 20 questions asked, 12 correct to pass.
-   2008 civics test: USCIS, "Civics (History and Government) Questions
-     for the Naturalization Test" (rev. 01/19). For Form N-400 filed
-     before 20 October 2025: up to 10 questions asked, 6 correct.
-     Every question and answer was checked against the Civics Flash
-     Cards (M-623, rev. 08/21), and the starred questions against "Civics
-     Questions for the 65/20 Special Consideration (2008 version)"
-     (rev. 08/21).
+     Checked against "One Nation, One People: The USCIS 2025 Civics
+     Test Study Guide" (M-1175). Applicants who filed before 20 October
+     2025 take the 2008 test; the page links to USCIS for that list
+     rather than reproducing it.
    English vocabulary: USCIS, "Reading Vocabulary for the
      Naturalization Test" and "Writing Vocabulary for the
-     Naturalization Test" (rev. 07/14). The same lists apply to both
-     civics test versions.
+     Naturalization Test" (rev. 07/14).
 
    star:  one of the 20 questions for the 65/20 special consideration
-          (age 65+ with 20+ years as a permanent resident). 2025 test:
-          up to 10 asked, 6 correct; 2008 test: 10 asked, 6 correct.
+          (age 65+ with 20+ years as a permanent resident): up to 10
+          asked, 6 correct.
    uscis: bracketed guidance USCIS prints alongside an answer.
    note:  our own study note, never part of the official answer. The
           "As of September 2026" notes must be re-checked against
@@ -174,124 +170,6 @@
       {"n": 126, "q": "Name three national U.S. holidays.", "a": ["New Year’s Day", "Martin Luther King, Jr. Day", "Presidents Day (Washington’s Birthday)", "Memorial Day", "Juneteenth", "Independence Day", "Labor Day", "Columbus Day", "Veterans Day", "Thanksgiving Day", "Christmas Day"], "topic": "holidays", "star": true},
       {"n": 127, "q": "What is Memorial Day?", "a": ["A holiday to honor soldiers who died in military service"], "topic": "holidays"},
       {"n": 128, "q": "What is Veterans Day?", "a": ["A holiday to honor people in the (U.S.) military", "A holiday to honor people who have served (in the U.S. military)"], "topic": "holidays"}
-      ],
-    },
-    '2008': {
-      label: '2008 test (N-400 filed before 20 Oct 2025)',
-      asked: 10, pass: 6,
-      source: 'https://www.uscis.gov/sites/default/files/document/questions-and-answers/100q.pdf',
-      topics: [
-        { key: 'principles', label: 'Principles of American Democracy' },
-        { key: 'system',     label: 'System of Government' },
-        { key: 'rights',     label: 'Rights and Responsibilities' },
-        { key: 'colonial',   label: 'Colonial Period and Independence' },
-        { key: '1800s',      label: '1800s' },
-        { key: 'recent',     label: 'Recent American History' },
-        { key: 'geography',  label: 'Geography' },
-        { key: 'symbols',    label: 'Symbols' },
-        { key: 'holidays',   label: 'Holidays' },
-      ],
-      questions: [
-      {"n": 1, "q": "What is the supreme law of the land?", "a": ["the Constitution"], "topic": "principles"},
-      {"n": 2, "q": "What does the Constitution do?", "a": ["sets up the government", "defines the government", "protects basic rights of Americans"], "topic": "principles"},
-      {"n": 3, "q": "The idea of self-government is in the first three words of the Constitution. What are these words?", "a": ["We the People"], "topic": "principles"},
-      {"n": 4, "q": "What is an amendment?", "a": ["a change (to the Constitution)", "an addition (to the Constitution)"], "topic": "principles"},
-      {"n": 5, "q": "What do we call the first ten amendments to the Constitution?", "a": ["the Bill of Rights"], "topic": "principles"},
-      {"n": 6, "q": "What is one right or freedom from the First Amendment?", "a": ["speech", "religion", "assembly", "press", "petition the government"], "topic": "principles", "star": true},
-      {"n": 7, "q": "How many amendments does the Constitution have?", "a": ["twenty-seven (27)"], "topic": "principles"},
-      {"n": 8, "q": "What did the Declaration of Independence do?", "a": ["announced our independence (from Great Britain)", "declared our independence (from Great Britain)", "said that the United States is free (from Great Britain)"], "topic": "principles"},
-      {"n": 9, "q": "What are two rights in the Declaration of Independence?", "a": ["life", "liberty", "pursuit of happiness"], "topic": "principles"},
-      {"n": 10, "q": "What is freedom of religion?", "a": ["You can practice any religion, or not practice a religion."], "topic": "principles"},
-      {"n": 11, "q": "What is the economic system in the United States?", "a": ["capitalist economy", "market economy"], "topic": "principles", "star": true},
-      {"n": 12, "q": "What is the \"rule of law\"?", "a": ["Everyone must follow the law.", "Leaders must obey the law.", "Government must obey the law.", "No one is above the law."], "topic": "principles"},
-      {"n": 13, "q": "Name one branch or part of the government.", "a": ["Congress", "legislative", "President", "executive", "the courts", "judicial"], "topic": "system", "star": true},
-      {"n": 14, "q": "What stops one branch of government from becoming too powerful?", "a": ["checks and balances", "separation of powers"], "topic": "system"},
-      {"n": 15, "q": "Who is in charge of the executive branch?", "a": ["the President"], "topic": "system"},
-      {"n": 16, "q": "Who makes federal laws?", "a": ["Congress", "Senate and House (of Representatives)", "(U.S. or national) legislature"], "topic": "system"},
-      {"n": 17, "q": "What are the two parts of the U.S. Congress?", "a": ["the Senate and House (of Representatives)"], "topic": "system", "star": true},
-      {"n": 18, "q": "How many U.S. Senators are there?", "a": ["one hundred (100)"], "topic": "system"},
-      {"n": 19, "q": "We elect a U.S. Senator for how many years?", "a": ["six (6)"], "topic": "system"},
-      {"n": 20, "q": "Who is one of your state's U.S. Senators now?", "a": ["Answers will vary."], "topic": "system", "uscis": "District of Columbia residents and residents of U.S. territories should answer that D.C. (or the territory where the applicant lives) has no U.S. Senators.", "star": true, "note": "Look up your senators at senate.gov/senators."},
-      {"n": 21, "q": "The House of Representatives has how many voting members?", "a": ["four hundred thirty-five (435)"], "topic": "system"},
-      {"n": 22, "q": "We elect a U.S. Representative for how many years?", "a": ["two (2)"], "topic": "system"},
-      {"n": 23, "q": "Name your U.S. Representative.", "a": ["Answers will vary."], "topic": "system", "uscis": "Residents of territories with nonvoting Delegates or Resident Commissioners may provide the name of that Delegate or Commissioner. Also acceptable is any statement that the territory has no (voting) Representatives in Congress.", "note": "Look up your representative by ZIP code at house.gov/representatives/find-your-representative."},
-      {"n": 24, "q": "Who does a U.S. Senator represent?", "a": ["all people of the state"], "topic": "system"},
-      {"n": 25, "q": "Why do some states have more Representatives than other states?", "a": ["(because of) the state's population", "(because) they have more people", "(because) some states have more people"], "topic": "system"},
-      {"n": 26, "q": "We elect a President for how many years?", "a": ["four (4)"], "topic": "system"},
-      {"n": 27, "q": "In what month do we vote for President?", "a": ["November"], "topic": "system", "star": true},
-      {"n": 28, "q": "What is the name of the President of the United States now?", "a": ["See uscis.gov/citizenship/testupdates"], "topic": "system", "star": true, "note": "As of September 2026: Donald J. Trump. Answer with whoever holds the office on the day of your interview, and check uscis.gov/citizenship/testupdates first."},
-      {"n": 29, "q": "What is the name of the Vice President of the United States now?", "a": ["See uscis.gov/citizenship/testupdates"], "topic": "system", "note": "As of September 2026: JD Vance. Answer with whoever holds the office on the day of your interview, and check uscis.gov/citizenship/testupdates first."},
-      {"n": 30, "q": "If the President can no longer serve, who becomes President?", "a": ["the Vice President"], "topic": "system"},
-      {"n": 31, "q": "If both the President and the Vice President can no longer serve, who becomes President?", "a": ["the Speaker of the House"], "topic": "system"},
-      {"n": 32, "q": "Who is the Commander in Chief of the military?", "a": ["the President"], "topic": "system"},
-      {"n": 33, "q": "Who signs bills to become laws?", "a": ["the President"], "topic": "system"},
-      {"n": 34, "q": "Who vetoes bills?", "a": ["the President"], "topic": "system"},
-      {"n": 35, "q": "What does the President's Cabinet do?", "a": ["advises the President"], "topic": "system"},
-      {"n": 36, "q": "What are two Cabinet-level positions?", "a": ["Secretary of Agriculture", "Secretary of Commerce", "Secretary of Defense", "Secretary of Education", "Secretary of Energy", "Secretary of Health and Human Services", "Secretary of Homeland Security", "Secretary of Housing and Urban Development", "Secretary of the Interior", "Secretary of Labor", "Secretary of State", "Secretary of Transportation", "Secretary of the Treasury", "Secretary of Veterans Affairs", "Attorney General", "Vice President"], "topic": "system"},
-      {"n": 37, "q": "What does the judicial branch do?", "a": ["reviews laws", "explains laws", "resolves disputes (disagreements)", "decides if a law goes against the Constitution"], "topic": "system"},
-      {"n": 38, "q": "What is the highest court in the United States?", "a": ["the Supreme Court"], "topic": "system"},
-      {"n": 39, "q": "How many justices are on the Supreme Court?", "a": ["See uscis.gov/citizenship/testupdates"], "topic": "system", "note": "As of September 2026: nine (9). Answer with whoever holds the office on the day of your interview, and check uscis.gov/citizenship/testupdates first."},
-      {"n": 40, "q": "Who is the Chief Justice of the United States now?", "a": ["See uscis.gov/citizenship/testupdates"], "topic": "system", "note": "As of September 2026: John G. Roberts, Jr.. Answer with whoever holds the office on the day of your interview, and check uscis.gov/citizenship/testupdates first."},
-      {"n": 41, "q": "Under our Constitution, some powers belong to the federal government. What is one power of the federal government?", "a": ["to print money", "to declare war", "to create an army", "to make treaties"], "topic": "system"},
-      {"n": 42, "q": "Under our Constitution, some powers belong to the states. What is one power of the states?", "a": ["provide schooling and education", "provide protection (police)", "provide safety (fire departments)", "give a driver's license", "approve zoning and land use"], "topic": "system"},
-      {"n": 43, "q": "Who is the Governor of your state now?", "a": ["Answers will vary."], "topic": "system", "uscis": "District of Columbia residents should answer that D.C. does not have a Governor.", "note": "Look up your governor at usa.gov/state-governor."},
-      {"n": 44, "q": "What is the capital of your state?", "a": ["Answers will vary."], "topic": "system", "uscis": "District of Columbia residents should answer that D.C. is not a state and does not have a capital. Residents of U.S. territories should name the capital of the territory.", "star": true, "note": "Look up your state capital at usa.gov/states-and-territories."},
-      {"n": 45, "q": "What are the two major political parties in the United States?", "a": ["Democratic and Republican"], "topic": "system", "star": true},
-      {"n": 46, "q": "What is the political party of the President now?", "a": ["See uscis.gov/citizenship/testupdates"], "topic": "system", "note": "As of September 2026: Republican. Answer with whoever holds the office on the day of your interview, and check uscis.gov/citizenship/testupdates first."},
-      {"n": 47, "q": "What is the name of the Speaker of the House of Representatives now?", "a": ["See uscis.gov/citizenship/testupdates"], "topic": "system", "note": "As of September 2026: Mike Johnson. Answer with whoever holds the office on the day of your interview, and check uscis.gov/citizenship/testupdates first."},
-      {"n": 48, "q": "There are four amendments to the Constitution about who can vote. Describe one of them.", "a": ["Citizens eighteen (18) and older (can vote).", "You don't have to pay (a poll tax) to vote.", "Any citizen can vote. (Women and men can vote.)", "A male citizen of any race (can vote)."], "topic": "rights"},
-      {"n": 49, "q": "What is one responsibility that is only for United States citizens?", "a": ["serve on a jury", "vote in a federal election"], "topic": "rights", "star": true},
-      {"n": 50, "q": "Name one right only for United States citizens.", "a": ["vote in a federal election", "run for federal office"], "topic": "rights"},
-      {"n": 51, "q": "What are two rights of everyone living in the United States?", "a": ["freedom of expression", "freedom of speech", "freedom of assembly", "freedom to petition the government", "freedom of religion", "the right to bear arms"], "topic": "rights"},
-      {"n": 52, "q": "What do we show loyalty to when we say the Pledge of Allegiance?", "a": ["the United States", "the flag"], "topic": "rights"},
-      {"n": 53, "q": "What is one promise you make when you become a United States citizen?", "a": ["give up loyalty to other countries", "defend the Constitution and laws of the United States", "obey the laws of the United States", "serve in the U.S. military (if needed)", "serve (do important work for) the nation (if needed)", "be loyal to the United States"], "topic": "rights"},
-      {"n": 54, "q": "How old do citizens have to be to vote for President?", "a": ["eighteen (18) and older"], "topic": "rights", "star": true},
-      {"n": 55, "q": "What are two ways that Americans can participate in their democracy?", "a": ["vote", "join a political party", "help with a campaign", "join a civic group", "join a community group", "give an elected official your opinion on an issue", "call Senators and Representatives", "publicly support or oppose an issue or policy", "run for office", "write to a newspaper"], "topic": "rights"},
-      {"n": 56, "q": "When is the last day you can send in federal income tax forms?", "a": ["April 15"], "topic": "rights", "star": true},
-      {"n": 57, "q": "When must all men register for the Selective Service?", "a": ["at age eighteen (18)", "between eighteen (18) and twenty-six (26)"], "topic": "rights"},
-      {"n": 58, "q": "What is one reason colonists came to America?", "a": ["freedom", "political liberty", "religious freedom", "economic opportunity", "practice their religion", "escape persecution"], "topic": "colonial"},
-      {"n": 59, "q": "Who lived in America before the Europeans arrived?", "a": ["American Indians", "Native Americans"], "topic": "colonial"},
-      {"n": 60, "q": "What group of people was taken to America and sold as slaves?", "a": ["Africans", "people from Africa"], "topic": "colonial"},
-      {"n": 61, "q": "Why did the colonists fight the British?", "a": ["because of high taxes (taxation without representation)", "because the British army stayed in their houses (boarding, quartering)", "because they didn't have self-government"], "topic": "colonial"},
-      {"n": 62, "q": "Who wrote the Declaration of Independence?", "a": ["(Thomas) Jefferson"], "topic": "colonial"},
-      {"n": 63, "q": "When was the Declaration of Independence adopted?", "a": ["July 4, 1776"], "topic": "colonial"},
-      {"n": 64, "q": "There were 13 original states. Name three.", "a": ["New Hampshire", "Massachusetts", "Rhode Island", "Connecticut", "New York", "New Jersey", "Pennsylvania", "Delaware", "Maryland", "Virginia", "North Carolina", "South Carolina", "Georgia"], "topic": "colonial"},
-      {"n": 65, "q": "What happened at the Constitutional Convention?", "a": ["The Constitution was written.", "The Founding Fathers wrote the Constitution."], "topic": "colonial"},
-      {"n": 66, "q": "When was the Constitution written?", "a": ["1787"], "topic": "colonial"},
-      {"n": 67, "q": "The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.", "a": ["(James) Madison", "(Alexander) Hamilton", "(John) Jay", "Publius"], "topic": "colonial"},
-      {"n": 68, "q": "What is one thing Benjamin Franklin is famous for?", "a": ["U.S. diplomat", "oldest member of the Constitutional Convention", "first Postmaster General of the United States", "writer of \"Poor Richard's Almanac\"", "started the first free libraries"], "topic": "colonial"},
-      {"n": 69, "q": "Who is the \"Father of Our Country\"?", "a": ["(George) Washington"], "topic": "colonial"},
-      {"n": 70, "q": "Who was the first President?", "a": ["(George) Washington"], "topic": "colonial", "star": true},
-      {"n": 71, "q": "What territory did the United States buy from France in 1803?", "a": ["the Louisiana Territory", "Louisiana"], "topic": "1800s"},
-      {"n": 72, "q": "Name one war fought by the United States in the 1800s.", "a": ["War of 1812", "Mexican-American War", "Civil War", "Spanish-American War"], "topic": "1800s"},
-      {"n": 73, "q": "Name the U.S. war between the North and the South.", "a": ["the Civil War", "the War between the States"], "topic": "1800s"},
-      {"n": 74, "q": "Name one problem that led to the Civil War.", "a": ["slavery", "economic reasons", "states' rights"], "topic": "1800s"},
-      {"n": 75, "q": "What was one important thing that Abraham Lincoln did?", "a": ["freed the slaves (Emancipation Proclamation)", "saved (or preserved) the Union", "led the United States during the Civil War"], "topic": "1800s", "star": true},
-      {"n": 76, "q": "What did the Emancipation Proclamation do?", "a": ["freed the slaves", "freed slaves in the Confederacy", "freed slaves in the Confederate states", "freed slaves in most Southern states"], "topic": "1800s"},
-      {"n": 77, "q": "What did Susan B. Anthony do?", "a": ["fought for women's rights", "fought for civil rights"], "topic": "1800s"},
-      {"n": 78, "q": "Name one war fought by the United States in the 1900s.", "a": ["World War I", "World War II", "Korean War", "Vietnam War", "(Persian) Gulf War"], "topic": "recent", "star": true},
-      {"n": 79, "q": "Who was President during World War I?", "a": ["(Woodrow) Wilson"], "topic": "recent"},
-      {"n": 80, "q": "Who was President during the Great Depression and World War II?", "a": ["(Franklin) Roosevelt"], "topic": "recent"},
-      {"n": 81, "q": "Who did the United States fight in World War II?", "a": ["Japan, Germany, and Italy"], "topic": "recent"},
-      {"n": 82, "q": "Before he was President, Eisenhower was a general. What war was he in?", "a": ["World War II"], "topic": "recent"},
-      {"n": 83, "q": "During the Cold War, what was the main concern of the United States?", "a": ["Communism"], "topic": "recent"},
-      {"n": 84, "q": "What movement tried to end racial discrimination?", "a": ["civil rights (movement)"], "topic": "recent"},
-      {"n": 85, "q": "What did Martin Luther King, Jr. do?", "a": ["fought for civil rights", "worked for equality for all Americans"], "topic": "recent", "star": true},
-      {"n": 86, "q": "What major event happened on September 11, 2001, in the United States?", "a": ["Terrorists attacked the United States."], "topic": "recent"},
-      {"n": 87, "q": "Name one American Indian tribe in the United States.", "uscis": "USCIS Officers will be supplied with a list of federally recognized American Indian tribes.", "a": ["Cherokee", "Navajo", "Sioux", "Chippewa", "Choctaw", "Pueblo", "Apache", "Iroquois", "Creek", "Blackfeet", "Seminole", "Cheyenne", "Arawak", "Shawnee", "Mohegan", "Huron", "Oneida", "Lakota", "Crow", "Teton", "Hopi", "Inuit"], "topic": "recent"},
-      {"n": 88, "q": "Name one of the two longest rivers in the United States.", "a": ["Missouri (River)", "Mississippi (River)"], "topic": "geography"},
-      {"n": 89, "q": "What ocean is on the West Coast of the United States?", "a": ["Pacific (Ocean)"], "topic": "geography"},
-      {"n": 90, "q": "What ocean is on the East Coast of the United States?", "a": ["Atlantic (Ocean)"], "topic": "geography"},
-      {"n": 91, "q": "Name one U.S. territory.", "a": ["Puerto Rico", "U.S. Virgin Islands", "American Samoa", "Northern Mariana Islands", "Guam"], "topic": "geography"},
-      {"n": 92, "q": "Name one state that borders Canada.", "a": ["Maine", "New Hampshire", "Vermont", "New York", "Pennsylvania", "Ohio", "Michigan", "Minnesota", "North Dakota", "Montana", "Idaho", "Washington", "Alaska"], "topic": "geography"},
-      {"n": 93, "q": "Name one state that borders Mexico.", "a": ["California", "Arizona", "New Mexico", "Texas"], "topic": "geography"},
-      {"n": 94, "q": "What is the capital of the United States?", "a": ["Washington, D.C."], "topic": "geography", "star": true},
-      {"n": 95, "q": "Where is the Statue of Liberty?", "a": ["New York (Harbor)", "Liberty Island"], "topic": "geography", "uscis": "Also acceptable are New Jersey, near New York City, and on the Hudson (River).", "star": true},
-      {"n": 96, "q": "Why does the flag have 13 stripes?", "a": ["because there were 13 original colonies", "because the stripes represent the original colonies"], "topic": "symbols"},
-      {"n": 97, "q": "Why does the flag have 50 stars?", "a": ["because there is one star for each state", "because each star represents a state", "because there are 50 states"], "topic": "symbols", "star": true},
-      {"n": 98, "q": "What is the name of the national anthem?", "a": ["The Star-Spangled Banner"], "topic": "symbols"},
-      {"n": 99, "q": "When do we celebrate Independence Day?", "a": ["July 4"], "topic": "holidays", "star": true},
-      {"n": 100, "q": "Name two national U.S. holidays.", "a": ["New Year's Day", "Martin Luther King, Jr. Day", "Presidents' Day", "Memorial Day", "Independence Day", "Labor Day", "Columbus Day", "Veterans Day", "Thanksgiving", "Christmas"], "topic": "holidays"}
       ],
     },
   };

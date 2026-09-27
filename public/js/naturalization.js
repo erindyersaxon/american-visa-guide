@@ -13,7 +13,7 @@
         1 April 2024. If DHS finalizes the June 2026 proposed rule,
         update FEES below and the "Where things stand" card.
    2. Preparation checklist. Ticks are saved in localStorage only.
-   3. Civics flashcards and vocabulary lists. Data lives in
+   3. 2025 civics test flashcards and vocabulary lists. Data lives in
       /js/naturalization-test.js.
  */
 (function () {
@@ -445,10 +445,9 @@
   if (!DATA) return;
   const TESTS = DATA.TESTS;
   const KNOWN_KEY = 'avg-civics-known';
-  const TEST_KEY = 'avg-civics-test';
 
   const f = {
-    test: el('fc-test'), topic: el('fc-topic'), star: el('fc-star'), focus: el('fc-focus'),
+    topic: el('fc-topic'), star: el('fc-star'), focus: el('fc-focus'),
     stage: el('fc-stage'), empty: el('fc-empty'), card: el('fc-card'),
     num: el('fc-num'), q: el('fc-q'), a: el('fc-a'), uscis: el('fc-uscis'), note: el('fc-note'),
     badge: el('fc-star-badge'), pos: el('fc-pos'), topicLabel: el('fc-topic-label'),
@@ -458,8 +457,9 @@
 
   function loadKnown() { try { return JSON.parse(localStorage.getItem(KNOWN_KEY)) || {}; } catch (e) { return {}; } }
   function saveKnown(m) { try { localStorage.setItem(KNOWN_KEY, JSON.stringify(m)); } catch (e) { /* storage unavailable */ } }
-  function cardId(q) { return f.test.value + ':' + q.n; }
-  function test() { return TESTS[f.test.value]; }
+  const TEST_ID = '2025';
+  function cardId(q) { return TEST_ID + ':' + q.n; }
+  function test() { return TESTS[TEST_ID]; }
   function topicLabel(key) {
     const t = test().topics.filter(function (x) { return x.key === key; })[0];
     return t ? t.label : '';
@@ -525,15 +525,15 @@
         (q.uscis ? ' [' + esc(q.uscis) + ']' : '') + '</span></li>';
     }).join('');
     const summary = document.querySelector('.fc-list summary');
-    if (summary) summary.textContent = 'Show these ' + filtered().length + ' questions and answers as a list (' + t.label.split(' (')[0] + ')';
+    if (summary) summary.textContent = (function (n) { return n === 1 ? 'Show this question and its answers' : 'Show these ' + n + ' questions and answers as a list'; })(filtered().length);
   }
 
   function updateStatus() {
     const known = loadKnown();
-    const prefix = f.test.value + ':';
+    const prefix = TEST_ID + ':';
     const n = Object.keys(known).filter(function (k) { return known[k] && k.indexOf(prefix) === 0; }).length;
     const t = test();
-    f.status.textContent = n + ' of ' + t.questions.length + ' marked "Got it" for the ' + t.label.split(' (')[0] + '. On test day you need ' + t.pass + ' of up to ' + t.asked + ' correct.';
+    f.status.textContent = n + ' of ' + t.questions.length + ' marked "Got it". On test day you need ' + t.pass + ' of up to ' + t.asked + ' correct.';
   }
 
   function flip() { f.card.classList.toggle('is-flipped'); }
@@ -556,13 +556,7 @@
     }
   }
 
-  try { const saved = localStorage.getItem(TEST_KEY); if (saved && TESTS[saved]) f.test.value = saved; } catch (e) { /* ignore */ }
   fillTopics();
-  f.test.addEventListener('change', function () {
-    try { localStorage.setItem(TEST_KEY, f.test.value); } catch (e) { /* ignore */ }
-    fillTopics();
-    build();
-  });
   f.topic.addEventListener('change', build);
   f.star.addEventListener('change', build);
   f.focus.addEventListener('change', build);
@@ -581,11 +575,11 @@
   });
   el('fc-reset').addEventListener('click', function () {
     const m = loadKnown();
-    const prefix = f.test.value + ':';
+    const prefix = TEST_ID + ':';
     Object.keys(m).forEach(function (k) { if (k.indexOf(prefix) === 0) delete m[k]; });
     saveKnown(m);
     build();
-    f.status.textContent = 'Progress reset for this test. All cards are back in the deck.';
+    f.status.textContent = 'Progress reset. All cards are back in the deck.';
   });
   document.addEventListener('keydown', function (e) {
     const r = f.card.getBoundingClientRect();
