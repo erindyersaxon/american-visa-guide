@@ -222,7 +222,7 @@
       html += tlItem(anniversary <= now, fmt(anniversary), years + ' years as a permanent resident', 'The end of the statutory period. Continuous residence must continue from filing until the oath.');
     }
     const fileRef = canFileNow ? now : earliest;
-    html += tlItem(false, 'A few weeks after filing', 'Biometrics appointment', 'Fingerprints and photo at an Application Support Center. The date is on your appointment notice.');
+    html += tlItem(false, 'A few weeks after filing', 'Biometrics appointment', 'Fingerprints and a new photo at an Application Support Center. Every N-400 applicant attends, even if you gave biometrics for your green card: USCIS does not reuse earlier photos for naturalization. The date is on your appointment notice.');
     html += tlItem(false, 'About ' + fmt(addMonths(fileRef, 6)) + ' to ' + fmt(addMonths(fileRef, 12)),
       'Interview, with the English and civics tests', 'Estimate: 6 to 12 months after filing (if you file on ' + fmt(fileRef) + '). Times vary a lot by field office, so check ' + link('https://egov.uscis.gov/processing-times/', 'USCIS processing times') + ' for yours.');
     html += tlItem(false, 'Same day to a few months after approval', 'Oath ceremony', 'You become a US citizen when you take the Oath of Allegiance, not at the interview.');
@@ -246,7 +246,7 @@
         notes.push(['', 'File Form I-751 on time', 'File between ' + fmt(addDays(exp, -90)) + ' and ' + fmt(exp) + '. You can file an N-400 while the I-751 is pending. USCIS may then decide the I-751 at your naturalization interview, and it must approve it before it can approve the N-400. ' + link('https://www.uscis.gov/i-751', '[USCIS: Form I-751]')]);
       }
     } else if (conditional && i751 === 'pending') {
-      notes.push(['tip', 'Pending I-751', 'You can file the N-400 now. Include a copy of the I-751 receipt notice (Form I-797C). USCIS may decide both at the interview, so bring evidence that your marriage is genuine: joint tax transcripts, a lease or mortgage, bank statements, and children\'s birth certificates. ' + link('https://www.uscis.gov/i-751', '[USCIS: Form I-751]')]);
+      notes.push(['tip', 'Pending I-751', 'You can file the N-400 now. Include a copy of the I-751 receipt notice (Form I-797C). USCIS often decides both at one combined interview, deciding the I-751 first, so bring evidence that your marriage is genuine: joint tax transcripts, a lease or mortgage, bank statements, and children\'s birth certificates. ' + link('https://www.uscis.gov/i-751', '[USCIS: Form I-751]')]);
     }
     if (cat.child) {
       notes.push(['', 'Check you are not already a citizen', 'If you became a permanent resident before age 18, and lived in the legal and physical custody of a US citizen parent while under 18, you may already be a citizen under the Child Citizenship Act. Then you do not need an N-400: use Form N-600 or apply for a US passport. See <a href="/life.html#life-cca">Child Citizenship Act</a>.']);
@@ -303,11 +303,15 @@
     }
     if (conditional && i751 === 'pending') html += '<li>I-751 receipt notice (Form I-797C) <span class="pill pill-req">Required</span></li>';
     html += '<li>Certified court dispositions, arrest reports and proof you completed any sentence, for every arrest, citation or charge anywhere in the world <span class="pill pill-if">If you were ever arrested or cited</span></li>';
-    html += '<li>Evidence of continuous residence for any trip of more than 6 months: IRS tax transcripts, proof you kept your US job, and lease or mortgage records <span class="pill pill-if">If any trip was over 6 months</span></li>';
+    html += '<li>Evidence of continuous residence for any trip of more than 6 months: IRS tax transcripts, pay stubs, rent or mortgage records, bank and credit card statements, car registration and insurance, and passport stamps <span class="pill pill-if">If any trip was over 6 months</span></li>';
     html += '<li>Legal proof of any name change: marriage certificate, divorce decree, court order <span class="pill pill-if">If your name changed</span></li>';
-    html += '<li>An IRS payment plan and proof of payments <span class="pill pill-if">If you owe tax</span></li>';
+    html += '<li>An IRS or state payment agreement and proof of payments <span class="pill pill-if">If you owe tax</span></li>';
+    html += '<li>The support order and proof you have paid it, such as cancelled checks, receipts, court or agency payment records, or wage garnishment records <span class="pill pill-if">If you pay child or spousal support, or have children who do not live with you</span></li>';
+    html += '<li>A Selective Service Status Information Letter and your written explanation of why you did not register <span class="pill pill-if">If you are a man who did not register between 18 and 26</span></li>';
+    html += '<li>A full English translation of every document not in English, with the translator\'s signed statement that it is complete and accurate and that they are competent to translate. Anyone fluent except you can translate ' + link('https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-103/subpart-A/section-103.2', '[8 CFR 103.2(b)(3)]') + ' <span class="pill pill-if">If any document is not in English</span></li>';
     html += '</ul>';
     html += '<p><strong>Bring to the interview:</strong> your appointment notice, green card, state-issued ID, every passport and travel document you have used since becoming a resident, and the originals of everything you sent in' + (path === '3' ? ', plus your spouse\'s proof of citizenship and the marriage evidence above' : '') + '.</p>';
+    html += '<p>Upload only the documents that apply to you. The N-400 instructions list further evidence for other bases of eligibility not covered here: military service (INA 328 and 329), spouses of US citizens employed abroad (INA 319(b)), and VAWA self-petitioners.</p>';
     html += '<p style="font-size:12px;color:var(--muted);">Source: ' + link('https://www.uscis.gov/n-400', 'Form N-400 instructions and Document Checklist (M-477)') + '.</p>';
 
     render(html);
@@ -357,7 +361,7 @@
      2. PREPARATION CHECKLIST
      ============================================================= */
   const PREP = [
-    { key: 'before', title: 'Before you file', items: [
+    { key: 'before', title: 'Before you file: start 3 to 6 months ahead', items: [
       ['b1', 'Confirm your earliest filing date', 'Use the calculator above, then check it with the ' + link('https://www.uscis.gov/early-filing-calculator', 'USCIS early filing calculator') + '.'],
       ['b2', 'List every trip outside the US since you became a resident', 'Dates out and back, and where you went. Check them against your ' + link('https://i94.cbp.dhs.gov/', 'CBP I-94 travel history') + ' and passport stamps. Add up the days abroad to check physical presence.'],
       ['b3', 'Check that no single trip lasted 6 months or more', 'If one did, gather evidence that you kept your US home, job and tax residence.'],
@@ -371,16 +375,20 @@
       ['b11', 'Get certified court records for any arrest, citation or charge', 'From the court and police in every place it happened, even if the record was sealed or expunged.'],
       ['b12', 'Copy your green card, front and back', 'Required with every N-400.'],
       ['b13', 'Decide between online and paper filing', 'Online costs $710 and gives you live case updates. The $380 reduced fee and the I-912 fee waiver need a paper filing.'],
+      ['b15', 'Arrange English translations of any document not in English', 'Each needs a full translation and the translator\'s signed statement that it is complete and accurate. Anyone fluent except you can translate.'],
+      ['b16', 'If you pay child support, or have children who do not live with you, gather proof of support', 'The support order and records of payment: cancelled checks, receipts, court or agency payment records, or wage garnishment. Failing to support dependents can count against good moral character.'],
       ['b14', 'Create a USCIS online account', 'At ' + link('https://my.uscis.gov/', 'my.uscis.gov') + '. You also need it for address changes and notices.'],
     ]},
     { key: 'filing', title: 'Filing the N-400', items: [
       ['f1', 'Answer every question, using "None" or "N/A" where nothing applies', 'Your answers must match your tax, travel and court records.'],
       ['f2', 'Attach all required initial evidence', 'USCIS can deny an incomplete filing without asking for missing documents first.'],
       ['f3', 'Pay the fee, or attach Form I-912', 'Do not send a fee with a waiver request: USCIS will take the payment and ignore the waiver.'],
-      ['f4', 'Save a PDF of the submitted N-400 and your receipt notice (I-797C)', 'Reread it before your interview. The officer will go through it with you line by line.'],
+      ['f5', 'If you file online, submit within 30 days of your last edit', 'USCIS keeps an online draft for 30 days from the last time you worked on it, then deletes it. A draft is not filed until you submit and pay. ' + link('https://www.uscis.gov/policy-manual/volume-1-part-b-chapter-6', '[USCIS Policy Manual Vol. 1 Part B Ch. 6]')],
+      ['f6', 'Name and combine your uploads so the officer can follow them', 'One PDF per document type, numbered and named for what it is, for example 01_GreenCard.pdf, 02_Tax_Transcripts.pdf, 03_Marriage_Certificate.pdf. Criminal and court records must be complete, official copies.'],
+      ['f4', 'Save a PDF of the submitted N-400 and your receipt notice (I-797C)', 'Reread it before your interview. The officer will go through it with you line by line. The receipt notice also extends your green card\'s validity by 24 months, so keep it with your card.'],
     ]},
     { key: 'after', title: 'While your case is pending', items: [
-      ['a1', 'Attend your biometrics appointment', 'Bring the appointment notice and photo ID.'],
+      ['a1', 'Attend your biometrics appointment', 'Every N-400 applicant attends, even if you gave biometrics before. Bring the appointment notice and photo ID. If you miss it without rescheduling, USCIS treats the application as abandoned and denies it. ' + link('https://www.uscis.gov/sites/default/files/document/policy-manual-updates/20251212-PhotographReuse.pdf', '[USCIS policy alert, Dec. 12, 2025]')],
       ['a2', 'Report any change of address within 10 days', 'Through your USCIS account or Form AR-11. Missed notices are a common reason for delays and denials.'],
       ['a3', 'Keep trips abroad short', 'Continuous residence must continue until your oath.'],
       ['a4', 'Study for the civics test', 'Use the <a href="#civics">civics flashcards</a>, and practice saying your N-400 answers aloud. English practice sheets are on <a href="/checklists.html#naturalization">Checklists &amp; Tools</a>.'],
