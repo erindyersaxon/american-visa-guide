@@ -10,8 +10,7 @@
         period. The 3 years of marriage and of the spouse's citizenship
         must be complete on the day you file (8 CFR 319.1(a)(3)).
       - Fees follow the USCIS fee schedule (G-1055) in force since
-        1 April 2024. If DHS finalizes the June 2026 proposed rule,
-        update FEES below and the "Where things stand" card.
+        1 April 2024. Update FEES below if the schedule changes.
    2. Preparation checklist. Ticks are saved in localStorage only.
    3. 2025 civics test flashcards and vocabulary lists. Data lives in
       /js/naturalization-test.js.
@@ -233,7 +232,7 @@
     html += '<h3>Requirements to meet by the filing date</h3><ul>';
     html += '<li><strong>Continuous residence:</strong> ' + years + ' years. A trip of more than 6 months raises a presumption that you broke continuous residence. A trip of 1 year or more breaks it</li>';
     html += '<li><strong>Physical presence:</strong> at least ' + (path === '3' ? '18 months (548 days)' : '30 months (913 days)') + ' actually in the US during the ' + years + ' years before you file. Add up every day spent abroad</li>';
-    html += '<li><strong>Good moral character</strong> throughout the ' + years + ' years, and until the oath</li>';
+    html += '<li><strong>Good moral character</strong> throughout the ' + years + ' years, and until the oath. Officers weigh positive contributions, such as work, family, community ties and paying taxes, as well as any misconduct ' + link('https://www.uscis.gov/sites/default/files/document/policy-alerts/08.15.2025-Restoring_a_Good_Moral_Character_Evaluation_Standard_for_Aliens_Applying_for_Naturalization-Policy_Memorandum_FINAL.pdf', '[PM-602-0188]') + '</li>';
     html += '<li><strong>English and civics tests</strong> at the interview (see <a href="#civics">flashcards</a>)</li>';
     html += '</ul>';
 
@@ -289,11 +288,11 @@
     html += row('N-336', 'Request a hearing if the N-400 is denied. File within 30 days of the decision', 'if',
       money(FEES.n336Online) + ' online<br>' + money(FEES.n336Paper) + ' paper', 'https://www.uscis.gov/n-336');
     html += '</tbody></table></div>';
-    html += '<p style="font-size:12px;color:var(--muted);">Fees from the ' + link('https://www.uscis.gov/g-1055', 'USCIS fee schedule (G-1055)') + '. Biometrics are included in the N-400 fee. A proposed rule would raise the N-400 fee and end the reduced fee and waivers; it is <a href="#where-things-stand">not yet final</a>. Check the ' + link('https://www.uscis.gov/feecalculator', 'USCIS fee calculator') + ' on the day you file.</p>';
+    html += '<p style="font-size:12px;color:var(--muted);">Fees from the ' + link('https://www.uscis.gov/g-1055', 'USCIS fee schedule (G-1055)') + '. Biometrics are included in the N-400 fee. Check the ' + link('https://www.uscis.gov/feecalculator', 'USCIS fee calculator') + ' on the day you file.</p>';
 
     // Documents
     html += '<h3>Documents</h3>';
-    html += '<p><strong>Send with the application.</strong> Since August 2026, missing initial evidence can lead to denial with no request for evidence first.</p><ul>';
+    html += '<p><strong>Send with the application.</strong> USCIS can deny an application that is missing required initial evidence without first sending a request for evidence ' + link('https://www.uscis.gov/policy-manual/updates', '[PA-2026-05]') + '.</p><ul>';
     html += '<li>Copy of your green card, front and back <span class="pill pill-req">Required</span></li>';
     html += '<li>Fee payment, or Form I-912 with its evidence <span class="pill pill-req">Required</span></li>';
     if (path === '3') {
@@ -376,7 +375,7 @@
     ]},
     { key: 'filing', title: 'Filing the N-400', items: [
       ['f1', 'Answer every question, using "None" or "N/A" where nothing applies', 'Your answers must match your tax, travel and court records.'],
-      ['f2', 'Attach all required initial evidence', 'Since 5 August 2026, USCIS can deny an incomplete filing without asking for missing documents first.'],
+      ['f2', 'Attach all required initial evidence', 'USCIS can deny an incomplete filing without asking for missing documents first.'],
       ['f3', 'Pay the fee, or attach Form I-912', 'Do not send a fee with a waiver request: USCIS will take the payment and ignore the waiver.'],
       ['f4', 'Save a PDF of the submitted N-400 and your receipt notice (I-797C)', 'Reread it before your interview. The officer will go through it with you line by line.'],
     ]},
