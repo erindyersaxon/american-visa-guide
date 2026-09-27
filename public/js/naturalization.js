@@ -54,7 +54,7 @@
   function maxDate() { return new Date(Math.max.apply(null, Array.from(arguments).map(Number))); }
   function minDate() { return new Date(Math.min.apply(null, Array.from(arguments).map(Number))); }
   function fmt(d) {
-    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+    return d.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
   }
   function daysBetween(a, b) { return Math.round((b - a) / DAY); }
   function ageOn(dob, d) {
@@ -194,8 +194,8 @@
     html += '<h3>How this date was worked out</h3><ul>';
     if (path === '3') {
       html += '<li>3 years as a permanent resident on ' + fmt(three) + '. You can file up to 90 days before that, from <strong>' + fmt(threeParts.threeEarly) + '</strong></li>';
-      html += '<li>3 years of marriage on <strong>' + fmt(threeParts.m3) + '</strong>. This period has no 90-day early filing</li>';
-      html += '<li>Your spouse a US citizen for 3 years on <strong>' + fmt(threeParts.s3) + '</strong>. This period has no 90-day early filing</li>';
+      html += '<li>3 years of marriage on <strong>' + fmt(threeParts.m3) + '</strong>. This period has no 90-day early filing.</li>';
+      html += '<li>Your spouse was either born a US citizen or was a US citizen for 3 years on <strong>' + fmt(threeParts.s3) + '</strong>. This period has no 90-day early filing.</li>';
       html += '<li>The latest of these three dates is your earliest filing date. You must still be married to, and living with, your spouse on the day you file and until you take the oath. ' + link('https://www.uscis.gov/policy-manual/volume-12-part-g-chapter-2', '[Policy Manual Vol. 12 Part G Ch. 2]') + '</li>';
     } else {
       html += '<li>5 years as a permanent resident on ' + fmt(five) + '. You can file up to 90 days before that, from <strong>' + fmt(fiveEarly) + '</strong> ' + link('https://www.uscis.gov/policy-manual/volume-12-part-d-chapter-6', '[Policy Manual Vol. 12 Part D Ch. 6]') + '</li>';
