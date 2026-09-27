@@ -237,18 +237,18 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile / narrow nav: 7 menu items need ~1050px inline */
-/* The nine links need ~1290px of row at full size, but .nav-container caps at
-   1280px minus 48px of padding, so the full-size row never fits - it overflowed
-   at every width above the 1050px hamburger breakpoint. Tighten the links for
-   the whole horizontal range. */
-@media (min-width: 1051px) {
+/* Mobile / narrow nav: the ten menu items need ~1080px inline */
+/* The ten links need more than 1280px of row at full size, but .nav-container
+   caps at 1280px minus 48px of padding, so the full-size row never fits. Tighten
+   the links for the whole horizontal range above the 1120px hamburger
+   breakpoint. */
+@media (min-width: 1121px) {
   .site-nav .nav-link svg { display: none; }
   .site-nav .nav-link { padding: 0.5rem; font-size: 0.8125rem; gap: 0; }
   .nav-menu { gap: 0.125rem; }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1120px) {
   .nav-toggle {
     display: flex;
   }

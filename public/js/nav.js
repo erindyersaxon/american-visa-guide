@@ -95,6 +95,14 @@
         </a>
       </li>
       <li>
+        <a href="/naturalization.html" class="nav-link" data-navpage="naturalization">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 22V4"/><path d="M4 4h13l-2 4 2 4H4"/>
+          </svg>
+          Naturalization
+        </a>
+      </li>
+      <li>
         <a href="/about.html" class="nav-link" data-navpage="about">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
@@ -176,7 +184,7 @@
     'i864-household-decision-tree': 'checklists',
     'english-test': 'checklists',
     'life': 'life',
-    'naturalization': 'life',
+    'naturalization': 'naturalization',
     'about': 'about',
     'privacy': 'about',
   };
