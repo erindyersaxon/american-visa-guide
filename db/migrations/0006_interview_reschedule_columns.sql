@@ -64,8 +64,10 @@ UPDATE public.form_responses
     AND notes ILIKE '%not yet rescheduled%';
 
 -- Applied separately after the migration, same day: ilma was refused under the
--- Bangladesh visa pause and asked to re-interview. Neither the original nor
--- the new interview date is known, so both stay NULL.
+-- Bangladesh visa pause and recalled to re-interview. Dates from her later
+-- report: original interview 2026-05-15 (221(g)), recalled for 2026-10-02.
 UPDATE public.form_responses
-  SET interview_change_type = 'Re-interview'
-  WHERE id = 93 AND username_raw = 'ilma' AND interview_change_type IS NULL;
+  SET interview_change_type = 'Re-interview',
+      interview             = '2026-05-15',
+      new_interview_at      = '2026-10-02 00:00:00+00'
+  WHERE id = 93 AND username_raw = 'ilma' AND interview IS NULL;

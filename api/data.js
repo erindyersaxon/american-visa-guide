@@ -612,12 +612,18 @@ export default async function handler(req, res) {
     { name: 'Ashley',     date: '2026-10-06', note: 'Rescheduled interview' },
   ]
   const nameKey = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '')
+  // Once a member reports a reschedule or re-interview, `interview` keeps the
+  // original date and the appointment to show is new_interview_at (migration
+  // 0006). Rescheduled with no new date yet means cancelled: show nothing.
+  const nextInterview = (r) => r.interview_change_type
+    ? (r.new_interview_at ? String(r.new_interview_at).slice(0, 10) : null)
+    : r.interview
   const interviewsIn = (inRange) => {
     const manual = MANUAL_INTERVIEWS.filter(m => inRange(m.date))
     const manualKeys = new Set(MANUAL_INTERVIEWS.map(m => nameKey(m.name)))
     return deduped
-      .filter(r => r.username_raw && inRange(r.interview) && !manualKeys.has(nameKey(r.username_raw)))
-      .map(r => ({ name: r.username_raw, date: r.interview }))
+      .filter(r => r.username_raw && inRange(nextInterview(r)) && !manualKeys.has(nameKey(r.username_raw)))
+      .map(r => ({ name: r.username_raw, date: nextInterview(r) }))
       .concat(manual)
       .sort((a, b) => new Date(a.date) - new Date(b.date))
   }
