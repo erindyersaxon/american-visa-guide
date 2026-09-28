@@ -606,8 +606,8 @@ export default async function handler(req, res) {
   // cases) that are not in form_responses. Kept out of the table so they
   // never feed the interval statistics; they only appear in the weekly list,
   // and replace any form entry for the same member within the window.
+  // Members on the form report changes via interview_change_type instead.
   const MANUAL_INTERVIEWS = [
-    { name: 'Ilma',       date: '2026-10-02', note: '221(g) second interview (75-country pause)' },
   ]
   const nameKey = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '')
   // Once a member reports a reschedule or re-interview, `interview` keeps the
@@ -622,9 +622,13 @@ export default async function handler(req, res) {
     return deduped
       .filter(r => r.username_raw && inRange(nextInterview(r)) && !manualKeys.has(nameKey(r.username_raw)))
       .map(r => {
+        // The re-interview reason comes from the first interview's outcome,
+        // not the form, so the two can't disagree.
         const change = String(r.interview_change_type || '').toLowerCase()
+        const reason = r.outcome_status === 'visa_pause' ? ' (visa pause)'
+          : ['not_approved', 'cleared'].includes(r.outcome_status) ? ' (221(g))' : ''
         const note = change === 'rescheduled' ? 'Rescheduled interview'
-          : change === 're-interview' ? 'Second interview' : undefined
+          : change === 're-interview' ? `Second interview${reason}` : undefined
         return note ? { name: r.username_raw, date: nextInterview(r), note }
                     : { name: r.username_raw, date: nextInterview(r) }
       })
