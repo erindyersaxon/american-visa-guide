@@ -608,8 +608,6 @@ export default async function handler(req, res) {
   // and replace any form entry for the same member within the window.
   const MANUAL_INTERVIEWS = [
     { name: 'Ilma',       date: '2026-10-02', note: '221(g) second interview (75-country pause)' },
-    { name: 'Carl Ralph', date: '2026-10-06', note: 'Rescheduled interview' },
-    { name: 'Ashley',     date: '2026-10-06', note: 'Rescheduled interview' },
   ]
   const nameKey = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '')
   // Once a member reports a reschedule or re-interview, `interview` keeps the
@@ -623,7 +621,13 @@ export default async function handler(req, res) {
     const manualKeys = new Set(MANUAL_INTERVIEWS.map(m => nameKey(m.name)))
     return deduped
       .filter(r => r.username_raw && inRange(nextInterview(r)) && !manualKeys.has(nameKey(r.username_raw)))
-      .map(r => ({ name: r.username_raw, date: nextInterview(r) }))
+      .map(r => {
+        const change = String(r.interview_change_type || '').toLowerCase()
+        const note = change === 'rescheduled' ? 'Rescheduled interview'
+          : change === 're-interview' ? 'Second interview' : undefined
+        return note ? { name: r.username_raw, date: nextInterview(r), note }
+                    : { name: r.username_raw, date: nextInterview(r) }
+      })
       .concat(manual)
       .sort((a, b) => new Date(a.date) - new Date(b.date))
   }

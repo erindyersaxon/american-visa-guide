@@ -71,3 +71,13 @@ UPDATE public.form_responses
       interview             = '2026-05-15',
       new_interview_at      = '2026-10-02 00:00:00+00'
   WHERE id = 93 AND username_raw = 'ilma' AND interview IS NULL;
+
+-- Corrections reported by the admin after the migration, same day:
+-- carlralph's original interview for this cycle is 2026-09-01 (cancelled),
+-- rebooked for 2026-10-06; wildeyesap ("Ashley") rebooked for 2026-10-06.
+UPDATE public.form_responses
+  SET interview = '2026-09-01', new_interview_at = '2026-10-06 00:00:00+00'
+  WHERE id = 39 AND username_raw = 'carlralph';
+UPDATE public.form_responses
+  SET new_interview_at = '2026-10-06 00:00:00+00'
+  WHERE id = 332 AND username_raw = 'wildeyesap';
