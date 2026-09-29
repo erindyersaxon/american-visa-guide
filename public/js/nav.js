@@ -161,6 +161,7 @@
     'public-charge': 'guide',
     'visa-pause': 'guide',
     'delayed-i130-remedies': 'guide',
+    'mandamus-pro-se': 'guide',
     '221g': '221g',
     'checklists': 'checklists',
     'master-checklist': 'checklists',
