@@ -52,7 +52,7 @@
       .reference-box a:hover { text-decoration: underline; }
     </style>
     <link rel="stylesheet" href="/css/nav.css?v=20260928">
-  <script src="/js/nav.js?v=20260928" defer></script>
+  <script src="/js/nav.js?v=20260930" defer></script>
 </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -61,7 +61,8 @@
     <main id="main">
       <div class="container">
         <div class="checklist-container">
-          <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;">← Part of <a href="/guide/interview" style="color:#3e7188;text-decoration:none;">Stage 5: Embassy interview</a></p>
+          <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;">← Part of <a href="/guide/interview" style="color:#3e7188;text-decoration:none;">Stage 5: Embassy interview</a> &middot; <a href="/interview" style="color:#3e7188;text-decoration:none;">Your interview: start here</a> &middot; <a href="/interview-day-sheet" style="color:#3e7188;text-decoration:none;">One-page printable</a></p>
+          <div data-live-notice="page"></div>
           <h1>Interview Day Checklist</h1>
           <p class="subtitle">Before August 2026 most reported London interviews took under 5 minutes; since the public charge worksheet, expect 20–40 minutes. Preparation still makes the difference.</p>
 
@@ -98,6 +99,10 @@
               <div class="checklist-item" data-item-id="lc-5">
                 <input type="checkbox" id="lc-5" />
                 <label for="lc-5">Can the beneficiary answer the specific questions raised by the public charge statement, consistently with what was submitted? <strong>What does the petitioner do for work?</strong> <strong>What does the joint sponsor do for work</strong> (where a joint sponsor is required)? <strong>What will the beneficiary do for work in the US?</strong> <strong>What is the plan for the beneficiary's health insurance and housing?</strong> <strong>How will the health insurance and housing be paid for?</strong> <strong>What are the estimated salaries</strong> for the beneficiary working in the US versus the petitioner and/or joint sponsor?</label>
+              </div>
+              <div class="checklist-item" data-item-id="lc-9">
+                <input type="checkbox" id="lc-9" />
+                <label for="lc-9">Is the <strong>medical less than 6 months old</strong> on the interview date? Results are valid for 6 months from the exam, and you must <strong>enter the US within those same 6 months</strong>, so a late or rescheduled interview shortens your travel window. <a href="/interview-dates">Check your dates</a>.</label>
               </div>
               <div class="checklist-item" data-item-id="lc-6">
                 <input type="checkbox" id="lc-6" />
@@ -139,7 +144,7 @@
 
             <section class="checklist-section">
               <h3>3. Community interview reports</h3>
-              <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-6);">Based on 50+ real experiences from community members (Sept 2025 – 2026). Note the gap between the first report below and the three that follow it: since the public charge assessment changed, financial and employment questioning has become a sustained line of enquiry rather than a box-tick, and interviews have lengthened accordingly. Read the older reports for the logistics and the newest one for the questioning. One caveat on that newest report: it is a single case, and London has had little opportunity to establish a pattern, since interviews were cancelled through 30 September 2026 for the training behind the change. Treat it as a good indication of the direction rather than a description of what every interview will now look like.</p>
+              <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-6);">Based on 50+ real experiences from community members (Sept 2025 – 2026). Note the gap between the first report below and the three that follow it: since the public charge assessment changed, financial and employment questioning has become a sustained line of enquiry rather than a box-tick, and interviews have lengthened accordingly. Read the older reports for the logistics and the newest one for the questioning. One caveat on that newest report: it is a single case, and London has had little opportunity to establish a pattern, since London interviews booked for September 2026 were cancelled for the training behind the change. Treat it as a good indication of the direction rather than a description of what every interview will now look like.</p>
 
               <h4 style="margin-top: var(--space-8); margin-bottom: var(--space-4); font-size: var(--size-base); font-weight: var(--weight-semibold);">Real interview examples</h4>
 
@@ -236,13 +241,15 @@
               <h3>4. If approved</h3>
               <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);">Passport is retained for visa printing. You'll receive an email from the embassy with collection instructions.</p>
               <p style="font-size: var(--size-sm); color: var(--color-text-muted);">Typical passport return: Mail Boxes Etc (MBE): 2–3 days for pickup, 5–7 days for mail delivery.</p>
-              <p style="font-size: var(--size-sm);">See <a href="/index.html">data tracker</a> for current community averages on passport return times. Next: <a href="/life.html">Life in the USA</a></p>
+              <p style="font-size: var(--size-sm);">See the <a href="/data">data tracker</a> for current community averages on passport return times. Next: <a href="/life.html">Life in the USA</a></p>
             </section>
 
             <section class="checklist-section">
               <h3>5. If not approved</h3>
-              <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);"><strong>221(g) (Administrative Processing):</strong> Case under review. You'll receive an email with next steps. Most resolve within weeks to months.</p>
-              <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);"><strong>Visa Pause:</strong> The January 2026 nationality-based pause was struck down by a federal court on 21 August 2026 and is no longer in effect. Cases refused solely under it are being reconsidered. See <a href="/visa-pause.html">the nationality visa pause, struck down</a>.</p>
+              <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);"><strong>221(g) with documents ticked:</strong> the most common London outcome short of approval. Supply exactly what is ticked on the green sheet, all at once, after the follow-up email. You have one year from the date on the sheet. <a href="/221g-sheet">Tick your boxes and get a to-do list</a> &middot; <a href="/221g#resolve">How to resolve it</a>.</p>
+              <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);"><strong>221(g) with administrative processing ticked:</strong> a different thing. A mandatory review with no set timeframe that cannot be expedited; often nothing to submit, but some posts ask for 15 years of history and a CV. <a href="/221g#security">What it means</a> &middot; <a href="/history-worksheet">History worksheet</a>.</p>
+              <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);"><strong>Refused before, now called back to interview:</strong> see <a href="/reinterview">re-interview after a 221(g)</a>.</p>
+              <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);"><strong>Visa pauses:</strong> both the nationality visa pause and the diversity visa pause have been struck down, and the State Department rescinded the guidance behind them on 10 September 2026. Cases refused solely under either are being reconsidered. See <a href="/september-2026-update">both visa pauses vacated</a>.</p>
               <p style="font-size: var(--size-sm); color: var(--color-text-muted);"><strong>Denial:</strong> Rare. Officer explains reason. Limited recourse; consult attorney.</p>
             </section>
 
@@ -272,5 +279,6 @@
         });
       });
     </script>
+    <script src="/js/live-notice.js?v=20260930"></script>
   </body>
 </html>
