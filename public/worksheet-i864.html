@@ -263,16 +263,26 @@
         text += '\n' + title + '\n' + '='.repeat(50) + '\n';
         const groups = section.querySelectorAll('.ws-field-group, .ws-checkbox-group');
         groups.forEach(group => {
-          const label = group.querySelector('label:not(.ws-checkbox-label), .ws-label');
-          if (label && !label.closest('label')) {
-            text += '\n' + label.textContent + '\n';
-            const inputs = group.querySelectorAll('input, textarea, select');
-            inputs.forEach(input => {
-              if (input.type === 'checkbox') { if (input.checked) text += '  ✓\n'; }
-              else if (input.type === 'radio') { if (input.checked) text += '  ✓ ' + input.value + '\n'; }
-              else if (input.value && input.value !== '0' && !input.disabled) { text += '  ' + input.value + '\n'; }
-            });
+          const clean = el => el.textContent.replace(/\s+/g, ' ').trim();
+          const label = group.querySelector(':scope > .ws-label');
+          if (!label) {
+            // A checkbox group inside a field group is a question's answers: its parent prints it
+            if (group.parentElement.closest('.ws-field-group')) return;
+            const box = group.querySelector('.ws-checkbox-label');
+            if (box) text += (box.querySelector('input').checked ? '[x] ' : '[ ] ') + clean(box) + '\n';
+            return;
           }
+          const answers = [];
+          group.querySelectorAll('.ws-checkbox-label').forEach(choice => {
+            if (choice.querySelector('input').checked) answers.push(clean(choice));
+          });
+          group.querySelectorAll('input:not([type="checkbox"]):not([type="radio"]), textarea, select').forEach(field => {
+            const value = field.tagName === 'SELECT' ? (field.value ? field.selectedOptions[0].textContent : '') : field.value.trim();
+            if (value) answers.push(value);
+          });
+          const hasField = group.querySelector('input, textarea, select');
+          // Calculated values sit inside the label, so the label alone carries them
+          text += clean(label) + (hasField ? ': ' + answers.join(', ') : '') + '\n';
         });
       });
       text += '\n\n--- END OF WORKSHEET ---\nThis worksheet is for your private planning only. Do not share or submit.\n';
