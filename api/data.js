@@ -608,6 +608,7 @@ export default async function handler(req, res) {
   // and replace any form entry for the same member within the window.
   // Members on the form report changes via interview_change_type instead.
   const MANUAL_INTERVIEWS = [
+    { name: 'Kbrit', date: '2026-10-05', note: 'Second interview (221(g))' },
   ]
   const nameKey = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '')
   // Once a member reports a reschedule or re-interview, `interview` keeps the

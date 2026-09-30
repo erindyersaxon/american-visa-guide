@@ -13,13 +13,13 @@
   /* Sitewide policy banner. Flip BANNER_ENABLED to true to show it, and
      update BANNER_HTML for the notice of the day. Styles: .site-banner
      in /css/nav.css. */
-  const BANNER_ENABLED = false;
+  const BANNER_ENABLED = true;
 
   const BANNER_HTML = `
 <div class="site-banner" role="region" aria-label="Site policy notice">
   <div class="site-banner-inner">
-    <span class="site-banner-label">Policy update</span>
-    <p>Both the immigrant visa and the diversity visa pauses have been struck down, and the State Department has rescinded the guidance behind them. <a href="/september-2026-update.html">Where things stand &rarr;</a></p>
+    <span class="site-banner-label">Interviews rescheduled</span>
+    <p>Canceled September interviews are being rescheduled by email, sometimes for the next day. First interview, new date, or called back after a 221(g)? <a href="/interview">Start here &rarr;</a></p>
   </div>
 </div>
 `;
@@ -71,11 +71,11 @@
         </a>
       </li>
       <li>
-        <a href="/221g.html" class="nav-link" data-navpage="221g">
+        <a href="/interview" class="nav-link" data-navpage="interview">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/>
           </svg>
-          221(g)
+          Interview
         </a>
       </li>
       <li>
@@ -158,11 +158,21 @@
     'data': 'data',
     'tracker': 'data',
     'guide': 'guide',
-    'public-charge': 'guide',
-    'visa-pause': 'guide',
     'delayed-i130-remedies': 'guide',
     'mandamus-pro-se': 'guide',
-    '221g': '221g',
+    'interview': 'interview',
+    'reinterview': 'interview',
+    'public-charge': 'interview',
+    'public-charge-statement': 'interview',
+    'visa-pause': 'interview',
+    'september-2026-update': 'interview',
+    '221g': 'interview',
+    '221g-sheet': 'interview',
+    'interview-dates': 'interview',
+    'interview-templates': 'interview',
+    'interview-day-sheet': 'interview',
+    'interview-questions': 'interview',
+    'history-worksheet': 'interview',
     'checklists': 'checklists',
     'master-checklist': 'checklists',
     'checklist-i130': 'checklists',
@@ -212,6 +222,8 @@
   function mountBanner(nav) {
     if (!BANNER_ENABLED) return;
     if (document.querySelector('.site-banner')) return;
+    // Pages that carry the live notice already say the same thing.
+    if (document.querySelector('[data-live-notice], .page-live-notice, .stage-alert, .alert-banner')) return;
     if (!nav.parentNode) return;
     const tpl = document.createElement('template');
     tpl.innerHTML = BANNER_HTML.trim();
@@ -229,7 +241,9 @@
   function markActive(nav) {
     const file = (window.location.pathname.split('/').pop() || 'index.html')
       .replace(/\.html$/, '') || 'index';
-    const active = ACTIVE_MAP[file];
+    // Stage pages live under /guide/ and belong to the Guide, even where a
+    // stage shares a file name with a hub (guide/interview vs /interview).
+    const active = /^\/guide\//.test(window.location.pathname) ? 'guide' : ACTIVE_MAP[file];
     if (!active) return;
     const link = nav.querySelector('.nav-link[data-navpage="' + active + '"]');
     if (link) {
