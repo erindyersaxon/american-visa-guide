@@ -5,368 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A widely shared Reddit guide to filing a writ of mandamus without a lawyer, checked against the Federal Rules of Civil Procedure and the cases it cites, with corrections to service, defendants, citations and dismissal.">
   <title>Filing a writ of mandamus yourself: a community guide, checked | American Visa Guide</title>
+  <link rel="canonical" href="https://www.americanvisaguide.com/mandamus-pro-se">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/article.css?v=20260930">
+  <link rel="stylesheet" href="/css/nav.css?v=20260930">
   <style>
-    :root {
-      --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
-      --font-ui: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --font-body: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-      --bg:          #f4efe6;
-      --surface:     #fdfaf3;
-      --surface-alt: #ede8de;
-      --surface-hov: #e4ddcf;
-      --ink:         #1e1c17;
-      --muted:       #6a6560;
-
-      --accent:      #3e7188;   /* steel blue, AA on cream */
-      --accent-dark: #2f5a6e;
-      --accent-deco: #5a8fa6;
-
-      --line:        #ddd6cb;
-      --line-soft:   #e7e0d4;
-
-      --warn-bg:     #f6ecd9;
-      --warn-border: #e6d3b0;
-      --warn-edge:   #b07840;
-      --warn-ink:    #875325;
-
-      --danger:      #b04a38;
-      --danger-bg:   #f7e9e6;
-      --danger-border:#ecccc4;
-
-      --sage:        #3f6b5c;
-      --sage-bg:     #ebf1ec;
-      --sage-border: #d2e2d6;
-
-      --code-bg:     #2b3a42;
-      --code-text:   #cfdde3;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 1rem;
-      line-height: 1.72;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Nav + footer styles live in /css/nav.css (shared component) */
-
-    /* LAYOUT */
-    .page-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 2.25rem 1.5rem 5rem;
-    }
-
-    .breadcrumb {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
-    .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
-
-    /* HERO */
-    .eyebrow {
-      font-family: var(--font-ui);
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-    h1 {
-      font-family: var(--font-display);
-      font-size: clamp(1.7rem, 4.4vw, 2.4rem);
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.15;
-      margin-bottom: 0.9rem;
-    }
-    h1 span, h1 em { color: var(--accent); font-style: italic; font-weight: 500; }
-    .lead {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 680px;
-      margin-bottom: 1.75rem;
-    }
-
-    /* DISCLAIMER */
-    .disclaimer {
-      background: var(--warn-bg);
-      border: 1px solid var(--warn-border);
-      border-left: 4px solid var(--warn-edge);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 2.25rem;
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--warn-ink);
-    }
-    .disclaimer strong { color: var(--warn-ink); font-family: var(--font-ui); }
-    .disclaimer a { color: var(--accent-dark); }
-
-    /* SECTION HEADINGS */
-    h2 {
-      font-family: var(--font-display);
-      font-size: 1.42rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin: 2.25rem 0 0.9rem;
-      padding-bottom: 0.45rem;
-      border-bottom: 1px solid var(--line);
-    }
-    h3 {
-      font-family: var(--font-ui);
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin: 1.5rem 0 0.5rem;
-    }
-
-    p { margin-bottom: 0.85rem; }
-    p:last-child { margin-bottom: 0; }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--accent-dark); text-decoration: underline; }
-
-    ul, ol { padding-left: 1.35rem; margin-bottom: 0.85rem; }
-    li { margin-bottom: 0.38rem; }
-    li:last-child { margin-bottom: 0; }
-    strong { color: var(--ink); font-weight: 600; }
-    em { font-style: italic; }
-
-    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-
-    /* TIMELINE */
-    .timeline { margin: 1rem 0 1.4rem; display: flex; flex-direction: column; gap: 0.7rem; }
-    .tl-item { display: flex; gap: 0.9rem; align-items: flex-start; }
-    .tl-pill {
-      flex-shrink: 0;
-      background: var(--accent);
-      color: #fff;
-      font-family: var(--font-ui);
-      font-weight: 700;
-      font-size: 0.68rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 5px;
-      margin-top: 0.18rem;
-      white-space: nowrap;
-    }
-    .tl-text { font-size: 0.92rem; }
-
-    /* TABLE */
-    .table-wrap { overflow-x: auto; margin: 1.1rem 0 1.4rem; border-radius: 8px; border: 1px solid var(--line); }
-    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
-    thead tr { background: var(--code-bg); }
-    th {
-      text-align: left;
-      padding: 0.6rem 0.9rem;
-      font-family: var(--font-ui);
-      font-weight: 600;
-      color: #fff;
-      font-size: 0.78rem;
-      white-space: nowrap;
-    }
-    td {
-      padding: 0.58rem 0.9rem;
-      border-bottom: 1px solid var(--line-soft);
-      vertical-align: top;
-      color: var(--ink);
-    }
-    td:first-child { font-weight: 600; color: var(--accent-dark); }
-    tr:last-child td { border-bottom: none; }
-    tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
-
-    /* ACCORDION / REMEDY CARDS */
-    .remedy-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-    }
-    .remedy-toggle {
-      width: 100%;
-      background: var(--surface-alt);
-      border: none;
-      cursor: pointer;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-align: left;
-      transition: background 0.15s;
-    }
-    .remedy-toggle:hover { background: var(--surface-hov); }
-    .remedy-toggle[aria-expanded="true"] { background: var(--surface-hov); }
-    .remedy-toggle-inner {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .remedy-step {
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: #fff;
-      background: var(--accent);
-      padding: 0.16rem 0.5rem;
-      border-radius: 5px;
-      white-space: nowrap;
-    }
-    .remedy-title {
-      font-family: var(--font-ui);
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .remedy-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-left: auto; }
-    .badge {
-      font-size: 0.69rem;
-      font-weight: 600;
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      font-family: var(--font-ui);
-      letter-spacing: 0.02em;
-      white-space: nowrap;
-    }
-    .badge-gold  { background: #e9f0f3; color: var(--accent-dark); border: 1px solid #cfe0e7; }
-    .badge-muted { background: #efe9dd; color: var(--muted); border: 1px solid #e0d8c9; }
-    .badge-warn  { background: var(--warn-bg); color: var(--warn-ink); border: 1px solid var(--warn-border); }
-    .badge-red   { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger-border); }
-    .remedy-chevron {
-      flex-shrink: 0;
-      color: var(--accent-dark);
-      font-size: 1.1rem;
-      line-height: 1;
-      transition: transform 0.2s;
-    }
-    .remedy-toggle[aria-expanded="true"] .remedy-chevron { transform: rotate(180deg); }
-    .remedy-body {
-      padding: 1.25rem 1.25rem 1.4rem;
-      border-top: 1px solid var(--line);
-    }
-    .remedy-body[hidden] { display: none; }
-
-    /* CALLOUTS */
-    .callout {
-      border-radius: 7px;
-      padding: 0.8rem 1.05rem;
-      margin: 0.9rem 0;
-      font-size: 0.895rem;
-      line-height: 1.63;
-    }
-    .callout-warn {
-      background: var(--warn-bg);
-      border: 1px solid var(--warn-border);
-      border-left: 3px solid var(--warn-edge);
-      color: var(--warn-ink);
-    }
-    .callout-warn a { color: var(--accent-dark); }
-    .callout-info {
-      background: rgba(62,113,136,0.06);
-      border: 1px solid var(--line);
-      border-left: 3px solid var(--accent-deco);
-    }
-    .callout-alert {
-      background: var(--danger-bg);
-      border: 1px solid var(--danger-border);
-      border-left: 3px solid var(--danger);
-      color: #7a3022;
-    }
-    .callout-alert a { color: var(--accent-dark); }
-    .callout-title {
-      display: block;
-      font-family: var(--font-ui);
-      font-weight: 700;
-      font-size: 0.75rem;
-      color: var(--ink);
-      margin-bottom: 0.3rem;
-    }
-
-    /* CHECKLIST */
-    .checklist { list-style: none; padding: 0; }
-    .checklist li {
-      padding: 0.28rem 0 0.28rem 1.55rem;
-      position: relative;
-      font-size: 0.9rem;
-    }
-    .checklist li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* TEMPLATE BLOCK */
-    .template-wrap { position: relative; margin: 0.9rem 0; }
-    .template-block {
-      background: var(--code-bg);
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 7px;
-      padding: 2.4rem 1.1rem 1.1rem;
-      font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
-      font-size: 0.8rem;
-      line-height: 1.62;
-      color: var(--code-text);
-      white-space: pre-wrap;
-      overflow-x: auto;
-    }
-    .copy-btn {
-      position: absolute;
-      top: 0.55rem;
-      right: 0.65rem;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 0.25rem 0.65rem;
-      font-size: 0.7rem;
-      font-family: var(--font-ui);
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s;
-      letter-spacing: 0.02em;
-    }
-    .copy-btn:hover { background: var(--accent-dark); }
-
-    /* SOURCES */
-    .sources {
-      margin-top: 3rem;
-      padding-top: 1.4rem;
-      border-top: 1px solid var(--line);
-    }
-    .sources h2 { margin-top: 0; }
-    .sources ol {
-      font-size: 0.81rem;
-      color: var(--muted);
-      line-height: 1.68;
-    }
-    .sources li { margin-bottom: 0.45rem; }
-    .sources a { color: var(--accent); }
-    .sources a:hover { color: var(--accent-dark); }
-
+    /* Page-specific: nested list inside a checklist item, and the corrections table
+       stacked into cards on phones so the third column stays visible. */
     .checklist ul { margin: 0.35rem 0 0; }
     .checklist ul li::before { content: "\2013"; color: var(--muted); }
-
-    /* RESPONSIVE */
     @media (max-width: 600px) {
-      .page-wrap { padding: 1.5rem 1rem 4rem; }
-      .remedy-badges { display: none; }
-      .remedy-toggle-inner { gap: 0.5rem; }
       .stack-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
       .stack-table, .stack-table tbody, .stack-table tr, .stack-table td { display: block; width: 100%; }
       .stack-table tr { border-bottom: 1px solid var(--line); padding: 0.4rem 0; }
@@ -376,14 +27,13 @@
       .stack-table tbody tr:nth-child(even) td { background: none; }
     }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260928">
-  <script src="/js/nav.js?v=20260928" defer></script>
+  <script src="/js/nav.js?v=20260930" defer></script>
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<div class="page-wrap">
+<main class="page-wrap" id="main">
 
   <div class="breadcrumb">
     <a href="/">Home</a><span>/</span><a href="/guide.html">Guide</a><span>/</span><a href="/delayed-i130-remedies">Delayed I-130 remedies</a><span>/</span>Filing a writ yourself
@@ -394,14 +44,25 @@
 
   <h1>Filing a writ of mandamus yourself: <span>a community walkthrough, checked</span></h1>
 
-  <p class="lead">In December 2024, Reddit user <a href="https://www.reddit.com/r/USCIS/comments/1ho0adh/stepbystep_guide_on_how_i_filed_a_writ_of/">u/Secret_Gas3270</a> posted a step-by-step account of filing a writ of mandamus without a lawyer, with templates for the complaint, proof of service and dismissal. It is one of the most shared pro se guides in the community. This page summarises it, checks it against the Federal Rules of Civil Procedure and the cases it cites, and flags where it is out of date or wrong.</p>
+  <p class="lead">In December 2024, Reddit user <a href="https://www.reddit.com/r/USCIS/comments/1ho0adh/stepbystep_guide_on_how_i_filed_a_writ_of/" target="_blank" rel="noopener noreferrer">u/Secret_Gas3270</a> posted a step-by-step account of filing a writ of mandamus without a lawyer, with templates for the complaint, proof of service and dismissal. It is one of the most shared pro se guides in the community. This page summarises it, checks it against the Federal Rules of Civil Procedure and the cases it cites, and flags where it is out of date or wrong.</p>
 
   <div class="disclaimer">
-    <strong>Consult an AILA attorney first.</strong> Even if you plan to file yourself, pay for one consultation with an immigration attorney who belongs to the <a href="https://www.aila.org/">American Immigration Lawyers Association (AILA)</a> before you file. Search for one at <a href="https://ailalawyer.com/">AILA Lawyer Search</a>; every listed member is licensed and in good standing in at least one state. An attorney can tell you whether your delay is likely to be found unreasonable in <em>your</em> district, whether anything in your file (a criminal record, a prior removal, a security check) makes forcing a decision risky, and whether your complaint and service are correct. A writ compels a decision, not an approval. Neither the original post nor this page is legal advice.
+    <strong>Consult an AILA attorney first.</strong> Even if you plan to file yourself, pay for one consultation with an immigration attorney who belongs to the <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">American Immigration Lawyers Association (AILA)</a> before you file. Search for one at <a href="https://ailalawyer.com/" target="_blank" rel="noopener noreferrer">AILA Lawyer Search</a>; every listed member is licensed and in good standing in at least one state. An attorney can tell you whether your delay is likely to be found unreasonable in <em>your</em> district, whether anything in your file (a criminal record, a prior removal, a security check) makes forcing a decision risky, and whether your complaint and service are correct. A writ compels a decision, not an approval. Neither the original post nor this page is legal advice.
+  </div>
+
+  <div class="toc" id="contents">
+    <div class="toc-title">On this page</div>
+    <ol>
+      <li><a href="#post">What the original post describes</a></li>
+      <li><a href="#corrections">What we checked and corrected</a></li>
+      <li><a href="#steps">The steps, corrected</a></li>
+      <li><a href="#risks">Risks and costs</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ol>
   </div>
 
   <!-- ABOUT THE POST -->
-  <h2>What the original post describes</h2>
+  <h2 id="post">What the original post describes</h2>
 
   <p>The poster's I-485 (adjustment of status after a K-1 visa) had been pending about two years after an interview at which they were told to expect a card within a month. After USCIS service requests and congressional inquiries produced only "keep waiting", they:</p>
   <ol>
@@ -547,8 +208,8 @@
 
   <h3>7. File with the clerk</h3>
   <ul>
-    <li><strong>Civil cover sheet (JS&nbsp;44):</strong> one. The post's guidance on the boxes is correct (see <a href="#corrections">above</a>). Download it from <a href="https://www.uscourts.gov/forms-rules/forms/civil-cover-sheet">US Courts</a> or your court's website.</li>
-    <li><strong>Summons (AO&nbsp;440):</strong> one for each defendant, with names and titles exactly as in the complaint. Ask the clerk whether they also want summonses addressed to the US Attorney and the Attorney General. Download it from the <a href="https://www.uscourts.gov/forms-rules/forms/civil-forms">US Courts civil forms page</a>.</li>
+    <li><strong>Civil cover sheet (JS&nbsp;44):</strong> one. The post's guidance on the boxes is correct (see <a href="#corrections">above</a>). Download it from <a href="https://www.uscourts.gov/forms-rules/forms/civil-cover-sheet" target="_blank" rel="noopener noreferrer">US Courts</a> or your court's website.</li>
+    <li><strong>Summons (AO&nbsp;440):</strong> one for each defendant, with names and titles exactly as in the complaint. Ask the clerk whether they also want summonses addressed to the US Attorney and the Attorney General. Download it from the <a href="https://www.uscourts.gov/forms-rules/forms/civil-forms" target="_blank" rel="noopener noreferrer">US Courts civil forms page</a>.</li>
     <li><strong>Filing fee:</strong> $405. If you cannot pay, file an application to proceed without prepaying fees (AO&nbsp;240) instead.</li>
     <li>Ask whether your court accepts pro se filing by email or electronic upload. Many do now, and the rules vary.</li>
   </ul>
@@ -564,7 +225,7 @@
         <li>each named agency and official.</li>
       </ul>
     </li>
-    <li>Take addresses from each agency's current official service-of-process page, for example the <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice">USCIS Service of Process Notice</a>, and from your US Attorney's office website. Do not copy them from a 2024 template.</li>
+    <li>Take addresses from each agency's current official service-of-process page, for example the <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice" target="_blank" rel="noopener noreferrer">USCIS Service of Process Notice</a>, and from your US Attorney's office website. Do not copy them from a 2024 template.</li>
     <li>Also email a courtesy copy to USCIS if its service notice still invites that.</li>
     <li>Keep every tracking number and return receipt.</li>
   </ul>
@@ -583,31 +244,37 @@
   <p>Once USCIS approves the case, the suit is moot. File a <strong>notice of voluntary dismissal</strong> under Rule 41(a)(1)(A)(i) if the government has not answered, or a stipulation of dismissal if it has. The court's system notifies the government's attorney once they have appeared, so you usually do not mail it. Wait for the actual approval notice, not just an interview notice or a status change. If USCIS <em>denies</em> the case, the mandamus suit is also over, because the court compelled a decision, not an approval. Talk to an attorney about your options at that point.</p>
 
   <!-- RISKS -->
-  <h2>Risks and costs</h2>
+  <h2 id="risks">Risks and costs</h2>
   <p>The <a href="/delayed-i130-remedies#mandamus">remedies guide</a> covers these in full. In short: filing early risks dismissal under the TRAC factors and costs you $405; forcing a decision can bring out a problem that leads to a denial; and a losing plaintiff can be ordered to pay the government's ordinary court costs. An AILA consultation is the cheapest way to find out which of these apply to you.</p>
 
+  <div style="margin-top:2rem;">
+    <a href="/delayed-i130-remedies#mandamus" class="guide-return">&larr; Back to the delayed I-130 remedies guide</a>
+  </div>
+
   <!-- SOURCES -->
-  <div class="sources">
-    <h2>Sources</h2>
+  <div class="sources" id="sources">
+    <h2>Sources &amp; related pages</h2>
     <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">The community post is the starting point; the rules, statutes and opinions are what we checked it against. Verify current officials, fees and addresses before relying on them.</p>
     <ol>
-      <li>u/Secret_Gas3270, <a href="https://www.reddit.com/r/USCIS/comments/1ho0adh/stepbystep_guide_on_how_i_filed_a_writ_of/">Step-by-Step Guide on How I Filed a Writ of Mandamus Without a Lawyer and How You Can Too</a>, r/USCIS, 28 December 2024, with later edits (links to the author's complaint, proof of service and dismissal templates). Personal account; not legal advice.</li>
-      <li>Federal Rules of Civil Procedure (Cornell LII): <a href="https://www.law.cornell.edu/rules/frcp/rule_4">Rule 4</a> (4(c)(2) who may serve; 4(i) serving the United States, its agencies and officers; 4(m) 90-day limit); <a href="https://www.law.cornell.edu/rules/frcp/rule_5.2">Rule 5.2</a> (redaction; remote access in immigration cases); <a href="https://www.law.cornell.edu/rules/frcp/rule_11">Rule 11</a> (signing certifies legal contentions); <a href="https://www.law.cornell.edu/rules/frcp/rule_12">Rule 12(a)(2)</a> (60 days for the United States to respond); <a href="https://www.law.cornell.edu/rules/frcp/rule_25">Rule 25(d)</a> (automatic substitution of public officers); <a href="https://www.law.cornell.edu/rules/frcp/rule_41">Rule 41(a)</a> (voluntary dismissal).</li>
-      <li>Cornell LII: <a href="https://www.law.cornell.edu/uscode/text/28/1361">28 U.S.C. &sect;&nbsp;1361</a> (Mandamus Act); <a href="https://www.law.cornell.edu/uscode/text/28/1391">28 U.S.C. &sect;&nbsp;1391(e)</a> (venue for suits against federal officials); <a href="https://www.law.cornell.edu/uscode/text/28/1746">28 U.S.C. &sect;&nbsp;1746</a> (unsworn declarations); <a href="https://www.law.cornell.edu/uscode/text/5/706">5 U.S.C. &sect;&nbsp;706(1)</a> (APA); <a href="https://www.law.cornell.edu/uscode/text/8/1571">8 U.S.C. &sect;&nbsp;1571(b)</a> (180-day processing goal).</li>
-      <li><em>Saleh v. Ridge</em>, <a href="https://www.courtlistener.com/opinion/2435899/saleh-v-ridge/">367 F.&nbsp;Supp.&nbsp;2d 508</a> (S.D.N.Y. 2005) (mandamus unavailable; almost five-year delay held not unreasonable; summary judgment for the government).</li>
-      <li><em>Han Cao v. Upchurch</em>, <a href="https://www.courtlistener.com/opinion/2350507/han-cao-v-upchurch/">496 F.&nbsp;Supp.&nbsp;2d 569</a> (E.D. Pa. 2007) (four-year I-485 delay presumptively unreasonable where unexplained; adjudication ordered).</li>
-      <li><em>Al Karim v. Holder</em>, No.&nbsp;08-cv-00671-REB (D. Colo. Mar.&nbsp;29, 2010), Order re: Motions for Summary Judgment, ECF No.&nbsp;30, via the <a href="https://www.courtlistener.com/docket/4934547/al-karim-v-gonzalez/">CourtListener RECAP docket</a> (I-485 pending since April 2002; adjudication ordered under the APA within 30 days; Mandamus Act claim dismissed).</li>
-      <li>US Courts, <a href="https://www.uscourts.gov/forms-rules/forms/civil-cover-sheet">Civil Cover Sheet (JS 44)</a> and <a href="https://www.uscourts.gov/forms-rules/forms/civil-forms">Civil Forms</a> (AO 440 summons; AO 240 application to proceed without prepaying fees); <a href="https://www.uscourts.gov/court-programs/fees/district-court-miscellaneous-fee-schedule">District Court miscellaneous fee schedule</a> ($405 civil filing fee).</li>
-      <li>USCIS, <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice">Service of Process Notice</a>; USCIS, <a href="https://www.uscis.gov/about-us/organization/leadership">Leadership</a>.</li>
-      <li>AILA, <a href="https://ailalawyer.com/">Immigration Lawyer Search</a> (membership and licensing criteria for listed attorneys).</li>
+      <li>u/Secret_Gas3270, <a href="https://www.reddit.com/r/USCIS/comments/1ho0adh/stepbystep_guide_on_how_i_filed_a_writ_of/" target="_blank" rel="noopener noreferrer">Step-by-Step Guide on How I Filed a Writ of Mandamus Without a Lawyer and How You Can Too</a>, r/USCIS, 28 December 2024, with later edits (links to the author's complaint, proof of service and dismissal templates). Personal account; not legal advice.</li>
+      <li>Federal Rules of Civil Procedure (Cornell LII): <a href="https://www.law.cornell.edu/rules/frcp/rule_4" target="_blank" rel="noopener noreferrer">Rule 4</a> (4(c)(2) who may serve; 4(i) serving the United States, its agencies and officers; 4(m) 90-day limit); <a href="https://www.law.cornell.edu/rules/frcp/rule_5.2" target="_blank" rel="noopener noreferrer">Rule 5.2</a> (redaction; remote access in immigration cases); <a href="https://www.law.cornell.edu/rules/frcp/rule_11" target="_blank" rel="noopener noreferrer">Rule 11</a> (signing certifies legal contentions); <a href="https://www.law.cornell.edu/rules/frcp/rule_12" target="_blank" rel="noopener noreferrer">Rule 12(a)(2)</a> (60 days for the United States to respond); <a href="https://www.law.cornell.edu/rules/frcp/rule_25" target="_blank" rel="noopener noreferrer">Rule 25(d)</a> (automatic substitution of public officers); <a href="https://www.law.cornell.edu/rules/frcp/rule_41" target="_blank" rel="noopener noreferrer">Rule 41(a)</a> (voluntary dismissal).</li>
+      <li>Cornell LII: <a href="https://www.law.cornell.edu/uscode/text/28/1361" target="_blank" rel="noopener noreferrer">28 U.S.C. &sect;&nbsp;1361</a> (Mandamus Act); <a href="https://www.law.cornell.edu/uscode/text/28/1391" target="_blank" rel="noopener noreferrer">28 U.S.C. &sect;&nbsp;1391(e)</a> (venue for suits against federal officials); <a href="https://www.law.cornell.edu/uscode/text/28/1746" target="_blank" rel="noopener noreferrer">28 U.S.C. &sect;&nbsp;1746</a> (unsworn declarations); <a href="https://www.law.cornell.edu/uscode/text/5/706" target="_blank" rel="noopener noreferrer">5 U.S.C. &sect;&nbsp;706(1)</a> (APA); <a href="https://www.law.cornell.edu/uscode/text/8/1571" target="_blank" rel="noopener noreferrer">8 U.S.C. &sect;&nbsp;1571(b)</a> (180-day processing goal).</li>
+      <li><em>Saleh v. Ridge</em>, <a href="https://www.courtlistener.com/opinion/2435899/saleh-v-ridge/" target="_blank" rel="noopener noreferrer">367 F.&nbsp;Supp.&nbsp;2d 508</a> (S.D.N.Y. 2005) (mandamus unavailable; almost five-year delay held not unreasonable; summary judgment for the government).</li>
+      <li><em>Han Cao v. Upchurch</em>, <a href="https://www.courtlistener.com/opinion/2350507/han-cao-v-upchurch/" target="_blank" rel="noopener noreferrer">496 F.&nbsp;Supp.&nbsp;2d 569</a> (E.D. Pa. 2007) (four-year I-485 delay presumptively unreasonable where unexplained; adjudication ordered).</li>
+      <li><em>Al Karim v. Holder</em>, No.&nbsp;08-cv-00671-REB (D. Colo. Mar.&nbsp;29, 2010), Order re: Motions for Summary Judgment, ECF No.&nbsp;30, via the <a href="https://www.courtlistener.com/docket/4934547/al-karim-v-gonzalez/" target="_blank" rel="noopener noreferrer">CourtListener RECAP docket</a> (I-485 pending since April 2002; adjudication ordered under the APA within 30 days; Mandamus Act claim dismissed).</li>
+      <li>US Courts, <a href="https://www.uscourts.gov/forms-rules/forms/civil-cover-sheet" target="_blank" rel="noopener noreferrer">Civil Cover Sheet (JS 44)</a> and <a href="https://www.uscourts.gov/forms-rules/forms/civil-forms" target="_blank" rel="noopener noreferrer">Civil Forms</a> (AO 440 summons; AO 240 application to proceed without prepaying fees); <a href="https://www.uscourts.gov/court-programs/fees/district-court-miscellaneous-fee-schedule" target="_blank" rel="noopener noreferrer">District Court miscellaneous fee schedule</a> ($405 civil filing fee).</li>
+      <li>USCIS, <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice" target="_blank" rel="noopener noreferrer">Service of Process Notice</a>; USCIS, <a href="https://www.uscis.gov/about-us/organization/leadership" target="_blank" rel="noopener noreferrer">Leadership</a>.</li>
+      <li>AILA, <a href="https://ailalawyer.com/" target="_blank" rel="noopener noreferrer">Immigration Lawyer Search</a> (membership and licensing criteria for listed attorneys).</li>
     </ol>
   </div>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 29 September 2026.</p>
+  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 30 September 2026.</p>
 
-</div>
+</main>
 
 <div id="footer-placeholder"></div>
+
+<script src="/js/page-contents.js?v=20260930"></script>
 
 </body>
 </html>
