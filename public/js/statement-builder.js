@@ -162,6 +162,7 @@
     if (val('ev-pettax')) ev.push('Petitioner IRS tax returns / transcripts, last 3 years');
     if (val('ev-petpay')) ev.push('Petitioner payslips, last 3 months');
     if (val('ev-petbank')) ev.push('Petitioner bank statements, last 3 months');
+    if (val('ev-petins')) ev.push('Petitioner health insurance, plan confirmation or summary of benefits');
     if (val('ev-jstax')) ev.push('Joint sponsor IRS tax returns / transcripts, last 3 years');
     if (val('ev-slc')) ev.push('Beneficiary UK student loan statement');
     if (val('ev-employer')) ev.push('Employer letter confirming US-based work is permitted');
