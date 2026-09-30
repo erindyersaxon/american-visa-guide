@@ -110,6 +110,9 @@
     .ctrl:focus-visible,.fc-card:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
     /* Calculator */
+    .steps{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0!important;margin:4px 0 14px!important;counter-reset:st}
+    .steps li{counter-increment:st;font-family:var(--font-ui);font-size:12px;font-weight:600;color:var(--navy);background:var(--card-bg);border:1px solid var(--border-subtle);border-radius:999px;padding:3px 12px 3px 6px;margin:0}
+    .steps li::before{content:counter(st);display:inline-block;width:18px;height:18px;line-height:18px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;margin-right:6px}
     .calc{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px}
     .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:14px 18px}
     .field{display:flex;flex-direction:column;gap:5px}
@@ -193,8 +196,8 @@
     }
     @media (prefers-reduced-motion: reduce){.fc-inner{transition:none}}
   </style>
-<link rel="stylesheet" href="/css/nav.css?v=20260928">
-<script src="/js/nav.js?v=20260930" defer></script>
+<link rel="stylesheet" href="/css/nav.css?v=20260930n">
+<script src="/js/nav.js?v=20260930n" defer></script>
 </head>
 <body>
 <div id="nav-placeholder"></div>
@@ -204,7 +207,6 @@
 <main id="main-content">
 <div class="wrap">
   <div class="page-hero">
-    <p class="backlink">← Part of <a href="/life.html">Life in the USA</a></p>
     <div class="page-hero-eyebrow">After the Green Card · Form N-400 · US Citizenship</div>
     <h1 class="page-hero-h1">Naturalization: from green card to <span>citizen</span></h1>
     <p class="page-hero-sub">What to prepare, when you can file for your family visa category, which forms and fees apply, how to study for the civics test, and where to get free or low-cost help. Every figure links to its official source.</p>
@@ -235,6 +237,9 @@
   <section class="content-section" id="timeline" aria-labelledby="timeline-h">
     <div class="section-label">Calculator</div>
     <h2 id="timeline-h">When can you file, and what will you need?</h2>
+    <ol class="steps" aria-label="The naturalization process">
+      <li>Green card</li><li>File Form N-400</li><li>Biometrics</li><li>Interview, English and civics tests</li><li>Decision</li><li>Oath ceremony</li>
+    </ol>
     <p class="section-intro">Choose the family visa category you immigrated on and enter your dates. The calculator follows the 3-year and 5-year rules in the <a href="https://www.uscis.gov/policy-manual/volume-12" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 12</a>, including the 90-day early filing window. It then lists the forms, fees and documents for your situation. Everything runs in your browser, and nothing you enter is sent or stored.</p>
 
     <form class="calc" id="calc" novalidate>
