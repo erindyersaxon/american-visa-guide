@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prepare the 15-year personal history some posts request after an administrative processing 221(g): travel, addresses, employment, education, passports, family, and a CV, checked against your DS-260.">
+  <title>15-year history worksheet | American Visa Guide</title>
+  <link rel="canonical" href="https://www.americanvisaguide.com/history-worksheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/article.css?v=20260930">
+  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
+  <script src="/js/nav.js?v=20260930n" defer></script>
+  <style>
+    .tool fieldset { border-top: 1px solid var(--line); padding-top: 1rem; }
+    .tool fieldset:first-of-type { border-top: none; padding-top: 0; }
+    .ds { font-size: 0.8rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<main class="page-wrap" id="main">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span><a href="/221g">221(g)</a><span>/</span>15-year history worksheet
+  </div>
+
+  <p class="eyebrow">Tool &middot; Administrative processing</p>
+  <h1>15-year <span>history worksheet</span></h1>
+  <p class="lead">Some posts follow an administrative processing 221(g) with a request for 15 years of personal history and a CV. If your field is technical or scientific, prepare this before the interview: reconstructing 15 years of trips from memory after a refusal is slow, and it is where inconsistencies with your DS-260 creep in.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">Based on one reported request, from another post</span>
+    The items below follow a single form an applicant's spouse posted publicly in September 2026, from an interview outside London. We have not seen London issue it. Most of it matches Form DS-5535. See <a href="/221g#security">when administrative processing asks for your history</a> for the full account, and <a href="/221g#dualuse">which careers draw technology checks</a>.
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-title">How to fill it in</span>
+    <ul style="margin:0.3rem 0 0;">
+      <li>Answer every item. Write "none" where nothing applies: a blank reads as an omission.</li>
+      <li>Check each section against your DS-260. Where the DS-260 was shorter, add to it rather than contradicting it. Tick the box when you have checked.</li>
+      <li>Describe your work accurately and plainly. Do not overstate or understate it: misrepresentation is far worse than a delay.</li>
+      <li>Your answers stay in this browser only.</li>
+    </ul>
+  </div>
+
+  <form class="tool" id="h-form" autocomplete="off">
+    <fieldset>
+      <legend>Your details</legend>
+      <div class="field-row">
+        <div class="field"><label for="h-case">Case number</label><input type="text" id="h-case" placeholder="LND0123456789"></div>
+        <div class="field"><label for="h-surname">Surname</label><input type="text" id="h-surname"></div>
+        <div class="field"><label for="h-given">Given names</label><input type="text" id="h-given"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Travel, last 15 years</legend>
+      <div class="field"><label for="h-travel">One trip per line: dates – country – purpose</label><textarea id="h-travel" rows="6" placeholder="2025-08-02 to 2025-08-16 – United States – visiting spouse"></textarea><span class="hint">Include every trip, not only to the US. Use passport stamps, airline accounts and email confirmations to reconstruct dates.</span></div>
+      <div class="field"><label for="h-ustravel">Travel to the US specifically</label><textarea id="h-ustravel" rows="3"></textarea></div>
+      <label class="check"><input type="checkbox" id="h-c-travel"> <span class="ds">Checked against the travel on my DS-260</span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Addresses, last 15 years</legend>
+      <div class="field"><label for="h-addr">Current address first, then every previous one: from – to – full address</label><textarea id="h-addr" rows="5"></textarea></div>
+      <label class="check"><input type="checkbox" id="h-c-addr"> <span class="ds">Checked against the addresses on my DS-260</span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Employment, last 15 years</legend>
+      <div class="field"><label for="h-work">From – to – employer – job title – one-line description of what you did and what it was for</label><textarea id="h-work" rows="6" placeholder="2019 to present – Acme Ltd – Security Engineer – tests the bank's own systems for weaknesses so they can be fixed"></textarea><span class="hint">Say what the work was for: making a medicine, securing a bank's network, surveying land.</span></div>
+      <label class="check"><input type="checkbox" id="h-c-work"> <span class="ds">Checked against the employment on my DS-260</span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Education, last 15 years</legend>
+      <div class="field"><label for="h-edu">From – to – institution – qualification and subject</label><textarea id="h-edu" rows="4"></textarea></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Passports</legend>
+      <div class="field"><label for="h-pass">Every prior passport: nationality – number – issued – expired</label><textarea id="h-pass" rows="3"></textarea></div>
+      <label class="check"><input type="checkbox" id="h-c-pass"> <span class="ds">Checked against the passports on my DS-260</span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Family</legend>
+      <div class="field-row">
+        <div class="field"><label for="h-father">Father's full name</label><input type="text" id="h-father"></div>
+        <div class="field"><label for="h-mother">Mother's full name, including surname at birth</label><input type="text" id="h-mother"></div>
+      </div>
+      <div class="field"><label for="h-spouse">Spouse, and any former spouses (or "single / never married")</label><textarea id="h-spouse" rows="2"></textarea></div>
+      <div class="field"><label for="h-siblings">Siblings' names</label><textarea id="h-siblings" rows="2"></textarea></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Physical description and military service</legend>
+      <div class="field-row">
+        <div class="field"><label for="h-weight">Weight (kg)</label><input type="text" id="h-weight"></div>
+        <div class="field"><label for="h-height">Height (cm)</label><input type="text" id="h-height"></div>
+      </div>
+      <div class="field"><label for="h-marks">Visible identifying marks: birthmarks, moles, piercings, tattoos, scars</label><input type="text" id="h-marks"></div>
+      <div class="field"><label for="h-military">Military service: branch – dates – rank – specialty (or "none")</label><textarea id="h-military" rows="2"></textarea></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>CV and publications</legend>
+      <div class="field"><label for="h-pubs">Publications, theses and patents: title – date (or "none")</label><textarea id="h-pubs" rows="3"></textarea></div>
+      <label class="check"><input type="checkbox" id="h-c-cv"> <span class="ds">My CV is up to date, with dates, employers and a plain description of each role</span></label>
+    </fieldset>
+  </form>
+
+  <h2 id="h-out-title">Your email</h2>
+  <p>Use the subject line exactly as the post gives it. The one below is the format reported; send to the address on your sheet or in the post's instructions, not a guessed one. Attach your CV. Send it once, then wait.</p>
+  <pre class="output" id="h-out" aria-live="polite"></pre>
+  <div class="btn-row">
+    <button type="button" class="btn" id="h-copy">Copy</button>
+    <button type="button" class="btn btn--ghost" onclick="window.print()">Print</button>
+  </div>
+
+  <div style="margin-top:2rem;">
+    <a href="/221g#security" class="guide-return">&larr; Back to administrative processing</a>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script>
+(function () {
+  'use strict';
+  var KEY = 'avg-history-v1';
+  var form = document.getElementById('h-form');
+  var out = document.getElementById('h-out');
+  var els = Array.prototype.slice.call(form.querySelectorAll('input, textarea'));
+  function v(id) { var e = document.getElementById(id); return e.type === 'checkbox' ? e.checked : e.value.trim(); }
+  function block(title, id) { return title + ':\n' + (v(id) || 'None') + '\n'; }
+  function build() {
+    var subj = 'I88 - ' + (v('h-case') || 'CASE NUMBER') + ' - ' + (v('h-surname') || 'SURNAME').toUpperCase() + ', ' + (v('h-given') || 'GIVEN NAME').toUpperCase();
+    var t = ['Subject: ' + subj, '', 'Dear Consular Section,', '', 'Please find below the personal history requested for my case, with my CV attached.', ''];
+    t.push(block('Travel history (last 15 years)', 'h-travel'));
+    t.push(block('Travel history to the United States', 'h-ustravel'));
+    t.push("Parents' full names:\nFather: " + (v('h-father') || 'None') + '\nMother (including surname at birth): ' + (v('h-mother') || 'None') + '\n');
+    t.push(block('Spouse and former spouses', 'h-spouse'));
+    t.push(block('Siblings', 'h-siblings'));
+    t.push(block('Addresses (last 15 years)', 'h-addr'));
+    t.push(block('Education (last 15 years)', 'h-edu'));
+    t.push(block('Prior passports', 'h-pass'));
+    t.push(block('Occupations and employers (last 15 years)', 'h-work'));
+    t.push('Weight: ' + (v('h-weight') ? v('h-weight') + ' kg' : 'None') + '\nHeight: ' + (v('h-height') ? v('h-height') + ' cm' : 'None') + '\nVisible identifying marks: ' + (v('h-marks') || 'None') + '\n');
+    t.push(block('Military service', 'h-military'));
+    t.push(block('Publications', 'h-pubs'));
+    t.push('Kind regards,\n' + [v('h-given'), v('h-surname')].filter(Boolean).join(' ') + '\n' + (v('h-case') || ''));
+    var unchecked = ['h-c-travel', 'h-c-addr', 'h-c-work', 'h-c-pass', 'h-c-cv'].filter(function (id) { return !v(id); }).length;
+    if (unchecked) t.unshift('[' + unchecked + ' section' + (unchecked === 1 ? '' : 's') + ' not yet checked against your DS-260 or CV. Remove this line before sending.]\n');
+    return t.join('\n');
+  }
+  function save() {
+    var d = {}; els.forEach(function (e) { d[e.id] = e.type === 'checkbox' ? e.checked : e.value; });
+    try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
+  }
+  try {
+    var d = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (d) els.forEach(function (e) { if (e.id in d) { if (e.type === 'checkbox') e.checked = !!d[e.id]; else e.value = d[e.id]; } });
+  } catch (e) {}
+  function update() { out.textContent = build(); save(); }
+  form.addEventListener('input', update);
+  form.addEventListener('change', update);
+  update();
+  document.getElementById('h-copy').addEventListener('click', function () {
+    var btn = this;
+    if (navigator.clipboard) navigator.clipboard.writeText(out.textContent).then(function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1800); });
+  });
+})();
+</script>
+</body>
+</html>

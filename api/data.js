@@ -606,18 +606,33 @@ export default async function handler(req, res) {
   // cases) that are not in form_responses. Kept out of the table so they
   // never feed the interval statistics; they only appear in the weekly list,
   // and replace any form entry for the same member within the window.
+  // Members on the form report changes via interview_change_type instead.
   const MANUAL_INTERVIEWS = [
-    { name: 'Ilma',       date: '2026-10-02', note: '221(g) second interview (75-country pause)' },
-    { name: 'Carl Ralph', date: '2026-10-06', note: 'Rescheduled interview' },
-    { name: 'Ashley',     date: '2026-10-06', note: 'Rescheduled interview' },
+    { name: 'Kbrit', date: '2026-10-05', note: 'Second interview (221(g))' },
   ]
   const nameKey = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '')
+  // Once a member reports a reschedule or re-interview, `interview` keeps the
+  // original date and the appointment to show is new_interview_at (migration
+  // 0006). Rescheduled with no new date yet means cancelled: show nothing.
+  const nextInterview = (r) => r.interview_change_type
+    ? (r.new_interview_at ? String(r.new_interview_at).slice(0, 10) : null)
+    : r.interview
   const interviewsIn = (inRange) => {
     const manual = MANUAL_INTERVIEWS.filter(m => inRange(m.date))
     const manualKeys = new Set(MANUAL_INTERVIEWS.map(m => nameKey(m.name)))
     return deduped
-      .filter(r => r.username_raw && inRange(r.interview) && !manualKeys.has(nameKey(r.username_raw)))
-      .map(r => ({ name: r.username_raw, date: r.interview }))
+      .filter(r => r.username_raw && inRange(nextInterview(r)) && !manualKeys.has(nameKey(r.username_raw)))
+      .map(r => {
+        // The re-interview reason comes from the first interview's outcome,
+        // not the form, so the two can't disagree.
+        const change = String(r.interview_change_type || '').toLowerCase()
+        const reason = r.outcome_status === 'visa_pause' ? ' (visa pause)'
+          : ['not_approved', 'cleared'].includes(r.outcome_status) ? ' (221(g))' : ''
+        const note = change === 'rescheduled' ? 'Rescheduled interview'
+          : change === 're-interview' ? `Second interview${reason}` : undefined
+        return note ? { name: r.username_raw, date: nextInterview(r), note }
+                    : { name: r.username_raw, date: nextInterview(r) }
+      })
       .concat(manual)
       .sort((a, b) => new Date(a.date) - new Date(b.date))
   }

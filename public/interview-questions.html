@@ -93,8 +93,8 @@
         .qb-modes, .qb-controls .qb-spacer, .fc-wrap, #qb-mode-flashcards { display: none !important; }
       }
     </style>
-    <link rel="stylesheet" href="/css/nav.css?v=20260929">
-    <script src="/js/nav.js?v=20260929" defer></script>
+    <link rel="stylesheet" href="/css/nav.css?v=20260930n">
+    <script src="/js/nav.js?v=20260930n" defer></script>
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -103,7 +103,8 @@
     <main id="main">
       <div class="container">
         <div class="qb-container">
-          <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;">← Part of <a href="/guide/interview" style="color:#3e7188;text-decoration:none;">Stage 5: Embassy interview</a></p>
+          <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;">← Part of <a href="/guide/interview" style="color:#3e7188;text-decoration:none;">Stage 5: Embassy interview</a> &middot; <a href="/interview" style="color:#3e7188;text-decoration:none;">Your interview: start here</a></p>
+          <div data-live-notice="page"></div>
           <h1>Interview Question Bank</h1>
           <p class="subtitle">Almost every question here was asked at a US Embassy London interview, shared by community members afterwards. A few come from a written public charge questionnaire or an interview at another post, and are labelled that way. Browse them, or drill with flashcards.</p>
 
@@ -122,6 +123,10 @@
             <div class="qb-field">
               <label for="qb-category">Visa category</label>
               <select id="qb-category"></select>
+            </div>
+            <div class="qb-field">
+              <label for="qb-theme">Topic</label>
+              <select id="qb-theme"><option value="all">All topics</option></select>
             </div>
             <div class="qb-field qb-field--grow" id="qb-search-field">
               <label for="qb-search">Search questions</label>
@@ -205,6 +210,7 @@
 
         var els = {
           category: document.getElementById('qb-category'),
+          theme: document.getElementById('qb-theme'),
           search: document.getElementById('qb-search'),
           searchField: document.getElementById('qb-search-field'),
           count: document.getElementById('qb-count'),
@@ -223,6 +229,21 @@
           els.category.appendChild(o);
         });
 
+        // Topic options, from the question themes
+        THEMES.forEach(function (t) {
+          var o = document.createElement('option');
+          o.value = t.key; o.textContent = t.label;
+          els.theme.appendChild(o);
+        });
+
+        // Deep links: /interview-questions?theme=publiccharge&cat=...
+        (function () {
+          var params = new URLSearchParams(window.location.search);
+          var th = params.get('theme'), ct = params.get('cat');
+          if (th && THEMES.some(function (t) { return t.key === th; })) els.theme.value = th;
+          if (ct && CATEGORIES.some(function (c) { return c.id === ct; })) els.category.value = ct;
+        })();
+
         function matchesCategory(q, cat) {
           if (cat === 'all') return true;
           if (q.cats === 'all') return true;
@@ -231,9 +252,11 @@
 
         function currentList() {
           var cat = els.category.value;
+          var theme = els.theme.value;
           var term = (els.search.value || '').trim().toLowerCase();
           return QUESTIONS.filter(function (q) {
             if (!matchesCategory(q, cat)) return false;
+            if (theme !== 'all' && q.theme !== theme) return false;
             if (term && q.q.toLowerCase().indexOf(term) === -1 &&
                 !(q.tip && q.tip.toLowerCase().indexOf(term) !== -1)) return false;
             return true;
@@ -439,6 +462,10 @@
           renderBank();
           if (!els.flash.hidden) buildDeck();
         });
+        els.theme.addEventListener('change', function () {
+          renderBank();
+          if (!els.flash.hidden) buildDeck();
+        });
         els.search.addEventListener('input', renderBank);
         els.tabBank.addEventListener('click', function () { setMode('bank'); });
         els.tabFlash.addEventListener('click', function () { setMode('flash'); });
@@ -478,5 +505,6 @@
       })();
     </script>
     <script src="/js/shared.js?v=20260612"></script>
+    <script src="/js/live-notice.js?v=20260930"></script>
   </body>
 </html>

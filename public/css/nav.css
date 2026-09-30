@@ -314,11 +314,22 @@
   outline-offset: 2px;
 }
 
-/* Shared site footer */
+/* Shared site footer
+   Colours are solid (not rgba) and set on every text element, so page-level
+   `p`/`a` rules can't override them. Contrast on #1e2b32:
+   #f4efe6 ≈ 13:1, #d9d3c8 ≈ 10:1, #c8dde6 ≈ 10:1 — all pass WCAG AAA. */
 .avg-footer {
   background-color: var(--color-navy-dark, #1e2b32);
-  color: rgba(244, 239, 230, 0.75);
+  color: #f4efe6;
+  font-family: var(--font-body, 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  font-size: 1rem;
+  line-height: 1.6;
   margin-top: 4rem;
+}
+
+.avg-footer p {
+  color: inherit;
+  font-family: inherit;
 }
 
 .avg-footer__container {
@@ -328,23 +339,26 @@
 }
 
 .avg-footer__note {
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.7;
   max-width: 65ch;
   margin: 0 0 2rem;
-  color: rgba(244, 239, 230, 0.75);
+  color: #f4efe6;
 }
 
 .avg-footer__note p {
   margin: 0;
+  color: #f4efe6;
 }
 
 .avg-footer__note .avg-footer__note-hd {
+  font-size: 1.125rem;
   margin-bottom: 0.5rem;
 }
 
 .avg-footer__note strong {
-  color: var(--color-text-on-dark, #f4efe6);
+  color: #f4efe6;
+  font-weight: 700;
 }
 
 .avg-footer__cols {
@@ -352,20 +366,21 @@
   grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
   gap: 1.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(244, 239, 230, 0.15);
+  border-top: 1px solid rgba(244, 239, 230, 0.25);
 }
 
 .avg-footer__hd {
-  font-family: var(--font-display, Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif);
+  font-family: var(--font-body, 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--color-text-on-dark, #f4efe6);
+  color: #f4efe6 !important;
   margin: 0 0 0.5rem;
 }
 
 .avg-footer a {
-  color: rgba(244, 239, 230, 0.85);
+  color: #f4efe6;
   text-decoration: underline;
+  text-underline-offset: 3px;
   /* The contact address is one 286px unbreakable token; without this it sets
      the column's min-content width and pushes the footer past the viewport. */
   overflow-wrap: anywhere;
@@ -375,28 +390,32 @@
   color: #c8dde6;
 }
 
+.avg-footer a:focus-visible {
+  outline: 2px solid #c8dde6;
+  outline-offset: 3px;
+}
+
 .avg-footer__kofi {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-ui, 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #c8dde6 !important;
-  border: 1px solid rgba(200, 221, 230, 0.5);
+  color: #f4efe6 !important;
+  border: 1px solid rgba(200, 221, 230, 0.7);
   border-radius: 9999px;
   padding: 0.5rem 1rem;
   text-decoration: none !important;
 }
 
 .avg-footer__kofi:hover {
-  background: rgba(200, 221, 230, 0.1);
+  background: rgba(200, 221, 230, 0.12);
 }
 
 .avg-footer__copyright {
-  font-size: 0.75rem;
-  color: rgba(244, 239, 230, 0.5);
+  font-size: 0.9375rem;
+  color: #d9d3c8 !important;
   margin: 2rem 0 0;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(244, 239, 230, 0.15);
+  border-top: 1px solid rgba(244, 239, 230, 0.25);
 }

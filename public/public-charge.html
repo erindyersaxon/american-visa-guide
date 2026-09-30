@@ -87,9 +87,10 @@
         .table td { border-bottom: none; padding: var(--space-2) var(--space-5); }
         .table td::before { content: attr(data-label); display: block; font-size: var(--size-xs); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-muted); margin-bottom: 2px; }
       }
+      .pg-container code { overflow-wrap: anywhere; }
     </style>
-    <link rel="stylesheet" href="/css/nav.css?v=20260929">
-  <script src="/js/nav.js?v=20260929" defer></script>
+    <link rel="stylesheet" href="/css/nav.css?v=20260930n">
+  <script src="/js/nav.js?v=20260930n" defer></script>
 </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -98,28 +99,32 @@
     <main id="main">
       <div class="container">
         <div class="pg-container">
+          <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;"><a href="/" style="color:#3e7188;text-decoration:none;">Home</a> / <a href="/interview" style="color:#3e7188;text-decoration:none;">Your interview</a> / Public charge &middot; &larr; Part of <a href="/guide/interview" style="color:#3e7188;text-decoration:none;">Stage 5: Embassy interview</a></p>
           <header class="pg-header">
             <div class="pg-eyebrow">US Embassy London &middot; Immigrant visa interview</div>
             <h1 class="pg-title">Public charge: what you must show, and how</h1>
-            <p class="pg-dateline">Updated 27 September 2026: the statement is now sent with 3 years of tax returns and 3 months of payslips or bank statements, UK student loans are covered, and the institutionalization section is simplified. Previously updated 24 September 2026, for an interview at another post where the questionnaire was asked out loud and the joint sponsor was itself questioned, and 15 September 2026, for the 10 September cable, the public charge worksheet now in use worldwide, and the written questionnaires and 221(g) checklists posts have begun issuing from it.</p>
+            <p class="pg-dateline">Updated 27 September 2026. <a href="#changes">What changed</a>.</p>
           </header>
+
+          <div data-live-notice="page"></div>
+
+          <div class="tip-card">
+            <strong>Do these five things</strong>
+            <ol style="margin-top: var(--space-3);">
+              <li><strong>Write</strong> a statement covering all five factors. Use the <a href="/public-charge-statement">statement builder</a>, or the template in <a href="#template">section 10</a>. Allow 30 minutes.</li>
+              <li><strong>Gather the evidence that goes with it:</strong> the last 3 years of IRS tax returns (the transcripts, or full copies of the returns) for the petitioner and every joint sponsor, and the last 3 months of payslips and/or bank statements. If you have a UK student loan, add your latest Student Loans Company statement.</li>
+              <li><strong>Upload</strong> the statement and evidence to your case in CEAC, then email them to <code>LNDIVSubmissions@state.gov</code> so the unit knows they are there. Both, not either. At least five working days before your interview (<a href="/interview-dates">work out the date</a>). See <a href="#submit">section 9</a> for how to organize the files.</li>
+              <li><strong>Print</strong> a copy for your interview binder.</li>
+              <li><strong>Rehearse</strong> the answers aloud, with <a href="#questions">section 8</a> or the <a href="/interview-questions?theme=publiccharge">flashcards</a>. The officer questions the beneficiary, not the sponsor.</li>
+            </ol>
+            <p style="margin-bottom: 0;"><strong>Treat this as mandatory.</strong> The embassy describes the statement as something you <em>may voluntarily</em> submit. Take the cautious route and send it, with its evidence, in every case. Leaving it out invites the questioning it is designed to answer, and the cost of a 221(g) is months.</p>
+          </div>
 
           <div class="pg-intro">
             <p>The consular officer must be satisfied that you are unlikely to become a public charge at any time after admission. Proving that is your job, not the government's.</p>
             <p style="margin-bottom: 0;">The five public charge factors in the statute, all about <strong>you, the beneficiary</strong>, have been law since 1996 (INA 212(a)(4)(B)). What changed in November 2025 is how officers apply them: they now weigh each one in earnest rather than treating a sufficient I-864 as normally enough. Since August 2026 they work through a structured worksheet to do it, and some posts now issue a written questionnaire from it before you are even seen. This page sets out what to produce, when, and why, reproduces that questionnaire and the document list a public charge 221(g) generates, and links the source behind each requirement.</p>
           </div>
 
-          <div class="tip-card">
-            <strong>Do these five things</strong>
-            <ol style="margin-top: var(--space-3);">
-              <li><strong>Write</strong> a statement covering all five factors. Use the template in section 10. Allow 30 minutes.</li>
-              <li><strong>Gather the evidence that goes with it:</strong> the last 3 years of IRS tax returns (the transcripts, or full copies of the returns) for the petitioner and every joint sponsor, and the last 3 months of payslips and/or bank statements. If you have a UK student loan, add your latest Student Loans Company statement.</li>
-              <li><strong>Upload</strong> the statement and evidence to your case in CEAC, then email them to <code>LNDIVSubmissions@state.gov</code> so the unit knows they are there. Both, not either. At least five working days before your interview. See <a href="#submit">section 9</a> for how to organize the files.</li>
-              <li><strong>Print</strong> a copy for your interview binder.</li>
-              <li><strong>Rehearse</strong> the answers aloud. The officer questions the beneficiary, not the sponsor.</li>
-            </ol>
-            <p style="margin-bottom: 0;"><strong>Treat this as mandatory.</strong> The embassy describes the statement as something you <em>may voluntarily</em> submit. Take the cautious route and send it, with its evidence, in every case. Leaving it out invites the questioning it is designed to answer, and the cost of a 221(g) is months.</p>
-          </div>
 
           <div class="warning-card" id="fluid">
             <strong>This is a moving target, and nobody has the full picture yet</strong>
@@ -127,7 +132,7 @@
             <ul>
               <li><strong>The governing documents are not published.</strong> The November 2025 cable has never been released. Neither has the worksheet officers now work through. What this page describes comes from practitioner analysis, court filings that characterise those documents without reproducing them, materials posts have handed to applicants, and reports from people who have been interviewed. That is a lot of convergent evidence. It is not the same as a published rule.</li>
               <li><strong>The written material here comes from other posts.</strong> The questionnaire in section 4 and the 221(g) checklist in section 5 are real documents, but London has not been reported to issue either. They are included because the factor set behind them is global, not because London will send them to you.</li>
-              <li><strong>London has barely tested this yet.</strong> Interviews were cancelled through 30 September 2026 for the very training programme that produced these changes. The body of London experience under the new standard is thin, and the accounts on this site are individual cases rather than a pattern. Expect the picture to sharpen considerably over the coming months, and expect parts of this page to need rewriting when it does.</li>
+              <li><strong>London has barely tested this yet.</strong> London interviews booked for September 2026 were cancelled for the very training programme that produced these changes, and are only now being rescheduled. The body of London experience under the new standard is thin, and the accounts on this site are individual cases rather than a pattern. Expect the picture to sharpen considerably over the coming months, and expect parts of this page to need rewriting when it does.</li>
             </ul>
             <p><strong>What we are reasonably confident about is the direction of travel.</strong> A worksheet deployed to every post, mandatory training for every officer, and expanded managerial review over adjudications all point the same way: toward a more uniform and more searching public charge assessment becoming the ordinary standard for immigrant visa interviews worldwide, rather than a burst of unusual scrutiny that fades. The specifics of how any one post applies it will vary and will keep moving. The underlying five factors, and the kind of evidence that answers them, are unlikely to.</p>
             <p style="margin-bottom: 0;"><strong>So prepare for the version described here.</strong> The asymmetry favours it: everything on this page is cheap to assemble and costs you an afternoon, while arriving without it costs you a 221(g) and months. If the questioning turns out lighter than this, you will have over-prepared for a twenty-minute conversation. If it turns out heavier, you will still have answered most of it. Neither outcome is a reason to prepare less.</p>
@@ -765,6 +770,11 @@
 
           <h2 class="section-title" id="template">10. The statement template</h2>
 
+          <div class="tip-card">
+            <strong>Prefer a form?</strong>
+            <p style="margin-top: var(--space-3); margin-bottom: 0;">The <a href="/public-charge-statement">statement builder</a> asks for each detail and writes this statement for you, leaving out the sentences that do not apply.</p>
+          </div>
+
           <p style="font-size: var(--size-sm); line-height: var(--line-lg); margin-bottom: var(--space-5);">Adapt every bracketed placeholder. The blocks run in the order the officer needs them, with income answering each cost and assets last. The two appendices at the end exist because posts ask for work and education history <em>as lists</em>: a paragraph does not answer a request for position titles with years worked.</p>
 
           <div class="email-template">To: LNDIVSubmissions@state.gov
@@ -900,6 +910,13 @@ APPENDIX B: EDUCATION AND QUALIFICATIONS
             <p><strong>Community experience.</strong> Where this page describes what happens at the window rather than what a document says, it is drawn from London cases reported by applicants and is labelled as such in the text. The extended interview account in section 8 was shared with this site by the applicant it happened to, and is reproduced with permission. The account of the questionnaire asked out loud, in sections 4 and 7, comes from an interview at another post, posted publicly by the applicant's spouse in September 2026. For more interview reports, see the <a href="/interview-questions.html">interview question bank</a> and the <a href="/checklist-interview.html">interview checklist</a>.</p>
           </div>
 
+          <details class="toc" id="changes" style="margin-top: var(--space-6);">
+            <summary><strong>What changed on this page</strong></summary>
+            <p>27 September 2026: the statement is now sent with 3 years of tax returns and 3 months of payslips or bank statements, UK student loans are covered, and the institutionalization section is simplified. Previously updated 24 September 2026, for an interview at another post where the questionnaire was asked out loud and the joint sponsor was itself questioned, and 15 September 2026, for the 10 September cable, the public charge worksheet now in use worldwide, and the written questionnaires and 221(g) checklists posts have begun issuing from it.</p>
+          </details>
+
+          <p style="margin: var(--space-6) 0;"><a href="/guide/interview" style="font-weight:600;">&larr; Back to Stage 5: the embassy interview</a> &middot; <a href="/interview" style="font-weight:600;">Your interview hub</a></p>
+
           <div class="embassy-note">
             <p><strong>Embassy scope note:</strong> this page is written for US Embassy London. The submission address, <code>LNDIVSubmissions@state.gov</code>, is London's. The five statutory factors apply at every post. If you are processing elsewhere, confirm the correct submission address with your embassy.</p>
           </div>
@@ -909,6 +926,8 @@ APPENDIX B: EDUCATION AND QUALIFICATIONS
 
     <footer></footer>
     <script src="/js/shared.js?v=20260612"></script>
+    <script src="/js/live-notice.js?v=20260930"></script>
+    <script src="/js/page-contents.js?v=20260930"></script>
     <script>
       // The clipboard copy is taken from the rendered template so that the
       // visible text and the copied text can never drift apart. The

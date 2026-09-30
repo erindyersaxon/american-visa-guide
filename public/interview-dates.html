@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Enter your US Embassy London interview date and get every deadline in one place: public charge statement due date, medical validity and the date you must enter the US by, passport and ACRO validity, tax year, and the 221(g) one-year deadline.">
+  <title>Interview date checker | American Visa Guide</title>
+  <link rel="canonical" href="https://www.americanvisaguide.com/interview-dates">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/article.css?v=20260930">
+  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
+  <script src="/js/nav.js?v=20260930n" defer></script>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<main class="page-wrap" id="main">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span><a href="/interview">Your interview</a><span>/</span>Date checker
+  </div>
+
+  <p class="eyebrow">Tool &middot; US Embassy London</p>
+  <h1>Interview <span>date checker</span></h1>
+  <p class="lead">Enter the dates you have. The checker works out when your public charge statement is due, the last day you can enter the US, and whether anything expires first. Only the interview date is needed; add the rest for a fuller check.</p>
+
+  <form class="tool" id="d-form" autocomplete="off">
+    <div class="field-row">
+      <div class="field">
+        <label for="d-interview">Interview date</label>
+        <input type="date" id="d-interview">
+        <span class="hint">First, rescheduled or re-interview date.</span>
+      </div>
+      <div class="field">
+        <label for="d-medical">Date of your medical exam</label>
+        <input type="date" id="d-medical">
+        <span class="hint">Results are valid for 6 months from this date.</span>
+      </div>
+      <div class="field">
+        <label for="d-passport">Passport expiry date</label>
+        <input type="date" id="d-passport">
+      </div>
+      <div class="field">
+        <label for="d-acro">ACRO certificate issue date</label>
+        <input type="date" id="d-acro">
+      </div>
+      <div class="field">
+        <label for="d-entry">Planned US entry date <span style="font-weight:400;">(optional)</span></label>
+        <input type="date" id="d-entry">
+      </div>
+      <div class="field">
+        <label for="d-taxyear">Latest tax year in CEAC for every sponsor</label>
+        <select id="d-taxyear">
+          <option value="">Not sure / skip</option>
+          <option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="d-letter">Date on your 221(g) sheet <span style="font-weight:400;">(if you have one)</span></label>
+        <input type="date" id="d-letter">
+      </div>
+    </div>
+    <div class="btn-row">
+      <button type="submit" class="btn">Check my dates</button>
+      <button type="button" class="btn btn--ghost" id="d-clear">Clear</button>
+      <button type="button" class="btn btn--ghost" onclick="window.print()">Print</button>
+    </div>
+    <p class="hint" style="font-size:0.78rem;color:var(--muted);margin-top:0.75rem;">Your dates stay on this device. Nothing is sent anywhere.</p>
+  </form>
+
+  <h2 id="results-title">Your dates</h2>
+  <ul class="results" id="d-results" aria-live="polite" aria-labelledby="results-title"></ul>
+
+  <h2 id="medical">How the 6-month medical window works</h2>
+  <p>Medical results are valid for <strong>6 months from the date of the exam</strong>. The immigrant visa is issued to match, so you must <strong>enter the US within that same 6-month period</strong>. The clock starts at the medical, not the interview.</p>
+  <ul>
+    <li>A rescheduled interview uses up part of the window. If the new date is close to the end of it, there may not be time to get the passport back and travel.</li>
+    <li>If the interview falls after the 6 months, the medical has expired and you will need a new one.</li>
+    <li>The medical should be at least 10 working days before the interview, so results reach the embassy.</li>
+  </ul>
+  <p>More on the medical: <a href="/guide/medical#medical-validity">Stage 4</a>.</p>
+
+  <h2 id="rules">What each check is based on</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Check</th><th>Rule used</th></tr></thead>
+      <tbody>
+        <tr><td>Statement deadline</td><td>Five working days before the interview, skipping weekends, US federal holidays and bank holidays in England (the embassy closes on both). <a href="/public-charge#submit">Why five days</a>.</td></tr>
+        <tr><td>Medical and entry</td><td>Valid 6 months from the exam; entry to the US must be within the same 6 months.</td></tr>
+        <tr><td>Passport</td><td>London's instruction: valid at least 6 months beyond your intended date of entry. <a href="/guide/interview">Stage 5</a>.</td></tr>
+        <tr><td>ACRO</td><td>Treated as valid for 12 months for embassy purposes.</td></tr>
+        <tr><td>Tax year</td><td>US returns for a year are due by 15 April of the following year. After that date, a newer transcript may exist.</td></tr>
+        <tr><td>I-864 edition</td><td>USCIS accepts only the 08/24/26 edition from 1 October 2026.</td></tr>
+        <tr><td>221(g) deadline</td><td>INA &sect;203(g): one year from the date on the letter. <a href="/221g#resolve">Details</a>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">A guide, not a ruling</span>
+    These are the rules this site works from. Your interview letter and anything the Immigrant Visa Unit tells you take priority. Holidays are listed for 2026 and 2027.
+  </div>
+
+  <div style="margin-top:2rem;">
+    <a href="/interview" class="guide-return">&larr; Back to your interview hub</a>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="/js/interview-dates.js?v=20260930"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Handed a green 221(g) sheet at US Embassy London? Tick the boxes on your sheet and see exactly what each one requires, how to submit it, and your one-year deadline.">
+  <title>Green sheet triage: what your 221(g) needs | American Visa Guide</title>
+  <link rel="canonical" href="https://www.americanvisaguide.com/221g-sheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/article.css?v=20260930">
+  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
+  <script src="/js/nav.js?v=20260930n" defer></script>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<main class="page-wrap" id="main">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span><a href="/221g">221(g)</a><span>/</span>Green sheet triage
+  </div>
+
+  <div data-live-notice="page"></div>
+
+  <p class="eyebrow">Tool &middot; 221(g) at London</p>
+  <h1>What does <span>my green sheet</span> need?</h1>
+  <p class="lead">Tick the boxes that are ticked on your sheet, and only those. The ticked boxes are the entire bar to clear: nothing more, nothing less. The list below builds your to-do list. For the photographs of a real sheet and the reasoning behind each box, see <a href="/221g#sheet">the green sheet, box by box</a>.</p>
+
+  <form class="tool" id="g-form" autocomplete="off">
+    <fieldset>
+      <legend>Page 1: which kind of 221(g)?</legend>
+      <label class="check"><input type="radio" name="gtype" value="evidence" checked> <span><strong>Submission of additional evidence</strong> (documents are ticked on page 2)</span></label>
+      <label class="check"><input type="radio" name="gtype" value="ap"> <span><strong>Additional administrative processing</strong> (no documents ticked, or a request for your history and CV)</span></label>
+      <label class="check"><input type="radio" name="gtype" value="both"> <span>Both</span></label>
+    </fieldset>
+    <fieldset>
+      <legend>Other boxes on page 1</legend>
+      <label class="check"><input type="checkbox" value="returned"> Petition returned to USCIS</label>
+      <label class="check"><input type="checkbox" value="212a"> Ineligible under INA 212(a)</label>
+    </fieldset>
+    <fieldset id="g-docs">
+      <legend>Page 2: documents ticked</legend>
+      <label class="check"><input type="checkbox" value="i864"> Affidavit of Support (I-864 / I-864EZ)</label>
+      <label class="check"><input type="checkbox" value="tax"> IRS transcript or tax return (1040)</label>
+      <label class="check"><input type="checkbox" value="assets"> Evidence of personal assets</label>
+      <label class="check"><input type="checkbox" value="joint"> Sponsor below the minimum income (213A): joint sponsor needed</label>
+      <label class="check"><input type="checkbox" value="domicile"> Proof of US domicile</label>
+      <label class="check"><input type="checkbox" value="job"> Recent employer job letter</label>
+      <label class="check"><input type="checkbox" value="k1"> Intent-to-marry letter (K-1)</label>
+      <label class="check"><input type="checkbox" value="school"> School leaving certificate</label>
+      <label class="check"><input type="checkbox" value="police"> Police certificate</label>
+      <label class="check"><input type="checkbox" value="birth"> Long-form birth certificate</label>
+      <label class="check"><input type="checkbox" value="marriage"> Original marriage / divorce certificate</label>
+      <label class="check"><input type="checkbox" value="medical"> Medical examination results</label>
+      <label class="check"><input type="checkbox" value="passport"> Passport validity</label>
+      <label class="check"><input type="checkbox" value="pc"> A public charge heading or list (used at some posts)</label>
+      <label class="check"><input type="checkbox" value="other"> Other (free text)</label>
+    </fieldset>
+    <div class="field-row">
+      <div class="field"><label for="g-date">Date on the sheet</label><input type="date" id="g-date"></div>
+    </div>
+  </form>
+
+  <h2 id="todo-title">Your to-do list</h2>
+  <ul class="results" id="g-results" aria-live="polite" aria-labelledby="todo-title"></ul>
+
+  <div class="btn-row no-print">
+    <button type="button" class="btn btn--ghost" onclick="window.print()">Print this list</button>
+    <a class="btn btn--ghost" href="/interview-templates#221g">Email template for your submission</a>
+  </div>
+
+  <div style="margin-top:2rem;">
+    <a href="/221g#resolve" class="guide-return">&larr; If you already have a 221(g): the full process</a>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script>
+(function () {
+  'use strict';
+  var BOXES = {
+    returned: ['Petition returned to USCIS', 'Your petition has been sent back to USCIS for review. Inquiries go to the USCIS office that adjudicated it, not the Embassy.'],
+    '212a': ['Ineligible under INA 212(a)', 'An inadmissibility ground was found. A waiver (Form I-212 or I-601) may be possible; USCIS, not the Embassy, decides it. Speak to an immigration attorney.'],
+    i864: ['Affidavit of Support (I-864 / I-864EZ)', 'A missing or deficient I-864 from the petitioner or sponsor. If a household member\'s income is used, add Form I-864A. Any new I-864 signed from 1 October 2026 must be on the 08/24/26 edition. <a href="/public-charge#i864">What the I-864 settles</a>.'],
+    tax: ['IRS transcript or tax return (1040)', 'An IRS-generated transcript, or a copy of the properly executed return, for the sponsor\'s most recent tax year; a signed statement if no return was filed. Send the transcript: it is the most common London financial 221(g). <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">Get a transcript</a>.'],
+    assets: ['Evidence of personal assets', 'Bank statements, real estate, stocks, bonds, insurance policies, investments, where income alone does not meet the requirement. London treats assets as a buffer, not a substitute for income.'],
+    joint: ['Joint sponsor', 'A joint sponsor providing: an I-864 (one per applicant), an IRS transcript or 1040 with the most recent W-2, proof of US citizenship or LPR status, and an I-864A if applicable. They must be 18+, a US citizen or LPR, and US-domiciled. Be ready to explain how they know the petitioner. <a href="/public-charge#i864">Joint sponsor questions</a>.'],
+    domicile: ['Proof of US domicile', 'Evidence that the sponsor lives in the US: US tax filing, a W-2 or US job offer with a start date, utility bills, a state ID. A lease alone is weak. A joint sponsor cannot fix the petitioner\'s domicile. <a href="/221g#domicile">The petitioner\'s domicile problem</a>.'],
+    job: ['Recent employer job letter', 'On letterhead, dated within 12 months, stating job title, salary and dates of employment. Job transfers and signed job offers are acceptable.'],
+    k1: ['Intent-to-marry letter (K-1)', 'A letter from the petitioner confirming their intention to marry you within 90 days of your arrival in the US.'],
+    school: ['School leaving certificate', 'From the school named on the sheet.'],
+    police: ['Police certificate', 'From the country or authority named. For the UK, an ACRO certificate.'],
+    birth: ['Long-form birth certificate', 'For the person named, with a certified translation if applicable.'],
+    marriage: ['Original marriage or divorce certificate', 'For the person named, with a certified translation if applicable.'],
+    medical: ['Medical examination results', 'Book with VisaMedicals (020 7486 7822); the clinic sends results to the Embassy. Results are valid for 6 months, and you must enter the US within those 6 months, so a new medical restarts that window.'],
+    passport: ['Passport validity', 'A passport valid for at least six months beyond your expected date of entry into the US.'],
+    pc: ['Public charge list', 'Work through each ticked item against the <a href="/221g#publiccharge">public charge checklist</a>, and send a five-factor statement with it if you have not already. <a href="/public-charge-statement">Statement builder</a>.'],
+    other: ['Other', 'Supply exactly what is written on the line. If it is unclear, ask the unit what specifically is needed and note the answer: officers are told to state the specific reason.']
+  };
+  var form = document.getElementById('g-form');
+  var out = document.getElementById('g-results');
+
+  function fmt(d) { return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }); }
+
+  function render() {
+    var type = form.querySelector('input[name="gtype"]:checked').value;
+    var picked = Array.prototype.slice.call(form.querySelectorAll('input[type="checkbox"]:checked')).map(function (c) { return c.value; });
+    var html = [];
+
+    if (type === 'ap' || type === 'both') {
+      html.push('<li class="warn"><b>Administrative processing</b>A mandatory review. It cannot be expedited or waived, has no set timeframe, and the Embassy contacts you when it is complete. Often there is nothing to submit. If you are asked for 15 years of history and a CV, answer every item, once. <a href="/history-worksheet">History worksheet</a> &middot; <a href="/221g#security">What it means</a>. The Department asks you to wait at least 180 days before enquiring.</li>');
+    }
+    picked.forEach(function (k) {
+      var b = BOXES[k];
+      if (b) html.push('<li class="info"><b>' + b[0] + '</b>' + b[1] + '</li>');
+    });
+    if ((type === 'evidence' || type === 'both') && picked.filter(function (k) { return k !== 'returned' && k !== '212a'; }).length) {
+      html.push('<li class="ok"><b>How to submit</b>Wait for the follow-up email (usually within 1 to 2 days). Then send everything together, not piecemeal: upload to CEAC first, then email LNDIVSubmissions@state.gov with your case number and full name in the subject line, and/or use the courier if told to. Send only what is ticked. <a href="/interview-templates#221g">Email template</a>.</li>');
+    }
+    var d = document.getElementById('g-date').value;
+    if (d) {
+      var p = d.split('-').map(Number);
+      var end = new Date(Date.UTC(p[0] + 1, p[1] - 1, p[2]));
+      html.push('<li class="warn"><b>Deadline: ' + fmt(end) + '</b>Under INA §203(g), the application is canceled if you do not act within one year of the date on the letter. There is no reason to wait.</li>');
+    }
+    if (!html.length) html.push('<li class="info"><b>Tick the boxes on your sheet</b>Your to-do list appears here.</li>');
+    out.innerHTML = html.join('');
+  }
+  form.addEventListener('change', render);
+  form.addEventListener('input', render);
+  render();
+})();
+</script>
+<script src="/js/live-notice.js?v=20260930"></script>
+</body>
+</html>
