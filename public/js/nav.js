@@ -159,6 +159,7 @@
     'tracker': 'data',
     'guide': 'guide',
     'delayed-i130-remedies': 'guide',
+    'mandamus-pro-se': 'guide',
     'interview': 'interview',
     'reinterview': 'interview',
     'public-charge': 'interview',
