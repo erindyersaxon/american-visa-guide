@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Build a public charge statement for a US Embassy London immigrant visa interview. Fill in a form and get the finished email, covering all five public charge factors, with the evidence list and work and education appendices.">
+  <title>Public charge statement builder | American Visa Guide</title>
+  <link rel="canonical" href="https://www.americanvisaguide.com/public-charge-statement">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/article.css?v=20260930">
+  <link rel="stylesheet" href="/css/nav.css?v=20260930">
+  <script src="/js/nav.js?v=20260930" defer></script>
+  <style>
+    .tool fieldset { border-top: 1px solid var(--line); padding-top: 1rem; }
+    .tool fieldset:first-of-type { border-top: none; padding-top: 0; }
+    .opt { display: none; }
+    .opt.is-on { display: block; }
+    .sticky-out { position: sticky; top: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<main class="page-wrap" id="main">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span><a href="/interview">Your interview</a><span>/</span><a href="/public-charge">Public charge</a><span>/</span>Statement builder
+  </div>
+
+  <p class="eyebrow">Tool &middot; Public charge</p>
+  <h1>Public charge <span>statement builder</span></h1>
+  <p class="lead">Fill in what applies. The statement below updates as you type, in the order the officer needs it: income answers each cost, and savings come last as a buffer. Leave a box empty and its sentence is left out. When it reads right, copy it or download it, upload it to CEAC, then email it.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-title">Before you start</span>
+    This produces the same statement as the <a href="/public-charge#template">template on the public charge page</a>, without the brackets. Read <a href="/public-charge#factors">what the officer weighs</a> first if you have not. Have the sponsor's actual figures to hand: the beneficiary is the one questioned, and answers must match what you send. Your answers stay in this browser only.
+  </div>
+
+  <form class="tool" id="pc-form" autocomplete="off">
+
+    <fieldset>
+      <legend>1. You and your case</legend>
+      <div class="field-row">
+        <div class="field"><label for="case">Case number</label><input type="text" id="case" placeholder="LND0123456789"></div>
+        <div class="field"><label for="name">Your full name</label><input type="text" id="name"></div>
+        <div class="field"><label for="email">Your email address</label><input type="text" id="email"></div>
+        <div class="field"><label for="idate">Interview date</label><input type="text" id="idate" placeholder="2 October 2026"></div>
+        <div class="field"><label for="age">Your age</label><input type="number" id="age" min="0" max="120"></div>
+        <div class="field"><label for="english">English</label>
+          <select id="english"><option value="first">English is my first language</option><option value="fluent">Fluent, not my first language</option></select></div>
+      </div>
+      <div class="field opt" data-show="english=fluent"><label for="englishbasis">Evidence of fluency</label><input type="text" id="englishbasis" placeholder="my degree and current employment"><span class="hint">Completes: "my ... has been conducted in English."</span></div>
+      <div class="field-row">
+        <div class="field"><label for="qual">Highest qualification</label><input type="text" id="qual" placeholder="BSc (Hons) Accounting"></div>
+        <div class="field"><label for="qualinst">Institution</label><input type="text" id="qualinst"></div>
+        <div class="field"><label for="qualyear">Year awarded</label><input type="text" id="qualyear"></div>
+      </div>
+      <div class="field"><label for="extraqual">Other licences, certifications or training <span class="hint">(optional)</span></label><input type="text" id="extraqual" placeholder="ACCA membership, and 8 years of on-the-job training in audit"></div>
+      <div class="field-row">
+        <div class="field"><label for="rel">Your relationship to the petitioner</label>
+          <select id="rel"><option value="spouse">Spouse</option><option value="other">Other</option></select></div>
+        <div class="field opt" data-show="rel=other"><label for="relother">Relationship</label><input type="text" id="relother" placeholder="parent"></div>
+      </div>
+      <div class="field"><label for="owndeps">Your dependents <span class="hint">(leave empty if none)</span></label><input type="text" id="owndeps" placeholder="Amelia (6), who is traveling with me"></div>
+      <div class="field"><label for="petdeps">The petitioner's dependents <span class="hint">(everyone they support financially, not only tax dependents; leave empty if none besides you)</span></label><input type="text" id="petdeps" placeholder="2 dependents: Tom (10), their son, and their mother, whom they support financially"></div>
+      <div class="field"><label for="depcare">Any dependent's health or care need, and who pays <span class="hint">(optional)</span></label><input type="text" id="depcare" placeholder="Tom has asthma, managed with an inhaler covered by the petitioner's employer plan"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. Health</legend>
+      <div class="field"><label for="condition">Ongoing condition <span class="hint">(leave empty if none)</span></label><input type="text" id="condition" placeholder="Type 1 diabetes"></div>
+      <div class="opt" data-show="condition">
+        <div class="field-row">
+          <div class="field"><label for="treatment">Managed with</label><input type="text" id="treatment" placeholder="insulin and a continuous glucose monitor"></div>
+          <div class="field"><label for="treatcost">US cost</label><input type="text" id="treatcost" placeholder="$120 per month at the expected co-pay"></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. Housing</legend>
+      <div class="field-row">
+        <div class="field"><label for="liveswith">You will live with</label><input type="text" id="liveswith" placeholder="my husband, James Smith"></div>
+        <div class="field"><label for="address">Full US address <span class="hint">(leave empty if not confirmed)</span></label><input type="text" id="address"></div>
+      </div>
+      <div class="field-row opt" data-show="!address">
+        <div class="field"><label for="area">City and state</label><input type="text" id="area" placeholder="Denver, Colorado"></div>
+        <div class="field"><label for="areatime">Expect to confirm within</label><input type="text" id="areatime" placeholder="four weeks of arrival"></div>
+      </div>
+      <div class="field"><label for="housingpaid">Housing costs met by</label><input type="text" id="housingpaid" value="my petitioner's income"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. Your work</legend>
+      <div class="field-row">
+        <div class="field"><label for="job">Your job title or profession</label><input type="text" id="job"></div>
+        <div class="field"><label for="years">Years of experience</label><input type="text" id="years" placeholder="10"></div>
+        <div class="field"><label for="sector">Sector</label><input type="text" id="sector" placeholder="financial services"></div>
+        <div class="field"><label for="since">Continuously employed in this field since</label><input type="text" id="since"></div>
+        <div class="field"><label for="employer">Current or most recent employer</label><input type="text" id="employer"></div>
+        <div class="field"><label for="employersince">With them since</label><input type="text" id="employersince"></div>
+      </div>
+      <div class="field"><label for="licence">If your profession is licensed in the US: status and timeline <span class="hint">(optional)</span></label><input type="text" id="licence" placeholder="begun credential evaluation with WES, and expect to complete the CPA exams by mid-2027"></div>
+      <div class="field"><label for="workplan">After the move</label>
+        <select id="workplan"><option value="keep">I will keep my current job, working from the US</option><option value="seek">I will look for work after arrival</option></select></div>
+      <div class="opt" data-show="workplan=keep">
+        <label class="check"><input type="checkbox" id="keepconfirmed"> My employer has confirmed in writing that I can work from the US</label>
+        <div class="field-row">
+          <div class="field"><label for="salary">Current salary (US dollars per year)</label><input type="text" id="salary" placeholder="$65,000"></div>
+          <div class="field"><label for="fallback">If that arrangement ended, I would</label><input type="text" id="fallback" placeholder="seek employment in financial services, where my 10 years of experience applies"></div>
+        </div>
+      </div>
+      <div class="opt" data-show="workplan=seek">
+        <div class="field-row">
+          <div class="field"><label for="seektime">Expect to find work within</label><input type="text" id="seektime" placeholder="three months"></div>
+          <div class="field"><label for="seeksalary">Expected salary (US dollars per year)</label><input type="text" id="seeksalary"></div>
+          <div class="field"><label for="seekarea">Where</label><input type="text" id="seekarea" placeholder="Denver, Colorado"></div>
+        </div>
+      </div>
+      <div class="callout callout-warn opt" data-show="workplan=keep&amp;!keepconfirmed">Without written confirmation from your employer, officers treat a remote job as uncertain. Either get the confirmation, or choose "I will look for work after arrival". <a href="/public-charge#risks">Why</a>.</div>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. The petitioner and sponsors</legend>
+      <div class="field-row">
+        <div class="field"><label for="pname">Petitioner's name</label><input type="text" id="pname"></div>
+        <div class="field"><label for="pjob">Petitioner's job title</label><input type="text" id="pjob"></div>
+        <div class="field"><label for="pemployer">Petitioner's employer</label><input type="text" id="pemployer"></div>
+        <div class="field"><label for="pgross">Annual income before tax</label><input type="text" id="pgross" placeholder="$72,000"></div>
+        <div class="field"><label for="pnet">Annual income after tax</label><input type="text" id="pnet" placeholder="$56,000"><span class="hint">Questionnaires ask for after-tax salary. Give both.</span></div>
+      </div>
+      <div class="field"><label for="otheradult">Another working adult in the household <span class="hint">(optional: name, job, employer, income)</span></label><input type="text" id="otheradult" placeholder="Mary Smith, who works as a nurse at Denver Health, earning approximately $60,000 per year"></div>
+      <div class="field-row">
+        <div class="field"><label for="jsname">Joint sponsor's name <span class="hint">(leave empty if none)</span></label><input type="text" id="jsname"></div>
+        <div class="field opt" data-show="jsname"><label for="jsjob">Joint sponsor's job title</label><input type="text" id="jsjob"></div>
+        <div class="field opt" data-show="jsname"><label for="jsemployer">Joint sponsor's employer</label><input type="text" id="jsemployer"></div>
+        <div class="field opt" data-show="jsname"><label for="jsincome">Joint sponsor's annual income</label><input type="text" id="jsincome"></div>
+      </div>
+      <div class="field opt" data-show="jsname"><label for="jswhy">Why you have a joint sponsor, in one true sentence</label><input type="text" id="jswhy" placeholder="the petitioner had only recently returned to US employment"><span class="hint">Not in the statement: this is for you to rehearse. <a href="/public-charge#i864">What they ask about joint sponsors</a>.</span></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>6. Health insurance</legend>
+      <div class="field"><label for="ins">Cover after arrival</label>
+        <select id="ins"><option value="employer">Added to the petitioner's (or a family member's) employer plan</option><option value="own">Buying my own plan</option></select></div>
+      <div class="field-row opt" data-show="ins=employer">
+        <div class="field"><label for="insemployer">Through employer</label><input type="text" id="insemployer"></div>
+        <div class="field"><label for="insprovider">Insurance provider</label><input type="text" id="insprovider"></div>
+        <div class="field"><label for="insfallback">If that job ended, we would keep cover through</label><input type="text" id="insfallback" value="COBRA or the ACA marketplace"></div>
+      </div>
+      <div class="field-row opt" data-show="ins=own">
+        <div class="field"><label for="insstate">State</label><input type="text" id="insstate"></div>
+        <div class="field"><label for="inspremium">Expected monthly premium</label><input type="text" id="inspremium" placeholder="$450"><span class="hint">A <a href="https://www.healthcare.gov/see-plans/" target="_blank" rel="noopener noreferrer">healthcare.gov quote</a> for your age and ZIP code.</span></div>
+      </div>
+      <div class="field"><label for="inspaid">Premiums paid for by</label><input type="text" id="inspaid" value="my petitioner's income"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>7. Savings, assets and debts</legend>
+      <div class="field-row">
+        <div class="field"><label for="savings">Total savings (US dollars)</label><input type="text" id="savings" placeholder="$30,000"></div>
+        <div class="field"><label for="saveswho">Held by</label>
+          <select id="saveswho"><option value="me">Me</option><option value="joint">My petitioner and me jointly</option></select></div>
+        <div class="field"><label for="savemonths">Would cover costs for about (months)</label><input type="text" id="savemonths" placeholder="6"></div>
+      </div>
+      <div class="field-row opt" data-show="saveswho=joint">
+        <div class="field"><label for="saveme">Of which in my name</label><input type="text" id="saveme"></div>
+        <div class="field"><label for="savepet">Of which in the petitioner's name</label><input type="text" id="savepet"></div>
+      </div>
+      <div class="field"><label for="property">Property or investments <span class="hint">(optional; only what you can prove at the window)</span></label><input type="text" id="property" placeholder="a flat in Leeds, owned outright; investments of approximately $12,000"></div>
+      <div class="field"><label for="otherincome">Other income <span class="hint">(optional)</span></label><input type="text" id="otherincome" placeholder="approximately $400 per month from freelance bookkeeping, paid by invoice"></div>
+      <div class="field"><label for="debts">Debts and liabilities, and how they are paid <span class="hint">(leave empty if none significant)</span></label><input type="text" id="debts" placeholder="a car loan of $8,000, serviced from my salary at $250 per month"></div>
+      <label class="check"><input type="checkbox" id="slc"> I have a UK student loan</label>
+      <div class="field-row opt" data-show="slc">
+        <div class="field"><label for="slcplan">Plan</label><select id="slcplan"><option>1</option><option selected>2</option><option>4</option><option>5</option><option>Postgraduate</option></select></div>
+        <div class="field"><label for="slcgbp">Balance (£)</label><input type="text" id="slcgbp"></div>
+        <div class="field"><label for="slcusd">Balance ($)</label><input type="text" id="slcusd"></div>
+        <div class="field"><label for="slcmonth">Expected monthly repayment ($)</label><input type="text" id="slcmonth"></div>
+        <div class="field"><label for="slcpaid">Paid from</label><input type="text" id="slcpaid" value="my salary"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>8. Public benefits and institutional care</legend>
+      <div class="field"><label for="benefits">Have you ever received means-tested benefits (for example Universal Credit, Housing Benefit, Council Tax Support), or used a food bank?</label>
+        <select id="benefits"><option value="no">No, never</option><option value="yes">Yes</option></select></div>
+      <div class="field opt" data-show="benefits=yes"><label for="benefitsdetail">What, when, why, and what changed</label><input type="text" id="benefitsdetail" placeholder="I received Universal Credit in the United Kingdom from March 2020 to October 2020, following redundancy. That period ended when I started my current job, and I have been employed since October 2020."></div>
+      <div class="field"><label for="petbenefits">The petitioner's history <span class="hint">(leave empty if never)</span></label><input type="text" id="petbenefits" placeholder="received SNAP from 2018 to 2019, following a job loss, which ended when they joined their current employer"></div>
+      <div class="field opt" data-show="jsname"><label for="jsbenefits">The joint sponsor's history <span class="hint">(leave empty if never)</span></label><input type="text" id="jsbenefits"></div>
+      <div class="field"><label for="institution">Long-term institutional care at government expense, for you or the petitioner <span class="hint">(leave empty if never; ordinary NHS care does not count)</span></label><input type="text" id="institution"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>9. Appendices: work and education history</legend>
+      <div class="field"><label for="workhist">Work history, one position per line, most recent first</label><textarea id="workhist" placeholder="Senior Auditor – Smith &amp; Co – 2019 to present&#10;Auditor – Jones LLP – 2015 to 2019"></textarea><span class="hint">Title – employer – years. Posts ask for this as a list.</span></div>
+      <div class="field"><label for="eduhist">Education and qualifications, one per line, most recent first</label><textarea id="eduhist" placeholder="ACCA Membership – ACCA – 2018&#10;BSc (Hons) Accounting – University of Leeds – 2014"></textarea></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>10. Evidence you are attaching</legend>
+      <label class="check"><input type="checkbox" id="ev-pettax" checked> Petitioner IRS tax returns or transcripts, last 3 years</label>
+      <label class="check"><input type="checkbox" id="ev-petpay" checked> Petitioner payslips, last 3 months</label>
+      <label class="check"><input type="checkbox" id="ev-petbank"> Petitioner bank statements, last 3 months</label>
+      <label class="check"><input type="checkbox" id="ev-jstax"> Joint sponsor IRS tax returns or transcripts, last 3 years</label>
+      <label class="check"><input type="checkbox" id="ev-slc"> My UK student loan statement</label>
+      <label class="check"><input type="checkbox" id="ev-employer"> My employer's letter confirming I can work from the US</label>
+    </fieldset>
+  </form>
+
+  <h2 id="output-title">Your statement</h2>
+  <p>Check every sentence is true and matches your documents. Then upload it to CEAC and email it to <strong>LNDIVSubmissions@state.gov</strong> at least five working days before the interview (<a href="/interview-dates">when is that?</a>).</p>
+  <pre class="output" id="pc-out" aria-live="polite"></pre>
+  <div class="btn-row">
+    <button type="button" class="btn" id="pc-copy">Copy</button>
+    <button type="button" class="btn btn--ghost" id="pc-download">Download .txt</button>
+    <button type="button" class="btn btn--ghost" id="pc-clear">Clear the form</button>
+  </div>
+
+  <div class="callout callout-warn" style="margin-top:1.5rem;">
+    <span class="callout-title">Then rehearse it</span>
+    The officer asks the beneficiary, not the sponsor, and the answers need to match this statement. <a href="/public-charge#questions">Answer these out loud</a>, or drill the <a href="/interview-questions?theme=publiccharge">public charge flashcards</a>.
+  </div>
+
+  <div style="margin-top:2rem;">
+    <a href="/public-charge" class="guide-return">&larr; Back to public charge</a>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="/js/statement-builder.js?v=20260930"></script>
+</body>
+</html>

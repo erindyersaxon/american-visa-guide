@@ -1,5 +1,7 @@
 # Interview navigation review
 
+> **Status, 30 September 2026: implemented.** See "Implementation" at the end for what shipped and what was left alone.
+
 Reviewed 30 September 2026. Scope: `/221g#reinterview`, `/public-charge`, `/guide/interview`, and the pages a person reaches from them (`/visa-pause`, `/september-2026-update`, `/checklist-interview`, `/interview-questions`, `/guide/after-interview`, the homepage, the guide hub and the shared nav in `js/nav.js`).
 
 Method: I walked the site as three applicants, starting from the homepage each time, and noted where each one got stuck, went the wrong way, or had to read more than 1,000 words to find the one instruction they needed. Findings are ranked by how much they cost a person the week before an interview.
@@ -123,7 +125,7 @@ Then say "interview cancellations", not "pause", for the third row everywhere.
 
 1. **Interview date checker.** Enter the interview date (and medical date, ACRO date, passport expiry, date of any 221(g) letter). It returns:
    - Public charge statement deadline (5 working days before; skip weekends and US/UK holidays)
-   - Medical still valid on the interview date? (The site currently never states the validity period; it needs to, with a travel.state.gov citation. I could not reach travel.state.gov from this environment to confirm the figure, so it isn't quoted here.)
+   - Medical still valid on the interview date, and the last day to enter the US. (Medical results are valid for 6 months, and entry on the visa must be within those same 6 months.)
    - ACRO within 12 months (site's own figure)
    - Passport valid 6 months beyond intended entry
    - Whether a new I-864 must be on the 08/24/26 edition (signed on or after 1 October 2026)
@@ -162,3 +164,30 @@ Then say "interview cancellations", not "pause", for the third row everywhere.
 | 7 | Question bank theme filter; statement builder; green-sheet triage; history worksheet; print one-pager | Medium each | A, C |
 
 Items 1–2 are content and config edits with no new pages; they could ship today, before the first rescheduled London interviews in early October.
+
+---
+
+## 5. Implementation (30 September 2026)
+
+Every recommendation above has been built. Summary by finding:
+
+| # | Finding | What changed |
+|---|---|---|
+| 1, 3 | No entry point by situation; homepage has no path | New hub `/interview` with five situations. Top nav item "221(g)" replaced by "Interview". Homepage hero has "Where are you in the process?" shortcuts. Guide sidebars and the guide hub link the hub. |
+| 2 | Re-interview content buried | New page `/reinterview` (which-221(g) chooser, what changed table, checklist, outcomes). `/221g#reinterview` keeps a short summary so old links still land. `/visa-pause` and `/september-2026-update` point to it. |
+| 4, 7 | Live notice only on guide pages; date-bound wording | New self-styled `data-live-notice="page"` variant on `/221g`, `/public-charge`, `/visa-pause`, `/september-2026-update`, `/checklist-interview`, `/interview-questions` and the new pages. Sitewide banner enabled on pages without a notice. "Through 30 September" wording replaced on 7 pages; notice dated 30 September. |
+| 5 | Stage 5 docs box omitted public charge | Box now lists the hub, public charge (and builder), date checker, checklist (and printable), question bank, 221(g), re-interview. |
+| 6, 15 | Checklist conflated 221(g) with AP; wrong tracker link | "If not approved" split into documents 221(g), administrative processing, re-interview, and both pauses; tracker link is `/data`. |
+| 8 | Old accounts first | Stage 5 leads with the post-worksheet account; the six older ones sit under "Before August 2026". |
+| 9 | `/public-charge` wayfinding | Breadcrumb and Stage 5 back-link, "Do these five things" first, changelog moved to a collapsed "What changed" at the foot. |
+| 10 | Long pages, no persistent contents | `js/page-contents.js`: floating "↑ Contents" button on `/221g`, `/public-charge`, `/visa-pause`, `/september-2026-update`. |
+| 11 | Overlapping pause pages | `/visa-pause` opens with a notice that it is the record of the 21 August ruling, pointing to the current page and to `/reinterview`. |
+| 12, 13 | Nav highlight and sitemap gaps | `ACTIVE_MAP` covers all interview pages (guide stage pages stay under Guide); sitemap adds 12 URLs. |
+| 14 | No topic filter | Question bank has a Topic filter and `?theme=` / `?cat=` deep links. |
+| 16 | "Re-interview" not findable | Heading and contents label now say "re-interview". |
+| 3.4 | "Pause" means four things | `js/pause-glossary.js`, a collapsible glossary shown on the hub, re-interview, 221(g), and both pause pages. |
+| 3.5 | Tools | `/interview-dates`, `/public-charge-statement`, `/221g-sheet`, `/history-worksheet`, `/interview-day-sheet`, `/interview-templates`, all listed on `/checklists`. |
+
+**Medical validity.** Medical results are valid for 6 months, and entry to the US must be within those same 6 months. This is now stated on Stage 4 (`#medical-validity`), the medical checklist, the live notice, Stage 5's checklist, the interview checklist, Stages 6 and 7, `/reinterview`, the 221(g) box table, and built into the date checker.
+
+**Not changed (already broken before this work):** `/checklist-medical`'s table scrolls sideways at phone width, and `/checklists` links to three anchors on `/delayed-i130-remedies` (`#whitehouse`, `#demand`, `#mandamus`) that do not exist. `/data` keeps its dated "Updated 30 August 2026" note; only its current London status line was updated.
