@@ -126,16 +126,16 @@
           <h2 class="ws-section-title">Part 3: Household Size</h2>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" checked disabled> You (the sponsor), always included</label></div>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" checked disabled> The sponsored immigrant, always included</label></div>
-          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="hasSpouse" onchange="updateHouseholdSize()"> Your spouse (if applicable)</label></div>
-          <div class="ws-field-group"><label class="ws-label">Number of dependent children</label><input type="number" class="ws-input" value="0" min="0" onchange="updateHouseholdSize()"></div>
-          <div class="ws-field-group"><label class="ws-label">Number of other dependents</label><input type="number" class="ws-input" value="0" min="0" onchange="updateHouseholdSize()"></div>
-          <div class="ws-field-group"><label class="ws-label">People previously sponsored on I-864 still obligated</label><input type="number" class="ws-input" value="0" min="0" onchange="updateHouseholdSize()"></div>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="hasSpouse" id="hhSpouse" onchange="updateHouseholdSize()"> Your spouse, if your spouse is not the person you are sponsoring</label></div>
+          <div class="ws-field-group"><label class="ws-label" for="hhChildren">Number of dependent children</label><input type="number" class="ws-input" id="hhChildren" value="0" min="0" oninput="updateHouseholdSize()"></div>
+          <div class="ws-field-group"><label class="ws-label" for="hhOther">Number of other dependents</label><input type="number" class="ws-input" id="hhOther" value="0" min="0" oninput="updateHouseholdSize()"></div>
+          <div class="ws-field-group"><label class="ws-label" for="hhPrior">People previously sponsored on I-864 still obligated</label><input type="number" class="ws-input" id="hhPrior" value="0" min="0" oninput="updateHouseholdSize()"></div>
           <div class="ws-field-group"><label class="ws-label"><strong>CALCULATED HOUSEHOLD SIZE:</strong> <span class="ws-inline-calc" id="householdSize">2</span></label></div>
         </section>
         <section class="ws-section">
           <h2 class="ws-section-title">Part 4: Annual Income</h2>
-          <div class="ws-field-group"><label class="ws-label">Current individual annual income *</label><input type="text" class="ws-input" placeholder="$" autocomplete="off" oninput="updateIncome()" required></div>
-          <div class="ws-field-group"><label class="ws-label">Household income (if using)</label><input type="text" class="ws-input" placeholder="$" autocomplete="off" oninput="updateIncome()"></div>
+          <div class="ws-field-group"><label class="ws-label" for="incSponsor">Current individual annual income *</label><input type="text" class="ws-input" id="incSponsor" placeholder="$" autocomplete="off" oninput="updateIncome()" required></div>
+          <div class="ws-field-group"><label class="ws-label" for="incHousehold">Household income (if using)</label><input type="text" class="ws-input" id="incHousehold" placeholder="$" autocomplete="off" oninput="updateIncome()"></div>
           <p class="ws-note">Must be at least 125% of Federal Poverty Guidelines. If uncertain or borderline, a joint sponsor is strongly recommended.</p>
           <div class="table-wrapper">
             <table class="poverty-table">
@@ -162,8 +162,8 @@
           <h2 class="ws-section-title">Part 5: Joint Sponsor (if required)</h2>
           <div class="ws-field-group"><label class="ws-label">Joint sponsor full legal name</label><input type="text" class="ws-input" autocomplete="off"></div>
           <div class="ws-field-group"><label class="ws-label">Joint sponsor SSN</label><input type="text" class="ws-input" autocomplete="new-password"></div>
-          <div class="ws-field-group"><label class="ws-label">Joint sponsor's household size</label><input type="number" class="ws-input" value="0" min="0" oninput="updateJointSponsor()"></div>
-          <div class="ws-field-group"><label class="ws-label">Joint sponsor's annual income</label><input type="text" class="ws-input" placeholder="$" autocomplete="off" oninput="updateJointSponsor()"></div>
+          <div class="ws-field-group"><label class="ws-label" for="jsSize">Joint sponsor's household size</label><input type="number" class="ws-input" id="jsSize" value="0" min="0" oninput="updateJointSponsor()"></div>
+          <div class="ws-field-group"><label class="ws-label" for="jsIncome">Joint sponsor's annual income</label><input type="text" class="ws-input" id="jsIncome" placeholder="$" autocomplete="off" oninput="updateJointSponsor()"></div>
           <div class="ws-field-group"><label class="ws-label"><strong>Joint sponsor's 125% threshold:</strong> <span class="ws-inline-calc" id="jsThreshold">n/a</span></label></div>
           <div class="ws-field-group"><label class="ws-label"><strong>Does joint sponsor meet requirement?</strong> <span class="ws-inline-calc" id="jsMeetsReq">n/a</span></label></div>
           <p class="ws-note"><strong>Meeting the threshold is the starting point, not the finish.</strong> Consular officers look behind the income figure at the sponsor's financial stability and history, their own use of public benefits, the genuineness of the sponsor-applicant relationship, and whether they are realistically likely to make that money available. Joint sponsors face heightened review: employment, assets and domicile may all be verified. And NVC's document review does not bind the consular officer: clearing NVC means the paperwork was complete, not that the finances were accepted.</p>
@@ -173,10 +173,10 @@
         <section class="ws-section">
           <h2 class="ws-section-title">Part 6: Assets (if income alone insufficient)</h2>
           <p class="ws-note">Assets can be used to supplement income. Asset value required is <strong>3×</strong> the difference between your income and the 125% threshold where the intending immigrant is the spouse, or a child aged 18 or over, of a US citizen (the usual position on an IR-1/CR-1 case), and <strong>5×</strong> in most other cases. Liquid assets most useful; property equity harder to document. See the <a href="i864-household-decision-tree.html">household decision tree</a> for the full rules, and note London’s reluctance to accept assets in place of income.</p>
-          <div class="ws-field-group"><label class="ws-label">Cash and bank accounts</label><input type="text" class="ws-input" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
-          <div class="ws-field-group"><label class="ws-label">Stocks and bonds</label><input type="text" class="ws-input" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
-          <div class="ws-field-group"><label class="ws-label">Property equity</label><input type="text" class="ws-input" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
-          <div class="ws-field-group"><label class="ws-label">Other assets</label><input type="text" class="ws-input" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
+          <div class="ws-field-group"><label class="ws-label" for="assetCash">Cash and bank accounts</label><input type="text" class="ws-input asset-input" id="assetCash" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
+          <div class="ws-field-group"><label class="ws-label" for="assetStocks">Stocks and bonds</label><input type="text" class="ws-input asset-input" id="assetStocks" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
+          <div class="ws-field-group"><label class="ws-label" for="assetProperty">Property equity</label><input type="text" class="ws-input asset-input" id="assetProperty" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
+          <div class="ws-field-group"><label class="ws-label" for="assetOther">Other assets</label><input type="text" class="ws-input asset-input" id="assetOther" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
           <div class="ws-field-group"><label class="ws-label"><strong>Total assets:</strong> <span class="ws-inline-calc" id="totalAssets">$0</span></label></div>
         </section>
         <section class="ws-section">
@@ -220,19 +220,20 @@
     const povertyGuidelines = { 1: 15960, 2: 21640, 3: 27320, 4: 33000, 5: 38680, 6: 44360, 7: 50040, 8: 55720 };
     function parseAmount(str) { return parseInt(str.replace(/\D/g, '')) || 0; }
     function formatAmount(n) { return '$' + n.toLocaleString(); }
+    function count(id) { return Math.max(0, parseInt(document.getElementById(id).value, 10) || 0); }
     function getThreshold(size) { if (size <= 8) return povertyGuidelines[size] * 1.25; else return (55720 + (size - 8) * 5680) * 1.25; }
     function updateHouseholdSize() {
+      // Sponsor + sponsored immigrant, then everyone else Form I-864 Part 5 counts
       let size = 2;
-      if (document.querySelector('input[name="hasSpouse"]').checked) size++;
-      size += parseInt(document.querySelector('input[placeholder="Number of dependent children"]').value || 0);
-      size += parseInt(document.querySelector('input[placeholder="Number of other dependents"]').value || 0);
+      if (document.getElementById('hhSpouse').checked) size++;
+      size += count('hhChildren') + count('hhOther') + count('hhPrior');
       document.getElementById('householdSize').textContent = size;
       const threshold = getThreshold(size);
       document.getElementById('threshold').textContent = formatAmount(Math.round(threshold));
       updateIncome();
     }
     function updateIncome() {
-      const income = parseAmount(document.querySelector('input[placeholder="$"][autocomplete="off"]:first-of-type').value);
+      const income = parseAmount(document.getElementById('incSponsor').value) + parseAmount(document.getElementById('incHousehold').value);
       const householdSize = parseInt(document.getElementById('householdSize').textContent);
       const threshold = getThreshold(householdSize);
       const meets = income >= threshold;
@@ -240,8 +241,8 @@
       document.getElementById('meetsReq').className = 'ws-inline-calc ' + (meets ? 'ws-calc-yes' : 'ws-calc-no');
     }
     function updateJointSponsor() {
-      const income = parseAmount(document.querySelectorAll('input[placeholder="$"][autocomplete="off"]')[1].value);
-      const size = parseInt(document.querySelectorAll('input[type="number"]')[2].value || 0) || 1;
+      const income = parseAmount(document.getElementById('jsIncome').value);
+      const size = count('jsSize') || 1;
       const threshold = getThreshold(size);
       document.getElementById('jsThreshold').textContent = formatAmount(Math.round(threshold));
       const meets = income >= threshold;
@@ -249,9 +250,8 @@
       document.getElementById('jsMeetsReq').className = 'ws-inline-calc ' + (meets ? 'ws-calc-yes' : 'ws-calc-no');
     }
     function updateAssets() {
-      const inputs = Array.from(document.querySelectorAll('input[placeholder="$"]'));
       let total = 0;
-      inputs.slice(2, 6).forEach(inp => { total += parseAmount(inp.value); });
+      document.querySelectorAll('.asset-input').forEach(inp => { total += parseAmount(inp.value); });
       document.getElementById('totalAssets').textContent = formatAmount(total);
     }
     function copyToClipboard() {
