@@ -1,10 +1,10 @@
-/* ─────────────────────────────────────────────────────────────
-   American Visa Guide — main.js
+/*
+   American Visa Guide, main.js
    Handles: nav/footer partial loading, hamburger toggle,
             active-page detection, dark-mode toggle
-   ───────────────────────────────────────────────────────────── */
+ */
 
-/* ─── HTML Partials ───────────────────────────────────────── */
+/* HTML Partials */
 async function loadPartial(selector, url) {
   const el = document.querySelector(selector);
   if (!el) return;
@@ -17,7 +17,7 @@ async function loadPartial(selector, url) {
   }
 }
 
-/* ─── Nav: hamburger + active page ───────────────────────── */
+/* Nav: hamburger + active page */
 function initNav() {
   // Active page
   const path = window.location.pathname.replace(/\/$/, '') || '/';
@@ -29,7 +29,7 @@ function initNav() {
         link.classList.add('nav-link--active');
       }
     } catch {
-      // external links — skip
+      // external links. Skip
     }
   });
 
@@ -62,8 +62,8 @@ function initNav() {
   });
 }
 
-/* ─── Dark mode toggle (optional, wires up a button with
-       data-theme-toggle if one exists on the page) ───────── */
+/* Dark mode toggle (optional, wires up a button with
+       data-theme-toggle if one exists on the page) */
 function initThemeToggle() {
   const btn = document.querySelector('[data-theme-toggle]');
   if (!btn) return;
@@ -83,7 +83,7 @@ function initThemeToggle() {
   });
 }
 
-/* ─── Accordion ───────────────────────────────────────────── */
+/* Accordion */
 function initAccordions() {
   document.querySelectorAll('.accordion-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
@@ -97,7 +97,7 @@ function initAccordions() {
   });
 }
 
-/* ─── Checklist persistence (localStorage) ───────────────── */
+/* Checklist persistence (localStorage) */
 function initChecklists() {
   const page = window.location.pathname;
 
@@ -118,7 +118,7 @@ function initChecklists() {
   });
 }
 
-/* ─── GDPR: Worksheet data isolation verification ───────── */
+/* GDPR: Worksheet data isolation verification */
 function verifyWorksheetDataIsolation() {
   // Worksheets must store data in form field values only, not localStorage/sessionStorage
   const isWorksheet = /worksheet|public-charge/.test(window.location.pathname);
@@ -126,12 +126,12 @@ function verifyWorksheetDataIsolation() {
     const worksheetStorageUsed = Object.keys(sessionStorage)
       .filter(k => k.startsWith('worksheet') || k.startsWith('public-charge')).length;
     if (worksheetStorageUsed > 0) {
-      console.warn('⚠️ Worksheet detected using sessionStorage — data must be stored in form fields only');
+      console.warn('Worksheet detected using sessionStorage: data must be stored in form fields only');
     }
   }
 }
 
-/* ─── Boot ────────────────────────────────────────────────── */
+/* Boot */
 async function boot() {
   // Nav and footer are injected by /js/nav.js
 

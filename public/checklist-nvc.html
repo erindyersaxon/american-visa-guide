@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<!-- Cookiebot consent manager: must be the first script so auto-blocking works -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Microsoft Clarity — runs only after statistics consent -->
+<!-- Microsoft Clarity: runs only after statistics consent -->
 <script type="text/plain" data-cookieconsent="statistics">
 (function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -13,13 +13,13 @@
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window,document,"clarity","script","wlfs757o2n");
 </script>
-    <title>NVC Document Checklist — American Visa Guide</title>
+    <title>NVC Document Checklist | American Visa Guide</title>
     <meta name="description" content="NVC CEAC document checklist for US Embassy London." />
     <link rel="canonical" href="https://www.americanvisaguide.com/checklist-nvc" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/design-system.css?v=20260612" />
     <link rel="stylesheet" href="/css/print.css?v=20260612" media="print" />
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
@@ -50,8 +50,8 @@
       .reference-box a { color: var(--color-gold); font-weight: var(--weight-medium); text-decoration: none; }
       .reference-box a:hover { text-decoration: underline; }
     </style>
-    <link rel="stylesheet" href="/css/nav.css?v=20260722">
-  <script src="/js/nav.js?v=20260722" defer></script>
+    <link rel="stylesheet" href="/css/nav.css?v=20260928">
+  <script src="/js/nav.js?v=20260930" defer></script>
 </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -60,17 +60,18 @@
     <main id="main">
       <div class="container">
         <div class="checklist-container">
+          <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;">← Part of <a href="/guide/nvc" style="color:#3e7188;text-decoration:none;">Stage 2: NVC</a></p>
           <h1>NVC Document Checklist</h1>
           <p class="subtitle">You cannot upload documents until both fees show PAID.</p>
 
           <div class="warning-box">
-            <p><strong>⚠️ Critical:</strong> If you use a police certificate placeholder at NVC, you MUST upload the real certificate before your interview or you risk administrative processing after interview.</p>
+            <p><strong>Critical:</strong> If you use a police certificate placeholder at NVC, you must upload the real certificate before your interview or you risk administrative processing after interview.</p>
           </div>
 
           <div class="progress-bar">
             <span class="progress-text" id="progress-nvc">0 of 23 items checked</span>
-            <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">🖨 Print / save as PDF</button>
-            <button type="button" class="btn btn-secondary btn-sm" onclick="copyChecklistForDocs(this)">📋 Copy for Google Docs</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">Print / save as PDF</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="copyChecklistForDocs(this)">Copy for Google Docs</button>
             <button class="btn btn-secondary btn-sm" id="reset-nvc">Reset checklist</button>
           </div>
 
@@ -114,7 +115,7 @@
             <section class="checklist-section">
               <h3>3. Financial documents (I-864)</h3>
               <div class="warning-box">
-                <p><strong>⚠️ IRS Tax Transcript — treat as required for London:</strong> NVC accepts a transcript OR a complete return copy, but London has issued 221(g) after interview for a missing transcript even where DQ was already granted. Obtain the transcript from <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/individuals/get-transcript</a> for every sponsor and joint sponsor and upload it before the interview date. See the <a href="/guide.html#nvc">NVC guide</a> for what to submit if the transcript is not yet available.</p>
+                <p><strong>IRS Tax Transcript. Treat as required for London:</strong> NVC accepts a transcript OR a complete return copy, but London has issued 221(g) after interview for a missing transcript even where DQ was already granted. Obtain the transcript from <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/individuals/get-transcript</a> for every sponsor and joint sponsor and upload it before the interview date. See the <a href="/guide/nvc">NVC guide</a> for what to submit if the transcript is not yet available.</p>
               </div>
               <div class="checklist-item" data-item-id="nvc-8">
                 <input type="checkbox" id="nvc-8" />
@@ -122,7 +123,7 @@
               </div>
               <div class="checklist-item" data-item-id="nvc-9">
                 <input type="checkbox" id="nvc-9" />
-                <label for="nvc-9">Tax return: IRS transcript via IRS.gov/ID.me for every sponsor (a 1040 with W-2s meets NVC's minimum only — see warning above)</label>
+                <label for="nvc-9">Tax return: IRS transcript via IRS.gov/ID.me for every sponsor (a 1040 with W-2s meets NVC's minimum only, see warning above)</label>
               </div>
               <div class="checklist-item" data-item-id="nvc-10">
                 <input type="checkbox" id="nvc-10" />
@@ -134,11 +135,29 @@
               </div>
               <div class="checklist-item" data-item-id="nvc-12">
                 <input type="checkbox" id="nvc-12" />
-                <label for="nvc-12">Joint sponsor and I-864A (if applicable) — with scenario-specific income evidence (see guide: joint sponsor documentation by scenario)</label>
+                <label for="nvc-12">Joint sponsor and I-864A (if applicable), with scenario-specific income evidence (see guide: joint sponsor documentation by scenario)</label>
               </div>
               <div class="checklist-item" data-item-id="nvc-13">
                 <input type="checkbox" id="nvc-13" />
                 <label for="nvc-13">Income is 125% of federal poverty line</label>
+              </div>
+              <div class="warning-box">
+                <p><strong>Petitioner's US domicile: a joint sponsor cannot fix this.</strong> A joint sponsor cures insufficient <em>income</em>. It cannot cure the petitioner's domicile. If the petitioner is not domiciled in the US they do not qualify as a sponsor at all, and State Department guidance to consular officers is explicit: &ldquo;A joint sponsor cannot be accepted and the applicant must be refused pursuant to INA 212(a)(4)&rdquo; (<a href="https://fam.state.gov/fam/09FAM/09FAM060114.html" target="_blank" rel="noopener noreferrer">9 FAM 601.14-7(a)(3)(c)</a>). A petitioner keeping their principal residence outside the US &ldquo;could not normally claim a U.S. domicile and would be ineligible to submit Form I-864&rdquo;. NVC does not always ask for domicile evidence. Upload it anyway. See <a href="/221g.html#domicile">the petitioner's domicile problem</a>.</p>
+              </div>
+              <div class="checklist-item" data-item-id="nvc-29">
+                <input type="checkbox" id="nvc-29" />
+                <label for="nvc-29"><strong>Petitioner's proof of US domicile</strong>, uploaded under &ldquo;Other&rdquo; if there is no dedicated slot. Strongest first: US tax filing showing <strong>domestic earned income</strong>, W-2, current US job contract or signed offer with a start date, utility bills in the petitioner's name at a US address across several months, US school or university enrollment. A lease, mortgage or deed evidences an <em>address</em>, not a residence: include it, but never as your only domicile evidence.</label>
+              </div>
+              <div class="checklist-item" data-item-id="nvc-30">
+                <input type="checkbox" id="nvc-30" />
+                <label for="nvc-30"><strong>If the petitioner lives abroad:</strong> evidence they are re-establishing US domicile. State Department guidance names opening a US bank account, transferring funds, US investments, <strong>seeking US employment</strong>, registering children in US schools, applying for a Social Security number, and voting. Add a dated written statement of intent, a moving or shipping quotation, and the US address arranged (a lease, or an arrangement to stay with family or friends, which the guidance accepts).</label>
+              </div>
+              <div class="checklist-item" data-item-id="nvc-31">
+                <input type="checkbox" id="nvc-31" />
+                <label for="nvc-31"><strong>Joint sponsor's proof of US domicile</strong> (if a joint sponsor is filing). The joint sponsor must meet the same citizenship, age and domicile requirements as the petitioner.</label>
+              </div>
+              <div class="info-box">
+                <p><strong>Petitioner abroad on qualifying US employment? You may already be US-domiciled.</strong> A US citizen living abroad temporarily is treated as domiciled in the US if employed by: the US government; a recognised US research institution; <strong>a US firm or corporation engaged in whole or in part in developing US foreign trade or commerce, or a subsidiary of one</strong>; a public international organisation the US belongs to by treaty or statute; or a US religious denomination as clergy or a missionary (<a href="https://fam.state.gov/fam/09FAM/09FAM060114.html" target="_blank" rel="noopener noreferrer">9 FAM 601.14-7(b)</a>, INA 319(b)(1)). Check this before assuming you have a problem. An LPR sponsor abroad is similarly domiciled in the US if they obtained the preservation of residence benefit under INA 316(b) or 317.</p>
               </div>
             </section>
 
@@ -161,22 +180,22 @@
                   <tr>
                     <td>Translation</td>
                     <td class="doc-required">✓</td>
-                    <td>All non-English documents must be translated. Certified translation required if USCIS deems it necessary.</td>
+                    <td>Every document not in English, or not in the official language of the country where you apply, must come with a certified English translation, stating the translator is competent and the translation accurate.</td>
                   </tr>
                   <tr>
                     <td>Financial</td>
                     <td class="doc-required">✓</td>
-                    <td>Sponsor: IRS tax transcript, employment letter, financial evidence. Joint sponsor: Same requirements plus I-864A. See Section 3 for detailed list.</td>
+                    <td>Sponsor: IRS tax transcript, employment letter, financial evidence. Joint sponsor: the same requirements, on their own separate I-864. Form I-864A is only for a household member whose income a sponsor is counting. See Section 3 for detailed list.</td>
                   </tr>
                   <tr>
                     <td>Forms</td>
                     <td class="doc-required">✓</td>
-                    <td>DS-260 (one per applicant, submitted in CEAC). I-864 (wet-signed by sponsor, required for all). I-864A if joint sponsor.</td>
+                    <td>DS-260 (one per applicant, submitted in CEAC). I-864 (wet-signed by sponsor, required for all). I-864A only for a household member whose income is being counted (not for a joint sponsor).</td>
                   </tr>
                   <tr>
                     <td>Police</td>
                     <td class="doc-required">✓</td>
-                    <td>ACRO certificate (UK) for each applicant 16+ or who lived abroad 6+ months. See Section 5 for details.</td>
+                    <td>Every applicant aged 16 or over needs certificates from: their current country of residence (for the UK, ACRO) if they have lived there more than 6 months; their country of nationality if they lived there more than 6 months; any other country where they lived more than 12 months; and any country where they were arrested. See Section 5.</td>
                   </tr>
                   <tr>
                     <td>Supporting</td>
@@ -185,13 +204,13 @@
                   </tr>
                   <tr>
                     <td>Medical</td>
-                    <td class="doc-not-needed">—</td>
+                    <td class="doc-not-needed">n/a</td>
                     <td>Medical exam not required at NVC stage. Scheduled for Medical Day closer to interview date.</td>
                   </tr>
                 </tbody>
               </table>
               <div class="reference-box">
-                <p>For a complete breakdown of all document requirements at each stage (I-130, NVC, Medical, Interview) with detailed notes on formats and translations, see <a href="#master-checklist">Master Document Checklist</a>.</p>
+                <p>For a complete breakdown of all document requirements at each stage (I-130, NVC, Medical, Interview) with detailed notes on formats and translations, see <a href="/master-checklist">Master Document Checklist</a>.</p>
               </div>
             </section>
 
@@ -208,19 +227,19 @@
               </div>
               <div class="checklist-item" data-item-id="nvc-18">
                 <input type="checkbox" id="nvc-18" />
-                <label for="nvc-18">Police cert for each applicant 16+ who held other citizenship</label>
+                <label for="nvc-18">ACRO (UK) certificate for each applicant aged 16+ who has lived in the UK more than 6 months</label>
               </div>
               <div class="checklist-item" data-item-id="nvc-19">
                 <input type="checkbox" id="nvc-19" />
-                <label for="nvc-19">Police cert for each applicant who lived abroad 6+ months</label>
+                <label for="nvc-19">Country of nationality: certificate if the applicant lived there more than 6 months (citizenship alone, without residence, does not trigger it)</label>
               </div>
               <div class="checklist-item" data-item-id="nvc-20">
                 <input type="checkbox" id="nvc-20" />
-                <label for="nvc-20">Police cert for each country lived 12+ months after age 16</label>
+                <label for="nvc-20">Any other country where the applicant lived more than 12 months after age 16</label>
               </div>
               <div class="checklist-item" data-item-id="nvc-21">
                 <input type="checkbox" id="nvc-21" />
-                <label for="nvc-21">If applicable: foreign police certs from countries of citizenship</label>
+                <label for="nvc-21">Any country where the applicant was ever arrested, however short the stay</label>
               </div>
               <div class="checklist-item" data-item-id="nvc-22">
                 <input type="checkbox" id="nvc-22" />
@@ -261,15 +280,15 @@
             </section>
 
             <div class="info-box">
-              <p><strong>Document Finder:</strong> <a href="https://travel.state.gov/content/travel/en/us-visas/Visa-Reciprocity-and-Civil-Documents-by-Country.html" target="_blank" rel="noopener noreferrer">travel.state.gov — Civil Documents by Country</a></p>
+              <p><strong>Document Finder:</strong> <a href="https://travel.state.gov/content/travel/en/us-visas/Visa-Reciprocity-and-Civil-Documents-by-Country.html" target="_blank" rel="noopener noreferrer">travel.state.gov: Civil Documents by Country</a></p>
             </div>
           </div>
 
           <div class="disclaimer">
-            <p><strong>Disclaimer:</strong> This is not legal advice. Verify all requirements against official sources before your appointment. If your case is complex, consult an immigration attorney.</p>
+            <p><strong>Check:</strong> Verify all requirements against official sources before your appointment.</p>
           </div>
 
-          <a href="/guide.html#nvc" class="back-link">← Back to NVC guide</a>
+          <a href="/guide/nvc" class="back-link">← Back to NVC guide</a>
         </div>
       </div>
     </main>
@@ -280,7 +299,7 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         renderPage({
-          title: 'NVC Document Checklist — American Visa Guide',
+          title: 'NVC Document Checklist | American Visa Guide',
           description: 'NVC CEAC document checklist for US Embassy London.',
           activePage: 'checklists'
         });

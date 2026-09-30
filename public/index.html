@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Cookiebot consent manager — must be the first script so auto-blocking works -->
+<!-- Cookiebot consent manager: must be the first script so auto-blocking works -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Microsoft Clarity — runs only after statistics consent -->
+<!-- Microsoft Clarity: runs only after statistics consent -->
 <script type="text/plain" data-cookieconsent="statistics">
 (function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -13,10 +13,10 @@
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window,document,"clarity","script","wlfs757o2n");
 </script>
-  <title>American Visa Guide — UK to US Family Visa</title>
+  <title>American Visa Guide | UK to US Family Visa</title>
   <meta name="description" content="A plain-language guide and community data tracker for people going through the US family immigrant visa process via the US Embassy London. Real wait times, step-by-step guidance, checklists, and more.">
   <link rel="canonical" href="https://www.americanvisaguide.com/">
-  <meta property="og:title" content="American Visa Guide — UK to US Family Visa">
+  <meta property="og:title" content="American Visa Guide | UK to US Family Visa">
   <meta property="og:description" content="A plain-language guide and community data tracker for people going through the US family immigrant visa process via the US Embassy London.">
   <meta property="og:image" content="https://www.americanvisaguide.com/images/og-home.png">
   <meta property="og:url" content="https://www.americanvisaguide.com/">
@@ -27,8 +27,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/css/main.css?v=20260626">
   <link rel="stylesheet" href="/css/components.css?v=20260626">
-  <link rel="stylesheet" href="/css/nav.css?v=20260722">
-  <script src="/js/nav.js?v=20260722" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20260928">
+  <script src="/js/nav.js?v=20260930" defer></script>
 
   <!-- Prefetch community data early so the "This Week in the Community" section can render -->
   <script>
@@ -39,7 +39,7 @@
   </script>
 
   <style>
-    /* ── Skip link ── */
+    /* Skip link */
     .skip-to-main:focus {
       top: 0;
       outline: 2px solid var(--color-primary);
@@ -53,7 +53,7 @@
       * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
 
-    /* ── Hero ── */
+    /* Hero */
     .home-hero {
       padding-block: var(--space-12) var(--space-10);
       background: var(--color-bg);
@@ -63,10 +63,8 @@
       display: inline-flex;
       align-items: center;
       gap: var(--space-2);
-      font-size: var(--text-xs);
+      font-size: var(--text-sm);
       font-weight: var(--font-semibold);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wider);
       color: var(--color-accent);
       margin-bottom: var(--space-4);
     }
@@ -112,15 +110,13 @@
       font-weight: var(--font-semibold);
     }
 
-    /* ── Nav cards grid ── */
+    /* Nav cards grid */
     .home-nav {
       padding-block: var(--space-10);
     }
     .home-nav__label {
-      font-size: var(--text-xs);
+      font-size: var(--text-sm);
       font-weight: var(--font-semibold);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wider);
       color: var(--color-text-muted);
       margin-bottom: var(--space-5);
     }
@@ -198,7 +194,7 @@
     .nav-card--data .nav-card__link  { color: var(--color-accent); }
     .nav-card--life .nav-card__link  { color: var(--color-success); }
 
-    /* ── Intro strip ── */
+    /* Intro strip */
     .home-intro {
       padding-block: var(--space-8);
       border-top: 1px solid var(--color-border);
@@ -229,7 +225,7 @@
       gap: var(--space-3);
     }
 
-    /* ── Skeleton loaders ── */
+    /* Skeleton loaders */
     @keyframes shimmer {
       0%   { background-position: -400px 0; }
       100% { background-position:  400px 0; }
@@ -246,7 +242,7 @@
     }
     .skel--val { height: 2.25rem; width: 5.5rem; }
 
-    /* ── This Week in the Community ── */
+    /* This Week in the Community */
     .content-section {
       padding-block: var(--space-8);
     }
@@ -264,13 +260,44 @@
       max-width: none;
     }
 
-    /* ── Week cards ── */
+    /* Section header that carries a notice alongside the title */
+    .section-hd--split {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .section-hd--split > div { flex: 1 1 18rem; min-width: 0; }
+    .week-notice {
+      flex: 1 1 20rem;
+      max-width: 30rem;
+      background: var(--color-warning-subtle);
+      border: 1px solid var(--color-warning-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-4);
+    }
+    .week-notice p.week-notice__head {
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-warning);
+      margin: 0 0 var(--space-1) 0;
+    }
+    .week-notice p {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      margin: 0;
+      line-height: var(--leading-normal);
+    }
+    .week-notice p a { color: var(--color-warning); font-weight: var(--font-semibold); text-decoration: underline; }
+
+    /* Week cards */
     .week-group { margin-top: var(--space-6); }
     .week-group:first-of-type { margin-top: 0; }
     .week-group__label {
-      font-size: var(--text-xs);
+      font-size: var(--text-sm);
       font-weight: var(--font-semibold);
-      text-transform: uppercase;
       letter-spacing: var(--tracking-wide);
       color: var(--color-text-muted);
       margin: 0 0 var(--space-3) 0;
@@ -293,16 +320,17 @@
       box-shadow: var(--shadow-sm);
     }
     .week-card__value {
-      font-family: var(--font-display);
+      font-family: var(--font-body);
+      font-variant-numeric: tabular-nums;
+      font-weight: var(--weight-semibold);
       font-size: var(--text-3xl);
       color: var(--color-primary);
       line-height: 1;
       min-height: 2.25rem;
     }
     .week-card__label {
-      font-size: var(--text-xs);
+      font-size: var(--text-sm);
       font-weight: var(--font-semibold);
-      text-transform: uppercase;
       letter-spacing: var(--tracking-wide);
       color: var(--color-text-muted);
       margin-top: var(--space-2);
@@ -324,11 +352,30 @@
     }
     .week-card__list .wm-name { color: var(--color-text); }
     .week-card__list .wm-date { color: var(--color-text-muted); white-space: nowrap; flex-shrink: 0; }
+    .week-card__list .wm-note { display: block; font-size: var(--text-xs); color: var(--color-text-muted); }
+    .week-card__sublabel {
+      margin: var(--space-3) 0 0;
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
     .week-card__list .wm-empty {
       justify-content: center;
       color: var(--color-text-muted);
       font-style: italic;
     }
+    /* Situation shortcuts under the hero */
+    .home-routes { margin: 1.5rem 0 1.75rem; }
+    .home-routes__label { font-weight: 700; font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .home-routes ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .home-routes a {
+      display: inline-block; padding: 0.55rem 0.9rem; border-radius: 999px;
+      background: #fdfaf3; border: 1px solid #ddd6cb; color: #2f5a6e;
+      font-weight: 600; font-size: 0.88rem; text-decoration: none;
+    }
+    .home-routes a:hover, .home-routes a:focus-visible { background: #2f5a6e; border-color: #2f5a6e; color: #fff; }
   </style>
 </head>
 <body>
@@ -338,19 +385,25 @@
 
   <main id="main-content">
 
-    <!-- ═══ HERO ═══ -->
+    <!-- HERO -->
     <section class="home-hero" aria-labelledby="home-title">
       <div class="container">
-        <div class="home-hero__eyebrow">
-          <span class="home-hero__eyebrow-dot" aria-hidden="true"></span>
-          UK → US Family Visa · London Consular Process
-        </div>
         <h1 id="home-title" class="home-hero__title">
           Your guide to the United States family immigrant visa process via the U.S. Embassy, <em>London</em>
         </h1>
         <p class="home-hero__sub">
-          American Visa Guide is a community-powered resource for UK residents going through the US family immigrant visa process. Real wait times, plain-language guidance, and practical tools — all specific to the US Embassy London.
+          American Visa Guide is a community-powered resource for UK residents going through the US family immigrant visa process. Real wait times, plain-language guidance, and practical tools: all specific to the US Embassy London.
         </p>
+        <nav class="home-routes" aria-labelledby="home-routes-label">
+          <p class="home-routes__label" id="home-routes-label">Where are you in the process?</p>
+          <ul>
+            <li><a href="/guide">Just starting</a></li>
+            <li><a href="/interview#first">I have an interview date</a></li>
+            <li><a href="/interview#rescheduled">My interview was rescheduled</a></li>
+            <li><a href="/reinterview">Called back after a 221(g)</a></li>
+            <li><a href="/interview#handed">I was handed a 221(g)</a></li>
+          </ul>
+        </nav>
         <div class="home-hero__meta" role="list" aria-label="Site highlights">
           <div class="home-hero__stat" role="listitem">
             <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
@@ -372,17 +425,23 @@
       </div>
     </section>
 
-    <!-- ═══ THIS WEEK IN THE COMMUNITY ═══ -->
+    <!-- THIS WEEK IN THE COMMUNITY -->
     <section class="content-section" aria-labelledby="week-hd">
       <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="week-hd">This Week in the Community</h2>
-          <p class="section-hd__sub">Upcoming appointments and recent milestones across the community.</p>
+        <div class="section-hd section-hd--split">
+          <div>
+            <h2 class="section-hd__title" id="week-hd">This Week in the Community</h2>
+            <p class="section-hd__sub">Upcoming appointments and recent milestones across the community.</p>
+          </div>
+          <aside class="week-notice" role="note" aria-labelledby="week-notice-hd">
+            <p class="week-notice__head" id="week-notice-hd">Interviews rescheduled</p>
+            <p>Immigrant visa interviews and same-day embassy document checks booked for September 2026 were canceled. At this time, interviews originally booked in early September are being rescheduled to <strong>early October 2026</strong>, sometimes at very short notice. Without a document check, bring all originals and one passport photo to the interview. Interview dates listed below may not go ahead. <a href="/interview#rescheduled">Got a new date? What to do →</a></p>
+          </aside>
         </div>
 
         <!-- Coming up: the upcoming Sunday→Saturday week -->
         <div class="week-group">
-          <p class="week-group__label">📅 Coming up · <em><span id="week-upcoming-label">…</span></em></p>
+          <p class="week-group__label">Coming up · <em><span id="week-upcoming-label">…</span></em></p>
           <div class="week-grid week-grid--3" role="list" aria-label="Upcoming community milestones">
 
             <div class="week-card" role="listitem">
@@ -399,6 +458,10 @@
               </div>
               <div class="week-card__label">Interviews</div>
               <ul class="week-card__list" id="wl-interviews" aria-label="Members with an interview this week"></ul>
+              <div id="wl-interviews-next-wrap" hidden>
+                <p class="week-card__sublabel">Next week · <span id="week-next-label">…</span></p>
+                <ul class="week-card__list" id="wl-interviews-next" aria-label="Members with an interview next week"></ul>
+              </div>
             </div>
 
             <div class="week-card" role="listitem">
@@ -414,7 +477,7 @@
 
         <!-- Just happened: the previous Sunday→Saturday week -->
         <div class="week-group">
-          <p class="week-group__label">✅ Just happened · <em><span id="week-previous-label">…</span></em></p>
+          <p class="week-group__label">Just happened · <em><span id="week-previous-label">…</span></em></p>
           <div class="week-grid week-grid--2" role="list" aria-label="Recent community milestones">
 
             <div class="week-card" role="listitem">
@@ -438,13 +501,13 @@
 
         <!-- Submit CTA -->
         <div style="background: var(--color-primary-subtle); border: 1px solid var(--color-primary-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6); margin-top: var(--space-8); text-align: center;">
-          <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 0 0 var(--space-3) 0;">💾 Reached a milestone? Add your dates to help the community.</p>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-sm); margin: 0 0 var(--space-3) 0;">Reached a milestone? Add your dates to help the community.</p>
           <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: var(--space-2) var(--space-4); background: var(--color-primary); color: #fff; border-radius: var(--radius-md); text-decoration: none; font-size: var(--text-sm); font-weight: var(--font-semibold);">Submit your timeline →</a>
         </div>
       </div>
     </section>
 
-    <!-- ═══ NAVIGATION CARDS ═══ -->
+    <!-- NAVIGATION CARDS -->
     <section class="home-nav" aria-labelledby="explore-label">
       <div class="container">
         <p class="home-nav__label" id="explore-label">Explore the site</p>
@@ -452,52 +515,52 @@
         <div class="nav-cards" role="list">
 
           <!-- Guide -->
-          <a href="/guide" class="nav-card" role="listitem" aria-label="The Guide — step-by-step walkthrough of the London process">
+          <a href="/guide" class="nav-card" role="listitem" aria-label="The Guide: step-by-step walkthrough of the London process">
             <div class="nav-card__icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
             </div>
             <div class="nav-card__title">The Guide</div>
-            <p class="nav-card__desc">A step-by-step walkthrough of every stage — from filing the I-130 to landing in the US. Plain language, no jargon, London-specific throughout.</p>
+            <p class="nav-card__desc">A step-by-step walkthrough of every stage, from filing the I-130 to landing in the US. Plain language, no jargon, London-specific throughout.</p>
             <span class="nav-card__link" aria-hidden="true">Read the guide <span>→</span></span>
           </a>
 
           <!-- Data -->
-          <a href="/data" class="nav-card nav-card--data" role="listitem" aria-label="Data Tracker — real wait times from community members">
+          <a href="/data" class="nav-card nav-card--data" role="listitem" aria-label="Data Tracker: real wait times from community members">
             <div class="nav-card__icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             </div>
             <div class="nav-card__title">Data Tracker</div>
-            <p class="nav-card__desc">Real wait times from 200+ community members. See how long each stage actually takes, track IL drops, and understand what outcomes look like.</p>
+            <p class="nav-card__desc">Real wait times from 200+ community members. See how long each stage takes, track IL drops, and understand what outcomes look like.</p>
             <span class="nav-card__link" aria-hidden="true">View the data <span>→</span></span>
           </a>
 
           <!-- Checklists & Templates -->
-          <a href="/checklists" class="nav-card" role="listitem" aria-label="Checklists and Templates — practical tools for each stage">
+          <a href="/checklists" class="nav-card" role="listitem" aria-label="Checklists and Templates: practical tools for each stage">
             <div class="nav-card__icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
             </div>
             <div class="nav-card__title">Checklists &amp; Templates</div>
-            <p class="nav-card__desc">Document checklists for I-130, NVC, the medical, and your interview. Downloadable templates and worksheets to keep your paperwork organised.</p>
+            <p class="nav-card__desc">Document checklists for I-130, NVC, the medical, and your interview. Downloadable templates and worksheets to keep your paperwork organized.</p>
             <span class="nav-card__link" aria-hidden="true">Browse tools <span>→</span></span>
           </a>
 
           <!-- Life in the US -->
-          <a href="/life" class="nav-card nav-card--life" role="listitem" aria-label="Life in the US — what to expect after you arrive">
+          <a href="/life" class="nav-card nav-card--life" role="listitem" aria-label="Life in the US: what to expect after you arrive">
             <div class="nav-card__icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </div>
             <div class="nav-card__title">Life in the US</div>
-            <p class="nav-card__desc">What happens after you land — Social Security, driving licences, healthcare, banking, and settling in as a new permanent resident.</p>
+            <p class="nav-card__desc">What happens after you land: Social Security, driving licenses, healthcare, banking, and settling in as a new permanent resident.</p>
             <span class="nav-card__link" aria-hidden="true">Explore <span>→</span></span>
           </a>
 
           <!-- About -->
-          <a href="/about" class="nav-card" role="listitem" aria-label="About — who built this and why">
+          <a href="/about" class="nav-card" role="listitem" aria-label="About: who built this and why">
             <div class="nav-card__icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
             </div>
             <div class="nav-card__title">About</div>
-            <p class="nav-card__desc">Who made this, how the data works, what this site is and isn't, and how to get in touch. Built by Erin — someone who went through the process herself.</p>
+            <p class="nav-card__desc">Who made this, how the data works, what this site is and isn't, and how to get in touch. Built by Erin: someone who went through the process herself.</p>
             <span class="nav-card__link" aria-hidden="true">Learn more <span>→</span></span>
           </a>
 
@@ -505,7 +568,7 @@
       </div>
     </section>
 
-    <!-- ═══ INTRO STRIP ═══ -->
+    <!-- INTRO STRIP -->
     <section class="home-intro" aria-labelledby="intro-label">
       <div class="container">
         <div class="home-intro__inner">
@@ -513,7 +576,7 @@
             <h2 class="home-intro__title" id="intro-label">What this site is</h2>
             <div class="home-intro__body">
               <p>American Visa Guide exists to fill the gap between the official USCIS guidance (thorough but dense) and scattered forum posts (specific but hard to trust). It's focused entirely on the <strong>US Embassy London</strong> consular process for family-based immigrant visas.</p>
-              <p>Two things: a <strong>community data tracker</strong> showing real timelines from real applicants, and a <strong>plain-language guide</strong> to every stage of the process. Both are built on what people in the community have actually experienced.</p>
+              <p>Two things: a <strong>community data tracker</strong> showing real timelines from real applicants, and a <strong>plain-language guide</strong> to every stage of the process. Both are built on what people in the community have experienced.</p>
             </div>
             <div class="home-intro__cta">
               <a href="/guide" class="btn btn--primary btn--sm">Read the guide</a>
@@ -521,10 +584,10 @@
             </div>
           </div>
           <div>
-            <h2 class="home-intro__title">Not legal advice</h2>
+            <h2 class="home-intro__title">Independent</h2>
             <div class="home-intro__body">
-              <p>This site is independent and volunteer-run. It is <strong>not affiliated</strong> with USCIS, the US Department of State, or the US Embassy London. Nothing here constitutes legal advice.</p>
-              <p>If your case is complex — waivers, prior removals, unusual circumstances — please consult a qualified immigration attorney. This site is most useful to people in a relatively straightforward family-based immigrant visa case applying through London.</p>
+              <p>This site is independent and volunteer-run. It is <strong>not affiliated</strong> with USCIS, the US Department of State, or the US Embassy London.</p>
+              <p>This site is most useful to people in a relatively straightforward family-based immigrant visa case applying through London.</p>
             </div>
           </div>
         </div>
@@ -547,7 +610,7 @@
       this_week: { upcoming_week_of:'2026-06-14', previous_week_of:'2026-06-07', interviews:[], medicals:[], flights:[], dqs:[], approved:[] },
     };
 
-    /* ── Helpers ── */
+    /* Helpers */
     function fmtShort(s) {
       if (!s) return '';
       const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
@@ -585,18 +648,30 @@
         ['w-dq',         'wl-dq',         tw.dqs],
         ['w-i130',       'wl-i130',       tw.approved],
       ];
+      const sorted = raw => (raw || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+      const items = list => list.map(m =>
+        `<li><span class="wm-name">${esc(m.name)}${m.note ? `<span class="wm-note">${esc(m.note)}</span>` : ''}</span><span class="wm-date">${fmtShort(m.date)}</span></li>`
+      ).join('');
       for (const [countId, listId, raw] of cards) {
-        const list = (raw || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+        const list = sorted(raw);
         set(countId, String(list.length));
         const ul = document.getElementById(listId);
         if (!ul) continue;
-        ul.innerHTML = list.length
-          ? list.map(m => `<li><span class="wm-name">${esc(m.name)}</span><span class="wm-date">${fmtShort(m.date)}</span></li>`).join('')
-          : '<li class="wm-empty">None this week</li>';
+        ul.innerHTML = list.length ? items(list) : '<li class="wm-empty">None this week</li>';
+      }
+
+      /* Interviews card also lists the following week, so short-notice
+         reschedules show before their week starts. Hidden when empty. */
+      const next = sorted(tw.interviews_next);
+      const wrap = document.getElementById('wl-interviews-next-wrap');
+      if (wrap) {
+        wrap.hidden = !next.length;
+        if (tw.next_week_of) txt('week-next-label', fmtWeekRange(tw.next_week_of));
+        set('wl-interviews-next', items(next));
       }
     }
 
-    /* ── Boot ── */
+    /* Boot */
     async function boot() {
       let d;
       try {

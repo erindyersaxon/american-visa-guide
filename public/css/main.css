@@ -1,14 +1,14 @@
-/* ─────────────────────────────────────────────────────────────
-   American Visa Guide — Design Tokens & Base Styles
-   Fonts: Outfit (headings) + Plus Jakarta Sans (body/UI)
+/*
+   American Visa Guide, Design Tokens & Base Styles
+   Fonts: Georgia (headings) + Public Sans (body/UI)
    Palette: Charcoal-blue primary · Steel-blue accent · Warm cream bg
-   ───────────────────────────────────────────────────────────── */
+ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
 
-/* ─── Light Mode Tokens ───────────────────────────────────── */
+/* Light Mode Tokens */
 :root {
-  /* — Brand: Navy — */
+  /* Brand: Navy */
   --color-primary:          #2b3a42;
   --color-primary-hover:    #233038;
   --color-primary-active:   #1e2b32;
@@ -16,13 +16,13 @@
   --color-primary-border:   #a9c2cd;
   --color-primary-text:     #FFFFFF;
 
-  /* — Accent: Steel blue (legacy "gold"/"accent" names kept) — */
+  /* Accent: Steel blue (legacy "gold"/"accent" names kept) */
   --color-accent:           #3e7188;
   --color-accent-hover:     #2f5a6e;
   --color-accent-subtle:    #edf4f8;
   --color-accent-border:    #a9cbd9;
 
-  /* — Neutrals — */
+  /* Neutrals */
   --color-bg:               #f4efe6;
   --color-bg-alt:           #ede8de;
   --color-surface:          #FDFAF3;
@@ -30,42 +30,42 @@
   --color-border:           #ddd6cb;
   --color-border-strong:    #a39c8e;
 
-  /* — Text — */
+  /* Text */
   --color-text:             #1e1c17;
   --color-text-secondary:   #56524a;
   --color-text-muted:       #6a6560;
   --color-text-inverse:     #FFFFFF;
 
-  /* — Status: Success — */
+  /* Status: Success */
   --color-success:          #4a6b50;
   --color-success-subtle:   #e9f0e6;
   --color-success-border:   #a9c8ad;
 
-  /* — Status: Warning — */
+  /* Status: Warning */
   --color-warning:          #875325;
   --color-warning-subtle:   #f7efdc;
   --color-warning-border:   #d9bb86;
 
-  /* — Status: Info (Default card) — */
+  /* Status: Info (Default card) */
   --color-info:             #3e7188;
   --color-info-subtle:      #edf4f8;
   --color-info-border:      #a9cbd9;
 
-  /* — Status: Tip (green-teal) — */
+  /* Status: Tip (green-teal) */
   --color-tip:              #3f5f45;
   --color-tip-subtle:       #e9f0e6;
   --color-tip-border:       #a9c8ad;
 
-  /* — Destructive — */
+  /* Destructive */
   --color-destructive:      #9b3434;
   --color-destructive-subtle: #f8ece7;
   --color-destructive-border: #dfa9a0;
   --color-destructive-hover:  #7f2d2d;
 
-  /* ─── Typography ─────────────────────────────────── */
-  --font-display:   'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-ui:        'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body:      'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography */
+  --font-display:   Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
+  --font-ui:        'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:      'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono:      'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
   /* Font Sizes */
@@ -100,7 +100,7 @@
   --tracking-wide:   0.04em;
   --tracking-wider:  0.08em;
 
-  /* ─── Spacing — 4px base ─────────────────────────── */
+  /* Spacing: 4px base */
   --space-0:   0;
   --space-1:   0.25rem;    /*  4px */
   --space-2:   0.5rem;     /*  8px */
@@ -117,7 +117,7 @@
   --space-20:  5rem;       /* 80px */
   --space-24:  6rem;       /* 96px */
 
-  /* ─── Border Radius ──────────────────────────────── */
+  /* Border Radius */
   --radius-sm:    0.25rem;   /*  4px */
   --radius-md:    0.5rem;    /*  8px */
   --radius-lg:    0.75rem;   /* 12px */
@@ -125,7 +125,7 @@
   --radius-2xl:   1.5rem;    /* 24px */
   --radius-full:  9999px;
 
-  /* ─── Shadows ─────────────────────────────────────── */
+  /* Shadows */
   --shadow-xs:  0 1px 2px 0 rgba(30,28,23, 0.05);
   --shadow-sm:  0 1px 3px 0 rgba(30,28,23, 0.08),
                 0 1px 2px -1px rgba(30,28,23, 0.05);
@@ -137,14 +137,14 @@
                 0 8px 10px -6px rgba(30,28,23, 0.03);
   --shadow-inset: inset 0 2px 4px 0 rgba(30,28,23, 0.06);
 
-  /* ─── Transitions ────────────────────────────────── */
+  /* Transitions */
   --ease-out:      cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 120ms;
   --duration-base: 200ms;
   --duration-slow: 300ms;
 
-  /* ─── Z-index ─────────────────────────────────────── */
+  /* Z-index */
   --z-base:     0;
   --z-raised:   10;
   --z-dropdown: 100;
@@ -152,7 +152,7 @@
   --z-modal:    300;
   --z-toast:    400;
 
-  /* ─── Layout ──────────────────────────────────────── */
+  /* Layout */
   --container-max: 1200px;
   --container-md:  900px;
   --container-sm:  640px;
@@ -250,7 +250,7 @@
   --shadow-inset: inset 0 2px 4px 0 rgba(30,28,23, 0.06);
 }
 
-/* ─── Reset ───────────────────────────────────────────────── */
+/* Reset */
 *,
 *::before,
 *::after {
@@ -322,10 +322,10 @@ table {
   border-collapse: collapse;
 }
 
-/* ─── Base Typography ─────────────────────────────────────── */
+/* Base Typography */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-bold);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text);
@@ -368,7 +368,7 @@ small {
   font-size: var(--text-sm);
 }
 
-/* ─── Layout ──────────────────────────────────────────────── */
+/* Layout */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -397,7 +397,7 @@ small {
   border-top: 1px solid var(--color-border);
 }
 
-/* ─── Utilities ───────────────────────────────────────────── */
+/* Utilities */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -433,7 +433,7 @@ small {
 
 .tracking-wide  { letter-spacing: var(--tracking-wide); }
 .tracking-wider { letter-spacing: var(--tracking-wider); }
-.uppercase      { text-transform: uppercase; }
+.uppercase      {}
 
 .flex          { display: flex; }
 .flex-col      { flex-direction: column; }

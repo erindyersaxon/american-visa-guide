@@ -8,11 +8,12 @@
   <link rel="canonical" href="https://www.americanvisaguide.com/221g">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-      --font-ui: 'Outfit', sans-serif;
+      --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
+      --font-ui: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-body: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
       --bg:          #f4efe6;
       --surface:     #fdfaf3;
@@ -52,7 +53,7 @@
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-family: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 1rem;
       line-height: 1.72;
       -webkit-font-smoothing: antialiased;
@@ -60,7 +61,7 @@
 
     /* Nav + footer styles live in /css/nav.css (shared component) */
 
-    /* ── LAYOUT ── */
+    /* LAYOUT */
     .page-wrap {
       max-width: 860px;
       margin: 0 auto;
@@ -76,20 +77,18 @@
     .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
     .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
 
-    /* ── HERO ── */
+    /* HERO */
     .eyebrow {
       font-family: var(--font-ui);
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.6rem;
     }
     h1 {
       font-family: var(--font-display);
       font-size: clamp(1.7rem, 4.4vw, 2.4rem);
-      font-weight: 600;
+      font-weight: 700;
       color: var(--ink);
       line-height: 1.15;
       margin-bottom: 0.9rem;
@@ -102,7 +101,7 @@
       margin-bottom: 1.75rem;
     }
 
-    /* ── DISCLAIMER ── */
+    /* DISCLAIMER */
     .disclaimer {
       background: var(--warn-bg);
       border: 1px solid var(--warn-border);
@@ -117,11 +116,11 @@
     .disclaimer strong { color: var(--warn-ink); font-family: var(--font-ui); }
     .disclaimer a { color: var(--accent-dark); }
 
-    /* ── SECTION HEADINGS ── */
+    /* SECTION HEADINGS */
     h2 {
       font-family: var(--font-display);
       font-size: 1.42rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--ink);
       margin: 2.5rem 0 0.9rem;
       padding-bottom: 0.45rem;
@@ -133,8 +132,6 @@
       font-weight: 700;
       color: var(--accent);
       margin: 1.6rem 0 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     p { margin-bottom: 0.85rem; }
@@ -151,7 +148,7 @@
 
     :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
-    /* ── ON THIS PAGE ── */
+    /* ON THIS PAGE */
     .toc {
       background: var(--surface);
       border: 1px solid var(--line);
@@ -161,10 +158,8 @@
     }
     .toc-title {
       font-family: var(--font-ui);
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 0.6rem;
     }
@@ -172,7 +167,7 @@
     .toc li { font-size: 0.88rem; margin-bottom: 0.3rem; }
     @media (max-width: 560px) { .toc ol { columns: 1; } }
 
-    /* ── FIGURE / IMAGES ── */
+    /* FIGURE / IMAGES */
     .sheet-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -195,7 +190,7 @@
       text-align: center;
     }
 
-    /* ── TABLE ── */
+    /* TABLE */
     .table-wrap { overflow-x: auto; margin: 1.1rem 0 1.4rem; border-radius: 8px; border: 1px solid var(--line); }
     table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
     thead tr { background: var(--code-bg); }
@@ -205,9 +200,7 @@
       font-family: var(--font-ui);
       font-weight: 600;
       color: #fff;
-      font-size: 0.73rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      font-size: 0.78rem;
       white-space: nowrap;
     }
     td {
@@ -220,7 +213,7 @@
     tr:last-child td { border-bottom: none; }
     tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
 
-    /* ── STAGE / MITIGATION CARDS ── */
+    /* STAGE / MITIGATION CARDS */
     .stage-card {
       background: var(--surface);
       border: 1px solid var(--line);
@@ -238,7 +231,7 @@
     }
     .stage-pill {
       font-family: var(--font-ui);
-      font-size: 0.66rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: #fff;
       background: var(--accent);
@@ -246,7 +239,6 @@
       border-radius: 5px;
       white-space: nowrap;
       letter-spacing: 0.04em;
-      text-transform: uppercase;
     }
     .stage-title {
       font-family: var(--font-ui);
@@ -255,7 +247,7 @@
       color: var(--ink);
     }
 
-    /* ── CALLOUTS ── */
+    /* CALLOUTS */
     .callout {
       border-radius: 7px;
       padding: 0.8rem 1.05rem;
@@ -292,13 +284,11 @@
       font-family: var(--font-ui);
       font-weight: 700;
       font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
       color: var(--ink);
       margin-bottom: 0.3rem;
     }
 
-    /* ── CHECKLIST ── */
+    /* CHECKLIST */
     .checklist { list-style: none; padding: 0; }
     .checklist li {
       padding: 0.28rem 0 0.28rem 1.55rem;
@@ -313,7 +303,7 @@
       font-weight: 700;
     }
 
-    /* ── BACK TO GUIDE ── */
+    /* BACK TO GUIDE */
     .guide-return {
       display: inline-flex;
       align-items: center;
@@ -329,7 +319,7 @@
     }
     .guide-return:hover { background: var(--accent-dark); color: #fff; text-decoration: none; }
 
-    /* ── SOURCES ── */
+    /* SOURCES */
     .sources {
       margin-top: 3rem;
       padding-top: 1.4rem;
@@ -345,13 +335,13 @@
     .sources a { color: var(--accent); }
     .sources a:hover { color: var(--accent-dark); }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 600px) {
       .page-wrap { padding: 1.5rem 1rem 4rem; }
     }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260722">
-  <script src="/js/nav.js?v=20260722" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20260928">
+  <script src="/js/nav.js?v=20260930" defer></script>
 </head>
 <body>
 
@@ -360,17 +350,20 @@
 <div class="page-wrap">
 
   <div class="breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/guide.html">Guide</a><span>/</span>221(g)
+    <a href="/">Home</a><span>/</span><a href="/interview">Your interview</a><span>/</span>221(g)
   </div>
+
+  <div data-live-notice="page"></div>
 
   <p class="eyebrow">US Embassy London · Immigrant Visa Unit</p>
 
   <h1>Section 221(g): <span>how to prevent it, and how to resolve it</span></h1>
 
-  <p class="lead">A 221(g) is the single most common way a London immigrant visa case stalls at the window &mdash; and almost every one is preventable. This page explains what the green refusal sheet means, walks through every box on it, and sets out the planned mitigations that keep a case out of 221(g) in the first place. If you already have one, the resolution steps are here too.</p>
+  <p class="lead">A 221(g) is the single most common way a London immigrant visa case stalls at the window, and almost every one is preventable. This page explains what the green refusal sheet means, walks through every box on it, and sets out the planned mitigations that keep a case out of 221(g) in the first place. If you already have one, the resolution steps are here too.</p>
 
-  <div class="disclaimer">
-    <strong>This is not legal advice.</strong> American Visa Guide is an independent community resource based on official US government sources and observed US Embassy London patterns. A 221(g) is a refusal, not necessarily a final denial &mdash; but how it is handled matters. If your case involves an inadmissibility ground, a prior refusal, or anything beyond a routine document request, consider consulting an immigration attorney affiliated with the <a href="https://www.aila.org/">American Immigration Lawyers Association (AILA)</a>.
+  <div class="callout callout-good">
+    <span class="callout-title">Already holding a green sheet, or called back?</span>
+    Handed a sheet at the window: <a href="/221g-sheet"><strong>tick your boxes and get your to-do list</strong></a>. Refused before and now given a new interview date: <a href="/reinterview"><strong>re-interview after a 221(g)</strong></a>.
   </div>
 
   <div class="toc">
@@ -378,26 +371,31 @@
     <ol>
       <li><a href="#what">What a 221(g) is</a></li>
       <li><a href="#sheet">The green sheet, box by box</a></li>
+      <li><a href="#publiccharge">The public charge box</a></li>
       <li><a href="#financial">The dominant cause: financial</a></li>
+      <li><a href="#domicile">The petitioner's domicile problem</a></li>
       <li><a href="#prevent">Prevent it: mitigations by stage</a></li>
       <li><a href="#resolve">If you already have a 221(g)</a></li>
+      <li><a href="#reinterview">Called back to interview (re-interview)</a></li>
+      <li><a href="#security">When administrative processing asks for your history</a></li>
+      <li><a href="#dualuse">Dual-use careers and technology checks</a></li>
       <li><a href="#confusions">221(g) vs AP vs visa pause</a></li>
     </ol>
   </div>
 
-  <!-- ── WHAT IS IT ── -->
+  <!-- WHAT IS IT -->
   <h2 id="what">What a 221(g) is</h2>
 
   <p>Section 221(g) of the Immigration and Nationality Act lets a consular officer refuse a visa when the application is incomplete or needs further review, rather than denying it outright. It is a <strong>temporary refusal</strong>, and in the large majority of London cases it means one thing: something the officer needs is not yet on the file. Supply it, and the case resumes.</p>
 
-  <p>At London it is issued at the window on a green <strong>Consular Section &mdash; Immigrant Visa Unit</strong> sheet, with the applicable boxes ticked and a submission email address printed at the top: <strong>LNDIVSubmissions@state.gov</strong>. The ticked boxes are the entire bar to clear &mdash; nothing more, nothing less. The sheet splits 221(g) into two distinct types, and which one you get changes everything about what happens next:</p>
+  <p>At London it is issued at the window on a green <strong>Consular Section: Immigrant Visa Unit</strong> sheet, with the applicable boxes ticked and a submission email address printed at the top: <strong>LNDIVSubmissions@state.gov</strong>. The ticked boxes are the entire bar to clear: nothing more, nothing less. The sheet splits 221(g) into two distinct types, and which one you get changes everything about what happens next:</p>
 
   <div class="stage-card">
     <div class="stage-head">
       <span class="stage-pill">Type 1</span>
       <span class="stage-title">Additional administrative processing</span>
     </div>
-    <p style="margin-bottom:0;">Mandatory background or eligibility review. Per the sheet, it <strong>cannot be expedited or waived</strong>, there is no set timeframe, and there is no mechanism to check its status &mdash; the Embassy contacts you when it is complete. There is usually nothing to submit; this is not about missing paperwork. It is the less common and less controllable of the two.</p>
+    <p style="margin-bottom:0;">Mandatory background or eligibility review. Per the sheet, it <strong>cannot be expedited or waived</strong>, there is no set timeframe, and there is no mechanism to check its status: the Embassy contacts you when it is complete. Often there is nothing to submit, but not always: some posts pair it with a request for your personal history and CV. See <a href="#security">when administrative processing asks for your history</a>. It is the less common and less controllable of the two.</p>
   </div>
 
   <div class="stage-card">
@@ -410,22 +408,22 @@
 
   <div class="callout callout-good">
     <span class="callout-title">A 221(g) is not a denial</span>
-    Being placed in 221(g) does not mean your case has been refused on the merits. Most resolve once the requested item is supplied. It does, however, add weeks to months of delay &mdash; which is exactly why preventing it is worth the effort up front.
+    Being placed in 221(g) does not mean your case has been refused on the merits. Most resolve once the requested item is supplied. It does, however, add weeks to months of delay: which is exactly why preventing it is worth the effort up front.
   </div>
 
-  <!-- ── THE SHEET ── -->
+  <!-- THE SHEET -->
   <h2 id="sheet">The green sheet, box by box</h2>
 
-  <p>Below is a real green 221(g) sheet issued at London. On this example the Section 221(g) refusal box is ticked on page 1, and on page 2 the box requiring a <strong>joint sponsor</strong> is ticked &mdash; the classic London financial 221(g). Your sheet will have different boxes ticked; the point is to recognize the form and read only the ticked boxes.</p>
+  <p>Below is a real green 221(g) sheet issued at London. On this example the Section 221(g) refusal box is ticked on page 1, and on page 2 the box requiring a <strong>joint sponsor</strong> is ticked: the classic London financial 221(g). Your sheet will have different boxes ticked; the point is to recognize the form and read only the ticked boxes.</p>
 
   <div class="sheet-grid">
     <figure>
       <img src="/images/221g-green-sheet-p1.jpg?v=20260722" alt="Page 1 of the green 221(g) refusal sheet from the US Embassy London Immigrant Visa Unit. The submission email address LNDIVSubmissions@state.gov is printed at the top, and the Section 221(g) refusal box is ticked, with sub-boxes for additional administrative processing and submission of additional evidence." loading="lazy">
-      <figcaption>Page 1 &mdash; the refusal notice. Note the submission email at the top and the 221(g) box ticked, with its two sub-types.</figcaption>
+      <figcaption>Page 1: the refusal notice. Note the submission email at the top and the 221(g) box ticked, with its two sub-types.</figcaption>
     </figure>
     <figure>
       <img src="/images/221g-green-sheet-p2.jpg?v=20260722" alt="Page 2 of the green 221(g) refusal sheet showing the document checklist. The box stating the sponsor has not met the minimum income level is ticked, listing the required joint sponsor documents: Form I-864, tax transcript or 1040 with W-2, proof of US status, and Form I-864A if applicable." loading="lazy">
-      <figcaption>Page 2 &mdash; the document checklist. Here the &ldquo;sponsor has not met the minimum income level&rdquo; box is ticked, requiring a joint sponsor.</figcaption>
+      <figcaption>Page 2: the document checklist. Here the &ldquo;sponsor has not met the minimum income level&rdquo; box is ticked, requiring a joint sponsor.</figcaption>
     </figure>
   </div>
 
@@ -433,7 +431,7 @@
 
   <h3>Every box that can appear on the sheet</h3>
 
-  <p>The two pages carry the full checklist below. Only the ticked items apply to you &mdash; but knowing what the form <em>can</em> ask for tells you exactly what to have watertight before interview day.</p>
+  <p>The two pages carry the full checklist below. Only the ticked items apply to you, but knowing what the form <em>can</em> ask for tells you exactly what to have watertight before interview day.</p>
 
   <div class="table-wrap">
     <table>
@@ -463,7 +461,7 @@
         </tr>
         <tr>
           <td>Evidence of personal assets</td>
-          <td>Bank statements, real estate, stocks, bonds, insurance policies, investments &mdash; used where income alone does not meet the requirement. See Form I-864 instructions.</td>
+          <td>Bank statements, real estate, stocks, bonds, insurance policies, investments: used where income alone does not meet the requirement. See Form I-864 instructions.</td>
         </tr>
         <tr>
           <td>Sponsor below the minimum income (213A)</td>
@@ -499,11 +497,11 @@
         </tr>
         <tr>
           <td>Medical examination results</td>
-          <td>Schedule with Visa Medicals (020 7486 7822); results are sent directly to the Embassy by the clinic.</td>
+          <td>Schedule with Visa Medicals (020 7486 7822); results are sent directly to the Embassy by the clinic. Results are valid for 6 months, and you must enter the US within 6 months of the exam.</td>
         </tr>
         <tr>
           <td>Passport validity</td>
-          <td>A passport valid for at least six months beyond your expected date of entry into the US.</td>
+          <td>A passport valid for at least six months beyond your expected date of entry into the US. (London's instruction; the regulation itself, 22 CFR 42.64(b), requires the passport to be valid at least 60 days beyond the visa's own expiry date, and since an immigrant visa can run for up to six months, London's rule is the one to meet)</td>
         </tr>
         <tr>
           <td>Other</td>
@@ -513,37 +511,209 @@
     </table>
   </div>
 
-  <!-- ── FINANCIAL ── -->
+
+  <!-- PUBLIC CHARGE BOX -->
+  <h2 id="publiccharge">The public charge box</h2>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">Not a London form, and not a settled one</span>
+    <p>The list below is a real document, but it comes from another post, and we have no confirmation that London's public charge refusals use the same wording or the same boxes. Treat it as the clearest available indication of what a public charge 221(g) asks for, not as the form you will be handed. The underlying standard is still forming: see <a href="public-charge.html#fluid">the caveat on the public charge page</a> for what is and is not established.</p>
+  </div>
+
+  <p>The checklist above is London's, and it predates the change in how public charge is assessed. Posts have since added a dedicated <strong>public charge</strong> heading to the 221(g) form with a document list of its own. The version below is reproduced from a checklist issued at Consulate General Lagos in 2026. London's form is laid out differently, and this is not a London document. It is here because the documents a public charge refusal asks for are the same documents wherever the refusal happens, and because reading the list <em>before</em> your interview turns it into a preparation checklist.</p>
+
+  <figure style="max-width:540px;margin:1.1rem auto 0.3rem;">
+    <img src="/images/221g-public-charge-lagos-2026.jpg?v=20260918" alt="Photograph of a 221(g) public charge checklist headed &quot;4A PUBLIC CHARGE&quot; from the Consulate General of the United States, Walter Carrington Crescent, Victoria Island, Lagos. Below a preamble about overcoming public charge concerns, a list of requestable documents runs down the page with a blank line beside each. Five are ticked: description of work history, education history, beneficiary work plans in the US, evidence of the beneficiary's savings, investment and retirement accounts, and a price quote for health insurance coverage for the applicant's age and gender in the state where they will reside. Unticked entries include tax transcripts, pay stubs, W-2, other petitioner income, petitioner health insurance, petitioner assets, petitioner housing, how the joint sponsor is related to the petitioner, and a new joint sponsor I-864. Instructions at the foot direct the applicant to upload to ceac.state.gov and email lagosiv@state.gov." loading="lazy">
+    <figcaption>The public charge checklist as issued, with five items ticked. Every unticked line is a document the post <em>can</em> ask for.</figcaption>
+  </figure>
+
+  <p style="font-size:0.82rem;color:var(--muted);">Community-supplied copy of a checklist issued at Consulate General Lagos, 2026. It carries no case number or applicant name. <strong>This is not a London document</strong>: see the caution above.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-title">The preamble</span>
+    <p>Your case requires additional documentation to confirm that you overcome public charge concerns. You may provide any evidence you possess to show that your petitioner or a joint sponsor will be willing and able to provide for your financial needs, including maintenance, housing and healthcare. While you are free to submit any evidence you want, we specifically request the following documents.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Ticked item</th><th>What it requires</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tax transcripts, most recent year</td>
+          <td>For the petitioner, the joint sponsor, or both. The form points applicants at <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/transcript</a>. This is the same document whose absence causes most London 221(g)s: see below.</td>
+        </tr>
+        <tr>
+          <td>Two most recent pay stubs</td>
+          <td>From the petitioner's employment. Evidence that the income is current, not just historic.</td>
+        </tr>
+        <tr>
+          <td>Most recent W-2</td>
+          <td>Petitioner, joint sponsor, or both.</td>
+        </tr>
+        <tr>
+          <td>Evidence of the petitioner's other income</td>
+          <td>Rental, retirement, or other income that the tax return alone does not make obvious.</td>
+        </tr>
+        <tr>
+          <td>Evidence of the petitioner's health insurance coverage</td>
+          <td>The plan itself, not a description of it. A summary of benefits or plan confirmation showing whether dependents are covered.</td>
+        </tr>
+        <tr>
+          <td>Description of your work history</td>
+          <td>A <strong>list</strong> of position titles with the years worked. Not a paragraph, and not just the current role: continuity is the point.</td>
+        </tr>
+        <tr>
+          <td>Education history</td>
+          <td>A <strong>list</strong> of diplomas with subject, institution and year awarded. Include professional certifications and licences.</td>
+        </tr>
+        <tr>
+          <td>Beneficiary work plans in the US</td>
+          <td>What you intend to do, and whether a job is lined up or will be sought. If you plan to keep a current job remotely, written employer confirmation that they permit US-based work.</td>
+        </tr>
+        <tr>
+          <td>Evidence of the petitioner's savings, investments and retirement accounts</td>
+          <td>And other financial assets. Statements, not assertions.</td>
+        </tr>
+        <tr>
+          <td>Evidence of the <em>beneficiary's</em> savings, investments and retirement accounts</td>
+          <td>Itemised separately from the petitioner's. Your own resources are weighed in their own right.</td>
+        </tr>
+        <tr>
+          <td>Evidence of the petitioner's housing</td>
+          <td>Lease or property tax records. Where you will live, and what it costs.</td>
+        </tr>
+        <tr>
+          <td>Price quote for health insurance</td>
+          <td>For your age and gender, in the state where you will reside. That means a marketplace quote from <a href="https://www.healthcare.gov/see-plans/" target="_blank" rel="noopener noreferrer">healthcare.gov's plan preview</a>, which prices by age and ZIP without an application, rather than an expatriate or travel policy. Ignore the word "gender": the ACA prohibits premium rating by sex, so a correct quote will not vary by it.</td>
+        </tr>
+        <tr>
+          <td>More detail on the joint sponsor relationship</td>
+          <td>How the joint sponsor is related to the petitioner, described rather than labelled. See the <a href="public-charge.html#i864">joint sponsor questions</a> now being asked.</td>
+        </tr>
+        <tr>
+          <td>A new joint sponsor I-864</td>
+          <td>With proof of that sponsor's US citizenship or LPR status.</td>
+        </tr>
+        <tr>
+          <td>Other</td>
+          <td>A free-text line.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">How to respond, and what it will not do</span>
+    <p>The instruction posts give is to scan and upload every requested document into CEAC using your case number, and <em>then</em> email the post to say you have done so, with the case number and your full name in the subject line and a marker such as <code>(CEAC UPLOAD)</code>. Upload first, email second: the upload puts the documents in your case file, the email makes sure someone knows to look. At London the notification address is <a href="mailto:LNDIVSubmissions@state.gov">LNDIVSubmissions@state.gov</a>.</p>
+    <p>Posts are also explicit that you will get an email notification once review of your submission is complete, and that <strong>given the number of cases in administrative processing they cannot expedite your case</strong>. Submit completely the first time and then leave it: a partial response restarts the clock, and chasing does not move it.</p>
+  </div>
+
+  <div class="callout callout-good">
+    <span class="callout-title">Read it as a packing list</span>
+    <p>Every item above is something you could have in the room on interview day. A case that arrives with all of it has nothing left for the officer to request, which is the whole point of a 221(g): it exists because something was missing. The full preparation version of this list, with who holds each item and what it answers, is in <a href="public-charge.html#deliverables">section 2 of the public charge page</a>.</p>
+  </div>
+
+  <!-- FINANCIAL -->
   <h2 id="financial">The dominant cause: financial</h2>
 
   <p>The overwhelming majority of London 221(g)s are financial. Two patterns account for most of them, and both are avoidable before interview day.</p>
 
   <div class="callout callout-warn">
     <span class="callout-title">1. The missing IRS tax transcript</span>
-    NVC officially accepts either an IRS tax transcript <em>or</em> a complete copy of the filed return. London does not always agree at interview: cases have been placed in 221(g) specifically for a missing transcript <strong>even after DQ was granted</strong> and the full return, W-2, and pay stubs were on file. This applies to <strong>every</strong> financial sponsor on the case, including joint sponsors. Reaching DQ on a return copy is not the finish line &mdash; the interview is.
+    NVC officially accepts either an IRS tax transcript <em>or</em> a complete copy of the filed return. London does not always agree at interview: cases have been placed in 221(g) specifically for a missing transcript <strong>even after DQ was granted</strong> and the full return, W-2, and pay stubs were on file. This applies to <strong>every</strong> financial sponsor on the case, including joint sponsors. Reaching DQ on a return copy is not the finish line: the interview is.
   </div>
 
   <div class="callout callout-warn">
-    <span class="callout-title">2. Income judged too low &mdash; no joint sponsor lined up</span>
-    London is notably skeptical of cases resting on income near the 125% poverty-guideline threshold, or on assets alone. Officers have judged income &ldquo;too low&rdquo; at the window and requested a joint sponsor even where the figures cleared the guideline on paper, and cases relying primarily on savings, property equity, or investments have drawn a 221(g) despite technically meeting asset thresholds. If your margin is thin or you are leaning on assets, have a joint sponsor prepared in advance.
+    <span class="callout-title">2. Income judged too low, no joint sponsor lined up</span>
+    London is skeptical of cases resting on income near the 125% poverty-guideline threshold, or on assets alone. Officers have judged income &ldquo;too low&rdquo; at the window and requested a joint sponsor even where the figures cleared the guideline on paper, and cases relying primarily on savings, property equity, or investments have drawn a 221(g) despite technically meeting asset thresholds. If your margin is thin or you are leaning on assets, have a joint sponsor prepared in advance.
   </div>
 
   <p>The through-line: <strong>where NVC's minimum and London's practice diverge, meet the higher standard before submission.</strong> Reaching DQ on lesser evidence and then hitting a 221(g) for the same document costs far more time than getting it right up front.</p>
 
-  <!-- ── PREVENT ── -->
+  <!-- DOMICILE -->
+  <h2 id="domicile">The petitioner's domicile problem</h2>
+
+  <p>A joint sponsor can fix income. Nobody can fix the petitioner's domicile. This is the one financial problem on this page that a joint sponsor does not solve, and the guidance consular officers work from says so in terms.</p>
+
+  <div class="callout callout-alert">
+    <span class="callout-title">A joint sponsor cannot cure it</span>
+    &ldquo;If a petitioner cannot satisfy the domicile requirement, the petitioner fails to qualify as a &lsquo;sponsor&rsquo; for the purposes of submitting Form I-864. <strong>A joint sponsor cannot be accepted and the applicant must be refused pursuant to INA 212(a)(4).</strong>&rdquo; &mdash; <a href="https://fam.state.gov/fam/09FAM/09FAM060114.html" target="_blank" rel="noopener noreferrer">9 FAM 601.14-7(a)(3)(c)</a>
+  </div>
+
+  <p>Low petitioner income is survivable: a joint sponsor files alongside and the case goes on. A petitioner who is not US-domiciled is not a paperwork gap, because the petitioner <em>is</em> the sponsor and there is no second filer who can supply it. This catches UK-side couples disproportionately, because the normal thing to do while a case is running is to be together in the UK.</p>
+
+  <p><strong>Domicile means your principal residence is in the United States and you intend to keep it there.</strong> Both halves. Which leaves four positions: find yours.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Your situation</th><th>Where you stand</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>You live in the US</strong></td>
+          <td>Nothing to solve. Carry the ordinary evidence: US tax filings, utility bills, state ID.</td>
+        </tr>
+        <tr>
+          <td><strong>You are abroad temporarily and kept your US home</strong></td>
+          <td>You must show you left for a <strong>limited, and not indefinite, period</strong>; that you meant to keep your US domicile when you went; and that real ties continue. The guidance names students, contract workers and NGO volunteers as the model cases. &ldquo;Limited, not indefinite&rdquo; is what catches people: moving to be with your partner, with no end date, is not a temporary absence however many US accounts you hold.</td>
+        </tr>
+        <tr>
+          <td><strong>You are abroad on qualifying US employment</strong></td>
+          <td>You are <strong>already treated as US-domiciled</strong>. See the box below: this is a real carve-out and people qualify without knowing.</td>
+        </tr>
+        <tr>
+          <td><strong>You are abroad and your US domicile is gone</strong></td>
+          <td>You are re-establishing it. The officer must be satisfied you have taken real steps <em>and</em> that you have taken up US residence, or will do so no later than the date the person you are sponsoring immigrates. You may travel together. You may not follow on later.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-good">
+    <span class="callout-title">Check this before assuming you have a problem</span>
+    A US citizen living abroad temporarily <strong>is</strong> domiciled in the US if employed by: the US government; a recognised US institution of research; <strong>a US firm or corporation engaged in whole or in part in developing US foreign trade or commerce, or a subsidiary of one</strong>; a public international organisation the US participates in by treaty or statute; or a US religious denomination, as authorised clergy or as a missionary (<a href="https://fam.state.gov/fam/09FAM/09FAM060114.html" target="_blank" rel="noopener noreferrer">9 FAM 601.14-7(b)</a>, INA 319(b)(1)). The third item is broader than people expect. An LPR sponsor abroad is likewise US-domiciled if they obtained the preservation of residence benefit under INA 316(b) or 317.
+  </div>
+
+  <h3>What counts as evidence</h3>
+
+  <p>The Department's own list of what <em>establishes</em> domicile is: opening a US bank account, transferring funds to the US, making US investments, seeking US employment, registering children in US schools, applying for a Social Security number, and voting in local, State or Federal elections. Notice what is not on it: property, a mortgage, a lease.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">A lease is not the answer people think it is</span>
+    The Embassy's green sheet does list property and leases, and you should include yours. But a lease or a mortgage evidences an <strong>address</strong>, not a residence: a landlord does not know whether you are in the country. Never let it be your only domicile evidence. What carries weight is evidence generated by <em>being there</em>: US tax filings showing <strong>domestic earned income</strong>, a W-2, a US job contract or signed offer with a start date, utility bills in your name across several months, school or university enrollment. The standard the officer applies is whether you have &ldquo;<strong>in fact</strong> taken up principal residence&rdquo; in the United States.
+  </div>
+
+  <p>Two points if you are rebuilding from nothing: your US address can be a house, an apartment, or an arrangement to stay with family or friends, so you do not need a lease to satisfy that part; and there is no fixed deadline for establishing residence, only the requirement that the officer be satisfied you have in fact taken it up.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-title">Citizenship is not domicile</span>
+    A US citizen who has lived abroad since childhood may have no adult US domicile to point back to: no US earned income history, no state ID, no utility record, possibly no Social Security number and no voting record. That is four of the seven items on the Department's own list unavailable from a standing start. If that is you, begin at the I-130 stage, not at the interview.
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-title">If you are the petitioner on a K-1</span>
+    This is not describing your paperwork. The I-864 is not required of K visa applicants at the interview; you file an I-134 instead. It is still describing your risk. A petitioner who is not in the United States weakens both the public charge picture and the premise that you will marry and live there, and the full I-864 domicile requirement arrives when your fianc&eacute;(e) adjusts status. Deferred, not avoided.
+  </div>
+
+  <p style="font-size:0.84rem;color:var(--muted);">Work through this with the <a href="/checklist-nvc.html">NVC checklist</a>, the <a href="/checklist-binder.html">binder checklist</a> and the <a href="/checklist-interview.html">interview checklist</a>, which all carry the domicile items.</p>
+
+  <!-- PREVENT -->
   <h2 id="prevent">Prevent it: planned mitigations by stage</h2>
 
-  <p>A 221(g) is not bad luck &mdash; it is almost always a gap that was visible earlier in the process. Here is what to lock down at each stage so nothing is left to be requested at the window.</p>
+  <p>A 221(g) is not bad luck. It is almost always a gap that was visible earlier in the process. Here is what to lock down at each stage so nothing is left to be requested at the window.</p>
 
   <div class="stage-card">
     <div class="stage-head">
       <span class="stage-pill">Stage 1 &middot; I-130</span>
-      <span class="stage-title">Planning only &mdash; nothing to action yet</span>
+      <span class="stage-title">Planning only: nothing to action yet</span>
     </div>
     <p>At this stage there is nothing to submit for 221(g) purposes. Two things are just worth thinking through so nothing catches you out later:</p>
     <ul style="margin-bottom:0;">
-      <li><strong>If the US citizen sponsor lives overseas,</strong> start thinking about how you will show US domicile &mdash; up to and including relocating back to the US, job hunting, and relocation planning. This only needs to be in place by the time the petition reaches NVC, so for now it is planning, not action.</li>
-      <li><strong>Consider whether a joint sponsor may eventually be needed</strong> &mdash; for example if the petitioner's income is not sufficient, the petitioner is a student or does not earn W-2 or self-employment income, or the petitioner lives overseas with the beneficiary. No action is required now; just identify the possibility early.</li>
+      <li><strong>If the US citizen petitioner lives overseas,</strong> start thinking about how you will show US domicile, up to and including relocating back to the US, job hunting, and relocation planning. This only needs to be in place by the time the petition reaches NVC, so for now it is planning, not action: but read <a href="#domicile">the petitioner's domicile problem</a> first, because this is the one financial gap a joint sponsor cannot cover, and a petitioner who has been abroad for years has the most ground to make up.</li>
+      <li><strong>Consider whether a joint sponsor may eventually be needed</strong>, for example if the petitioner's income is not sufficient, the petitioner is a student or does not earn W-2 or self-employment income, or the petitioner lives overseas with the beneficiary. No action is required now; just identify the possibility early.</li>
     </ul>
   </div>
 
@@ -553,12 +723,12 @@
       <span class="stage-title">Meet London's bar, not just the DQ minimum</span>
     </div>
     <ul style="margin-bottom:0;">
-      <li><strong>Upload the IRS tax transcript</strong> for every sponsor and joint sponsor, from <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/individuals/get-transcript</a> &mdash; even if DQ was granted on a 1040 copy. This is the single highest-value mitigation.</li>
-      <li>If the transcript genuinely is not yet available, upload the complete signed 1040, W-2s, pay stubs, and IRS e-file acceptance, and note in CEAC that the transcript will follow before interview.</li>
+      <li><strong>Upload the IRS tax transcript</strong> for every sponsor and joint sponsor, from <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/individuals/get-transcript</a>, even if DQ was granted on a 1040 copy. This is the single highest-value mitigation.</li>
+      <li>If the transcript is not yet available, upload the complete signed 1040, W-2s, pay stubs, and IRS e-file acceptance, and note in CEAC that the transcript will follow before interview.</li>
       <li>Provide a full joint-sponsor package if income is marginal: separate I-864, their transcript, proof of US status, and proof of US domicile.</li>
-      <li>Upload domicile evidence even where NVC does not demand it &mdash; driver's license, US lease, job offer, US bills.</li>
+      <li>Upload <a href="#domicile">domicile evidence</a> for the petitioner even where NVC does not demand it, and do not rest it on a lease alone: US tax filings showing domestic earned income, a W-2 or US job offer with a start date, utility bills in the petitioner's name, state ID. If the petitioner lives abroad, add evidence they are re-establishing domicile.</li>
     </ul>
-    <p style="margin:0.6rem 0 0;font-size:0.84rem;color:var(--muted);">See the full breakdown in the <a href="/guide.html#nvc">NVC stage of the guide</a> and the <a href="/checklist-nvc.html">NVC checklist</a>.</p>
+    <p style="margin:0.6rem 0 0;font-size:0.84rem;color:var(--muted);">See the full breakdown in the <a href="/guide/nvc">NVC stage of the guide</a> and the <a href="/checklist-nvc.html">NVC checklist</a>.</p>
   </div>
 
   <div class="stage-card">
@@ -570,7 +740,7 @@
       <li>If your financials have crossed a tax-filing deadline since DQ, upload the newest tax year's transcript to CEAC so the officer reviews current figures.</li>
       <li>Confirm your passport is valid at least six months beyond your intended entry date; renew now if not.</li>
       <li>Get your ACRO police certificate (valid 12 months for Embassy purposes) and confirm civil-document originals are accessible.</li>
-      <li>Prepare your <a href="/public-charge.html">public charge statement</a> covering housing, employment, and health insurance &mdash; and how each is paid for. Treat it as a required document (even where the embassy calls it voluntary); it removes a line of questioning at the window.</li>
+      <li>Prepare your <a href="/public-charge.html">public charge statement</a> covering housing, employment, and health insurance, and how each is paid for. The embassy calls it voluntary; treat it as mandatory, and send it with the last 3 years of IRS tax returns for every sponsor, and the last 3 months of payslips and/or bank statements. It removes a line of questioning at the window.</li>
     </ul>
   </div>
 
@@ -579,9 +749,9 @@
       <span class="stage-pill">Stage 4 &middot; Medical &amp; document check</span>
       <span class="stage-title">Don't count on document check to catch your gaps</span>
     </div>
-    <p>The document check at the embassy happens on the same day as your medical, about two weeks before your interview. It sometimes flags a missing or needed document &mdash; but it does not always catch everything.</p>
+    <p>The document check at the embassy happens on the same day as your medical, about two weeks before your interview. It sometimes flags a missing or needed document, but it does not always catch everything.</p>
     <ul style="margin-bottom:0;">
-      <li>Community members have had real gaps slip through document check unflagged &mdash; a missing IRS transcript, missing domicile evidence, an unaddressed need for a joint sponsor &mdash; only for the same item to surface as a 221(g) at interview. That is a missed opportunity: flagged at document check, it could have been fixed in the two-week window before the interview.</li>
+      <li>Community members have had real gaps slip through document check unflagged: a missing IRS transcript, missing domicile evidence, an unaddressed need for a joint sponsor: only for the same item to surface as a 221(g) at interview. That is a missed opportunity: flagged at document check, it could have been fixed in the two-week window before the interview.</li>
       <li>Treat document check as a backstop, not a safety net. Arrive already prepared and organized, having run your own checks against the boxes on the green sheet, so you are interview-ready whether or not anything is flagged.</li>
     </ul>
   </div>
@@ -592,9 +762,9 @@
       <span class="stage-title">Everything must already be in CEAC</span>
     </div>
     <ul style="margin-bottom:0;">
-      <li><strong>If a financial document is not in CEAC before interview day, it is too late</strong> &mdash; the officer will not accept unuploaded financial evidence at the window. Bring originals, but do not rely on handing them over.</li>
+      <li><strong>Get every financial document into CEAC before interview day</strong>: there is no rule barring evidence at the window, but officers decide mainly from CEAC, and a document produced for the first time in the room may generate a 221(g) to submit it properly. Bring originals, but do not rely on handing them over.</li>
       <li>One exception: a paper copy of something <em>already uploaded</em> to CEAC can rescue a visibility glitch where staff cannot see it on their side. This has saved cases at document check.</li>
-      <li>Answers must match your DS-260 and CEAC exactly &mdash; inconsistencies invite scrutiny.</li>
+      <li>Answers must match your DS-260 and CEAC exactly: inconsistencies invite scrutiny.</li>
     </ul>
   </div>
 
@@ -603,37 +773,189 @@
     Upload the IRS transcript for every sponsor before interview, line up a joint sponsor if income is anywhere near the line, and make sure every document the officer could ask for is already in CEAC. Do those three things and the common financial 221(g) largely disappears.
   </div>
 
-  <!-- ── RESOLVE ── -->
+  <!-- RESOLVE -->
   <h2 id="resolve">If you already have a 221(g)</h2>
 
-  <p>If you were handed the green sheet at the window, work the ticked boxes &mdash; and only the ticked boxes. Here is the process.</p>
+  <p>If you were handed the green sheet at the window, work the ticked boxes, and only the ticked boxes. Here is the process.</p>
 
   <ol>
-    <li><strong>Read exactly what is ticked.</strong> That is the complete bar to clear. Do not send more than is asked; extra material only slows review.</li>
+    <li><strong>Read exactly what is ticked.</strong> That is the complete bar to clear. Do not send more than is asked; extra material only slows review. The <a href="/221g-sheet">green sheet triage</a> turns your ticked boxes into a to-do list.</li>
     <li><strong>Wait for the follow-up email.</strong> Within 1&ndash;2 days of the interview you will receive instructions on how to submit, sent to the email address you registered with the courier service.</li>
     <li><strong>Submit as instructed.</strong> That usually means emailing the documents to <strong>LNDIVSubmissions@state.gov</strong> with your case number, and/or uploading to <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a> and/or sending physical documents by the courier service (no charge).</li>
-    <li><strong>Send everything in one go.</strong> If multiple documents are requested, do not submit piecemeal &mdash; wait until you have them all and send together.</li>
+    <li><strong>Send everything in one go.</strong> If multiple documents are requested, do not submit piecemeal. Wait until you have them all and send together. <a href="/interview-templates#221g">Email template</a>.</li>
   </ol>
 
   <div class="callout callout-good">
     <span class="callout-title">If you can produce the documents quickly, say so</span>
-    Where the officer expects you to return documents within days, they may keep your passport rather than hand it back &mdash; which shortens the turnaround once the case resumes. If you indicate a fast turnaround, be ready to deliver on it.
+    Where the officer expects you to return documents within days, they may keep your passport rather than hand it back: which shortens the turnaround once the case resumes. If you indicate a fast turnaround, be ready to deliver on it. Passports have also been kept on the administrative processing track, where the post has asked for a history form and CV rather than documents: see <a href="#security">below</a>.
   </div>
 
   <div class="callout callout-alert">
-    <span class="callout-title">The one-year deadline &mdash; INA &sect;203(g)</span>
-    The sheet warns that if you do not take the requested action within <strong>one year of the date on the letter</strong>, the application is cancelled under INA &sect;203(g). This is a hard limit &mdash; but there is no reason to wait. Submit as soon as your documents are ready.
+    <span class="callout-title">The one-year deadline: INA &sect;203(g)</span>
+    The sheet warns that if you do not take the requested action within <strong>one year of the date on the letter</strong>, the application is canceled under INA &sect;203(g). This is a hard limit, but there is no reason to wait. Submit as soon as your documents are ready.
   </div>
 
   <div class="callout callout-warn">
     <span class="callout-title">Type 1 (administrative processing) is different</span>
-    If the ticked sub-box is <em>additional administrative processing</em> rather than a document request, there is usually nothing to submit. It cannot be expedited or waived and has no published timeframe; the Embassy contacts you when it completes. Add <strong>LNDIVSubmissions@state.gov</strong> and the courier senders to your safe-senders list and watch for their email.
+    If the ticked sub-box is <em>additional administrative processing</em> rather than a document request, there is often nothing to submit. The exception is a request for your personal history and CV, covered in the <a href="#security">next section</a>. It cannot be expedited or waived and has no published timeframe; the Embassy contacts you when it completes. Add <strong>LNDIVSubmissions@state.gov</strong> and the courier senders to your safe-senders list and watch for their email.
   </div>
 
-  <!-- ── CONFUSIONS ── -->
+  <div class="callout callout-info">
+    <span class="callout-title">What the Department currently tells its own officers</span>
+    Cable 26 STATE 88862 (10 September 2026) tells consular officers that where they enter a new INA 221(g) refusal they must make clear notes as to the specific reasons, and, <strong>in both the case notes and any communication with the applicant, clearly articulate any reason</strong> for that refusal. In context the instruction is aimed at officers reworking cases that had been refused under the now-vacated immigrant visa and diversity visa pauses, so it is not a blanket rule covering every 221(g) at every post. It is still a fair guide to the standard the Department expects of its own officers: if the reason you are given is vague or generic, note it when you follow up with the post. The cable is public as ECF 95-1 in <em>Medani v. Trump</em>, No. 5:26-cv-06332 (N.D. Cal.).
+  </div>
+
+  <!-- OPEN 221(g), NEW INTERVIEW: moved to /reinterview -->
+  <h2 id="reinterview">Called back to interview (re-interview)</h2>
+
+  <p>If you were given a 221(g) before the September 2026 interview cancellations and now have a new interview date instead of a decision on paper, that has its own page. In short:</p>
+  <ul>
+    <li><strong>An ordinary 221(g) does not lock in the old standard.</strong> The officer decides public charge at the time of the new interview, with the new worksheet, and can look at all five factors about you, not only the box ticked on your old sheet.</li>
+    <li><strong>A pause-only 221(g) was sent back, not to the start,</strong> but you may still be asked public charge questions.</li>
+    <li><strong>Anything that has changed is assessed now,</strong> for both kinds: above all a petitioner who has moved out of the US, which a joint sponsor cannot fix. Check your medical too: results are valid for 6 months, and you must enter the US within those 6 months.</li>
+  </ul>
+  <p><a href="/reinterview" class="guide-return">Re-interview after a 221(g): what to do before the new date &rarr;</a></p>
+
+  <!-- SECURITY / TECHNICAL REVIEW -->
+  <h2 id="security">When administrative processing asks for your history</h2>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">Not a London report, and a single one</span>
+    <p>Everything in this section comes from one account an applicant's spouse posted publicly in September 2026, with a photograph of the form. The interview was at another post, not London, and the form carries no post name. We have not seen London issue it. It is here because it shows a kind of 221(g) this page otherwise describes as having nothing to submit.</p>
+  </div>
+
+  <p>In this case the interview ran about an hour and covered two separate things. The first was public charge: the beneficiary's bank balances and property abroad, and the joint sponsor block from the <a href="public-charge.html#asked">written public charge questionnaire</a>, asked out loud. The second was his field. He holds a degree in cybersecurity. The officer asked about specific attacks, how vulnerability testing is done, and what his thesis covered, and looked things up online while he answered.</p>
+
+  <p>He was given a 221(g) with <strong>administrative processing</strong> ticked, not a document list. The post kept his passport. He was then asked to email a set of personal history details with a fixed subject line, and to attach his CV.</p>
+
+  <h3>What the form asks for</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Item on the form</th><th>Also on Form DS-5535?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Subject line: <code>I88 - CASE NUMBER - SURNAME, GIVEN NAME</code></td><td>No. We have not found a published meaning for &ldquo;I88&rdquo;. Use it exactly as written.</td></tr>
+        <tr><td>Travel history for the last 15 years, and travel history to the US</td><td>Yes (15 years of travel)</td></tr>
+        <tr><td>Parents' full names, including the mother's surname at birth</td><td>Yes (parents' names)</td></tr>
+        <tr><td>Spouse, and any former spouses, or &ldquo;single/never married&rdquo;</td><td>Yes (current and former spouses)</td></tr>
+        <tr><td>Names of siblings</td><td>Yes</td></tr>
+        <tr><td>Current address, and every address in the last 15 years</td><td>Yes (15 years of addresses)</td></tr>
+        <tr><td>Education history for the last 15 years</td><td>No</td></tr>
+        <tr><td>Prior passports, with nationality and number</td><td>Yes</td></tr>
+        <tr><td>Occupations and employers for the last 15 years, with a brief description of each job</td><td>Yes (15 years of employment)</td></tr>
+        <tr><td>Weight (kg), height (cm), and visible identifying marks: birthmarks, moles, piercings, tattoos, scars</td><td>No</td></tr>
+        <tr><td>Previous military service: branch, dates, rank, specialty</td><td>No</td></tr>
+        <tr><td>A CV, and a list of prior publications if you have any</td><td>No</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Most of the form closely matches <strong>Form DS-5535, Supplemental Questions for Visa Applicants</strong>. The Department describes that form as being for applicants <em>determined to warrant additional scrutiny in connection with terrorism or other national security-related visa ineligibilities</em>. It asks for 15 years of travel, addresses and employment. DS-5535 also asks for five years of social media identifiers, which this form omits. The DS-260 already collects those, so the post may not need them again. The physical description and military service items are not on DS-5535.</p>
+
+  <h3>What it probably means</h3>
+
+  <p>This is inference, not something the post said. Two kinds of review would explain the form:</p>
+  <ul>
+    <li><strong>A security check.</strong> The 15-year history closely matches DS-5535. The height, weight and identifying marks are the kind of detail used to tell an applicant apart from someone with a similar name in a records check. That is our reading, not the post's.</li>
+    <li><strong>A technology-transfer review.</strong> INA 212(a)(3)(A)(i) makes an applicant inadmissible if they seek to violate or evade US export-control law. Cases where the applicant's field touches sensitive technology can be referred to Washington for review. A request for a CV and publications list, after detailed questions about the applicant's technical work, is the pattern commonly reported for that review.</li>
+  </ul>
+  <p>Neither says anything about whether the case is approvable. Neither is a public charge finding, and nothing on the form concerns money. The public charge questioning in the same interview may have been fully satisfied.</p>
+
+  <h3>Who should expect it</h3>
+  <p>No current list is published, so this is a judgement. Be ready for it if you studied or work in a scientific or technical field, particularly security, computing, engineering or the physical sciences, or if you have published research. It is also more likely if your travel history or nationality draws additional checks. The fields that have historically drawn technology checks are set out in the <a href="#dualuse">next section</a>.</p>
+
+  <h3>How to respond</h3>
+  <ol>
+    <li><strong>Use the subject line exactly as given.</strong> It routes your email. Send it to the address on your 221(g) sheet or in the post's instructions, not a guessed one.</li>
+    <li><strong>Answer every item, and write &ldquo;none&rdquo; where nothing applies.</strong> A blank reads as an omission.</li>
+    <li><strong>Check it against your DS-260.</strong> Addresses, employers, prior passports and travel should match what you already filed. Where the DS-260 was shorter, add to it rather than contradicting it.</li>
+    <li><strong>Make the CV precise.</strong> Give dates, employers and a plain description of what you did. The officer has already heard your spoken account of your work. Make the CV consistent with it, and do not overstate or understate the technical content.</li>
+    <li><strong>Send it in one email, once.</strong> Then wait. Administrative processing cannot be expedited. The Department asks applicants to wait at least 180 days from the interview, or from when they submitted supplemental documents if that was later, before enquiring about status, except in cases of emergency travel.</li>
+  </ol>
+
+  <div class="callout callout-good">
+    <span class="callout-title">Prepare it before the interview</span>
+    <p>If this may apply to you, put together 15 years of travel with dates, 15 years of addresses, employers with job descriptions, education, prior passport numbers and a current CV before interview day. None of it is hard to write. Reconstructing 15 years of trips from memory after a refusal is slow, and it is where inconsistencies with your DS-260 creep in. The <a href="/history-worksheet">15-year history worksheet</a> lays it out item by item.</p>
+  </div>
+
+  <!-- DUAL-USE CAREERS -->
+  <h2 id="dualuse">Dual-use careers and technology checks</h2>
+
+  <p>Some careers are <strong>dual-use</strong>: the same knowledge serves ordinary civilian work and could also serve weapons, military or intelligence purposes. The State Department's own definition is &ldquo;technologies which have both civilian and military applications&rdquo;. A chemical engineer running a pharmaceutical plant, a microbiologist, a penetration tester, a drone developer and a satellite imagery analyst all do legitimate jobs, and all work in fields the Department has listed as sensitive. If the beneficiary's education or career is in one of these fields, the officer may refer the case to Washington before deciding it. At the window that looks like a 221(g) with <strong>administrative processing</strong> ticked.</p>
+
+  <h3>The legal basis</h3>
+  <p>INA 212(a)(3)(A)(i)(II) makes an applicant inadmissible if there is reason to believe they seek to enter the US to violate or evade any law prohibiting the export of goods, technology or sensitive information. To answer that question the officer can request a <strong>security advisory opinion</strong> from Washington. For technology-transfer concerns this is the <strong>Visas Mantis</strong> check. A 2004 State Department Inspector General review describes the chain: the Bureau of Nonproliferation reviews the case, and the FBI runs a name check. The applicant is not told which check is running, and the post will not confirm it.</p>
+
+  <h3>The Technology Alert List</h3>
+  <p>Officers use the <strong>Technology Alert List</strong> (TAL) as guidance. The Bureau of Nonproliferation created it as a list of key words and phrases. The current version is not public. The last public version is State Department cable <em>UNCLAS STATE 147566</em>, <em>Using the Technology Alert List (Update)</em>, sent to all posts on 1 August 2002. It has two parts: a <strong>Critical Fields List</strong> of 15 lettered fields, and the list of state sponsors of terrorism. The cable tells officers they are not expected to be experts in these fields. Instead they should &ldquo;listen for key words or phrases from the list in applicants' answers to interview questions&rdquo;.</p>
+
+  <p>The table below is the 2002 Critical Fields List. The three rocket and drone fields (C to E) are combined into one row. Treat it as a guide to the kinds of work that draw attention, not as the current list.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Critical field (2002 list)</th><th>Examples it names</th><th>Ordinary careers that touch it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>A. Conventional munitions</td><td>Warheads, reactive armour, fusing and arming, electronic countermeasures, new explosives, automated explosive detection</td><td>Explosives engineers, blasting specialists, security screening equipment developers</td></tr>
+        <tr><td>B. Nuclear technology</td><td>Reactors, enrichment, fuel fabrication and reprocessing, fusion, plasma, heavy water, tritium</td><td>Nuclear power engineers, plasma and fusion physicists</td></tr>
+        <tr><td>C&ndash;E. Rocket systems and unmanned air vehicles, their subsystems, and navigation, avionics and flight control</td><td>Rocket propulsion, staging, superalloys, inertial navigation, homing devices, accelerometers and gyroscopes, flight control, GPS, drones</td><td>Aerospace and avionics engineers, drone developers and pilots, navigation engineers</td></tr>
+        <tr><td>F. Chemical, biotechnology and biomedical engineering</td><td>Chemical engineering, chemical separation, pesticide and pharmaceutical production, biochemistry, pharmacology, toxicology, immunology, microbiology, virology, genetic engineering, fermentation, freeze-drying, aerosol technology, crop-dusting, flight training</td><td>Chemical and process engineers, pharmaceutical scientists, microbiologists, lab researchers, agrochemical staff, some pilots</td></tr>
+        <tr><td>G. Remote sensing, imaging and reconnaissance</td><td>Remote sensing satellites, multi-spectral and radar imagery, synthetic aperture radar, photogrammetry, drones</td><td>Earth observation and GIS analysts, surveyors, radar engineers</td></tr>
+        <tr><td>H. Advanced computer and microelectronic technology</td><td>Supercomputing, speech recognition, neural networks, data fusion, superconductivity, optoelectronics</td><td>Machine learning engineers, chip designers, high-performance computing staff</td></tr>
+        <tr><td>I. Materials technology</td><td>Advanced metals and alloys, ceramics, composites, polymers, superconductive materials</td><td>Metallurgists, materials scientists, composites engineers</td></tr>
+        <tr><td>J. Information security</td><td>Cryptography and cryptographic systems for communications, video, data and related software</td><td>Cybersecurity specialists, penetration testers, cryptographers, security software developers</td></tr>
+        <tr><td>K. Laser and directed energy systems</td><td>High and low energy lasers (including laser welders), semiconductor lasers, optical tracking, pulsed power, hypersonics</td><td>Photonics and optics engineers, laser manufacturing specialists</td></tr>
+        <tr><td>L. Sensors and sensor technology</td><td>Marine acoustics, optical sensors, night vision, gravity meters, high-speed photography, magnetometers</td><td>Geophysicists, sensor and instrumentation engineers</td></tr>
+        <tr><td>M. Marine technology</td><td>Submarines and submersibles, undersea robots, marine propulsion, signature reduction</td><td>Naval architects, marine and subsea engineers</td></tr>
+        <tr><td>N. Robotics</td><td>Artificial intelligence, automation, computer-controlled machine tools, pattern recognition</td><td>AI and automation engineers, CNC and manufacturing engineers</td></tr>
+        <tr><td>O. Urban planning</td><td>Architecture, civil engineering, community development, environmental planning, geography, housing, landscape architecture, land use planning, urban design</td><td>Architects, civil engineers, planners, geographers. The cable says this field may not fall under the export-control ground at all, but calls it a &ldquo;special interest item&rdquo; and asks posts to refer these cases anyway.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>What makes a check more or less likely</h3>
+  <ul>
+    <li><strong>Being in a listed field does not by itself require a check, but the bar for skipping one is high.</strong> The cable says checks are not mandatory for every applicant in a critical field. It also says officers should decide the case without one only when they believe the ground &ldquo;clearly does not apply&rdquo;. When in doubt, they are told to refer.</li>
+    <li><strong>Public knowledge is not controlled.</strong> The cable states that information in the public domain, and information presented in an academic course, generally is not controlled for technology-transfer purposes.</li>
+    <li><strong>Depth and purpose matter more than the job title.</strong> The cable tells officers to start by asking whether the applicant proposes advanced research or study (doctoral, postdoctoral or research scholar) or business activity in a listed field. Later guidance, as quoted by university international offices, is broader: graduate-level study, teaching, research, training, employment or commercial transactions. For an immigrant visa, that means what the beneficiary is likely to do in the US matters, not only what they did before.</li>
+    <li><strong>Nationality and employer matter.</strong> Under the 2002 cable a check is mandatory for anyone who holds a passport of, or is employed by, a state sponsor of terrorism and seeks to work in a critical field. The 2002 list of those countries is out of date, so check the State Department's <a href="https://www.state.gov/state-sponsors-of-terrorism/" target="_blank" rel="noopener noreferrer">current list</a>. The cable also flags people affiliated with organisations on the US Commerce Department's Entity List. If the beneficiary has worked for or studied at a foreign university, lab or company, it is worth checking it against the <a href="https://www.trade.gov/consolidated-screening-list" target="_blank" rel="noopener noreferrer">Consolidated Screening List</a>.</li>
+    <li><strong>A field not on the list is not a guarantee.</strong> The cable tells officers to refer any case they suspect falls under the ground, even if the applicant's profession is not on the list.</li>
+    <li><strong>The interview is where it surfaces.</strong> Officers are told to listen for key words. In the <a href="#security">case above</a>, the officer asked detailed questions about the beneficiary's cybersecurity degree and thesis, then asked for a CV and publications. Immigration practitioners report the same pattern: a 221(g) first, followed by requests for a detailed CV, an employer letter, or evidence that the work is not military.</li>
+  </ul>
+
+  <h3>Military, defence and intelligence backgrounds</h3>
+  <p>The Critical Fields List covers technologies, not roles, and there is no published list of occupations for military, defence or intelligence work. These backgrounds are still asked about directly. The DS-260 asks whether the applicant has served in the military and whether they have specialised skills or training in firearms, explosives, or nuclear, biological or chemical work. The history form in the <a href="#security">case above</a> asks for branch, dates, rank and specialty. Conscription or ordinary national service is common and is not a problem in itself. What matters is that the answers are complete and consistent across the DS-260, the history form, the CV and what is said at the window.</p>
+
+  <div class="callout callout-alert">
+    <span class="callout-title">Do not downplay the work</span>
+    <p>It can be tempting to describe a sensitive job vaguely to avoid a check. Do not. Wilfully misrepresenting a material fact to obtain a visa makes an applicant permanently inadmissible under INA 212(a)(6)(C)(i), which is far worse than a delay. Officers can and do look up publications, theses, patents and professional profiles during the interview. Describe the work accurately and in plain terms, and let the review run.</p>
+  </div>
+
+  <h3>How long it takes, and how often it clears</h3>
+  <p>There is no current published figure. The Government Accountability Office found that Mantis checks averaged about 75 days in October 2003, and about 15 days by November 2004 after the process was streamlined (GAO-05-198). The Inspector General reported in 2004 that the Bureau of Nonproliferation received an estimated 10,000 of these referrals a year. It also reported that about 85% of FBI visa name checks came back with no match on the first pass, rising to about 95% after manual review. All of these figures are over 20 years old and come from a much smaller caseload. They show that most checks clear, not how long yours will take. Today the Department asks applicants to wait at least 180 days from the interview, or from submitting supplemental documents, before enquiring about administrative processing.</p>
+
+  <h3>Prepare before the interview</h3>
+  <p>The 2002 cable tells officers to gather as much detail as they can when they refer a case, because &ldquo;the effectiveness of the name check (and the turnaround time) is directly related to the completeness of the information&rdquo;. It names the documents it wants officers to encourage applicants to provide. Having them ready means the referral goes out complete.</p>
+  <ol>
+    <li><strong>A complete CV.</strong> Dates, employers, job titles, and a plain description of what the beneficiary did. Say what the work was for: making a medicine, securing a bank's network, surveying land.</li>
+    <li><strong>A complete list of publications</strong>, with titles and dates, including theses and patents. The cable asks for this for the applicant and for an accompanying spouse.</li>
+    <li><strong>Project descriptions</strong> for significant research or technical work.</li>
+    <li><strong>A letter from the current employer</strong> describing the role and duties, and whether the work involves export-controlled technology.</li>
+    <li><strong>Letters of recommendation</strong>, from a US source or from abroad, if the beneficiary has them.</li>
+    <li><strong>Evidence the knowledge is public</strong>, where it fits: for example, a course syllabus or standard textbook showing the subject is taught at university level.</li>
+    <li><strong>A short, accurate answer about US plans.</strong> The cable's questions include where the applicant will work, who is funding them, and &ldquo;how, and where, does the applicant plan to use the goods or knowledge acquired?&rdquo;. An immigrant visa does not require a job offer, and &ldquo;not decided yet&rdquo; is an acceptable true answer.</li>
+    <li><strong>The 15-year history</strong> described in the <a href="#security">previous section</a>, checked against the DS-260.</li>
+  </ol>
+
+  <!-- CONFUSIONS -->
   <h2 id="confusions">221(g) vs administrative processing vs the visa pause</h2>
 
   <p>Three things get conflated. They are not the same:</p>
+
+  <div data-pause-glossary></div>
 
   <div class="table-wrap">
     <table>
@@ -650,15 +972,20 @@
           <td>Short-term &ldquo;Administrative Processing&rdquo; in CEAC during final checks and visa printing <em>after</em> a successful interview. This is normal and is <strong>not</strong> a 221(g).</td>
         </tr>
         <tr>
+          <td>221(g) with a history request</td>
+          <td>Administrative processing ticked at the window, followed by a request for 15 years of personal history and a CV. This is a security or technical review, not a public charge refusal. See <a href="#security">above</a>.</td>
+        </tr>
+        <tr>
           <td>Visa pause</td>
-          <td>If the beneficiary holds citizenship of a country under the current visa pause, the visa cannot be approved at this time. Not a denial and not AP. If they hold another unaffected passport, use it &mdash; and make sure it is uploaded to CEAC.</td>
+          <td>The January 2026 nationality visa pause was <strong>struck down by a federal court on 21 August 2026</strong> and refusals based solely on it have been set aside for re-adjudication. See <a href="/visa-pause.html">the nationality visa pause, struck down</a>. If your case was held only because of the pause, it falls within that ruling. This ruling does not affect the separate travel ban, <a href="https://www.congress.gov/crs-product/IN12631" target="_blank" rel="noopener noreferrer">Proclamation 10998</a>, which still suspends immigrant visas for nationals of 39 countries with no general exception for relatives of US citizens. If you also hold a passport from a country on neither list, check whether the proclamation's dual-national exception applies, and make sure that passport is uploaded to CEAC.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div style="margin-top:2rem;">
-    <a href="/guide.html#interview" class="guide-return">&larr; Back to the interview stage of the guide</a>
+    <a href="/guide/interview" class="guide-return">&larr; Back to the interview stage of the guide</a>
+    <a href="/interview" class="guide-return" style="margin-left:0.4rem;">Your interview hub</a>
   </div>
 
   <!-- SOURCES -->
@@ -670,15 +997,33 @@
       <li>USCIS, <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864, Affidavit of Support</a> and instructions (sponsor, joint sponsor, and I-864A requirements).</li>
       <li>IRS, <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">Get Transcript</a> (obtaining the tax return transcript).</li>
       <li>USCIS, <a href="https://www.uscis.gov/i-601" target="_blank" rel="noopener noreferrer">Form I-601, Waiver of Grounds of Inadmissibility</a> (for 212(a) findings).</li>
-      <li>Related on this site: <a href="/guide.html#nvc">NVC stage</a> &middot; <a href="/checklist-nvc.html">NVC checklist</a> &middot; <a href="/public-charge.html">Public charge statement template</a> &middot; <a href="/guide.html#interview">Interview stage</a>.</li>
+      <li>Department of State, <a href="https://fam.state.gov/fam/09FAM/09FAM060114.html" target="_blank" rel="noopener noreferrer">9 FAM 601.14, Affidavit of Support</a>: the sponsor qualifications at 601.14-5, and the domicile requirement, evidence and qualifying-employment exception at 601.14-7.</li>
+      <li>Department of State, <a href="https://www.federalregister.gov/documents/2023/09/22/2023-20565/60-day-notice-of-proposed-information-collection-supplemental-questions-for-visa-applicants" target="_blank" rel="noopener noreferrer">Supplemental Questions for Visa Applicants (DS-5535), 60-day notice</a>, Federal Register, 22 September 2023, and the <a href="https://jm.usembassy.gov/wp-content/uploads/sites/88/2025/08/DS-5535-Supplemental-Quesiton-for-Visa-Applicants-002.pdf" target="_blank" rel="noopener noreferrer">form as posted by US Embassy Kingston</a>.</li>
+      <li><a href="https://www.law.cornell.edu/uscode/text/8/1182" target="_blank" rel="noopener noreferrer">INA 212(a)(3)(A)(i), 8 U.S.C. &sect; 1182(a)(3)(A)(i)</a>: the security ground, including the export-control limb.</li>
+      <li>Department of State cable <em>UNCLAS STATE 147566</em>, <em>Using the Technology Alert List (Update)</em>, 1 August 2002: the last public version of the TAL and its Critical Fields List. Archived by <a href="https://www.nafsa.org/professional-resources/browse-by-interest/archived-dos-cable-use-technology-alert-list" target="_blank" rel="noopener noreferrer">NAFSA</a> and university international offices, and reproduced by <a href="https://www.greencardlawyers.com/answers_for/VisaProcessing/tal.html" target="_blank" rel="noopener noreferrer">Peng &amp; Weber, PLLC</a>.</li>
+      <li>Department of State Office of Inspector General, <a href="https://www.stateoig.gov/uploads/report/report_pdf_file/aud_pr-04-24_1.pdf" target="_blank" rel="noopener noreferrer"><em>Review of Export Controls for Foreign Persons Employed at Companies and Universities</em></a>, Report AUD/PR-04-24, April 2004: the TAL's origin, the Visas Mantis review chain, referral volume and FBI name-check rates.</li>
+      <li>Temple University International Student and Scholar Services, <a href="https://global.temple.edu/isss/technology-alert-list" target="_blank" rel="noopener noreferrer">Technology Alert List</a>: later guidance on which activities are in scope.</li>
+      <li>Thomas M. Lee, <a href="https://www.thomasmlee.com/blog/understanding-the-technology-alert-list-tal-what-immigrants-need-to-know/" target="_blank" rel="noopener noreferrer">Understanding the Technology Alert List (TAL): What Immigrants Need to Know</a>, 15 March 2025: practitioner account of TAL cases arriving as 221(g) refusals.</li>
+      <li>US Government Accountability Office, <a href="https://www.gao.gov/products/gao-05-198" target="_blank" rel="noopener noreferrer">GAO-05-198, Border Security: Streamlined Visas Mantis Program Has Lowered Burden on Foreign Science Students and Scholars</a>, February 2005.</li>
+      <li><a href="https://www.law.cornell.edu/uscode/text/8/1182" target="_blank" rel="noopener noreferrer">INA 212(a)(6)(C)(i), 8 U.S.C. &sect; 1182(a)(6)(C)(i)</a>: misrepresentation.</li>
+      <li>Department of State, <a href="https://www.state.gov/state-sponsors-of-terrorism/" target="_blank" rel="noopener noreferrer">State Sponsors of Terrorism</a> (current list).</li>
+      <li>US International Trade Administration, <a href="https://www.trade.gov/consolidated-screening-list" target="_blank" rel="noopener noreferrer">Consolidated Screening List</a>, which includes the Commerce Department Entity List.</li>
+      <li>Department of State, <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/administrative-processing-information.html" target="_blank" rel="noopener noreferrer">Administrative Processing Information</a>.</li>
+      <li>Department of State, <a href="https://www.ecfr.gov/current/title-22/chapter-I/subchapter-E/part-42/subpart-I/section-42.81" target="_blank" rel="noopener noreferrer">22 CFR 42.81(e)</a>: reconsideration of a refused immigrant visa case on further evidence within one year, without a new application fee.</li>
+      <li>Department of State cable 26 STATE 88862, 10 September 2026, filed as ECF 95-1 in <em>Medani v. Trump</em>, No. 5:26-cv-06332 (N.D. Cal.): additional interviews, the public charge worksheet in all immigrant visa cases, and articulating any new 221(g).</li>
+      <li>Personal history request and interview account from another post, shared publicly by the applicant's spouse, September 2026: the source for the <a href="#security">history request section</a>.</li>
+      <li>Related on this site: <a href="/guide/nvc">NVC stage</a> &middot; <a href="/checklist-nvc.html">NVC checklist</a> &middot; <a href="/public-charge.html">Public charge statement template</a> &middot; <a href="/guide/interview">Interview stage</a> &middot; <a href="/reinterview">Re-interview after a 221(g)</a>. Tools: <a href="/221g-sheet">green sheet triage</a> &middot; <a href="/history-worksheet">15-year history worksheet</a> &middot; <a href="/interview-templates">email templates</a> &middot; <a href="/interview-dates">date checker</a>.</li>
     </ol>
   </div>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed July 2026. This page is general information, not legal advice.</p>
+  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 27 September 2026.</p>
 
 </div>
 
 <div id="footer-placeholder"></div>
 
+<script src="/js/live-notice.js?v=20260930"></script>
+<script src="/js/pause-glossary.js?v=20260930"></script>
+<script src="/js/page-contents.js?v=20260930"></script>
 </body>
 </html>

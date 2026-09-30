@@ -1,10 +1,10 @@
-/* ─────────────────────────────────────────────────────────────
+/*
    Single source of truth for the IL → Interview observed-pattern
    table. Rendered on both the homepage (index.html) and the guide
-   (guide.html). Edit the rows HERE only — both pages update.
+   (guide.html). Edit the rows HERE only, both pages update.
 
    Any <tbody data-il-interview> on the page is filled automatically.
-   ───────────────────────────────────────────────────────────── */
+ */
 (function () {
   'use strict';
 
