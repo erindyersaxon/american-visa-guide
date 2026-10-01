@@ -726,6 +726,7 @@
     border-bottom: 1px solid rgba(90,143,166,0.06);
     font-size: 13px;
     color: rgba(30,28,23,0.85);
+    overflow-wrap: anywhere; /* long email addresses must not widen the page */
   }
 
   .checklist li:last-child { border-bottom: none; }
@@ -930,6 +931,9 @@
     border-radius: 4px;
     padding: 0 8px;
     margin-right: 6px;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    flex-shrink: 0;
   }
 
   .role--petitioner  { background: var(--role-petitioner); }
