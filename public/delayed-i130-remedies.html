@@ -195,6 +195,7 @@
       margin-bottom: 1rem;
       overflow: hidden;
     }
+    .remedy-heading { margin: 0; padding: 0; border: 0; font: inherit; color: inherit; letter-spacing: inherit; }
     .remedy-toggle {
       width: 100%;
       background: var(--surface-alt);
@@ -484,18 +485,20 @@
 
   <!-- STEP 1: CASE INQUIRY -->
   <div class="remedy-card">
+    <h2 class="remedy-heading">
     <button class="remedy-toggle" aria-expanded="false" aria-controls="body-1">
-      <div class="remedy-toggle-inner">
+      <span class="remedy-toggle-inner">
         <span class="remedy-step">Step 1</span>
         <span class="remedy-title">USCIS case inquiry</span>
-        <div class="remedy-badges">
+        <span class="remedy-badges">
           <span class="badge badge-gold">Free</span>
           <span class="badge badge-muted">Required first step</span>
           <span class="badge badge-muted">Does not compel action</span>
-        </div>
-      </div>
+        </span>
+      </span>
       <span class="remedy-chevron">&#x25BE;</span>
     </button>
+    </h2>
     <div class="remedy-body" id="body-1" hidden>
 
       <p>A case inquiry is a service request asking USCIS to look at the status of your pending petition. It is the prerequisite for every step on this page. You cannot contact the CIS Ombudsman, strengthen a congressional submission, or build a demand letter without one on file.</p>
@@ -529,18 +532,20 @@
 
   <!-- STEP 2: OMBUDSMAN -->
   <div class="remedy-card">
+    <h2 class="remedy-heading">
     <button class="remedy-toggle" aria-expanded="false" aria-controls="body-2">
-      <div class="remedy-toggle-inner">
+      <span class="remedy-toggle-inner">
         <span class="remedy-step">Step 2</span>
         <span class="remedy-title">CIS Ombudsman case assistance</span>
-        <div class="remedy-badges">
+        <span class="remedy-badges">
           <span class="badge badge-red">Suspended since March 2025</span>
           <span class="badge badge-muted">Free</span>
           <span class="badge badge-muted">Recommends only</span>
-        </div>
-      </div>
+        </span>
+      </span>
       <span class="remedy-chevron">&#x25BE;</span>
     </button>
+    </h2>
     <div class="remedy-body" id="body-2" hidden>
 
       <div class="callout callout-alert">
@@ -591,18 +596,20 @@
 
   <!-- STEP 3: CONGRESSIONAL -->
   <div class="remedy-card" id="congressional">
+    <h2 class="remedy-heading">
     <button class="remedy-toggle" aria-expanded="false" aria-controls="body-3">
-      <div class="remedy-toggle-inner">
+      <span class="remedy-toggle-inner">
         <span class="remedy-step">Step 3</span>
         <span class="remedy-title">Congressional inquiry</span>
-        <div class="remedy-badges">
+        <span class="remedy-badges">
           <span class="badge badge-gold">Free</span>
           <span class="badge badge-muted">12+ months</span>
           <span class="badge badge-muted">Agency response: 4 to 8 weeks</span>
-        </div>
-      </div>
+        </span>
+      </span>
       <span class="remedy-chevron">&#x25BE;</span>
     </button>
+    </h2>
     <div class="remedy-body" id="body-3" hidden>
 
       <p>Your congressional offices can file a formal inquiry with the relevant federal agency on your behalf once your case is outside normal processing timeframes. It is free, low-risk, and a natural next step once your USCIS case inquiry has gone unanswered.</p>
@@ -734,18 +741,20 @@ I am happy to provide supporting documentation. Thank you.</div>
 
   <!-- STEP 4: WHITE HOUSE -->
   <div class="remedy-card" id="whitehouse">
+    <h2 class="remedy-heading">
     <button class="remedy-toggle" aria-expanded="false" aria-controls="body-4">
-      <div class="remedy-toggle-inner">
+      <span class="remedy-toggle-inner">
         <span class="remedy-step">Step 4</span>
         <span class="remedy-title">White House contact</span>
-        <div class="remedy-badges">
+        <span class="remedy-badges">
           <span class="badge badge-gold">Free</span>
           <span class="badge badge-muted">Informal, not a remedy</span>
           <span class="badge badge-muted">Under 10 minutes</span>
-        </div>
-      </div>
+        </span>
+      </span>
       <span class="remedy-chevron">&#x25BE;</span>
     </button>
+    </h2>
     <div class="remedy-body" id="body-4" hidden>
 
       <p>The White House contact portal is a general public comment form, not a casework channel or a legal remedy: there is no published process for routing individual cases to USCIS, and no response is guaranteed. If you use it, do so alongside a congressional inquiry, not instead of one. Response times are longer and success rates lower than congressional casework. The message field is capped near 4,000 characters and accepts no attachments. Find the current form at <a href="https://www.whitehouse.gov/">whitehouse.gov</a> under Contact.</p>
@@ -797,18 +806,20 @@ I respectfully request the White House's assistance in encouraging USCIS to adju
 
   <!-- STEP 5: DEMAND LETTER -->
   <div class="remedy-card" id="demand">
+    <h2 class="remedy-heading">
     <button class="remedy-toggle" aria-expanded="false" aria-controls="body-5">
-      <div class="remedy-toggle-inner">
+      <span class="remedy-toggle-inner">
         <span class="remedy-step">Step 5</span>
         <span class="remedy-title">Demand letter</span>
-        <div class="remedy-badges">
+        <span class="remedy-badges">
           <span class="badge badge-gold">Free to ~$500</span>
           <span class="badge badge-muted">15&ndash;18 months</span>
           <span class="badge badge-warn">Attorney optional but recommended</span>
-        </div>
-      </div>
+        </span>
+      </span>
       <span class="remedy-chevron">&#x25BE;</span>
     </button>
+    </h2>
     <div class="remedy-body" id="body-5" hidden>
 
       <p>A demand letter is a formal pre-litigation notice to USCIS. It does not invoke a statute of its own. Its purpose is to put USCIS on notice that you intend to seek judicial relief if the agency does not adjudicate your petition within the stated timeframe. It is a step before court, not a court action.</p>
@@ -894,18 +905,20 @@ Sincerely,
 
   <!-- STEP 6: MANDAMUS -->
   <div class="remedy-card" id="mandamus">
+    <h2 class="remedy-heading">
     <button class="remedy-toggle" aria-expanded="false" aria-controls="body-6">
-      <div class="remedy-toggle-inner">
+      <span class="remedy-toggle-inner">
         <span class="remedy-step">Step 6</span>
         <span class="remedy-title">Writ of mandamus</span>
-        <div class="remedy-badges">
+        <span class="remedy-badges">
           <span class="badge badge-gold">$405 filing fee</span>
           <span class="badge badge-muted">30 days after the demand letter</span>
           <span class="badge badge-warn">Attorney strongly recommended</span>
-        </div>
-      </div>
+        </span>
+      </span>
       <span class="remedy-chevron">&#x25BE;</span>
     </button>
+    </h2>
     <div class="remedy-body" id="body-6" hidden>
 
       <p>A writ of mandamus does not ask a judge to approve your case. It asks the judge to rule that USCIS has unreasonably delayed a decision it has a duty to make, and to order the agency to make it. It is the strongest remedy available and the only one that can force a decision. It compels USCIS to act on your petition. It does not compel approval. The outcome of adjudication depends entirely on the merits of your underlying petition.</p>
