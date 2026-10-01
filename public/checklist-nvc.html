@@ -43,6 +43,18 @@
       .doc-summary-table th { padding: var(--space-4); text-align: left; font-weight: var(--weight-semibold); color: var(--color-navy); border: 1px solid var(--color-border); }
       .doc-summary-table td { padding: var(--space-4); border: 1px solid var(--color-border); }
       .doc-summary-table tbody tr:nth-child(even) { background: var(--color-surface-alt); }
+      /* Phones: each row stacks as a card (category and mark on one line, notes below). */
+      @media (max-width: 640px) {
+        .doc-summary-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        .doc-summary-table, .doc-summary-table tbody { display: block; }
+        .doc-summary-table tr { display: grid; grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-3); padding: var(--space-3); border: 1px solid var(--color-border); border-top: none; }
+        .doc-summary-table tr:first-child { border-top: 1px solid var(--color-border); }
+        .doc-summary-table td { display: block; padding: 0; border: none; overflow-wrap: anywhere; }
+        .doc-summary-table td:first-child { font-weight: var(--weight-semibold); }
+        .doc-summary-table td:nth-child(2):not(:empty)::before { content: "Required: "; color: var(--color-text-secondary); font-weight: normal; }
+        .doc-summary-table td.doc-conditional::before { content: "If applicable "; }
+        .doc-summary-table td:last-child { grid-column: 1 / -1; }
+      }
       .doc-required { color: var(--color-navy); font-weight: var(--weight-medium); }
       .doc-conditional { color: var(--color-warning); font-weight: var(--weight-medium); }
       .doc-not-needed { color: var(--color-text-muted); }
