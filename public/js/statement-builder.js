@@ -69,7 +69,7 @@
     const rel = val('rel') === 'other' ? 'the ' + ph(val('relother'), 'relationship') + ' of my petitioner' : 'married to my petitioner';
     pc.push('I am ' + rel + ', and ' + (val('owndeps') ? 'my dependents are ' + sentence(val('owndeps')) : 'I have no dependents.'));
     pc.push(val('petdeps') ? 'My petitioner has ' + sentence(val('petdeps')) : 'My petitioner has no dependents other than those named above.');
-    if (val('depcare')) pc.push(sentence(val('depcare')) + ' It does not depend on public funding.');
+    if (val('depcare')) pc.push(sentence(val('depcare')) + ' That care does not depend on public funding.');
     p.push('PERSONAL CIRCUMSTANCES');
     p.push(pc.join(' '));
     p.push('');
@@ -120,7 +120,7 @@
     // HEALTH INSURANCE
     p.push('HEALTH INSURANCE');
     if (val('ins') === 'employer') {
-      p.push('I will be added to my family\'s employer-provided health insurance plan through ' + ph(val('insemployer'), 'Employer') + ' once my Social Security Number is issued. The plan is provided by ' + ph(val('insprovider'), 'Insurance provider') + ' and covers dependents. The premiums will be paid for by ' + ph(val('inspaid'), 'my petitioner\'s income') + '. This coverage is tied to employment that has been continuous. If that role ended, we would maintain cover through ' + ph(val('insfallback'), 'COBRA or the ACA marketplace') + '.');
+      p.push('I will be added to my family\'s employer-provided health insurance plan through ' + ph(val('insemployer'), 'Employer') + ' once my Social Security Number is issued. The plan is provided by ' + ph(val('insprovider'), 'Insurance provider') + ' and covers dependents. The premiums will be paid for by ' + ph(val('inspaid'), 'my petitioner\'s income') + '. This coverage depends on employment with ' + ph(val('insemployer'), 'Employer') + ', which has been continuous since ' + ph(val('inssince'), 'year') + '. If that role ended, we would maintain cover through ' + ph(val('insfallback'), 'COBRA or the ACA marketplace') + '.');
     } else {
       p.push('I will obtain health insurance through the Affordable Care Act marketplace. I have researched available plans in ' + ph(val('insstate'), 'State') + ' and expect the monthly premium to be approximately ' + ph(val('inspremium'), '$XXX') + '. The premiums will be paid for by ' + ph(val('inspaid'), 'my petitioner\'s income') + '.');
     }
@@ -227,9 +227,28 @@
     save();
   }
 
+  // Evidence boxes follow the answers that call for them. Each box is set
+  // only when its answer flips, so a reader who unticks one by hand keeps
+  // that choice until the answer changes again.
+  const EVIDENCE = {
+    'ev-jstax': () => !!val('jsname'),
+    'ev-slc': () => !!val('slc'),
+    'ev-employer': () => val('workplan') === 'keep' && !!val('keepconfirmed')
+  };
+  const evPrev = {};
+  function syncEvidence(init) {
+    Object.keys(EVIDENCE).forEach(id => {
+      const now = EVIDENCE[id]();
+      const box = document.getElementById(id);
+      if (box && !init && now !== evPrev[id]) box.checked = now;
+      evPrev[id] = now;
+    });
+  }
+
   restore();
-  form.addEventListener('input', update);
-  form.addEventListener('change', update);
+  syncEvidence(true);
+  form.addEventListener('input', () => { syncEvidence(false); update(); });
+  form.addEventListener('change', () => { syncEvidence(false); update(); });
   update();
 
   document.getElementById('pc-copy').addEventListener('click', function () {
@@ -261,6 +280,7 @@
     if (!window.confirm('Clear every answer on this form?')) return;
     try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
     form.reset();
+    syncEvidence(true);
     update();
   });
 })();
