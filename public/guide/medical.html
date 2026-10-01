@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20260924">
+<link rel="stylesheet" href="/css/stage.css?v=20261001">
 <link rel="stylesheet" href="/css/nav.css?v=20260930n">
 <script src="/js/nav.js?v=20260930n" defer></script>
 </head>
@@ -59,6 +59,7 @@
       <li><a href="/interview">Your interview: start here →</a></li>
       <li><a href="/221g">Avoiding a 221(g) →</a></li>
       <li><a href="/checklists">Checklists &amp; Tools</a></li>
+      <li><a href="/glossary">Glossary</a></li>
       <li><a href="/checklists#resources">Resources</a></li>
     </ul>
   </div>
@@ -86,6 +87,7 @@
       <li><a href="/interview">Your interview: start here →</a></li>
       <li><a href="/221g">Avoiding a 221(g) →</a></li>
       <li><a href="/checklists">Checklists &amp; Tools</a></li>
+      <li><a href="/glossary">Glossary</a></li>
       <li><a href="/checklists#resources">Resources</a></li>
     </ul>
   </aside>
@@ -135,6 +137,8 @@
         <li><a href="/checklist-binder">Interview binder checklist</a> — how to organise your originals and copies, section by section, for each appointment</li>
       </ul>
     </aside>
+
+    <div data-glossary></div>
 
     <!-- Stage content: moved verbatim from guide.html -->
     <section class="section stage-content" id="medical">
@@ -213,23 +217,23 @@
       </p>
 
       <div class="info-card warning">
-        <div class="info-card-head">Vaccine waivers</div>
+        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Vaccine waivers</div>
         <p style="margin:0;font-size:13px;">If a vaccine is medically inappropriate for you (contraindicated, not appropriate for your age, not routinely available, or out of flu season), the panel physician records a blanket waiver on the medical form. No application is needed. If you refuse a vaccine because of a sincerely held religious or moral objection to vaccinations in any form, you are inadmissible under INA 212(a)(1)(A)(ii) and need an individual waiver on <a href="https://www.uscis.gov/i-601" target="_blank" rel="noopener noreferrer">Form I-601</a> under INA 212(g)(2)(C), decided by USCIS. The visa cannot be issued until that waiver is approved, and it can add many months. Check current <a href="https://egov.uscis.gov/processing-times/" target="_blank" rel="noopener noreferrer">USCIS processing times</a> rather than relying on a fixed figure.</p>
       </div>
 
       <div class="info-card">
-        <div class="info-card-head">Pregnancy considerations</div>
+        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Pregnancy considerations</div>
         <p style="margin:0;font-size:13px;">Chest X-ray is required for age 15+. You can defer until after birth or after 12-week scan. No live vaccines (MMR, Varicella) during pregnancy. Deferrals may delay visa issuance.</p>
       </div>
 
       <div class="info-card">
-        <div class="info-card-head">Mental health</div>
+        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Mental health</div>
         <p style="font-size:13px;margin-bottom:6px;">The medical includes a mental health assessment. Conditions such as depression, anxiety, and other mental health diagnoses are not automatically grounds for inadmissibility: the assessment focuses on whether a condition is associated with harmful behavior. If you have a mental health history, bring supporting documentation from your treating clinician.</p>
         <a href="https://www.cdc.gov/immigrant-refugee-health/hcp/panel-physicians/mental-health.html" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--teal-light);">CDC guidance on mental health assessment →</a>
       </div>
 
       <div class="info-card warning">
-        <div class="info-card-head">Transgender and non-binary applicants: document consistency</div>
+        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Transgender and non-binary applicants: document consistency</div>
         <p style="font-size:13px;margin-bottom:10px;">Under current US policy (effective April 2, 2025), USCIS recognizes only male and female sex markers on immigration documents. Sex is determined by what is recorded on the birth certificate issued at or nearest to the time of birth. The X gender marker option has been removed from all USCIS forms and documents.</p>
         <p style="font-size:13px;margin-bottom:10px;">If your documents carry different sex markers, for example, your UK passport or a legal gender recognition certificate reflects an updated marker that differs from your birth certificate, or your medical records differ from either. This is likely to cause delays or a Request for Evidence. The medical examination at VisaMedicals records sex as shown on your documents, which may create a further inconsistency in the case file.</p>
         <p style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:8px;">Practical steps:</p>
@@ -545,5 +549,6 @@
 <script src="/js/live-notice.js?v=20260930"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
 <script src="/js/stage.js?v=20260919a"></script>
+<script src="/js/glossary.js?v=20261001"></script>
 </body>
 </html>

@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20260924">
+<link rel="stylesheet" href="/css/stage.css?v=20261001">
 <link rel="stylesheet" href="/css/nav.css?v=20260930n">
 <script src="/js/nav.js?v=20260930n" defer></script>
 </head>
@@ -59,6 +59,7 @@
       <li><a href="/interview">Your interview: start here →</a></li>
       <li><a href="/221g">Avoiding a 221(g) →</a></li>
       <li><a href="/checklists">Checklists &amp; Tools</a></li>
+      <li><a href="/glossary">Glossary</a></li>
       <li><a href="/checklists#resources">Resources</a></li>
     </ul>
   </div>
@@ -86,6 +87,7 @@
       <li><a href="/interview">Your interview: start here →</a></li>
       <li><a href="/221g">Avoiding a 221(g) →</a></li>
       <li><a href="/checklists">Checklists &amp; Tools</a></li>
+      <li><a href="/glossary">Glossary</a></li>
       <li><a href="/checklists#resources">Resources</a></li>
     </ul>
   </aside>
@@ -136,6 +138,8 @@
       </ul>
     </aside>
 
+    <div data-glossary></div>
+
     <!-- Stage content: moved verbatim from guide.html -->
     <section class="section stage-content" id="nvc">
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
@@ -144,7 +148,7 @@
       </div>
       <p>After USCIS approves the I-130, your case transfers to the National Visa Center (NVC). NVC collects fees, the DS-260 visa application, financial documents, and civil documents before forwarding the case to the US Embassy London for interview scheduling. The goal of this stage is to reach <strong>Documentarily Qualified (DQ)</strong> status.</p>
 
-      <div class="info-card warning">
+      <div class="info-card warning" id="nvc-bar">
         <div class="info-card-head">NVC's bar is not London's bar, always meet the higher standard</div>
         <p style="font-size:13px;margin-bottom:6px;">Documentarily Qualified (DQ) means NVC has accepted your submission as meeting the federal minimum requirement. It does not mean the US Embassy London will accept the same evidence at interview. NVC and London apply different levels of scrutiny to the same document categories: cases have reached DQ on a lower standard (e.g. a tax return copy only) and then been placed in administrative processing (221(g)) after interview for not meeting London's higher, post-specific standard (e.g. requiring the actual IRS transcript).</p>
         <p style="font-size:13px;margin:0;">This site's default recommendation is always the higher, London-specific standard, even where it exceeds what NVC or DOS officially requires, because DQ is not the finish line, the interview is. Reaching DQ on a lesser standard and then hitting 221(g) for the same document costs significantly more time than meeting the higher bar up front. Where this guide's checklists exceed the stated USCIS/DOS requirement, that gap is intentional and reflects observed London practice, not an error.</p>
@@ -241,12 +245,12 @@
       <p>The I-864 must be <strong>wet signed</strong>: print, sign by hand, scan back in. Do not use a digital or e-signature. The I-864EZ is available for simple cases but many users encounter issues with it; the standard I-864 is recommended for all.</p>
 
       <div class="info-card warning">
-        <div class="info-card-head">Asset-based sponsorship risk at London</div>
+        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Asset-based sponsorship risk at London</div>
         <p style="margin:0;font-size:13px;">London has demonstrated that they are highly skeptical of petitioners relying solely on assets. Cases relying primarily on savings, property equity, or investments have received 221(g) at interview even when technically meeting asset thresholds, often requiring these folks to get a joint sponsor anyway. Secure a joint sponsor if you are relying solely on assets. The same discretion applies to income: officers have judged sponsor income "too low" at the window and requested a joint sponsor even where it exceeded the 125% guideline, so income near the threshold is safest backed by a joint sponsor lined up in advance.</p>
       </div>
 
       <div class="info-card tip">
-        <div class="info-card-head">I-864 / AOS preparation worksheet</div>
+        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> I-864 / AOS preparation worksheet</div>
         <p style="font-size:13px;margin-bottom:6px;">Use the worksheet to prepare all answers before entering CEAC. The form is long and CEAC is unreliable: working from a completed worksheet avoids losing progress.</p>
         <a href="/worksheet-i864" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--text-inverse);font-family:var(--font-ui);font-size:12px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">Open I-864 Worksheet</a>
       </div>
@@ -263,7 +267,7 @@
         <div class="sub-acc-body" id="nvc_4-body">
           <div class="sub-acc-content">
             <div class="info-card warning">
-        <div class="info-card-head">IRS Tax Transcript: treat as required for London, not just recommended</div>
+        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> IRS Tax Transcript: treat as required for London, not just recommended</div>
         <p style="font-size:13px;margin-bottom:6px;">Per DOS guidance (<a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-5-collect-financial-evidence-and-other-supporting-documents.html" target="_blank" rel="noopener noreferrer">travel.state.gov, Step 5: Collect Financial Evidence</a>), NVC officially accepts either an IRS Tax Transcript OR a complete copy of the filed tax return from the most recent year. The transcript is "strongly recommended" because NVC can process it more efficiently, but a return copy is not stated as insufficient.</p>
         <p style="font-size:13px;margin-bottom:6px;">In practice at the interview stage, London has placed cases in administrative processing (221(g)) specifically for a missing transcript, even where DQ was already granted and the complete tax return, W-2, and recent pay stubs were on file. This applies to <strong>every financial sponsor on the case, including joint sponsors</strong>.</p>
         <p style="font-size:13px;margin-bottom:10px;"><strong>Recommendation:</strong> obtain the actual transcript from <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/individuals/get-transcript</a> for every sponsor and joint sponsor, and upload it before the interview date, regardless of DQ granted on the 1040 (complete copy of the filed tax return) from the most current year.</p>
@@ -283,9 +287,7 @@
           </li>
           <li><strong>Return filed, but IRS has not yet processed/issued the transcript</strong> (not a DOS-recognized substitute, no official waiver exists for this scenario)
             <ul style="margin:4px 0 0 0;">
-              <li>NVC may grant DQ using a complete return, W-2, and proof of IRS acceptance without the transcript, since NVC's DQ standard does not always match what London checks at interview. Reaching DQ does not mean the case is inevitably going to be approved at interview. DQ is an NVC checkpoint, not London's checkpoint.</li>
-              <li>London has held cases in administrative processing (221(g)) after interview specifically for a missing transcript, even where DQ was already granted and return/W-2/pay stubs were on file.</li>
-              <li><strong>General principle:</strong> when NVC's requirement and London's actual practice diverge, meet the higher standard before submission rather than the DQ minimum. It is far more efficient to obtain and upload the transcript before interview than to reach DQ on lesser evidence and then face a 221(g) delay post-interview for the same document.</li>
+              <li>NVC may grant DQ using a complete return, W-2, and proof of IRS acceptance without the transcript. London can still issue a 221(g) for the missing transcript: see <a href="#nvc-bar">NVC's bar is not London's bar</a>.</li>
               <li>If the transcript is not available yet, submit the strongest available proof of filing:
                 <ul style="margin:4px 0 0 0;">
                   <li>Complete signed Form 1040 for the tax year (or signature page)</li>
@@ -302,7 +304,7 @@
                   <li>This single-PDF format has been reported as helpful preparation before interview. It has not been confirmed effective for cases already placed in administrative processing after interview. Treat it as a pre-interview strengthening step, not a fix for an existing 221(g) hold. If already in AP for a missing transcript, the reliable remedy remains obtaining and submitting the actual transcript.</li>
                 </ul>
               </li>
-              <li>Label all of the above as supplementary evidence of filing, not a substitute for the transcript. The transcript must be uploaded before interview to avoid 221(g), regardless of DQ status.</li>
+              <li>Label all of the above as supplementary evidence of filing, not a substitute for the transcript, and upload the transcript before interview.</li>
             </ul>
           </li>
         </ol>
@@ -324,7 +326,7 @@
       </ul>
 
       <div class="info-card">
-        <div class="info-card-head">Self-employed sponsors</div>
+        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Self-employed sponsors</div>
         <p style="font-size:13px;margin-bottom:6px;"><strong>Required (USCIS I-864 checklist):</strong></p>
         <ul style="font-size:13px;margin-bottom:10px;">
           <li>Complete federal tax return with ALL schedules attached: Schedule C (sole proprietor / single-member LLC), Schedule E (rental / partnership / S-corp), Schedule F (farm income), Schedule SE</li>
@@ -420,7 +422,7 @@
       <p style="font-size:13px;">For children who are US citizens (e.g. via CRBA), the answer to "Is the child immigrating with you?" is <strong>No</strong>: they are returning as a citizen, not immigrating.</p>
 
       <div class="info-card tip">
-        <div class="info-card-head">DS-260 preparation worksheet</div>
+        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> DS-260 preparation worksheet</div>
         <p style="font-size:13px;margin-bottom:6px;">Complete this before logging into CEAC to avoid losing progress to timeouts.</p>
         <a href="/worksheet-ds260" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--text-inverse);font-family:var(--font-ui);font-size:12px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">Open DS-260 Worksheet</a>
       </div>
@@ -439,7 +441,7 @@
             <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">Use this to work out which police certificates you need. You may need more than one. All must be original or certified: photocopies not accepted. <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-5-collect-financial-evidence-and-other-supporting-documents/step-7-collect-civil-documents.html" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;">[travel.state.gov: Civil Documents]</a></p>
 
       <div class="info-card warning">
-        <div class="info-card-head">If you hold citizenship of another country: act early</div>
+        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> If you hold citizenship of another country: act early</div>
         <p style="font-size:13px;margin-bottom:6px;">If you are a citizen of a country you no longer live in, and you lived there for more than 6 months at any time, even as a child, you need a police certificate from that country. Holding the passport without ever having lived there does not trigger the requirement. A visa will not be issued until this requirement is fulfilled satisfactorily.</p>
         <p style="font-size:13px;margin-bottom:6px;">The UK ACRO certificate is valid for 12 months. Police certificates from other countries are generally valid indefinitely, provided you have not returned to live there, but order early regardless, as processing times vary widely by country.</p>
         <p style="font-size:13px;margin:0;">Obtaining a police certificate from a country you do not currently reside in can take months and may require you to travel there in person. Identify this requirement early and start the process toward the end of the I-130 wait or early at NVC. NVC needs every certificate before it grants DQ. The UK ACRO certificate takes about 30 days.</p>
@@ -578,7 +580,7 @@
         <div class="info-card-head" id="nvc-strategic-hold">Timing your NVC completion strategically</div>
         <p style="font-size:13px;margin-bottom:6px;">Some applicants deliberately delay paying NVC fees or submitting documents to control when their case enters the London embassy queue. Reasons include: waiting for a more convenient interview season, aligning with a job start date, or avoiding school-year disruption.</p>
         <p style="font-size:13px;margin-bottom:6px;">This is a legitimate personal decision. Taking longer at NVC is not penalized in itself, but it is not risk-free: if a full year passes after NVC notifies you that a visa is available without you applying, the case is terminated under INA 203(g) and the I-130 approval is automatically revoked (8 CFR 205.1(a)(1)). Reinstatement is possible only if you show, within two years, that the failure was beyond your control. However, be aware that the London embassy queue, and therefore interview slot availability, may be longer or shorter by the time you DQ, and this is difficult to predict more than a few months ahead.</p>
-        <p style="font-size:13px;margin-bottom:6px;">If you do hold at NVC, consider the <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">Visa Bulletin</a> and any known backlogs when deciding timing. Community data on <a href="/index" style="color:var(--teal-light);">the tracker</a> reflects the current London queue position.</p>
+        <p style="font-size:13px;margin-bottom:6px;">If you do hold at NVC, consider the <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">Visa Bulletin</a> and any known backlogs when deciding timing. Community data on <a href="/data" style="color:var(--teal-light);">the tracker</a> reflects the current London queue position.</p>
         <div style="background:rgba(176,74,56,0.08);border:1px solid rgba(176,74,56,0.25);border-radius:6px;padding:10px 12px;margin-top:4px;">
           <p style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">12-month inactivity rule: INA §203(g)</p>
           <p style="font-size:13px;margin:0;">INA 203(g) requires NVC to terminate a case if the applicant does not apply for the visa within one year of being notified that it is available. What resets the clock is a real step on the case: paying fees, submitting the DS-260 or documents, or contacting NVC. Logging in to CEAC may not be recorded as contact, so do not rely on it. If you are holding your case deliberately, take a real step on it well inside each 12 months.</p>
@@ -625,5 +627,6 @@
 <script src="/js/live-notice.js?v=20260930"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
 <script src="/js/stage.js?v=20260919a"></script>
+<script src="/js/glossary.js?v=20261001"></script>
 </body>
 </html>

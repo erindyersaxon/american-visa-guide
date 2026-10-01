@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20260924">
+<link rel="stylesheet" href="/css/stage.css?v=20261001">
 <link rel="stylesheet" href="/css/nav.css?v=20260930n">
 <script src="/js/nav.js?v=20260930n" defer></script>
 </head>
@@ -59,6 +59,7 @@
       <li><a href="/interview">Your interview: start here →</a></li>
       <li><a href="/221g">Avoiding a 221(g) →</a></li>
       <li><a href="/checklists">Checklists &amp; Tools</a></li>
+      <li><a href="/glossary">Glossary</a></li>
       <li><a href="/checklists#resources">Resources</a></li>
     </ul>
   </div>
@@ -86,6 +87,7 @@
       <li><a href="/interview">Your interview: start here →</a></li>
       <li><a href="/221g">Avoiding a 221(g) →</a></li>
       <li><a href="/checklists">Checklists &amp; Tools</a></li>
+      <li><a href="/glossary">Glossary</a></li>
       <li><a href="/checklists#resources">Resources</a></li>
     </ul>
   </aside>
@@ -132,6 +134,8 @@
       </ul>
     </aside>
 
+    <div data-glossary></div>
+
     <!-- Stage content: moved verbatim from guide.html -->
     <section class="section stage-content" id="entry">
       <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
@@ -170,6 +174,13 @@
         <p style="font-size:13px;margin-bottom:0;"><strong>Drawbacks:</strong> Limited options after clearing (especially Shannon). Fewer backup flights if delays occur. Restricted movement once through preclearance. Irish preclearance has fixed hours: flights outside those hours clear CBP on US arrival instead.</p>
       </div>
 
+      <div class="sub-acc-item" id="other-entry" data-sub-group="entry-other" style="margin:16px 0;">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="other-entry-body" onclick="toggleSubAcc('other-entry')">
+          <span class="sub-acc-label">Other ways in: US territories, and land borders from Mexico or Canada</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body" id="other-entry-body">
+          <div class="sub-acc-content">
       <div class="info-card">
         <div class="info-card-head">Entering via Puerto Rico or US Territories</div>
         <p style="font-size:13px;margin-bottom:6px;">Puerto Rico, the US Virgin Islands, Guam, American Samoa, and the Northern Mariana Islands are US territories. Entering via San Juan (SJU) or other territory airports is a valid port of entry for immigrant visa holders. You activate your green card there, exactly as you would at a mainland US airport.</p>
@@ -231,6 +242,9 @@
         <p style="font-size:13px;margin:0;">If you later hold a green card, <a href="https://ttp.dhs.gov/" target="_blank" rel="noopener noreferrer">Global Entry</a> / NEXUS lanes speed up re-entry at many of these northern crossings.</p>
         <p style="font-size:12px;color:var(--text-secondary);margin:10px 0 0;">Sources: <a href="https://bwt.cbp.gov/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">CBP Border Wait Times</a> · <a href="https://www.bts.gov/browse-statistics-subject/border-crossings" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">BTS Border Crossing data</a></p>
       </div>
+          </div>
+        </div>
+      </div>
 
       <h2>Green card</h2>
       <p>Green card (Form I-551) production begins once you pay the $235 USCIS Immigrant Fee. Delivery timelines per USCIS:</p>
@@ -263,13 +277,13 @@
       <p style="font-size:12px;color:var(--text-secondary);">Source: <a href="https://egov.uscis.gov/processing-times/expect-green-card" target="_blank" rel="noopener noreferrer">egov.uscis.gov: When to expect your Green Card</a></p>
 
       <div class="info-card warning">
-        <div class="info-card-head">Address is critical</div>
+        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Address is critical</div>
         <p style="font-size:13px;margin-bottom:6px;">Your green card is mailed to the address given at your visa interview, or the updated address at port of entry. If you move after arrival, update your address in the beneficiary's USCIS account (or by mail via AR-11) <strong>within 10 days. This is a legal requirement</strong>. The petitioner and any joint sponsor have a separate obligation: while their I-864 obligation lasts, each must file <a href="https://www.uscis.gov/i-865" target="_blank" rel="noopener noreferrer">Form I-865, Sponsor's Notice of Change of Address</a>, within 30 days of moving (INA 213A(d)). Failing to do so carries civil fines. A US citizen sponsor does not file an AR-11.</p>
         <p style="font-size:13px;margin:0;">One community member's card was delivered to a previous address despite having updated it: the landlord forwarded it, adding a week's delay. After entry, take a screenshot of your address in your USCIS account to confirm it's correct.</p>
       </div>
 
       <div class="info-card warning">
-        <div class="info-card-head">Carry proof of your status</div>
+        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Carry proof of your status</div>
         <p style="font-size:13px;margin:0;">Every permanent resident aged 18 or over must carry evidence of registration at all times (INA 264(e), 8 U.S.C. &sect;&nbsp;1304(e)). Until your green card arrives, that is your passport with the immigrant visa stamp; after that, the green card itself. Failing to carry it is a federal misdemeanour, and the government has emphasized enforcement of the registration rules since 2025. A photocopy does not satisfy the requirement.</p>
       </div>
 
@@ -338,5 +352,6 @@
 <script src="/js/live-notice.js?v=20260930"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
 <script src="/js/stage.js?v=20260919a"></script>
+<script src="/js/glossary.js?v=20261001"></script>
 </body>
 </html>
