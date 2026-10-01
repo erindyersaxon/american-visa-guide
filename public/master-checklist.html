@@ -126,6 +126,23 @@
   .stage-badge.conditional { background: #ff9800; }
   .stage-badge.no { color: var(--text-secondary); }
 
+  /* Phones: each row becomes a card so the six columns never widen the page.
+     The four stage marks sit in a row, each labelled with its stage. */
+  @media (max-width: 640px) {
+    .doc-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .doc-table, .doc-table tbody, .doc-table tr { display: block; width: 100%; }
+    .doc-table tr { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px 8px; padding: 12px 0; border-bottom: 1px solid rgba(62,113,136,0.18); }
+    .doc-table td { display: block; padding: 0; border-bottom: none; overflow-wrap: anywhere; }
+    .doc-table td:first-child, .doc-table td:last-child { grid-column: 1 / -1; }
+    .doc-table td:last-child { font-size: 13px; margin-top: 4px; }
+    .doc-table .stage-col { width: auto; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .doc-table td:nth-child(2)::before { content: "I-130"; }
+    .doc-table td:nth-child(3)::before { content: "NVC"; }
+    .doc-table td:nth-child(4)::before { content: "Medical"; }
+    .doc-table td:nth-child(5)::before { content: "Interview"; }
+    .doc-table .stage-col::before { font-size: 11px; font-weight: 600; color: var(--text-secondary); }
+  }
+
   .legend {
     display: flex;
     gap: 20px;
