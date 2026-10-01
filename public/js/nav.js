@@ -183,6 +183,7 @@
     'interview-day-sheet': 'interview',
     'interview-questions': 'interview',
     'history-worksheet': 'interview',
+    'administrative-processing': 'interview',
     'checklists': 'checklists',
     'master-checklist': 'checklists',
     'checklist-i130': 'checklists',
