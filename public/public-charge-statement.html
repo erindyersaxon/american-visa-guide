@@ -18,7 +18,12 @@
     .tool fieldset:first-of-type { border-top: none; padding-top: 0; }
     .opt { display: none; }
     .opt.is-on { display: block; }
-    .sticky-out { position: sticky; top: 0.5rem; }
+    .pc-bar { position: sticky; bottom: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin: 1.5rem 0 0; padding: 0.7rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 -2px 10px rgba(0,0,0,0.08); font-size: 0.9rem; }
+    .pc-bar.is-done { border-color: var(--accent); }
+    .pc-bar a { font-weight: 600; white-space: nowrap; }
+    .pc-gaps { margin: 0 0 0.75rem; font-weight: 600; color: var(--warn-ink); }
+    .pc-gaps.is-done { color: var(--accent-dark); }
+    @media print { .pc-bar { display: none; } }
   </style>
 </head>
 <body>
@@ -33,11 +38,11 @@
 
   <p class="eyebrow">Tool &middot; Public charge</p>
   <h1>Public charge <span>statement builder</span></h1>
-  <p class="lead">Fill in what applies. The statement below updates as you type, in the order the officer needs it: income answers each cost, and savings come last as a buffer. Leave a box empty and its sentence is left out. When it reads right, copy it or download it, upload it to CEAC, then email it.</p>
+  <p class="lead">Fill in the form and the builder writes your statement in the order the officer reads it: income first, savings last. The bar at the bottom of your screen counts the gaps left. It takes about 30 minutes.</p>
 
   <div class="callout callout-info">
     <span class="callout-title">Before you start</span>
-    This produces the same statement as the <a href="/public-charge#template">template on the public charge page</a>, without the brackets. Read <a href="/public-charge#factors">what the officer weighs</a> first if you have not. Have the sponsor's actual figures to hand: the beneficiary is the one questioned, and answers must match what you send. Your answers stay in this browser only.
+    Get the petitioner's figures first: income before and after tax, debts, and insurance details. The officer questions you, not your sponsor, and your answers must match this statement. Boxes marked optional drop out of the statement when you leave them empty. Other empty boxes show as [brackets] until you fill them. Your answers stay in this browser.
   </div>
 
   <form class="tool" id="pc-form" autocomplete="off">
@@ -212,9 +217,15 @@
     </fieldset>
   </form>
 
+  <div class="pc-bar" id="pc-bar">
+    <span id="pc-bar-text"></span>
+    <a href="#output-title">See your statement &darr;</a>
+  </div>
+
   <h2 id="output-title">Your statement</h2>
-  <p>Check every sentence is true and matches your documents. Then upload it to CEAC and email it to <strong>LNDIVSubmissions@state.gov</strong> at least five working days before the interview (<a href="/interview-dates">when is that?</a>).</p>
-  <pre class="output" id="pc-out" aria-live="polite"></pre>
+  <p id="pc-gaps" class="pc-gaps"></p>
+  <p>Read each sentence and check it against your documents. Then upload it to CEAC with your <a href="/public-charge#deliverables">evidence</a> and email it to <strong>LNDIVSubmissions@state.gov</strong>, at least five working days before the interview (<a href="/interview-dates">find the date</a>, <a href="/public-charge#submit">how to submit</a>).</p>
+  <pre class="output" id="pc-out"></pre>
   <div class="btn-row">
     <button type="button" class="btn" id="pc-copy">Copy</button>
     <button type="button" class="btn btn--ghost" id="pc-download">Download .txt</button>
@@ -223,7 +234,7 @@
 
   <div class="callout callout-warn" style="margin-top:1.5rem;">
     <span class="callout-title">Then rehearse it</span>
-    The officer asks the beneficiary, not the sponsor, and the answers need to match this statement. <a href="/public-charge#questions">Answer these out loud</a>, or drill the <a href="/interview-questions?theme=publiccharge">public charge flashcards</a>.
+    The officer will test what you wrote. <a href="/public-charge#questions">Answer these questions out loud</a>, or drill the <a href="/interview-questions?theme=publiccharge">public charge flashcards</a>.
   </div>
 
   <div style="margin-top:2rem;">
@@ -234,6 +245,6 @@
 
 <div id="footer-placeholder"></div>
 
-<script src="/js/statement-builder.js?v=20260930b"></script>
+<script src="/js/statement-builder.js?v=20261001"></script>
 </body>
 </html>
