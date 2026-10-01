@@ -1,8 +1,9 @@
 /*
    American Visa Guide: public charge statement builder
    (/public-charge-statement). Produces the same statement as the template
-   on /public-charge#template, from form fields, leaving out any sentence
-   whose field is empty. Runs in the browser; answers are remembered in
+   on /public-charge#template, from form fields. Empty optional fields drop
+   their sentence; empty required fields show as [brackets], and a status
+   bar counts them. Runs in the browser; answers are remembered in
    localStorage on this device only.
  */
 (function () {
@@ -198,9 +199,31 @@
     } catch (e) { /* storage unavailable */ }
   }
 
+  // Count the [bracketed] placeholders left in the statement, so the
+  // reader can see from anywhere on the form how much is still missing.
+  const bar = document.getElementById('pc-bar');
+  const barText = document.getElementById('pc-bar-text');
+  const gapsEl = document.getElementById('pc-gaps');
+  function gapCount() { return (out.textContent.match(/\[[^\]]+\]/g) || []).length; }
+  function gapText(n) {
+    return n === 0 ? 'No gaps left. Read it through before you send it.'
+      : n === 1 ? '1 gap left in [brackets].'
+      : n + ' gaps left in [brackets].';
+  }
+  function showGaps() {
+    const n = gapCount();
+    if (barText) barText.textContent = gapText(n);
+    if (bar) bar.classList.toggle('is-done', n === 0);
+    if (gapsEl) {
+      gapsEl.textContent = n === 0 ? gapText(0) : gapText(n) + ' Fill each one, or delete the sentence, before you send it.';
+      gapsEl.classList.toggle('is-done', n === 0);
+    }
+  }
+
   function update() {
     toggle();
     out.textContent = build();
+    showGaps();
     save();
   }
 
@@ -211,7 +234,11 @@
 
   document.getElementById('pc-copy').addEventListener('click', function () {
     const btn = this;
-    const done = () => { btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = 'Copy'; }, 1800); };
+    const n = gapCount();
+    const done = () => {
+      btn.textContent = n ? 'Copied, with ' + n + (n === 1 ? ' gap' : ' gaps') : 'Copied';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 2500);
+    };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(out.textContent).then(done, () => selectOut());
     } else selectOut();
@@ -221,6 +248,8 @@
     const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
   }
   document.getElementById('pc-download').addEventListener('click', () => {
+    const n = gapCount();
+    if (n && !window.confirm('Your statement still has ' + n + (n === 1 ? ' gap' : ' gaps') + ' in [brackets]. Download it anyway?')) return;
     const blob = new Blob([out.textContent], { type: 'text/plain;charset=utf-8' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
