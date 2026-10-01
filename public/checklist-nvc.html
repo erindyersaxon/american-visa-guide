@@ -52,7 +52,7 @@
         .doc-summary-table td { display: block; padding: 0; border: none; overflow-wrap: anywhere; }
         .doc-summary-table td:first-child { font-weight: var(--weight-semibold); }
         .doc-summary-table td:nth-child(2):not(:empty)::before { content: "Required: "; color: var(--color-text-secondary); font-weight: normal; }
-        .doc-summary-table td.doc-conditional::before { content: "If applicable "; }
+        .doc-summary-table td.doc-conditional:nth-child(2):not(:empty)::before { content: "If applicable "; }
         .doc-summary-table td:last-child { grid-column: 1 / -1; }
       }
       .doc-required { color: var(--color-navy); font-weight: var(--weight-medium); }
