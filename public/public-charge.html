@@ -88,6 +88,8 @@
         .table td::before { content: attr(data-label); display: block; font-size: var(--size-xs); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-muted); margin-bottom: 2px; }
       }
       .pg-container code { overflow-wrap: anywhere; }
+      /* Keep anchored headings clear of the sticky site header. */
+      .pg-container [id] { scroll-margin-top: 80px; }
       .body-sm { font-size: var(--size-sm); line-height: var(--line-lg); margin-bottom: var(--space-5); }
       .body-sm li { margin-bottom: var(--space-2); }
       .scope-note { font-size: var(--size-xs); color: var(--color-text-muted); line-height: var(--line-lg); margin-bottom: var(--space-6); }

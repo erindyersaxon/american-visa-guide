@@ -88,7 +88,12 @@
         .table td::before { content: attr(data-label); display: block; font-size: var(--size-xs); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-muted); margin-bottom: 2px; }
       }
       .pg-container code { overflow-wrap: anywhere; }
+      /* Keep anchored headings clear of the sticky site header. */
+      .pg-container [id] { scroll-margin-top: 80px; }
       .sub-title { font-size: var(--size-lg); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-8) 0 var(--space-4); }
+      .prose { font-size: var(--size-sm); line-height: var(--line-lg); margin-bottom: var(--space-5); }
+      .prose-list { font-size: var(--size-sm); line-height: var(--line-lg); margin: 0 0 var(--space-5) var(--space-6); }
+      .prose-list li { margin-bottom: var(--space-3); }
     </style>
     <link rel="stylesheet" href="/css/nav.css?v=20260930n">
   <script src="/js/nav.js?v=20261001" defer></script>
@@ -115,56 +120,42 @@
           <div class="toc">
             <strong>On this page</strong>
             <ol>
-              <li><a href="#fluid">What is confirmed, and what is not</a></li>
-              <li><a href="#timeline">The worksheet, the training and the cable</a></li>
-              <li><a href="#asked">The written questionnaire posts issue</a></li>
-              <li><a href="#dependents">Who counts as a dependent</a></li>
               <li><a href="#london-account">Inside a 35-minute London interview</a></li>
+              <li><a href="#asked">The written questionnaire posts issue</a></li>
               <li><a href="#joint-sponsor">What posts ask about a joint sponsor</a></li>
-              <li><a href="#credit-check">The I-864 credit check</a></li>
+              <li><a href="#dependents">Who counts as a dependent</a></li>
               <li><a href="#benefits">Benefits, charity and care at public expense</a></li>
+              <li><a href="#credit-check">The I-864 credit check</a></li>
               <li><a href="#gross-net">Income before and after tax</a></li>
+              <li><a href="#timeline">The worksheet, the training and the cable</a></li>
+              <li><a href="#fluid">What is confirmed, and what is not</a></li>
               <li><a href="#sources">Authorities and sources</a></li>
             </ol>
           </div>
 
-          <h2 class="section-title" id="fluid">1. What is confirmed, and what is not</h2>
-          <div class="warning-card">
-            <strong>The standard is still forming</strong>
-            <p style="margin-top: var(--space-3);">Read this page as our best reconstruction of a standard the State Department has not published in full.</p>
-            <ul>
-              <li><strong>The Department has not published the governing documents.</strong> Nobody outside government has released the November 2025 cable or the worksheet officers use. We built this page from practitioner analysis, court filings that describe both documents, forms other posts have handed applicants, and interview reports. Those sources agree with each other. A published rule would still carry more weight.</li>
-              <li><strong>The written material comes from other posts.</strong> The questionnaire in <a href="#asked">section 3</a> and the <a href="/221g#publiccharge">public charge 221(g) checklist</a> are real documents. No London applicant has reported receiving either. We include them because officers at every post apply the same five factors.</li>
-              <li><strong>London has few cases under the new standard.</strong> The embassy cancelled its September 2026 interviews so officers could complete the training, and it is rescheduling them now. The London accounts on this site are single cases. We expect to rewrite parts of this page as more reports arrive.</li>
-            </ul>
-            <p><strong>We are confident about the direction.</strong> The Department sent a worksheet to every post, required training for every officer and widened supervisor review of decisions. Those steps make a strict, uniform assessment the normal standard for immigrant visa interviews. Each post will apply it in its own way, and that will keep changing. The five factors, and the evidence that answers them, will hold.</p>
-            <p style="margin-bottom: 0;"><strong>Prepare for the version on this page.</strong> Gathering the evidence costs you an afternoon. Arriving without it costs you a 221(g) and months of delay. If your officer asks less, you lose an afternoon. If your officer asks more, you have answered most of it already.</p>
-          </div>
-
-          <h2 class="section-title" id="timeline">2. The worksheet, the training and the cable</h2>
+          <h2 class="section-title" id="london-account">1. Inside a 35-minute London interview</h2>
+          <p class="prose">A beneficiary who sent a public charge statement in advance gave us this account of her 2026 interview at US Embassy London. Her profile drew extra questions: she works in a niche digital finance field, has Type 1 diabetes, owns property and earns cash from a family business. Read it for how the officer worked.</p>
           <div class="info-card">
-            <strong>Officers follow a worksheet, and supervisors review their decisions</strong>
-            <ul style="margin-top: var(--space-3);">
-              <li><strong>15 August 2026.</strong> The Department sent consular officers a public charge worksheet for use at every post. Officers use it to weigh the totality of your circumstances.</li>
-              <li><strong>1 September 2026.</strong> Four new training requirements took effect. Two affect your case: wider supervisor review of consular decisions, and mandatory training on the public charge analysis. Both cover immigrant visa cases worldwide, beyond the cases the courts sent back.</li>
-              <li><strong>10 September 2026.</strong> Cable 26 STATE 88862 reminded every post to complete the worksheet in every immigrant visa case.</li>
+            <ul style="margin-top: 0;">
+              <li><strong>It lasted 35 to 40 minutes</strong>, and she cut it short to make a hotel checkout. Before the change, applicants reported approvals in 40 seconds to two minutes.</li>
+              <li><strong>The officer consulted a supervisor throughout.</strong> That is the wider supervisor review described in <a href="#timeline">the worksheet section</a>, in the room.</li>
+              <li><strong>The officer had read her statement and her medical report</strong>, and had run a background check. Officers read what you send.</li>
+              <li><strong>The officer questioned the sponsor's finances in depth.</strong> Her husband's 2025 income on the tax transcript fell below the minimum because he had opened a business. The officer asked her why, what the business does, and what he would do if it failed, then whether he belongs to the union at his workplace and whether he has a mortgage.</li>
+              <li><strong>Her own job took up most of the interview.</strong> The officer asked who she works for, when she joined, who employed her before, whether her work is remote, whether her company would let her work from the US, and her plan if it would not. The officer searched her employer online and read the results back to her.</li>
+              <li><strong>The officer asked to see evidence.</strong> She showed printed bank and investment statements for her savings. Asked for proof of two properties she owns and co-owns with family, she could prove one.</li>
+              <li><strong>The officer probed her cash income.</strong> She helps run her mother's property management company and takes cash in place of a salary. The officer wanted to know how the arrangement works, step by step.</li>
+              <li style="margin-bottom: 0;"><strong>The health questions turned on cost.</strong> The officer asked about her insurance and whether her husband's plan covered her, then whether she knew the US price of insulin and had looked into it.</li>
             </ul>
-            <p><strong>What it means for you.</strong> Your officer works through all five factors on a set form, and a supervisor may review the decision. Write your statement around the same five factors, and the officer finds each answer where the form asks for it.</p>
-            <p style="margin-bottom: 0;"><strong>You can read the filings.</strong> The government filed the cable as ECF 95-1 in <em>Medani v. Trump</em>, No. 5:26-cv-06332 (N.D. Cal.), on 11 September 2026. The worksheet and training details come from two filings the Department made on 8 September 2026 in <em>CLINIC v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y.): a status report (ECF 96), and a declaration by the Principal Deputy Assistant Secretary, Bureau of Consular Affairs (ECF 96-1).</p>
           </div>
+          <p class="prose"><strong>Your interview may run shorter.</strong> Each unusual feature of a case opens its own line of questions: a new business, a weak tax year, a chronic condition, remote work, co-owned property, cash income. The officer follows each line until satisfied. List the features of your case and prepare an answer and a document for each.</p>
+          <p class="source-note">Shared with this site by the applicant, reproduced with her permission and edited for length. One case: treat the details as hers and the structure as a guide.</p>
+
+          <h2 class="section-title" id="asked">2. The written questionnaire posts issue</h2>
+          <p class="prose">Some posts send applicants a <strong>written questionnaire</strong> before the interview, to answer and upload to CEAC. We reproduce one below, grouped as the post grouped it. London has not sent one to any applicant we know of. Your officer still works through the same five factors, and these twenty questions follow from them. Answer each one on paper before your interview.</p>
 
           <div class="warning-card">
-            <strong>The Department has not updated its manual</strong>
-            <p style="margin-top: var(--space-3);">Under 9 FAM 302.8, a properly filed, non-fraudulent Form I-864, where one is required, is <em>normally sufficient</em> to meet INA 212(a)(4) and satisfy the totality of the circumstances analysis. The Department has not amended that text to match the November 2025 cable.</p>
-            <p style="margin-bottom: 0;">This page describes what officers have done since November 2025, which departs from the FAM text. <a href="#sources">Section 10</a> lists which claims rest on published documents and which do not.</p>
-          </div>
-
-          <h2 class="section-title" id="asked">3. The written questionnaire posts issue</h2>
-          <p style="font-size: var(--size-sm); line-height: var(--line-lg); margin-bottom: var(--space-5);">Some posts send applicants a <strong>written questionnaire</strong> before the interview, to answer and upload to CEAC. We reproduce one below, grouped as the post grouped it. Answer each question on paper before your interview, whether or not your post sends you the form.</p>
-
-          <div class="warning-card">
-            <strong>Take this instruction at its word</strong>
-            <p style="margin-top: var(--space-3); margin-bottom: 0;">The questionnaire tells applicants that each question should be <em>thoroughly answered in as much detail as possible</em>, and warns that <strong>limited or missing information will result in a significant impediment to the processing of your case</strong>. The post put in writing what applicants have reported: a thin answer costs you time, and a missing one costs you more.</p>
+            <strong>The post's own warning</strong>
+            <p style="margin-top: var(--space-3); margin-bottom: 0;">The questionnaire tells applicants that each question should be <em>thoroughly answered in as much detail as possible</em>, and that <strong>limited or missing information will result in a significant impediment to the processing of your case</strong>.</p>
           </div>
 
           <div class="table-wrapper">
@@ -239,80 +230,35 @@
               </tbody>
             </table>
           </div>
-          <p class="source-note">A post issued this questionnaire to an immigrant visa applicant in 2026, and the applicant shared it with this site. No London applicant has reported receiving one, and the <a href="/public-charge#submit">submission route</a> on the main page is London's. The five factors and the worksheet apply at every post, and the groups above follow the factors.</p>
+          <p class="source-note">Issued by a post outside London to an immigrant visa applicant in 2026, and shared with this site.</p>
 
-          <div class="info-card">
-            <strong>Why a questionnaire from another post matters to you</strong>
-            <p style="margin-top: var(--space-3);"><a href="#timeline">Section 2</a> records that the Department sent a public charge worksheet to every post in August 2026. A court declaration describes the worksheet without reproducing it. This questionnaire comes closest to showing what the worksheet produces: a post turned the five factors into numbered questions.</p>
-            <p style="margin-bottom: 0;"><strong>What to take from it.</strong> London may never send you this form. Your officer works through the same five factors in the same order, and these questions follow from them. Prepare answers to all twenty and you will recognise what the officer asks.</p>
-          </div>
+          <p class="prose"><strong>Some officers ask it out loud.</strong> In September 2026 an applicant's spouse posted an account of an interview at another post. With no written form beforehand, the officer worked through <em>almost all of the questions in that questionnaire</em>: the beneficiary's bank balances and property abroad, and who the joint sponsor is, whether they have sponsored anyone before and whether they have taken public assistance. You answer the same questions on paper or in the room.</p>
 
-          <div class="info-card">
-            <strong>Some officers ask it out loud</strong>
-            <p style="margin-top: var(--space-3);">In September 2026 an applicant's spouse posted an account of an interview at another post. The officer worked through <em>almost all of the questions in that questionnaire</em> in the room, with no written form beforehand. The officer asked the beneficiary about his bank balances and his property abroad. On the joint sponsor, the officer asked who they are, whether they have sponsored anyone before and whether they have taken public assistance.</p>
-            <p style="margin-bottom: 0;">It is one report, from outside London. It fits the pattern above: officers draw the written form and the spoken questions from the same worksheet. You answer the same questions either way.</p>
-          </div>
+          <h2 class="section-title" id="joint-sponsor">3. What posts ask about a joint sponsor</h2>
+          <p class="prose">When you use a joint sponsor, the written questionnaire adds a block of questions, and one consulate's 221(g) checklist asks for <em>a more detailed description of how the joint sponsor is related to the petitioner</em>. The joint sponsor does not attend, so you answer for them. Prepare these:</p>
+          <ul class="prose-list">
+            <li><strong>Why you have one.</strong> At another post an officer asked: <em>why did you add a joint sponsor if your wife's income was enough?</em> Give a true answer in one sentence. "The petitioner's income was close to the threshold" works. So does "the petitioner had only recently returned to US employment." "We weren't sure" invites the next question.</li>
+            <li><strong>The relationship, described.</strong> "My husband's colleague" is a label. Say how they know each other, for how long, and how often they speak. An officer who cannot place a joint sponsor gives their support less weight.</li>
+            <li><strong>How long they have known the petitioner <em>and</em> you.</strong> The questionnaire asks about both in one question. A sponsor who has never met you still qualifies. Say so up front.</li>
+            <li><strong>Whether they live in the same state as the petitioner.</strong> Distance does not bar them. The officer uses it to judge whether the sponsor would hand over the money.</li>
+            <li><strong>Whether they have sponsored anyone else for an immigrant visa.</strong> An earlier I-864 obligation that has not ended counts toward the joint sponsor's household size on your I-864, and raises the income they must show. Check before you file, with the <a href="i864-household-decision-tree.html">I-864 household decision tree</a>.</li>
+            <li><strong>Whether they have used public assistance.</strong> Officers weigh their benefit history as they weigh the petitioner's.</li>
+          </ul>
+          <p class="prose">If you have spoken to your joint sponsor only once or twice, have a proper conversation before the interview.</p>
+
+          <h3 class="sub-title">A short US tax history does not call for a joint sponsor</h3>
+          <p class="prose">In the case above, the couple added a joint sponsor because the petitioner lacked three years of US tax returns. Form I-864 asks, yes or no, whether you filed a return for each of the three most recent tax years, and you can misread that as a requirement. The note under the question in the 08/24/26 edition says you must attach a transcript or photocopy <em>for only the most recent tax year</em>, and that you <em>may</em> submit three years if you believe they help (<a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864</a>, Part 6, Item Numbers 15 to 19, and their instructions). Send three years where you have them, because they show sustained income. Once you file a joint sponsor's I-864, the officer examines their details in the same depth as the petitioner's.</p>
 
           <h2 class="section-title" id="dependents">4. Who counts as a dependent</h2>
-          <div class="warning-card">
-            <strong>Posts count more dependents than the I-864 does</strong>
-            <p style="margin-top: var(--space-3);">Posts' written questionnaires count <em>all</em> of the petitioner's dependents, and list them: minor children, spouse, parents, <strong>or extended family and friends you are financially supporting</strong>. Form I-864 has no equivalent of that last clause. It builds household size from tax dependents and sponsored immigrants.</p>
-            <p style="margin-bottom: 0;">A petitioner who sends money to a parent abroad, or supports a sibling or friend, has a dependent for the questionnaire and none on the affidavit. Both counts can be correct. Work out each one before the interview, and prepare to explain the difference. For the affidavit's arithmetic, use the <a href="i864-household-decision-tree.html">I-864 household decision tree</a>.</p>
-          </div>
+          <p class="prose">Posts' written questionnaires count <em>all</em> of the petitioner's dependents, and list them: minor children, spouse, parents, <strong>or extended family and friends you are financially supporting</strong>. Form I-864 has no equivalent of that last clause. It builds household size from tax dependents and sponsored immigrants.</p>
+          <p class="prose">A petitioner who sends money to a parent abroad, or supports a sibling or friend, has a dependent for the questionnaire and none on the affidavit. Both counts can be correct. Work out each one before the interview, and prepare to explain the difference. For the affidavit's arithmetic, use the <a href="i864-household-decision-tree.html">I-864 household decision tree</a>.</p>
 
-          <h2 class="section-title" id="london-account">5. Inside a 35-minute London interview</h2>
-          <div class="info-card">
-            <strong>One beneficiary&rsquo;s account</strong>
-            <p style="margin-top: var(--space-3);">A beneficiary who sent a public charge statement in advance gave us this account. It is one case, and her profile drew extra questions: she works in a niche digital finance field, has Type 1 diabetes, owns property and earns cash from a family business. The officer questioned her on each. Look at how the officer worked.</p>
-            <ul>
-              <li><strong>It lasted 35 to 40 minutes</strong>, and she cut it short to make a hotel checkout. Before the change, applicants reported approvals in 40 seconds to two minutes.</li>
-              <li><strong>The officer consulted a supervisor throughout.</strong> That is the wider supervisor review from <a href="#timeline">section 2</a>, in the room.</li>
-              <li><strong>The officer had read her statement and her medical report</strong>, and had run a background check. Officers read what you send. That is the strongest reason on this page to send a statement.</li>
-              <li><strong>The officer questioned the sponsor's finances in depth.</strong> Her husband's 2025 income on the tax transcript fell below the minimum because he had opened a business. The officer asked her why, what the business does, and what he would do if it failed. The officer also asked whether he belongs to the union at his workplace, and whether he has a mortgage.</li>
-              <li><strong>Her own job took up most of the interview.</strong> The officer asked who she works for, when she joined, who employed her before, whether her work is remote, whether her company would let her work from the US, and her plan if it would not. The officer searched her employer online and read the results back to her.</li>
-              <li><strong>The officer asked to see evidence.</strong> She showed printed bank and investment statements for her savings. The officer asked for proof of two properties she owns and co-owns with family. She could prove one.</li>
-              <li><strong>The officer probed her cash income.</strong> She helps run her mother's property management company and takes cash in place of a salary. The officer wanted to know how the arrangement works, step by step.</li>
-              <li><strong>The health questions turned on cost.</strong> The officer asked about her insurance and whether her husband's plan covered her, then asked whether she knew the US price of insulin and had looked into it.</li>
-            </ul>
-            <p style="margin-bottom: 0;"><strong>Your interview may run shorter.</strong> Each unusual feature of a case opens its own line of questions: a new business, a weak tax year, a chronic condition, remote work, co-owned property, cash income. The officer follows each line until satisfied. List the features of your case and prepare for each.</p>
-          </div>
-          <p class="source-note">A community member interviewed at US Embassy London in 2026 shared this account. We reproduce it with her permission and edited it for length. Treat the details as one case and the structure as a guide.</p>
-
-          <h2 class="section-title" id="joint-sponsor">6. What posts ask about a joint sponsor</h2>
-          <div class="info-card">
-            <strong>Prepare these answers</strong>
-            <p style="margin-top: var(--space-3);">When you use a joint sponsor, the written questionnaire adds a block of questions. One consulate's 221(g) checklist adds a line asking for <em>a more detailed description of how the joint sponsor is related to the petitioner</em>. Prepare these:</p>
-            <ul>
-              <li><strong>Why you have one.</strong> At another post an officer asked: <em>why did you add a joint sponsor if your wife's income was enough?</em> Give a true answer in one sentence. "The petitioner's income was close to the threshold" works. So does "the petitioner had only recently returned to US employment." "We weren't sure" invites the next question. In that case the couple added a joint sponsor because the petitioner lacked three years of US tax returns. Form I-864 asks, yes or no, whether you filed a return for each of the three most recent tax years, and you can misread that as a requirement. The note under the question in the 08/24/26 edition says you must attach a transcript or photocopy <em>for only the most recent tax year</em>, and that you <em>may</em> submit three years if you believe they help (<a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864</a>, Part 6, Item Numbers 15 to 19, and the instructions for those items). We recommend sending three years where you have them, because they show sustained income. A sponsor with a shorter US tax history has met the requirement, and does not need a joint sponsor for that reason alone. Once you file a joint sponsor's I-864, the officer examines their details in the same depth as the petitioner's.</li>
-              <li><strong>The relationship, described.</strong> "My husband's colleague" is a label. Say how they know each other, for how long, and how often they speak. An officer who cannot place a joint sponsor gives their support less weight.</li>
-              <li><strong>How long they have known the petitioner <em>and</em> the beneficiary.</strong> The questionnaire asks about both in one question. A sponsor who has never met the beneficiary still qualifies. Say so up front.</li>
-              <li><strong>Whether they live in the same state as the petitioner.</strong> Distance does not bar them. The officer uses it to judge whether the sponsor would hand over the money.</li>
-              <li><strong>Whether they have sponsored anyone else for an immigrant visa.</strong> This one changes the arithmetic. An earlier I-864 obligation that has not ended counts toward the joint sponsor's household size on your I-864, and raises the income they must show. Check before you file. See the <a href="i864-household-decision-tree.html">I-864 household decision tree</a>.</li>
-              <li><strong>Whether the joint sponsor has used public assistance.</strong> Officers weigh their benefit history as they weigh the petitioner's.</li>
-            </ul>
-            <p style="margin-bottom: 0;"><strong>You answer these, and the joint sponsor does not attend.</strong> If you have spoken to your joint sponsor only once or twice, have a proper conversation before the interview.</p>
-          </div>
-
-          <h2 class="section-title" id="credit-check">7. The I-864 credit check</h2>
-          <div class="info-card">
-            <strong>Every sponsor now authorizes a credit check</strong>
-            <p style="margin-top: var(--space-3);">In the 08/24/26 edition of Form I-864, the sponsor signs a new authorization in Part 8. It lets USCIS and the State Department obtain <em>credit reports and scores</em> from consumer reporting agencies <em>in connection with the sufficiency determination</em> of the affidavit. Three details matter:</p>
-            <ul>
-              <li><strong>It lasts through a 221(g).</strong> The authorization runs until the officer approves the case, the one-year window to overcome a refusal closes, or the sponsor withdraws the I-864. It stays valid <em>during any period in which an application is pending administrative processing</em>.</li>
-              <li><strong>A credit freeze can delay your case.</strong> The form warns sponsors that a security freeze may block the government's access, and asks them to respond to any request to lift it.</li>
-              <li><strong>The government can share negative findings with you</strong>, so that you can respond under 8 CFR 103.2(b)(16).</li>
-            </ul>
-            <p style="margin-bottom: 0;">Officers already weigh a sponsor's <em>financial stability and history</em> and debts, alongside the latest income figure. Each sponsor, joint sponsors included, should read their own credit reports before signing, and prepare to explain any defaults, collections or large debts. The officer may ask you about the petitioner's debts: see <a href="#asked">section 3</a>.</p>
-          </div>
-
-          <h2 class="section-title" id="benefits">8. Benefits, charity and care at public expense</h2>
-          <p style="font-size: var(--size-sm); line-height: var(--line-lg); margin-bottom: var(--space-5);">Posts ask two separate questions: whether you have received means-tested support, and whether the government has paid for your long-term care.</p>
+          <h2 class="section-title" id="benefits">5. Benefits, charity and care at public expense</h2>
+          <p class="prose">Posts ask two separate questions: whether you have received means-tested support, and whether the government has paid for your long-term care.</p>
 
           <h3 class="sub-title">Means-tested support, from any country</h3>
-
-          <p style="font-size: var(--size-sm); line-height: var(--line-lg); margin-bottom: var(--space-5);">Officers look beyond US programmes. Practitioners report that the November 2025 cable directs officers to consider any public assistance, social welfare or private charity for people on low incomes, in the United States or any other country. The test: did your eligibility depend on your income or savings falling below a threshold?</p>
-
-          <p style="font-size: var(--size-sm); line-height: var(--line-lg); margin-bottom: var(--space-5);">Written questionnaires give their own examples: <em>social welfare, food banks, WIC, SNAP</em>. WIC and SNAP are US federal programmes a UK applicant will not have used. A food bank is a charity. <strong>Answer the question as the post asks it.</strong> If you have used a food bank, say so, with when, why and what changed. Food banks serve people on low incomes, the kind of support practitioners say the cable covers.</p>
+          <p class="prose">Practitioners report that the November 2025 cable directs officers to consider any public assistance, social welfare or private charity for people on low incomes, in the United States or any other country. The test: did your eligibility depend on your income or savings falling below a threshold?</p>
+          <p class="prose">Written questionnaires give their own examples: <em>social welfare, food banks, WIC, SNAP</em>. WIC and SNAP are US federal programmes a UK applicant will not have used. A food bank is a charity. <strong>Answer the question as the post asks it.</strong> If you have used a food bank, say so, with when, why and what changed.</p>
 
           <div class="table-wrapper">
             <table class="table">
@@ -329,31 +275,48 @@
             </table>
           </div>
 
-          <h3 class="sub-title">Institutionalization at government expense</h3>
-
-          <div class="info-card">
-            <p style="margin-top: 0;">Questionnaires ask whether the petitioner or beneficiary has ever been <em>institutionalized at government expense</em>, for example in a mental health or nursing facility for a long stay. Most applicants can answer no.</p>
-            <ul>
-              <li>Ordinary NHS care, hospital stays included, does not count.</li>
-              <li>It counts if the state paid for a long-term stay because you could not, such as a council-funded care home place or a long detention under the Mental Health Act.</li>
-            </ul>
-            <p style="margin-bottom: 0;">If it applies to you or your petitioner, say so in the statement, with the dates, the reason and what has changed.</p>
-          </div>
+          <h3 class="sub-title">Institutional care at government expense</h3>
+          <p class="prose">Questionnaires ask whether the petitioner or beneficiary has ever been <em>institutionalized at government expense</em>, for example in a mental health or nursing facility for a long stay. Most applicants can answer no. Ordinary NHS care, hospital stays included, does not count. It counts if the state paid for a long-term stay because you could not, such as a council-funded care home place or a long detention under the Mental Health Act. If it applies to you or your petitioner, say so in the statement, with the dates, the reason and what has changed.</p>
 
           <div class="warning-card">
             <strong>Four mistakes to avoid</strong>
             <p style="margin-top: var(--space-3);"><strong>1. Leaving out a benefit that is not means-tested.</strong> Personal Independence Payment is no public charge concern by itself. It does tell the officer about the condition behind it, and the officer weighs health as its own factor. Include it, and prepare the health answer: how you manage the condition, and who pays for that care in the US.</p>
             <p><strong>2. Hiding receipt.</strong> Tell the truth in each answer. Receipt does not disqualify you. A misrepresentation creates a graver problem.</p>
-            <p><strong>3. Giving no context.</strong> Say when, why, for how long and what changed: a redundancy since resolved, a period of illness, a drop in income during maternity leave. A short factual explanation serves you better than silence. The builder and the template have a block for this.</p>
+            <p><strong>3. Giving no context.</strong> Say when, why, for how long and what changed: a redundancy since resolved, a period of illness, a drop in income during maternity leave. A short factual explanation serves you better than silence.</p>
             <p style="margin-bottom: 0;"><strong>4. Answering for one person or one period.</strong> Questionnaires ask about current and past receipt in separate questions, and name the petitioner and the beneficiary together. Answer for both people and both periods, and for a joint sponsor if you use one.</p>
           </div>
 
-          <h2 class="section-title" id="gross-net">9. Income before and after tax</h2>
-          <div class="tip-card">
-            <strong>Know the sponsor's income before and after tax</strong>
-            <p style="margin-top: var(--space-3);">The I-864 uses <strong>gross</strong> income, and compares it against 125% of the Federal Poverty Guidelines. Written public charge questionnaires ask for the petitioner's annual salary <strong>after taxes</strong>. The officer wants to know whether the household can absorb another person, and net pay answers that.</p>
-            <p style="margin-bottom: 0;">Have both numbers, and say which one you are quoting. An officer who expects gross and hears net may read it as a contradiction of the I-864. Naming the figure removes that risk.</p>
-          </div>
+          <h2 class="section-title" id="credit-check">6. The I-864 credit check</h2>
+          <p class="prose">In the 08/24/26 edition of Form I-864, each sponsor signs a new authorization in Part 8. It lets USCIS and the State Department obtain <em>credit reports and scores</em> from consumer reporting agencies <em>in connection with the sufficiency determination</em> of the affidavit.</p>
+          <ul class="prose-list">
+            <li><strong>It lasts through a 221(g).</strong> The authorization runs until the officer approves the case, the one-year window to overcome a refusal closes, or the sponsor withdraws the I-864. It stays valid <em>during any period in which an application is pending administrative processing</em>.</li>
+            <li><strong>A credit freeze can delay your case.</strong> The form warns sponsors that a security freeze may block the government's access, and asks them to respond to any request to lift it.</li>
+            <li><strong>The government can share negative findings with you</strong>, so that you can respond under 8 CFR 103.2(b)(16).</li>
+          </ul>
+          <p class="prose">Each sponsor, joint sponsors included, should read their own credit reports before signing, and prepare to explain any defaults, collections or large debts. The officer may ask you about the petitioner's debts.</p>
+
+          <h2 class="section-title" id="gross-net">7. Income before and after tax</h2>
+          <p class="prose">The I-864 uses <strong>gross</strong> income, and compares it against 125% of the Federal Poverty Guidelines. Written public charge questionnaires ask for the petitioner's annual salary <strong>after taxes</strong>, because the officer wants to know whether the household can absorb another person. Have both numbers, and say which one you are quoting. An officer who expects gross and hears net may read it as a contradiction of the I-864.</p>
+
+          <h2 class="section-title" id="timeline">8. The worksheet, the training and the cable</h2>
+          <ul class="prose-list">
+            <li><strong>15 August 2026.</strong> The Department sent consular officers a public charge worksheet for use at every post. Officers use it to weigh the totality of your circumstances.</li>
+            <li><strong>1 September 2026.</strong> Four new training requirements took effect. Two affect your case: wider supervisor review of consular decisions, and mandatory training on the public charge analysis. Both cover immigrant visa cases worldwide, beyond the cases the courts sent back.</li>
+            <li><strong>10 September 2026.</strong> Cable 26 STATE 88862 reminded every post to complete the worksheet in every immigrant visa case.</li>
+          </ul>
+          <p class="prose">Your officer works through all five factors on a set form, and a supervisor may review the decision. Write your statement around the same five factors, and the officer finds each answer where the form asks for it.</p>
+          <p class="prose"><strong>You can read the filings.</strong> The government filed the cable as ECF 95-1 in <em>Medani v. Trump</em>, No. 5:26-cv-06332 (N.D. Cal.), on 11 September 2026. The worksheet and training details come from two filings the Department made on 8 September 2026 in <em>CLINIC v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y.): a status report (ECF 96), and a declaration by the Principal Deputy Assistant Secretary, Bureau of Consular Affairs (ECF 96-1).</p>
+          <p class="prose"><strong>The manual has not changed.</strong> Under 9 FAM 302.8, a properly filed, non-fraudulent Form I-864, where one is required, is <em>normally sufficient</em> to meet INA 212(a)(4) and satisfy the totality of the circumstances analysis. The Department has not amended that text to match the November 2025 cable. This page describes what officers have done since November 2025.</p>
+
+          <h2 class="section-title" id="fluid">9. What is confirmed, and what is not</h2>
+          <p class="prose">Read this page as our best reconstruction of a standard the State Department has not published in full.</p>
+          <ul class="prose-list">
+            <li><strong>The Department has not published the governing documents.</strong> Nobody outside government has released the November 2025 cable or the worksheet. We built this page from practitioner analysis, court filings that describe both documents, forms other posts have handed applicants, and interview reports. Those sources agree with each other. A published rule would still carry more weight.</li>
+            <li><strong>The written material comes from other posts.</strong> The questionnaire in <a href="#asked">section 2</a> and the <a href="/221g#publiccharge">public charge 221(g) checklist</a> are real documents. No London applicant has reported receiving either. We include them because officers at every post apply the same five factors.</li>
+            <li><strong>London has few cases under the new standard.</strong> The embassy cancelled its September 2026 interviews so officers could complete the training, and it is rescheduling them now. The London accounts on this site are single cases. We expect to rewrite parts of this page as more reports arrive.</li>
+          </ul>
+          <p class="prose"><strong>We are confident about the direction.</strong> The Department sent a worksheet to every post, required training for every officer and widened supervisor review of decisions. Those steps make a strict, uniform assessment the normal standard for immigrant visa interviews. Each post will apply it in its own way. The five factors, and the evidence that answers them, will hold.</p>
+          <p class="prose"><strong>Prepare for the version on this page.</strong> Gathering the evidence costs you an afternoon. Arriving without it costs you a 221(g) and months of delay.</p>
 
           <h2 class="section-title" id="sources">10. Authorities and sources</h2>
           <div class="embassy-note" style="margin-top: 0; padding-top: 0; border-top: none;">
@@ -366,16 +329,15 @@
               <li>USCIS, <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864 and instructions</a>, edition 08/24/26: the tax-year question (Part 6, Item Numbers 15 to 19) and the credit report authorization (Part 8)</li>
               <li><a href="https://www.uscis.gov/policy-manual/volume-8-part-g" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 8, Part G</a> and <a href="https://www.uscis.gov/sites/default/files/document/policy-manual-updates/20260818-PublicChargeFinalRule.pdf" target="_blank" rel="noopener noreferrer">Policy Alert PA-2026-09</a> of 18 August 2026, effective 18 September 2026. These govern adjustment of status, and do not apply to consular cases</li>
               <li>Cable 26 STATE 88862, 10 September 2026, to all diplomatic and consular posts, filed as ECF 95-1 in <em>Medani v. Trump</em>, No. 5:26-cv-06332 (N.D. Cal.)</li>
-              <li>The Department's status report of 8 September 2026 and the declaration of the Principal Deputy Assistant Secretary, Bureau of Consular Affairs, filed as ECF 96 and ECF 96-1 in <em>CLINIC v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y.). Our source for the worksheet, the 15 August 2026 deployment guidance and the four training requirements of 1 September 2026</li>
+              <li>The Department's status report of 8 September 2026 and the declaration of the Principal Deputy Assistant Secretary, Bureau of Consular Affairs, filed as ECF 96 and ECF 96-1 in <em>CLINIC v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y.): the worksheet, the 15 August 2026 deployment guidance and the four training requirements of 1 September 2026</li>
               <li><em>CLINIC v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y.), order of 21 August 2026 vacating the nationality-based immigrant visa pause. See <a href="/visa-pause.html">our page on that decision</a></li>
             </ul>
 
-            <p><strong>Documents posts gave applicants, shared with this site.</strong> The Department has not published them, but they are primary documents. The questionnaire appears in <a href="#asked">section 3</a>, and the 221(g) checklist on the <a href="/221g#publiccharge">221(g) page</a>.</p>
+            <p><strong>Documents posts gave applicants, shared with this site.</strong></p>
             <ul>
-              <li>A <strong>written public charge questionnaire</strong> issued to an immigrant visa applicant in 2026: twenty numbered questions under general, health, family status, financial status, public assistance and joint sponsor, to answer and upload to CEAC before the interview</li>
-              <li>A <strong>public charge 221(g) checklist</strong> from Consulate General Lagos, 2026, with its own document list under a public charge heading</li>
+              <li>A <strong>written public charge questionnaire</strong> issued to an immigrant visa applicant in 2026: twenty numbered questions, reproduced in <a href="#asked">section 2</a></li>
+              <li>A <strong>public charge 221(g) checklist</strong> from Consulate General Lagos, 2026, shown on the <a href="/221g#publiccharge">221(g) page</a></li>
             </ul>
-            <p style="font-size: var(--size-sm);">Neither comes from London. We include them because officers at every post apply the same factors, and the questions in these documents follow from those factors. Where this page relies on them, it says so.</p>
 
             <p><strong>Not published. Weigh claims that rest on these with care.</strong></p>
             <ul>
@@ -391,7 +353,7 @@
               <li>ILRC, <a href="https://www.ilrc.org/public-charge/latest" target="_blank" rel="noopener noreferrer">Latest on Public Charge</a></li>
             </ul>
 
-            <p><strong>Community experience.</strong> Where this page describes what happens at the window, the material comes from London applicants' reports, and the text labels it. The applicant in <a href="#london-account">section 5</a> shared her account and gave us permission to reproduce it. An applicant's spouse posted the account in sections 3 and 6 in September 2026, from an interview at another post. For more interview reports, see the <a href="/interview-questions.html">interview question bank</a> and the <a href="/checklist-interview.html">interview checklist</a>.</p>
+            <p><strong>Community experience.</strong> Where this page describes what happens at the window, the material comes from applicants' reports, and the text labels it. The applicant in <a href="#london-account">section 1</a> shared her account and gave us permission to reproduce it. An applicant's spouse posted the account in sections 2 and 3 in September 2026, from an interview at another post. For more interview reports, see the <a href="/interview-questions.html">interview question bank</a> and the <a href="/checklist-interview.html">interview checklist</a>.</p>
           </div>
 
           <p style="margin: var(--space-6) 0;"><a href="/public-charge" style="font-weight:600;">&larr; Back to the public charge page</a> &middot; <a href="/public-charge-statement" style="font-weight:600;">Statement builder</a> &middot; <a href="/interview" style="font-weight:600;">Your interview hub</a></p>
