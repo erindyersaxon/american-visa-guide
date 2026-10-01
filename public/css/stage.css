@@ -650,9 +650,11 @@
     padding: 12px 12px;
     text-align: left;
     border-bottom: 2px solid var(--border);
-    border-left: 3px solid var(--accent);
     background: rgba(30,28,23,0.08);
   }
+
+  .fee-table th:first-child { border-left: 3px solid var(--accent); }
+  .fee-table th:last-child { text-align: right; }
 
   .fee-table tbody tr:nth-child(odd) td {
     background: rgba(30,28,23,0.04);
@@ -706,6 +708,14 @@
       display: table;
       width: 100%;
     }
+
+    /* Fee tables are two short columns: keep native table layout so the
+       header and amount columns stay aligned on narrow screens. */
+    table.fee-table { display: table; white-space: normal; }
+    table.fee-table thead { display: table-header-group; }
+    table.fee-table tbody { display: table-row-group; max-height: none; overflow: visible; }
+    table.fee-table tr { display: table-row; }
+    table.fee-table td:last-child { white-space: nowrap; }
   }
 
   /* Checklist */
