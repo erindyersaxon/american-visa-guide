@@ -168,6 +168,7 @@
     'guide': 'guide',
     'delayed-i130-remedies': 'guide',
     'mandamus-pro-se': 'guide',
+    'glossary': 'guide',
     'interview': 'interview',
     'reinterview': 'interview',
     'public-charge': 'interview',

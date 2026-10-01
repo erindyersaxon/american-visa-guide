@@ -249,7 +249,7 @@
       <div style="font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--muted);">By state</div>
       <div style="font-size:11px;color:var(--muted);">Community data: <a href="https://www.americanvisaguide.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);text-decoration:none;font-weight:600;">americanvisaguide.com</a></div>
     </div>
-    <div class="state-board" id="state-board">
+    <div class="state-board" id="state-board" data-no-glossary>
       <div style="font-size:13px;color:var(--muted);">Loading...</div>
     </div>
 
@@ -264,7 +264,7 @@
           <p>London members have set up regional Signal groups for ongoing support after arrival. These are independent community groups, not affiliated with American Visa Guide or any official organization. They use Signal so you do not need to exchange phone numbers until you are ready.</p>
       <div class="info-card">
         <div class="info-card-head">Signal groups by region</div>
-        <ul style="font-size:13px;margin:0;">
+        <ul style="font-size:13px;margin:0;" data-no-glossary>
           <li><strong>California:</strong> <a href="https://signal.group/#CjQKIMD2fQH9iv1HR2L57E2sclJ7498TcZ6Q2ZObsYL6ymjOEhBGFKb1VkTZxsge0bF-MJhJ" target="_blank" rel="noopener noreferrer">Join group</a></li>
           <li><strong>Coastal Southeast (NC, SC, GA, FL):</strong> <a href="https://signal.group/#CjQKIBXiKQ7zWgazmTdn3b33-w0ya-3KAHgiFS8scmVa7V05EhABwIKm4syq28-6gELecrWt" target="_blank" rel="noopener noreferrer">Join group</a></li>
           <li><strong>In &amp; Around DC (DC, MD, VA, WV, DE):</strong> <a href="https://signal.group/#CjQKIEj1_o5mzvCgWCHgFECzQ7LBqilYEWkTa3rw_jzyAHKkEhDQJEoEF6xdRxwYGN1WOXW-" target="_blank" rel="noopener noreferrer">Join group</a></li>
@@ -302,7 +302,7 @@
         </div>
       </div>
     </div>
-    <div class="state-board" id="airport-board" style="margin-top:0;grid-template-columns:repeat(auto-fill,minmax(min(220px, 100%), 1fr))">
+    <div class="state-board" id="airport-board" data-no-glossary style="margin-top:0;grid-template-columns:repeat(auto-fill,minmax(min(220px, 100%), 1fr))">
       <div style="font-size:13px;color:var(--muted);">Loading...</div>
     </div>
   </div>
@@ -1361,5 +1361,6 @@ const TL_DATA = [
 buildMap();
 </script>
 
+<script src="/js/glossary.js?v=20261001"></script>
 </body>
 </html>
