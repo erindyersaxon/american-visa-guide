@@ -173,6 +173,7 @@
     'reinterview': 'interview',
     'public-charge': 'interview',
     'public-charge-statement': 'interview',
+    'public-charge-detail': 'interview',
     'visa-pause': 'interview',
     'september-2026-update': 'interview',
     '221g': 'interview',
