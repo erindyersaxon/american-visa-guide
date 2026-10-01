@@ -42,6 +42,10 @@
     });
   }
 
+  // "a" or "an" before a job title, judged by its first letter. A
+  // placeholder in brackets keeps "a".
+  const an = w => (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w;
+
   function build() {
     const name = ph(val('name'), 'Beneficiary Full Name');
     const kase = ph(val('case'), 'LND0123456789');
@@ -53,29 +57,29 @@
     p.push('');
     p.push('Dear Immigrant Visa Unit,');
     p.push('');
-    p.push('I am writing to submit my public charge statement in advance of my immigrant visa interview. My case number is ' + kase + ' and my interview is scheduled for ' + ph(val('idate'), 'DATE') + '. The statement and supporting evidence have also been uploaded to my case in CEAC.');
+    p.push('I submit this public charge statement ahead of my immigrant visa interview. My case number is ' + kase + ', and my interview is on ' + ph(val('idate'), 'DATE') + '. I have also uploaded this statement and its evidence to my case in CEAC.');
     p.push('');
 
     // PERSONAL CIRCUMSTANCES
     const pc = [];
     pc.push('I am ' + ph(val('age'), 'age') + ' years old.');
     if (val('english') === 'fluent') {
-      pc.push('I am fluent in English, and my ' + ph(val('englishbasis'), 'education / professional qualifications / current employment') + ' has been conducted in English.');
+      pc.push('I am fluent in English, and I have used it throughout my ' + ph(val('englishbasis'), 'education / professional qualifications / current employment') + '.');
     } else {
       pc.push('English is my first language.');
     }
-    pc.push('My highest qualification is ' + ph(val('qual'), 'qualification') + ' from ' + ph(val('qualinst'), 'institution') + ', awarded in ' + ph(val('qualyear'), 'year') + '.');
-    if (val('extraqual')) pc.push('I also hold ' + sentence(val('extraqual')) + ' These skills are directly transferable to the US labor market.');
+    pc.push('My highest qualification is ' + ph(val('qual'), 'qualification') + ', which I received from ' + ph(val('qualinst'), 'institution') + ' in ' + ph(val('qualyear'), 'year') + '.');
+    if (val('extraqual')) pc.push('I also hold ' + sentence(val('extraqual')) + ' I can apply these skills in the US labor market.');
     const rel = val('rel') === 'other' ? 'the ' + ph(val('relother'), 'relationship') + ' of my petitioner' : 'married to my petitioner';
     pc.push('I am ' + rel + ', and ' + (val('owndeps') ? 'my dependents are ' + sentence(val('owndeps')) : 'I have no dependents.'));
-    pc.push(val('petdeps') ? 'My petitioner has ' + sentence(val('petdeps')) : 'My petitioner has no dependents other than those named above.');
-    if (val('depcare')) pc.push(sentence(val('depcare')) + ' That care does not depend on public funding.');
+    pc.push(val('petdeps') ? 'My petitioner has ' + sentence(val('petdeps')) : 'My petitioner has no dependents other than those I name above.');
+    if (val('depcare')) pc.push(sentence(val('depcare')) + ' No public funding pays for that care.');
     p.push('PERSONAL CIRCUMSTANCES');
     p.push(pc.join(' '));
     p.push('');
 
     if (val('condition')) {
-      p.push('I have ' + val('condition') + ', which is well managed with ' + ph(val('treatment'), 'treatment') + '. It does not affect my ability to work. I have researched the cost of this treatment in the United States: it costs approximately ' + ph(val('treatcost'), '$XXX per month') + '. That cost will be met by the health insurance and income described below.');
+      p.push('I have ' + val('condition') + ', which I manage with ' + ph(val('treatment'), 'treatment') + '. It does not affect my ability to work. I have priced this treatment in the United States: it costs about ' + ph(val('treatcost'), '$XXX per month') + '. The health insurance and income I describe below will cover that cost.');
     } else {
       p.push('I am in good health and have no condition that would prevent me from working.');
     }
@@ -84,58 +88,62 @@
     // HOUSING
     p.push('HOUSING');
     const lw = ph(val('liveswith'), 'my spouse, Name');
+    const pays = ' We will pay the housing costs from ' + ph(val('housingpaid'), 'my petitioner\'s income') + '.';
     if (val('address')) {
-      p.push('Upon entry to the United States, I will be living with ' + lw + ', at ' + val('address') + '. The housing costs will be met by ' + ph(val('housingpaid'), 'my petitioner\'s income') + '.');
+      p.push('When I enter the United States, I will live with ' + lw + ', at ' + val('address') + '.' + pays);
     } else {
-      p.push('Upon entry to the United States, I will be living with ' + lw + '. We are currently in the process of securing accommodation in ' + ph(val('area'), 'City, State') + ' and expect to confirm our address within ' + ph(val('areatime'), 'timeframe') + '. The housing costs will be met by ' + ph(val('housingpaid'), 'my petitioner\'s income') + '.');
+      p.push('When I enter the United States, I will live with ' + lw + '. We are looking for a home in ' + ph(val('area'), 'City, State') + ' and expect to confirm our address within ' + ph(val('areatime'), 'timeframe') + '.' + pays);
     }
     p.push('');
 
     // EMPLOYMENT
     p.push('EMPLOYMENT');
     const emp = [];
-    emp.push('I am a ' + ph(val('job'), 'job title') + ' with ' + ph(val('years'), 'X') + ' years of experience in ' + ph(val('sector'), 'sector') + '. I have been continuously employed in this field since ' + ph(val('since'), 'year') + ', most recently with ' + ph(val('employer'), 'Employer') + ' since ' + ph(val('employersince'), 'year') + '.');
-    if (val('licence')) emp.push('My profession is licensed in the United States. I have ' + sentence(val('licence')));
+    emp.push('I am ' + an(ph(val('job'), 'job title')) + ' with ' + ph(val('years'), 'X') + ' years of experience in ' + ph(val('sector'), 'sector') + '. I have worked in this field without a break since ' + ph(val('since'), 'year') + ', and for ' + ph(val('employer'), 'Employer') + ' since ' + ph(val('employersince'), 'year') + '.');
+    if (val('licence')) emp.push('My profession requires a license in the United States. I have ' + sentence(val('licence')));
     p.push(emp.join(' '));
     p.push('');
     if (val('workplan') === 'keep') {
-      let s = 'I am currently employed by ' + ph(val('employer'), 'Employer') + ' and plan to continue in my role following my move.';
+      let s = 'I work for ' + ph(val('employer'), 'Employer') + ' and plan to keep my role after I move.';
       s += val('keepconfirmed')
-        ? ' My employer has confirmed in writing that they permit me to work from the United States, and I can provide that confirmation on request.'
+        ? ' My employer has confirmed in writing that I may work from the United States, and I can provide that letter on request.'
         : ' [Your employer has not confirmed in writing that you may work from the US. Get that confirmation, or describe this as employment you will seek.]';
-      s += ' My current salary is approximately ' + ph(val('salary'), '$XX,XXX') + ' per year.';
-      if (val('fallback')) s += ' If that arrangement were to end, I would ' + sentence(val('fallback'));
+      s += ' I earn about ' + ph(val('salary'), '$XX,XXX') + ' per year.';
+      if (val('fallback')) s += ' If that arrangement ended, I would ' + sentence(val('fallback'));
       p.push(s);
     } else {
-      p.push('I plan to seek employment in ' + ph(val('sector'), 'sector') + ' upon arrival. I have ' + ph(val('years'), 'X') + ' years of experience in the field and expect to secure employment within ' + ph(val('seektime'), 'timeframe') + ', at an estimated salary of approximately ' + ph(val('seeksalary'), '$XX,XXX') + ' per year. I have already begun researching roles in ' + ph(val('seekarea'), 'City, State') + '.');
+      p.push('I plan to look for work in ' + ph(val('sector'), 'sector') + ' when I arrive. I have ' + ph(val('years'), 'X') + ' years of experience in the field and expect to find a job within ' + ph(val('seektime'), 'timeframe') + ', earning about ' + ph(val('seeksalary'), '$XX,XXX') + ' per year. I have begun researching roles in ' + ph(val('seekarea'), 'City, State') + '.');
     }
     p.push('');
-    let sp = 'My petitioner, ' + ph(val('pname'), 'Name') + ', works as a ' + ph(val('pjob'), 'job title') + ' at ' + ph(val('pemployer'), 'Employer') + ', earning approximately ' + ph(val('pgross'), '$XX,XXX') + ' per year before tax, and approximately ' + ph(val('pnet'), '$XX,XXX') + ' after tax.';
+    let sp = 'My petitioner, ' + ph(val('pname'), 'Name') + ', works as ' + an(ph(val('pjob'), 'job title')) + ' at ' + ph(val('pemployer'), 'Employer') + ', earning about ' + ph(val('pgross'), '$XX,XXX') + ' per year before tax and about ' + ph(val('pnet'), '$XX,XXX') + ' after tax.';
     if (val('otheradult')) sp += ' ' + sentence(val('otheradult'));
-    if (js) sp += ' My joint sponsor, ' + js + ', works as a ' + ph(val('jsjob'), 'job title') + ' at ' + ph(val('jsemployer'), 'Employer') + ', earning approximately ' + ph(val('jsincome'), '$XX,XXX') + ' per year.';
-    sp += ' During any period before my own employment begins, my household will be supported by ' + (js ? 'my petitioner\'s and my joint sponsor\'s' : 'my petitioner\'s') + ' income. The I-864 Affidavit' + (js ? 's' : '') + ' of Support confirm' + (js ? '' : 's') + ' this commitment.';
+    if (js) sp += ' My joint sponsor, ' + js + ', works as ' + an(ph(val('jsjob'), 'job title')) + ' at ' + ph(val('jsemployer'), 'Employer') + ', earning about ' + ph(val('jsincome'), '$XX,XXX') + ' per year.';
+    sp += js
+      ? ' My petitioner and my joint sponsor will support our household, and each has signed an I-864 Affidavit of Support committing to this.'
+      : ' My petitioner will support our household, and has signed an I-864 Affidavit of Support committing to this.';
     p.push(sp);
     p.push('');
 
     // HEALTH INSURANCE
     p.push('HEALTH INSURANCE');
     if (val('ins') === 'employer') {
-      p.push('I will be added to my family\'s employer-provided health insurance plan through ' + ph(val('insemployer'), 'Employer') + ' once my Social Security Number is issued. The plan is provided by ' + ph(val('insprovider'), 'Insurance provider') + ' and covers dependents. The premiums will be paid for by ' + ph(val('inspaid'), 'my petitioner\'s income') + '. This coverage depends on employment with ' + ph(val('insemployer'), 'Employer') + ', which has been continuous since ' + ph(val('inssince'), 'year') + '. If that role ended, we would maintain cover through ' + ph(val('insfallback'), 'COBRA or the ACA marketplace') + '.');
+      p.push('Once I receive my Social Security Number, I will join my family\'s employer health insurance plan through ' + ph(val('insemployer'), 'Employer') + '. ' + ph(val('insprovider'), 'Insurance provider') + ' provides the plan, and it covers dependents. We will pay the premiums from ' + ph(val('inspaid'), 'my petitioner\'s income') + '. This coverage depends on employment with ' + ph(val('insemployer'), 'Employer') + ', which has been continuous since ' + ph(val('inssince'), 'year') + '. If that job ended, we would keep cover through ' + ph(val('insfallback'), 'COBRA or the ACA marketplace') + '.');
     } else {
-      p.push('I will obtain health insurance through the Affordable Care Act marketplace. I have researched available plans in ' + ph(val('insstate'), 'State') + ' and expect the monthly premium to be approximately ' + ph(val('inspremium'), '$XXX') + '. The premiums will be paid for by ' + ph(val('inspaid'), 'my petitioner\'s income') + '.');
+      p.push('I will buy health insurance through the Affordable Care Act marketplace. I have compared plans in ' + ph(val('insstate'), 'State') + ' and expect to pay about ' + ph(val('inspremium'), '$XXX') + ' per month. We will pay the premiums from ' + ph(val('inspaid'), 'my petitioner\'s income') + '.');
     }
     p.push('');
 
     // SAVINGS AND ASSETS
     p.push('SAVINGS AND ASSETS');
     const sa = [];
-    sa.push('In addition to the income described above, and not in place of it, ' + (val('saveswho') === 'joint' ? 'my petitioner and I jointly have' : 'I have') + ' savings of approximately ' + ph(val('savings'), '$XX,XXX') + '. I regard these as a contingency buffer rather than a source of support: they would cover our housing, insurance and living costs for approximately ' + ph(val('savemonths'), 'X') + ' months if they were ever needed. These funds are held in readily accessible accounts and can be evidenced by bank statements, which I can provide on request.');
-    if (val('saveswho') === 'joint' && (val('saveme') || val('savepet'))) sa.push('Of this, ' + ph(val('saveme'), '$XX,XXX') + ' is held in my own name and ' + ph(val('savepet'), '$XX,XXX') + ' in my petitioner\'s.');
-    if (val('property')) sa.push('I also hold ' + sentence(val('property')) + ' I can provide documentary proof of ownership for each.');
-    if (val('otherincome')) sa.push('I additionally earn ' + sentence(val('otherincome')));
-    sa.push('The household costs set out above are met from the income described in each section.');
-    sa.push(val('debts') ? 'My outstanding liabilities are ' + sentence(val('debts')) : 'I have no significant outstanding debts or financial liabilities.');
-    if (val('slc')) sa.push('I have a UK student loan (Plan ' + val('slcplan') + ') with the Student Loans Company, with a balance of approximately £' + ph(val('slcgbp'), 'X').replace(/^£/, '') + ' ($' + ph(val('slcusd'), 'X').replace(/^\$/, '') + '). I have told the Student Loans Company that I am moving to the United States. Repayments while I live abroad are set by the Student Loans Company against my overseas income and will be approximately $' + ph(val('slcmonth'), 'XXX').replace(/^\$/, '') + ' per month, paid from ' + ph(val('slcpaid'), 'income source') + '. My latest statement is attached.');
+    const joint = val('saveswho') === 'joint';
+    sa.push((joint ? 'My petitioner and I also have savings of about ' : 'I also have savings of about ') + ph(val('savings'), '$XX,XXX') + ', on top of the income above. ' + (joint ? 'We' : 'I') + ' keep them as a buffer for emergencies: they would cover our housing, insurance and living costs for about ' + ph(val('savemonths'), 'X') + ' months. ' + (joint ? 'We' : 'I') + ' can draw on them at once, and I can provide bank statements on request.');
+    if (joint && (val('saveme') || val('savepet'))) sa.push('Of this, ' + ph(val('saveme'), '$XX,XXX') + ' is in my name and ' + ph(val('savepet'), '$XX,XXX') + ' in my petitioner\'s.');
+    if (val('property')) sa.push('I also hold ' + sentence(val('property')) + ' I can provide proof of ownership for each.');
+    if (val('otherincome')) sa.push('Besides my salary, I earn ' + sentence(val('otherincome')));
+    sa.push('We meet the household costs above from the income in each section.');
+    sa.push(val('debts') ? 'My outstanding debts are ' + sentence(val('debts')) : 'I have no significant debts.');
+    if (val('slc')) sa.push('I have a UK student loan (Plan ' + val('slcplan') + ') with the Student Loans Company, with a balance of about £' + ph(val('slcgbp'), 'X').replace(/^£/, '') + ' ($' + ph(val('slcusd'), 'X').replace(/^\$/, '') + '). I have told the Company that I am moving to the United States. While I live abroad, the Company sets my repayments against my overseas income. I expect to pay about $' + ph(val('slcmonth'), 'XXX').replace(/^\$/, '') + ' per month, from ' + ph(val('slcpaid'), 'income source') + '. I attach my latest statement.');
     p.push(sa.join(' '));
     p.push('');
 
@@ -147,10 +155,10 @@
       : 'I have never received means-tested public assistance or social welfare benefits in the United Kingdom, the United States, or any other country.');
     pb.push(val('petbenefits') ? 'My petitioner ' + sentence(val('petbenefits')) : 'My petitioner has never received means-tested public assistance.');
     if (js) pb.push(val('jsbenefits') ? 'My joint sponsor ' + sentence(val('jsbenefits')) : 'My joint sponsor has never received means-tested public assistance.');
-    pb.push(val('institution') ? sentence(val('institution')) : 'Neither I nor my petitioner has ever been institutionalized for long-term care at government expense.');
+    pb.push(val('institution') ? sentence(val('institution')) : 'Neither I nor my petitioner has ever received long-term institutional care at government expense.');
     p.push(pb.join(' '));
     p.push('');
-    p.push('I am committed to supporting myself and my family independently and have no intention of relying on public benefits. I am happy to provide any additional information if required.');
+    p.push('I will support myself and my family without public benefits. I can provide any further information you need.');
     p.push('');
     p.push('Yours sincerely,');
     p.push(name);
@@ -166,7 +174,7 @@
     if (val('ev-petins')) ev.push('Petitioner health insurance, plan confirmation or summary of benefits');
     if (val('ev-jstax')) ev.push('Joint sponsor IRS tax returns / transcripts, last 3 years');
     if (val('ev-slc')) ev.push('Beneficiary UK student loan statement');
-    if (val('ev-employer')) ev.push('Employer letter confirming US-based work is permitted');
+    if (val('ev-employer')) ev.push('Employer letter permitting me to work from the US');
     p.push('ATTACHED EVIDENCE');
     ev.forEach((e, i) => p.push(String(i + 1).padStart(2, '0') + ' ' + e));
     p.push('');
