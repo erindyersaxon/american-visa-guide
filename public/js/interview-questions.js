@@ -94,10 +94,13 @@
     { q: 'Does your petitioner have a mortgage?', theme: 'petitioner', cats: 'all', tip: 'The largest of the debts the officer weighs. Know whether there is one and roughly what is outstanding.', from: 'Esther' },
     { q: 'Is your petitioner in a union?', theme: 'petitioner', cats: 'all', tip: 'Asked of a petitioner working somewhere unionised. Union membership speaks to job security and health coverage, so it helps you: know the answer.', from: 'Esther' },
     { q: 'Who else lives at the address?', theme: 'petitioner', cats: 'all', tip: 'Everyone, not just the people on the petition. Family status is a statutory public charge factor.', from: 'Esther' },
+    { q: 'When did your petitioner buy the house in the US, and what is the address?', theme: 'petitioner', cats: 'all', tip: 'Asked of a petitioner who had moved abroad and kept a US home. It tests the domicile tie, so bring the deed or mortgage statement.', from: 'Ilma' },
+    { q: 'What was your petitioner’s job in the US, where was it, and what did it pay? What do they do and earn now?', theme: 'petitioner', cats: 'all', tip: 'Asked when the petitioner works abroad. Know both jobs and both salaries.', from: 'Ilma' },
 
     // Where you'll live & US plans
     { q: 'Where will you live in the US?', theme: 'living', cats: 'all', from: 'Multiple reports' },
     { q: 'Who will you be living with when you first arrive?', theme: 'living', cats: 'all', from: 'Mia' },
+    { q: 'How many people will live in the house, and how many rooms does it have?', theme: 'living', cats: 'all', tip: 'Count everyone who will live there, including you.', from: 'Ilma' },
 
     // Work & employment
     { q: 'Are you currently employed? What do you do?', theme: 'work', cats: 'all', from: 'Multiple reports' },
@@ -126,6 +129,7 @@
     { q: 'Tell me about your side business. Do you get paid a salary for it?', theme: 'publiccharge', cats: 'all', tip: 'Cash or informal income draws detailed questioning because it cannot be evidenced like a payslip. Describe it accurately, do not inflate it, and lead on income you can document.', from: 'Esther' },
     { q: 'How many people does your petitioner support financially?', theme: 'publiccharge', cats: 'all', tip: 'Wider than the I-864 definition: it includes extended family or friends being supported, who appear nowhere on the affidavit. Work out both numbers.', from: 'Written questionnaire' },
     { q: 'Has either of you ever been institutionalized at government expense?', theme: 'publiccharge', cats: 'all', tip: 'A long-term stay in a mental health or nursing facility funded by the state. Ordinary NHS treatment is not this. Asked about the petitioner as well as you.', from: 'Written questionnaire' },
+    { q: 'Have you ever used public benefits here in the UK?', theme: 'publiccharge', cats: 'all', tip: 'Asked about the beneficiary’s own country of residence, separately from the US question about the petitioner’s family.', from: 'Ilma' },
     { q: 'What is your petitioner’s salary after taxes?', theme: 'publiccharge', cats: 'all', tip: 'Written questionnaires ask for net, while the I-864 works in gross. Have both figures and say which one you are quoting.', from: 'Written questionnaire' },
 
     // Medical, insurance & conditions
