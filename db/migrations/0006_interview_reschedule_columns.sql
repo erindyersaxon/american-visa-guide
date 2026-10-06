@@ -81,3 +81,12 @@ UPDATE public.form_responses
 UPDATE public.form_responses
   SET new_interview_at = '2026-10-06 00:00:00+00'
   WHERE id = 332 AND username_raw = 'wildeyesap';
+
+-- Outcomes reported by the admin on 2026-10-06: carlralph and wildeyesap
+-- ("Ashley") were both approved at their rescheduled 2026-10-06 interviews.
+-- outcome_status (generated) recomputes to 'approved' for both.
+UPDATE public.form_responses
+  SET interview_outcome = 'Approved',
+      notes = notes || ' | Approved at rescheduled interview 2026-10-06 (reported to admin).'
+  WHERE id IN (39, 332) AND interview_outcome IS NULL
+    AND username_raw IN ('carlralph', 'wildeyesap');
