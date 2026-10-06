@@ -88,11 +88,14 @@
     // HOUSING
     p.push('HOUSING');
     const lw = ph(val('liveswith'), 'my spouse, Name');
-    const pays = ' We will pay the housing costs from ' + ph(val('housingpaid'), 'my petitioner\'s income') + '.';
+    const cost = val('housingcost') ? ', about ' + val('housingcost') + ' per month,' : '';
+    const pays = ' We will pay the housing costs' + cost + ' from ' + ph(val('housingpaid'), 'my petitioner\'s income') + '.';
+    const beds = ph(val('bedrooms'), 'X');
+    const who = val('household') ? ' ' + sentence('The household will be ' + val('household')) : '';
     if (val('address')) {
-      p.push('When I enter the United States, I will live with ' + lw + ', at ' + val('address') + '.' + pays);
+      p.push('When I enter the United States, I will live with ' + lw + ', at ' + val('address') + '. The home is ' + ph(val('tenure'), 'owned by / rented by') + ' and has ' + beds + ' bedrooms.' + who + pays);
     } else {
-      p.push('When I enter the United States, I will live with ' + lw + '. We are looking for a home in ' + ph(val('area'), 'City, State') + ' and expect to confirm our address within ' + ph(val('areatime'), 'timeframe') + '.' + pays);
+      p.push('When I enter the United States, I will live with ' + lw + '. We are looking for a home in ' + ph(val('area'), 'City, State') + ' and expect to confirm our address within ' + ph(val('areatime'), 'timeframe') + '. We plan for a home with ' + beds + ' bedrooms.' + who + pays);
     }
     p.push('');
 
@@ -140,6 +143,7 @@
     sa.push((joint ? 'My petitioner and I also have savings of about ' : 'I also have savings of about ') + ph(val('savings'), '$XX,XXX') + ', on top of the income above. ' + (joint ? 'We' : 'I') + ' keep them as a buffer for emergencies: they would cover our housing, insurance and living costs for about ' + ph(val('savemonths'), 'X') + ' months. ' + (joint ? 'We' : 'I') + ' can draw on them at once, and I can provide bank statements on request.');
     if (joint && (val('saveme') || val('savepet'))) sa.push('Of this, ' + ph(val('saveme'), '$XX,XXX') + ' is in my name and ' + ph(val('savepet'), '$XX,XXX') + ' in my petitioner\'s.');
     if (val('property')) sa.push('I also hold ' + sentence(val('property')) + ' I can provide proof of ownership for each.');
+    if (val('pensions')) sa.push('We also hold workplace and private pensions: ' + sentence(val('pensions')) + ' I can provide the latest statement for each.');
     if (val('otherincome')) sa.push('Besides my salary, I earn ' + sentence(val('otherincome')));
     sa.push('We meet the household costs above from the income in each section.');
     sa.push(val('debts') ? 'My outstanding debts are ' + sentence(val('debts')) : 'I have no significant debts.');
@@ -172,6 +176,8 @@
     if (val('ev-petpay')) ev.push('Petitioner payslips, last 3 months');
     if (val('ev-petbank')) ev.push('Petitioner bank statements, last 3 months');
     if (val('ev-petins')) ev.push('Petitioner health insurance, plan confirmation or summary of benefits');
+    if (val('ev-home')) ev.push('US home: lease, deed or mortgage statement');
+    if (val('ev-pension')) ev.push('Workplace and private pension statements');
     if (val('ev-jstax')) ev.push('Joint sponsor IRS tax returns / transcripts, last 3 years');
     if (val('ev-slc')) ev.push('Beneficiary UK student loan statement');
     if (val('ev-employer')) ev.push('Employer letter permitting me to work from the US');
@@ -241,6 +247,7 @@
   const EVIDENCE = {
     'ev-jstax': () => !!val('jsname'),
     'ev-slc': () => !!val('slc'),
+    'ev-pension': () => !!val('pensions'),
     'ev-employer': () => val('workplan') === 'keep' && !!val('keepconfirmed')
   };
   const evPrev = {};

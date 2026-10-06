@@ -96,6 +96,12 @@
         <div class="field"><label for="area">City and state</label><input type="text" id="area" placeholder="Denver, Colorado"></div>
         <div class="field"><label for="areatime">Expect to confirm within</label><input type="text" id="areatime" placeholder="four weeks of arrival"></div>
       </div>
+      <div class="field-row">
+        <div class="field"><label for="tenure">The home is</label><input type="text" id="tenure" placeholder="owned by my husband / rented"><span class="hint">Officers ask whether it is owned or rented.</span></div>
+        <div class="field"><label for="bedrooms">Bedrooms</label><input type="text" id="bedrooms" placeholder="3"><span class="hint">A London officer asked this in October 2026.</span></div>
+        <div class="field"><label for="housingcost">Monthly rent or mortgage</label><input type="text" id="housingcost" placeholder="$1,800"></div>
+      </div>
+      <div class="field"><label for="household">Everyone who will live there, including you <span class="hint">(optional)</span></label><input type="text" id="household" placeholder="my husband, our daughter and me"></div>
       <div class="field"><label for="housingpaid">Housing costs met by</label><input type="text" id="housingpaid" value="my petitioner's income"></div>
     </fieldset>
 
@@ -178,6 +184,7 @@
         <div class="field"><label for="savepet">Of which in the petitioner's name</label><input type="text" id="savepet"></div>
       </div>
       <div class="field"><label for="property">Property or investments <span class="hint">(optional; only what you can prove at the window)</span></label><input type="text" id="property" placeholder="a flat in Leeds, owned outright; investments of approximately $12,000"></div>
+      <div class="field"><label for="pensions">Workplace and private pensions, yours and the petitioner's <span class="hint">(optional; not the State Pension)</span></label><input type="text" id="pensions" placeholder="my workplace pension with Aviva, worth about $40,000, and my husband's 401(k), worth about $65,000"><span class="hint">A London officer asked a 36-year-old for these figures in October 2026. Bring the latest statement for each.</span></div>
       <div class="field"><label for="otherincome">Other income <span class="hint">(optional)</span></label><input type="text" id="otherincome" placeholder="approximately $400 per month from freelance bookkeeping, paid by invoice"></div>
       <div class="field"><label for="debts">Debts and liabilities, and how they are paid <span class="hint">(leave empty if none significant)</span></label><input type="text" id="debts" placeholder="a car loan of $8,000, serviced from my salary at $250 per month"></div>
       <label class="check"><input type="checkbox" id="slc"> I have a UK student loan</label>
@@ -212,6 +219,8 @@
       <label class="check"><input type="checkbox" id="ev-petpay" checked> Petitioner payslips, last 3 months</label>
       <label class="check"><input type="checkbox" id="ev-petbank" checked> Petitioner bank statements, last 3 months</label>
       <label class="check"><input type="checkbox" id="ev-petins" checked> Petitioner health insurance, plan confirmation or summary of benefits</label>
+      <label class="check"><input type="checkbox" id="ev-home"> The US home: lease, deed or mortgage statement</label>
+      <label class="check"><input type="checkbox" id="ev-pension"> Workplace and private pension statements</label>
       <label class="check"><input type="checkbox" id="ev-jstax"> Joint sponsor IRS tax returns or transcripts, last 3 years</label>
       <label class="check"><input type="checkbox" id="ev-slc"> My UK student loan statement</label>
       <label class="check"><input type="checkbox" id="ev-employer"> My employer's letter confirming I can work from the US</label>
@@ -246,6 +255,6 @@
 
 <div id="footer-placeholder"></div>
 
-<script src="/js/statement-builder.js?v=20261001c"></script>
+<script src="/js/statement-builder.js?v=20261006"></script>
 </body>
 </html>

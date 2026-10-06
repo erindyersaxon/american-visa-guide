@@ -101,6 +101,7 @@
     { q: 'Where will you live in the US?', theme: 'living', cats: 'all', from: 'Multiple reports' },
     { q: 'Who will you be living with when you first arrive?', theme: 'living', cats: 'all', from: 'Mia' },
     { q: 'How many people will live in the house, and how many rooms does it have?', theme: 'living', cats: 'all', tip: 'Count everyone who will live there, including you.', from: 'Ilma' },
+    { q: 'How many bedrooms will your house have?', theme: 'living', cats: 'all', tip: 'The one question that caught out an applicant who was otherwise fully prepared. Know the bedroom count, whether the home is owned or rented, and what it costs each month.', from: 'Ashley' },
 
     // Work & employment
     { q: 'Are you currently employed? What do you do?', theme: 'work', cats: 'all', from: 'Multiple reports' },
@@ -130,6 +131,8 @@
     { q: 'How many people does your petitioner support financially?', theme: 'publiccharge', cats: 'all', tip: 'Wider than the I-864 definition: it includes extended family or friends being supported, who appear nowhere on the affidavit. Work out both numbers.', from: 'Written questionnaire' },
     { q: 'Has either of you ever been institutionalized at government expense?', theme: 'publiccharge', cats: 'all', tip: 'A long-term stay in a mental health or nursing facility funded by the state. Ordinary NHS treatment is not this. Asked about the petitioner as well as you.', from: 'Written questionnaire' },
     { q: 'Have you ever used public benefits here in the UK?', theme: 'publiccharge', cats: 'all', tip: 'Asked about the beneficiary’s own country of residence, separately from the US question about the petitioner’s family.', from: 'Ilma' },
+    { q: 'How much do you and your petitioner have in workplace and private pensions?', theme: 'publiccharge', cats: 'all', tip: 'Asked of a 36-year-old applicant, so not only of those near retirement. The officer wanted workplace and private pension values and showed no interest in the State Pension. Bring the latest printed statement for each scheme and know each value in US dollars.', from: 'Carl Ralph’s husband' },
+    { q: 'Can I see your payslips and bank statements?', theme: 'publiccharge', cats: 'all', tip: 'Not a question, a request. Bring printed copies even if they are in CEAC: the officer told this applicant to put his phone away and ignored his offer to show statements on it.', from: 'Carl Ralph’s husband' },
     { q: 'What is your petitioner’s salary after taxes?', theme: 'publiccharge', cats: 'all', tip: 'Written questionnaires ask for net, while the I-864 works in gross. Have both figures and say which one you are quoting.', from: 'Written questionnaire' },
 
     // Medical, insurance & conditions
