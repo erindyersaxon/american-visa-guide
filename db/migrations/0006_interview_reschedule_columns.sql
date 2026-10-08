@@ -81,3 +81,34 @@ UPDATE public.form_responses
 UPDATE public.form_responses
   SET new_interview_at = '2026-10-06 00:00:00+00'
   WHERE id = 332 AND username_raw = 'wildeyesap';
+
+-- Rebooked dates reported by the admin on 2026-10-08 from the London Discord
+-- cancelled-interviews list. jk27 and jk279966 report the same couple.
+UPDATE public.form_responses AS f
+  SET new_interview_at = v.d::timestamptz,
+      notes = replace(f.notes, 'not yet rescheduled.', 'rescheduled to ' || left(v.d, 10) || '.')
+  FROM (VALUES (117, '2026-10-13 00:00:00+00'),   -- kierancarr91: 09-02 -> 10-13
+               (105, '2026-10-20 00:00:00+00'),   -- jk279966:     09-09 -> 10-20
+               (353, '2026-10-20 00:00:00+00'),   -- jk27:         09-09 -> 10-20
+               (333, '2026-10-28 00:00:00+00'))   -- brittany:     09-16 -> 10-28
+       AS v(id, d)
+  WHERE f.id = v.id AND f.interview_change_type = 'Rescheduled' AND f.new_interview_at IS NULL;
+
+-- Same day: merge duplicate row 105 (jk279966) into 353 (jk27). Both carry
+-- case_id case-105. Keep 353: newer submission, matches the Discord handle,
+-- and api/submit.js matches rows on username_raw. Rows disagreed on DQ
+-- (105: 04-07, 353: 04-08); kept 04-08 from the later NVC-milestones entry.
+WITH d AS (
+  DELETE FROM public.form_responses
+  WHERE id = 105 AND username_raw = 'jk279966' AND case_id = 'case-105'
+  RETURNING *
+)
+UPDATE public.form_responses k
+  SET i130_approval      = coalesce(k.i130_approval, d.i130_approval),
+      i130_priority_date = coalesce(k.i130_priority_date, d.i130_priority_date),
+      nvc_rfe            = coalesce(k.nvc_rfe, d.nvc_rfe),
+      i130_rfe           = coalesce(k.i130_rfe, d.i130_rfe),
+      notes = 'Petitioner reporting on behalf of beneficiary (husband). | ' || k.notes
+            || ' | Merged duplicate row 105 (jk279966, same case) on 2026-10-08; it reported DQ 2026-04-07, kept 2026-04-08 from this later entry.'
+  FROM d
+  WHERE k.id = 353;
