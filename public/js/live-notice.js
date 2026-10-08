@@ -82,9 +82,9 @@
   // /css/stage.css, so this variant carries its own styles (PAGE_CSS).
   COMPACT.page = fullHref => `
     <div class="page-live-notice" role="note">
-      <div class="page-live-notice__head">Live notice &middot; Interview rescheduling &middot; updated 6 October 2026</div>
-      <p>London interviews booked for September 2026 were canceled for public charge training and are being rescheduled, sometimes with <strong>less than 24 hours' notice</strong>. Reply to confirm straight away, and do not move the date in AIS: you can only reschedule later. Medical results are valid for <strong>6 months</strong>, and you must enter the US within those 6 months.</p>
-      <p><a href="/interview">Find what applies to you</a> &middot; <a href="/interview-dates">Check your dates</a> &middot; <a href="${fullHref}">Full notice</a></p>
+      <div class="page-live-notice__head">Interview rescheduling &middot; updated 8 October 2026</div>
+      <p>Every London interview canceled in August and September 2026 that we know of has been rescheduled for <strong>October 2026</strong>. If yours was canceled, add your new date to the community database by submitting your timeline. Medical results are valid for <strong>6 months</strong>, and you must enter the US within those 6 months.</p>
+      <p><a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">Submit your timeline</a> &middot; <a href="/interview-dates">Check your dates</a> &middot; <a href="${fullHref}">Full notice</a></p>
     </div>`;
 
   const PAGE_CSS = `
