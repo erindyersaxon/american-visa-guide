@@ -112,3 +112,13 @@ UPDATE public.form_responses k
             || ' | Merged duplicate row 105 (jk279966, same case) on 2026-10-08; it reported DQ 2026-04-07, kept 2026-04-08 from this later entry.'
   FROM d
   WHERE k.id = 353;
+
+-- Reported by the admin on 2026-10-08, applied by the admin in the Supabase SQL
+-- editor: pippyd0321 approved at the 2026-10-08 second interview after the
+-- 2026-08-05 221(g) (joint sponsor). outcome_status moves not_approved -> cleared.
+-- Passport not yet collected, so passport_in_hand stays NULL.
+UPDATE public.form_responses
+  SET resolution_outcome = 'Cleared - Approved',
+      visa_approval_date = '2026-10-08',
+      notes = notes || ' Approved at second interview 2026-10-08; awaiting passport.'
+  WHERE id = 346 AND username_raw = 'pippyd0321' AND resolution_outcome = 'Still Pending';
