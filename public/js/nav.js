@@ -13,7 +13,7 @@
   /* Sitewide policy banner. Flip BANNER_ENABLED to true to show it, and
      update BANNER_HTML for the notice of the day. Styles: .site-banner
      in /css/nav.css. */
-  const BANNER_ENABLED = true;
+  const BANNER_ENABLED = false;
 
   const BANNER_HTML = `
 <div class="site-banner" role="region" aria-label="Site policy notice">
