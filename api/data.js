@@ -312,8 +312,14 @@ export default async function handler(req, res) {
   // Normalize to a canonical "City (CODE)" label. Where multiple locations are
   // listed, the first is where entry was cleared: pre-clearance (Dublin,
   // Shannon, Montreal etc.) counts as the official port of entry.
+  // Land crossings have no IATA code; the form labels them "Land border: ..."
+  // and they are counted under that label as-is.
   const AIRPORT_NAMES = {
     DUB: 'Dublin pre-clearance', SNN: 'Shannon pre-clearance', YUL: 'Montreal pre-clearance',
+    YYZ: 'Toronto pre-clearance', YVR: 'Vancouver pre-clearance', YYC: 'Calgary pre-clearance',
+    YEG: 'Edmonton pre-clearance', YOW: 'Ottawa pre-clearance', YHZ: 'Halifax pre-clearance',
+    YWG: 'Winnipeg pre-clearance', AUH: 'Abu Dhabi pre-clearance', AUA: 'Aruba pre-clearance',
+    BDA: 'Bermuda pre-clearance', NAS: 'Nassau pre-clearance',
     ATL: 'Atlanta', AUS: 'Austin', BNA: 'Nashville', BOS: 'Boston', BWI: 'Baltimore',
     CLE: 'Cleveland', CLT: 'Charlotte', CVG: 'Cincinnati', DEN: 'Denver',
     DFW: 'Dallas/Fort Worth', DTW: 'Detroit', EWR: 'Newark', IAD: 'Washington Dulles',
@@ -326,6 +332,9 @@ export default async function handler(req, res) {
   // Fallbacks for entries with no IATA code in the text
   const AIRPORT_KEYWORDS = [
     ['dublin', 'DUB'], ['shannon', 'SNN'], ['montreal', 'YUL'],
+    ['toronto', 'YYZ'], ['vancouver', 'YVR'], ['calgary', 'YYC'], ['edmonton', 'YEG'],
+    ['ottawa', 'YOW'], ['halifax', 'YHZ'], ['winnipeg', 'YWG'], ['abu dhabi', 'AUH'],
+    ['aruba', 'AUA'], ['bermuda', 'BDA'], ['nassau', 'NAS'],
     ['boston', 'BOS'], ['seattle', 'SEA'], ['phoenix', 'PHX'], ['atlanta', 'ATL'],
     ['los angeles', 'LAX'], ['chicago', 'ORD'], ['dulles', 'IAD'], ['newark', 'EWR'],
     ['jfk', 'JFK'], ['dallas', 'DFW'], ['denver', 'DEN'], ['orlando', 'MCO'],
@@ -347,6 +356,7 @@ export default async function handler(req, res) {
     if (!s) return null
     // Multiple locations: first one is where entry was cleared
     s = s.split(';')[0].trim()
+    if (/^land border/i.test(s)) return s
     const codeMatch = s.toUpperCase().match(/\(([A-Z]{3})\)/)
     let code = codeMatch ? codeMatch[1] : null
     if (!code) {
