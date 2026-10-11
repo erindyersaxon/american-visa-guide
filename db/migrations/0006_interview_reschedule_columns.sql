@@ -112,3 +112,15 @@ UPDATE public.form_responses k
             || ' | Merged duplicate row 105 (jk279966, same case) on 2026-10-08; it reported DQ 2026-04-07, kept 2026-04-08 from this later entry.'
   FROM d
   WHERE k.id = 353;
+
+-- Added by the admin on 2026-10-11: skowih, I-130 approval reported outside
+-- the Fillout form. Live row id 368. PD 2025-09-05, approved 2026-10-08,
+-- no RFE. A New Hampshire congressional inquiry preceded the approval.
+INSERT INTO public.form_responses
+  (submitted_at, username_raw, visa_category, embassy, update_type,
+   i130_priority_date, i130_rfe, i130_approval, notes)
+SELECT now(), 'skowih', 'CR1/IR1', 'London, United Kingdom',
+  '["USCIS milestones (priority date, RFE, I-130 approval)"]',
+  '2025-09-05', false, '2026-10-08',
+  'USC petitioner filing for UK spouse. No petitioner interview, no K-3, no demand letter / writ of mandamus / expedite. Petitioner contacted their congresswoman''s office (New Hampshire) and believes it sped up the I-130.'
+WHERE NOT EXISTS (SELECT 1 FROM public.form_responses WHERE username_raw ILIKE 'skowih');
