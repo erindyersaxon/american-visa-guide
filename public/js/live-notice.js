@@ -24,21 +24,18 @@
   const NOTICE_HTML = `
   <div class="alert-banner" id="interview-cancellations" role="region" aria-labelledby="interview-cancellations-title">
     <div class="alert-banner__head">Interview rescheduling</div>
-    <div class="alert-banner__title" id="interview-cancellations-title">Every canceled August and September interview we know of now has an October date.</div>
-    <p>London immigrant visa interviews booked for August and September 2026 were canceled for a worldwide public charge training initiative. Every canceled interview we know of has been rescheduled for <strong>October 2026</strong>: member jk27 reports that the interview for them and their beneficiary husband, first booked for 9 September, moved to <strong>20 October 2026</strong>. If your interview was canceled, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a> so other applicants can see your new date in the community database. <strong>Not sure what applies to you?</strong> <a href="/interview">Start from the interview hub</a>.</p>
+    <div class="alert-banner__title" id="interview-cancellations-title">Canceled August and September interviews now have October dates.</div>
+    <p>The embassy canceled London immigrant visa interviews booked for August and September 2026 for public charge training. Every canceled interview we know of now has a date in <strong>October 2026</strong>. If yours was canceled, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a> so other applicants can see your new date. <strong>Not sure what applies to you?</strong> <a href="/interview">Start from the interview hub</a>.</p>
+    <p><strong>Refused under 221(g) or the visa pause?</strong> London is calling these cases back for a new interview by email. If you have not heard yet, expect a new notice. <a href="/reinterview">Re-interview after a 221(g)</a>.</p>
+    <p><strong>Waiting for an Interview Letter?</strong> Regular Interview Letter drops have not resumed. The last one went out on 14 July 2026. <a href="/data">See the data</a>.</p>
     <ul>
-      <li><strong>Reply to confirm your new date.</strong> Dates came direct from the Immigrant Visa Unit by email, not through AIS. Check your spam folder if you expected one and have not seen it.</li>
-      <li><strong>No document check? Bring every original,</strong> plus one passport photo and your courier confirmation page. Missing documents may mean your appointment is canceled. <a href="/guide/interview#no-document-check">What to bring</a>.</li>
-      <li><strong>You can only reschedule later, never earlier.</strong> Moving your date in <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a> pushes your case back.</li>
-      <li><strong>Check your medical date.</strong> Results are valid for 6 months from the exam, and you must enter the US within those same 6 months. <a href="/interview-dates">Check your dates</a>.</li>
+      <li><strong>Reply to confirm your new date.</strong> The Immigrant Visa Unit sends new dates by email, not through AIS. Check your spam folder.</li>
+      <li><strong>No document check? Bring every original,</strong> one passport photo and your courier confirmation page. <a href="/guide/interview#no-document-check">What to bring</a>.</li>
+      <li><strong>You can only move your date later.</strong> Rescheduling in <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a> pushes your case back.</li>
+      <li><strong>Check your medical date.</strong> You must enter the US within 6 months of the exam. <a href="/interview-dates">Check your dates</a>.</li>
     </ul>
-    <p><strong>Example:</strong> on 8 September one applicant was emailed a 10:00 appointment for the next morning, told to bring their passport and document-review wallet, and warned that &ldquo;availability for appointments will be limited going forward&rdquo;. They attended and were approved.</p>
     <p>Background: <a href="/september-2026-update.html">both visa pauses vacated</a> and <a href="/public-charge.html">public charge</a>.</p>
-    <figure class="alert-banner__figure">
-      <img src="/images/interview-reschedule-email-sept2026.png" alt="Email from the Immigrant Visa Unit, US Embassy London, telling an applicant they have been scheduled for an appointment on the 9th of September 2026 at 10:00AM, to bring the plastic wallet from their document review along with their passport, that they are strongly encouraged to attend as availability for appointments will be limited going forward, and to reply as soon as possible confirming attendance.">
-      <figcaption>A rescheduling email sent direct by the Immigrant Visa Unit at US Embassy London, giving under 24 hours' notice. Applicant details removed.</figcaption>
-    </figure>
-    <p class="alert-banner__meta">Updated 8 October 2026.</p>
+    <p class="alert-banner__meta">Updated 12 October 2026.</p>
   </div>`;
 
   // Shared first paragraph of the compact per-stage repeats.
@@ -64,7 +61,7 @@
     interview: fullHref => `
     <div class="stage-alert" role="note">
       <div class="stage-alert__head">Interview rescheduling: updated 8 October 2026</div>
-      <p>London interviews booked for August and September 2026 were canceled for a global public charge training initiative. Every canceled interview we know of has been rescheduled for <strong>October 2026</strong>; one booked for 9 September moved to 20 October. If yours was canceled, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a> so other applicants can see your new date. <a href="${fullHref}">Read the full notice →</a></p>
+      <p>London interviews booked for August and September 2026 were canceled for a global public charge training initiative. Every canceled interview we know of has been rescheduled for <strong>October 2026</strong>. If yours was canceled, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a> so other applicants can see your new date. <a href="${fullHref}">Read the full notice →</a></p>
       <p><strong>At this stage:</strong></p>
       <ul>
         <li><strong>Attend your rescheduled appointment.</strong> Reply to the Immigrant Visa Unit's email to confirm, if you have not already.</li>
