@@ -26,6 +26,8 @@
     <div class="alert-banner__head">Interview rescheduling</div>
     <div class="alert-banner__title" id="interview-cancellations-title">Canceled August and September interviews now have October dates.</div>
     <p>The embassy canceled London immigrant visa interviews booked for August and September 2026 for public charge training. Every canceled interview we know of now has a date in <strong>October 2026</strong>. If yours was canceled, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a> so other applicants can see your new date. <strong>Not sure what applies to you?</strong> <a href="/interview">Start from the interview hub</a>.</p>
+    <p><strong>Refused under 221(g) or the visa pause?</strong> London is calling these cases back for a new interview by email. If you have not heard yet, expect a new notice. <a href="/reinterview">Re-interview after a 221(g)</a>.</p>
+    <p><strong>Waiting for an Interview Letter?</strong> Regular Interview Letter drops have not resumed. The last one went out on 14 July 2026. <a href="/data">See the data</a>.</p>
     <ul>
       <li><strong>Reply to confirm your new date.</strong> The Immigrant Visa Unit sends new dates by email, not through AIS. Check your spam folder.</li>
       <li><strong>No document check? Bring every original,</strong> one passport photo and your courier confirmation page. <a href="/guide/interview#no-document-check">What to bring</a>.</li>
