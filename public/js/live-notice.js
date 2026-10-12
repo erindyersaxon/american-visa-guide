@@ -60,8 +60,10 @@
 
     interview: fullHref => `
     <div class="stage-alert" role="note">
-      <div class="stage-alert__head">Interview rescheduling: updated 8 October 2026</div>
+      <div class="stage-alert__head">Interview rescheduling: updated 12 October 2026</div>
       <p>London interviews booked for August and September 2026 were canceled for a global public charge training initiative. Every canceled interview we know of has been rescheduled for <strong>October 2026</strong>. If yours was canceled, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a> so other applicants can see your new date. <a href="${fullHref}">Read the full notice →</a></p>
+      <p><strong>Refused under 221(g) or the visa pause?</strong> London is calling these cases back for a new interview by email. If you have not heard yet, expect a new notice. <a href="/reinterview">Re-interview after a 221(g)</a>.</p>
+      <p><strong>Waiting for an Interview Letter?</strong> Regular Interview Letter drops have not resumed. The last one went out on 14 July 2026. <a href="/data">See the data</a>.</p>
       <p><strong>At this stage:</strong></p>
       <ul>
         <li><strong>Attend your rescheduled appointment.</strong> Reply to the Immigrant Visa Unit's email to confirm, if you have not already.</li>
