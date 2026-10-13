@@ -112,3 +112,10 @@ UPDATE public.form_responses k
             || ' | Merged duplicate row 105 (jk279966, same case) on 2026-10-08; it reported DQ 2026-04-07, kept 2026-04-08 from this later entry.'
   FROM d
   WHERE k.id = 353;
+
+-- 2026-10-13: kierancarr91 reported to the admin as approved at the
+-- rescheduled 10-13 interview (originally 09-02). outcome_status -> approved.
+UPDATE public.form_responses
+  SET interview_outcome = 'Approved',
+      notes = notes || ' Approved at the 2026-10-13 interview (reported to the admin).'
+  WHERE id = 117 AND username_raw = 'kierancarr91' AND interview_outcome IS NULL;
