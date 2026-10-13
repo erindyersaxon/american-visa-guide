@@ -105,6 +105,7 @@
     // Work & employment
     { q: 'Are you currently employed? What do you do?', theme: 'work', cats: 'all', from: 'Multiple reports' },
     { q: 'What do you plan to do for work once you get to America?', theme: 'work', cats: 'all', tip: 'A general direction is fine. You don’t need a signed job offer.', from: 'Mia' },
+    { q: 'Do you plan to keep your current job in the US, or look for something new?', theme: 'work', cats: 'all', tip: 'Asked of a beneficiary already working in the US. Know whether your job continues after your status changes.', from: 'K' },
     { q: 'Who do you work for, and what does the company do?', theme: 'work', cats: 'all', tip: 'Expect the full background. One officer searched the applicant’s employer online during the interview and read the results back to her.', from: 'Esther' },
     { q: 'When did you join your current company?', theme: 'work', cats: 'all', from: 'Esther' },
     { q: 'Who was your previous employer?', theme: 'work', cats: 'all', tip: 'Continuity of employment is weighed as heavily as the current role. Have the whole history, not just the latest job.', from: 'Esther' },
@@ -126,6 +127,8 @@
     { q: 'How much do you earn a month?', theme: 'publiccharge', cats: 'all', tip: 'Have the figure ready in US dollars. Converting under pressure is an avoidable stumble.', from: 'Esther' },
     { q: 'Can I see your savings balance?', theme: 'publiccharge', cats: 'all', tip: 'Not a question, a request. Bring printed bank and investment statements: officers ask to see the balance, not just hear it.', from: 'Esther' },
     { q: 'Can you show proof of the property you own?', theme: 'publiccharge', cats: 'all', tip: 'Bring documentary proof for every property you claim, co-owned ones included. One applicant named two and could evidence only one.', from: 'Esther' },
+    { q: 'Do you own your home or rent? Can I see proof of ownership?', theme: 'publiccharge', cats: 'all', tip: 'Bring the deed and the most recent mortgage statement. Together they show ownership and what is still owed.', from: 'K' },
+    { q: 'Do you have any other investments or assets?', theme: 'publiccharge', cats: 'all', tip: 'Retirement accounts count. One applicant showed a printout of their 401(k) accounts.', from: 'K' },
     { q: 'Tell me about your side business. Do you get paid a salary for it?', theme: 'publiccharge', cats: 'all', tip: 'Cash or informal income draws detailed questioning because it cannot be evidenced like a payslip. Describe it accurately, do not inflate it, and lead on income you can document.', from: 'Esther' },
     { q: 'How many people does your petitioner support financially?', theme: 'publiccharge', cats: 'all', tip: 'Wider than the I-864 definition: it includes extended family or friends being supported, who appear nowhere on the affidavit. Work out both numbers.', from: 'Written questionnaire' },
     { q: 'Has either of you ever been institutionalized at government expense?', theme: 'publiccharge', cats: 'all', tip: 'A long-term stay in a mental health or nursing facility funded by the state. Ordinary NHS treatment is not this. Asked about the petitioner as well as you.', from: 'Written questionnaire' },
@@ -137,6 +140,7 @@
     { q: 'Do you have a plan for medication or treatment once you’re in the US?', theme: 'medical', cats: 'all', from: 'Mia' },
     { q: 'How will you get health insurance in the US?', theme: 'medical', cats: 'all', tip: 'Even a general plan (spouse’s employer, marketplace, etc.) is reassuring.', from: 'Mia' },
     { q: 'Are you on your petitioner’s insurance plan?', theme: 'medical', cats: 'all', tip: 'If not yet, say when you will be and what covers you until then.', from: 'Esther' },
+    { q: 'Can I see proof of your health insurance?', theme: 'medical', cats: 'all', tip: 'Not a question, a request. A US insurance card was enough for one applicant who already had cover. Without US cover, bring proof of the plan you will join.', from: 'K' },
     { q: 'Do you know what your medication costs in the US? Have you looked into it?', theme: 'medical', cats: 'all', tip: 'The health factor is about cost, not just coverage. An applicant with Type 1 diabetes was asked what insulin costs in the US. Price your own treatment in dollars before you go.', from: 'Esther' },
 
     // Background & technical review
@@ -159,6 +163,7 @@
     { q: 'When are you planning to fly out?', theme: 'logistics', cats: 'all', from: 'Multiple reports' },
     { q: 'Are you flying out alone?', theme: 'logistics', cats: 'all', from: 'Multiple reports' },
     { q: 'Have you traveled to the US before? (Prior visits, or any prior petition?)', theme: 'logistics', cats: 'all', from: 'Crimsonak' },
+    { q: 'When did you first live in the US?', theme: 'logistics', cats: 'all', tip: 'Asked of a beneficiary already living in the US on another visa. Know the date and the visa you held, and keep it consistent with the DS-260.', from: 'K' },
   ];
 
   window.AVG_INTERVIEW_QB = { CATEGORIES: CATEGORIES, THEMES: THEMES, QUESTIONS: QUESTIONS };
