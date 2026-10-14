@@ -501,7 +501,7 @@
         </div>
 
         <p class="metrics-note" style="margin-top: var(--space-4);">
-          <strong>Updated 12 October 2026.</strong> London canceled immigrant visa interviews booked for August and September 2026 for public charge training. Every canceled interview we know of now has a date in <strong>October 2026</strong>. <a href="/guide#interview-cancellations">Full notice on the guide page &rarr;</a> After the court vacated the 75-country pause, London started calling back applicants refused under it or under 221(g) for a new interview by email: <a href="/reinterview">re-interview after a 221(g)</a>.
+          <strong>Updated 12 October 2026.</strong> <a href="/guide#interview-cancellations">Full cancellation notice &rarr;</a> After the court vacated the 75-country pause, London started emailing applicants refused under it or under 221(g) to book a new interview: <a href="/reinterview">re-interview after a 221(g)</a>.
         </p>
       </div>
     </section>
@@ -1193,7 +1193,7 @@
     const PIPELINE = {
       uscis:  { status:'halted', text:'Community tracking shows I-130 approvals for consular cases have largely stopped (USCIS has not acknowledged a pause). <a href="/guide/i130">Full explanation on the guide page →</a>' },
       nvc:    { status:'normal', text:'Processing normally. Documentarily Qualified typically lands ~14 calendar days after a complete submission.' },
-      london: { status:'delayed', text:'London immigrant visa interviews booked for September 2026 were canceled, along with same-day document checks, for public charge training; medicals appear unaffected. They are now being rescheduled by email, sometimes at very short notice: interviews first booked for early September are landing between early and late October 2026 (one booked for 9 September moved to 20 October). <a href="/interview">What to do if you have a new date →</a> Interview Letters have stopped too: none since 14 July 2026, and other posts report the same, so the pause looks system-wide. Treat the DQ-to-IL figures here as history, not a forecast.' },
+      london: { status:'delayed', text:'London canceled immigrant visa interviews and same-day document checks booked for August and September 2026 for public charge training; medicals appear unaffected. Every canceled interview we know of now has an October 2026 date, sometimes at short notice (one booked for 9 September moved to 20 October). <a href="/interview">What to do if you have a new date →</a> London has sent no Interview Letters since 14 July 2026, and other posts report the same, so treat the DQ-to-IL figures here as history, not a forecast.' },
     };
 
     /* Map the /api/data response into the shapes the render functions consume */
@@ -1356,8 +1356,10 @@
       // Interview date range from the most recent drop with reported interviews
       const ivDrop = drops?.find(d => d.iv_date_from);
       set('m-interview-range', ivDrop ? fmtRange(ivDrop.iv_date_from, ivDrop.iv_date_to) : 'n/a');
+      // London canceled Aug/Sept 2026 interviews for public charge training and moved them to October
+      const canceled = ivDrop && ivDrop.iv_date_from >= '2026-08-01' && ivDrop.iv_date_from <= '2026-09-30';
       txt('m-interview-range-sub', ivDrop
-        ? `From the ${fmtDate(ivDrop.drop_date || ivDrop.recorded_at)} IL drop`
+        ? `From the ${fmtDate(ivDrop.drop_date || ivDrop.recorded_at)} IL drop.${canceled ? ' London canceled these dates and rescheduled them for October 2026.' : ''}`
         : 'Not yet reported');
     }
 
