@@ -115,6 +115,11 @@
       "permanent": true
     },
     {
+      "source": "/guide/interview-letter.html",
+      "destination": "/guide/interview-letter",
+      "permanent": true
+    },
+    {
       "source": "/guide/medical.html",
       "destination": "/guide/medical",
       "permanent": true

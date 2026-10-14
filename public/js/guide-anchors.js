@@ -49,7 +49,7 @@
     'nvc_rfe': '/guide/nvc#nvc_rfe',
     'entry': '/guide/us-entry',
     'waiting': '/guide/waiting',
-    'id-me-account': '/guide/waiting#id-me-account',
+    'id-me-account': '/guide/interview-letter#id-me-account',
     'il-drops-paused': '/guide/waiting#il-drops-paused',
     'public-charge-statement': '/guide/waiting#public-charge-statement',
     'life': '/life'

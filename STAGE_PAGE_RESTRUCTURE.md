@@ -5,6 +5,8 @@
 **Target branch:** `claude/visa-guide-content-review-6d8dfx`
 **Audience:** A new Claude Code session with no prior context on this work
 
+> **Update, 14 October 2026: Stage 4 added, later stages renumbered.** The owner split `/guide/waiting` in two. A new **Stage 4: Interview letter received** (`/guide/interview-letter`) now holds what to do once the IL arrives: the IL email example, booking the medical, AIS registration, updating tax documents in CEAC and the ID.me steps (`#id-me-account`). Stage 3 keeps the IL drop explanation, arrival timing, the IL-to-interview pattern and waiting-period prep. Medical, Interview, After the interview, Before you leave the UK, US entry and Life in the USA moved from Stages 4–9 to 5–10. Stage numbers in this document follow the new scheme. Word counts in §4.1 and §5.1 are still the September measurement of `guide.html`.
+
 ---
 
 ## 1. BLUF
@@ -64,13 +66,13 @@ Measured from `public/guide.html` at 3,433 lines. A new session should re-measur
 | `delayed` | 1A · Delayed I-130 | 514 | 2.4% | 0 |
 | `crba` | 1B · CRBA | 1,054 | 5.0% | 0 |
 | `nvc` | 2 · NVC | 3,793 | 17.9% | 2 |
-| `waiting` | 3 · Waiting for IL | 5,279 | 24.9% | 11 |
-| `medical` | 4 · Medical | 3,217 | 15.2% | 12 |
-| `interview` | 5 · Interview | 1,424 | 6.7% | 6 |
-| `post` | 6 · After Interview | 1,528 | 7.2% | 8 |
-| `uk-obligations` | 7 · Before You Leave | 530 | 2.5% | 1 |
-| `entry` | 8 · US Entry | 1,518 | 7.2% | 3 |
-| `life` | 9 · Life in the USA | 56 | 0.3% | 0 |
+| `waiting` | 3 · Waiting for IL, and 4 · Interview letter received (split 14 Oct 2026) | 5,279 | 24.9% | 11 |
+| `medical` | 5 · Medical | 3,217 | 15.2% | 12 |
+| `interview` | 6 · Interview | 1,424 | 6.7% | 6 |
+| `post` | 7 · After Interview | 1,528 | 7.2% | 8 |
+| `uk-obligations` | 8 · Before You Leave | 530 | 2.5% | 1 |
+| `entry` | 9 · US Entry | 1,518 | 7.2% | 3 |
+| `life` | 10 · Life in the USA | 56 | 0.3% | 0 |
 | | **Total** | **21,209** | | **45** |
 
 ### 4.2 Technical facts a new session must know
@@ -102,6 +104,7 @@ Words are post-split targets. Content moves whole; the figures are the current m
 | 4 | `/guide/crba` | `crba` | 1,054 | — |
 | 5 | `/guide/nvc` | `nvc` | 3,793 | `/checklist-nvc`, `/worksheet-i864`, `/worksheet-ds260`, `/i864-household-decision-tree` |
 | 6 | `/guide/waiting` | `waiting` | 5,279 | `/public-charge`, `/221g`, `/data`, `/checklist-binder` |
+| 6a | `/guide/interview-letter` *(added 14 Oct 2026)* | split from `waiting` | — | `/checklist-medical`, `/interview-dates` |
 | 7 | `/guide/medical` | `medical` | 3,217 | `/checklist-medical` |
 | 8 | `/guide/interview` | `interview` | 1,424 | `/checklist-interview`, `/interview-questions`, `/221g` |
 | 9 | `/guide/after-interview` | `post` | 1,528 | `/221g`, `/visa-pause`, `/data` |
@@ -109,7 +112,7 @@ Words are post-split targets. Content moves whole; the figures are the current m
 | 11 | `/guide/us-entry` | `entry` | 1,518 | `/life` |
 | — | `/life` (exists) | `life` stub | — | — |
 
-**Count:** ten stage pages. Overview is not among them — it lives on the Guide Hub (§5.2).
+**Count:** ten stage pages at launch, eleven since `/guide/interview-letter` was added on 14 October 2026. Overview is not among them — it lives on the Guide Hub (§5.2).
 
 ### 5.2 Overview folds into the Guide Hub — decided
 
@@ -152,8 +155,8 @@ With `cleanUrls: true`, `public/guide/nvc.html` serves at `/guide/nvc`.
 
 ```
 1. <nav-placeholder>                     shared chrome
-2. Breadcrumb                            Guide › Stage 4: Medical
-3. <h1>Stage 4: Medical exam</h1>
+2. Breadcrumb                            Guide › Stage 5: Medical
+3. <h1>Stage 5: Medical exam</h1>
 4. Stage meta strip                      time · cost · deadline · last reviewed
 5. BOTTOM LINE block                     40–80 words, see 6.1
 6. Live notice (if this stage is affected)
@@ -169,9 +172,9 @@ With `cleanUrls: true`, `public/guide/nvc.html` serves at `/guide/nvc`.
 
 Answers three questions in 40–80 words, in this order: **where you are · what happens here · what you do now.**
 
-Write it from the retained content — do not invent new facts. Example, built from existing Stage 4 text:
+Write it from the retained content — do not invent new facts. Example, built from existing Stage 5 text:
 
-> **Stage 4 — Medical exam.** You have your interview letter and need a medical before you can be interviewed. One clinic covers the whole UK, in London, and the appointment must fall at least 10 working days before your interview. Book the moment the monthly window opens; slots fill fast. Budget £250–£495. **Do this first: call VisaMedicals on 020 7486 7822.**
+> **Stage 5 — Medical exam.** You have your interview letter and need a medical before you can be interviewed. One clinic covers the whole UK, in London, and the appointment must fall at least 10 working days before your interview. Book the moment the monthly window opens; slots fill fast. Budget £250–£495. **Do this first: call VisaMedicals on 020 7486 7822.**
 
 ### 6.2 The stage meta strip
 
@@ -244,12 +247,13 @@ Not a bare link list. Each row gives the reader enough to self-route without cli
 | **[1B · CRBA](/guide/crba)** | For a child already a US citizen at birth | ~4 weeks | — |
 | **[2 · NVC](/guide/nvc)** | Fees, DS-260, financial and civil documents | ~14 days per review | [NVC checklist](/checklist-nvc), [I-864](/worksheet-i864), [DS-260](/worksheet-ds260) |
 | **[3 · Waiting for your interview letter](/guide/waiting)** | The queue, and how to use the wait | 77-day average, currently paused | [Public charge](/public-charge), [221(g)](/221g), [binder](/checklist-binder) |
-| **[4 · Medical](/guide/medical)** | One clinic, one day, in London | ≥10 working days pre-interview | [Medical checklist](/checklist-medical) |
-| **[5 · Interview](/guide/interview)** | The embassy appointment | 2–5 minutes | [Interview checklist](/checklist-interview), [questions](/interview-questions) |
-| **[6 · After the interview](/guide/after-interview)** | Outcomes, passport return, fees | 4–11 days for passport | [221(g)](/221g) |
-| **[7 · Before you leave the UK](/guide/before-you-leave)** | HMRC, student loans, NI, ISAs | — | [Workbook](/workbook) |
-| **[8 · US entry](/guide/us-entry)** | Port of entry and green card | Card ≤90 days | — |
-| **[9 · Life in the USA](/life)** | Banking, tax, settling | — | — |
+| **[4 · Interview letter received](/guide/interview-letter)** | Book the medical, register on AIS, update tax documents | Interview ~2 months after the IL | [Medical checklist](/checklist-medical), [date checker](/interview-dates) |
+| **[5 · Medical](/guide/medical)** | One clinic, one day, in London | ≥10 working days pre-interview | [Medical checklist](/checklist-medical) |
+| **[6 · Interview](/guide/interview)** | The embassy appointment | 2–5 minutes | [Interview checklist](/checklist-interview), [questions](/interview-questions) |
+| **[7 · After the interview](/guide/after-interview)** | Outcomes, passport return, fees | 4–11 days for passport | [221(g)](/221g) |
+| **[8 · Before you leave the UK](/guide/before-you-leave)** | HMRC, student loans, NI, ISAs | — | [Workbook](/workbook) |
+| **[9 · US entry](/guide/us-entry)** | Port of entry and green card | Card ≤90 days | — |
+| **[10 · Life in the USA](/life)** | Banking, tax, settling | — | — |
 
 Fill "typical wait" from existing content only. Leave a cell empty rather than inventing a figure.
 
@@ -358,7 +362,7 @@ Eight phases. Each has an objective, inputs, tasks, and acceptance criteria. **D
 |---|---|---|
 | `/js/interview-questions.js` | **Already current and complete.** 53 questions across 10 themes, 9 of them `publiccharge`. Already covers union, mortgage, remote-work permission, savings balance, property proof, cash side-income, business-failure contingency, below-threshold income year, previous employer, institutionalisation, and the medication-cost question. Header note already cites 30–40 minute interviews. Exposes `window.AVG_INTERVIEW_QB = { CATEGORIES, THEMES, QUESTIONS }`. | **No change. Do not add or edit questions.** |
 | `public-charge.html` §"Inside a 35-minute public charge interview at London" | Full account present, 35–40 minutes, reproduced with permission. It is the source of the nine `publiccharge` questions, attributed to `Esther`. | **Do not alter. The 35–40 minute duration is correct and stands.** |
-| `guide.html` Stage 5 | **Out of date.** Hardcodes 10 questions in two `<ul>` lists vs 53 in the bank. Says "typically 2–5 minutes" and "interview 1–10 minutes". Contains **zero** links to `/interview-questions`. All six community accounts pre-date the change. | Tasks 1–3 |
+| `guide.html` Stage 6 | **Out of date.** Hardcodes 10 questions in two `<ul>` lists vs 53 in the bank. Says "typically 2–5 minutes" and "interview 1–10 minutes". Contains **zero** links to `/interview-questions`. All six community accounts pre-date the change. | Tasks 1–3 |
 
 **Tasks**
 
@@ -376,7 +380,7 @@ Eight phases. Each has an objective, inputs, tasks, and acceptance criteria. **D
    **Do not change these:**
 
    - `checklist-interview.html` line 208, "**Document handover**: 2–5 minutes" — a different step. The document window really is that quick. Changing it would be a straightforward error.
-   - The six individual community account durations in Stage 5 (40 seconds, ~2 minutes, ~5 minutes and so on). These are attributed reports of real interviews that happened. They are historical record, not guidance, and rewriting them would misrepresent the members who submitted them.
+   - The six individual community account durations in Stage 6 (40 seconds, ~2 minutes, ~5 minutes and so on). These are attributed reports of real interviews that happened. They are historical record, not guidance, and rewriting them would misrepresent the members who submitted them.
    - The `Common pattern across all cases` line at `guide.html:2875` (*"interview 1–10 minutes"*). It summarises the six accounts directly beneath it, so changing it to 20–35 would make it false about the very accounts it describes. **Date-qualify instead:** append *"All six accounts above pre-date the public charge worksheet. Expect substantially longer now — see the timing note in Interview structure."*
 
    **The total-time figures change too.** *(Owner-directed, 18 Sept 2026 — resolves L8.)* Both totals were built on a 2–5 minute interview and no longer hold.
@@ -390,9 +394,9 @@ Eight phases. Each has an objective, inputs, tasks, and acceptance criteria. **D
 
    This reconciles: the accounts record ~30 minutes (Queen B), ~45 minutes (Walsh), ~1.5 hours (HT3) and ~2 hours (Neri) — a 30-minute-to-2-hour spread, exactly the prior range.
 
-   **One more account total not to touch.** `checklist-interview.html:175` reads *"Total time in building: 30 minutes"* — that is Queen B's attributed account, the same historical-record rule as the Stage 5 accounts. Only the two guidance figures in the table above change.
+   **One more account total not to touch.** `checklist-interview.html:175` reads *"Total time in building: 30 minutes"* — that is Queen B's attributed account, the same historical-record rule as the Stage 6 accounts. Only the two guidance figures in the table above change.
 
-2. **Add the 35–40 minute account to the Stage 5 community experiences.** Every account currently on that page is pre-change, which leaves the reader with a false picture. Summarise the `public-charge.html` account (member `Esther`) in the same house format as the others — check-in, process, outcome — state the 35–40 minute duration, and link to the full write-up. Note the relationship to task 1: **20–35 minutes is the guidance figure** (what a reader should plan for), **35–40 minutes is one reported case** (what actually happened to Esther). Both are correct and they do not contradict each other — an account may sit above the guidance range. Do not round either to match the other. **Do not duplicate the full account**; `public-charge.html` stays its canonical home (C2).
+2. **Add the 35–40 minute account to the Stage 6 community experiences.** Every account currently on that page is pre-change, which leaves the reader with a false picture. Summarise the `public-charge.html` account (member `Esther`) in the same house format as the others — check-in, process, outcome — state the 35–40 minute duration, and link to the full write-up. Note the relationship to task 1: **20–35 minutes is the guidance figure** (what a reader should plan for), **35–40 minutes is one reported case** (what actually happened to Esther). Both are correct and they do not contradict each other — an account may sit above the guidance range. Do not round either to match the other. **Do not duplicate the full account**; `public-charge.html` stays its canonical home (C2).
 
 3. **Render the complete question bank on `/guide/interview` — all 53 questions, from the shared source.**
 
@@ -423,7 +427,7 @@ Eight phases. Each has an objective, inputs, tasks, and acceptance criteria. **D
 - [ ] Questions are rendered from `window.AVG_INTERVIEW_QB`, not hardcoded — grep the page for a question string and find zero matches
 - [ ] Each of the 10 previously hardcoded questions verified present in the bank before its `<ul>` was deleted
 - [ ] `/guide/interview` links to `/interview-questions` in both the documents strip and the questions section
-- [ ] Stage 5 community accounts include one post-November-2025 case
+- [ ] Stage 6 community accounts include one post-November-2025 case
 - [ ] `/interview-questions` still renders correctly — its bank view and flashcard mode are untouched
 - [ ] `/guide/interview` meta strip (§6.2) carries the 20–35 minute figure, not 2–5
 - [ ] `checklist-interview.html` line 208 (document handover) still reads 2–5 minutes
@@ -450,7 +454,7 @@ Eight phases. Each has an objective, inputs, tasks, and acceptance criteria. **D
 **Acceptance criteria**
 
 - [ ] Hub contains no stage content beyond Overview (if folded in).
-- [ ] All eleven table-of-contents rows present (ten stage pages + `/life`), each linking to a page that exists.
+- [ ] All table-of-contents rows present (eleven stage pages + `/life` since 14 Oct 2026; ten + `/life` at launch), each linking to a page that exists.
 - [ ] Every attached document in §5.1 appears in at least one row.
 
 **Commit:** `Phase 3: rebuild /guide as the Guide Hub`
@@ -483,7 +487,7 @@ Eight phases. Each has an objective, inputs, tasks, and acceptance criteria. **D
        'nvc-strategic-hold': '/guide/nvc',
        waiting: '/guide/waiting',       'il-drops-paused': '/guide/waiting',
        'public-charge-statement': '/guide/waiting',
-       'id-me-account': '/guide/waiting',
+       'id-me-account': '/guide/interview-letter',
        medical: '/guide/medical',       'doc-check-cancelled': '/guide/medical',
        interview: '/guide/interview',
        post: '/guide/after-interview',  'after-interview': '/guide/after-interview',
@@ -519,7 +523,7 @@ Eight phases. Each has an objective, inputs, tasks, and acceptance criteria. **D
 1. Prev/next on every stage page, in the §5.1 order.
 2. Back-to-hub link in every breadcrumb.
 3. Each attached document page gets a "Part of Stage N" link back to its stage page: `/checklist-nvc` → `/guide/nvc`, and so on for every checklist and worksheet in the repo.
-4. Where content was split across stages and cross-references it (public charge in Stages 3 and 5; 221(g) in Stages 2, 3, 5 and 6; the transcript rule in Stages 2 and 3), verify each reference now names the destination page explicitly rather than saying "see below" or "see above".
+4. Where content was split across stages and cross-references it (public charge in Stages 3 and 6; 221(g) in Stages 2, 3, 6 and 7; the transcript rule in Stages 2 and 4), verify each reference now names the destination page explicitly rather than saying "see below" or "see above".
 
 **Acceptance criteria**
 
@@ -627,13 +631,13 @@ These were found during review. They are **out of scope** for the restructure an
 | L1 | The IL section says the interview letter arrives from `National_Visa_Center@state.gov` (twice), but the reproduced email shows `LNDIVSubmissions@state.gov`. Readers are told to configure safe-senders from this. |
 | L2 | `checklist-medical.html` carries community accounts for Nikki and Aqua with different dates than `guide.html` (Nikki: July 2026 vs 24 June 2026; Aqua: June 2026 vs February 2026). |
 | L3 | Public charge content is substantially duplicated between Stage 3 and `/public-charge`. Consolidation is a content decision, not a restructure one. |
-| L4 | SSN guidance appears in both Stage 6 and Stage 8; the USCIS Immigrant Fee appears in both. After the split these sit on different pages — cross-link them rather than merging. |
+| L4 | SSN guidance appears in both Stage 7 and Stage 9; the USCIS Immigrant Fee appears in both. After the split these sit on different pages — cross-link them rather than merging. |
 | L5 | 100 instances of a colon used mid-sentence as a comma or dash substitute, including two ungrammatical subject-verb splits. A copy-edit pass, separate from this work. |
 | L6 | The CR1 and IR1 "Evidence at filing" paragraphs are byte-identical (70 words). |
 | ~~L7~~ | *Resolved by Phase 2A task 3 — the owner directed that the interview stage carry the full bank.* |
 | ~~L8~~ | *Resolved by Phase 2A task 1 — the owner set both totals to 1.5–4.5 hours, with the prior 30-minutes-to-2-hours range retained as context.* |
 | ~~L9~~ | *Resolved 18 Sept 2026 (owner): `interview-questions.html` now reads "Expect London interviews to run 20–35 minutes", with the same public charge worksheet reason clause as `/guide/interview`.* |
-| ~~L10~~ | *Resolved 18 Sept 2026 (owner): the Stage 5 lead line now reads "The pattern is consistent: long wait, professional officers." Esther's account is also now marked approved, so "All reported outcomes below are approvals" still holds.* |
+| ~~L10~~ | *Resolved 18 Sept 2026 (owner): the Stage 6 lead line now reads "The pattern is consistent: long wait, professional officers." Esther's account is also now marked approved, so "All reported outcomes below are approvals" still holds.* |
 | ~~L11~~ | *Resolved 18 Sept 2026 (owner): the four questions were added to `/js/interview-questions.js` as new "Multiple reports" entries (existing attributed questions left as they were), taking the bank to 57, and the interim list on `/guide/interview` was removed.* |
 | ~~L12~~ | *Resolved 18 Sept 2026 (owner): the four checklist links now point to `/master-checklist`.* |
 | ~~L13~~ | *Resolved 18 Sept 2026 (owner): the Overview's "data page" link now points to `/data` (data.html).* |

@@ -6,9 +6,9 @@
 
    Mount points, each replaced by the rendered notice:
      <div data-live-notice="full"></div>       full banner (#interview-cancellations)
-     <div data-live-notice="medical"></div>    compact repeat, Stage 4 medical
-     <div data-live-notice="doc-check"></div>  compact, Stage 4 document check
-     <div data-live-notice="interview"></div>  compact repeat, Stage 5 interview
+     <div data-live-notice="medical"></div>    compact repeat, Stage 5 medical
+     <div data-live-notice="doc-check"></div>  compact, Stage 5 document check
+     <div data-live-notice="interview"></div>  compact repeat, Stage 6 interview
      <div data-live-notice="page"></div>       self-styled compact notice for non-guide
                                                pages (221(g), public charge, tools)
 

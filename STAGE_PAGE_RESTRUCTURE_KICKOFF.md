@@ -1,5 +1,7 @@
 # Kickoff prompt — stage-page restructure
 
+> **Update, 14 October 2026: Stage 4 added, later stages renumbered.** The owner split `/guide/waiting` in two. A new **Stage 4: Interview letter received** (`/guide/interview-letter`) now holds what to do once the IL arrives: the IL email example, booking the medical, AIS registration, updating tax documents in CEAC and the ID.me steps (`#id-me-account`). Stage 3 keeps the IL drop explanation, arrival timing, the IL-to-interview pattern and waiting-period prep. Medical, Interview, After the interview, Before you leave the UK, US entry and Life in the USA moved from Stages 4–9 to 5–10. The ten-page split below describes the original job; `STAGE_PAGE_RESTRUCTURE.md` uses the new stage numbers.
+
 **Paste everything below the line into a new session.** Attach or point it at `STAGE_PAGE_RESTRUCTURE.md`, which is the full specification. This file is just the opening instruction; the spec is the work.
 
 ---
