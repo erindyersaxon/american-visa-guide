@@ -40,7 +40,7 @@
 
   // Shared first paragraph of the compact per-stage repeats.
   function summary(fullHref) {
-    return `<p>London appointments booked for August and September 2026 were canceled for a global training initiative. Every canceled interview we know of has been rescheduled for <strong>October 2026</strong>. Medicals appear to be unaffected. <a href="${fullHref}">Read the full notice →</a></p>`;
+    return `<p>London canceled interviews booked for August and September 2026 for public charge training and moved them to <strong>October 2026</strong>. <a href="${fullHref}">Read the full notice →</a></p>`;
   }
 
   const COMPACT = {
@@ -48,14 +48,14 @@
     <div class="stage-alert" role="note">
       <div class="stage-alert__head">Interview rescheduling: updated 8 October 2026</div>
       ${summary(fullHref)}
-      <p><strong>At this stage:</strong> medicals themselves appear to be unaffected and are going ahead as booked. The <strong>same-day embassy document check</strong> that normally follows your medical is canceled: everything described below under <a href="#doc-check-cancelled">Same-day embassy document check</a> is on hold. Medical results are valid for <strong>6 months</strong> from the exam, and you must <strong>enter the US within those same 6 months</strong>, so note the date of your exam: an interview far enough out could leave too little time to travel, or fall outside the window and mean a new medical. Do not book or rebook a medical on that assumption until you have a confirmed interview date. <a href="#medical-validity">How the 6 months works</a>.</p>
+      <p><strong>At this stage:</strong> medicals appear unaffected and are going ahead as booked. The <strong>same-day embassy document check</strong> after your medical is canceled, so the <a href="#doc-check-cancelled">document check section</a> below is on hold. You must enter the US within <strong>6 months</strong> of your exam. Wait for a confirmed interview date before you book or rebook a medical. <a href="#medical-validity">How the 6 months works</a>.</p>
     </div>`,
 
     'doc-check': fullHref => `
     <div class="stage-alert" role="note">
       <div class="stage-alert__head">Canceled: updated 8 October 2026</div>
-      <p>Same-day embassy document checks were canceled alongside the interviews, for London appointments booked for August and September 2026. <strong>Do not travel to the embassy after your medical</strong> unless you are told to. Every canceled interview we know of now has an October date; we have not seen a document check rebooked. Instead, applicants without one are being told to bring <strong>all original documents and one passport photo to the interview</strong>: see <a href="/guide/interview#no-document-check">what to bring without a document check</a>. <a href="${fullHref}">Read the full notice →</a></p>
-      <p>Everything below describes how the document check ran before the cancellations, and is what you will need when they resume.</p>
+      <p>London canceled same-day embassy document checks along with interviews booked for August and September 2026. <strong>Do not travel to the embassy after your medical</strong> unless the embassy tells you to. Canceled interviews now have October dates; we have seen no document check rebooked. Bring <strong>all original documents and one passport photo to the interview</strong> instead: <a href="/guide/interview#no-document-check">what to bring without a document check</a>. <a href="${fullHref}">Read the full notice →</a></p>
+      <p>The section below describes the document check as it ran before the cancellations. You will need it when checks resume.</p>
     </div>`,
 
     interview: fullHref => `
