@@ -25,14 +25,14 @@
   <div class="alert-banner" id="interview-cancellations" role="region" aria-labelledby="interview-cancellations-title">
     <div class="alert-banner__head">Interview rescheduling</div>
     <div class="alert-banner__title" id="interview-cancellations-title">Canceled August and September interviews now have October dates.</div>
-    <p>The embassy canceled London immigrant visa interviews booked for August and September 2026 for public charge training. Every canceled interview we know of now has a date in <strong>October 2026</strong>. If yours was canceled, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a> so other applicants can see your new date. <strong>Not sure what applies to you?</strong> <a href="/interview">Start from the interview hub</a>.</p>
-    <p><strong>Refused under 221(g) or the visa pause?</strong> London is calling these cases back for a new interview by email. If you have not heard yet, expect a new notice. <a href="/reinterview">Re-interview after a 221(g)</a>.</p>
-    <p><strong>Waiting for an Interview Letter?</strong> Regular Interview Letter drops have not resumed. The last one went out on 14 July 2026. <a href="/data">See the data</a>.</p>
+    <p>London canceled immigrant visa interviews booked for August and September 2026 for public charge training. If yours moved, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a> so other applicants can see the new dates. Not sure what applies to you? <a href="/interview">Start from the interview hub</a>.</p>
+    <p><strong>Refused under 221(g) or the visa pause?</strong> London is emailing these applicants to book a new interview. <a href="/reinterview">Re-interview after a 221(g)</a>.</p>
+    <p><strong>Waiting for an Interview Letter?</strong> London has sent none since 14 July 2026. <a href="/data">See the data</a>.</p>
     <ul>
-      <li><strong>Reply to confirm your new date.</strong> The Immigrant Visa Unit sends new dates by email, not through AIS. Check your spam folder.</li>
+      <li><strong>Reply to confirm your new date.</strong> London sends new dates by email, not through AIS. Check your spam folder.</li>
       <li><strong>No document check? Bring every original,</strong> one passport photo and your courier confirmation page. <a href="/guide/interview#no-document-check">What to bring</a>.</li>
-      <li><strong>You can only move your date later.</strong> Rescheduling in <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a> pushes your case back.</li>
-      <li><strong>Check your medical date.</strong> You must enter the US within 6 months of the exam. <a href="/interview-dates">Check your dates</a>.</li>
+      <li><strong>AIS only moves your date later.</strong> <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">Rescheduling there</a> pushes your case back.</li>
+      <li><strong>Enter the US within 6 months of your medical.</strong> <a href="/interview-dates">Check your dates</a>.</li>
     </ul>
     <p>Background: <a href="/september-2026-update.html">both visa pauses vacated</a> and <a href="/public-charge.html">public charge</a>.</p>
     <p class="alert-banner__meta">Updated 12 October 2026.</p>
