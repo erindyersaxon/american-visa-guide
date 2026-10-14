@@ -61,17 +61,17 @@
     interview: fullHref => `
     <div class="stage-alert" role="note">
       <div class="stage-alert__head">Interview rescheduling: updated 12 October 2026</div>
-      <p>London interviews booked for August and September 2026 were canceled for a global public charge training initiative. Every canceled interview we know of has been rescheduled for <strong>October 2026</strong>. If yours was canceled, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a> so other applicants can see your new date. <a href="${fullHref}">Read the full notice →</a></p>
-      <p><strong>Refused under 221(g) or the visa pause?</strong> London is calling these cases back for a new interview by email. If you have not heard yet, expect a new notice. <a href="/reinterview">Re-interview after a 221(g)</a>.</p>
-      <p><strong>Waiting for an Interview Letter?</strong> Regular Interview Letter drops have not resumed. The last one went out on 14 July 2026. <a href="/data">See the data</a>.</p>
+      <p>London canceled interviews booked for August and September 2026 for public charge training and moved them to <strong>October 2026</strong>. If yours moved, <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">submit your timeline</a>. <a href="${fullHref}">Read the full notice →</a></p>
+      <p><strong>Refused under 221(g) or the visa pause?</strong> London is emailing these applicants to book a new interview. <a href="/reinterview">Re-interview after a 221(g)</a>.</p>
+      <p><strong>Waiting for an Interview Letter?</strong> London has sent none since 14 July 2026. <a href="/data">See the data</a>.</p>
       <p><strong>At this stage:</strong></p>
       <ul>
-        <li><strong>Attend your rescheduled appointment.</strong> Reply to the Immigrant Visa Unit's email to confirm, if you have not already.</li>
-        <li><strong>You can only reschedule to a later date.</strong> Rescheduling through AIS is only possible to a date <em>after</em> your assigned appointment, so moving your date pushes your case back.</li>
-        <li><strong>No document check? Bring every original.</strong> The interview pack now emailed with the notice asks for all original documents and one passport photo at the interview itself. <a href="#no-document-check">See what to bring</a>.</li>
-        <li><strong>Check your passport and medical dates.</strong> Your passport should be valid for six months beyond your intended date of entry, and your medical must be at least two weeks before the new interview date. Medical results are valid for 6 months, and you must enter the US within 6 months of the exam, so the new date needs to leave you time to travel. <a href="/interview-dates">Check your dates</a>.</li>
+        <li><strong>Reply to confirm your new date.</strong> The Immigrant Visa Unit sends new dates by email.</li>
+        <li><strong>AIS only moves your date later.</strong> Rescheduling there pushes your case back.</li>
+        <li><strong>No document check? Bring every original</strong> and one passport photo to the interview. <a href="#no-document-check">What to bring</a>.</li>
+        <li><strong>Check your passport and medical dates.</strong> Your passport needs six months' validity past your entry date. Your medical must fall at least two weeks before the interview, and you must enter the US within 6 months of it. <a href="/interview-dates">Check your dates</a>.</li>
       </ul>
-      <p style="margin-bottom:0;">Everything below describes the interview itself accurately and is worth preparing now.</p>
+      <p style="margin-bottom:0;">The interview guidance below still applies. Prepare now.</p>
     </div>`,
   };
 
