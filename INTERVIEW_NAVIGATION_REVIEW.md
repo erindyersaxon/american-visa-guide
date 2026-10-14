@@ -1,6 +1,8 @@
 # Interview navigation review
 
 > **Status, 30 September 2026: implemented.** See "Implementation" at the end for what shipped and what was left alone.
+>
+> **Update, 14 October 2026:** stage numbers below follow the current scheme. A new Stage 4, Interview letter received (`/guide/interview-letter`), moved Medical to Stage 5 and the embassy interview to Stage 6.
 
 Reviewed 30 September 2026. Scope: `/221g#reinterview`, `/public-charge`, `/guide/interview`, and the pages a person reaches from them (`/visa-pause`, `/september-2026-update`, `/checklist-interview`, `/interview-questions`, `/guide/after-interview`, the homepage, the guide hub and the shared nav in `js/nav.js`).
 
@@ -18,7 +20,7 @@ Method: I walked the site as three applicants, starting from the homepage each t
 
 ### What each one experiences
 
-**A. First interview.** From the homepage there is no link to the interview, the 221(g) page, public charge, or the question bank (`index.html` links only `/guide`, `/data`, `/checklists`, `/life`, `/about` and `/guide#interview-cancellations`). They click Guide → Stage 5. That page is the best one on the site for them. But its "Documents for this stage" box (`guide/interview.html:129`) lists the checklist, question bank and 221(g) page, **not** the public charge page, which the same page's "Bottom line" calls the first thing to do. The public charge page then opens with an update log and a 400-word caveat before the reader reaches the table of contents. The five-step "Do these five things" box is excellent and is the thing they needed; it should be the first thing they see.
+**A. First interview.** From the homepage there is no link to the interview, the 221(g) page, public charge, or the question bank (`index.html` links only `/guide`, `/data`, `/checklists`, `/life`, `/about` and `/guide#interview-cancellations`). They click Guide → Stage 6. That page is the best one on the site for them. But its "Documents for this stage" box (`guide/interview.html:129`) lists the checklist, question bank and 221(g) page, **not** the public charge page, which the same page's "Bottom line" calls the first thing to do. The public charge page then opens with an update log and a 400-word caveat before the reader reaches the table of contents. The five-step "Do these five things" box is excellent and is the thing they needed; it should be the first thing they see.
 
 **B. Rescheduled.** They arrive on `/public-charge` or `/221g` from a forum link. Neither page tells them interviews are being rescheduled or that the live notice exists. If they reach `/visa-pause`, it says cancellations reach London "up to and including 30 September 2026", which is today; from tomorrow that sentence reads as out of date. The live notice itself was last updated 23 September (`js/live-notice.js:39`). Medical validity is flagged as a risk ("limited validity window") but the actual period is never stated anywhere on the site, so the person cannot check their own date.
 
@@ -36,7 +38,7 @@ The word **"pause"** is doing four jobs across these pages: the 75-country natio
 2. **Re-interview guidance is buried under the wrong page title.** The best content for applicant C (`221g.html:802`) sits inside a prevention page. `/visa-pause` and `/september-2026-update` each link to it, but only in body text.
 3. **Homepage has no path to interview content.** See above.
 4. **Live notice is scoped to guide pages only.** `live-notice.js` is loaded on `guide.html` and `guide/*.html` only. The three pages most likely to be shared on forums (`/221g`, `/public-charge`, `/visa-pause`) do not show it.
-5. **Stage 5's own document box omits public charge.** `guide/interview.html:129`.
+5. **Stage 6's own document box omits public charge.** `guide/interview.html:129`.
 
 ### High: content that sends people the wrong way
 
@@ -46,7 +48,7 @@ The word **"pause"** is doing four jobs across these pages: the 75-country natio
 
 ### Medium: structure and wayfinding
 
-9. **`/public-charge` has no breadcrumb and no link back to Stage 5**, unlike `/221g` and `/visa-pause`, which both have "Home / Guide / …" and "← Back to the interview stage". The page also opens with a changelog paragraph before its purpose.
+9. **`/public-charge` has no breadcrumb and no link back to Stage 6**, unlike `/221g` and `/visa-pause`, which both have "Home / Guide / …" and "← Back to the interview stage". The page also opens with a changelog paragraph before its purpose.
 10. **Long pages without a persistent table of contents.** `/221g` (1,045 lines of HTML) and `/public-charge` (939) have an "On this page" list at the top only. On mobile, a reader in section 8 has no way back except scrolling. A sticky or collapsible TOC, plus "↑ Contents" links after each section, would help. Stage pages already have a drawer (`mobileNavDrawer`) that could host it.
 11. **Overlapping pause pages.** `/visa-pause` now opens by saying `/september-2026-update` is the current page. Two pages about the same litigation, plus the 221(g) section, is one too many for a reader. Either merge them or make `/visa-pause` an archive with a single prominent pointer.
 12. **Nav highlighting gaps.** `ACTIVE_MAP` (`js/nav.js:155`) has no entry for `interview-questions` or `september-2026-update`, so no nav item is highlighted on those pages.
@@ -72,7 +74,7 @@ Which of these is you?
 [ I have my first interview date ]
    → 5-step prep list, in order:
      1. Public charge statement + evidence, CEAC + email, 5 working days ahead   → /public-charge#template, #submit
-     2. Every financial document in CEAC                                        → /221g#prevent (Stage 5)
+     2. Every financial document in CEAC                                        → /221g#prevent (Stage 6)
      3. What to bring (with / without a document check)                         → /guide/interview#no-document-check
      4. Rehearse questions (public charge filter on)                            → /interview-questions
      5. Getting there: South Pavilion, Ponton Road                              → /guide/interview
@@ -92,7 +94,7 @@ Which of these is you?
 [ I'm waiting after an administrative-processing 221(g) ] → /221g#security, /guide/after-interview
 ```
 
-Link it from: the top nav (rename "221(g)" to "Interview", pointing here, with 221(g) moved into the hub), the homepage hero, the live notice, and the "Documents for this stage" box on Stage 5.
+Link it from: the top nav (rename "221(g)" to "Interview", pointing here, with 221(g) moved into the hub), the homepage hero, the live notice, and the "Documents for this stage" box on Stage 6.
 
 ### 3.2 Move re-interview content to its own page (`/reinterview`)
 
@@ -137,12 +139,12 @@ Then say "interview cancellations", not "pause", for the third row everywhere.
 3. **"What's on my green sheet" triage.** Tick the boxes on your sheet; get the matching rows from the box-by-box table, the submission route, and whether it's Type 1 or Type 2. The content is already in `221g.html#sheet`; this just filters it.
 4. **15-year personal history worksheet** (for the DS-5535-style request in `221g.html#security`): travel, addresses, employers, education, passports, with a "check against DS-260" column. The page already tells people to prepare this before the interview, but there's no tool for it. It's the same pattern as `/worksheet-ds260`.
 5. **Theme filter on the question bank**, defaulting to "public charge" when opened from `/public-charge` or `/reinterview` (for example, `/interview-questions?theme=publiccharge`).
-6. **Printable "night before" one-pager.** Combine the Stage 5 "Before you move on" list, the no-document-check list, the address and South Pavilion directions, the embassy phone number, and the reschedule rule. `css/print.css` already exists.
+6. **Printable "night before" one-pager.** Combine the Stage 6 "Before you move on" list, the no-document-check list, the address and South Pavilion directions, the embassy phone number, and the reschedule rule. `css/print.css` already exists.
 7. **Reply templates.** Confirming a rescheduled appointment, and emailing `LNDIVSubmissions@state.gov` after a CEAC upload (subject line format already specified on `/public-charge#submit` and `/221g#publiccharge`). Copy buttons like the existing template's.
 
 ### 3.6 Page-level fixes
 
-- `/public-charge`: add the breadcrumb and "← Back to Stage 5" link; move the changelog to the bottom or into a collapsed "What changed" line; put "Do these five things" directly under the H1.
+- `/public-charge`: add the breadcrumb and "← Back to Stage 6" link; move the changelog to the bottom or into a collapsed "What changed" line; put "Do these five things" directly under the H1.
 - `/guide/interview`: add `/public-charge` (and `/interview` hub, once built) to "Documents for this stage"; lead the community accounts with the post-change account under "Since the public charge worksheet"; move the six older accounts under "Before August 2026".
 - `/checklist-interview`: separate 221(g) from administrative processing in "If not approved", link `/221g#resolve` and the re-interview page, mention the September update, and fix the `/index.html` "data tracker" link to `/data`.
 - `/221g` and `/public-charge`: sticky or collapsible TOC on mobile; "↑ Contents" after each H2.
@@ -156,7 +158,7 @@ Then say "interview cancellations", not "pause", for the third row everywhere.
 | # | Change | Effort | Who it helps |
 |---|---|---|---|
 | 1 | Live notice / sitewide banner on interview pages; remove "through 30 September" phrasing | Small | B |
-| 2 | Stage 5 docs box + `/public-charge` breadcrumb/back-link; checklist-interview fixes; ACTIVE_MAP; sitemap | Small | A, B, C |
+| 2 | Stage 6 docs box + `/public-charge` breadcrumb/back-link; checklist-interview fixes; ACTIVE_MAP; sitemap | Small | A, B, C |
 | 3 | `/interview` hub, linked from nav, homepage and live notice | Medium | A, B, C |
 | 4 | `/reinterview` page, with visa-pause and September update pointing to it | Medium | C |
 | 5 | "Pause" glossary include | Small | B, C |
@@ -176,10 +178,10 @@ Every recommendation above has been built. Summary by finding:
 | 1, 3 | No entry point by situation; homepage has no path | New hub `/interview` with five situations. Top nav item "221(g)" replaced by "Interview". Homepage hero has "Where are you in the process?" shortcuts. Guide sidebars and the guide hub link the hub. |
 | 2 | Re-interview content buried | New page `/reinterview` (which-221(g) chooser, what changed table, checklist, outcomes). `/221g#reinterview` keeps a short summary so old links still land. `/visa-pause` and `/september-2026-update` point to it. |
 | 4, 7 | Live notice only on guide pages; date-bound wording | New self-styled `data-live-notice="page"` variant on `/221g`, `/public-charge`, `/visa-pause`, `/september-2026-update`, `/checklist-interview`, `/interview-questions` and the new pages. Sitewide banner enabled on pages without a notice. "Through 30 September" wording replaced on 7 pages; notice dated 30 September. |
-| 5 | Stage 5 docs box omitted public charge | Box now lists the hub, public charge (and builder), date checker, checklist (and printable), question bank, 221(g), re-interview. |
+| 5 | Stage 6 docs box omitted public charge | Box now lists the hub, public charge (and builder), date checker, checklist (and printable), question bank, 221(g), re-interview. |
 | 6, 15 | Checklist conflated 221(g) with AP; wrong tracker link | "If not approved" split into documents 221(g), administrative processing, re-interview, and both pauses; tracker link is `/data`. |
-| 8 | Old accounts first | Stage 5 leads with the post-worksheet account; the six older ones sit under "Before August 2026". |
-| 9 | `/public-charge` wayfinding | Breadcrumb and Stage 5 back-link, "Do these five things" first, changelog moved to a collapsed "What changed" at the foot. |
+| 8 | Old accounts first | Stage 6 leads with the post-worksheet account; the six older ones sit under "Before August 2026". |
+| 9 | `/public-charge` wayfinding | Breadcrumb and Stage 6 back-link, "Do these five things" first, changelog moved to a collapsed "What changed" at the foot. |
 | 10 | Long pages, no persistent contents | `js/page-contents.js`: floating "↑ Contents" button on `/221g`, `/public-charge`, `/visa-pause`, `/september-2026-update`. |
 | 11 | Overlapping pause pages | `/visa-pause` opens with a notice that it is the record of the 21 August ruling, pointing to the current page and to `/reinterview`. |
 | 12, 13 | Nav highlight and sitemap gaps | `ACTIVE_MAP` covers all interview pages (guide stage pages stay under Guide); sitemap adds 12 URLs. |
@@ -188,6 +190,6 @@ Every recommendation above has been built. Summary by finding:
 | 3.4 | "Pause" means four things | `js/pause-glossary.js`, a collapsible glossary shown on the hub, re-interview, 221(g), and both pause pages. |
 | 3.5 | Tools | `/interview-dates`, `/public-charge-statement`, `/221g-sheet`, `/history-worksheet`, `/interview-day-sheet`, `/interview-templates`, all listed on `/checklists`. |
 
-**Medical validity.** Medical results are valid for 6 months, and entry to the US must be within those same 6 months. This is now stated on Stage 4 (`#medical-validity`), the medical checklist, the live notice, Stage 5's checklist, the interview checklist, Stages 6 and 7, `/reinterview`, the 221(g) box table, and built into the date checker.
+**Medical validity.** Medical results are valid for 6 months, and entry to the US must be within those same 6 months. This is now stated on Stage 5 (`#medical-validity`), the medical checklist, the live notice, Stage 6's checklist, the interview checklist, Stages 6 and 7, `/reinterview`, the 221(g) box table, and built into the date checker.
 
 **Not changed (already broken before this work):** `/checklist-medical`'s table scrolls sideways at phone width, and `/checklists` links to three anchors on `/delayed-i130-remedies` (`#whitehouse`, `#demand`, `#mandamus`) that do not exist. `/data` keeps its dated "Updated 30 August 2026" note; only its current London status line was updated.
