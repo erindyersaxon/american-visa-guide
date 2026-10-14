@@ -48,7 +48,12 @@
     <div class="stage-alert" role="note">
       <div class="stage-alert__head">Interview rescheduling: updated 8 October 2026</div>
       ${summary(fullHref)}
-      <p><strong>At this stage:</strong> medicals appear unaffected and are going ahead as booked. The <strong>same-day embassy document check</strong> after your medical is canceled, so the <a href="#doc-check-cancelled">document check section</a> below is on hold. You must enter the US within <strong>6 months</strong> of your exam. Wait for a confirmed interview date before you book or rebook a medical. <a href="#medical-validity">How the 6 months works</a>.</p>
+      <p><strong>At this stage:</strong></p>
+      <ul>
+        <li><strong>Keep your medical booking.</strong> Medicals appear unaffected.</li>
+        <li><strong>No same-day document check.</strong> Do not go to the embassy after your medical unless it tells you to. <a href="#doc-check-cancelled">Document check</a>.</li>
+        <li><strong>Enter the US within 6 months of your exam.</strong> Wait for a confirmed interview date before you book or rebook. <a href="#medical-validity">How the 6 months works</a>.</li>
+      </ul>
     </div>`,
 
     'doc-check': fullHref => `
