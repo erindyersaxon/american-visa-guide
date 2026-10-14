@@ -86,7 +86,7 @@
   COMPACT.page = fullHref => `
     <div class="page-live-notice" role="note">
       <div class="page-live-notice__head">Interview rescheduling &middot; updated 8 October 2026</div>
-      <p>Every London interview canceled in August and September 2026 that we know of has been rescheduled for <strong>October 2026</strong>. If yours was canceled, add your new date to the community database by submitting your timeline. Medical results are valid for <strong>6 months</strong>, and you must enter the US within those 6 months.</p>
+      <p>London canceled interviews booked for August and September 2026 for public charge training and moved them to <strong>October 2026</strong>. If yours moved, submit your timeline. You must enter the US within <strong>6 months</strong> of your medical.</p>
       <p><a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">Submit your timeline</a> &middot; <a href="/interview-dates">Check your dates</a> &middot; <a href="${fullHref}">Full notice</a></p>
     </div>`;
 
