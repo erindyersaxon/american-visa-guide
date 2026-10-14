@@ -5,7 +5,7 @@
 **Target branch:** `claude/visa-guide-content-review-6d8dfx`
 **Audience:** A new Claude Code session with no prior context on this work
 
-> **Update, 14 October 2026: Stage 4 added, later stages renumbered.** The owner split `/guide/waiting` in two. A new **Stage 4: Interview letter received** (`/guide/interview-letter`) now holds what to do once the IL arrives: the IL email example, booking the medical, AIS registration, updating tax documents in CEAC and the ID.me steps (`#id-me-account`). Stage 3 keeps the IL drop explanation, arrival timing, the IL-to-interview pattern and waiting-period prep. Medical, Interview, After the interview, Before you leave the UK, US entry and Life in the USA moved from Stages 4–9 to 5–10. Stage numbers in this document follow the new scheme. Word counts in §4.1 and §5.1 are still the September measurement of `guide.html`.
+> **Update, 14 October 2026: Stage 4 added, later stages renumbered.** The owner split `/guide/waiting` in two. A new **Stage 4: Interview letter received** (`/guide/interview-letter`) now holds what to do once the IL arrives: the IL email example, booking the medical, AIS registration, and a prompt to update tax documents in CEAC. Stage 3 keeps the IL drop explanation, arrival timing, the IL-to-interview pattern, waiting-period prep, and the full tax document and ID.me steps (`#financial-documents`, `#id-me-account`), which Stage 4 links to. Medical, Interview, After the interview, Before you leave the UK, US entry and Life in the USA moved from Stages 4–9 to 5–10. Stage numbers in this document follow the new scheme. Word counts in §4.1 and §5.1 are still the September measurement of `guide.html`.
 
 ---
 
@@ -487,7 +487,7 @@ Eight phases. Each has an objective, inputs, tasks, and acceptance criteria. **D
        'nvc-strategic-hold': '/guide/nvc',
        waiting: '/guide/waiting',       'il-drops-paused': '/guide/waiting',
        'public-charge-statement': '/guide/waiting',
-       'id-me-account': '/guide/interview-letter',
+       'id-me-account': '/guide/waiting',
        medical: '/guide/medical',       'doc-check-cancelled': '/guide/medical',
        interview: '/guide/interview',
        post: '/guide/after-interview',  'after-interview': '/guide/after-interview',
