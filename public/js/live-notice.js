@@ -46,15 +46,20 @@
   const COMPACT = {
     medical: fullHref => `
     <div class="stage-alert" role="note">
-      <div class="stage-alert__head">Interview rescheduling: updated 8 October 2026</div>
+      <div class="stage-alert__head">Interview rescheduling: updated 14 October 2026</div>
       ${summary(fullHref)}
-      <p><strong>At this stage:</strong> medicals appear unaffected and are going ahead as booked. The <strong>same-day embassy document check</strong> after your medical is canceled, so the <a href="#doc-check-cancelled">document check section</a> below is on hold. You must enter the US within <strong>6 months</strong> of your exam. Wait for a confirmed interview date before you book or rebook a medical. <a href="#medical-validity">How the 6 months works</a>.</p>
+      <p><strong>At this stage:</strong></p>
+      <ul>
+        <li><strong>Keep your medical booking.</strong> Medicals appear unaffected.</li>
+        <li><strong>Same-day document checks may resume with Interview Letters.</strong> London canceled them with the August and September interviews. <a href="#doc-check-cancelled">Document check</a>.</li>
+        <li><strong>Enter the US within 6 months of your exam.</strong> Wait for a confirmed interview date before you book or rebook. <a href="#medical-validity">How the 6 months works</a>.</li>
+      </ul>
     </div>`,
 
     'doc-check': fullHref => `
     <div class="stage-alert" role="note">
-      <div class="stage-alert__head">Canceled: updated 8 October 2026</div>
-      <p>London canceled same-day embassy document checks along with interviews booked for August and September 2026. <strong>Do not travel to the embassy after your medical</strong> unless the embassy tells you to. Canceled interviews now have October dates; we have seen no document check rebooked. Bring <strong>all original documents and one passport photo to the interview</strong> instead: <a href="/guide/interview#no-document-check">what to bring without a document check</a>. <a href="${fullHref}">Read the full notice →</a></p>
+      <div class="stage-alert__head">Canceled: updated 14 October 2026</div>
+      <p>London canceled same-day embassy document checks along with interviews booked for August and September 2026. They may resume when London resumes Interview Letters. Canceled interviews now have October dates; we have seen no document check rebooked. Without a document check, bring <strong>all original documents and one passport photo to the interview</strong>: <a href="/guide/interview#no-document-check">what to bring without a document check</a>. <a href="${fullHref}">Read the full notice →</a></p>
       <p>The section below describes the document check as it ran before the cancellations. You will need it when checks resume.</p>
     </div>`,
 
@@ -80,8 +85,8 @@
   // /css/stage.css, so this variant carries its own styles (PAGE_CSS).
   COMPACT.page = fullHref => `
     <div class="page-live-notice" role="note">
-      <div class="page-live-notice__head">Interview rescheduling &middot; updated 8 October 2026</div>
-      <p>Every London interview canceled in August and September 2026 that we know of has been rescheduled for <strong>October 2026</strong>. If yours was canceled, add your new date to the community database by submitting your timeline. Medical results are valid for <strong>6 months</strong>, and you must enter the US within those 6 months.</p>
+      <div class="page-live-notice__head">Interview rescheduling &middot; updated 14 October 2026</div>
+      <p>London canceled interviews booked for August and September 2026 for public charge training and moved them to <strong>October 2026</strong>. If yours moved, submit your timeline. You must enter the US within <strong>6 months</strong> of your medical.</p>
       <p><a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">Submit your timeline</a> &middot; <a href="/interview-dates">Check your dates</a> &middot; <a href="${fullHref}">Full notice</a></p>
     </div>`;
 
