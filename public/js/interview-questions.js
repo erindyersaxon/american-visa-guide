@@ -3,7 +3,7 @@
    Single source of truth for the consular interview question bank.
 
    Almost every question here comes from a real community interview
-   report at the US Embassy London (see checklist-interview.html for the
+   report at the US Embassy London (see guide/interview.html#community for the
    full write-ups). The exceptions are attributed to 'Written
    questionnaire': those are taken verbatim from a written public charge
    questionnaire a post issued to an applicant ahead of interview, and

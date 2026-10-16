@@ -178,6 +178,7 @@
     'september-2026-update': 'interview',
     '221g': 'interview',
     '221g-sheet': 'interview',
+    'domicile': 'interview',
     'interview-dates': 'interview',
     'interview-templates': 'interview',
     'interview-day-sheet': 'interview',
