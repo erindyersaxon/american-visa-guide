@@ -402,6 +402,11 @@
     .sources li { margin-bottom: 0.45rem; }
     .sources a { color: var(--accent); }
     .sources a:hover { color: var(--accent-dark); }
+    .sources > summary { cursor: pointer; }
+    .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
+    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources[open] > summary .sources-hint { display: none; }
+    .sources > summary + * { margin-top: 0.8rem; }
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
@@ -409,7 +414,7 @@
     }
   </style>
   <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261008" defer></script>
+  <script src="/js/nav.js?v=20261016" defer></script>
 </head>
 <body>
 
@@ -430,15 +435,11 @@
   <p class="lead">On 21 August 2026 a federal court vacated the State Department policy that suspended immigrant visas for nationals of 75 countries. The ban was triggered by <strong>nationality, not by the embassy you interviewed at</strong>, so if you interviewed at US Embassy London on a non-UK passport and were caught by the pause, this is the decision that undoes it. Here is what it does, what it does not do, and how to read it yourself.</p>
 
   <div class="callout callout-alert" style="margin-bottom:1.25rem;">
-    <span class="callout-title">This page is the record of the 21 August ruling. It is not the latest position.</span>
-    Since then the diversity visa pause has been struck down too, and on 10 September the State Department rescinded the guidance behind both pauses. For where things stand now, read <a href="/september-2026-update"><strong>both visa pauses have been vacated</strong></a>. If you have been given a new interview date after a 221(g), go to <a href="/reinterview"><strong>re-interview after a 221(g)</strong></a>.
+    <span class="callout-title">This page records the 21 August ruling. For the latest position, read <a href="/september-2026-update">both visa pauses vacated</a>.</span>
+    The ruling is under appeal and still applies; the <a href="/september-2026-update#timeline">timeline</a> tracks every hearing since. Called back after a 221(g)? Go to <a href="/reinterview">re-interview after a 221(g)</a>.
   </div>
 
   <div data-pause-glossary></div>
-
-  <div class="disclaimer">
-    <strong>This is a US <em>district court</em> ruling, under appeal.</strong> Until the Second Circuit rules, it applies. For the appeal and every hearing since, see the <a href="/september-2026-update#timeline">dated timeline</a>.
-  </div>
 
   <div class="toc">
     <div class="toc-title">On this page</div>
@@ -565,8 +566,8 @@
   </div>
 
   <!-- SOURCES -->
-  <div class="sources">
-    <h2>Sources &amp; related pages</h2>
+  <details class="sources">
+    <summary><h2>Sources &amp; related pages</h2><span class="sources-hint">(6, tap to show)</span></summary>
     <ol>
       <li><em>Catholic Legal Immigration Network, Inc. v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y. Aug. 21, 2026), Opinion and Order (ECF No. 83): the primary document this page summarizes. <a href="https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/" target="_blank" rel="noopener noreferrer">CourtListener docket</a>.</li>
       <li>Statutes construed by the court: 8 U.S.C. &sect;&sect; 1104(a), 1152(a)(1)(A), 1201(g); 22 C.F.R. &sect; 40.6; Administrative Procedure Act, 5 U.S.C. &sect; 706.</li>
@@ -575,7 +576,7 @@
       <li>Practitioner write-ups of the worldwide interview pause: <a href="https://www.fragomen.com/insights/united-states-state-department-temporarily-pauses-immigrant-visa-interviews-worldwide.html" target="_blank" rel="noopener noreferrer">Fragomen</a> &middot; <a href="https://www.gtlaw-insidebusinessimmigration.com/public-charge-rule/state-department-pauses-immigrant-visa-interviews-worldwide-as-consular-officers-undergo-new-public-charge-training/" target="_blank" rel="noopener noreferrer">Greenberg Traurig</a> &middot; <a href="https://lawandborder.com/immigrant-visa-interviews-canceled-worldwide-as-officers-trained-on-updated-public-charge-rules/" target="_blank" rel="noopener noreferrer">Chodorow Law Offices</a>. Department of State, <a href="https://travel.state.gov/content/travel/en/News/visas-news.html" target="_blank" rel="noopener noreferrer">visa news</a>.</li>
       <li>Related on this site: <a href="/september-2026-update">Both visa pauses vacated</a> &middot; <a href="/reinterview">Re-interview after a 221(g)</a> &middot; <a href="/221g.html">221(g) at London</a> &middot; <a href="/public-charge.html">Public charge</a> &middot; <a href="/guide/interview">Interview stage</a>.</li>
     </ol>
-  </div>
+  </details>
 
   <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 16 October 2026. On that date we moved the account of the 31 August status conference and the later court dates to the <a href="/september-2026-update#timeline">timeline</a>.</p>
 

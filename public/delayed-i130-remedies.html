@@ -359,6 +359,11 @@
     .sources li { margin-bottom: 0.45rem; }
     .sources a { color: var(--accent); }
     .sources a:hover { color: var(--accent-dark); }
+    .sources > summary { cursor: pointer; }
+    .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
+    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources[open] > summary .sources-hint { display: none; }
+    .sources > summary + * { margin-top: 0.8rem; }
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
@@ -368,7 +373,7 @@
     }
   </style>
   <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261008" defer></script>
+  <script src="/js/nav.js?v=20261016" defer></script>
 </head>
 <body>
 
@@ -388,7 +393,7 @@
   <p class="lead">If your I-130 has been pending past the USCIS published processing time with no movement, several remedies can prompt agency action. They run from the lowest-risk and free, to formal litigation. Work them roughly in order and document every step, because each one becomes evidence for the next.</p>
 
   <div class="disclaimer">
-    <strong>Know the risks.</strong> The following remedies have strict procedural requirements, and a mandamus action is not without legal risk. Filing can prompt USCIS to adjudicate your case sooner, but adjudication can surface underlying issues with your petition. For example, if USCIS is not in a position to approve because of the petitioner's criminal history or other background check concerns, they may be compelled to deny the petition. Consider consulting an immigration attorney affiliated with the <a href="https://www.aila.org/">American Immigration Lawyers Association (AILA)</a>. They can assess your case, advise on timing, and represent you if litigation becomes necessary.
+    <strong>Forcing a decision can bring a denial.</strong> If the file holds a problem, such as a criminal record or a background check concern, USCIS may deny rather than approve. Consult an attorney affiliated with the <a href="https://www.aila.org/">American Immigration Lawyers Association (AILA)</a> before a demand letter or a writ.
   </div>
 
   <!-- TIMELINE -->
@@ -1004,8 +1009,8 @@ Sincerely,
   </div>
 
   <!-- SOURCES -->
-  <div class="sources">
-    <h2>Sources</h2>
+  <details class="sources">
+    <summary><h2>Sources</h2><span class="sources-hint">(13, tap to show)</span></summary>
     <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">Primary government, statutory, and judicial sources. Verify current officials, fees, and figures before relying on them.</p>
     <ol>
       <li>USCIS, <a href="https://www.uscis.gov/policy-manual/volume-1-part-a-chapter-5">Policy Manual, Volume 1, Part A, Chapter 5: Expedite Requests</a> (qualifying criteria; pregnancy is not listed).</li>
@@ -1022,7 +1027,7 @@ Sincerely,
       <li>US Courts, <a href="https://www.uscourts.gov/court-programs/fees/district-court-miscellaneous-fee-schedule">District Court miscellaneous fee schedule</a> ($405 civil filing fee, effective December 1, 2023).</li>
       <li>USCIS, <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice">Service of Process Notice</a> (courtesy copy address for demand letters).</li>
     </ol>
-  </div>
+  </details>
 
   <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 27 September 2026.</p>
 

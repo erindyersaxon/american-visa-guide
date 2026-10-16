@@ -52,7 +52,7 @@
       .reference-box a:hover { text-decoration: underline; }
     </style>
     <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261008" defer></script>
+  <script src="/js/nav.js?v=20261016" defer></script>
 </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -120,22 +120,10 @@
 
             <section class="checklist-section">
               <h3>2. What to bring</h3>
-              <div class="checklist-item" data-item-id="int-1">
-                <input type="checkbox" id="int-1" />
-                <label for="int-1">Sealed interview packet (from document check), includes your 2x2in passport photo submitted at doc check. <strong>No document check?</strong> There is no packet: bring every original document and one passport photo instead (<a href="/guide/interview#no-document-check">what London asks for</a>)</label>
-              </div>
-              <div class="checklist-item" data-item-id="int-2">
-                <input type="checkbox" id="int-2" />
-                <label for="int-2">Passport, valid for at least six months beyond your intended date of entry into the US (London's instruction)</label>
-              </div>
-              <div class="checklist-item" data-item-id="int-3">
-                <input type="checkbox" id="int-3" />
-                <label for="int-3">Any documents requested by embassy</label>
-              </div>
-              <div class="checklist-item" data-item-id="int-5">
-                <input type="checkbox" id="int-5" />
-                <label for="int-5">Petitioner's US domicile evidence, and re-domicile evidence if the petitioner lives abroad, even if it was already uploaded at NVC. Domicile is a ticked box on the embassy's 221(g) sheet, so bring the originals rather than relying on the file</label>
-              </div>
+              <div class="checklist-item" data-doc-item="int-1"></div>
+              <div class="checklist-item" data-doc-item="int-2"></div>
+              <div class="checklist-item" data-doc-item="int-3"></div>
+              <div class="checklist-item" data-doc-item="int-5"></div>
               <div class="checklist-item" data-item-id="int-4">
                 <input type="checkbox" id="int-4" />
                 <label for="int-4">Do not break open sealed packet</label>
@@ -187,7 +175,8 @@
 
     <footer></footer>
     <script src="/js/shared.js?v=20260612"></script>
-    <script src="/js/checklist.js?v=20260609"></script>
+    <script src="/js/checklist-data.js?v=20261016b"></script>
+<script src="/js/checklist.js?v=20260609"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         renderPage({
