@@ -216,7 +216,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Wet-signed (not digital). Each sponsor completes separately. 08/24/26 edition from 1 October 2026; signing authorizes a credit check, so lift any credit freeze or be ready to.",
@@ -240,7 +240,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "cond",
-    "medical": "cond",
+    "medical": "no",
     "interview": "cond"
    },
    "note": "Only if you count a household member&rsquo;s income. A joint sponsor files their own I-864, not an I-864A.",
@@ -253,7 +253,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "cond",
-    "medical": "cond",
+    "medical": "no",
     "interview": "cond"
    },
    "note": "Only if a joint sponsor is filing: their own I-864, IRS transcript, proof of US status and income evidence for their situation.",
@@ -277,7 +277,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Via IRS.gov with ID.me. Most recent tax year required for every sponsor (Form I-864 instructions, 08/24/26). Last 3 years strongly recommended.",
@@ -301,7 +301,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Full return with all schedules if self-employed (C/E/F/SE). Most recent year required; last 3 years strongly recommended.",
@@ -314,7 +314,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Confirming employment, job title, and income for all sponsors.",
@@ -338,7 +338,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Last 3 years strongly recommended, to match the returns. Establishes US employment history. Posts list the most recent W-2 on public charge 221(g) checklists.",
@@ -357,7 +357,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "The latest stubs for each sponsor, showing current income.",
@@ -376,7 +376,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "yes",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "US passport, naturalization certificate, US birth certificate or green card, for the petitioner and any joint sponsor.",
@@ -395,7 +395,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "cond",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Recent statements showing US domicile and financial capacity. 3-6 months recommended. Opening a US account and transferring funds are both named in State Department guidance as evidence of establishing domicile.",
@@ -408,7 +408,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "cond",
-    "medical": "cond",
+    "medical": "no",
     "interview": "cond"
    },
    "note": "If a sponsor is self-employed: the full return with all schedules, 12 months of business bank statements, and business registration or EIN.",
@@ -432,7 +432,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Strongest first: US tax filings with domestic earned income, a W-2 or US job offer, utility bills across several months, a state ID. A lease or mortgage shows an address, not a residence. See <a href=\"/domicile\">petitioner domicile</a>.",
@@ -461,7 +461,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Supports US domicile, but evidences an <em>address</em> rather than residence. Never submit it as the only domicile evidence: pair it with utility bills, US tax filings showing domestic earned income, or a US job contract.",
@@ -474,7 +474,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Recent bills (electricity, gas, water) showing US address. Last 3 months.",
@@ -487,7 +487,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "cond",
-    "medical": "cond",
+    "medical": "no",
     "interview": "cond"
    },
    "note": "<strong>Treat as required, not optional, wherever the petitioner lives abroad</strong>: a joint sponsor cures income but cannot cure the petitioner's domicile, and a petitioner who fails it does not qualify as a sponsor. Moving contract, job contract, job applications, school/childcare inquiries, rental property contracts, US bank account opened or funds transferred, Social Security number application, dated statement of intent. The petitioner must be resident in the US, or arriving, no later than the date the beneficiary immigrates.",
@@ -511,7 +511,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "cond",
-    "medical": "cond",
+    "medical": "no",
     "interview": "cond"
    },
    "note": "Only if a joint sponsor is filing. Same standard as the petitioner&rsquo;s.",
@@ -535,7 +535,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
    "note": "Written statement (treat as mandatory, even though the embassy calls it voluntary), sent with the last 3 years of IRS tax returns for every sponsor, and the last 3 months of payslips and bank statements, and proof of the petitioner's health insurance, plus evidence of US housing, US healthcare plan (employer, private, ACA marketplace), how housing and insurance are paid for, and the beneficiary's professional qualifications/evidence of ability to work in US. See the <a href=\"/public-charge.html\">statement template</a>.",
@@ -574,7 +574,7 @@ var AVG_DOCS = {
     "i130": "yes",
     "nvc": "no",
     "medical": "no",
-    "interview": "no"
+    "interview": "cond"
    },
    "note": "Photos over time, including the wedding; travel records and boarding passes; communication logs. Reuse them at the interview if asked.",
    "items": [
@@ -905,9 +905,9 @@ var AVG_DOCS = {
     "i130": "no",
     "nvc": "yes",
     "medical": "no",
-    "interview": "no"
+    "interview": "yes"
    },
-   "note": "Photocopy for NVC upload.",
+   "note": "Photocopy for NVC upload. Keep a copy in your binder for the interview.",
    "items": [
     {
      "list": "nvc",
@@ -1024,9 +1024,9 @@ var AVG_DOCS = {
     "i130": "no",
     "nvc": "no",
     "medical": "yes",
-    "interview": "no"
+    "interview": "yes"
    },
-   "note": "Download from the <a href=\"https://uk.usembassy.gov/wp-content/uploads/sites/204/2023/03/USA-MEDICAL-QUESTIONNAIRE_IV.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">U.S. Embassy London website</a> (not CEAC), complete and print. Bring to medical exam.",
+   "note": "Download from the <a href=\"https://uk.usembassy.gov/wp-content/uploads/sites/204/2023/03/USA-MEDICAL-QUESTIONNAIRE_IV.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">U.S. Embassy London website</a> (not CEAC), complete and print. Bring to the medical exam, and keep it in the front of your binder for the interview.",
    "items": [
     {
      "list": "binder",
@@ -1129,9 +1129,9 @@ var AVG_DOCS = {
     "i130": "no",
     "nvc": "no",
     "medical": "yes",
-    "interview": "no"
+    "interview": "yes"
    },
-   "note": "The VisaMedicals confirmation email, printed.",
+   "note": "The VisaMedicals confirmation email, printed. It stays in the front of your binder.",
    "items": [
     {
      "list": "binder",
