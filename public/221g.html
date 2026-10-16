@@ -334,6 +334,11 @@
     .sources li { margin-bottom: 0.45rem; }
     .sources a { color: var(--accent); }
     .sources a:hover { color: var(--accent-dark); }
+    .sources > summary { cursor: pointer; }
+    .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
+    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources[open] > summary .sources-hint { display: none; }
+    .sources > summary + * { margin-top: 0.8rem; }
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
@@ -651,8 +656,8 @@
   </div>
 
   <!-- SOURCES -->
-  <div class="sources">
-    <h2>Sources &amp; related pages</h2>
+  <details class="sources">
+    <summary><h2>Sources &amp; related pages</h2><span class="sources-hint">(13, tap to show)</span></summary>
     <ol>
       <li>US Embassy London Immigrant Visa Unit green 221(g) sheet (community-supplied, July 2026), the primary document reproduced above. Every box is listed in the <a href="/221g-sheet">green sheet triage</a>.</li>
       <li>Public charge 221(g) checklist, Consulate General Lagos, 2026 (community-supplied), reproduced in <a href="#publiccharge">the public charge box</a>.</li>
@@ -668,7 +673,7 @@
       <li>Sources for the history request and technology checks are on <a href="/administrative-processing#sources">the administrative processing page</a>.</li>
       <li>Related on this site: <a href="/guide/nvc">NVC stage</a> &middot; <a href="/checklist-nvc.html">NVC checklist</a> &middot; <a href="/public-charge">Public charge</a> &middot; <a href="/guide/interview">Interview stage</a> &middot; <a href="/reinterview">Re-interview after a 221(g)</a>. Tools: <a href="/221g-sheet">green sheet triage</a> &middot; <a href="/history-worksheet">15-year history worksheet</a> &middot; <a href="/interview-templates">email templates</a> &middot; <a href="/interview-dates">date checker</a>.</li>
     </ol>
-  </div>
+  </details>
 
   <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 16 October 2026. On that date we moved the petitioner domicile section to <a href="/domicile">its own page</a> and the box-by-box table to the <a href="/221g-sheet">green sheet triage</a>. On 1 October 2026 we moved the history request and technology check sections to <a href="/administrative-processing">their own page</a>.</p>
 

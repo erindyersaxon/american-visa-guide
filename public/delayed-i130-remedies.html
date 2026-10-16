@@ -359,6 +359,11 @@
     .sources li { margin-bottom: 0.45rem; }
     .sources a { color: var(--accent); }
     .sources a:hover { color: var(--accent-dark); }
+    .sources > summary { cursor: pointer; }
+    .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
+    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources[open] > summary .sources-hint { display: none; }
+    .sources > summary + * { margin-top: 0.8rem; }
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
@@ -1004,8 +1009,8 @@ Sincerely,
   </div>
 
   <!-- SOURCES -->
-  <div class="sources">
-    <h2>Sources</h2>
+  <details class="sources">
+    <summary><h2>Sources</h2><span class="sources-hint">(13, tap to show)</span></summary>
     <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">Primary government, statutory, and judicial sources. Verify current officials, fees, and figures before relying on them.</p>
     <ol>
       <li>USCIS, <a href="https://www.uscis.gov/policy-manual/volume-1-part-a-chapter-5">Policy Manual, Volume 1, Part A, Chapter 5: Expedite Requests</a> (qualifying criteria; pregnancy is not listed).</li>
@@ -1022,7 +1027,7 @@ Sincerely,
       <li>US Courts, <a href="https://www.uscourts.gov/court-programs/fees/district-court-miscellaneous-fee-schedule">District Court miscellaneous fee schedule</a> ($405 civil filing fee, effective December 1, 2023).</li>
       <li>USCIS, <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice">Service of Process Notice</a> (courtesy copy address for demand letters).</li>
     </ol>
-  </div>
+  </details>
 
   <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 27 September 2026.</p>
 

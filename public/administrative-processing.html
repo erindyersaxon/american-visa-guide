@@ -334,6 +334,11 @@
     .sources li { margin-bottom: 0.45rem; }
     .sources a { color: var(--accent); }
     .sources a:hover { color: var(--accent-dark); }
+    .sources > summary { cursor: pointer; }
+    .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
+    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources[open] > summary .sources-hint { display: none; }
+    .sources > summary + * { margin-top: 0.8rem; }
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
@@ -508,8 +513,8 @@
     <a href="/interview" class="guide-return" style="margin-left:0.4rem;">Your interview hub</a>
   </div>
 
-  <div class="sources" id="sources">
-    <h2>Sources</h2>
+  <details class="sources" id="sources">
+    <summary><h2>Sources</h2><span class="sources-hint">(12, tap to show)</span></summary>
     <ol>
       <li>Personal history request and interview account from another post, shared by the applicant's spouse in a public post, September 2026: the source for <a href="#history">the history request section</a>.</li>
       <li>Department of State, <a href="https://www.federalregister.gov/documents/2023/09/22/2023-20565/60-day-notice-of-proposed-information-collection-supplemental-questions-for-visa-applicants" target="_blank" rel="noopener noreferrer">Supplemental Questions for Visa Applicants (DS-5535), 60-day notice</a>, Federal Register, 22 September 2023, and the <a href="https://jm.usembassy.gov/wp-content/uploads/sites/88/2025/08/DS-5535-Supplemental-Quesiton-for-Visa-Applicants-002.pdf" target="_blank" rel="noopener noreferrer">form as posted by US Embassy Kingston</a>.</li>
@@ -524,7 +529,7 @@
       <li>US International Trade Administration, <a href="https://www.trade.gov/consolidated-screening-list" target="_blank" rel="noopener noreferrer">Consolidated Screening List</a>, which includes the Commerce Department Entity List.</li>
       <li>Department of State, <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/administrative-processing-information.html" target="_blank" rel="noopener noreferrer">Administrative Processing Information</a>.</li>
     </ol>
-  </div>
+  </details>
 
   <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Moved from the 221(g) page on 1 October 2026. Reviewed 1 October 2026.</p>
 
