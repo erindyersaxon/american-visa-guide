@@ -1,4 +1,4 @@
-/* American Visa Guide — Shared Checklist Functionality */
+/* American Visa Guide: Shared Checklist Functionality */
 
 function initializeChecklist(checklistId) {
   const checkboxes = document.querySelectorAll(`[data-checklist="${checklistId}"] input[type="checkbox"]`);
@@ -86,7 +86,7 @@ function copyChecklistForDocs(btn) {
     if (el.tagName === 'H3') {
       lines.push('', el.textContent.trim().replace(/\s+/g, ' '), '');
     } else if (el.classList.contains('copy-note')) {
-      lines.push(`⚠ ${el.textContent.trim()}`, '');
+      lines.push(`Note: ${el.textContent.trim()}`, '');
     } else {
       const label = el.querySelector('label');
       const checkbox = el.querySelector('input[type="checkbox"]');
@@ -99,7 +99,7 @@ function copyChecklistForDocs(btn) {
 
   const finish = ok => {
     const original = btn.textContent;
-    btn.textContent = ok ? '✓ Copied — paste into Google Docs' : 'Copy failed — try selecting the page text';
+    btn.textContent = ok ? '✓ Copied, paste into Google Docs' : 'Copy failed: try selecting the page text';
     setTimeout(() => { btn.textContent = original; }, 3000);
   };
 

@@ -1,25 +1,25 @@
-// Data page scripts — loaded deferred
+// Data page scripts: loaded deferred
 
 (async () => {
   try {
     // Use pre-fetched promise if available (started in HTML before deferred JS)
     const d = await (window._dataPromise || fetch('/api/data').then(r => r.json()))
 
-    const fmt = (v, unit='d') => v != null ? `${v}<span class="unit">${unit}</span>` : '—'
+    const fmt = (v, unit='d') => v != null ? `${v}<span class="unit">${unit}</span>` : 'n/a'
 
-    // Safari-safe date formatting — avoid toLocaleDateString with locale/timezone args
+    // Safari-safe date formatting. Avoid toLocaleDateString with locale/timezone args
     const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
     const MONTHS_LONG  = ['January','February','March','April','May','June','July','August','September','October','November','December']
 
     const fmtDate = (iso) => {
-      if (!iso) return '—'
+      if (!iso) return 'n/a'
       try {
         const s = iso.trim()
         // Parse as UTC to avoid timezone shifts
         const parts = s.substring(0, 10).split('-')
         const y = parseInt(parts[0]), m = parseInt(parts[1]) - 1, d = parseInt(parts[2])
         return d + ' ' + MONTHS_SHORT[m] + ' ' + y
-      } catch(e) { return '—' }
+      } catch(e) { return 'n/a' }
     }
 
     const fmtMonth = (ym) => {
@@ -63,7 +63,7 @@
     set('il-last-drop',        fmtDate(il.last_il_drop))
     set('il-latest-interview', fmtDate(d.latest_interview))
 
-    // Next window — API returns "2026-07-22 to 2026-08-01" (space + "to" + space)
+    // Next window: API returns "2026-07-22 to 2026-08-01" (space + "to" + space)
     if (il.estimated_next_window) {
       const parts = il.estimated_next_window.split(' to ').map(s => fmtDate(s.trim()))
       set('il-next-window',  parts.join(' – '))
@@ -84,7 +84,7 @@
     set('stat-il-int-period', ilIntPeriod)
     set('stat-dq-int-period', dqIntPeriod)
     set('stat-passport',   fmt(k.avg_passport_days))
-    set('stat-passport-note', `Median is ${k.median_passport_days ?? '—'} days`)
+    set('stat-passport-note', `Median is ${k.median_passport_days ?? 'n/a'} days`)
     set('stat-approval-pct',  fmt(out.approval_pct, '%'))
     set('stat-approval-note', `${out.approved} of ${out.total} recorded outcomes`)
 
@@ -94,19 +94,19 @@
     // Passport
     set('plain-pickup',    `${k.avg_pickup_days ?? '4'} days`)
     set('plain-mail',      `${k.avg_mail_days ?? '12'} days`)
-    setText('passport-median', k.median_passport_days ?? '—')
-    setText('passport-n',      sc.passport_in_hand ?? '—')
+    setText('passport-median', k.median_passport_days ?? 'n/a')
+    setText('passport-n',      sc.passport_in_hand ?? 'n/a')
 
     // Trend table
     const trendDir = (all, recent) => {
-      if (all == null || recent == null) return '<span class="trend-neutral">—</span>'
+      if (all == null || recent == null) return '<span class="trend-neutral">n/a</span>'
       const diff = recent - all
       if (Math.abs(diff) <= 3) return '<span class="trend-neutral">→ stable</span>'
       return diff > 0
         ? `<span class="trend-up">↑ +${diff}d</span>`
         : `<span class="trend-down">↓ ${diff}d</span>`
     }
-    const td = v => v != null ? v + 'd' : '—'
+    const td = v => v != null ? v + 'd' : 'n/a'
     set('trend-dq-il-all',  td(tr.dq_to_il.all_time?.avg))
     set('trend-dq-il-12m',  td(tr.dq_to_il.last_12m?.avg))
     set('trend-dq-il-6m',   td(tr.dq_to_il.last_6m?.avg))
@@ -178,7 +178,7 @@
           ? `<div class="drop-chip-count">${drop.il_count} IL${drop.il_count !== 1 ? 's' : ''} issued</div>`
           : ''
         const latestBadge = isLatest
-          ? `<span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-light);background:rgba(42,157,143,0.15);border-radius:4px;padding:2px 6px;">Latest</span>`
+          ? `<span style="font-size:12px;font-weight:600;color:var(--teal-light);background:rgba(42,157,143,0.15);border-radius:4px;padding:2px 6px;">Latest</span>`
           : ''
         const chipStyle = isLatest
           ? ` style="border-color:rgba(42,157,143,0.4);background:rgba(42,157,143,0.06);"`
@@ -192,13 +192,13 @@
         return `<div class="drop-chip"${chipStyle}>${dateRow}<div class="drop-chip-gap">${drop.gap != null ? drop.gap + 'd gap' : 'first recorded'}${drop.time ? ' · ' + drop.time + ' UK' : ''}</div>${dqSpan}${countSpan}</div>`
       }).join('')
     }
-    setText('drop-avg', il.avg_gap_days ?? '—')
+    setText('drop-avg', il.avg_gap_days ?? 'n/a')
 
     // Show overdue notice if today is past the end of the estimated window
     const overdueEl = document.getElementById('drop-overdue-notice')
     if (overdueEl && il.estimated_next_window && il.last_il_drop) {
       try {
-        // API format is "2026-07-22 to 2026-08-01" — split on " to "
+        // API format is "2026-07-22 to 2026-08-01". Split on " to "
         const windowStr = il.estimated_next_window
         const endPart = windowStr.includes(' to ') ? windowStr.split(' to ')[1].trim() : windowStr.trim()
         const windowEnd = new Date(endPart + 'T23:59:59Z')

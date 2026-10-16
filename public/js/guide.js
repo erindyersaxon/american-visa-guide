@@ -1,4 +1,4 @@
-/* American Visa Guide — Sidebar Navigation & Back-to-Top */
+/* American Visa Guide: Sidebar Navigation & Back-to-Top */
 
 document.addEventListener('DOMContentLoaded', function() {
   const sections = document.querySelectorAll('section[id]');

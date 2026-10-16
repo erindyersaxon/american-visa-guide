@@ -1,10 +1,10 @@
-/* ─────────────────────────────────────────────────────────────
-   American Visa Guide — Print Styles
+/*
+   American Visa Guide, Print Styles
    Applied on top of main.css + components.css via @media print
-   ───────────────────────────────────────────────────────────── */
+ */
 
 @media print {
-  /* ─── Reset & base ─────────────────────────────────────── */
+  /* Reset & base */
   *,
   *::before,
   *::after {
@@ -28,7 +28,7 @@
     size: A4 portrait;
   }
 
-  /* ─── Hide non-essential UI ─────────────────────────────── */
+  /* Hide non-essential UI */
   .site-nav,
   .skip-link,
   .nav-toggle,
@@ -44,7 +44,7 @@
     display: none !important;
   }
 
-  /* ─── Footer — show legal, hide ko-fi ──────────────────── */
+  /* Footer: show legal, hide ko-fi */
   .site-footer {
     border-top: 1pt solid #999;
     margin-top: 1cm;
@@ -64,7 +64,7 @@
     display: none !important;
   }
 
-  /* ─── Links — show URL after anchor text ────────────────── */
+  /* Links: show URL after anchor text */
   a[href]::after {
     content: " (" attr(href) ")";
     font-size: 9pt;
@@ -78,12 +78,12 @@
     content: "";
   }
 
-  /* Don't expand nav links — they're hidden anyway */
+  /* Don't expand nav links: they're hidden anyway */
   .site-nav a::after {
     content: "" !important;
   }
 
-  /* ─── Page breaks ───────────────────────────────────────── */
+  /* Page breaks */
   h1, h2, h3 {
     page-break-after: avoid;
   }
@@ -97,7 +97,7 @@
     page-break-inside: avoid;
   }
 
-  /* ─── Cards ─────────────────────────────────────────────── */
+  /* Cards */
   .card,
   .data-card,
   .stat-block {
@@ -106,7 +106,7 @@
     padding: 0.4cm;
   }
 
-  /* ─── Info cards ─────────────────────────────────────────── */
+  /* Info cards */
   .info-card {
     border: 1pt solid #999;
     border-radius: 0;
@@ -118,7 +118,7 @@
     padding: 0.3cm 0.5cm;
   }
 
-  /* ─── Checklist — print-specific checkbox rendering ──────── */
+  /* Checklist. Print-specific checkbox rendering */
   .checklist-item {
     border: 1pt solid #ccc;
     border-radius: 0;
@@ -142,7 +142,7 @@
     border-color: #333;
   }
 
-  /* ─── Tables ─────────────────────────────────────────────── */
+  /* Tables */
   .table-wrapper {
     border: 1pt solid #ccc;
     border-radius: 0;
@@ -162,7 +162,7 @@
     background: #f9f9f9 !important;
   }
 
-  /* ─── Accordion — always show content when printing ──────── */
+  /* Accordion, always show content when printing */
   .accordion-panel[hidden] {
     display: block !important;
   }
@@ -172,7 +172,7 @@
     padding: 0.2cm 0;
   }
 
-  /* ─── Steps ──────────────────────────────────────────────── */
+  /* Steps */
   .steps {
     gap: 0;
   }
@@ -198,7 +198,7 @@
     box-shadow: none;
   }
 
-  /* ─── Typography cleanup ─────────────────────────────────── */
+  /* Typography cleanup */
   h1 { font-size: 20pt; margin-bottom: 0.4cm; }
   h2 { font-size: 16pt; margin-bottom: 0.3cm; margin-top: 0.6cm; }
   h3 { font-size: 13pt; margin-bottom: 0.2cm; margin-top: 0.5cm; }
@@ -209,7 +209,7 @@
     widows: 3;
   }
 
-  /* ─── Layout ─────────────────────────────────────────────── */
+  /* Layout */
   .container {
     max-width: 100%;
     padding: 0;
@@ -233,7 +233,7 @@
     margin-top: 0.5cm;
   }
 
-  /* ─── Badges / Tags — text only on print ────────────────── */
+  /* Badges / Tags: text only on print */
   .badge,
   .tag {
     border: 0.5pt solid #999;
@@ -241,12 +241,12 @@
     padding: 0 0.2cm;
   }
 
-  /* ─── Progress bar — text fallback ──────────────────────── */
+  /* Progress bar: text fallback */
   .progress {
     display: none;
   }
 
-  /* ─── Checklist page specifics ───────────────────────────── */
+  /* Checklist page specifics */
   .print-btn,
   .no-print,
   .browser-note {
@@ -262,7 +262,7 @@
     box-shadow: none !important;
   }
 
-  /* Reset checked visual state — print as empty box */
+  /* Reset checked visual state. Print as empty box */
   .cl-item:has(input[type="checkbox"]:checked) {
     background: transparent !important;
     border-color: #ccc !important;

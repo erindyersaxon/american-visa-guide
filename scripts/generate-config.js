@@ -15,8 +15,8 @@ fs.writeFileSync(outputPath, JSON.stringify(config, null, 2));
 
 console.log('✓ Generated config.json with Supabase credentials');
 if (!config.SUPABASE_URL) {
-  console.warn('⚠ WARNING: SUPABASE_URL not set in environment variables');
+  console.warn('WARNING: SUPABASE_URL not set in environment variables');
 }
 if (!config.SUPABASE_ANON_KEY) {
-  console.warn('⚠ WARNING: SUPABASE_ANON_KEY not set in environment variables');
+  console.warn('WARNING: SUPABASE_ANON_KEY not set in environment variables');
 }

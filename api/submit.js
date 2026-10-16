@@ -4,12 +4,38 @@ export default async function handler(req, res) {
   }
   if (req.method !== 'POST') return res.status(405).end()
 
+  // Same failure mode as api/data.js: a missing URL or key builds an invalid
+  // request URL and throws deep inside fetch, reported as a 500. Say which
+  // variable is unset instead. The values are never echoed, only their names.
+  const missingEnv = [
+    !process.env.NEXT_PUBLIC_SUPABASE_URL && 'NEXT_PUBLIC_SUPABASE_URL',
+    !process.env.SUPABASE_SERVICE_ROLE_KEY && 'SUPABASE_SERVICE_ROLE_KEY',
+  ].filter(Boolean)
+
+  if (missingEnv.length) {
+    return res.status(503).json({
+      error: 'Submission endpoint not configured',
+      missing: missingEnv,
+    })
+  }
+
   const raw = req.body
+  // The form sends multi-select answers (e.g. entry_location) as arrays. Every
+  // column in form_responses is a scalar type, so an array handed to PostgREST
+  // gets JSON-stringified into the text column ('["Austin, TX (AUS)"]'), which
+  // the entry_location_not_json_array constraint rejects. Flatten to the '; '
+  // convention used by the rest of the data.
   const cleaned = Object.fromEntries(
-    Object.entries(raw).map(([key, value]) => [
-      key,
-      value === '' || (Array.isArray(value) && value.length === 0) ? null : value
-    ])
+    Object.entries(raw).map(([key, value]) => {
+      if (Array.isArray(value)) {
+        const joined = value
+          .filter(v => v !== null && v !== undefined && String(v).trim() !== '')
+          .map(v => String(v).trim())
+          .join('; ')
+        return [key, joined === '' ? null : joined]
+      }
+      return [key, value === '' ? null : value]
+    })
   )
 
   const username = cleaned.username_raw?.trim?.() || null

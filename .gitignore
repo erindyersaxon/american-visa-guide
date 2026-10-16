@@ -4,3 +4,4 @@ dist
 .mcp.json
 mcp.json
 .DS_Store
+build

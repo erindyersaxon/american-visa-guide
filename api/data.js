@@ -1,8 +1,40 @@
+// UK wall-clock time for an instant. Europe/London handles the BST switchovers
+// (last Sunday in March / October) that a month-range test gets wrong at the
+// edges. h23 is explicit so midnight formats as 00:00, not 24:00.
+const ukTimeFormatter = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Europe/London',
+  hour: '2-digit',
+  minute: '2-digit',
+  hourCycle: 'h23',
+})
+
+const ukTime = (d) => {
+  const parts = ukTimeFormatter.formatToParts(d)
+  const part = (type) => parts.find(p => p.type === type)?.value ?? '00'
+  return `${part('hour')}:${part('minute')}`
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).end()
 
   const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
   const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+  // Without these, the template literal below builds the string
+  // "undefined/rest/v1/..." and fetch throws ERR_INVALID_URL, which surfaces as
+  // an opaque 500. Name the missing variables instead: this is a deploy-time
+  // configuration gap, not a request the caller can fix by retrying.
+  const missing = [
+    !SUPABASE_URL && 'NEXT_PUBLIC_SUPABASE_URL',
+    !SUPABASE_KEY && 'NEXT_PUBLIC_SUPABASE_ANON_KEY',
+  ].filter(Boolean)
+
+  if (missing.length) {
+    return res.status(503).json({
+      error: 'Data source not configured',
+      missing,
+    })
+  }
 
   // Fetch all relevant rows - only London embassy
   const url = `${SUPABASE_URL}/rest/v1/form_responses?embassy=eq.London%2C%20United%20Kingdom&select=*&order=submitted_at.desc`
@@ -57,6 +89,42 @@ export default async function handler(req, res) {
     }
   }
 
+  // Robust summary for the signature intervals: median, IQR and p90, plus the
+  // NCHS-derived display flags (suppress the statistic below n=10, warn below
+  // n=30). Percentiles use linear interpolation, matching Postgres
+  // percentile_cont. Means are deliberately not exposed here. The interval
+  // distributions are right-skewed and a mean is dragged by the long tail.
+  const robustStats = (arr) => {
+    const valid = arr.filter(n => n !== null && n > 0).sort((a, b) => a - b)
+    const n = valid.length
+    if (!n) return { n: 0, median: null, p25: null, p75: null, p90: null,
+                     min: null, max: null, suppressed: true, small_sample: true }
+    const q = (p) => {
+      const idx = (n - 1) * p, lo = Math.floor(idx), hi = Math.ceil(idx)
+      return Math.round(valid[lo] + (valid[hi] - valid[lo]) * (idx - lo))
+    }
+    return { n, median: q(0.5), p25: q(0.25), p75: q(0.75), p90: q(0.9),
+             min: valid[0], max: valid[n - 1],
+             suppressed: n < 10, small_sample: n < 30 }
+  }
+
+  // Headline interval over a rolling window, cohorted by milestone date rather
+  // than by record insertion. Starts at 180 days and widens automatically until
+  // the completed count clears the stability floor; window_days reports the
+  // width actually used so the UI can surface it.
+  const FLOOR = 30
+  const rollingWindow = (rows, cohortField, valueFn, filterFn) => {
+    for (const days of [180, 270, 365, 545, 730, Infinity]) {
+      const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - days)
+      const vals = rows
+        .filter(r => filterFn(r) && r[cohortField] &&
+          (days === Infinity || new Date(r[cohortField]) >= cutoff))
+        .map(valueFn).filter(v => v !== null && v > 0)
+      if (vals.length >= FLOOR || days === Infinity)
+        return { ...robustStats(vals), window_days: days === Infinity ? null : days }
+    }
+  }
+
   // Deduplicate by username_raw - keep latest submitted_at per user
   const byUser = {}
   for (const row of rows) {
@@ -68,7 +136,7 @@ export default async function handler(req, res) {
   }
   const deduped = Object.values(byUser)
 
-  // Drop impossible future dates on past-only milestones — data-entry errors
+  // Drop impossible future dates on past-only milestones: data-entry errors
   // (e.g. an Interview Letter dated next year) otherwise poison the averages.
   // Appointment fields (interview / medical / flight) are intentionally left
   // alone, since those are legitimately future-dated for upcoming events.
@@ -80,6 +148,19 @@ export default async function handler(req, res) {
       if (r[f] && new Date(r[f]) > todayEnd) r[f] = null
     }
   }
+
+  // Once a member reports a reschedule or re-interview, `interview` keeps the
+  // original date and the appointment to show is new_interview_at (migration
+  // 0006). Rescheduled with no new date yet means cancelled: show nothing.
+  const nextInterview = (r) => r.interview_change_type
+    ? (r.new_interview_at ? String(r.new_interview_at).slice(0, 10) : null)
+    : r.interview
+
+  // The passport comes back after the interview that issued the visa, which
+  // for a reschedule or re-interview is new_interview_at, not `interview`.
+  // Measuring from the original date counted pippyd0321 (221(g) on 08-05,
+  // approved 10-08, passport 10-15) as 71 days instead of 7.
+  for (const r of deduped) r.passport_from = nextInterview(r)
 
   // Standard cases only (exclude expedited for wait time calcs)
   const standard = deduped.filter(r => !r.interview_expedited)
@@ -97,63 +178,82 @@ export default async function handler(req, res) {
     .filter(r => r.dq_date && r.interview)
     .map(r => daysBetween(r.dq_date, r.interview))
 
+  // Passport-return interval: anyone with both dates. The old 'Approved'-only
+  // filter left this on a different denominator from the pickup/mail arrays
+  // below; the DB ordering constraint now guarantees passport >= interview, so
+  // no negative intervals can slip in.
   const passportDays = deduped
-    .filter(r => r.interview && r.passport_in_hand && r.interview_outcome === 'Approved')
-    .map(r => daysBetween(r.interview, r.passport_in_hand))
+    .filter(r => r.passport_from && r.passport_in_hand)
+    .map(r => daysBetween(r.passport_from, r.passport_in_hand))
 
   // --- Interview outcomes ---
+  // outcome_status is a STORED generated column in Postgres that canonicalises
+  // the free-text interview_outcome / resolution_outcome / notes fields into
+  // one of: approved | cleared | not_approved | visa_pause | denied | null.
+  // Tally it directly rather than re-deriving categories from strings here.
   const withOutcome = deduped.filter(r => r.interview_outcome)
-  // Outcome strings vary ("221g", "221(g)/Administrative Processing (AP)"),
-  // so strip punctuation before matching 221g.
-  const is221gOutcome = (r) => {
-    const o = r.interview_outcome?.toLowerCase() || ''
-    return o.replace(/[^a-z0-9]/g, '').includes('221g') ||
-      o.includes('not approved') || o.includes('administrative processing')
+  const tally = { approved: 0, cleared: 0, not_approved: 0, visa_pause: 0, denied: 0 }
+  for (const r of deduped) {
+    if (r.outcome_status && tally[r.outcome_status] !== undefined) tally[r.outcome_status]++
   }
-  const approved = withOutcome.filter(r =>
-    r.interview_outcome?.toLowerCase() === 'approved'
-  ).length
-  const cleared = withOutcome.filter(r => {
-    const res = r.resolution_outcome?.toLowerCase() || ''
-    return is221gOutcome(r) && (res.includes('cleared') || res.includes('approved'))
-  }).length
-  const notApproved = withOutcome.filter(r => {
-    const o = r.interview_outcome?.toLowerCase() || ''
-    const res = r.resolution_outcome?.toLowerCase() || ''
-    if (res.includes('cleared') || res.includes('approved')) return false
-    const notes = r.notes?.toLowerCase() || ''
-    if (notes.includes('visa pause')) return false
-    if (o === 'denied' || res === 'denied') return false
-    return is221gOutcome(r)
-  }).length
-  const visaPause = withOutcome.filter(r => {
-    const o = r.interview_outcome?.toLowerCase() || ''
-    const notes = r.notes?.toLowerCase() || ''
-    const res = r.resolution_outcome?.toLowerCase() || ''
-    return (notes.includes('visa pause') || o.includes('visa pause')) && !res.includes('cleared')
-  }).length
-  const denied = withOutcome.filter(r => {
-    const o = r.interview_outcome?.toLowerCase() || ''
-    const res = r.resolution_outcome?.toLowerCase() || ''
-    return o === 'denied' || res === 'denied'
-  }).length
+  const approved   = tally.approved
+  const cleared    = tally.cleared
+  const notApproved = tally.not_approved
+  const visaPause  = tally.visa_pause
+  const denied     = tally.denied
 
   // --- Passport by method ---
   const pickupDays = deduped
     .filter(r => {
-      if (!r.interview || !r.passport_in_hand) return false
+      if (!r.passport_from || !r.passport_in_hand) return false
       const m = (r.passport_delivery_method || '').toLowerCase().trim()
       return m.startsWith('pick')
     })
-    .map(r => daysBetween(r.interview, r.passport_in_hand))
+    .map(r => daysBetween(r.passport_from, r.passport_in_hand))
 
   const mailDays = deduped
     .filter(r => {
-      if (!r.interview || !r.passport_in_hand) return false
+      if (!r.passport_from || !r.passport_in_hand) return false
       const m = (r.passport_delivery_method || '').toLowerCase().trim()
       return m === 'mail' || m === 'delivery'
     })
-    .map(r => daysBetween(r.interview, r.passport_in_hand))
+    .map(r => daysBetween(r.passport_from, r.passport_in_hand))
+
+  // --- Right-censored counts per interval ---
+  // A start milestone present with no end milestone. These are counted in the
+  // denominator and surfaced as a "still waiting" / "not reported" figure, but
+  // excluded from the median (§2/§3 of the methodology). The passport interval
+  // is labeled "not reported" rather than "still waiting": members who reached
+  // interview but never logged a passport date average ~150 days since
+  // interview against a ~5-day real return, i.e. reporting attrition, not queue.
+  const censored = {
+    dq_to_il:              standard.filter(r => r.dq_date && !r.interview_letter).length,
+    il_to_interview:       standard.filter(r => r.interview_letter && !r.interview).length,
+    interview_to_passport: deduped.filter(r => r.passport_from && !r.passport_in_hand).length,
+  }
+
+  // --- Signature intervals: robust, rolling-window, censoring-aware ---
+  const intervals = {
+    dq_to_il: {
+      ...rollingWindow(standard, 'dq_date',
+        r => daysBetween(r.dq_date, r.interview_letter),
+        r => r.dq_date && r.interview_letter),
+      censored: censored.dq_to_il,
+    },
+    il_to_interview: {
+      ...rollingWindow(standard, 'interview_letter',
+        r => daysBetween(r.interview_letter, r.interview),
+        r => r.interview_letter && r.interview),
+      censored: censored.il_to_interview,
+    },
+    interview_to_passport: {
+      ...rollingWindow(deduped, 'passport_from',
+        r => daysBetween(r.passport_from, r.passport_in_hand),
+        r => r.passport_from && r.passport_in_hand),
+      censored: censored.interview_to_passport,
+      censored_label: 'passport not reported',
+    },
+  }
 
   // --- Stage counts ---
   const counts = {
@@ -213,8 +313,8 @@ export default async function handler(req, res) {
     il_to_medical_med:         stageStats(standard, 'interview_letter', 'medical', 180),
     medical_to_interview:      stageAvg(standard, 'medical', 'interview', 60),
     medical_to_interview_med:  stageStats(standard, 'medical', 'interview', 60),
-    interview_to_passport:     stageAvg(deduped, 'interview', 'passport_in_hand', 60),
-    interview_to_passport_med: stageStats(deduped, 'interview', 'passport_in_hand', 60),
+    interview_to_passport:     stageAvg(deduped, 'passport_from', 'passport_in_hand', 60),
+    interview_to_passport_med: stageStats(deduped, 'passport_from', 'passport_in_hand', 60),
   }
 
   // --- Entry airport distribution ---
@@ -222,11 +322,17 @@ export default async function handler(req, res) {
   //   "Boston (BOS)", "Boston, MA (BOS)", '["Austin, TX (AUS)"]', "[]",
   //   "Dublin (pre-clearance)", "Dublin, Ireland (DUB); Cleveland, OH (CLE)",
   //   "Phoenix Sky Harbor, Arizona"
-  // Normalise to a canonical "City (CODE)" label. Where multiple locations are
-  // listed, the first is where entry was cleared — pre-clearance (Dublin,
+  // Normalize to a canonical "City (CODE)" label. Where multiple locations are
+  // listed, the first is where entry was cleared: pre-clearance (Dublin,
   // Shannon, Montreal etc.) counts as the official port of entry.
+  // Land crossings have no IATA code; the form labels them "Land border: ..."
+  // and they are counted under that label as-is.
   const AIRPORT_NAMES = {
     DUB: 'Dublin pre-clearance', SNN: 'Shannon pre-clearance', YUL: 'Montreal pre-clearance',
+    YYZ: 'Toronto pre-clearance', YVR: 'Vancouver pre-clearance', YYC: 'Calgary pre-clearance',
+    YEG: 'Edmonton pre-clearance', YOW: 'Ottawa pre-clearance', YHZ: 'Halifax pre-clearance',
+    YWG: 'Winnipeg pre-clearance', AUH: 'Abu Dhabi pre-clearance', AUA: 'Aruba pre-clearance',
+    BDA: 'Bermuda pre-clearance', NAS: 'Nassau pre-clearance',
     ATL: 'Atlanta', AUS: 'Austin', BNA: 'Nashville', BOS: 'Boston', BWI: 'Baltimore',
     CLE: 'Cleveland', CLT: 'Charlotte', CVG: 'Cincinnati', DEN: 'Denver',
     DFW: 'Dallas/Fort Worth', DTW: 'Detroit', EWR: 'Newark', IAD: 'Washington Dulles',
@@ -239,6 +345,9 @@ export default async function handler(req, res) {
   // Fallbacks for entries with no IATA code in the text
   const AIRPORT_KEYWORDS = [
     ['dublin', 'DUB'], ['shannon', 'SNN'], ['montreal', 'YUL'],
+    ['toronto', 'YYZ'], ['vancouver', 'YVR'], ['calgary', 'YYC'], ['edmonton', 'YEG'],
+    ['ottawa', 'YOW'], ['halifax', 'YHZ'], ['winnipeg', 'YWG'], ['abu dhabi', 'AUH'],
+    ['aruba', 'AUA'], ['bermuda', 'BDA'], ['nassau', 'NAS'],
     ['boston', 'BOS'], ['seattle', 'SEA'], ['phoenix', 'PHX'], ['atlanta', 'ATL'],
     ['los angeles', 'LAX'], ['chicago', 'ORD'], ['dulles', 'IAD'], ['newark', 'EWR'],
     ['jfk', 'JFK'], ['dallas', 'DFW'], ['denver', 'DEN'], ['orlando', 'MCO'],
@@ -260,6 +369,7 @@ export default async function handler(req, res) {
     if (!s) return null
     // Multiple locations: first one is where entry was cleared
     s = s.split(';')[0].trim()
+    if (/^land border/i.test(s)) return s
     const codeMatch = s.toUpperCase().match(/\(([A-Z]{3})\)/)
     let code = codeMatch ? codeMatch[1] : null
     if (!code) {
@@ -268,7 +378,7 @@ export default async function handler(req, res) {
         if (lower.includes(kw)) { code = c; break }
       }
     }
-    if (!code) return s // unrecognised — keep the raw text so it still counts
+    if (!code) return s // unrecognized. Keep the raw text so it still counts
     return AIRPORT_NAMES[code] ? `${AIRPORT_NAMES[code]} (${code})` : code
   }
 
@@ -278,7 +388,7 @@ export default async function handler(req, res) {
     if (label) entryAirports[label] = (entryAirports[label] || 0) + 1
   }
 
-  // --- IL drop dates — derived from member interview_letter timestamps ---
+  // --- IL drop dates: derived from member interview_letter timestamps ---
   // Cluster members into drops: any ILs within 2 days of each other = same drop.
   // interview_letter is timestamptz so we have exact time of each drop from the data.
   const membersWithIL = standard
@@ -304,10 +414,12 @@ export default async function handler(req, res) {
     new Date(Math.min(...c.members.map(r => new Date(r.interview_letter)))).toISOString().split('T')[0]
   )
 
-  // Observed UK drop times — community-sourced.
-  // Historic imports stored date-only so timestamp defaults to midnight UTC;
+  // Observed UK drop times: community-sourced.
+  // Historic imports stored date-only so timestamp defaults to midnight UTC, and
+  // a member's stored timestamp is when they logged the IL, not when it landed;
   // these entries supply the correct displayed time for those drops.
   const observedTimes = {
+    '2026-07-14': '14:53',   // SQ235, corroborated by other recipients
     '2026-06-29': '15:02',
     '2026-05-29': '14:52',
     '2026-05-28': '14:52',
@@ -332,13 +444,7 @@ export default async function handler(req, res) {
     const earliestIL = new Date(Math.min(...cluster.members.map(r => new Date(r.interview_letter))))
     const date = clusterDates[i]
 
-    const time = observedTimes[date] || (() => {
-      const month = earliestIL.getUTCMonth()
-      const isBST = month >= 3 && month <= 9
-      const ukHours = (earliestIL.getUTCHours() + (isBST ? 1 : 0)) % 24
-      const ukMins = earliestIL.getUTCMinutes()
-      return String(ukHours).padStart(2,'0') + ':' + String(ukMins).padStart(2,'0')
-    })()
+    const time = observedTimes[date] || ukTime(earliestIL)
 
     // Gap = days since previous drop (previous entry in oldest-first order)
     const prevDate = i > 0 ? clusterDates[i - 1] : null
@@ -356,7 +462,7 @@ export default async function handler(req, res) {
 
     // Interview dates assigned in this drop's ILs (members report them after
     // scheduling, so recent drops may have fewer reported than il_count).
-    // An interview can't predate its IL — such rows are data-entry errors
+    // An interview can't predate its IL: such rows are data-entry errors
     // and would poison the min–max range.
     const ivDates = cluster.members
       .filter(r => r.interview && String(r.interview).slice(0, 10) > String(r.interview_letter).slice(0, 10))
@@ -370,7 +476,7 @@ export default async function handler(req, res) {
     return { date, time, gap, dq_from, dq_to, dq_days, il_count, iv_from, iv_to, iv_count }
   })
 
-  // Include all clusters with at least 1 member — the clustering logic (2-day
+  // Include all clusters with at least 1 member: the clustering logic (2-day
   // gap) already separates real drops from noise; a count threshold is not needed
   // and would hide new drops before all recipients have submitted.
   const ilDrops = ilDropsAsc.filter(d => d.il_count >= 1).slice().reverse() // newest first
@@ -465,7 +571,7 @@ export default async function handler(req, res) {
     r => daysBetween(r.dq_date, r.interview), r => r.interview)
 
   // --- Estimated next IL drop ---
-  // Derived entirely from live clusters — no hardcoded dates needed.
+  // Derived entirely from live clusters, no hardcoded dates needed.
   // Exclude outlier gaps (>40 days) from average to match spreadsheet behaviour.
   const normalGaps = ilDrops.filter(d => d.gap && d.gap <= 40)
   const avgGap = normalGaps.length
@@ -511,10 +617,45 @@ export default async function handler(req, res) {
   const inUpcoming = (dateStr) => inWindow(dateStr, upcomingStart, upcomingEnd)
   const inPrevious = (dateStr) => inWindow(dateStr, previousStart, previousEnd)
 
-  const weekInterviews = deduped
-    .filter(r => r.username_raw && inUpcoming(r.interview))
-    .map(r => ({ name: r.username_raw, date: r.interview }))
-    .sort((a, b) => new Date(a.date) - new Date(b.date))
+  // The week after the upcoming one, so rescheduled interviews announced at
+  // short notice are visible before their week begins.
+  const nextStart = new Date(upcomingStart)
+  nextStart.setUTCDate(upcomingStart.getUTCDate() + 7)
+  const nextEnd = new Date(upcomingEnd)
+  nextEnd.setUTCDate(upcomingEnd.getUTCDate() + 7)
+  const inNext = (dateStr) => inWindow(dateStr, nextStart, nextEnd)
+
+  // Interview dates reported directly to the admin (rescheduled or recalled
+  // cases) that are not in form_responses. Kept out of the table so they
+  // never feed the interval statistics; they only appear in the weekly list,
+  // and replace any form entry for the same member within the window.
+  // Members on the form report changes via interview_change_type instead.
+  const MANUAL_INTERVIEWS = [
+    { name: 'Kbrit', date: '2026-10-05', note: 'Second interview (221(g))' },
+  ]
+  const nameKey = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '')
+  const interviewsIn = (inRange) => {
+    const manual = MANUAL_INTERVIEWS.filter(m => inRange(m.date))
+    const manualKeys = new Set(MANUAL_INTERVIEWS.map(m => nameKey(m.name)))
+    return deduped
+      .filter(r => r.username_raw && inRange(nextInterview(r)) && !manualKeys.has(nameKey(r.username_raw)))
+      .map(r => {
+        // The re-interview reason comes from the first interview's outcome,
+        // not the form, so the two can't disagree.
+        const change = String(r.interview_change_type || '').toLowerCase()
+        const reason = r.outcome_status === 'visa_pause' ? ' (visa pause)'
+          : ['not_approved', 'cleared'].includes(r.outcome_status) ? ' (221(g))' : ''
+        const note = change === 'rescheduled' ? 'Rescheduled interview'
+          : change === 're-interview' ? `Second interview${reason}` : undefined
+        return note ? { name: r.username_raw, date: nextInterview(r), note }
+                    : { name: r.username_raw, date: nextInterview(r) }
+      })
+      .concat(manual)
+      .sort((a, b) => new Date(a.date) - new Date(b.date))
+  }
+
+  const weekInterviews = interviewsIn(inUpcoming)
+  const nextWeekInterviews = interviewsIn(inNext)
 
   const weekMedicals = deduped
     .filter(r => r.username_raw && inUpcoming(r.medical))
@@ -557,6 +698,7 @@ export default async function handler(req, res) {
       avg_mail_days:        avg(mailDays),
       median_mail_days:     median(mailDays),
     },
+    intervals,
     trends: {
       dq_to_il: {
         all_time: { avg: avg(dqToIL),     median: median(dqToIL) },
@@ -629,8 +771,11 @@ export default async function handler(req, res) {
     latest_interview:       latestInterview,
     this_week: {
       week_of:          upcomingWeekOf,
+      upcoming_week_of: upcomingWeekOf,
       previous_week_of: previousWeekOf,
+      next_week_of:     nextStart.toISOString().split('T')[0],
       interviews:       weekInterviews,
+      interviews_next:  nextWeekInterviews,
       medicals:         weekMedicals,
       flights:          weekFlights,
       dqs:              weekDQs,
