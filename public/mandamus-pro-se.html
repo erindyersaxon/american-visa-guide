@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A widely shared Reddit guide to filing a writ of mandamus without a lawyer, checked against the Federal Rules of Civil Procedure and the cases it cites, with corrections to service, defendants, citations and dismissal.">
-  <title>Filing a writ of mandamus yourself: a community guide, checked | American Visa Guide</title>
+  <meta name="description" content="How to file a writ of mandamus without a lawyer, step by step, checked against the Federal Rules of Civil Procedure: choosing the court, naming defendants, drafting, service and dismissal.">
+  <title>Filing a writ of mandamus yourself | American Visa Guide</title>
   <link rel="canonical" href="https://www.americanvisaguide.com/mandamus-pro-se">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/article.css?v=20260930">
+  <link rel="stylesheet" href="/css/article.css?v=20261016">
   <link rel="stylesheet" href="/css/nav.css?v=20260930n">
   <style>
     /* Page-specific: nested list inside a checklist item, and the corrections table
@@ -27,7 +27,7 @@
       .stack-table tbody tr:nth-child(even) td { background: none; }
     }
   </style>
-  <script src="/js/nav.js?v=20261008" defer></script>
+  <script src="/js/nav.js?v=20261016" defer></script>
 </head>
 <body>
 
@@ -42,139 +42,44 @@
   <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;">← Part of <a href="/delayed-i130-remedies#mandamus" style="color:#3e7188;text-decoration:none;">Delayed I-130 remedies: Step 6, writ of mandamus</a></p>
   <p class="eyebrow">Self-represented (pro se) filing</p>
 
-  <h1>Filing a writ of mandamus yourself: <span>a community walkthrough, checked</span></h1>
+  <h1>Filing a writ of mandamus <span>yourself</span></h1>
 
-  <p class="lead">In December 2024, Reddit user <a href="https://www.reddit.com/r/USCIS/comments/1ho0adh/stepbystep_guide_on_how_i_filed_a_writ_of/" target="_blank" rel="noopener noreferrer">u/Secret_Gas3270</a> posted a step-by-step account of filing a writ of mandamus without a lawyer, with templates for the complaint, proof of service and dismissal. It is one of the most shared pro se guides in the community. This page summarises it, checks it against the Federal Rules of Civil Procedure and the cases it cites, and flags where it is out of date or wrong.</p>
+  <p class="lead">The steps for filing a writ of mandamus without a lawyer, in order, checked against the Federal Rules of Civil Procedure. They start from a widely shared 2024 <a href="https://www.reddit.com/r/USCIS/comments/1ho0adh/stepbystep_guide_on_how_i_filed_a_writ_of/" target="_blank" rel="noopener noreferrer">community walkthrough</a>, with its errors corrected. Your district's local rules override anything here.</p>
 
   <div class="disclaimer">
-    <strong>Consult an AILA attorney first.</strong> Even if you plan to file yourself, pay for one consultation with an immigration attorney who belongs to the <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">American Immigration Lawyers Association (AILA)</a> before you file. Search for one at <a href="https://ailalawyer.com/" target="_blank" rel="noopener noreferrer">AILA Lawyer Search</a>; every listed member is licensed and in good standing in at least one state. An attorney can tell you whether your delay is likely to be found unreasonable in <em>your</em> district, whether anything in your file (a criminal record, a prior removal, a security check) makes forcing a decision risky, and whether your complaint and service are correct. A writ compels a decision, not an approval. Neither the original post nor this page is legal advice.
+    <strong>Pay for one consultation first.</strong> An immigration attorney who belongs to the <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">American Immigration Lawyers Association (AILA)</a> can tell you whether your delay is likely to count as unreasonable in your district, whether anything in your file makes forcing a decision risky, and whether your complaint and service are correct. Find one through <a href="https://ailalawyer.com/" target="_blank" rel="noopener noreferrer">AILA Lawyer Search</a>. A writ compels a decision, not an approval. This page is not legal advice.
   </div>
 
   <div class="toc" id="contents">
     <div class="toc-title">On this page</div>
     <ol>
-      <li><a href="#post">What the original post describes</a></li>
-      <li><a href="#corrections">What we checked and corrected</a></li>
       <li><a href="#steps">The steps, corrected</a></li>
       <li><a href="#risks">Risks and costs</a></li>
       <li><a href="#sources">Sources</a></li>
     </ol>
   </div>
 
-  <!-- ABOUT THE POST -->
-  <h2 id="post">What the original post describes</h2>
-
-  <p>The poster's I-485 (adjustment of status after a K-1 visa) had been pending about two years after an interview at which they were told to expect a card within a month. After USCIS service requests and congressional inquiries produced only "keep waiting", they:</p>
-  <ol>
-    <li>Drafted a complaint with an AI chatbot, then paid a lawyer on Fiverr about $150 to edit it.</li>
-    <li>Printed six identical packets (complaint plus exhibits): one for the court and one for each of five defendants.</li>
-    <li>Filed at the federal district court clerk's office with a civil cover sheet (JS&nbsp;44) and a summons (AO&nbsp;440) for each defendant, and paid the filing fee.</li>
-    <li>Mailed a packet with its stamped summons to each defendant by USPS Priority Mail Express, and emailed USCIS's service-of-process address.</li>
-    <li>Filed a certificate of service with the delivery confirmations.</li>
-    <li>Filed a "motion to dismiss" once the I-485 was approved.</li>
-  </ol>
-  <p>The poster reported approval three business days after service, and the card produced five days after that.</p>
-
   <div class="callout callout-info">
-    <span class="callout-title">Why that result may not transfer to your case</span>
-    That was one case with unusually strong facts: an application already interviewed and apparently complete, pending about two years past a one-month expectation. Most delayed I-130s are different. While a case sits inside the posted USCIS processing estimate, the government can argue the queue is moving in order and the plaintiff is asking to jump it, which is the first of the <a href="/delayed-i130-remedies#mandamus">TRAC factors</a> courts weigh. A fast result in a strong case is not evidence of the odds in a weaker one, and posts about fast approvals are shared more than posts about dismissals.
-  </div>
-
-  <!-- CORRECTIONS -->
-  <h2 id="corrections">What we checked and corrected</h2>
-
-  <p>The procedure in the post is broadly the right shape, and its instructions for the civil cover sheet are correct: <em>U.S. Government Defendant</em> as the basis of jurisdiction, nature of suit <em>465 Other Immigration Actions</em>, and <em>Original Proceeding</em> as the origin. The items below are the ones that need changing before you rely on them.</p>
-
-  <div class="table-wrap">
-    <table class="stack-table">
-      <thead>
-        <tr><th>Topic</th><th>The post or template says</th><th>What the sources say</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Topic">Case citation: <em>Saleh v. Ridge</em></td>
-          <td data-label="The post or template says">Cited as a case where "the court granted mandamus relief" for a delay.</td>
-          <td data-label="What the sources say"><strong>Wrong, and the most serious error.</strong> In <em>Saleh v. Ridge</em>, 367 F.&nbsp;Supp.&nbsp;2d 508 (S.D.N.Y. 2005), the court held mandamus was unavailable, found a delay of almost five years <em>not</em> unreasonable, and granted the government summary judgment. Delete it.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Case citation: <em>Han Cao v. Upchurch</em></td>
-          <td data-label="The post or template says">"Courts have consistently held that delays exceeding published processing times constitute an unreasonable delay."</td>
-          <td data-label="What the sources say">Overstated. The case is real, 496 F.&nbsp;Supp.&nbsp;2d 569 (E.D. Pa. 2007), and the plaintiffs won: the court called a four-year I-485 delay "presumptively unreasonable" and ordered a decision, largely because the government offered no explanation. It does not hold that exceeding published processing times is enough, and courts generally do not treat it that way.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Case citation: <em>Al Karim v. Holder</em></td>
-          <td data-label="The post or template says">2010 U.S. Dist. LEXIS 123559 (D. Colo. Nov. 19, 2010), finding a three-year delay unreasonable.</td>
-          <td data-label="What the sources say">Real case, wrong details. <em>Al Karim v. Holder</em>, No.&nbsp;08-cv-00671-REB (D. Colo. Mar.&nbsp;29, 2010), involved an I-485 pending about <strong>eight years</strong> (filed April 2002) and placed on indefinite hold, not three. The court ordered a decision within 30 days under the APA and <em>dismissed</em> the Mandamus Act claim because the APA remedy was available. Nothing was decided on 19 November 2010. The government also told the court a decision would likely be a denial and could lead to removal, which is the risk of forcing a decision.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">8 U.S.C. &sect;&nbsp;1571(b)</td>
-          <td data-label="The post or template says">A "congressional mandate" that USCIS breached.</td>
-          <td data-label="What the sources say">It states a sense of Congress that benefits should be processed within 180 days. Courts are split on whether it creates any enforceable duty. Describe it as supporting context, not a mandate.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">How to mail service</td>
-          <td data-label="The post or template says">USPS Priority Mail Express or overnight.</td>
-          <td data-label="What the sources say">Rule 4(i) specifies <strong>registered or certified mail</strong>. Use Certified Mail with a return receipt, so your method matches the rule's wording.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Who mails it</td>
-          <td data-label="The post or template says">The plaintiff mails the packets.</td>
-          <td data-label="What the sources say">Rule 4(c)(2) says service is made by someone at least 18 who is <strong>not a party</strong>. Courts differ on whether that covers a plaintiff's own certified mailing under Rule 4(i). Avoid the argument: have a friend who is not a plaintiff do the mailing and sign the proof of service.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Emailing USCIS</td>
-          <td data-label="The post or template says">Presented as part of service.</td>
-          <td data-label="What the sources say">USCIS invites an emailed copy, but that is a courtesy. It is <strong>in addition to</strong> the certified mail Rule 4(i) requires, not instead of it.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Who is served</td>
-          <td data-label="The post or template says">Five defendants, including the local US Attorney as a named defendant.</td>
-          <td data-label="What the sources say">Rule 4(i)(1) requires serving the United States itself: the <strong>US Attorney for your district</strong> (certified mail addressed to the civil-process clerk) and the <strong>Attorney General</strong> in Washington, DC. Each agency or official you name must also get a copy by certified mail (Rule 4(i)(2)). The US Attorney and the Attorney General must be served whether or not you name them as defendants.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Defendants' names</td>
-          <td data-label="The post or template says">Officials in office in December 2024.</td>
-          <td data-label="What the sources say">At least three of them (the Attorney General, the DHS Secretary and the USCIS Director) left office in January 2025. Use the current officeholders (check the agencies' leadership pages on the day you file). If an official leaves while the case is pending, Rule 25(d) substitutes the successor automatically.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Timeline</td>
-          <td data-label="The post or template says">"The court [will] make a decision within 20&ndash;60 days."</td>
-          <td data-label="What the sources say">The government has <strong>60 days after the US Attorney is served</strong> to answer or file a motion (Rule 12(a)(2)). Many cases end in that window because USCIS decides the case or agrees to a deadline. If the government moves to dismiss instead, briefing and a ruling usually take months.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Ending the case</td>
-          <td data-label="The post or template says">File a "motion to dismiss."</td>
-          <td data-label="What the sources say">A plaintiff normally files a <strong>notice of voluntary dismissal</strong> under Rule 41(a)(1)(A)(i). No court order is needed if the government has not yet answered or moved for summary judgment. After that, use a stipulation signed by both sides. Many clerks will accept the post's motion anyway, but the notice is the correct filing.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Attorney's fees request</td>
-          <td data-label="The post or template says">Keep the request for fees under the Equal Access to Justice Act.</td>
-          <td data-label="What the sources say">A self-represented plaintiff has no attorney's fees to recover. Ask for costs (such as the filing fee) instead, and ask an attorney whether to keep the fee request at all.</td>
-        </tr>
-        <tr>
-          <td data-label="Topic">Hiring help online</td>
-          <td data-label="The post or template says">A Fiverr lawyer for about $150.</td>
-          <td data-label="What the sources say">Check anyone you pay against their state bar's public license lookup. Some districts require you to disclose if a lawyer drafted your filing, so check your court's local rules.</td>
-        </tr>
-      </tbody>
-    </table>
+    <span class="callout-title">One fast result does not predict yours</span>
+    The 2024 poster won approval three business days after service, on unusually strong facts: an interviewed, complete application pending two years past a one-month expectation. While your case sits inside the posted USCIS processing estimate, the government can argue you are asking to jump the queue, the first of the <a href="/delayed-i130-remedies#mandamus">TRAC factors</a> courts weigh.
   </div>
 
   <div class="callout callout-alert">
     <span class="callout-title">You are responsible for every citation you sign</span>
-    The template was drafted with an AI chatbot. All three of its case descriptions are wrong: one says the opposite of what the court held, one overstates the holding, and one gets the date and the length of the delay wrong. When you sign a complaint, Rule 11(b) certifies that its legal contentions are warranted by existing law, and self-represented filers are held to that. Courts have sanctioned filers, including pro se filers, for citing cases that do not exist or do not say what the filing claims. Read every case you cite, or cite none: a delay complaint can rest on the statutes and your facts.
+    When you sign a complaint, Rule 11(b) certifies that its legal contentions are warranted by existing law, and courts hold self-represented filers to that. Courts have sanctioned pro se filers for citing cases that do not say what the filing claims. The 2024 template, drafted with an AI chatbot, mis-describes all three of its cases. Read every case you cite, or cite none: a delay complaint can rest on the statutes and your facts.
   </div>
 
   <!-- CORRECTED STEPS -->
   <h2 id="steps">The steps, corrected</h2>
 
-  <p>This follows the post's order, with the corrections folded in. Your district's local rules and pro se guide override anything here: most district courts publish one, and many have a free pro se help desk or clinic.</p>
+  <p>Most district courts publish a pro se guide, and many have a free help desk or clinic. Use yours alongside these steps.</p>
 
   <h3>1. Before you file</h3>
   <ul class="checklist">
     <li>Consult an AILA attorney about your specific facts, timing and district.</li>
     <li>Document every earlier step: USCIS case inquiry, congressional inquiry replies, and a demand letter with its certified-mail receipt. See the <a href="/delayed-i130-remedies">remedies guide</a> for each step.</li>
     <li>Screenshot the current USCIS processing time for your form and office on the day you file.</li>
+    <li>If you pay anyone to draft or edit, check them against their state bar's public license lookup. Some districts require you to disclose that a lawyer drafted your filing.</li>
     <li>If your case has already been refused at an embassy, including a 221(g) refusal, read the <a href="/delayed-i130-remedies#mandamus">221(g) warning</a> first. Courts have treated a refusal as a final decision, so there is usually nothing left to compel.</li>
   </ul>
 
@@ -182,10 +87,10 @@
   <p>Under 28 U.S.C. &sect;&nbsp;1391(e)(1), a suit against federal officials can be filed where a defendant resides, where a substantial part of the events happened, or where the plaintiff resides. Most people file in the district where they live. If the plaintiff lives abroad, the residence option is usually not available, and filers commonly use the District of Columbia, where the federal defendants reside. Ask an attorney which district's case law is better for your facts.</p>
 
   <h3>3. Name the right plaintiff</h3>
-  <p>The plaintiff is the person who filed the stuck form. For an I-130 that is the <strong>petitioner</strong>; the beneficiary is often added as a co-plaintiff. For an I-485 it is the applicant. If an I-130 and I-485 are pending together, both people are usually plaintiffs, as the post notes.</p>
+  <p>The plaintiff is the person who filed the stuck form. For an I-130 that is the <strong>petitioner</strong>; the beneficiary is often added as a co-plaintiff. For an I-485 it is the applicant. If an I-130 and I-485 are pending together, both people are usually plaintiffs.</p>
 
   <h3>4. Name the right defendants</h3>
-  <p>Sue officials in their <em>official capacity</em>, using current names and titles.</p>
+  <p>Sue officials in their <em>official capacity</em>, using the current officeholders: check each agency's leadership page on the day you file, not a template. If an official leaves while the case is pending, Rule 25(d) substitutes the successor automatically.</p>
   <ul>
     <li><strong>Case pending with USCIS:</strong> USCIS, the USCIS Director and the Secretary of Homeland Security. Complaints commonly also name the Attorney General.</li>
     <li><strong>Case at NVC or an embassy:</strong> the Department of State, the Secretary of State, and the relevant embassy or consular official. See <a href="/delayed-i130-remedies#mandamus">Embassy and NVC cases</a>.</li>
@@ -195,8 +100,9 @@
   <h3>5. Draft the complaint</h3>
   <ul class="checklist">
     <li>Replace every red instruction in the template, including pronouns, form type, receipt numbers, field office and dates.</li>
-    <li>Delete the <em>Saleh v. Ridge</em> paragraph. Correct the <em>Han Cao</em> and <em>Al Karim</em> descriptions (and <em>Al Karim</em>'s citation and date) if you keep them, and read both first.</li>
-    <li>Describe 8 U.S.C. &sect;&nbsp;1571(b) as supporting context, not a binding deadline.</li>
+    <li>If you start from the 2024 template, delete its <em>Saleh v. Ridge</em> paragraph: that court found a five-year delay <em>not</em> unreasonable and ruled for the government. <em>Han Cao v. Upchurch</em> does not hold that exceeding processing times is enough. <em>Al Karim v. Holder</em> was decided on 29 March 2010 on an eight-year delay, under the APA. Read any case before you cite it.</li>
+    <li>Describe 8 U.S.C. &sect;&nbsp;1571(b) as supporting context. It states a 180-day goal, and courts are split on whether it creates any enforceable duty.</li>
+    <li>Ask for costs, such as the filing fee, rather than attorney's fees: a self-represented plaintiff has none to recover.</li>
     <li>State your facts precisely: filing date, months pending, every contact with USCIS and your representatives, and concrete harm (for example family separation, an expiring work permit, or medical needs).</li>
     <li>End with a declaration under 28 U.S.C. &sect;&nbsp;1746 ("I declare under penalty of perjury that the foregoing is true and correct. Executed on [date]."), then sign and date it.</li>
     <li>Redact personal data as Rule 5.2(a) requires: only the last four digits of Social Security and financial account numbers, only the <em>year</em> of birth, and only initials for minors. This applies to exhibits too, such as passport pages.</li>
@@ -204,11 +110,11 @@
   <p style="font-size:0.9rem;color:var(--muted);">In immigration benefits cases, Rule 5.2(c) limits remote electronic access to the parties and their attorneys. The public can still see the docket and read filings at the courthouse, so redact anyway.</p>
 
   <h3>6. Assemble exhibits and copies</h3>
-  <p>Put a cover page ("Exhibit A", "Exhibit B" and so on) in front of each piece of evidence: receipt notice, processing-time screenshot, inquiry confirmations, congressional replies, demand letter and its mailing receipt. The post's "six copies" matched five defendants. Count your own: one for the court, one for each named defendant, one for the US Attorney and one for the Attorney General if they are not already named, and one for yourself.</p>
+  <p>Put a cover page ("Exhibit A", "Exhibit B" and so on) in front of each piece of evidence: receipt notice, processing-time screenshot, inquiry confirmations, congressional replies, demand letter and its mailing receipt. Count your copies: one for the court, one for each named defendant, one for the US Attorney and one for the Attorney General if they are not already named, and one for yourself.</p>
 
   <h3>7. File with the clerk</h3>
   <ul>
-    <li><strong>Civil cover sheet (JS&nbsp;44):</strong> one. The post's guidance on the boxes is correct (see <a href="#corrections">above</a>). Download it from <a href="https://www.uscourts.gov/forms-rules/forms/civil-cover-sheet" target="_blank" rel="noopener noreferrer">US Courts</a> or your court's website.</li>
+    <li><strong>Civil cover sheet (JS&nbsp;44):</strong> one. Tick <em>U.S. Government Defendant</em> as the basis of jurisdiction, nature of suit <em>465 Other Immigration Actions</em>, and <em>Original Proceeding</em> as the origin. Download it from <a href="https://www.uscourts.gov/forms-rules/forms/civil-cover-sheet" target="_blank" rel="noopener noreferrer">US Courts</a> or your court's website.</li>
     <li><strong>Summons (AO&nbsp;440):</strong> one for each defendant, with names and titles exactly as in the complaint. Ask the clerk whether they also want summonses addressed to the US Attorney and the Attorney General. Download it from the <a href="https://www.uscourts.gov/forms-rules/forms/civil-forms" target="_blank" rel="noopener noreferrer">US Courts civil forms page</a>.</li>
     <li><strong>Filing fee:</strong> $405. If you cannot pay, file an application to proceed without prepaying fees (AO&nbsp;240) instead.</li>
     <li>Ask whether your court accepts pro se filing by email or electronic upload. Many do now, and the rules vary.</li>
@@ -217,8 +123,8 @@
   <h3>8. Serve the government, correctly</h3>
   <p>Under Rule 4(m) you have <strong>90 days</strong> from filing to complete service. Each copy is the complaint, exhibits and the stamped summons.</p>
   <ul class="checklist">
-    <li>Have an adult who is not a plaintiff do the mailing.</li>
-    <li>Send by <strong>Certified Mail with return receipt</strong> (or registered mail) to:
+    <li>Have an adult who is not a plaintiff do the mailing. Rule 4(c)(2) bars a party from serving, and courts differ on whether a plaintiff's own certified mailing counts.</li>
+    <li>Send by <strong>Certified Mail with return receipt</strong> (or registered mail), the methods Rule 4(i) names, not Priority Mail Express. Send to:
       <ul style="margin-top:0.35rem;">
         <li>the civil-process clerk at the US Attorney's office for your district;</li>
         <li>the Attorney General in Washington, DC;</li>
@@ -226,12 +132,12 @@
       </ul>
     </li>
     <li>Take addresses from each agency's current official service-of-process page, for example the <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice" target="_blank" rel="noopener noreferrer">USCIS Service of Process Notice</a>, and from your US Attorney's office website. Do not copy them from a 2024 template.</li>
-    <li>Also email a courtesy copy to USCIS if its service notice still invites that.</li>
+    <li>Also email a courtesy copy to USCIS if its service notice still invites that. The email does not replace the certified mail.</li>
     <li>Keep every tracking number and return receipt.</li>
   </ul>
 
   <h3>9. File proof of service</h3>
-  <p>Once everything is delivered, file the proof of service. The standard way is page 2 of each AO&nbsp;440 summons ("Proof of Service"), completed and signed by the person who mailed it, with the tracking printouts and return receipts attached. The post's custom certificate of service does the same job, but many courts expect the form. The date the US Attorney's copy was delivered starts the government's 60 days.</p>
+  <p>Once everything is delivered, file the proof of service. The standard way is page 2 of each AO&nbsp;440 summons ("Proof of Service"), completed and signed by the person who mailed it, with the tracking printouts and return receipts attached. The date the US Attorney's copy was delivered starts the government's 60 days.</p>
 
   <h3>10. After service</h3>
   <ul>
@@ -252,9 +158,9 @@
   </div>
 
   <!-- SOURCES -->
-  <div class="sources" id="sources">
-    <h2>Sources &amp; related pages</h2>
-    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">The community post is the starting point; the rules, statutes and opinions are what we checked it against. Verify current officials, fees and addresses before relying on them.</p>
+  <details class="sources" id="sources">
+    <summary><h2>Sources &amp; related pages</h2><span class="sources-hint">(9, tap to show)</span></summary>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">Verify current officials, fees and addresses before relying on them.</p>
     <ol>
       <li>u/Secret_Gas3270, <a href="https://www.reddit.com/r/USCIS/comments/1ho0adh/stepbystep_guide_on_how_i_filed_a_writ_of/" target="_blank" rel="noopener noreferrer">Step-by-Step Guide on How I Filed a Writ of Mandamus Without a Lawyer and How You Can Too</a>, r/USCIS, 28 December 2024, with later edits (links to the author's complaint, proof of service and dismissal templates). Personal account; not legal advice.</li>
       <li>Federal Rules of Civil Procedure (Cornell LII): <a href="https://www.law.cornell.edu/rules/frcp/rule_4" target="_blank" rel="noopener noreferrer">Rule 4</a> (4(c)(2) who may serve; 4(i) serving the United States, its agencies and officers; 4(m) 90-day limit); <a href="https://www.law.cornell.edu/rules/frcp/rule_5.2" target="_blank" rel="noopener noreferrer">Rule 5.2</a> (redaction; remote access in immigration cases); <a href="https://www.law.cornell.edu/rules/frcp/rule_11" target="_blank" rel="noopener noreferrer">Rule 11</a> (signing certifies legal contentions); <a href="https://www.law.cornell.edu/rules/frcp/rule_12" target="_blank" rel="noopener noreferrer">Rule 12(a)(2)</a> (60 days for the United States to respond); <a href="https://www.law.cornell.edu/rules/frcp/rule_25" target="_blank" rel="noopener noreferrer">Rule 25(d)</a> (automatic substitution of public officers); <a href="https://www.law.cornell.edu/rules/frcp/rule_41" target="_blank" rel="noopener noreferrer">Rule 41(a)</a> (voluntary dismissal).</li>
@@ -266,9 +172,9 @@
       <li>USCIS, <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice" target="_blank" rel="noopener noreferrer">Service of Process Notice</a>; USCIS, <a href="https://www.uscis.gov/about-us/organization/leadership" target="_blank" rel="noopener noreferrer">Leadership</a>.</li>
       <li>AILA, <a href="https://ailalawyer.com/" target="_blank" rel="noopener noreferrer">Immigration Lawyer Search</a> (membership and licensing criteria for listed attorneys).</li>
     </ol>
-  </div>
+  </details>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 30 September 2026.</p>
+  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 16 October 2026. On that date we removed the summary of the 2024 community post and the line-by-line corrections table, and folded each correction into the steps.</p>
 
 </main>
 

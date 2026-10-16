@@ -249,7 +249,7 @@
       notes.push(['tip', 'Pending I-751', 'You can file the N-400 now. Include a copy of the I-751 receipt notice (Form I-797C). USCIS often decides both at one combined interview, deciding the I-751 first, so bring evidence that your marriage is genuine: joint tax transcripts, a lease or mortgage, bank statements, and children\'s birth certificates. ' + link('https://www.uscis.gov/i-751', '[USCIS: Form I-751]')]);
     }
     if (cat.child) {
-      notes.push(['', 'Check you are not already a citizen', 'If you became a permanent resident before age 18, and lived in the legal and physical custody of a US citizen parent while under 18, you may already be a citizen under the Child Citizenship Act. Then you do not need an N-400: use Form N-600 or apply for a US passport. See <a href="/life.html#life-cca">Child Citizenship Act</a>.']);
+      notes.push(['', 'Check you are not already a citizen', 'If you became a permanent resident before age 18, and lived in the legal and physical custody of a US citizen parent while under 18, you may already be a citizen under the Child Citizenship Act. This applies only if that parent is your biological or adoptive parent, not a stepparent. Then you do not need an N-400: use Form N-600 or apply for a US passport. See <a href="/life.html#life-cca">Child Citizenship Act</a>.']);
     }
     if (cat.parent) {
       notes.push(['', 'English test for parents (IR5)', 'The English test waivers need 15 to 20 years as a permanent resident, so most IR5 parents take the English test. Parents who cannot learn English because of a medical disability can ask for a waiver with ' + link('https://www.uscis.gov/n-648', 'Form N-648') + '.']);
@@ -321,12 +321,12 @@
     return '<div class="result-banner stop"><div class="result-kicker">' + catKey + ' · under 18</div>' +
       '<div class="result-date">Form N-400 is not the right form</div>' +
       '<div class="result-sub">You cannot file an N-400 until age 18 (' + fmt(age18) + '). You may already be a US citizen.</div></div>' +
-      '<p>Under the Child Citizenship Act (INA 320), a child becomes a US citizen automatically on the date all of these are true: at least one parent is a US citizen; the child is under 18; the child is a permanent resident; and the child lives in the US in the legal and physical custody of the citizen parent. Most IR2 and CR2 children qualify on the day they enter the US. See <a href="/life.html#life-cca">Child Citizenship Act</a>.</p>' +
+      '<p>Under the Child Citizenship Act (INA 320), a child becomes a US citizen automatically on the date all of these are true: at least one parent is a US citizen, and the child is that parent&rsquo;s biological or adopted child; the child is under 18; the child is a permanent resident; and the child lives in the US in the legal and physical custody of the citizen parent. Most biological and adopted IR2 and CR2 children qualify on the day they enter the US. <strong>A stepchild does not</strong>: the law&rsquo;s definition of a child for citizenship excludes stepchildren, so a stepchild becomes a citizen only through adoption or, from age 18, an N-400. See <a href="/life.html#life-cca">Child Citizenship Act</a>.</p>' +
       '<h3>Forms and fees</h3><div class="table-scroll"><table><thead><tr><th>Form</th><th>What it is for</th><th>Fee</th></tr></thead><tbody>' +
       row('N-600', 'Certificate of Citizenship. Optional: it proves citizenship but does not grant it', 'if', money(FEES.n600Online) + ' online<br>' + money(FEES.n600Paper) + ' paper', 'https://www.uscis.gov/n-600') +
       row('DS-11', 'US passport application, using the green card, foreign passport and the parent\'s proof of citizenship', 'if', 'See State Department fees', 'https://travel.state.gov/content/travel/en/passports/need-passport/under-16.html') +
       '</tbody></table></div>' +
-      '<p style="font-size:12px;color:var(--muted);">Sources: ' + link('https://www.uscis.gov/policy-manual/volume-12-part-h-chapter-4', 'USCIS Policy Manual Vol. 12 Part H Ch. 4') + '; ' + link('https://www.uscis.gov/g-1055', 'USCIS fee schedule (G-1055)') + '.</p>';
+      '<p style="font-size:12px;color:var(--muted);">Sources: ' + link('https://www.uscis.gov/policy-manual/volume-12-part-h-chapter-4', 'USCIS Policy Manual Vol. 12 Part H Ch. 4') + '; ' + link('https://www.uscis.gov/policy-manual/volume-12-part-h-chapter-2', 'Ch. 2: Definition of Child') + '; ' + link('https://www.uscis.gov/g-1055', 'USCIS fee schedule (G-1055)') + '.</p>';
   }
 
   function tlItem(done, when, what, note) {
@@ -407,7 +407,7 @@
       ['o3', 'Apply for a US passport', 'Using Form DS-11 and your original naturalization certificate. See ' + link('https://travel.state.gov/content/travel/en/passports.html', 'travel.state.gov') + '.'],
       ['o4', 'Update your Social Security record', 'So employers can verify your citizenship. See ' + link('https://www.ssa.gov/', 'ssa.gov') + '.'],
       ['o5', 'Register to vote', 'At ' + link('https://vote.gov/', 'vote.gov') + '.'],
-      ['o6', 'Check your children\'s status', 'Children under 18 who are permanent residents living with you may become citizens automatically. See <a href="/life.html#life-cca">Child Citizenship Act</a>.'],
+      ['o6', 'Check your children\'s status', 'Your biological or adopted children under 18 who are permanent residents living with you may become citizens automatically. Stepchildren do not. See <a href="/life.html#life-cca">Child Citizenship Act</a>.'],
       ['o7', 'Check whether your other country allows dual nationality', 'The UK does. ' + link('https://www.gov.uk/dual-citizenship', '[GOV.UK: Dual citizenship]')],
     ]},
   ];

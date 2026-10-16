@@ -53,7 +53,7 @@
       .reference-box a:hover { text-decoration: underline; }
     </style>
     <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261008" defer></script>
+  <script src="/js/nav.js?v=20261016" defer></script>
 </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -174,22 +174,10 @@
             <section class="checklist-section">
               <h3>4. Relationship evidence (spouse/CR1/IR1 only)</h3>
               <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);">Essential evidence to prove genuine spousal relationship and prevent RFE:</p>
-              <div class="checklist-item" data-item-id="evid-1">
-                <input type="checkbox" id="evid-1" />
-                <label for="evid-1">Commingling of finances: joint bank statements (6+ months), shared bills, or joint credit cards</label>
-              </div>
-              <div class="checklist-item" data-item-id="evid-2">
-                <input type="checkbox" id="evid-2" />
-                <label for="evid-2">Joint residence: lease or mortgage with both names (or utility bills showing same address over time)</label>
-              </div>
-              <div class="checklist-item" data-item-id="evid-3">
-                <input type="checkbox" id="evid-3" />
-                <label for="evid-3">Relationship continuity: photos (wedding, vacations, recent), travel records, communication logs</label>
-              </div>
-              <div class="checklist-item" data-item-id="evid-4">
-                <input type="checkbox" id="evid-4" />
-                <label for="evid-4">Relationship timeline: written description of how/where you met, dates of major milestones, key life events together</label>
-              </div>
+              <div class="checklist-item" data-doc-item="evid-1"></div>
+              <div class="checklist-item" data-doc-item="evid-2"></div>
+              <div class="checklist-item" data-doc-item="evid-3"></div>
+              <div class="checklist-item" data-doc-item="evid-4"></div>
             </section>
 
             <section class="checklist-section">
@@ -310,7 +298,8 @@
 
     <footer></footer>
     <script src="/js/shared.js?v=20260612"></script>
-    <script src="/js/checklist.js?v=20260609"></script>
+    <script src="/js/checklist-data.js?v=20261016b"></script>
+<script src="/js/checklist.js?v=20260609"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         renderPage({

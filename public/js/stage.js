@@ -52,18 +52,28 @@ function subAccGroup(group, expand) {
 }
 document.querySelectorAll('.sub-acc-item').forEach(syncSubAccAria)
 
-// Deep links (e.g. /guide/i130#uscis-api-check) should open the target
-// accordion, not just scroll to a collapsed heading.
+// Deep links (e.g. /guide/i130#uscis-api-check, /guide/nvc#dq-notice) should
+// open the accordion that is, or contains, the target, not just scroll to a
+// collapsed heading, and land below the sticky header.
 function openSubAccFromHash() {
-  const id = window.location.hash.slice(1)
+  const id = decodeURIComponent(window.location.hash.slice(1))
   if (!id) return
-  const item = document.getElementById(id)
-  if (!item || !item.classList.contains('sub-acc-item')) return
-  item.classList.add('open')
-  syncSubAccAria(item)
-  item.scrollIntoView({ block: 'start' })
+  const target = document.getElementById(id)
+  if (!target) return
+  let item = target.closest('.sub-acc-item')
+  while (item) {
+    item.classList.add('open')
+    syncSubAccAria(item)
+    item = item.parentElement && item.parentElement.closest('.sub-acc-item')
+  }
+  // Clear the sticky site header rather than tucking the heading under it
+  const header = document.querySelector('header, .site-header, .site-nav, nav')
+  const offset = (header && getComputedStyle(header).position.match(/sticky|fixed/) ? header.offsetHeight : 0) + 16
+  window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset })
 }
 openSubAccFromHash()
+// The browser's own fragment scroll can run after this script, so repeat once the page has loaded
+window.addEventListener('load', openSubAccFromHash)
 window.addEventListener('hashchange', openSubAccFromHash)
 
 // Mobile navigation

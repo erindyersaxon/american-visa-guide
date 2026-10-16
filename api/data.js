@@ -149,6 +149,19 @@ export default async function handler(req, res) {
     }
   }
 
+  // Once a member reports a reschedule or re-interview, `interview` keeps the
+  // original date and the appointment to show is new_interview_at (migration
+  // 0006). Rescheduled with no new date yet means cancelled: show nothing.
+  const nextInterview = (r) => r.interview_change_type
+    ? (r.new_interview_at ? String(r.new_interview_at).slice(0, 10) : null)
+    : r.interview
+
+  // The passport comes back after the interview that issued the visa, which
+  // for a reschedule or re-interview is new_interview_at, not `interview`.
+  // Measuring from the original date counted pippyd0321 (221(g) on 08-05,
+  // approved 10-08, passport 10-15) as 71 days instead of 7.
+  for (const r of deduped) r.passport_from = nextInterview(r)
+
   // Standard cases only (exclude expedited for wait time calcs)
   const standard = deduped.filter(r => !r.interview_expedited)
 
@@ -170,8 +183,8 @@ export default async function handler(req, res) {
   // below; the DB ordering constraint now guarantees passport >= interview, so
   // no negative intervals can slip in.
   const passportDays = deduped
-    .filter(r => r.interview && r.passport_in_hand)
-    .map(r => daysBetween(r.interview, r.passport_in_hand))
+    .filter(r => r.passport_from && r.passport_in_hand)
+    .map(r => daysBetween(r.passport_from, r.passport_in_hand))
 
   // --- Interview outcomes ---
   // outcome_status is a STORED generated column in Postgres that canonicalises
@@ -192,19 +205,19 @@ export default async function handler(req, res) {
   // --- Passport by method ---
   const pickupDays = deduped
     .filter(r => {
-      if (!r.interview || !r.passport_in_hand) return false
+      if (!r.passport_from || !r.passport_in_hand) return false
       const m = (r.passport_delivery_method || '').toLowerCase().trim()
       return m.startsWith('pick')
     })
-    .map(r => daysBetween(r.interview, r.passport_in_hand))
+    .map(r => daysBetween(r.passport_from, r.passport_in_hand))
 
   const mailDays = deduped
     .filter(r => {
-      if (!r.interview || !r.passport_in_hand) return false
+      if (!r.passport_from || !r.passport_in_hand) return false
       const m = (r.passport_delivery_method || '').toLowerCase().trim()
       return m === 'mail' || m === 'delivery'
     })
-    .map(r => daysBetween(r.interview, r.passport_in_hand))
+    .map(r => daysBetween(r.passport_from, r.passport_in_hand))
 
   // --- Right-censored counts per interval ---
   // A start milestone present with no end milestone. These are counted in the
@@ -216,7 +229,7 @@ export default async function handler(req, res) {
   const censored = {
     dq_to_il:              standard.filter(r => r.dq_date && !r.interview_letter).length,
     il_to_interview:       standard.filter(r => r.interview_letter && !r.interview).length,
-    interview_to_passport: deduped.filter(r => r.interview && !r.passport_in_hand).length,
+    interview_to_passport: deduped.filter(r => r.passport_from && !r.passport_in_hand).length,
   }
 
   // --- Signature intervals: robust, rolling-window, censoring-aware ---
@@ -234,9 +247,9 @@ export default async function handler(req, res) {
       censored: censored.il_to_interview,
     },
     interview_to_passport: {
-      ...rollingWindow(deduped, 'interview',
-        r => daysBetween(r.interview, r.passport_in_hand),
-        r => r.interview && r.passport_in_hand),
+      ...rollingWindow(deduped, 'passport_from',
+        r => daysBetween(r.passport_from, r.passport_in_hand),
+        r => r.passport_from && r.passport_in_hand),
       censored: censored.interview_to_passport,
       censored_label: 'passport not reported',
     },
@@ -300,8 +313,8 @@ export default async function handler(req, res) {
     il_to_medical_med:         stageStats(standard, 'interview_letter', 'medical', 180),
     medical_to_interview:      stageAvg(standard, 'medical', 'interview', 60),
     medical_to_interview_med:  stageStats(standard, 'medical', 'interview', 60),
-    interview_to_passport:     stageAvg(deduped, 'interview', 'passport_in_hand', 60),
-    interview_to_passport_med: stageStats(deduped, 'interview', 'passport_in_hand', 60),
+    interview_to_passport:     stageAvg(deduped, 'passport_from', 'passport_in_hand', 60),
+    interview_to_passport_med: stageStats(deduped, 'passport_from', 'passport_in_hand', 60),
   }
 
   // --- Entry airport distribution ---
@@ -621,12 +634,6 @@ export default async function handler(req, res) {
     { name: 'Kbrit', date: '2026-10-05', note: 'Second interview (221(g))' },
   ]
   const nameKey = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '')
-  // Once a member reports a reschedule or re-interview, `interview` keeps the
-  // original date and the appointment to show is new_interview_at (migration
-  // 0006). Rescheduled with no new date yet means cancelled: show nothing.
-  const nextInterview = (r) => r.interview_change_type
-    ? (r.new_interview_at ? String(r.new_interview_at).slice(0, 10) : null)
-    : r.interview
   const interviewsIn = (inRange) => {
     const manual = MANUAL_INTERVIEWS.filter(m => inRange(m.date))
     const manualKeys = new Set(MANUAL_INTERVIEWS.map(m => nameKey(m.name)))
