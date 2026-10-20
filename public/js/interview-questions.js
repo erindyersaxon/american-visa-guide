@@ -103,7 +103,7 @@
     { q: 'How many people will live in the house, and how many rooms does it have?', theme: 'living', cats: 'all', tip: 'Count everyone who will live there, including you.', from: 'Ilma' },
 
     // Work & employment
-    { q: 'Are you currently employed? What do you do?', theme: 'work', cats: 'all', from: 'Multiple reports' },
+    { q: 'Are you currently employed? What do you do?', theme: 'work', cats: 'all', tip: 'If you freelance or are self-employed, practise a short account of the work and bring a document that backs it up, ready to hand over as you answer.', from: 'Multiple reports' },
     { q: 'What do you plan to do for work once you get to America?', theme: 'work', cats: 'all', tip: 'A general direction is fine. You don’t need a signed job offer.', from: 'Mia' },
     { q: 'Do you plan to keep your current job in the US, or look for something new?', theme: 'work', cats: 'all', tip: 'Asked of a beneficiary already working in the US. Know whether your job continues after your status changes.', from: 'K' },
     { q: 'Who do you work for, and what does the company do?', theme: 'work', cats: 'all', tip: 'Expect the full background. One officer searched the applicant’s employer online during the interview and read the results back to her.', from: 'Esther' },
