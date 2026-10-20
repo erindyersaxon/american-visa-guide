@@ -379,6 +379,47 @@
     .od-details summary { cursor: pointer; font-weight: var(--font-semibold); font-size: var(--text-sm); color: var(--color-text); }
     .od-details[open] summary { margin-bottom: var(--space-4); }
 
+    /* Official data charts: tokens validated for colour-blind separation and 3:1 contrast */
+    .od-viz, #official-data {
+      --viz-s1: #2170a8;   /* all other / single series */
+      --viz-s2: #c0692f;   /* 75 pause countries */
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:where(:not([data-theme="light"])) #official-data { --viz-s1: #4a8cc0; --viz-s2: #c4733a; }
+    }
+    :root[data-theme="dark"] #official-data { --viz-s1: #4a8cc0; --viz-s2: #c4733a; }
+    .od-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: var(--space-5); margin: var(--space-4) 0 var(--space-2); }
+    .od-figure { margin: 0; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-3) var(--space-2); min-width: 0; }
+    .od-figure--wide { margin: var(--space-4) 0; }
+    .od-figcap { font-size: var(--text-sm); font-weight: var(--font-semibold); color: var(--color-text); margin-bottom: var(--space-2); }
+    .od-chart { width: 100%; min-height: 240px; }
+    .od-chartnote { font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+    .od-svg { display: block; overflow: visible; }
+    .od-svg text { font-family: inherit; }
+    .od-grid { stroke: var(--color-border); stroke-width: 1; }
+    .od-baseline { stroke: var(--color-border-strong); stroke-width: 1; }
+    .od-tick { font-size: 11px; fill: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+    .od-tick--year { font-weight: 600; fill: var(--color-text-secondary); }
+    .od-value { font-size: 12px; font-weight: 600; fill: var(--color-text); }
+    .od-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+    .od-dot { stroke: var(--color-surface); stroke-width: 2; }
+    .od-annot { stroke: var(--color-text-muted); stroke-width: 1; }
+    .od-annot-label { font-size: 11px; fill: var(--color-text-secondary); }
+    .od-hitarea { fill: transparent; }
+    .od-hit { cursor: default; outline: none; }
+    .od-hit:focus-visible .od-hitarea { stroke: var(--color-primary); stroke-width: 2; }
+    .od-chart.is-hovering .od-hit .od-mark, .od-chart.is-hovering .od-hit .od-dot { opacity: 0.45; }
+    .od-chart.is-hovering .od-hit.is-active .od-mark, .od-chart.is-hovering .od-hit.is-active .od-dot { opacity: 1; }
+    .od-legend { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); padding: 0; margin: 0 0 var(--space-2); font-size: var(--text-xs); color: var(--color-text-secondary); }
+    .od-legend li { display: flex; align-items: center; gap: 6px; margin: 0; }
+    .od-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+    .od-tip { position: absolute; z-index: 50; display: none; pointer-events: none; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); box-shadow: 0 4px 12px rgba(0,0,0,0.12); padding: 8px 10px; font-size: 12px; color: var(--color-text-secondary); max-width: 240px; }
+    .od-tip__title { font-weight: 600; color: var(--color-text-muted); margin-bottom: 4px; }
+    .od-tip__row { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .od-tip__row strong { color: var(--color-text); font-variant-numeric: tabular-nums; }
+    .od-tip__key { width: 12px; height: 2px; border-radius: 1px; flex-shrink: 0; }
+    @media (forced-colors: active) { .od-mark, .od-dot { forced-color-adjust: none; } }
+
     /* Numeric table cells */
     .num { font-variant-numeric: tabular-nums; text-align: right; }
   </style>
@@ -858,8 +899,22 @@
 
         <h3 class="od-h3">USCIS: I-130 petitions for immediate relatives</h3>
         <p class="od-text">Spouses, unmarried children under 21 and parents of US citizens (CR1/IR1, CR2/IR2, IR5). These have no annual cap, so USCIS decisions set their pace.</p>
+        <div class="od-charts">
+          <figure class="od-figure">
+            <figcaption class="od-figcap">Petitions approved each quarter</figcaption>
+            <div class="od-chart" id="od-chart-approvals"></div>
+          </figure>
+          <figure class="od-figure">
+            <figcaption class="od-figcap">Denial rate each quarter</figcaption>
+            <div class="od-chart" id="od-chart-denials"></div>
+          </figure>
+        </div>
+        <p class="od-chartnote">Quarters are calendar quarters (Q4 = October to December). Hover or tab to a column for exact figures.</p>
+
+        <details class="od-details">
+          <summary>Show immediate-relative figures as a table</summary>
         <div class="table-wrapper" role="region" aria-labelledby="od-ir-cap" tabindex="0">
-          <table class="table table--striped table--compact">
+          <table class="table table--striped table--compact" id="od-ir-table">
             <caption id="od-ir-cap" class="sr-only">Form I-130 immediate-relative petitions received, approved and denied by USCIS each quarter, October 2023 to June 2026</caption>
             <thead>
               <tr>
@@ -885,6 +940,8 @@
             </tbody>
           </table>
         </div>
+        </details>
+
         <ul class="od-list">
           <li><strong>Approvals:</strong> 232,609 from July to September 2025, the highest quarter shown; 82,636 from April to June 2026, 64% lower.</li>
           <li><strong>Denial rate:</strong> 6.7% to 10.0% for nine straight quarters, then 11.5% and 16.8% in the first two quarters of 2026.</li>
@@ -896,7 +953,7 @@
           <summary>USCIS: I-130 petitions for family preference categories (F1 to F4)</summary>
           <p class="od-text">Preference cases have annual caps. Their denial rate has run between 28% and 57% in every quarter since October 2023, so a high rate here is not new and does not by itself show a change.</p>
           <div class="table-wrapper" role="region" aria-labelledby="od-fp-cap" tabindex="0">
-            <table class="table table--striped table--compact">
+            <table class="table table--striped table--compact" id="od-fp-table">
               <caption id="od-fp-cap" class="sr-only">Form I-130 family preference petitions received, approved and denied by USCIS each quarter, October 2023 to June 2026</caption>
               <thead>
                 <tr>
@@ -926,6 +983,14 @@
 
         <h3 class="od-h3">State Department: family-based immigrant visas issued</h3>
         <p class="od-text">Visas issued worldwide each month in classes IR1, CR1, IR2, CR2, IR5, F1, F2A, FX, F2B, F3 and F4, split by whether the applicant&rsquo;s nationality appears on the State Department&rsquo;s <a href="https://travel.state.gov/content/travel/en/News/visas-news/immigrant-visa-processing-updates-for-nationalities-at-high-risk-of-public-benefits-reliance.html" target="_blank" rel="noopener noreferrer">75-country pause list</a> (in effect from 21 January to 21 August 2026).</p>
+        <figure class="od-figure od-figure--wide">
+          <figcaption class="od-figcap">Family-based immigrant visas issued each month, August 2024 to February 2026</figcaption>
+          <ul class="od-legend" aria-label="Legend">
+            <li><span class="od-swatch" style="background: var(--viz-s2);"></span>Nationals of the 75 pause countries</li>
+            <li><span class="od-swatch" style="background: var(--viz-s1);"></span>All other nationals</li>
+          </ul>
+          <div class="od-chart" id="od-chart-visas"></div>
+        </figure>
         <ul class="od-list">
           <li><strong>Pause countries:</strong> 36% to 48% of all family-based visas in every month from August 2024 to December 2025. In February 2026 they received 372, against 16,663 in February 2025, a 98% fall.</li>
           <li><strong>Everyone else:</strong> 21,849 in February 2026, against 24,600 in February 2025, an 11% fall.</li>
@@ -934,9 +999,9 @@
         </ul>
 
         <details class="od-details">
-          <summary>Monthly family-based visa issuances, August 2024 to February 2026</summary>
+          <summary>Show monthly visa issuances as a table</summary>
           <div class="table-wrapper" role="region" aria-labelledby="od-iv-cap" tabindex="0">
-            <table class="table table--striped table--compact">
+            <table class="table table--striped table--compact" id="od-iv-table">
               <caption id="od-iv-cap" class="sr-only">Family-based immigrant visas issued each month, nationals of the 75 pause countries and all other nationals, August 2024 to February 2026</caption>
               <thead>
                 <tr>
@@ -1314,6 +1379,9 @@
 
   <!-- Shared IL → Interview pattern (single source, also used by the guide) -->
   <script src="/js/il-interview.js?v=20260717"></script>
+
+  <!-- Charts for the national data section; they read the section's own tables -->
+  <script src="/js/official-data-charts.js?v=20261020" defer></script>
 
   <!-- Environment setup -->
   <script src="/js/env.js?v=20260609"></script>
