@@ -98,7 +98,7 @@
     { q: 'What was your petitioner’s job in the US, where was it, and what did it pay? What do they do and earn now?', theme: 'petitioner', cats: 'all', tip: 'Asked when the petitioner works abroad. Know both jobs and both salaries.', from: 'Ilma' },
 
     // Where you'll live & US plans
-    { q: 'Where will you live in the US?', theme: 'living', cats: 'all', from: 'Multiple reports' },
+    { q: 'Where will you live in the US?', theme: 'living', cats: 'all', tip: 'If you or your petitioner are in temporary housing after a move, say so and give the plan. One applicant pointed the officer to the housing section of their public charge statement.', from: 'Multiple reports' },
     { q: 'Who will you be living with when you first arrive?', theme: 'living', cats: 'all', from: 'Mia' },
     { q: 'How many people will live in the house, and how many rooms does it have?', theme: 'living', cats: 'all', tip: 'Count everyone who will live there, including you.', from: 'Ilma' },
 
