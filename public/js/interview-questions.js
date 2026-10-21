@@ -112,6 +112,7 @@
     { q: 'Is your work remote?', theme: 'work', cats: 'all', tip: 'A gateway question. The two that follow it matter more.', from: 'Esther' },
     { q: 'Will your company allow you to work from the US? If not, what is your plan?', theme: 'work', cats: 'all', tip: 'Do not assume a remote job survives the move: many employers will not permit it, for tax and payroll reasons. Get written confirmation if you are relying on it, and have a fallback if you are not.', from: 'Esther' },
     { q: 'What did you study, and where? Do you have any other certifications?', theme: 'work', cats: 'all', tip: 'Have the full list, not just the highest qualification. Posts ask for education history as a list with subject, institution and year.', from: 'Esther' },
+    { q: 'Can I see your degree certificate and transcript?', theme: 'work', cats: 'all', tip: 'Bring originals for every qualification you name, plus evidence of awards or records you list. If you have just finished a course and have no certificate yet, bring a letter from the university. One officer kept the applicant’s undergraduate transcript.', from: 'Matt' },
 
     // Finances, sponsorship & benefits
     { q: 'Have you, or your petitioner, ever received financial aid or benefits from the government?', theme: 'finances', cats: 'all', from: 'Multiple reports' },
