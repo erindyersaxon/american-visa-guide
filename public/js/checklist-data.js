@@ -538,12 +538,17 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "yes"
    },
-   "note": "Written statement (treat as mandatory, even though the embassy calls it voluntary), sent with the last 3 years of IRS tax returns for every sponsor, and the last 3 months of payslips and bank statements, and proof of the petitioner's health insurance, plus evidence of US housing, US healthcare plan (employer, private, ACA marketplace), how housing and insurance are paid for, and the beneficiary's professional qualifications/evidence of ability to work in US. See the <a href=\"/public-charge.html\">statement template</a>.",
+   "note": "Written statement plus a labelled evidence pack (treat both as mandatory, even though the embassy calls the statement voluntary): the last 3 years of IRS tax returns and 3 months of payslips and bank statements for every sponsor, the petitioner's health insurance and housing, and the beneficiary's own CV, diplomas, bank statements, assets and health insurance quote. Upload the pack to CEAC, email it, and print it for the binder. See <a href=\"/public-charge#deliverables\">the evidence pack</a> and the <a href=\"/public-charge.html\">statement template</a>.",
    "items": [
     {
      "list": "binder",
      "id": "s3-10",
-     "label": "<strong>Public Charge Statement</strong>: treat as mandatory, even though the embassy calls it voluntary. Include the last 3 years of IRS tax returns for every sponsor, and the last 3 months of payslips and bank statements, and proof of the petitioner's health insurance. Include linked evidence (e.g. health insurance quote/coverage, job information and estimated salaries for petitioner/joint sponsor/beneficiary, housing information and how it is paid for). This should already have been emailed to <a href=\"mailto:LNDIVSubmissions@state.gov\">LNDIVSubmissions@state.gov</a> with your case number in the subject line, or uploaded directly to your case in CEAC. Do this at least a few days before your interview date. See the <a href=\"/guide/waiting#public-charge-statement\">public charge statement checklist</a> and <a href=\"/public-charge.html\">template</a>."
+     "label": "<strong>Public Charge Statement and evidence pack</strong>: treat both as mandatory, even though the embassy calls the statement voluntary. The pack holds one labelled PDF per document: 00 for the statement, P for the petitioner (tax returns, payslips, bank statements, health insurance, housing), J for any joint sponsor, B for you (CV, diplomas, bank statements in every country, savings, property, health insurance quote). Upload it to your case in CEAC <em>and</em> email the same files to <a href=\"mailto:LNDIVSubmissions@state.gov\">LNDIVSubmissions@state.gov</a> with your case number in the subject line, at least five working days before your interview. See <a href=\"/public-charge#deliverables\">the evidence pack</a> and the <a href=\"/public-charge-statement\">statement builder</a>."
+    },
+    {
+     "list": "binder",
+     "id": "s3-13",
+     "label": "<strong>Printed copy of the evidence pack</strong>, on its own Public Charge tab, in the same order and under the same file codes as your CEAC upload. When the officer asks for a document, you can find it by code. Members preparing for re-interviews bring everything: CV, diplomas, insurance quotes and the beneficiary's bank and investment statements."
     }
    ]
   },
