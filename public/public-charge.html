@@ -64,6 +64,7 @@
       .copy-btn:hover { background: var(--color-navy-dark); transform: translateY(-2px); }
       .copy-btn:focus-visible { outline: 2px solid var(--color-navy); outline-offset: 2px; }
       .section-title { font-size: var(--size-xl); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-8) 0 var(--space-4) 0; }
+      h3.sub-title { font-size: var(--size-lg); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-6) 0 var(--space-3) 0; }
       .source-note { font-size: var(--size-xs); color: var(--color-text-muted); margin-top: calc(var(--space-2) * -1); margin-bottom: var(--space-6); }
       .source-note a { color: var(--color-text-muted); }
       .embassy-note { font-size: var(--size-xs); color: var(--color-text-muted); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
@@ -158,6 +159,8 @@
               <li><a href="#risks">Where cases go wrong</a></li>
               <li><a href="#benefits">Benefits and care at public expense</a></li>
               <li><a href="#i864">Sponsors and the I-864</a></li>
+              <li><a href="#ir2">Children of US citizens (IR2)</a></li>
+              <li><a href="#ir5">Parents of US citizens (IR5)</a></li>
               <li><a href="#submit">How to submit</a></li>
               <li><a href="#refused">If the officer refuses under 212(a)(4)</a></li>
               <li><a href="#template">The statement template</a></li>
@@ -627,7 +630,7 @@
             </ul>
           </div>
 
-          <p class="prose">Not a spouse? The I-864 treats a child&rsquo;s or parent&rsquo;s own income differently, and some children need no I-864 at all. See the blocks below for <a href="#minor-child">children on IR2</a>, <a href="#adult-child">sons and daughters aged 21 or over</a> and <a href="#parent">parents on IR5</a>.</p>
+          <p class="prose">Not a spouse? The I-864 treats a child&rsquo;s or parent&rsquo;s own income differently, and some children need no I-864 at all. See <a href="#ir2">section 7</a> for children, sons and daughters on IR2, and <a href="#ir5">section 8</a> for parents on IR5.</p>
 
           <details class="template-details detail-block" id="joint-sponsor">
             <summary>In detail: what posts ask about a joint sponsor</summary>
@@ -668,10 +671,10 @@
             </div>
           </details>
 
-          <details class="template-details detail-block" id="minor-child">
-            <summary>In detail: children on IR2, applying without a parent's spouse case</summary>
-            <div style="margin-top: var(--space-3);">
-<p class="prose">This page assumes an adult spouse who works. A child joining a US citizen parent faces the same five factors, but the I-864 rules and the evidence differ. Nobody has yet sent us an IR2 interview account from London, so this note rests on the statute and the form, not on what officers have asked. For a child aged 21 or over, see the next block.</p>
+          <h2 class="section-title" id="ir2">7. Children of US citizens (IR2)</h2>
+
+          <h3 class="sub-title" id="minor-child">Children under 21</h3>
+          <p class="prose">This page assumes an adult spouse who works. A child joining a US citizen parent faces the same five factors, but the I-864 rules and the evidence differ. Nobody has yet sent us an IR2 interview account from London, so this section rests on the statute and the form, not on what officers have asked. For a child aged 21 or over, see <a href="#adult-child">sons and daughters aged 21 or over</a>.</p>
           <ul class="prose-list">
             <li><strong>Many children under 18 need no I-864.</strong> A child becomes a US citizen on admission under INA 320 if they are under 18, unmarried, and will live in the US in the legal and physical custody of their citizen parent. That child does not file Form I-864. The exemption covers the form, not the public charge test, so expect the officer to ask who supports and insures the child.</li>
             <li><strong>Confirm with NVC how to claim the exemption.</strong> USCIS removed Form I-864W, the old exemption form, from its website in February 2025. Applicants inside the US now claim the exemption on Form I-485. We have found no published instruction for immigrant visa cases, so ask NVC through its <a href="https://nvc.state.gov/inquiry" target="_blank" rel="noopener noreferrer">Public Inquiry Form</a> before you submit documents.</li>
@@ -690,13 +693,9 @@
             <li>the parent's health plan document showing dependent cover.</li>
           </ul>
           <p class="prose">Sources: INA 101(c) and 320; <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864 instructions</a>, edition 08/24/26, pages 2, 12 and 14 (exemptions, assets, household size); <a href="https://www.uscis.gov/policy-manual/volume-8-part-g-chapter-6" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 8, Part G, Chapter 6</a> on claiming the exemption on Form I-485.</p>
-            </div>
-          </details>
 
-          <details class="template-details detail-block" id="adult-child">
-            <summary>In detail: adult sons and daughters on IR2 or F1</summary>
-            <div style="margin-top: var(--space-3);">
-<p class="prose">This page assumes a spouse. If a US citizen parent petitioned for you as a child and you are now 21 or over, most of it still applies, with one difference on the I-864. Nobody has yet sent us an IR2 interview account from London, so this note rests on the statute and the form, not on what officers have asked.</p>
+          <h3 class="sub-title" id="adult-child">Sons and daughters aged 21 or over</h3>
+          <p class="prose">This page assumes a spouse. If a US citizen parent petitioned for you as a child and you are now 21 or over, most of it still applies, with one difference on the I-864. Nobody has yet sent us an IR2 interview account from London, so this section rests on the statute and the form, not on what officers have asked.</p>
           <ul class="prose-list">
             <li><strong>Check your category.</strong> For an immediate relative, the Child Status Protection Act fixes your age on the date your parent filed the I-130 (INA 201(f)(1)). If you were under 21 that day, you stay IR2. If not, your case moved to F1. The public charge test is the same in both.</li>
             <li><strong>You need a full I-864.</strong> Only a child under 18 who becomes a citizen on arrival under INA 320 is exempt. The officer assesses you as an adult, on all five factors, and every beneficiary row of the <a href="#deliverables">evidence pack</a> applies to you as written.</li>
@@ -708,13 +707,9 @@
             <li><strong>Say where you will live.</strong> If you move in with your parent, the officer will ask who pays the rent and bills. If you will live alone, give your own budget: rent, insurance, and the income that pays them.</li>
           </ul>
           <p class="prose">Sources: INA 201(f)(1) and 320; <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864 instructions</a>, edition 08/24/26, pages 2, 12 and 14 (exemptions, assets, and the intending immigrant's income); 42 U.S.C. &sect; 300gg-14 on dependent coverage to age 26.</p>
-            </div>
-          </details>
 
-          <details class="template-details detail-block" id="parent">
-            <summary>In detail: parents on IR5</summary>
-            <div style="margin-top: var(--space-3);">
-<p class="prose">A parent of an adult US citizen faces the same five factors as a spouse. Age and health weigh more, and the parent's own pension often cannot count toward the I-864. Nobody has yet sent us an IR5 interview account from London, so this note rests on the statute, the form and published benefit rules, not on what officers have asked.</p>
+          <h2 class="section-title" id="ir5">8. Parents of US citizens (IR5)</h2>
+          <p class="prose">A parent of an adult US citizen faces the same five factors as a spouse. Age and health weigh more, and the parent's own pension often cannot count toward the I-864. Nobody has yet sent us an IR5 interview account from London, so this section rests on the statute, the form and published benefit rules, not on what officers have asked.</p>
           <h4 class="sub-title" style="margin-top:var(--space-4);">The I-864</h4>
           <ul class="prose-list">
             <li><strong>Your pension counts toward the 125% line only if you live with your child now.</strong> The I-864 instructions let a relative other than a spouse count their own income only if it continues from the same source after the move <em>and</em> they currently live with the sponsor. A parent living in the UK while the child lives in the US cannot count a State Pension or workplace pension toward the line. The officer still weighs it under assets and resources.</li>
@@ -744,10 +739,8 @@
           </ul>
           <p class="prose">Rows B01 (CV) and B06 (employer letter) apply only if you will work. Rows B07, B08 and B13 carry the case. If your child counts your pension on the I-864, add proof that you live at their address now.</p>
           <p class="prose">Sources: <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864 instructions</a>, edition 08/24/26, pages 10, 12, 14, 15 and 16 (previously sponsored immigrants, assets, household size and the intending immigrant&rsquo;s income, and how long the obligation lasts); 42 U.S.C. &sect;&sect; 1395i-2 and 1395o on Medicare for permanent residents; <a href="https://www.khi.org/?p=12870" target="_blank" rel="noopener noreferrer">Kansas Health Institute on H.R. 1 and the marketplace</a>.</p>
-            </div>
-          </details>
 
-          <h2 class="section-title" id="submit">7. How to submit</h2>
+          <h2 class="section-title" id="submit">9. How to submit</h2>
 
           <div class="tip-card">
             <strong>Upload to CEAC first, then email. Do both.</strong>
@@ -757,11 +750,11 @@
               <li><strong>Email the same files to <code>LNDIVSubmissions@state.gov</code></strong> so the unit knows to look. Subject line: <code>Public Charge Statement &ndash; LND0123456789 &ndash; FULL NAME</code>. If the files are too large for one email, number the emails (1 of 3, 2 of 3) under the same subject.</li>
               <li><strong>Finish at least five working days before your interview.</strong> <a href="/interview-dates">Work out the date</a>.</li>
             </ol>
-            <p>Upload <em>and</em> email: posts use both routes. The Rio de Janeiro refusal letter in <a href="#refused">section 8</a> tells applicants to do the same with a reconsideration package.</p>
+            <p>Upload <em>and</em> email: posts use both routes. The Rio de Janeiro refusal letter in <a href="#refused">section 10</a> tells applicants to do the same with a reconsideration package.</p>
             <p style="margin-bottom: 0;">Posts confirm a complete submission by email and do not expedite cases. Once you have sent it, leave it alone. Print the same files, in the same order, for the public charge tab of your <a href="/checklist-binder">interview binder</a>.</p>
           </div>
 
-          <h2 class="section-title" id="refused">8. If the officer refuses under 212(a)(4)</h2>
+          <h2 class="section-title" id="refused">10. If the officer refuses under 212(a)(4)</h2>
 
           <p class="body-sm">A 212(a)(4) refusal is a finding that you are likely to become a public charge. Unlike a <a href="/221g">221(g)</a>, it is a decision on the merits, and no waiver exists. You overcome it with new evidence. If you send that evidence within one year of the refusal, the post must reconsider the case (<a href="https://www.ecfr.gov/current/title-22/chapter-I/subchapter-E/part-42/subpart-I/section-42.81" target="_blank" rel="noopener noreferrer">22 CFR 42.81(e)</a>). See <a href="/221g#confusions">221(g) vs 212(a)(4)</a>.</p>
 
@@ -816,7 +809,7 @@
           </ol>
           <p class="source-note">The steps follow advice from community moderators who have helped members refused under 212(a)(4), and 212(a)(4) letters members have shared from several posts. Reconsideration is not guaranteed. If your case rests on a single income with no joint sponsor available, consider speaking to an immigration attorney.</p>
 
-          <h2 class="section-title" id="template">9. The statement template</h2>
+          <h2 class="section-title" id="template">11. The statement template</h2>
 
           <div class="cta-card">
             <strong>Use the builder unless you want to write your own</strong>
@@ -931,7 +924,7 @@ APPENDIX B: EDUCATION AND QUALIFICATIONS
           <button type="button" class="copy-btn" onclick="copyTemplate(this)">Copy template to clipboard</button>
           </details>
 
-          <h2 class="section-title" id="sources">10. What is confirmed, and sources</h2>
+          <h2 class="section-title" id="sources">12. What is confirmed, and sources</h2>
 
           <div class="info-card" id="fluid">
             <strong>Confirmed in published documents</strong>
@@ -993,7 +986,7 @@ APPENDIX B: EDUCATION AND QUALIFICATIONS
 
           <details class="toc" id="changes" style="margin-top: var(--space-6);">
             <summary><strong>What changed on this page</strong></summary>
-            <p>22 October 2026: section 6 adds notes for children on IR2 who apply without a parent&rsquo;s spouse case, and for parents on IR5. Earlier the same day: section 6 adds a note for adult sons and daughters on IR2 or F1, whose own income counts on the I-864 only if they live with the sponsor, and whose own savings count at three times the shortfall. Earlier the same day: section 8 adds a 212(a)(4) refusal form issued in London that day, a tick-box form that gives no reason, beside the Rio de Janeiro letter. Earlier the same day: the failures in section 4 are now a list, each with its fix underneath. Earlier the same day: corrected the opening card and the evidence pack note. Failing the public charge test leads to a 212(a)(4) refusal, not a 221(g); the two are different refusals. Earlier the same day: officers now ask the beneficiary for a retirement plan, so the page adds a retirement question, a retirement block in the template and pack row B13. Earlier the same day: anyone self-employed should send 12 months of bank statements, from the business account where there is one, with proof the business is registered and trading (new rows P09, J05 and B12). Earlier the same day: the evidence list is now one labelled evidence pack to upload to CEAC, email and print for your binder, with rows for the beneficiary&rsquo;s CV, diplomas, bank accounts and home-country assets. New section on 212(a)(4) refusals, with a Rio de Janeiro refusal letter and how to build a reconsideration package. Added reports of several officers observing interviews. 16 October 2026: merged the companion evidence page into this one. Its questionnaire, London interview account, joint sponsor questions, dependents, credit check, income note, court filings and sources now sit, collapsed, in the section each supports. 1 October 2026: the page now opens with what changed and what the officer expects of you, and puts the statement builder first. We merged the two question lists and the two evidence tables, and moved the written questionnaire, the court filings, the full London interview account, the joint sponsor questions and the credit check to a companion page. Later the same day we merged the opening cards into one and shortened the to-do list. 30 September 2026: send bank statements with the payslips, and add the petitioner's health insurance proof, after a Warsaw interview where the officer asked for both. 27 September 2026: send 3 years of tax returns and 3 months of payslips with the statement; UK student loans added. Earlier updates on 24 and 15 September 2026 covered the questionnaire asked out loud at another post, the 10 September cable and the public charge worksheet.</p>
+            <p>22 October 2026: new sections 7 and 8 for applicants with no spouse case. Section 7 covers children on IR2, including sons and daughters aged 21 or over, whose own income counts on the I-864 only if they live with the sponsor, and whose own savings count at three times the shortfall. Section 8 covers parents on IR5. Later sections move down two numbers. Earlier the same day: the refusal section, now section 10, adds a 212(a)(4) refusal form issued in London that day, a tick-box form that gives no reason, beside the Rio de Janeiro letter. Earlier the same day: the failures in section 4 are now a list, each with its fix underneath. Earlier the same day: corrected the opening card and the evidence pack note. Failing the public charge test leads to a 212(a)(4) refusal, not a 221(g); the two are different refusals. Earlier the same day: officers now ask the beneficiary for a retirement plan, so the page adds a retirement question, a retirement block in the template and pack row B13. Earlier the same day: anyone self-employed should send 12 months of bank statements, from the business account where there is one, with proof the business is registered and trading (new rows P09, J05 and B12). Earlier the same day: the evidence list is now one labelled evidence pack to upload to CEAC, email and print for your binder, with rows for the beneficiary&rsquo;s CV, diplomas, bank accounts and home-country assets. New section on 212(a)(4) refusals, with a Rio de Janeiro refusal letter and how to build a reconsideration package. Added reports of several officers observing interviews. 16 October 2026: merged the companion evidence page into this one. Its questionnaire, London interview account, joint sponsor questions, dependents, credit check, income note, court filings and sources now sit, collapsed, in the section each supports. 1 October 2026: the page now opens with what changed and what the officer expects of you, and puts the statement builder first. We merged the two question lists and the two evidence tables, and moved the written questionnaire, the court filings, the full London interview account, the joint sponsor questions and the credit check to a companion page. Later the same day we merged the opening cards into one and shortened the to-do list. 30 September 2026: send bank statements with the payslips, and add the petitioner's health insurance proof, after a Warsaw interview where the officer asked for both. 27 September 2026: send 3 years of tax returns and 3 months of payslips with the statement; UK student loans added. Earlier updates on 24 and 15 September 2026 covered the questionnaire asked out loud at another post, the 10 September cable and the public charge worksheet.</p>
           </details>
 
           <p style="margin: var(--space-6) 0;"><a href="/guide/interview" style="font-weight:600;">&larr; Back to Stage 6: the embassy interview</a> &middot; <a href="/interview" style="font-weight:600;">Your interview hub</a></p>
