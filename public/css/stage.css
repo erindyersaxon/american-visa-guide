@@ -230,6 +230,21 @@
     font-weight: 500;
   }
 
+  /* Optional pages that sit under a stage: indented, so they read as
+     "only if this applies", not as a step everyone takes */
+  .sidebar-nav .sidebar-sub a {
+    padding-left: 28px;
+    position: relative;
+  }
+  .sidebar-nav .sidebar-sub a::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    bottom: 10px;
+    border-left: 1px solid var(--border);
+  }
+
   .sidebar-nav a:hover {
     color: var(--text-primary);
     background: rgba(90,143,166,0.08);

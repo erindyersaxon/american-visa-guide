@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20261022b">
+<link rel="stylesheet" href="/css/stage.css?v=20261022c">
 <link rel="stylesheet" href="/css/nav.css?v=20261022">
 <script src="/js/nav.js?v=20261022" defer></script>
 <link rel="stylesheet" href="/css/readability.css?v=20261022">
@@ -45,8 +45,8 @@
     <div class="sidebar-label">Guide stages</div>
     <ul class="sidebar-nav" role="list" aria-label="Guide stages">
       <li><a href="/guide/i130" aria-current="page">1: USCIS / I-130</a></li>
-      <li><a href="/guide/delayed-i130">1A: Delayed I-130</a></li>
-      <li><a href="/guide/crba">1B: CRBA (children)</a></li>
+      <li class="sidebar-sub"><a href="/guide/delayed-i130">If your I-130 is delayed</a></li>
+      <li class="sidebar-sub"><a href="/guide/crba">If your child is a US citizen (CRBA)</a></li>
       <li><a href="/guide/nvc">2: NVC</a></li>
       <li><a href="/guide/waiting">3: Waiting for your interview letter</a></li>
       <li><a href="/guide/interview-letter">4: Interview letter received</a></li>
@@ -74,8 +74,8 @@
     <div class="sidebar-label">Guide stages</div>
     <ul class="sidebar-nav" role="list" aria-label="Guide stages">
       <li><a href="/guide/i130" aria-current="page">1: USCIS / I-130</a></li>
-      <li><a href="/guide/delayed-i130">1A: Delayed I-130</a></li>
-      <li><a href="/guide/crba">1B: CRBA (children)</a></li>
+      <li class="sidebar-sub"><a href="/guide/delayed-i130">If your I-130 is delayed</a></li>
+      <li class="sidebar-sub"><a href="/guide/crba">If your child is a US citizen (CRBA)</a></li>
       <li><a href="/guide/nvc">2: NVC</a></li>
       <li><a href="/guide/waiting">3: Waiting for your interview letter</a></li>
       <li><a href="/guide/interview-letter">4: Interview letter received</a></li>
@@ -110,7 +110,7 @@
     <div class="stage-bottomline">
       <div class="stage-bottomline__label">Bottom line</div>
       <p><strong>You are here:</strong> You are starting the process. The petitioner, the US citizen or green card holder, files Form I-130 with USCIS for the beneficiary, the relative who will move.</p>
-      <p><strong>What happens:</strong> The I-130 proves your family relationship qualifies. It does not look at your finances and it does not issue a visa. When USCIS approves it (the NOA2 notice), your case moves to the National Visa Center. <a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[USCIS I-130]</a> Nobody can give a reliable processing time for a case filed today: see <a href="#i130-status">Current status</a> below. If your priority date is on or after 25 February 2025, read <a href="/guide/delayed-i130">Stage 1A: Delayed I-130</a>.</p>
+      <p><strong>What happens:</strong> The I-130 proves your family relationship qualifies. It does not look at your finances and it does not issue a visa. When USCIS approves it (the NOA2 notice), your case moves to the National Visa Center. <a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[USCIS I-130]</a> Nobody can give a reliable processing time for a case filed today: see <a href="#i130-status">Current status</a> below. If your priority date is on or after 25 February 2025, read <a href="/guide/delayed-i130">If your I-130 is delayed</a>.</p>
       <p><strong>Do this first:</strong> Work through the <a href="/checklist-i130">I-130 pre-submission checklist</a>, then file online.</p>
     </div>
 
@@ -131,6 +131,8 @@
       <h2 id="stage-docs-title">Documents for this stage</h2>
       <ul>
         <li><a href="/checklist-i130">I-130 pre-submission checklist</a> — case classification, civil documents, relationship evidence and an RFE risk scan, before you file</li>
+        <li><a href="/guide/delayed-i130">If your I-130 is delayed</a> — only if your petition is well past processing times: how to push USCIS to decide</li>
+        <li><a href="/guide/crba">If your child is a US citizen (CRBA)</a> — only if your child was born to a US citizen parent: a CRBA and passport instead of a visa</li>
         <li><a href="/I-130_Visual.png">I-130 category overview (image)</a> — who can petition for whom, and which visa category fits your family: CR1/IR1, IR2, IR5, F1–F4, F2A/F2B, or CRBA</li>
       </ul>
     </aside>
@@ -147,7 +149,7 @@
       <div class="info-card warning" id="i130-status">
         <div class="info-card-head">Current status: the queue has stopped at priority dates around 25 February 2025</div>
         <p style="margin-bottom:10px;">Community tracking shows USCIS has largely stopped deciding I-130s for consular cases. USCIS has not announced a pause, and this is not official data. Decisions fell from mid-February 2026, and the front of the line has barely moved since. <a href="https://trackmyvisa.com/i130" target="_blank" rel="noopener noreferrer">Track My Visa</a> reports that the oldest undecided petitions have priority dates of around <strong>25 February 2025</strong>. The little movement left is in cases filed before that date. Those petitions have now waited about <strong>19 months</strong>, and each week of the stall adds to that and to your total wait. Until early February 2026, filing to decision took about 12 months. <strong>Do not plan around that figure.</strong> Treat any published 12-month estimate as a minimum from a period that has ended, not a forecast.</p>
-        <p style="margin-bottom:10px;"><strong>This stall is unusual. It is not a normal backlog.</strong> Few cases past the 25 February 2025 line have been approved. Community reports say nearly all of those escalated, with a demand letter or a writ of mandamus; the queue did not reach them in turn. If your priority date is on or after that line, read <a href="/guide/delayed-i130">Stage 1A: Delayed I-130</a> and the <a href="/delayed-i130-remedies">remedies and escalation guide</a>. A writ forces a decision, not an approval, and escalation guarantees nothing.</p>
+        <p style="margin-bottom:10px;"><strong>This stall is unusual. It is not a normal backlog.</strong> Few cases past the 25 February 2025 line have been approved. Community reports say nearly all of those escalated, with a demand letter or a writ of mandamus; the queue did not reach them in turn. If your priority date is on or after that line, read <a href="/guide/delayed-i130">If your I-130 is delayed</a> and the <a href="/delayed-i130-remedies">remedies and escalation guide</a>. A writ forces a decision, not an approval, and escalation guarantees nothing.</p>
         <p style="margin:0;">The stall showed no sign of easing through summer 2026. It affects every consular case, whatever your nationality. It is separate from the 75-country visa pause, which a federal court <a href="/visa-pause.html">struck down on 21 August 2026</a>. AOS and DCF filings are not in this queue.</p>
         <p style="margin:12px 0 0;">USCIS decides the I-130, not an embassy, so this stage runs the same wherever you file from. This site does not track it. <a href="https://trackmyvisa.com/" target="_blank" rel="noopener noreferrer">Track My Visa</a> does, across all consulates, with regular updates on the queue: go there for current I-130 numbers. The official USCIS quarterly figures lag behind the community data. Our <a href="/data#official-data">national data</a> section shows them from October 2023, next to State Department visa issuances.</p>
       </div>
@@ -449,7 +451,7 @@
 
     <nav class="stage-prevnext" aria-label="Previous and next stage">
       <a class="prev" href="/guide" rel="prev"><small>← Previous stage</small> Guide overview</a>
-      <a class="next" href="/guide/delayed-i130" rel="next"><small>Next stage →</small> Stage 1A: Delayed I-130</a>
+      <a class="next" href="/guide/nvc" rel="next"><small>Next stage →</small> Stage 2: NVC</a>
     </nav>
 
     <!-- Footer -->

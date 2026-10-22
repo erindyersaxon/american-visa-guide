@@ -124,7 +124,7 @@ The domicile page's word count falls because two of its callouts now hold bullet
 1. **Fact review of the rewrites.** The plain-English pass changed wording only, but the site covers legal process. Read the stage pages once with the facts in mind, starting with CRBA, NVC and the Interview stage.
 2. **Inline styles on non-stage pages.** Stage pages no longer shrink callout text with inline sizes. Other pages (221(g), public charge, Life in the USA) still carry some; moving them into classes would let one rule set them.
 3. **Generate the stage sidebar from one file.** Twelve pages carry two copies each of the same list (sidebar and mobile drawer). `nav.js` already does this for the top nav.
-4. **Rename sub-stages 1A and 1B.** A non-expert reads "1A" as a step everyone takes. "If your I-130 is delayed" and "If your child is already a US citizen" say who the page is for.
+4. **Done 22 October 2026: sub-stages 1A and 1B renamed.** They are now "If your I-130 is delayed" and "If your child is a US citizen (CRBA)", indented under Stage 1 in the sidebar and breadcrumbs. "Next stage" from Stage 1 goes straight to Stage 2: NVC, and Stage 1 links to both pages in its document box. URLs are unchanged.
 5. **Glossary underlines.** Every abbreviation carries a dotted underline, which reads as a link. Mark the first use on each page only.
 6. **Sentence-case the remaining Title Case headings** ("Interview Binder Checklist", "NVC Document Checklist", "Pipeline Status").
 7. **Homepage stage chips** now show underlines, since they are untitled links. Give them a class if you prefer the old look; the underline does tell readers they are links.
