@@ -147,6 +147,16 @@
     p.push(sa.join(' '));
     p.push('');
 
+    // RETIREMENT
+    const rt = [];
+    if (val('retirework')) rt.push('I plan to work in the United States until retirement and earn the 40 Social Security credits, about 10 years of work, that qualify me for a US retirement benefit.');
+    if (val('retireplan')) rt.push((rt.length ? 'I will also fund my retirement from ' : 'I will fund my retirement from ') + sentence(val('retireplan')) + ' I attach the latest statement for each.');
+    if (rt.length) {
+      p.push('RETIREMENT');
+      p.push(rt.join(' '));
+      p.push('');
+    }
+
     // PUBLIC BENEFITS
     p.push('PUBLIC BENEFITS');
     const pb = [];
@@ -245,7 +255,8 @@
     'ev-treatment': () => !!val('condition'),
     'ev-slc': () => !!val('slc') || !!val('debts'),
     'ev-credential': () => !!val('licence'),
-    'ev-englishproof': () => val('english') === 'fluent'
+    'ev-englishproof': () => val('english') === 'fluent',
+    'ev-retirement': () => !!val('retireplan')
   };
   const evPrev = {};
   function syncEvidence(init) {

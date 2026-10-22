@@ -538,7 +538,7 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "yes"
    },
-   "note": "Written statement plus a labelled evidence pack (treat both as mandatory, even though the embassy calls the statement voluntary): the last 3 years of IRS tax returns and 3 months of payslips and bank statements for every sponsor, the petitioner's health insurance and housing, and the beneficiary's own CV, diplomas, bank statements, assets and health insurance quote. Upload the pack to CEAC, email it, and print it for the binder. See <a href=\"/public-charge#deliverables\">the evidence pack</a> and the <a href=\"/public-charge.html\">statement template</a>.",
+   "note": "Written statement plus a labelled evidence pack (treat both as mandatory, even though the embassy calls the statement voluntary): the last 3 years of IRS tax returns and 3 months of payslips and bank statements for every sponsor, the petitioner's health insurance and housing, and the beneficiary's own CV, diplomas, bank statements, assets, retirement plan and health insurance quote. Upload the pack to CEAC, email it, and print it for the binder. See <a href=\"/public-charge#deliverables\">the evidence pack</a> and the <a href=\"/public-charge.html\">statement template</a>.",
    "items": [
     {
      "list": "binder",
