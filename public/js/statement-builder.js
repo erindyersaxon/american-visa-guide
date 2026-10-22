@@ -167,16 +167,13 @@
     p.push('');
 
     // ATTACHED EVIDENCE
-    const ev = ['Public charge statement'];
-    if (val('ev-pettax')) ev.push('Petitioner IRS tax returns / transcripts, last 3 years');
-    if (val('ev-petpay')) ev.push('Petitioner payslips, last 3 months');
-    if (val('ev-petbank')) ev.push('Petitioner bank statements, last 3 months');
-    if (val('ev-petins')) ev.push('Petitioner health insurance, plan confirmation or summary of benefits');
-    if (val('ev-jstax')) ev.push('Joint sponsor IRS tax returns / transcripts, last 3 years');
-    if (val('ev-slc')) ev.push('Beneficiary UK student loan statement');
-    if (val('ev-employer')) ev.push('Employer letter permitting me to work from the US');
+    // Codes match the evidence pack table on /public-charge#deliverables.
+    const ev = ['00 Public charge statement'];
+    form.querySelectorAll('input[id^="ev-"]').forEach(box => {
+      if (box.checked) ev.push(box.parentNode.textContent.trim());
+    });
     p.push('ATTACHED EVIDENCE');
-    ev.forEach((e, i) => p.push(String(i + 1).padStart(2, '0') + ' ' + e));
+    ev.forEach(e => p.push(e));
     p.push('');
 
     p.push('APPENDIX A: WORK HISTORY');
@@ -240,8 +237,15 @@
   // that choice until the answer changes again.
   const EVIDENCE = {
     'ev-jstax': () => !!val('jsname'),
-    'ev-slc': () => !!val('slc'),
-    'ev-employer': () => val('workplan') === 'keep' && !!val('keepconfirmed')
+    'ev-jspay': () => !!val('jsname'),
+    'ev-jsrel': () => !!val('jsname'),
+    'ev-savings': () => !!val('savings'),
+    'ev-property': () => !!val('property'),
+    'ev-employer': () => val('workplan') === 'keep' && !!val('keepconfirmed'),
+    'ev-treatment': () => !!val('condition'),
+    'ev-slc': () => !!val('slc') || !!val('debts'),
+    'ev-credential': () => !!val('licence'),
+    'ev-englishproof': () => val('english') === 'fluent'
   };
   const evPrev = {};
   function syncEvidence(init) {
@@ -280,7 +284,7 @@
     const blob = new Blob([out.textContent], { type: 'text/plain;charset=utf-8' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = '01_Public_Charge_Statement.txt';
+    a.download = '00_Public_Charge_Statement.txt';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   });

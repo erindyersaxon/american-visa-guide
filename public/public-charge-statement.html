@@ -208,13 +208,30 @@
 
     <fieldset>
       <legend>10. Evidence you are attaching</legend>
-      <label class="check"><input type="checkbox" id="ev-pettax" checked> Petitioner IRS tax returns or transcripts, last 3 years</label>
-      <label class="check"><input type="checkbox" id="ev-petpay" checked> Petitioner payslips, last 3 months</label>
-      <label class="check"><input type="checkbox" id="ev-petbank" checked> Petitioner bank statements, last 3 months</label>
-      <label class="check"><input type="checkbox" id="ev-petins" checked> Petitioner health insurance, plan confirmation or summary of benefits</label>
-      <label class="check"><input type="checkbox" id="ev-jstax"> Joint sponsor IRS tax returns or transcripts, last 3 years</label>
-      <label class="check"><input type="checkbox" id="ev-slc"> My UK student loan statement</label>
-      <label class="check"><input type="checkbox" id="ev-employer"> My employer's letter confirming I can work from the US</label>
+      <p class="hint" style="margin:0 0 0.6rem;">Tick each file in your <a href="/public-charge#deliverables">evidence pack</a>. The codes match the file names. Some boxes tick themselves from your answers above.</p>
+      <label class="check"><input type="checkbox" id="ev-pettax" checked> P01 Petitioner IRS tax transcripts or returns, last 3 years</label>
+      <label class="check"><input type="checkbox" id="ev-petpay" checked> P02 Petitioner payslips, last 3 months, and latest W-2</label>
+      <label class="check"><input type="checkbox" id="ev-petbank" checked> P03 Petitioner bank statements, last 3 months</label>
+      <label class="check"><input type="checkbox" id="ev-petins" checked> P04 Petitioner health insurance, plan confirmation or summary of benefits</label>
+      <label class="check"><input type="checkbox" id="ev-pethousing" checked> P05 Petitioner lease, mortgage statement or property tax record</label>
+      <label class="check"><input type="checkbox" id="ev-petsavings"> P06 Petitioner savings, investment and retirement statements</label>
+      <label class="check"><input type="checkbox" id="ev-petother"> P07 Petitioner proof of other income</label>
+      <label class="check"><input type="checkbox" id="ev-petdebts"> P08 Petitioner debt statements</label>
+      <label class="check"><input type="checkbox" id="ev-jstax"> J01 Joint sponsor IRS tax transcripts or returns, last 3 years, and proof of citizenship or residence</label>
+      <label class="check"><input type="checkbox" id="ev-jspay"> J02 Joint sponsor payslips, bank statements and latest W-2</label>
+      <label class="check"><input type="checkbox" id="ev-jsrel"> J03 Joint sponsor relationship statement</label>
+      <label class="check"><input type="checkbox" id="ev-jsassets"> J04 Joint sponsor proof of assets</label>
+      <label class="check"><input type="checkbox" id="ev-cv" checked> B01 My CV</label>
+      <label class="check"><input type="checkbox" id="ev-diplomas" checked> B02 My diplomas, degree certificates and licences</label>
+      <label class="check"><input type="checkbox" id="ev-bank" checked> B03 My bank statements, last 3 months, every account</label>
+      <label class="check"><input type="checkbox" id="ev-savings"> B04 My savings, investment and pension statements</label>
+      <label class="check"><input type="checkbox" id="ev-property"> B05 Proof of ownership and value of my property</label>
+      <label class="check"><input type="checkbox" id="ev-employer"> B06 My employer letter, or a US job offer</label>
+      <label class="check"><input type="checkbox" id="ev-quote" checked> B07 My health insurance quote</label>
+      <label class="check"><input type="checkbox" id="ev-treatment"> B08 The US price of my ongoing treatment</label>
+      <label class="check"><input type="checkbox" id="ev-slc"> B09 My debt statements, including my UK student loan statement</label>
+      <label class="check"><input type="checkbox" id="ev-credential"> B10 My credential evaluation or licensing correspondence</label>
+      <label class="check"><input type="checkbox" id="ev-englishproof"> B11 My proof of English</label>
     </fieldset>
   </form>
 
@@ -225,7 +242,7 @@
 
   <h2 id="output-title">Your statement</h2>
   <p id="pc-gaps" class="pc-gaps"></p>
-  <p>Read each sentence and check it against your documents. Then upload it to CEAC with your <a href="/public-charge#deliverables">evidence</a> and email it to <strong>LNDIVSubmissions@state.gov</strong>, at least five working days before the interview (<a href="/interview-dates">find the date</a>, <a href="/public-charge#submit">how to submit</a>).</p>
+  <p>Read each sentence and check it against your documents. Then upload it to CEAC with your <a href="/public-charge#deliverables">evidence pack</a> and email both to <strong>LNDIVSubmissions@state.gov</strong>, at least five working days before the interview (<a href="/interview-dates">find the date</a>, <a href="/public-charge#submit">how to submit</a>).</p>
   <pre class="output" id="pc-out"></pre>
   <div class="btn-row">
     <button type="button" class="btn" id="pc-copy">Copy</button>
@@ -246,6 +263,6 @@
 
 <div id="footer-placeholder"></div>
 
-<script src="/js/statement-builder.js?v=20261001c"></script>
+<script src="/js/statement-builder.js?v=20261022"></script>
 </body>
 </html>
