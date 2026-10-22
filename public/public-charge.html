@@ -64,6 +64,7 @@
       .copy-btn:hover { background: var(--color-navy-dark); transform: translateY(-2px); }
       .copy-btn:focus-visible { outline: 2px solid var(--color-navy); outline-offset: 2px; }
       .section-title { font-size: var(--size-xl); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-8) 0 var(--space-4) 0; }
+      h3.sub-title { font-size: var(--size-lg); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-6) 0 var(--space-3) 0; }
       .source-note { font-size: var(--size-xs); color: var(--color-text-muted); margin-top: calc(var(--space-2) * -1); margin-bottom: var(--space-6); }
       .source-note a { color: var(--color-text-muted); }
       .embassy-note { font-size: var(--size-xs); color: var(--color-text-muted); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
@@ -158,6 +159,8 @@
               <li><a href="#risks">Where cases go wrong</a></li>
               <li><a href="#benefits">Benefits and care at public expense</a></li>
               <li><a href="#i864">Sponsors and the I-864</a></li>
+              <li><a href="#ir2">Children of US citizens (IR2)</a></li>
+              <li><a href="#ir5">Parents of US citizens (IR5)</a></li>
               <li><a href="#submit">How to submit</a></li>
               <li><a href="#refused">If the officer refuses under 212(a)(4)</a></li>
               <li><a href="#template">The statement template</a></li>
@@ -373,6 +376,26 @@
                   <td data-label="File"><strong>B13</strong></td>
                   <td data-label="Evidence">Retirement plan: the latest statement for each pension, private retirement plan or investment you will rely on, and your UK State Pension forecast. <a href="#retirement">What officers ask</a></td>
                   <td data-label="Whose">You</td>
+                </tr>
+                <tr>
+                  <td data-label="File"><strong>B14</strong></td>
+                  <td data-label="Evidence">Full birth certificate naming the US citizen parent. <a href="#minor-child">Children</a></td>
+                  <td data-label="Whose">The child</td>
+                </tr>
+                <tr>
+                  <td data-label="File"><strong>B15</strong></td>
+                  <td data-label="Evidence">Custody order, or the other parent&rsquo;s written consent to the move</td>
+                  <td data-label="Whose">The child, if the parents live apart</td>
+                </tr>
+                <tr>
+                  <td data-label="File"><strong>B16</strong></td>
+                  <td data-label="Evidence">Latest school report, and proof of a US school place or the school district</td>
+                  <td data-label="Whose">The child</td>
+                </tr>
+                <tr>
+                  <td data-label="File"><strong>B17</strong></td>
+                  <td data-label="Evidence">Proof you live at the sponsor&rsquo;s address now, such as a lease, utility bill or council tax bill in your name</td>
+                  <td data-label="Whose">You, if the sponsor counts your income on the I-864</td>
                 </tr>
               </tbody>
             </table>
@@ -627,6 +650,7 @@
             </ul>
           </div>
 
+          <p class="prose">Not a spouse? The I-864 treats a child&rsquo;s or parent&rsquo;s own income differently, and some children need no I-864 at all. See <a href="#ir2">section 7</a> for children, sons and daughters on IR2, and <a href="#ir5">section 8</a> for parents on IR5.</p>
 
           <details class="template-details detail-block" id="joint-sponsor">
             <summary>In detail: what posts ask about a joint sponsor</summary>
@@ -667,14 +691,36 @@
             </div>
           </details>
 
-          <details class="template-details detail-block" id="adult-child">
-            <summary>In detail: adult sons and daughters on IR2 or F1</summary>
-            <div style="margin-top: var(--space-3);">
-<p class="prose">This page assumes a spouse. If a US citizen parent petitioned for you as a child and you are now 21 or over, most of it still applies, with one difference on the I-864. Nobody has yet sent us an IR2 interview account from London, so this note rests on the statute and the form, not on what officers have asked.</p>
+          <h2 class="section-title" id="ir2">7. Children of US citizens (IR2)</h2>
+
+          <h3 class="sub-title" id="minor-child">Children under 21</h3>
+          <p class="prose">This page assumes an adult spouse who works. A child joining a US citizen parent faces the same five factors, but the I-864 rules and the evidence differ. Nobody has yet sent us an IR2 interview account from London, so this section rests on the statute and the form, not on what officers have asked. For a child aged 21 or over, see <a href="#adult-child">sons and daughters aged 21 or over</a>.</p>
+          <ul class="prose-list">
+            <li><strong>Many children under 18 need no I-864.</strong> A child becomes a US citizen on admission under INA 320 if they are under 18, unmarried, and will live in the US in the legal and physical custody of their citizen parent. That child does not file Form I-864. The exemption covers the form, not the public charge test, so expect the officer to ask who supports and insures the child.</li>
+            <li><strong>Confirm with NVC how to claim the exemption.</strong> USCIS removed Form I-864W, the old exemption form, from its website in February 2025. Applicants inside the US now claim the exemption on Form I-485. We have found no published instruction for immigrant visa cases, so ask NVC through its <a href="https://nvc.state.gov/inquiry" target="_blank" rel="noopener noreferrer">Public Inquiry Form</a> before you submit documents.</li>
+            <li><strong>The exemption fails in four cases.</strong> A stepchild does not meet the definition of child for citizenship (INA 101(c)). A child who will live abroad, or with someone other than the citizen parent, does not acquire citizenship on arrival. Nor does a married child, or one aged 18, 19 or 20. Each of these needs a full I-864. For a child aged 18 or over, the parent's assets need cover only three times any income shortfall.</li>
+            <li><strong>Each child is a separate case.</strong> A child's petition carries no derivatives, so each sibling needs their own I-130 and I-864. The sponsor's dependent children under 21 count in the household size wherever they live.</li>
+            <li><strong>Age:</strong> say who looks after the child day to day, and whose income pays for it.</li>
+            <li><strong>Education:</strong> written questionnaires ask a school-aged child's current grade, when they expect to graduate, and whether they plan further study. Name the US school or school district.</li>
+            <li><strong>Health:</strong> send proof that the parent's health plan covers dependents, and when the plan would add the child. Price any ongoing treatment in dollars, as for an adult.</li>
+            <li><strong>Family status:</strong> list everyone the parent supports, including the child's other parent if the petitioner pays them support.</li>
+          </ul>
+          <p class="prose"><strong>Use the builder.</strong> Choose &ldquo;Child under 18&rdquo; in the <a href="/public-charge-statement">statement builder</a>. It writes the statement in your voice, as the petitioner, on the child's behalf.</p>
+          <p class="prose"><strong>Change the evidence pack.</strong> Rows B01 (CV), B06 (employer letter) and B13 (retirement) do not fit a child. Send instead:</p>
+          <ul class="prose-list">
+            <li>B14: the child's full birth certificate, naming the citizen parent;</li>
+            <li>B15: a custody order, or the other parent's written consent to the move, if the parents live apart;</li>
+            <li>B16: the latest school report, and proof of a US school place or the district the child will attend;</li>
+            <li>P04: the parent's health plan document, showing it covers dependents.</li>
+          </ul>
+          <p class="prose">Sources: INA 101(c) and 320; <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864 instructions</a>, edition 08/24/26, pages 2, 12 and 14 (exemptions, assets, household size); <a href="https://www.uscis.gov/policy-manual/volume-8-part-g-chapter-6" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 8, Part G, Chapter 6</a> on claiming the exemption on Form I-485.</p>
+
+          <h3 class="sub-title" id="adult-child">Sons and daughters aged 21 or over</h3>
+          <p class="prose">This page assumes a spouse. If a US citizen parent petitioned for you as a child and you are now 21 or over, most of it still applies, with one difference on the I-864. Nobody has yet sent us an IR2 interview account from London, so this section rests on the statute and the form, not on what officers have asked.</p>
           <ul class="prose-list">
             <li><strong>Check your category.</strong> For an immediate relative, the Child Status Protection Act fixes your age on the date your parent filed the I-130 (INA 201(f)(1)). If you were under 21 that day, you stay IR2. If not, your case moved to F1. The public charge test is the same in both.</li>
             <li><strong>You need a full I-864.</strong> Only a child under 18 who becomes a citizen on arrival under INA 320 is exempt. The officer assesses you as an adult, on all five factors, and every beneficiary row of the <a href="#deliverables">evidence pack</a> applies to you as written.</li>
-            <li><strong>Your own income may not count toward the 125% line.</strong> A spouse's income counts wherever the spouse lives. The I-864 instructions let any other relative count their own income only if it continues from the same source after the move <em>and</em> they live with the sponsor now. If you live apart from your parent, their income, or a joint sponsor's, has to clear the threshold without yours.</li>
+            <li><strong>Your own income may not count toward the 125% line.</strong> A spouse's income counts wherever the spouse lives. The I-864 instructions let any other relative count their own income only if it continues from the same source after the move <em>and</em> they live with the sponsor now. If you live apart from your parent, their income, or a joint sponsor's, has to clear the threshold without yours. If you live together and your parent counts your income, send proof of your address as row B17.</li>
             <li><strong>Your own savings can close a gap.</strong> Your assets count on the I-864 wherever you live, and need no Form I-864A. A citizen parent sponsoring a child aged 18 or over needs assets worth three times the shortfall, not the five times other relatives need. Example: if your parent's income falls $4,000 short of the line, $12,000 of savings between you closes it. London has refused cases that met the asset test on paper, so treat this as backup to <a href="#risks">recurring income</a>, not a replacement for it.</li>
             <li><strong>Your independence still counts.</strong> The officer weighs your own income, savings, work history and qualifications in the five factors. Years of supporting yourself make a strong answer. Prove them with payslips, bank statements, your CV and an employer letter or US job plan.</li>
             <li><strong>Say you are not a dependent.</strong> The questionnaire counts everyone the petitioner supports with money. If you have supported yourself for years, say so in your statement, and say since when.</li>
@@ -682,10 +728,40 @@
             <li><strong>Say where you will live.</strong> If you move in with your parent, the officer will ask who pays the rent and bills. If you will live alone, give your own budget: rent, insurance, and the income that pays them.</li>
           </ul>
           <p class="prose">Sources: INA 201(f)(1) and 320; <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864 instructions</a>, edition 08/24/26, pages 2, 12 and 14 (exemptions, assets, and the intending immigrant's income); 42 U.S.C. &sect; 300gg-14 on dependent coverage to age 26.</p>
-            </div>
-          </details>
 
-          <h2 class="section-title" id="submit">7. How to submit</h2>
+          <h2 class="section-title" id="ir5">8. Parents of US citizens (IR5)</h2>
+          <p class="prose">A parent of an adult US citizen faces the same five factors as a spouse. Age and health weigh more, and the parent's own pension often cannot count toward the I-864. Nobody has yet sent us an IR5 interview account from London, so this section rests on the statute, the form and published benefit rules, not on what officers have asked.</p>
+          <h4 class="sub-title" style="margin-top:var(--space-4);">The I-864</h4>
+          <ul class="prose-list">
+            <li><strong>Your pension counts toward the 125% line only if you live with your child now.</strong> The I-864 instructions let a relative other than a spouse count their own income only if it continues from the same source after the move <em>and</em> they currently live with the sponsor. A parent living in the UK while the child lives in the US cannot count a State Pension or workplace pension toward the line. The officer still weighs it under assets and resources.</li>
+            <li><strong>Your savings count wherever you live, at five times the shortfall.</strong> The instructions' own example is a parent: if the sponsor's income falls $4,000 short, the assets of the sponsor, any household member and the parent must reach $20,000 between them.</li>
+            <li><strong>The sponsor's own family counts first.</strong> Household size includes the sponsor's spouse, their dependent children under 21 wherever they live, and you. A sponsor with a young family has less income to spare, and the officer will see it.</li>
+            <li><strong>Two parents means two cases.</strong> Each parent has their own I-130 and I-864. Once the first parent immigrates, they count in the household size on the second parent's I-864. Plan for the income to cover both.</li>
+            <li><strong>A sibling can be the joint sponsor.</strong> A brother or sister in the US who is a citizen or permanent resident, and meets 125% for their own household, is the usual answer when one child's income falls short.</li>
+            <li><strong>The sponsor's duty can last for life.</strong> It ends when you become a citizen, earn 40 quarters of US work, or give up permanent residence, or when you or the sponsor dies. A retired parent rarely earns 40 quarters, so the duty usually runs until naturalization. Expect the officer to test whether the sponsor can carry it that long.</li>
+          </ul>
+          <h4 class="sub-title" style="margin-top:var(--space-4);">The five factors, for a parent</h4>
+          <ul class="prose-list">
+            <li><strong>Age.</strong> You have few or no working years ahead, so the officer looks for retirement income in place of a job. Name each pension, its value in dollars, and confirm it will be paid to you in the US. Put the statements and your UK State Pension forecast in row B13.</li>
+            <li><strong>Health.</strong> This carries the most risk. You can buy into Medicare only after 5 years of continuous residence as a permanent resident. With fewer than 30 quarters of US work, Part A then costs $565 a month in 2026 (<a href="https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles" target="_blank" rel="noopener noreferrer">CMS</a>). Medicaid carries its own five-year bar. Until then you need a marketplace plan: get a healthcare.gov quote for your age and ZIP code (row B07), and price each medication in dollars (row B08).</li>
+            <li><strong>Subsidies may not help.</strong> Since 2026, permanent residents with income below the poverty line who are barred from Medicaid by immigration status no longer qualify for marketplace premium tax credits (One Big Beautiful Bill Act, section 71302). A parent with little US income pays the full premium. Say who pays it.</li>
+            <li><strong>Long-term care.</strong> Questionnaires ask whether anyone has been in long-term care at government expense, and Medicaid pays for most US nursing home care. Say who would pay for care if you could not live alone: family, savings or a long-term care policy.</li>
+            <li><strong>Family status.</strong> Say whether you will live with your child, and who else depends on their income.</li>
+            <li><strong>Education and skills.</strong> If you plan to work, say what and for how long. If you do not, say so, and let the pension answer carry the factor.</li>
+          </ul>
+          <h4 class="sub-title" style="margin-top:var(--space-4);">Questions to rehearse</h4>
+          <ul class="prose-list">
+            <li>Why are you moving now, and will you live with your child?</li>
+            <li>What pension do you receive, from whom, and how much in dollars? Does it continue in the US?</li>
+            <li>Do you own property in the UK? Will you sell it, and where does the money go?</li>
+            <li>What covers your health costs for the five years before Medicare, and what does your medication cost in the US?</li>
+            <li>Who will care for you if you can no longer live alone, and who pays?</li>
+            <li>If you have a joint sponsor: why, and how are they related to you?</li>
+          </ul>
+          <p class="prose">The <a href="/public-charge-statement">statement builder</a> has a &ldquo;Parent&rdquo; option. If you are retired, it replaces the work section with your pensions and adds a block on care in later life. Rows B01 (CV) and B06 (employer letter) apply only if you will work. Rows B07, B08 and B13 carry the case. If your child counts your pension on the I-864, add proof that you live at their address now, as row B17.</p>
+          <p class="prose">Sources: <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864 instructions</a>, edition 08/24/26, pages 10, 12, 14, 15 and 16 (previously sponsored immigrants, assets, household size and the intending immigrant&rsquo;s income, and how long the obligation lasts); 42 U.S.C. &sect;&sect; 1395i-2 and 1395o on Medicare for permanent residents; <a href="https://www.khi.org/?p=12870" target="_blank" rel="noopener noreferrer">Kansas Health Institute on H.R. 1 and the marketplace</a>.</p>
+
+          <h2 class="section-title" id="submit">9. How to submit</h2>
 
           <div class="tip-card">
             <strong>Upload to CEAC first, then email. Do both.</strong>
@@ -695,11 +771,11 @@
               <li><strong>Email the same files to <code>LNDIVSubmissions@state.gov</code></strong> so the unit knows to look. Subject line: <code>Public Charge Statement &ndash; LND0123456789 &ndash; FULL NAME</code>. If the files are too large for one email, number the emails (1 of 3, 2 of 3) under the same subject.</li>
               <li><strong>Finish at least five working days before your interview.</strong> <a href="/interview-dates">Work out the date</a>.</li>
             </ol>
-            <p>Upload <em>and</em> email: posts use both routes. The Rio de Janeiro refusal letter in <a href="#refused">section 8</a> tells applicants to do the same with a reconsideration package.</p>
+            <p>Upload <em>and</em> email: posts use both routes. The Rio de Janeiro refusal letter in <a href="#refused">section 10</a> tells applicants to do the same with a reconsideration package.</p>
             <p style="margin-bottom: 0;">Posts confirm a complete submission by email and do not expedite cases. Once you have sent it, leave it alone. Print the same files, in the same order, for the public charge tab of your <a href="/checklist-binder">interview binder</a>.</p>
           </div>
 
-          <h2 class="section-title" id="refused">8. If the officer refuses under 212(a)(4)</h2>
+          <h2 class="section-title" id="refused">10. If the officer refuses under 212(a)(4)</h2>
 
           <p class="body-sm">A 212(a)(4) refusal is a finding that you are likely to become a public charge. Unlike a <a href="/221g">221(g)</a>, it is a decision on the merits, and no waiver exists. You overcome it with new evidence. If you send that evidence within one year of the refusal, the post must reconsider the case (<a href="https://www.ecfr.gov/current/title-22/chapter-I/subchapter-E/part-42/subpart-I/section-42.81" target="_blank" rel="noopener noreferrer">22 CFR 42.81(e)</a>). See <a href="/221g#confusions">221(g) vs 212(a)(4)</a>.</p>
 
@@ -754,16 +830,16 @@
           </ol>
           <p class="source-note">The steps follow advice from community moderators who have helped members refused under 212(a)(4), and 212(a)(4) letters members have shared from several posts. Reconsideration is not guaranteed. If your case rests on a single income with no joint sponsor available, consider speaking to an immigration attorney.</p>
 
-          <h2 class="section-title" id="template">9. The statement template</h2>
+          <h2 class="section-title" id="template">11. The statement template</h2>
 
           <div class="cta-card">
             <strong>Use the builder unless you want to write your own</strong>
-            <p>The <a href="/public-charge-statement">statement builder</a> writes this same statement from a form and drops the sentences that do not apply. The template below suits you if you want to write it yourself. Replace every bracketed placeholder. Keep each block to one or two paragraphs.</p>
+            <p>The <a href="/public-charge-statement">statement builder</a> writes this same statement from a form and drops the sentences that do not apply. The templates below suit you if you want to write it yourself. The first serves a spouse, a son or daughter, or a parent, with options marked for each. The second is for a child under 18, written by the petitioner. Replace every bracketed placeholder. Keep each block to one or two paragraphs.</p>
             <a class="btn btn-primary" href="/public-charge-statement">Open the statement builder</a>
           </div>
 
           <details class="template-details" id="template-text">
-            <summary>Show the full template</summary>
+            <summary>Show the full template: spouse, son or daughter, or parent</summary>
             <p class="body-sm" style="margin-top: var(--space-4);">The blocks run in the order the officer needs them: income answers each cost, and savings come last. Give the petitioner's income both before and after tax; the I-864 uses gross figures and posts' questionnaires ask for net. The appendices list work and education history because posts ask for lists.</p>
           <div class="email-template">To: LNDIVSubmissions@state.gov
 
@@ -775,9 +851,9 @@ I submit this public charge statement ahead of my immigrant visa interview. My c
 
 PERSONAL CIRCUMSTANCES
 
-I am <span class="email-placeholder">[age]</span> years old. English is my first language. <span class="email-placeholder">[If English is not your first language: I am fluent in English, and I have used it throughout my [education / professional qualifications / current employment].]</span> My highest qualification is <span class="email-placeholder">[qualification]</span>, which I received from <span class="email-placeholder">[institution]</span> in <span class="email-placeholder">[year]</span>. <span class="email-placeholder">[Add any that apply: I also hold [professional license / trade certification / apprenticeship], and I have [X years] of on-the-job training in [skill]. I can apply these skills in the US labor market.]</span> I am <span class="email-placeholder">[married to my petitioner / the [relationship] of my petitioner]</span>, and <span class="email-placeholder">[I have no dependents / my dependents are [names and ages], who are [traveling with me / already in the US]]</span>. <span class="email-placeholder">[Name the petitioner's dependents too, counting everyone they support with money and not only tax dependents: My petitioner has [number] dependents: [names, ages and relationship, including any parent, relative or other person they support]. / My petitioner has no dependents other than those I name above.]</span> <span class="email-placeholder">[If any dependent has a health or care need: [Name] has [condition / disability], and [treatment / care arrangement] is in place. [Source] pays for that care, and no public funding does.]</span>
+I am <span class="email-placeholder">[age]</span> years old. English is my first language. <span class="email-placeholder">[If English is not your first language: I am fluent in English, and I have used it throughout my [education / professional qualifications / current employment].]</span> My highest qualification is <span class="email-placeholder">[qualification]</span>, which I received from <span class="email-placeholder">[institution]</span> in <span class="email-placeholder">[year]</span>. <span class="email-placeholder">[Add any that apply: I also hold [professional license / trade certification / apprenticeship], and I have [X years] of on-the-job training in [skill]. I can apply these skills in the US labor market.]</span> I am <span class="email-placeholder">[married to my petitioner / the [relationship] of my petitioner]</span>, and <span class="email-placeholder">[I have no dependents / my dependents are [names and ages], who are [traveling with me / already in the US]]</span>. <span class="email-placeholder">[If you are a son or daughter who supports yourself: I have supported myself since [year], and my petitioner does not support me financially.]</span> <span class="email-placeholder">[Name the petitioner's dependents too, counting everyone they support with money and not only tax dependents: My petitioner has [number] dependents: [names, ages and relationship, including any parent, relative or other person they support]. / My petitioner has no dependents other than those I name above.]</span> <span class="email-placeholder">[If any dependent has a health or care need: [Name] has [condition / disability], and [treatment / care arrangement] is in place. [Source] pays for that care, and no public funding does.]</span>
 
-I am in good health and have no condition that would prevent me from working. <span class="email-placeholder">[If you have an ongoing condition: I have [condition], which I manage with [treatment]. It does not affect my ability to work. I have priced this treatment in the United States: [medication / treatment] costs about [$XXX] per [month / year] at [retail price / the expected co-pay under the plan I describe below]. [Insurance plan / Our income] will cover that cost. See the health insurance section below.]</span>
+I am in good health and have no condition that would prevent me from working. <span class="email-placeholder">[If you are retired, end that sentence after &ldquo;good health&rdquo;.]</span> <span class="email-placeholder">[If you have an ongoing condition: I have [condition], which I manage with [treatment]. It does not affect my ability to work (leave out this sentence if you are retired). I have priced this treatment in the United States: [medication / treatment] costs about [$XXX] per [month / year] at [retail price / the expected co-pay under the plan I describe below]. [Insurance plan / Our income] will cover that cost. See the health insurance section below.]</span>
 
 HOUSING
 
@@ -793,7 +869,9 @@ I am <span class="email-placeholder">[a / an]</span> <span class="email-placehol
 
 <span class="email-placeholder">[Option B, looking for work: I plan to look for work in [sector] when I arrive. I have [relevant qualifications/experience] and expect to find a job within [timeframe], earning about [$XX,XXX] per year. I have begun [researching / applying for] roles in [City/State].]</span>
 
-My petitioner, <span class="email-placeholder">[Name]</span>, works as <span class="email-placeholder">[a / an]</span> <span class="email-placeholder">[petitioner job title]</span> at <span class="email-placeholder">[Employer name]</span>, earning about <span class="email-placeholder">[$XX,XXX]</span> per year before tax and about <span class="email-placeholder">[$XX,XXX]</span> after tax. <span class="email-placeholder">[If another working adult lives in the household: [Name], who lives with my petitioner, works as [a / an] [job title] at [Employer name], earning about [$XX,XXX] per year.]</span> <span class="email-placeholder">[If you need a joint sponsor: My joint sponsor, [Name], works as [a / an] [joint sponsor job title] at [Employer name], earning about [$XX,XXX] per year.]</span> <span class="email-placeholder">[My petitioner will support our household, and has signed an I-864 Affidavit of Support committing to this. / My petitioner and my joint sponsor will support our household, and each has signed an I-864 Affidavit of Support committing to this.]</span>
+<span class="email-placeholder">[Option C, retired, in place of the paragraph that opens this section as well: I retired in [year] after [X years] as [a / an] [job title] in [sector], most recently with [Employer name]. I do not plan to work in the United States. I describe the pensions I receive under RETIREMENT below.]</span>
+
+My petitioner, <span class="email-placeholder">[Name]</span>, works as <span class="email-placeholder">[a / an]</span> <span class="email-placeholder">[petitioner job title]</span> at <span class="email-placeholder">[Employer name]</span>, earning about <span class="email-placeholder">[$XX,XXX]</span> per year before tax and about <span class="email-placeholder">[$XX,XXX]</span> after tax. <span class="email-placeholder">[If another working adult lives in the household: [Name], who lives with my petitioner, works as [a / an] [job title] at [Employer name], earning about [$XX,XXX] per year.]</span> <span class="email-placeholder">[If you need a joint sponsor: My joint sponsor, [Name], works as [a / an] [joint sponsor job title] at [Employer name], earning about [$XX,XXX] per year.]</span> <span class="email-placeholder">[If you are the petitioner's spouse: My petitioner will support our household, and has signed an I-864 Affidavit of Support committing to this. / My petitioner and my joint sponsor will support our household, and each has signed an I-864 Affidavit of Support committing to this.]</span> <span class="email-placeholder">[If you are a son, daughter or parent: My petitioner has signed an I-864 Affidavit of Support for me, committing to support me if I need it. / My petitioner and my joint sponsor have each signed an I-864 Affidavit of Support for me, committing to support me if I need it.]</span>
 
 HEALTH INSURANCE
 
@@ -801,13 +879,13 @@ HEALTH INSURANCE
 
 <span class="email-placeholder">[Option A, joining an existing plan: Once I receive my Social Security Number, I will join my [spouse's / family member's] employer health insurance plan through [Employer name]. [Insurance provider] provides the plan, and it covers [self and dependents / family].]</span>
 
-<span class="email-placeholder">[Option B, buying your own plan: I will buy health insurance through [the Affordable Care Act marketplace / private provider]. I have compared plans in [State] and expect to pay about [$XXX] per month.]</span>
+<span class="email-placeholder">[Option B, buying your own plan: [If you are a parent: As a permanent resident, I can enroll in Medicare only after five years of continuous residence. Until then,] I will buy health insurance through [the Affordable Care Act marketplace / private provider]. I have compared plans in [State] and expect to pay about [$XXX] per month.]</span>
 
 We will pay the premiums from <span class="email-placeholder">[my petitioner's income / our joint income / my own income once employed]</span>. <span class="email-placeholder">[If relying on an employer plan: This coverage depends on [name]'s employment, which has been continuous since [year]. If that job ended, we would keep cover through [COBRA / the ACA marketplace / my own employment], paid for from [source].]</span>
 
 SAVINGS AND ASSETS
 
-<span class="email-placeholder">[I also have / My petitioner and I also have]</span> savings of about <span class="email-placeholder">[$XX,XXX]</span>, on top of the income above. <span class="email-placeholder">[I / We]</span> keep them as a buffer for emergencies: they would cover our housing, insurance and living costs for about <span class="email-placeholder">[X months]</span>. <span class="email-placeholder">[I / We]</span> can draw on them at once, and I can provide bank statements on request. <span class="email-placeholder">[Give your own and the petitioner's figures apart where both exist: Of this, [$XX,XXX] is in my name and [$XX,XXX] in my petitioner's.]</span> <span class="email-placeholder">[If you hold property or investments: I also hold [describe each: property at [location], owned outright / co-owned with [name]; investments of about [$XX,XXX]]. I can provide proof of ownership for each.]</span> <span class="email-placeholder">[If you have income besides your main job: Besides my salary, I earn about [$XXX] per [month] from [describe: a family business, freelance work, rental income], paid [by salary / in cash / by invoice].]</span> We meet the household costs above from the income in each section. <span class="email-placeholder">[If you have no significant debts: I have no significant debts.]</span> <span class="email-placeholder">[If you do: My outstanding debts are [describe], which I pay from [income source] at [$XXX] per month.]</span> <span class="email-placeholder">[If you have a UK student loan: I have a UK student loan (Plan [1 / 2 / 4 / 5 / Postgraduate]) with the Student Loans Company, with a balance of about £[X] ($[X]). I have told the Company that I am moving to the United States. While I live abroad, the Company sets my repayments against my overseas income. I expect to pay about $[XXX] per month, from [income source]. I attach my latest statement.]</span>
+<span class="email-placeholder">[I also have / My petitioner and I also have]</span> savings of about <span class="email-placeholder">[$XX,XXX]</span>, on top of the income above. <span class="email-placeholder">[I / We]</span> keep them as a buffer for emergencies: they would cover our housing, insurance and living costs for about <span class="email-placeholder">[X months]</span>. <span class="email-placeholder">[I / We]</span> can draw on them at once, and I can provide bank statements on request. <span class="email-placeholder">[Give your own and the petitioner's figures apart where both exist: Of this, [$XX,XXX] is in my name and [$XX,XXX] in my petitioner's.]</span> <span class="email-placeholder">[If you hold property or investments: I also hold [describe each: property at [location], owned outright / co-owned with [name]; investments of about [$XX,XXX]]. I can provide proof of ownership for each.]</span> <span class="email-placeholder">[If you have income besides your main job or pensions: Besides my [salary / pensions], I earn about [$XXX] per [month] from [describe: a family business, freelance work, rental income], paid [by salary / in cash / by invoice].]</span> We meet the household costs above from the income in each section. <span class="email-placeholder">[If you have no significant debts: I have no significant debts.]</span> <span class="email-placeholder">[If you do: My outstanding debts are [describe], which I pay from [income source] at [$XXX] per month.]</span> <span class="email-placeholder">[If you have a UK student loan: I have a UK student loan (Plan [1 / 2 / 4 / 5 / Postgraduate]) with the Student Loans Company, with a balance of about £[X] ($[X]). I have told the Company that I am moving to the United States. While I live abroad, the Company sets my repayments against my overseas income. I expect to pay about $[XXX] per month, from [income source]. I attach my latest statement.]</span>
 
 RETIREMENT
 
@@ -816,6 +894,14 @@ RETIREMENT
 <span class="email-placeholder">[Option A, working toward Social Security: I plan to work in the United States until retirement and earn the 40 Social Security credits, about 10 years of work, that qualify me for a US retirement benefit.]</span>
 
 <span class="email-placeholder">[Option B, another plan: I will fund my retirement from [name each: a workplace pension with [provider], worth about [$XX,XXX]; a private retirement plan; investments of about [$XX,XXX]; property at [location]]. I attach the latest statement for each.]</span>
+
+<span class="email-placeholder">[Option C, already retired: I receive [each pension, who pays it, and the amount in dollars per year]. These payments continue while I live in the United States. I attach the latest statement for each.]</span>
+
+<span class="email-placeholder">[If you are a parent, add this block:]</span>
+
+CARE IN LATER LIFE
+
+<span class="email-placeholder">[If I could no longer live independently, [who would care for you, and who would pay]. I would not rely on care at government expense.]</span>
 
 PUBLIC BENEFITS
 
@@ -852,6 +938,8 @@ ATTACHED EVIDENCE
 <span class="email-placeholder">B03 Beneficiary bank statements, [last 3 months]</span>
 <span class="email-placeholder">B07 Beneficiary health insurance quote</span>
 <span class="email-placeholder">B09 Beneficiary UK student loan statement (if applicable)</span>
+<span class="email-placeholder">B13 Beneficiary retirement plan or pension statements, and UK State Pension forecast (if applicable)</span>
+<span class="email-placeholder">B17 Proof I live at my petitioner's address now (if my petitioner counts my income on the I-864)</span>
 
 APPENDIX A: WORK HISTORY
 
@@ -869,7 +957,77 @@ APPENDIX B: EDUCATION AND QUALIFICATIONS
           <button type="button" class="copy-btn" onclick="copyTemplate(this)">Copy template to clipboard</button>
           </details>
 
-          <h2 class="section-title" id="sources">10. What is confirmed, and sources</h2>
+          <details class="template-details" id="template-child">
+            <summary>Show the template for a child under 18, written by the petitioner</summary>
+            <p class="body-sm" style="margin-top: var(--space-4);">You, the petitioner, write this on the child's behalf and sign it. The officer reads the child's schooling, custody and care, then your income. If the child will become a citizen on arrival under INA 320, say so; otherwise say you signed an I-864. <a href="#minor-child">Which applies</a>.</p>
+          <div class="email-template">To: LNDIVSubmissions@state.gov
+
+Subject: Public Charge Statement – <span class="email-placeholder">[Case Number e.g. LND0123456789]</span> – <span class="email-placeholder">[Child's Full Name]</span>
+
+Dear Immigrant Visa Unit,
+
+I am <span class="email-placeholder">[Your Full Name]</span>, the <span class="email-placeholder">[father / mother]</span> and petitioner of <span class="email-placeholder">[Child's Full Name]</span>. I submit this public charge statement on <span class="email-placeholder">[Child]</span>'s behalf ahead of the immigrant visa interview. The case number is <span class="email-placeholder">[LND0123456789]</span>, and the interview is on <span class="email-placeholder">[DATE]</span>. I have also uploaded this statement and its evidence to the case in CEAC.
+
+THE CHILD
+
+<span class="email-placeholder">[Child]</span> is <span class="email-placeholder">[age]</span> years old. English is <span class="email-placeholder">[Child]</span>'s first language. <span class="email-placeholder">[If English is not the child's first language: [Child] is fluent in English, through [school / home].]</span> <span class="email-placeholder">[Choose one: [Child] will live with me in the United States, in my legal and physical custody. Because [Child] is under 18 and unmarried, [Child] will become a US citizen on admission under INA 320, and so does not need a Form I-864. / I have signed an I-864 Affidavit of Support for [Child]; see MY INCOME AND HOUSEHOLD below.]</span> <span class="email-placeholder">[Choose one: [Child]'s other parent and I live together, and we are moving as a family. / [Child]'s [mother / father], [Name], lives in [place] and [has consented in writing to the move / shares custody with me under a court order dated [date]].]</span> <span class="email-placeholder">[If someone else helps with care: Day to day, [Child] is looked after by [who].]</span>
+
+EDUCATION
+
+<span class="email-placeholder">[Child]</span> is in <span class="email-placeholder">[school year]</span> at <span class="email-placeholder">[school]</span>, and expects to finish school in <span class="email-placeholder">[year]</span>. In the United States, <span class="email-placeholder">[Child]</span> will attend <span class="email-placeholder">[US school or school district]</span>. <span class="email-placeholder">[Optional: After school, [Child] plans to [study / train / work in] [field].]</span>
+
+HEALTH
+
+<span class="email-placeholder">[Child]</span> is in good health. <span class="email-placeholder">[If the child has an ongoing condition: [Child] has [condition], which is managed with [treatment]. I have priced this treatment in the United States: it costs about [$XXX] per [month / year]. The health insurance and income I describe below will cover that cost.]</span>
+
+HOUSING
+
+<span class="email-placeholder">[Child]</span> will live with <span class="email-placeholder">[me / me and my [spouse], [Name]]</span>, at <span class="email-placeholder">[Full address, City, State, ZIP]</span>. <span class="email-placeholder">[If address not yet confirmed: We are looking for a home in [City/State] and expect to confirm our address within [timeframe].]</span> We will pay the housing costs from <span class="email-placeholder">[my income / our joint income]</span>.
+
+MY INCOME AND HOUSEHOLD
+
+I work as <span class="email-placeholder">[a / an]</span> <span class="email-placeholder">[job title]</span> at <span class="email-placeholder">[Employer name]</span>, earning about <span class="email-placeholder">[$XX,XXX]</span> per year before tax and about <span class="email-placeholder">[$XX,XXX]</span> after tax. <span class="email-placeholder">[If another working adult lives in the household: [Name], who lives with me, works as [a / an] [job title] at [Employer name], earning about [$XX,XXX] per year.]</span> <span class="email-placeholder">[If you need a joint sponsor: My joint sponsor, [Name], works as [a / an] [job title] at [Employer name], earning about [$XX,XXX] per year.]</span> I will support <span class="email-placeholder">[Child]</span> from this income. <span class="email-placeholder">[If an I-864 is required: I have signed an I-864 Affidavit of Support for [Child]. / My joint sponsor and I have each signed an I-864 Affidavit of Support for [Child].]</span> <span class="email-placeholder">[I have no dependents other than [Child]. / I have [number] dependents: [names, ages and relationship, counting everyone you support with money].]</span>
+
+HEALTH INSURANCE
+
+<span class="email-placeholder">[Choose one: [Child] will join my employer health insurance plan through [Employer name], which covers dependents. [Insurance provider] provides the plan. This coverage depends on my employment, which has been continuous since [year]. If that job ended, we would keep cover through [COBRA / the ACA marketplace]. / I will buy health insurance for [Child] through the Affordable Care Act marketplace. I have compared plans in [State] and expect to pay about [$XXX] per month.]</span> We will pay the premiums from <span class="email-placeholder">[my income / our joint income]</span>.
+
+SAVINGS AND ASSETS
+
+I also have savings of about <span class="email-placeholder">[$XX,XXX]</span>, on top of the income above. I keep them as a buffer for emergencies: they would cover our housing, insurance and living costs for about <span class="email-placeholder">[X months]</span>. I can draw on them at once, and I can provide bank statements on request. <span class="email-placeholder">[If some savings are in the child's name: Of this, [$XX,XXX] is in my name and [$XX,XXX] in [Child]'s.]</span> <span class="email-placeholder">[If you hold property or investments: I also hold [describe each]. I can provide proof of ownership for each.]</span> <span class="email-placeholder">[I have no significant debts. / My outstanding debts are [describe], which I pay from [income source] at [$XXX] per month.]</span>
+
+PUBLIC BENEFITS
+
+<span class="email-placeholder">[Child]</span> has never received means-tested public assistance or social welfare benefits in the United Kingdom, the United States, or any other country. <span class="email-placeholder">[If the child has: [Child] received [benefit] from [dates], after [reason]. That ended when [what changed].]</span> <span class="email-placeholder">[I have never received means-tested public assistance. / I received [benefit] from [dates], after [reason], until [what changed].]</span> <span class="email-placeholder">[If you use a joint sponsor: My joint sponsor has [never received / received [benefit] from [dates]] means-tested public assistance.]</span> Neither <span class="email-placeholder">[Child]</span> nor I has ever received long-term institutional care at government expense.
+
+I will support <span class="email-placeholder">[Child]</span> without public benefits. I can provide any further information you need.
+
+Yours sincerely,
+<span class="email-placeholder">[Your Full Name]</span>
+Petitioner, on behalf of <span class="email-placeholder">[Child's Full Name]</span>
+Case Number: <span class="email-placeholder">[LND0123456789]</span>
+<span class="email-placeholder">[Email address]</span>
+
+ATTACHED EVIDENCE
+
+<span class="email-placeholder">[List each file by its code, in the order you uploaded it. Leave out rows that do not apply. For example:]</span>
+<span class="email-placeholder">00 Public charge statement</span>
+<span class="email-placeholder">P01 Petitioner IRS tax transcripts, [2023, 2024, 2025]</span>
+<span class="email-placeholder">P02 Petitioner payslips, [last 3 months], and latest W-2</span>
+<span class="email-placeholder">P03 Petitioner bank statements, [last 3 months]</span>
+<span class="email-placeholder">P04 Petitioner health insurance, showing it covers dependents</span>
+<span class="email-placeholder">P05 Petitioner lease, mortgage statement or property tax record</span>
+<span class="email-placeholder">P06 Petitioner savings and investment statements</span>
+<span class="email-placeholder">J01 to J05 Joint sponsor documents (if applicable)</span>
+<span class="email-placeholder">B08 The US price of the child's ongoing treatment (if applicable)</span>
+<span class="email-placeholder">B14 The child's full birth certificate</span>
+<span class="email-placeholder">B15 Custody order, or the other parent's written consent (if the parents live apart)</span>
+<span class="email-placeholder">B16 School report, and proof of a US school place</span></div>
+
+          <button type="button" class="copy-btn" onclick="copyTemplate(this)">Copy template to clipboard</button>
+          </details>
+
+          <h2 class="section-title" id="sources">12. What is confirmed, and sources</h2>
 
           <div class="info-card" id="fluid">
             <strong>Confirmed in published documents</strong>
@@ -931,7 +1089,7 @@ APPENDIX B: EDUCATION AND QUALIFICATIONS
 
           <details class="toc" id="changes" style="margin-top: var(--space-6);">
             <summary><strong>What changed on this page</strong></summary>
-            <p>22 October 2026: section 6 adds a note for adult sons and daughters on IR2 or F1, whose own income counts on the I-864 only if they live with the sponsor, and whose own savings count at three times the shortfall. Earlier the same day: section 8 adds a 212(a)(4) refusal form issued in London that day, a tick-box form that gives no reason, beside the Rio de Janeiro letter. Earlier the same day: the failures in section 4 are now a list, each with its fix underneath. Earlier the same day: corrected the opening card and the evidence pack note. Failing the public charge test leads to a 212(a)(4) refusal, not a 221(g); the two are different refusals. Earlier the same day: officers now ask the beneficiary for a retirement plan, so the page adds a retirement question, a retirement block in the template and pack row B13. Earlier the same day: anyone self-employed should send 12 months of bank statements, from the business account where there is one, with proof the business is registered and trading (new rows P09, J05 and B12). Earlier the same day: the evidence list is now one labelled evidence pack to upload to CEAC, email and print for your binder, with rows for the beneficiary&rsquo;s CV, diplomas, bank accounts and home-country assets. New section on 212(a)(4) refusals, with a Rio de Janeiro refusal letter and how to build a reconsideration package. Added reports of several officers observing interviews. 16 October 2026: merged the companion evidence page into this one. Its questionnaire, London interview account, joint sponsor questions, dependents, credit check, income note, court filings and sources now sit, collapsed, in the section each supports. 1 October 2026: the page now opens with what changed and what the officer expects of you, and puts the statement builder first. We merged the two question lists and the two evidence tables, and moved the written questionnaire, the court filings, the full London interview account, the joint sponsor questions and the credit check to a companion page. Later the same day we merged the opening cards into one and shortened the to-do list. 30 September 2026: send bank statements with the payslips, and add the petitioner's health insurance proof, after a Warsaw interview where the officer asked for both. 27 September 2026: send 3 years of tax returns and 3 months of payslips with the statement; UK student loans added. Earlier updates on 24 and 15 September 2026 covered the questionnaire asked out loud at another post, the 10 September cable and the public charge worksheet.</p>
+            <p>22 October 2026: the statement template in section 11 now has options for sons, daughters and parents, and a second template for a child under 18. Earlier the same day: the statement builder now writes statements for children, sons and daughters, and parents, and the evidence pack adds rows B14 to B17. Earlier the same day: new sections 7 and 8 for applicants with no spouse case. Section 7 covers children on IR2, including sons and daughters aged 21 or over, whose own income counts on the I-864 only if they live with the sponsor, and whose own savings count at three times the shortfall. Section 8 covers parents on IR5. Later sections move down two numbers. Earlier the same day: the refusal section, now section 10, adds a 212(a)(4) refusal form issued in London that day, a tick-box form that gives no reason, beside the Rio de Janeiro letter. Earlier the same day: the failures in section 4 are now a list, each with its fix underneath. Earlier the same day: corrected the opening card and the evidence pack note. Failing the public charge test leads to a 212(a)(4) refusal, not a 221(g); the two are different refusals. Earlier the same day: officers now ask the beneficiary for a retirement plan, so the page adds a retirement question, a retirement block in the template and pack row B13. Earlier the same day: anyone self-employed should send 12 months of bank statements, from the business account where there is one, with proof the business is registered and trading (new rows P09, J05 and B12). Earlier the same day: the evidence list is now one labelled evidence pack to upload to CEAC, email and print for your binder, with rows for the beneficiary&rsquo;s CV, diplomas, bank accounts and home-country assets. New section on 212(a)(4) refusals, with a Rio de Janeiro refusal letter and how to build a reconsideration package. Added reports of several officers observing interviews. 16 October 2026: merged the companion evidence page into this one. Its questionnaire, London interview account, joint sponsor questions, dependents, credit check, income note, court filings and sources now sit, collapsed, in the section each supports. 1 October 2026: the page now opens with what changed and what the officer expects of you, and puts the statement builder first. We merged the two question lists and the two evidence tables, and moved the written questionnaire, the court filings, the full London interview account, the joint sponsor questions and the credit check to a companion page. Later the same day we merged the opening cards into one and shortened the to-do list. 30 September 2026: send bank statements with the payslips, and add the petitioner's health insurance proof, after a Warsaw interview where the officer asked for both. 27 September 2026: send 3 years of tax returns and 3 months of payslips with the statement; UK student loans added. Earlier updates on 24 and 15 September 2026 covered the questionnaire asked out loud at another post, the 10 September cable and the public charge worksheet.</p>
           </details>
 
           <p style="margin: var(--space-6) 0;"><a href="/guide/interview" style="font-weight:600;">&larr; Back to Stage 6: the embassy interview</a> &middot; <a href="/interview" style="font-weight:600;">Your interview hub</a></p>
@@ -949,7 +1107,8 @@ APPENDIX B: EDUCATION AND QUALIFICATIONS
       // placeholder spans are inline, so textContent yields the plain-text
       // letter exactly as it appears on the page.
       function copyTemplate(btn) {
-        const templateEl = document.querySelector('.email-template');
+        const prev = btn.previousElementSibling;
+        const templateEl = prev && prev.classList.contains('email-template') ? prev : document.querySelector('.email-template');
         if (!templateEl) return;
 
         navigator.clipboard.writeText(templateEl.textContent).then(() => {
