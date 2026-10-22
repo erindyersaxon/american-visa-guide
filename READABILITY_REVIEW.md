@@ -59,16 +59,70 @@ Measured with a script over the text inside `<main>` on every page (Flesch-Kinca
 - Guide hub heading changed from the site name to "Your visa, step by step", with a one-line instruction to find your stage.
 - 25 of the longest sentences rewritten or turned into lists on CRBA, interview, before you leave, NVC, 221(g) and public charge.
 
-**Correction, 22 October 2026.** The first audit joined bullet points without full stops into one long "sentence", which inflated every grade. The corrected audit treats each bullet and block as its own unit. Corrected baseline for the stage pages: grade 7.9 to 10.2, 12 to 16 words a sentence.
+**Correction, 22 October 2026.** The first audit joined bullet points without full stops into one long "sentence", which inflated every grade. The corrected audit treats each bullet and block as its own unit. All figures below use the corrected audit.
 
-| Page | FK grade before → after | Words per sentence | Sentences over 25 words |
-|---|---|---|---|
-| Stage 1B: CRBA (full rewrite) | 8.8 → 6.5 | 12.9 → 11.9 | 7% → 4% |
+### Plain-English pass, 22 October 2026
+
+Every page was edited for plain English against the GOV.UK rules in section 1: one idea a sentence, active voice, "you", jargon defined where it first matters, lists in place of long inline series. No facts, figures, dates, fees, citations or anchors changed.
+
+- **Full rewrites** of the eleven stage pages. Each one now opens with a three-part Bottom line, and its action list, callouts and checklist use the same plain wording.
+- **CRBA role tags** now say *US citizen parent*, *Other parent* and *Either parent*. *Petitioner* and *Beneficiary* do not apply to a CRBA.
+- **Two terminology fixes.** The After the interview and NVC stages called a 221(g) "administrative processing", which the 221(g) page treats as a different thing. Both now say 221(g).
+- **Targeted edits** on the hub and deep-dive pages: the longest guidance sentences split or turned into lists.
+- **Left as written:** quoted official emails, the public charge statement template, letter templates, court-filing excerpts and source lists. Member interview accounts keep their wording, with the longest sentences split.
+- **Stage page text size:** callouts, checklists and document lists no longer carry inline 13-14px sizes, so they read at body size.
+
+Average grade across the 40 pages over 300 words: **8.4 → 7.8**. The site already sat near GOV.UK's guidance on sentence length; the bigger gains came from structure (labelled Bottom lines, lists) and from defining terms in place, which a grade score does not measure.
+
+| Page | Words | Grade before → after | Words per sentence | Sentences over 25 words |
+|---|---:|---|---|---|
+| `public-charge.html` | 6,819 | 8.5 → 8.4 | 15.3 → 15.0 | 13% → 11% |
+| `life.html` | 4,847 | 8.4 → 8.1 | 12.5 → 12.1 | 8% → 4% |
+| `delayed-i130-remedies.html` | 4,612 | 9.6 → 9.2 | 13.9 → 13.3 | 11% → 7% |
+| `guide/interview.html` | 4,488 | 8.6 → 7.9 | 15.8 → 14.5 | 13% → 8% |
+| `guide/nvc.html` | 3,918 | 8.7 → 7.4 | 13.3 → 12.6 | 8% → 6% |
+| `221g.html` | 3,059 | 8.0 → 7.7 | 13.6 → 13.1 | 8% → 3% |
+| `guide/i130.html` | 2,539 | 8.8 → 7.1 | 14.2 → 12.4 | 9% → 4% |
+| `september-2026-update.html` | 2,414 | 9.2 → 8.9 | 14.3 → 13.7 | 16% → 11% |
+| `guide/medical.html` | 2,353 | 8.6 → 7.5 | 12.4 → 11.6 | 9% → 6% |
+| `administrative-processing.html` | 2,194 | 9.3 → 9.0 | 14.7 → 14.1 | 14% → 10% |
+| `guide/waiting.html` | 2,069 | 7.9 → 6.6 | 12.3 → 10.9 | 8% → 5% |
+| `mandamus-pro-se.html` | 1,784 | 8.5 → 8.2 | 13.3 → 12.7 | 10% → 7% |
+| `guide/us-entry.html` | 1,704 | 8.4 → 7.0 | 13.6 → 12.5 | 7% → 5% |
+| `naturalization.html` | 1,595 | 8.9 → 8.6 | 14.4 → 13.9 | 9% → 7% |
+| `guide/crba.html` | 1,581 | 8.8 → 6.5 | 12.9 → 11.9 | 7% → 4% |
+| `guide/after-interview.html` | 1,497 | 8.5 → 6.6 | 12.8 → 11.5 | 5% → 2% |
+| `visa-pause.html` | 1,457 | 8.5 → 8.1 | 13.5 → 12.7 | 13% → 8% |
+| `reinterview.html` | 1,457 | 7.3 → 7.1 | 13.3 → 12.7 | 12% → 7% |
+| `i864-household-decision-tree.html` | 1,387 | 7.9 → 7.8 | 11.1 → 10.8 | 4% → 2% |
+| `worksheet-i864.html` | 1,270 | 7.7 → 7.4 | 11.0 → 10.8 | 5% → 4% |
+| `data.html` | 1,144 | 8.1 → 8.1 | 11.5 → 11.2 | 9% → 8% |
+| `checklists.html` | 1,132 | 8.6 → 8.5 | 10.1 → 9.8 | 5% → 3% |
+| `checklist-interview.html` | 996 | 8.4 → 7.9 | 13.6 → 12.8 | 12% → 9% |
+| `guide.html` | 974 | 8.6 → 8.5 | 11.1 → 10.8 | 3% → 1% |
+| `guide/interview-letter.html` | 958 | 8.7 → 7.8 | 13.3 → 12.0 | 8% → 1% |
+| `interview.html` | 934 | 7.1 → 6.6 | 11.7 → 10.9 | 6% → 5% |
+| `checklist-medical.html` | 931 | 6.6 → 6.6 | 9.5 → 9.5 | 1% → 1% |
+| `guide/before-you-leave.html` | 917 | 8.7 → 6.1 | 14.2 → 12.6 | 5% → 1% |
+| `public-charge-statement.html` | 756 | 6.2 → 6.2 | 8.9 → 8.9 | 1% → 1% |
+| `guide/delayed-i130.html` | 692 | 10.2 → 8.3 | 15.7 → 14.4 | 5% → 8% |
+| `about.html` | 675 | 7.1 → 7.1 | 11.1 → 11.1 | 7% → 7% |
+| `checklist-nvc.html` | 626 | 9.3 → 9.1 | 13.1 → 12.5 | 10% → 8% |
+| `domicile.html` | 599 | 9.7 → 8.4 | 17.4 → 13.3 | 19% → 9% |
+| `checklist-binder.html` | 535 | 8.6 → 8.5 | 11.9 → 11.9 | 4% → 4% |
+| `privacy.html` | 431 | 10.0 → 10.0 | 10.8 → 10.8 | 2% → 2% |
+| `checklist-i130.html` | 374 | 8.7 → 8.7 | 8.9 → 8.9 | 5% → 5% |
+| `interview-day-sheet.html` | 359 | 6.6 → 6.6 | 9.7 → 9.7 | 3% → 3% |
+| `history-worksheet.html` | 354 | 7.5 → 7.3 | 11.0 → 10.7 | 6% → 3% |
+| `english-test.html` | 334 | 9.7 → 9.3 | 16.6 → 15.9 | 10% → 5% |
+| `index.html` | 318 | 8.0 → 8.0 | 9.9 → 9.9 | 0% → 0% |
+
+The domicile page's word count falls because two of its callouts now hold bullet lists, which the audit script does not read inside a callout. The page lost no content.
 
 ## 4. Still to do
 
-1. **A full plain-English pass, page by page.** In progress: CRBA done. Next by corrected grade: Delayed I-130 (10.2), Delayed I-130 remedies (9.6), I-130 (8.8), Before you leave (8.7), Interview letter received (8.7). Check each page for sentences over 25 words; about 60 remain over 30 words on the stage, 221(g) and public charge pages alone.
-2. **Move inline `style="font-size:14px"` into classes.** Community-account paragraphs on stage pages carry inline sizes, so the reader sees them smaller than body text. A `.community-note` class would let one rule set them.
+1. **Fact review of the rewrites.** The plain-English pass changed wording only, but the site covers legal process. Read the stage pages once with the facts in mind, starting with CRBA, NVC and the Interview stage.
+2. **Inline styles on non-stage pages.** Stage pages no longer shrink callout text with inline sizes. Other pages (221(g), public charge, Life in the USA) still carry some; moving them into classes would let one rule set them.
 3. **Generate the stage sidebar from one file.** Twelve pages carry two copies each of the same list (sidebar and mobile drawer). `nav.js` already does this for the top nav.
 4. **Rename sub-stages 1A and 1B.** A non-expert reads "1A" as a step everyone takes. "If your I-130 is delayed" and "If your child is already a US citizen" say who the page is for.
 5. **Glossary underlines.** Every abbreviation carries a dotted underline, which reads as a link. Mark the first use on each page only.
