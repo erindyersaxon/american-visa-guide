@@ -458,7 +458,8 @@
 
   .info-card-head {
     font-family:var(--font-ui);
-    font-size: 14px;
+    font-size: 17px;
+    line-height: 1.35;
     font-weight: 700;
     margin-bottom: 8px;
     color: var(--accent);
@@ -736,8 +737,8 @@
     gap: 10px;
     padding: 7px 0;
     border-bottom: 1px solid rgba(90,143,166,0.06);
-    font-size: 14px;
-    color: rgba(30,28,23,0.85);
+    font-size: 16px;
+    color: var(--text-primary);
     overflow-wrap: anywhere; /* long email addresses must not widen the page */
   }
 
@@ -947,7 +948,7 @@
     margin-bottom: 36px;
   }
   .stage-docs ul { margin: 0; padding-left: 18px; }
-  .stage-docs li { font-size: 14px; margin-bottom: 6px; }
+  .stage-docs li { font-size: 16px; margin-bottom: 6px; }
   .stage-docs li:last-child { margin-bottom: 0; }
   .stage-docs a { font-weight: 600; }
 
