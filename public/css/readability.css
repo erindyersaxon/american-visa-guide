@@ -1,0 +1,145 @@
+/*
+   American Visa Guide: readability layer
+   Loaded last on every page, after page styles, so these rules win ties.
+
+   Sources:
+   - GOV.UK Design System, Typography: one sans typeface, 19px body text,
+     lines no longer than about 75 characters.
+     https://design-system.service.gov.uk/styles/type-scale/
+   - GOV.UK Design System, Links and Focus states: underline every link in
+     body text; yellow focus with a black underline.
+     https://design-system.service.gov.uk/styles/links/
+     https://design-system.service.gov.uk/get-started/focus-states/
+   - WCAG 2.2, 1.4.1 Use of Color and 1.4.12 Text Spacing.
+   - USWDS Typography: Public Sans, measure of 45 to 90 characters.
+     https://designsystem.digital.gov/components/typography/
+ */
+
+:root {
+  /* One sans family for headings and body, as GOV.UK and USWDS do.
+     The Georgia wordmark in the site header keeps its own font (nav.css). */
+  --font-display: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display-calc: var(--font-display);
+
+  /* Smallest text tokens raised to 13-14px */
+  --size-xs: 0.8125rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+
+  --focus-yellow: #ffdd00;
+  --focus-ink: #0b0c0c;
+}
+
+/* Body text: 17px on phones, 18px from tablet up */
+body {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+@media (min-width: 641px) {
+  body { font-size: 18px; }
+}
+
+/* Headings: bold sans, normal tracking (the tight tracking suited Georgia) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: normal;
+}
+
+/* Keep running text to a readable line length.
+   Low specificity, so any component that sets its own width still wins. */
+main p,
+main li,
+main dd,
+main blockquote {
+  max-width: 72ch;
+}
+
+/* Underline links in content so they do not rely on colour alone */
+main a:not([class]),
+main a.inline-link {
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, 0.0625rem);
+  text-underline-offset: 0.15em;
+}
+
+main a:not([class]):hover,
+main a.inline-link:hover {
+  text-decoration-thickness: max(3px, 0.1875rem);
+}
+
+/* GOV.UK focus state: yellow fill, black underline, black text */
+a:focus-visible {
+  outline: 3px solid transparent;
+  color: var(--focus-ink) !important;
+  background-color: var(--focus-yellow);
+  box-shadow: 0 -2px var(--focus-yellow), 0 4px var(--focus-ink);
+  text-decoration: none;
+}
+
+a:focus-visible * {
+  color: var(--focus-ink) !important;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--focus-yellow);
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px var(--focus-ink);
+}
+
+/* Breadcrumbs: one pattern on every page below the top level.
+   Home › Section › Page, as on GOV.UK. */
+.avg-crumbs {
+  margin: 0 0 12px;
+  font-family: var(--font-body, 'Public Sans', system-ui, sans-serif);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.avg-crumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin: 0;
+  padding: 0;
+}
+
+.avg-crumbs li {
+  margin: 0;
+  max-width: none;
+  color: var(--color-text-muted, #6a6560);
+}
+
+.avg-crumbs li + li::before {
+  content: '\203A';
+  margin-right: 6px;
+}
+
+.avg-crumbs a {
+  color: var(--color-text, #1e1c17);
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, 0.0625rem);
+  text-underline-offset: 0.15em;
+}
+
+/* "Part of" line: the guide stage a tool or child page belongs to */
+.avg-partof {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-muted, #6a6560);
+}
+
+.avg-partof a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+@media print {
+  .avg-crumbs, .avg-partof { display: none; }
+}

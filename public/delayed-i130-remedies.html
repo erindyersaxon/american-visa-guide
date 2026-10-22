@@ -58,7 +58,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Nav + footer styles live in /css/nav.css (shared component) */
+    /* Nav + footer styles live in /css/nav.css?v=20261022 (shared component) */
 
     /* LAYOUT */
     .page-wrap {
@@ -67,19 +67,11 @@
       padding: 2.25rem 1.5rem 5rem;
     }
 
-    .breadcrumb {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
-    .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
 
     /* HERO */
     .eyebrow {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--accent);
       margin-bottom: 0.6rem;
@@ -156,13 +148,13 @@
       color: #fff;
       font-family: var(--font-ui);
       font-weight: 700;
-      font-size: 0.68rem;
+      font-size: 0.875rem;
       padding: 0.2rem 0.55rem;
       border-radius: 5px;
       margin-top: 0.18rem;
       white-space: nowrap;
     }
-    .tl-text { font-size: 0.92rem; }
+    .tl-text { font-size: 1rem; }
 
     /* TABLE */
     .table-wrap { overflow-x: auto; margin: 1.1rem 0 1.4rem; border-radius: 8px; border: 1px solid var(--line); }
@@ -174,7 +166,7 @@
       font-family: var(--font-ui);
       font-weight: 600;
       color: #fff;
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       white-space: nowrap;
     }
     td {
@@ -219,7 +211,7 @@
     }
     .remedy-step {
       font-family: var(--font-ui);
-      font-size: 0.68rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: #fff;
       background: var(--accent);
@@ -235,7 +227,7 @@
     }
     .remedy-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-left: auto; }
     .badge {
-      font-size: 0.69rem;
+      font-size: 0.875rem;
       font-weight: 600;
       padding: 0.18rem 0.55rem;
       border-radius: 999px;
@@ -292,7 +284,7 @@
       display: block;
       font-family: var(--font-ui);
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       color: var(--ink);
       margin-bottom: 0.3rem;
     }
@@ -302,7 +294,7 @@
     .checklist li {
       padding: 0.28rem 0 0.28rem 1.55rem;
       position: relative;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     .checklist li::before {
       content: "✓";
@@ -320,7 +312,7 @@
       border-radius: 7px;
       padding: 2.4rem 1.1rem 1.1rem;
       font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
-      font-size: 0.8rem;
+      font-size: 0.875rem;
       line-height: 1.62;
       color: var(--code-text);
       white-space: pre-wrap;
@@ -335,7 +327,7 @@
       border: none;
       border-radius: 5px;
       padding: 0.25rem 0.65rem;
-      font-size: 0.7rem;
+      font-size: 0.875rem;
       font-family: var(--font-ui);
       font-weight: 600;
       cursor: pointer;
@@ -352,7 +344,7 @@
     }
     .sources h2 { margin-top: 0; }
     .sources ol {
-      font-size: 0.81rem;
+      font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.68;
     }
@@ -361,7 +353,7 @@
     .sources a:hover { color: var(--accent-dark); }
     .sources > summary { cursor: pointer; }
     .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
-    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources > summary .sources-hint { font-size: 0.875rem; color: var(--muted); margin-left: 0.4rem; }
     .sources[open] > summary .sources-hint { display: none; }
     .sources > summary + * { margin-top: 0.8rem; }
 
@@ -372,20 +364,18 @@
       .remedy-toggle-inner { gap: 0.5rem; }
     }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261016" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20261022">
+  <script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<div class="page-wrap">
+<main class="page-wrap" id="main-content">
 
-  <div class="breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/guide.html">Guide</a><span>/</span>Delayed I-130 remedies
-  </div>
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guide">Guide</a></li><li><a href="/guide/delayed-i130">If your I-130 is delayed</a></li><li aria-current="page">Delayed I-130 remedies</li></ol></nav>
 
-  <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;">← Part of <a href="/guide/delayed-i130" style="color:#3e7188;text-decoration:none;">Stage 1A: Delayed I-130</a></p>
   <p class="eyebrow">When your case stalls</p>
 
   <h1>Significantly delayed I-130 petitions: <span>remedies and escalation</span></h1>
@@ -399,9 +389,9 @@
   <!-- TIMELINE -->
   <h2>Timeline overview</h2>
 
-  <p>There is no month count in the law. Courts assess delay case by case using the six <a href="https://law.justia.com/cases/federal/appellate-courts/F2/750/70/389443/">TRAC factors</a>, and among the first things they look at is whether the agency is working a rational queue and whether Congress set a deadline. The markers below reflect common community practice for immediate-relative I-130s (IR/CR1), which carry no visa quota and are not subject to priority date cutoffs.</p>
+  <p>There is no month count in the law. Courts judge delay case by case, using six tests called the <a href="https://law.justia.com/cases/federal/appellate-courts/F2/750/70/389443/">TRAC factors</a>. Two of the first questions: is the agency working through a sensible queue, and did Congress set a deadline? The markers below reflect common community practice for immediate-relative I-130s (IR/CR1), which carry no visa quota and are not subject to priority date cutoffs.</p>
 
-  <p>A USCIS case inquiry is the foundation: submit it once your case inquiry date has passed, regardless of total pending time. A congressional inquiry is a separate track: your two Senators and House Representative can ask about a case that is outside normal processing time. In practice, most offices want to see evidence of prior USCIS contact before engaging, so filing your case inquiry first puts you in a stronger position. A White House contact request is an informal message with no formal process behind it; it can run alongside a congressional inquiry but should not be counted on. Treat these as parallel options, not rungs on the escalation ladder below.</p>
+  <p>A USCIS case inquiry is the foundation: submit it once your case inquiry date has passed, regardless of total pending time. A congressional inquiry is a separate track: your two Senators and House Representative can ask about a case that is outside normal processing time. In practice, most offices want proof you have already contacted USCIS before they act, so file your case inquiry first. A White House contact request is an informal message with no formal process behind it. You can send one alongside a congressional inquiry, but do not count on it. Treat these as parallel options, not rungs on the escalation ladder below.</p>
 
   <div class="timeline">
     <div class="tl-item">
@@ -418,18 +408,18 @@
     </div>
     <div class="tl-item">
       <span class="tl-pill">30 days after the demand letter</span>
-      <span class="tl-text">If USCIS has not decided 30 days after it receives your demand letter, file a writ of mandamus: the strongest remedy and the only one that can compel adjudication. It compels a decision, not approval. The longer the delay, the stronger the TRAC analysis.</span>
+      <span class="tl-text">If USCIS has not decided 30 days after it receives your demand letter, file a writ of mandamus. It is the strongest remedy, and the only one that can force a decision. It compels a decision, not approval. The longer the delay, the stronger the TRAC analysis.</span>
     </div>
   </div>
 
   <div class="callout callout-info">
     <span class="callout-title">Why 12 months is considered early</span>
-    Congress set no adjudication deadline for the I-130 (the 180-day goal at <a href="https://www.law.cornell.edu/uscode/text/8/1571">8 U.S.C. &sect;&nbsp;1571(b)</a> is policy, and courts dispute whether it is enforceable). So while your case sits inside the posted USCIS estimate, the government's answer writes itself: the queue is moving in order and you are asking to cut the line. You are free to file earlier than these markers, but community experience is that a demand letter at 15 to 18 months, followed by a writ if USCIS has not decided 30 days after receiving it, gives each its best chance of success. <strong>Since the February 2026 stall these markers have shifted underneath everyone.</strong> The front of the line has not moved past priority dates of around 25 February 2025, so cases at the line are already 19+ months pending, and the posted USCIS estimate for IR consular cases has climbed to roughly 17 to 18 months and keeps rising. The upside is that a frozen queue is harder to describe as moving in rational order, which is the first TRAC factor; how much weight a court gives that is untested, so raise it with an AILA attorney rather than assuming it.
+    Congress set no adjudication deadline for the I-130 (the 180-day goal at <a href="https://www.law.cornell.edu/uscode/text/8/1571">8 U.S.C. &sect;&nbsp;1571(b)</a> is policy, and courts dispute whether it is enforceable). So while your case is inside the posted USCIS estimate, the government has an easy answer: the queue is moving in order, and you are asking to jump it. You can file earlier than these markers. In community experience, though, each step has its best chance with a demand letter at 15 to 18 months, then a writ if USCIS has not decided 30 days after receiving the letter. <strong>Since the February 2026 stall these markers have shifted underneath everyone.</strong> The front of the line has not moved past priority dates of around 25 February 2025, so cases at the line have already waited 19+ months. The posted USCIS estimate for IR consular cases has climbed to about 17 to 18 months and keeps rising. The upside: a frozen queue is harder to describe as moving in a sensible order, which is the first TRAC factor. Nobody has tested how much weight a court gives that, so raise it with an AILA attorney rather than assume it.
   </div>
 
   <div class="callout callout-warn">
     <span class="callout-title">Why immediate relatives have a stronger argument</span>
-    USCIS publishes a single I-130 processing time that bundles immediate relatives (IR/CR1, no quota) with preference categories (F1, F2A, F3, F4) that carry years of visa backlog. That combined figure overstates the reasonable time for an IR/CR1 petition. Make this argument explicitly when claiming your delay is unreasonable.
+    USCIS publishes one I-130 processing time. It lumps immediate relatives (IR/CR1, no quota) in with preference categories (F1, F2A, F3, F4) that carry years of visa backlog. That combined figure overstates the reasonable time for an IR/CR1 petition. Make this argument explicitly when claiming your delay is unreasonable.
   </div>
 
   <!-- GLANCE TABLE -->
@@ -510,13 +500,13 @@
 
       <h3>Find your case inquiry date first</h3>
 
-      <p>Use the <a href="https://egov.uscis.gov/processing-times/">USCIS processing times tool</a>, select Form I-130 and your service center, then look under "When can I ask about my case?" Do not submit before that date; the system will reject the request. Being outside the posted time does not, by itself, qualify you for an expedite.</p>
+      <p>Use the <a href="https://egov.uscis.gov/processing-times/">USCIS processing times tool</a>, choose Form I-130 and your service center, and look under "When can I ask about my case?" Do not submit before that date, because the system rejects early requests. Being outside the posted time does not, by itself, qualify you for an expedite.</p>
 
       <h3>Use one channel only</h3>
 
       <div class="callout callout-alert">
         <span class="callout-title">Do not submit through multiple channels at once</span>
-        Opening the same inquiry through several channels simultaneously can cause each request to be auto-closed as a duplicate, or none to be worked. Submit through one channel, then wait for the response window before trying another.
+        If you open the same inquiry through several channels at once, USCIS may close each one as a duplicate, or work none of them. Submit through one channel, then wait for the response window before trying another.
       </div>
 
       <p><strong>The petitioner should make the inquiry.</strong> By phone or chat, USCIS will discuss an I-130 only with the petitioner, or with the attorney named on a Form G-28 filed for the case. A beneficiary who calls will be told the case exists and nothing more.</p>
@@ -527,12 +517,12 @@
         <li><strong>e-Request (recommended).</strong> At <a href="https://egov.uscis.gov/">egov.uscis.gov</a>, select e-Request. The system validates your case inquiry date before accepting a processing-delay submission and will reject it if you are still inside the published window. Keep the confirmation number.</li>
         <li><strong>Secure message in your USCIS online account.</strong> Log in, open your case, and send a secure message. Cases filed on paper before roughly 2023 often cannot be linked to a myUSCIS account. If your case does not appear, use e-Request instead.</li>
         <li><strong>Contact Center: 1-800-375-5283.</strong> The first agent (Tier 1) can typically only read back what is on the public status page. To go further, ask the agent to escalate to a Tier 2 officer. This is a callback, not a live transfer: the agent opens a service item and an officer phones you back, often weeks later. Tier 2 can view internal case notes, open a service request, and take limited follow-up action. You are eligible for Tier 2 only once your case inquiry date has passed. Record the call date, the agent ID if given, and the 8-digit service item number. A genuine officer calling back can quote that number, so ask for it before confirming any personal details.</li>
-        <li><strong>Ask Emma is a route to a live agent, not an inquiry tool.</strong> The USCIS virtual assistant gives general information and cannot pull case-specific data or file an inquiry itself. Ask it for a live agent to reach the same Tier 1 staff as the phone line, who can open a service item and escalate to Tier 2 on the same terms.</li>
+        <li><strong>Ask Emma is a route to a live agent, not an inquiry tool.</strong> The USCIS virtual assistant gives general information and cannot pull case-specific data or file an inquiry itself. Ask it for a live agent. You reach the same Tier 1 staff as on the phone line, who can open a service item and pass it to Tier 2 on the same terms.</li>
       </ul>
 
       <h3>What to expect</h3>
 
-      <p>USCIS typically responds within 30 to 60 days. The response is most often a status echo confirming the case is pending and under review, with no specific timeline. That is the normal outcome, not a sign the inquiry failed. Keep the response: it is the record a congressional office will reference, and it starts the 60-day clock the Ombudsman counts from if that office resumes.</p>
+      <p>USCIS typically responds within 30 to 60 days. The response is most often a status echo confirming the case is pending and under review, with no specific timeline. That is the normal outcome, not a sign the inquiry failed. Keep the response. A congressional office will refer to it, and it starts the 60-day clock the Ombudsman counts from, if that office reopens.</p>
 
     </div>
   </div>
@@ -623,7 +613,7 @@
 
       <div class="callout callout-warn">
         <span class="callout-title">You have three offices. Pick one</span>
-        You are represented by two US Senators and one House Representative. Choose one office to handle the case. Casework offices commonly ask constituents not to open the same inquiry with more than one office, and duplicate inquiries to the agency can be merged or slow each other down, which is the same problem as using several USCIS channels at once. If the first office has not acted within about eight weeks, it is reasonable to try another. Find all three at <a href="https://www.congress.gov/members/find-your-member">congress.gov/members/find-your-member</a>.
+        You are represented by two US Senators and one House Representative. Choose one office to handle the case. Casework offices often ask you not to open the same inquiry with more than one office. The agency may merge duplicate inquiries, or they may slow each other down: the same problem as using several USCIS channels at once. If the first office has not acted within about eight weeks, it is reasonable to try another. Find all three at <a href="https://www.congress.gov/members/find-your-member">congress.gov/members/find-your-member</a>.
       </div>
 
       <div class="callout callout-warn">
@@ -764,7 +754,7 @@ I am happy to provide supporting documentation. Thank you.</div>
     </h2>
     <div class="remedy-body" id="body-4" hidden>
 
-      <p>The White House contact portal is a general public comment form, not a casework channel or a legal remedy: there is no published process for routing individual cases to USCIS, and no response is guaranteed. If you use it, do so alongside a congressional inquiry, not instead of one. Response times are longer and success rates lower than congressional casework. The message field is capped near 4,000 characters and accepts no attachments. Find the current form at <a href="https://www.whitehouse.gov/">whitehouse.gov</a> under Contact.</p>
+      <p>The White House contact portal is a general comment form, not a casework channel or a legal remedy. No published process sends individual cases to USCIS, and nobody promises a reply. If you use it, do so alongside a congressional inquiry, not instead of one. Response times are longer and success rates lower than congressional casework. The message field is capped near 4,000 characters and accepts no attachments. Find the current form at <a href="https://www.whitehouse.gov/">whitehouse.gov</a> under Contact.</p>
 
       <h3>Form fields: what to enter</h3>
       <div class="table-wrap">
@@ -829,7 +819,7 @@ I respectfully request the White House's assistance in encouraging USCIS to adju
     </h2>
     <div class="remedy-body" id="body-5" hidden>
 
-      <p>A demand letter is a formal pre-litigation notice to USCIS. It does not invoke a statute of its own. Its purpose is to put USCIS on notice that you intend to seek judicial relief if the agency does not adjudicate your petition within the stated timeframe. It is a step before court, not a court action.</p>
+      <p>A demand letter is a formal pre-litigation notice to USCIS. It does not invoke a statute of its own. It warns USCIS that you will go to court if the agency does not decide your petition within the stated time. It is a step before court, not a court action.</p>
 
       <div class="callout callout-info">
         <span class="callout-title">On the cited statutes</span>
@@ -838,7 +828,7 @@ I respectfully request the White House's assistance in encouraging USCIS to adju
 
       <h3>Key points</h3>
       <ul>
-        <li><strong>Timing:</strong> There is no month count in the law, and you are free to send one earlier, but community experience puts the best chance of success at 15 to 18 months. 12 months is early. Longer only strengthens the record.</li>
+        <li><strong>Timing:</strong> The law sets no number of months, and you can send one earlier. In community experience, the best chance of success is at 15 to 18 months. 12 months is early. Longer only strengthens the record.</li>
         <li><strong>Effect:</strong> USCIS often adjudicates within 30 to 60 days of receiving a demand letter, though it can also slow-roll the response.</li>
         <li><strong>Representation:</strong> You can send it yourself. A letter on attorney letterhead adds weight.</li>
         <li><strong>Courtesy copy:</strong> Many filers email a copy to <a href="https://www.uscis.gov/laws-and-policy/uscis-service-of-process-notice">uscis.serviceofprocess@uscis.dhs.gov</a> and retain the acknowledgment.</li>
@@ -932,13 +922,13 @@ Sincerely,
 
       <h3>Statutory basis</h3>
 
-      <p>A delay suit is filed in federal district court under the <a href="https://www.law.cornell.edu/uscode/text/28/1361">Mandamus Act, 28 U.S.C. &sect;&nbsp;1361</a>, with <a href="https://www.law.cornell.edu/uscode/text/28/1331">federal-question jurisdiction, 28 U.S.C. &sect;&nbsp;1331</a>, and the <a href="https://www.law.cornell.edu/uscode/text/5/706">APA, 5 U.S.C. &sect;&nbsp;706(1)</a>. Congress also stated at <a href="https://www.law.cornell.edu/uscode/text/8/1571">8 U.S.C. &sect;&nbsp;1571(b)</a> that benefit applications should be processed within 180 days; courts are split on whether this creates an enforceable duty or is aspirational policy, but it is routinely included in delay complaints as supporting context.</p>
+      <p>A delay suit is filed in federal district court under the <a href="https://www.law.cornell.edu/uscode/text/28/1361">Mandamus Act, 28 U.S.C. &sect;&nbsp;1361</a>, with <a href="https://www.law.cornell.edu/uscode/text/28/1331">federal-question jurisdiction, 28 U.S.C. &sect;&nbsp;1331</a>, and the <a href="https://www.law.cornell.edu/uscode/text/5/706">APA, 5 U.S.C. &sect;&nbsp;706(1)</a>. Congress also stated at <a href="https://www.law.cornell.edu/uscode/text/8/1571">8 U.S.C. &sect;&nbsp;1571(b)</a> that benefit applications should be processed within 180 days; Courts disagree on whether this creates a duty they can enforce or is just a goal. Delay complaints still routinely include it as background.</p>
 
       <h3>How courts assess unreasonable delay</h3>
 
       <p>There is no month count in the law. Most courts apply the six TRAC factors from <em>Telecommunications Research &amp; Action Center v. FCC</em>, <a href="https://law.justia.com/cases/federal/appellate-courts/F2/750/70/389443/">750 F.2d 70 (D.C. Cir. 1984)</a>: whether a rule of reason governs the agency's timetable; whether Congress supplied a deadline; whether health or welfare are at stake; the effect of expediting on other agency priorities; the nature of the interests prejudiced; and whether bad faith is alleged (it need not be). No single factor is determinative. For a plain-language walkthrough of all six, see the Mandamus Lawyers explainer, <a href="https://mandamuslawyers.com/trac-factors-federal-courts-unreasonable-delay/">The TRAC Factors: How Federal Courts Decide If Your Delay Is Unreasonable</a>.</p>
 
-      <p>The first two factors are where I-130 delay suits are usually won or lost: is the agency working a rational queue, and did Congress set a deadline? Congress set none for the I-130 (courts dispute whether the 180-day goal at <a href="https://www.law.cornell.edu/uscode/text/8/1571">8 U.S.C. &sect;&nbsp;1571(b)</a> is enforceable). So while your case is inside the posted estimate, the government argues the line is moving in order and you are asking to cut it. Judges do not treat USCIS estimates as binding: being under them just leaves you with nothing to argue. That is why filing at 12 months pending is considered early. Community practice is to file 30 days after USCIS receives an unanswered demand letter sent at 15 to 18 months, and the IR/CR1 argument (that the published processing time is inflated by preference categories) further strengthens the claim.</p>
+      <p>I-130 delay suits are usually won or lost on the first two factors: is the agency working through a sensible queue, and did Congress set a deadline? Congress set none for the I-130 (courts dispute whether the 180-day goal at <a href="https://www.law.cornell.edu/uscode/text/8/1571">8 U.S.C. &sect;&nbsp;1571(b)</a> is enforceable). So while your case is inside the posted estimate, the government argues the line is moving in order and you are asking to jump it. Judges do not treat USCIS estimates as binding: being under them just leaves you with nothing to argue. That is why filing at 12 months pending is considered early. Members usually file 30 days after USCIS receives an unanswered demand letter sent at 15 to 18 months. The IR/CR1 argument, that preference categories inflate the published processing time, makes the claim stronger.</p>
 
       <h3>Requirements</h3>
 
@@ -954,7 +944,7 @@ Sincerely,
       <ul>
         <li><strong>Dismissal.</strong> If the court finds the delay is not yet unreasonable under the TRAC factors, the case is dismissed. You have spent $405 plus attorney fees with no movement on your case.</li>
         <li><strong>Adjudication outcome.</strong> The court compels USCIS to act, not to approve. Once USCIS takes any action, the mandamus suit becomes moot and the court's jurisdiction ends regardless of the outcome.</li>
-        <li><strong>Surfacing hidden holds.</strong> Litigation requires USCIS to file an answer and may expose the reason for delay, including security holds, name-check flags, or CARRP (Controlled Application Review and Resolution Program) designations that were causing quiet inaction. Forced adjudication of a flagged case carries meaningfully higher risk of an adverse outcome.</li>
+        <li><strong>Surfacing hidden holds.</strong> A lawsuit makes USCIS file an answer, and may reveal why the case stalled: security holds, name-check flags, or CARRP (Controlled Application Review and Resolution Program) designations that kept it quietly on hold. Forced adjudication of a flagged case carries meaningfully higher risk of an adverse outcome.</li>
         <li><strong>Attorney fees exposure.</strong> Under the Equal Access to Justice Act (<a href="https://www.law.cornell.edu/uscode/text/28/2412">28 U.S.C. &sect;&nbsp;2412(d)</a>), if you prevail you can apply for attorney fees from the government, unless the government's position was substantially justified. The Act works one way only: it does not let the government recover its attorney fees from you if you lose. A losing plaintiff can, however, be ordered to pay the government's ordinary court costs (such as filing and copying costs) under 28 U.S.C. &sect;&nbsp;2412(a) and Federal Rule of Civil Procedure 54(d). Discuss both with an attorney before filing.</li>
       </ul>
 
@@ -976,7 +966,7 @@ Sincerely,
 
       <div class="callout callout-warn">
         <span class="callout-title">A 221(g) refusal is usually the end of the road for mandamus</span>
-        Suing over a case still waiting at NVC for an interview is different from suing over a case that has been refused at the embassy. Courts have held that a refusal under INA 221(g) is itself a final decision, even when the case then sits in administrative processing, so there is no further duty for a court to compel: see <em>Karimova v. Abate</em>, No. 23-5178 (D.C. Cir. July 24, 2024) (unpublished), which many district courts now follow. Separately, the doctrine of consular nonreviewability generally bars courts from reviewing a consular officer's visa decision at all, a doctrine the Supreme Court reaffirmed in <em>Department of State v. Mu&ntilde;oz</em>, 602 U.S. 899 (2024). If your case has been refused, even temporarily, treat mandamus as a long shot and get an attorney's view first.
+        Suing over a case still waiting at NVC for an interview is different from suing over a case the embassy has refused. Courts have held that a refusal under INA 221(g) is itself a final decision, even when the case then sits in administrative processing, so there is no further duty for a court to compel: see <em>Karimova v. Abate</em>, No. 23-5178 (D.C. Cir. July 24, 2024) (unpublished), which many district courts now follow. Separately, the doctrine of consular nonreviewability generally bars courts from reviewing a consular officer's visa decision at all, a doctrine the Supreme Court reaffirmed in <em>Department of State v. Mu&ntilde;oz</em>, 602 U.S. 899 (2024). If your case has been refused, even temporarily, treat mandamus as a long shot and get an attorney's view first.
       </div>
 
       <h3>Pre-filing checklist</h3>
@@ -1011,7 +1001,7 @@ Sincerely,
   <!-- SOURCES -->
   <details class="sources">
     <summary><h2>Sources</h2><span class="sources-hint">(13, tap to show)</span></summary>
-    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">Primary government, statutory, and judicial sources. Verify current officials, fees, and figures before relying on them.</p>
+    <p style="color:var(--muted);margin-bottom:0.75rem;">Primary government, statutory, and judicial sources. Verify current officials, fees, and figures before relying on them.</p>
     <ol>
       <li>USCIS, <a href="https://www.uscis.gov/policy-manual/volume-1-part-a-chapter-5">Policy Manual, Volume 1, Part A, Chapter 5: Expedite Requests</a> (qualifying criteria; pregnancy is not listed).</li>
       <li>USCIS, <a href="https://www.uscis.gov/forms/filing-guidance/expedite-requests">Expedite Requests</a> (criteria and how to request).</li>
@@ -1029,9 +1019,9 @@ Sincerely,
     </ol>
   </details>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 27 September 2026.</p>
+  <p style="margin-top:1.75rem;font-size:0.875rem;color:var(--muted);">Reviewed 27 September 2026.</p>
 
-</div>
+</main>
 
 <div id="footer-placeholder"></div>
 

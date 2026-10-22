@@ -10,14 +10,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/article.css?v=20261016">
-  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261016" defer></script>
+  <link rel="stylesheet" href="/css/article.css?v=20261022">
+  <link rel="stylesheet" href="/css/nav.css?v=20261022">
+  <script src="/js/nav.js?v=20261022" defer></script>
   <style>
     .sheet { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.3rem 1.4rem; }
     .sheet h2 { font-size: 1.05rem; margin: 1.1rem 0 0.4rem; padding-bottom: 0.25rem; }
     .sheet h2:first-child { margin-top: 0; }
-    .sheet .checklist li { font-size: 0.86rem; padding-top: 0.15rem; padding-bottom: 0.15rem; }
+    .sheet .checklist li { font-size: 0.875rem; padding-top: 0.15rem; padding-bottom: 0.15rem; }
     .sheet .checklist li::before { content: "\2610"; font-weight: 400; }
     .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.5rem; }
     @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
@@ -27,10 +27,11 @@
       body { font-size: 10.5pt; line-height: 1.4; }
       .sheet { border: none; padding: 0; }
       .sheet h2 { margin-top: 0.6rem; }
-      .intro, .breadcrumb, .eyebrow, .lead, .return { display: none !important; }
+      .intro, .avg-crumbs, .eyebrow, .lead, .return { display: none !important; }
       h1 { font-size: 16pt; margin-bottom: 0.3rem; }
     }
   </style>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
 
@@ -38,9 +39,7 @@
 
 <main class="page-wrap" id="main">
 
-  <div class="breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/interview">Your interview</a><span>/</span>Interview-day sheet
-  </div>
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li aria-current="page">Interview-day sheet</li></ol></nav>
 
   <p class="eyebrow">Printable &middot; US Embassy London</p>
   <h1>Interview-day sheet</h1>
@@ -56,9 +55,9 @@
     <div class="cols">
       <div>
         <h2>Where</h2>
-        <p style="font-size:0.86rem;"><strong>South Pavilion, off Ponton Road</strong>: not the main Nine Elms Lane entrance.<br>US Embassy, 33 Nine Elms Lane, London SW11 7US.<br>Stations: Vauxhall or Nine Elms.<br>Arrive 30 to 45 minutes early. No laptops or large bags.</p>
-        <p style="font-size:0.86rem;">At the entrance, go to the front and say: <strong>&ldquo;I am here for an immigrant visa interview.&rdquo;</strong> If staff send you to the queue, join it straight away.</p>
-        <p style="font-size:0.86rem;">Embassy visa inquiries: +44 20 3608 6998</p>
+        <p style="font-size:0.875rem;"><strong>South Pavilion, off Ponton Road</strong>: not the main Nine Elms Lane entrance.<br>US Embassy, 33 Nine Elms Lane, London SW11 7US.<br>Stations: Vauxhall or Nine Elms.<br>Arrive 30 to 45 minutes early. No laptops or large bags.</p>
+        <p style="font-size:0.875rem;">At the entrance, go to the front and say: <strong>&ldquo;I am here for an immigrant visa interview.&rdquo;</strong> If staff send you to the queue, join it straight away.</p>
+        <p style="font-size:0.875rem;">Embassy visa inquiries: +44 20 3608 6998</p>
 
         <h2>The night before</h2>
         <ul class="checklist">
@@ -103,7 +102,7 @@
       <li>Passport kept and told they intend to approve: good news. Courier return is typically 2 to 3 working days for pick-up, 5 to 7 for delivery</li>
       <li>Handed a green 221(g) sheet: read only the ticked boxes, note the date on it, and wait for the follow-up email</li>
     </ul>
-    <p style="font-size:0.78rem;color:var(--muted);margin-top:0.8rem;">americanvisaguide.com/interview &middot; Reviewed 30 September 2026 &middot; Not legal advice</p>
+    <p style="font-size:0.875rem;color:var(--muted);margin-top:0.8rem;">americanvisaguide.com/interview &middot; Reviewed 30 September 2026 &middot; Not legal advice</p>
   </div>
 
   <div class="return" style="margin-top:2rem;">

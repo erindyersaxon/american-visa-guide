@@ -93,7 +93,7 @@
     font-weight: 600;
     color: var(--text-primary);
     border-bottom: 2px solid var(--border);
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .doc-table td {
@@ -107,7 +107,7 @@
   .stage-col {
     width: 60px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .stage-badge {
@@ -117,7 +117,7 @@
     border-radius: 50%;
     text-align: center;
     line-height: 26px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     color: white;
   }
@@ -134,16 +134,16 @@
     .doc-table tr { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px 8px; padding: 12px 0; border-bottom: 1px solid rgba(62,113,136,0.18); }
     .doc-table td { display: block; padding: 0; border-bottom: none; overflow-wrap: anywhere; }
     .doc-table td:first-child, .doc-table td:last-child { grid-column: 1 / -1; }
-    .doc-table td:last-child { font-size: 13px; margin-top: 4px; }
+    .doc-table td:last-child { font-size: 15px; margin-top: 4px; }
     .doc-table .stage-col { width: auto; display: flex; flex-direction: column; align-items: center; gap: 2px; }
     .doc-table td:nth-child(2)::before { content: "I-130"; }
     .doc-table td:nth-child(3)::before { content: "NVC"; }
     .doc-table td:nth-child(4)::before { content: "Medical"; }
     .doc-table td:nth-child(5)::before { content: "Interview"; }
-    .doc-table .stage-col::before { font-size: 11px; font-weight: 600; color: var(--text-secondary); }
+    .doc-table .stage-col::before { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
   }
 
-  .doc-on { display: block; margin-top: 4px; font-size: 12px; color: var(--text-secondary); }
+  .doc-on { display: block; margin-top: 4px; font-size: 14px; color: var(--text-secondary); }
   .doc-on a { color: inherit; }
   .legend {
     display: flex;
@@ -153,7 +153,7 @@
     background: rgba(62,113,136,0.05);
     border-radius: 8px;
     flex-wrap: wrap;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .legend-item {
@@ -168,12 +168,12 @@
     border: 1px solid #ffe0b2;
     border-radius: 8px;
     margin: 32px 0;
-    font-size: 13px;
+    font-size: 14px;
     color: rgba(30,28,23,0.85);
   }
 
   .section-note {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-secondary);
     margin-bottom: 12px;
     font-style: italic;
@@ -216,8 +216,9 @@
     body::before { display: none; }
   }
 </style>
-<link rel="stylesheet" href="/css/nav.css?v=20260930n">
-<script src="/js/nav.js?v=20261016" defer></script>
+<link rel="stylesheet" href="/css/nav.css?v=20261022">
+<script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
   <nav role="navigation" aria-label="Main navigation"></nav>
@@ -225,7 +226,7 @@
   <main>
     <div class="wrap">
       <div class="page-header">
-        <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;"><a href="/guide" style="color:#3e7188;text-decoration:none;">← Part of the American Visa Guide</a></p>
+        <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/checklists">Checklists and tools</a></li><li aria-current="page">Master document checklist</li></ol></nav>
         <h1>Master Document Checklist</h1>
         <p class="page-subtitle">Every document the guide asks for, across the I-130, NVC, medical and interview stages, grouped by type. The stage checklists take their document items from this list.</p>
       </div>
@@ -250,7 +251,7 @@
         <ul>
           <li><a href="/checklist-i130">I-130 Pre-Submission Checklist</a>: case classification, evidence quality, RFE prevention</li>
           <li><a href="/checklist-nvc">NVC Submission Checklist</a>: document categories and form completion</li>
-          <li><a href="/checklist-medical">Medical Exam Checklist</a>: what to bring to VisaMedicals</li>
+          <li><a href="/checklist-medical">Medical exam Checklist</a>: what to bring to VisaMedicals</li>
           <li><a href="/checklist-interview">Interview Day Checklist</a>: what to bring to your interview</li>
           <li><a href="/checklist-binder">Interview Binder Checklist</a>: how to organize your documents for the medical and interview</li>
           <li><a href="/guide">Main Guide</a>: full step-by-step process walkthrough</li>

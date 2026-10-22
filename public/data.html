@@ -25,8 +25,8 @@
   <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 
 
-  <link rel="stylesheet" href="/css/main.css?v=20260618">
-  <link rel="stylesheet" href="/css/components.css?v=20260618">
+  <link rel="stylesheet" href="/css/main.css?v=20261022">
+  <link rel="stylesheet" href="/css/components.css?v=20261022">
 
   <style>
     /* Accessibility: Skip link */
@@ -398,13 +398,13 @@
     .od-svg text { font-family: inherit; }
     .od-grid { stroke: var(--color-border); stroke-width: 1; }
     .od-baseline { stroke: var(--color-border-strong); stroke-width: 1; }
-    .od-tick { font-size: 11px; fill: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+    .od-tick { font-size: 13px; fill: var(--color-text-muted); font-variant-numeric: tabular-nums; }
     .od-tick--year { font-weight: 600; fill: var(--color-text-secondary); }
-    .od-value { font-size: 12px; font-weight: 600; fill: var(--color-text); }
+    .od-value { font-size: 14px; font-weight: 600; fill: var(--color-text); }
     .od-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
     .od-dot { stroke: var(--color-surface); stroke-width: 2; }
     .od-annot { stroke: var(--color-text-muted); stroke-width: 1; }
-    .od-annot-label { font-size: 11px; fill: var(--color-text-secondary); }
+    .od-annot-label { font-size: 13px; fill: var(--color-text-secondary); }
     .od-hitarea { fill: transparent; }
     .od-hit { cursor: default; outline: none; }
     .od-hit:focus-visible .od-hitarea { stroke: var(--color-primary); stroke-width: 2; }
@@ -413,7 +413,7 @@
     .od-legend { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); padding: 0; margin: 0 0 var(--space-2); font-size: var(--text-xs); color: var(--color-text-secondary); }
     .od-legend li { display: flex; align-items: center; gap: 6px; margin: 0; }
     .od-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
-    .od-tip { position: absolute; z-index: 50; display: none; pointer-events: none; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); box-shadow: 0 4px 12px rgba(0,0,0,0.12); padding: 8px 10px; font-size: 12px; color: var(--color-text-secondary); max-width: 240px; }
+    .od-tip { position: absolute; z-index: 50; display: none; pointer-events: none; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); box-shadow: 0 4px 12px rgba(0,0,0,0.12); padding: 8px 10px; font-size: 14px; color: var(--color-text-secondary); max-width: 240px; }
     .od-tip__title { font-weight: 600; color: var(--color-text-muted); margin-bottom: 4px; }
     .od-tip__row { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
     .od-tip__row strong { color: var(--color-text); font-variant-numeric: tabular-nums; }
@@ -423,8 +423,9 @@
     /* Numeric table cells */
     .num { font-variant-numeric: tabular-nums; text-align: right; }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261016" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20261022">
+  <script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
   <!-- Skip to main content link -->
@@ -501,7 +502,7 @@
         </p>
 
         <p class="metrics-note" style="margin-top: var(--space-2);">
-          IL drop figures reflect <strong>Immediate Relative (IR)</strong> visas, based on the volume of data submitted. Family-Sponsored Preference cases follow the same London process but are currently tracking about a month behind IR. This tracker can only count people who submit their information, for the broader official picture, see <a href="#official-data">the national USCIS and State Department figures</a> below, the <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/iv-wait-times.html" target="_blank" rel="noopener noreferrer">NVC immigrant visa scheduling status tool</a>, or read more on the <a href="/guide/waiting">guide page</a>.
+          IL drop figures reflect <strong>Immediate Relative (IR)</strong> visas, based on the volume of data submitted. Family-Sponsored Preference cases follow the same London process but are currently tracking about a month behind IR. This tracker counts only people who send in their information. For the wider official picture, see <a href="#official-data">the national USCIS and State Department figures</a> below, the <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/iv-wait-times.html" target="_blank" rel="noopener noreferrer">NVC immigrant visa scheduling status tool</a>, or read more on the <a href="/guide/waiting">guide page</a>.
         </p>
       </div>
     </section>
@@ -839,16 +840,16 @@
             <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);">When will my interview be?</p>
 
             <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: var(--space-2);">Document Qualified (DQ) date</label>
-            <input type="date" id="dq-date" style="width: 100%; padding: 8px 10px; border: 1px solid var(--color-border); border-radius: 6px; font-size: 14px; margin-bottom: var(--space-4);">
+            <input type="date" id="dq-date" style="width: 100%; padding: 8px 10px; border: 1px solid var(--color-border); border-radius: 6px; font-size:16px; margin-bottom: var(--space-4);">
 
             <button onclick="calculateDQToInterview()" style="width: 100%; padding: 10px; background: var(--color-primary); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; margin-bottom: var(--space-4);">Calculate</button>
 
             <div id="dq-result" style="display: none; padding: var(--space-4); background: rgba(79, 133, 115, 0.08); border-radius: 6px; border-left: 3px solid var(--color-primary);">
               <div style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 6px;">Expected interview</div>
               <div style="font-size: 18px; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-3);" id="dq-interview-date"></div>
-              <div style="font-size: 12px; color: var(--color-text); margin-bottom: 6px;" id="dq-il-estimate"></div>
-              <div style="font-size: 12px; color: var(--color-text-secondary);" id="dq-range"></div>
-              <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 8px;" id="dq-confidence"></div>
+              <div style="color: var(--color-text); margin-bottom: 6px;" id="dq-il-estimate"></div>
+              <div style="color: var(--color-text-secondary);" id="dq-range"></div>
+              <div style="color: var(--color-text-secondary); margin-top: 8px;" id="dq-confidence"></div>
             </div>
           </div>
 
@@ -858,10 +859,10 @@
             <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);">When will I get my passport?</p>
 
             <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: var(--space-2);">Interview date</label>
-            <input type="date" id="interview-date" style="width: 100%; padding: 8px 10px; border: 1px solid var(--color-border); border-radius: 6px; font-size: 14px; margin-bottom: var(--space-4);">
+            <input type="date" id="interview-date" style="width: 100%; padding: 8px 10px; border: 1px solid var(--color-border); border-radius: 6px; font-size:16px; margin-bottom: var(--space-4);">
 
             <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: var(--space-2);">Delivery method</label>
-            <select id="delivery-method" style="width: 100%; padding: 8px 10px; border: 1px solid var(--color-border); border-radius: 6px; font-size: 14px; margin-bottom: var(--space-4);">
+            <select id="delivery-method" style="width: 100%; padding: 8px 10px; border: 1px solid var(--color-border); border-radius: 6px; font-size:16px; margin-bottom: var(--space-4);">
               <option value="">Select method…</option>
               <option value="Pickup">MBE pickup</option>
               <option value="Mail">Home delivery (mail)</option>
@@ -872,8 +873,8 @@
             <div id="passport-result" style="display: none; padding: var(--space-4); background: rgba(79, 133, 115, 0.08); border-radius: 6px; border-left: 3px solid var(--color-primary);">
               <div style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 6px;">Expected passport arrival</div>
               <div style="font-size: 18px; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-3);" id="passport-date"></div>
-              <div style="font-size: 12px; color: var(--color-text-secondary);" id="passport-range"></div>
-              <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 8px;" id="passport-confidence"></div>
+              <div style="color: var(--color-text-secondary);" id="passport-range"></div>
+              <div style="color: var(--color-text-secondary); margin-top: 8px;" id="passport-confidence"></div>
             </div>
           </div>
 
@@ -951,7 +952,7 @@
 
         <details class="od-details">
           <summary>USCIS: I-130 petitions for family preference categories (F1 to F4)</summary>
-          <p class="od-text">Preference cases have annual caps. Their denial rate has run between 28% and 57% in every quarter since October 2023, so a high rate here is not new and does not by itself show a change.</p>
+          <p class="od-text">Preference cases have annual caps. Their denial rate has run between 28% and 57% every quarter since October 2023. A high rate here is not new, and does not by itself show a change.</p>
           <div class="table-wrapper" role="region" aria-labelledby="od-fp-cap" tabindex="0">
             <table class="table table--striped table--compact" id="od-fp-table">
               <caption id="od-fp-cap" class="sr-only">Form I-130 family preference petitions received, approved and denied by USCIS each quarter, October 2023 to June 2026</caption>

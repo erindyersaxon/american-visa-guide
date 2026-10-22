@@ -59,7 +59,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Nav + footer styles live in /css/nav.css (shared component) */
+    /* Nav + footer styles live in /css/nav.css?v=20261022 (shared component) */
 
     /* LAYOUT */
     .page-wrap {
@@ -68,19 +68,11 @@
       padding: 2.25rem 1.5rem 5rem;
     }
 
-    .breadcrumb {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
-    .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
 
     /* HERO */
     .eyebrow {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--accent);
       margin-bottom: 0.6rem;
@@ -158,13 +150,13 @@
     }
     .toc-title {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--muted);
       margin-bottom: 0.6rem;
     }
     .toc ol { margin: 0; padding-left: 1.1rem; columns: 2; column-gap: 1.75rem; }
-    .toc li { font-size: 0.88rem; margin-bottom: 0.3rem; }
+    .toc li { font-size: 1rem; margin-bottom: 0.3rem; }
     @media (max-width: 560px) { .toc ol { columns: 1; } }
 
     /* FIGURE / IMAGES */
@@ -184,7 +176,7 @@
       display: block;
     }
     figcaption {
-      font-size: 0.76rem;
+      font-size: 0.875rem;
       color: var(--muted);
       margin-top: 0.45rem;
       text-align: center;
@@ -200,7 +192,7 @@
       font-family: var(--font-ui);
       font-weight: 600;
       color: #fff;
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       white-space: nowrap;
     }
     td {
@@ -231,7 +223,7 @@
     }
     .stage-pill {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: #fff;
       background: var(--accent);
@@ -283,7 +275,7 @@
       display: block;
       font-family: var(--font-ui);
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       color: var(--ink);
       margin-bottom: 0.3rem;
     }
@@ -310,7 +302,7 @@
     .keydate span {
       display: block;
       margin-top: 0.12rem;
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.5;
     }
@@ -338,7 +330,7 @@
     }
     .voice-who {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--accent-dark);
       padding-top: 0.12rem;
@@ -350,7 +342,7 @@
     }
 
     .provenance {
-      font-size: 0.79rem;
+      font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.6;
       margin-top: 1.1rem;
@@ -361,7 +353,7 @@
     .checklist li {
       padding: 0.28rem 0 0.28rem 1.55rem;
       position: relative;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     .checklist li::before {
       content: "\2713";
@@ -379,7 +371,7 @@
       background: var(--accent);
       color: #fff;
       font-family: var(--font-ui);
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       font-weight: 600;
       padding: 0.5rem 1rem;
       border-radius: 7px;
@@ -395,7 +387,7 @@
     }
     .sources h2 { margin-top: 0; }
     .sources ol {
-      font-size: 0.81rem;
+      font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.68;
     }
@@ -404,7 +396,7 @@
     .sources a:hover { color: var(--accent-dark); }
     .sources > summary { cursor: pointer; }
     .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
-    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources > summary .sources-hint { font-size: 0.875rem; color: var(--muted); margin-left: 0.4rem; }
     .sources[open] > summary .sources-hint { display: none; }
     .sources > summary + * { margin-top: 0.8rem; }
 
@@ -413,18 +405,17 @@
       .page-wrap { padding: 1.5rem 1rem 4rem; }
     }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261016" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20261022">
+  <script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<div class="page-wrap">
+<main class="page-wrap" id="main-content">
 
-  <div class="breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/interview">Your interview</a><span>/</span>Visa pause struck down
-  </div>
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li aria-current="page">Visa pause struck down</li></ol></nav>
 
   <div data-live-notice="page"></div>
 
@@ -456,7 +447,7 @@
 
   <div class="callout callout-good">
     <span class="callout-title">Bottom line</span>
-    The nationality-based immigrant visa ban is <strong>void</strong>. Refusals issued <em>solely</em> because of it have been set aside and sent back to consular officers to be decided again on the merits, for everyone affected, not just the people who sued. It is not an automatic visa, and a refusal that had a separate, genuine ground still stands.
+    The nationality-based immigrant visa ban is <strong>void</strong>. The court set aside refusals made <em>only</em> because of it, and sent them back to consular officers to decide again on the facts. That covers everyone affected, not just the people who sued. It is not an automatic visa, and a refusal that had a separate, genuine ground still stands.
   </div>
 
 
@@ -464,7 +455,7 @@
 
   <p>On 14 January 2026 the State Department announced that, effective 21 January 2026, it would <strong>suspend the issuance of immigrant visas to nationals of 75 countries</strong>, on the theory that immigrants from those countries posed a high risk of becoming a &ldquo;public charge.&rdquo; A cable from Secretary of State Marco Rubio ordered consular officers to refuse those applicants <strong>even where the officer had already determined, individually, that the person was not a public-charge risk and was otherwise eligible for the visa</strong>.</p>
 
-  <p>In practice the policy operated as a categorical ban keyed to the applicant&rsquo;s country of nationality, nearly 40% of the world&rsquo;s countries, regardless of the individual&rsquo;s circumstances.</p>
+  <p>In practice the policy worked as a blanket ban based on nationality, covering nearly 40% of the world’s countries, whatever the person’s circumstances.</p>
 
   <h2 id="decided">What the court decided</h2>
 
@@ -499,9 +490,9 @@
   <p>What the order does:</p>
 
   <ul>
-    <li><strong>Cancels the policy entirely.</strong> The court rejected the government&rsquo;s argument that relief should be limited to the named plaintiffs: vacatur under the APA nullifies an unlawful policy <em>in full</em>, for everyone, not just those who sued.</li>
-    <li><strong>Sets aside refusals based solely on the ban</strong> and remands those cases to consular officers to be re-adjudicated, with the instruction that a refusal may not rest on the policy. The court does not dictate the outcome: only that the ban cannot be the reason.</li>
-    <li><strong>Enters a declaratory judgment</strong> that the policy was unlawful, which makes it harder for the agency to reissue the same ban in a new wrapper.</li>
+    <li><strong>Cancels the policy entirely.</strong> The court rejected the government’s argument that relief should cover only the named plaintiffs: vacatur under the APA nullifies an unlawful policy <em>in full</em>, for everyone, not just those who sued.</li>
+    <li><strong>Sets aside refusals based only on the ban</strong>, and sends those cases back to consular officers to decide again. A refusal may not rest on the policy. The court does not dictate the outcome: only that the ban cannot be the reason.</li>
+    <li><strong>Declares the policy unlawful</strong>, which makes it harder for the agency to reissue the same ban in a new form.</li>
   </ul>
 
   <div class="callout callout-warn">
@@ -511,7 +502,7 @@
 
   <h2 id="since">What has happened since</h2>
 
-  <p>The ruling did not restart anyone's case by itself. The State Department cancelled immigrant visa interviews worldwide for public charge training, the plaintiffs moved to enforce the judgment, and on 10 September the Department rescinded the guidance behind the pause. For each hearing and order in date order, see the <a href="/september-2026-update#timeline">timeline</a>. For where things stand now, see <a href="/september-2026-update">both visa pauses vacated</a>.</p>
+  <p>The ruling did not restart anyone's case by itself. The State Department cancelled immigrant visa interviews worldwide for public charge training. The plaintiffs asked the court to enforce the judgment, and on 10 September the Department withdrew the guidance behind the pause. For each hearing and order in date order, see the <a href="/september-2026-update#timeline">timeline</a>. For where things stand now, see <a href="/september-2026-update">both visa pauses vacated</a>.</p>
 
   <h2 id="london">If you interviewed in London and are not a UK national</h2>
 
@@ -519,9 +510,9 @@
 
   <ul>
     <li>If you are a <strong>British national</strong>, the pause never applied to you. This decision does not change your case.</li>
-    <li>If you interviewed at London on the passport of a <strong>listed country</strong> and were refused, held, or told the visa &ldquo;could not be approved at this time&rdquo; because of the pause, you are squarely within the group this ruling helps.</li>
+    <li>Did you interview at London on the passport of a <strong>listed country</strong>, and get refused, held, or told the visa &ldquo;could not be approved at this time&rdquo; because of the pause? Then this ruling helps you.</li>
     <li><strong>London has started calling pause cases back</strong> for a full interview, and has approved at least one. Expect public charge questions, and check whether anything has changed since your refusal, above all whether the petitioner still lives in the US. See <a href="/reinterview">re-interview after a 221(g)</a>.</li>
-    <li>If you hold <strong>a second, unaffected nationality</strong>, that route was always open. Make sure the unaffected passport is uploaded to CEAC. With the 75-country pause vacated, that pause is no longer a bar. <strong>The separate travel ban may still be.</strong> <a href="https://www.congress.gov/crs-product/IN12631" target="_blank" rel="noopener noreferrer">Proclamation 10998</a>, in force since 1 January 2026, suspends immigrant visas for nationals of 39 countries and removed the old exception for immediate relatives of US citizens. This ruling did not touch it. If your nationality is on that list, the pause ruling does not help you; the proclamation has its own limited exceptions (including, as reported, dual nationals travelling on a passport of a country not on the list), so check them before relying on a second passport.</li>
+    <li>If you hold <strong>a second, unaffected nationality</strong>, that route was always open. Make sure the unaffected passport is uploaded to CEAC. With the 75-country pause vacated, that pause is no longer a bar. <strong>The separate travel ban may still be.</strong> <a href="https://www.congress.gov/crs-product/IN12631" target="_blank" rel="noopener noreferrer">Proclamation 10998</a>, in force since 1 January 2026, suspends immigrant visas for nationals of 39 countries. It removed the old exception for immediate relatives of US citizens. This ruling did not touch it. If your nationality is on that list, the pause ruling does not help you; the proclamation has its own limited exceptions (including, as reported, dual nationals travelling on a passport of a country not on the list), so check them before relying on a second passport.</li>
   </ul>
 
   <h2 id="notmean">What it does not mean</h2>
@@ -537,7 +528,7 @@
 
   <ol>
     <li><strong>Find out exactly why you were refused.</strong> Pull your 221(g) sheet or refusal notice and read the stated ground. If the <em>only</em> reason was the nationality suspension, your case falls within this decision and should be re-processed.</li>
-    <li><strong>Separate the pause from everything else.</strong> If any other reason was cited, whether finances, a document or an inadmissibility, work that the normal way; see our <a href="/221g.html">221(g)</a> and <a href="/public-charge.html">public charge</a> pages.</li>
+    <li><strong>Separate the pause from everything else.</strong> If the refusal gave any other reason, such as finances, a document or an inadmissibility, deal with it the normal way. See our <a href="/221g.html">221(g)</a> and <a href="/public-charge.html">public charge</a> pages.</li>
     <li><strong>Check CEAC and keep your case current.</strong> Make sure your civil and financial documents are up to date so the case can move as soon as it is picked back up.</li>
     <li><strong>Wait for instructions from the embassy on how to proceed.</strong> Your case goes back to the post that refused it, and the embassy will write to you with anything it needs. There is nothing to refile and no new fee. Keep watching the email address on your case and your <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS account</a>, and see <a href="/september-2026-update.html">both visa pauses have been vacated</a> for what the Department has now told its officers to do. Because the government has appealed, follow the docket (linked below) before making irreversible plans.</li>
     <li><strong>Get advice for anything complex.</strong> A prior refusal, an inadmissibility finding, or an unusual fact pattern is worth an <a href="https://www.aila.org/">AILA</a>-affiliated attorney.</li>
@@ -578,9 +569,9 @@
     </ol>
   </details>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 16 October 2026. On that date we moved the account of the 31 August status conference and the later court dates to the <a href="/september-2026-update#timeline">timeline</a>.</p>
+  <p style="margin-top:1.75rem;font-size:0.875rem;color:var(--muted);">Reviewed 16 October 2026. On that date we moved the account of the 31 August status conference and the later court dates to the <a href="/september-2026-update#timeline">timeline</a>.</p>
 
-</div>
+</main>
 
 <div id="footer-placeholder"></div>
 

@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/article.css?v=20261016">
-  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
+  <link rel="stylesheet" href="/css/article.css?v=20261022">
+  <link rel="stylesheet" href="/css/nav.css?v=20261022">
   <style>
     /* Page-specific: nested list inside a checklist item, and the corrections table
        stacked into cards on phones so the third column stays visible. */
@@ -22,12 +22,13 @@
       .stack-table, .stack-table tbody, .stack-table tr, .stack-table td { display: block; width: 100%; }
       .stack-table tr { border-bottom: 1px solid var(--line); padding: 0.4rem 0; }
       .stack-table td { border-bottom: none; padding: 0.3rem 0.9rem; }
-      .stack-table td::before { content: attr(data-label); display: block; font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700; color: var(--muted); }
+      .stack-table td::before { content: attr(data-label); display: block; font-family: var(--font-ui); font-size: 0.875rem; font-weight: 700; color: var(--muted); }
       .stack-table td:first-child::before { display: none; }
       .stack-table tbody tr:nth-child(even) td { background: none; }
     }
   </style>
-  <script src="/js/nav.js?v=20261016" defer></script>
+  <script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
 
@@ -35,11 +36,8 @@
 
 <main class="page-wrap" id="main">
 
-  <div class="breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/guide.html">Guide</a><span>/</span><a href="/delayed-i130-remedies">Delayed I-130 remedies</a><span>/</span>Filing a writ yourself
-  </div>
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guide">Guide</a></li><li><a href="/guide/delayed-i130">If your I-130 is delayed</a></li><li><a href="/delayed-i130-remedies">Remedies</a></li><li aria-current="page">Filing a writ yourself</li></ol></nav>
 
-  <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;">← Part of <a href="/delayed-i130-remedies#mandamus" style="color:#3e7188;text-decoration:none;">Delayed I-130 remedies: Step 6, writ of mandamus</a></p>
   <p class="eyebrow">Self-represented (pro se) filing</p>
 
   <h1>Filing a writ of mandamus <span>yourself</span></h1>
@@ -47,7 +45,7 @@
   <p class="lead">The steps for filing a writ of mandamus without a lawyer, in order, checked against the Federal Rules of Civil Procedure. They start from a widely shared 2024 <a href="https://www.reddit.com/r/USCIS/comments/1ho0adh/stepbystep_guide_on_how_i_filed_a_writ_of/" target="_blank" rel="noopener noreferrer">community walkthrough</a>, with its errors corrected. Your district's local rules override anything here.</p>
 
   <div class="disclaimer">
-    <strong>Pay for one consultation first.</strong> An immigration attorney who belongs to the <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">American Immigration Lawyers Association (AILA)</a> can tell you whether your delay is likely to count as unreasonable in your district, whether anything in your file makes forcing a decision risky, and whether your complaint and service are correct. Find one through <a href="https://ailalawyer.com/" target="_blank" rel="noopener noreferrer">AILA Lawyer Search</a>. A writ compels a decision, not an approval. This page is not legal advice.
+    <strong>Pay for one consultation first.</strong> An immigration attorney who belongs to the <a href="https://www.aila.org/" target="_blank" rel="noopener noreferrer">American Immigration Lawyers Association (AILA)</a> can tell you three things. Will your delay likely count as unreasonable in your district? Does anything in your file make forcing a decision risky? Are your complaint and service correct? Find one through <a href="https://ailalawyer.com/" target="_blank" rel="noopener noreferrer">AILA Lawyer Search</a>. A writ compels a decision, not an approval. This page is not legal advice.
   </div>
 
   <div class="toc" id="contents">
@@ -61,7 +59,7 @@
 
   <div class="callout callout-info">
     <span class="callout-title">One fast result does not predict yours</span>
-    The 2024 poster won approval three business days after service, on unusually strong facts: an interviewed, complete application pending two years past a one-month expectation. While your case sits inside the posted USCIS processing estimate, the government can argue you are asking to jump the queue, the first of the <a href="/delayed-i130-remedies#mandamus">TRAC factors</a> courts weigh.
+    The 2024 poster won approval three business days after service, on unusually strong facts: an interviewed, complete application pending two years past a one-month expectation. While your case is inside the posted USCIS processing estimate, the government can argue you are asking to jump the queue. That is the first of the <a href="/delayed-i130-remedies#mandamus">TRAC factors</a> courts weigh.
   </div>
 
   <div class="callout callout-alert">
@@ -105,12 +103,12 @@
     <li>Ask for costs, such as the filing fee, rather than attorney's fees: a self-represented plaintiff has none to recover.</li>
     <li>State your facts precisely: filing date, months pending, every contact with USCIS and your representatives, and concrete harm (for example family separation, an expiring work permit, or medical needs).</li>
     <li>End with a declaration under 28 U.S.C. &sect;&nbsp;1746 ("I declare under penalty of perjury that the foregoing is true and correct. Executed on [date]."), then sign and date it.</li>
-    <li>Redact personal data as Rule 5.2(a) requires: only the last four digits of Social Security and financial account numbers, only the <em>year</em> of birth, and only initials for minors. This applies to exhibits too, such as passport pages.</li>
+    <li>Black out personal data as Rule 5.2(a) requires. Show only the last four digits of Social Security and account numbers, only the <em>year</em> of birth, and only initials for minors. This applies to exhibits too, such as passport pages.</li>
   </ul>
-  <p style="font-size:0.9rem;color:var(--muted);">In immigration benefits cases, Rule 5.2(c) limits remote electronic access to the parties and their attorneys. The public can still see the docket and read filings at the courthouse, so redact anyway.</p>
+  <p style="color:var(--muted);">In immigration benefits cases, Rule 5.2(c) limits remote electronic access to the parties and their attorneys. The public can still see the docket and read filings at the courthouse, so redact anyway.</p>
 
   <h3>6. Assemble exhibits and copies</h3>
-  <p>Put a cover page ("Exhibit A", "Exhibit B" and so on) in front of each piece of evidence: receipt notice, processing-time screenshot, inquiry confirmations, congressional replies, demand letter and its mailing receipt. Count your copies: one for the court, one for each named defendant, one for the US Attorney and one for the Attorney General if they are not already named, and one for yourself.</p>
+  <p>Put a cover page ("Exhibit A", "Exhibit B" and so on) in front of each piece of evidence: receipt notice, processing-time screenshot, inquiry confirmations, congressional replies, demand letter and its mailing receipt. Count your copies: one for the court, one for each named defendant, one each for the US Attorney and the Attorney General if they are not already named, and one for yourself.</p>
 
   <h3>7. File with the clerk</h3>
   <ul>
@@ -151,7 +149,7 @@
 
   <!-- RISKS -->
   <h2 id="risks">Risks and costs</h2>
-  <p>The <a href="/delayed-i130-remedies#mandamus">remedies guide</a> covers these in full. In short: filing early risks dismissal under the TRAC factors and costs you $405; forcing a decision can bring out a problem that leads to a denial; and a losing plaintiff can be ordered to pay the government's ordinary court costs. An AILA consultation is the cheapest way to find out which of these apply to you.</p>
+  <p>The <a href="/delayed-i130-remedies#mandamus">remedies guide</a> covers these in full. In short: filing early risks dismissal under the TRAC factors and costs you $405. Forcing a decision can bring out a problem that leads to a denial. And if you lose, the court can order you to pay the government's ordinary court costs. An AILA consultation is the cheapest way to find out which of these apply to you.</p>
 
   <div style="margin-top:2rem;">
     <a href="/delayed-i130-remedies#mandamus" class="guide-return">&larr; Back to the delayed I-130 remedies guide</a>
@@ -160,7 +158,7 @@
   <!-- SOURCES -->
   <details class="sources" id="sources">
     <summary><h2>Sources &amp; related pages</h2><span class="sources-hint">(9, tap to show)</span></summary>
-    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">Verify current officials, fees and addresses before relying on them.</p>
+    <p style="color:var(--muted);margin-bottom:0.75rem;">Verify current officials, fees and addresses before relying on them.</p>
     <ol>
       <li>u/Secret_Gas3270, <a href="https://www.reddit.com/r/USCIS/comments/1ho0adh/stepbystep_guide_on_how_i_filed_a_writ_of/" target="_blank" rel="noopener noreferrer">Step-by-Step Guide on How I Filed a Writ of Mandamus Without a Lawyer and How You Can Too</a>, r/USCIS, 28 December 2024, with later edits (links to the author's complaint, proof of service and dismissal templates). Personal account; not legal advice.</li>
       <li>Federal Rules of Civil Procedure (Cornell LII): <a href="https://www.law.cornell.edu/rules/frcp/rule_4" target="_blank" rel="noopener noreferrer">Rule 4</a> (4(c)(2) who may serve; 4(i) serving the United States, its agencies and officers; 4(m) 90-day limit); <a href="https://www.law.cornell.edu/rules/frcp/rule_5.2" target="_blank" rel="noopener noreferrer">Rule 5.2</a> (redaction; remote access in immigration cases); <a href="https://www.law.cornell.edu/rules/frcp/rule_11" target="_blank" rel="noopener noreferrer">Rule 11</a> (signing certifies legal contentions); <a href="https://www.law.cornell.edu/rules/frcp/rule_12" target="_blank" rel="noopener noreferrer">Rule 12(a)(2)</a> (60 days for the United States to respond); <a href="https://www.law.cornell.edu/rules/frcp/rule_25" target="_blank" rel="noopener noreferrer">Rule 25(d)</a> (automatic substitution of public officers); <a href="https://www.law.cornell.edu/rules/frcp/rule_41" target="_blank" rel="noopener noreferrer">Rule 41(a)</a> (voluntary dismissal).</li>
@@ -174,7 +172,7 @@
     </ol>
   </details>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 16 October 2026. On that date we removed the summary of the 2024 community post and the line-by-line corrections table, and folded each correction into the steps.</p>
+  <p style="margin-top:1.75rem;font-size:0.875rem;color:var(--muted);">Reviewed 16 October 2026. On that date we removed the summary of the 2024 community post and the line-by-line corrections table, and folded each correction into the steps.</p>
 
 </main>
 
