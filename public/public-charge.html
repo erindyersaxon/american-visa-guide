@@ -20,8 +20,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/design-system.css?v=20260612" />
-    <link rel="stylesheet" href="/css/print.css?v=20260612" media="print" />
+    <link rel="stylesheet" href="/css/design-system.css?v=20261022" />
+    <link rel="stylesheet" href="/css/print.css?v=20261022" media="print" />
     <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
     <style>
       .pg-container { max-width: var(--max-width-prose); margin: 0 auto; }
@@ -101,8 +101,9 @@
       .template-details { margin-bottom: var(--space-6); }
       .template-details > summary { cursor: pointer; font-weight: var(--weight-semibold); color: var(--color-navy); font-size: var(--size-sm); padding: var(--space-3) 0; }
     </style>
-    <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261016" defer></script>
+    <link rel="stylesheet" href="/css/nav.css?v=20261022">
+  <script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -111,7 +112,8 @@
     <main id="main">
       <div class="container">
         <div class="pg-container">
-          <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;"><a href="/" style="color:#3e7188;text-decoration:none;">Home</a> / <a href="/interview" style="color:#3e7188;text-decoration:none;">Your interview</a> / Public charge &middot; &larr; Part of <a href="/guide/interview" style="color:#3e7188;text-decoration:none;">Stage 6: Embassy interview</a></p>
+          <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li aria-current="page">Public charge</li></ol></nav>
+          <p class="avg-partof">Part of <a href="/guide/interview">Stage 6: Embassy interview</a></p>
           <header class="pg-header">
             <div class="pg-eyebrow">US Embassy London &middot; Immigrant visa interview</div>
             <h1 class="pg-title">Public charge: what you must prove, and how</h1>
@@ -122,7 +124,7 @@
 
           <div class="warning-card" id="changed">
             <strong>The rules changed. Officers now test public charge in every case.</strong>
-            <p style="margin-top: var(--space-3);">A sufficient Form I-864 no longer settles the question. The officer must be satisfied, on five factors about <strong>you, the beneficiary</strong>, that you will not depend on public support, and the law puts the burden of proof on you (<a href="https://www.law.cornell.edu/uscode/text/8/1361" target="_blank" rel="noopener noreferrer">INA 291</a>). Since August 2026 each officer works through a public charge worksheet, and supervisors review decisions. London cancelled its September interviews to train officers on it. <a href="#timeline">Dates and court filings</a>.</p>
+            <p style="margin-top: var(--space-3);">A sufficient Form I-864 no longer settles the question. The officer looks at five factors about <strong>you, the beneficiary</strong>, and must be satisfied you will not depend on public support. The law puts the burden of proof on you (<a href="https://www.law.cornell.edu/uscode/text/8/1361" target="_blank" rel="noopener noreferrer">INA 291</a>). Since August 2026 each officer works through a public charge worksheet, and supervisors review decisions. London cancelled its September interviews to train officers on it. <a href="#timeline">Dates and court filings</a>.</p>
             <ul style="margin-bottom: 0;">
               <li><strong>Treat the statement and an evidence pack as mandatory.</strong> The embassy says you <em>may</em> send a statement. Send it, with a labelled pack of documents behind every claim in it, for you as well as your sponsors. <a href="#deliverables">The pack</a>.</li>
               <li><strong>Expect no benefit of the doubt.</strong> A document you cannot produce or a figure you cannot give leads to a <a href="/221g">221(g) refusal</a>, and clearing one takes months.</li>
@@ -671,7 +673,7 @@
           <p class="prose">If you have spoken to your joint sponsor only once or twice, have a proper conversation before the interview.</p>
 
           <h4 class="sub-title" style="margin-top:var(--space-4);">A short US tax history does not call for a joint sponsor</h4>
-          <p class="prose">In the case above, the couple added a joint sponsor because the petitioner lacked three years of US tax returns. Form I-864 asks, yes or no, whether you filed a return for each of the three most recent tax years, and you can misread that as a requirement. The note under the question in the 08/24/26 edition says you must attach a transcript or photocopy <em>for only the most recent tax year</em>, and that you <em>may</em> submit three years if you believe they help (<a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864</a>, Part 6, Item Numbers 15 to 19, and their instructions). Send three years where you have them, because they show sustained income. Once you file a joint sponsor's I-864, the officer examines their details in the same depth as the petitioner's.</p>
+          <p class="prose">In the case above, the couple added a joint sponsor because the petitioner lacked three years of US tax returns. Form I-864 asks, yes or no, whether you filed a return for each of the three most recent tax years, and you can misread that as a requirement. The note under that question in the 08/24/26 edition says you must attach a transcript or photocopy <em>for only the most recent tax year</em>. It adds that you <em>may</em> submit three years if you believe they help (<a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864</a>, Part 6, Item Numbers 15 to 19, and their instructions). Send three years where you have them, because they show sustained income. Once you file a joint sponsor's I-864, the officer examines their details in the same depth as the petitioner's.</p>
             </div>
           </details>
 
@@ -723,7 +725,13 @@
             <ul>
               <li>The officer decided on the <strong>totality of the circumstances</strong>: the I-864, any supporting documents, and the five factors of age, health, family status, financial resources, and education and skills.</li>
               <li>You can overcome the refusal with <strong>new evidence of a change in circumstances</strong>, or by <strong>adding a joint sponsor</strong>.</li>
-              <li>To add a joint sponsor, the post asks for three things: Form I-864 and Form I-864A, both signed; the most recent IRS tax transcript, with proof of US citizenship or permanent residence for each person whose income counts; and a written statement of the relationship and history of support between you and the joint sponsor, with proof of their assets and how each converts to cash within one year. Form I-864A applies when a household member&rsquo;s income counts toward the sponsor&rsquo;s (<a href="https://www.uscis.gov/i-864a" target="_blank" rel="noopener noreferrer">USCIS, Form I-864A</a>).</li>
+              <li>To add a joint sponsor, the post asks for three things:
+                <ul>
+                  <li>Form I-864 and Form I-864A, both signed. Form I-864A applies when a household member&rsquo;s income counts toward the sponsor&rsquo;s (<a href="https://www.uscis.gov/i-864a" target="_blank" rel="noopener noreferrer">USCIS, Form I-864A</a>).</li>
+                  <li>the most recent IRS tax transcript, with proof of US citizenship or permanent residence for each person whose income counts</li>
+                  <li>a written statement of the relationship and history of support between you and the joint sponsor, with proof of their assets and how each converts to cash within one year</li>
+                </ul>
+              </li>
               <li style="margin-bottom: 0;">Upload the documents to CEAC <strong>and</strong> email them to the post, with the case number and the beneficiary&rsquo;s name in the subject line.</li>
             </ul>
           </div>

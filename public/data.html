@@ -25,8 +25,8 @@
   <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 
 
-  <link rel="stylesheet" href="/css/main.css?v=20260618">
-  <link rel="stylesheet" href="/css/components.css?v=20260618">
+  <link rel="stylesheet" href="/css/main.css?v=20261022">
+  <link rel="stylesheet" href="/css/components.css?v=20261022">
 
   <style>
     /* Accessibility: Skip link */
@@ -398,13 +398,13 @@
     .od-svg text { font-family: inherit; }
     .od-grid { stroke: var(--color-border); stroke-width: 1; }
     .od-baseline { stroke: var(--color-border-strong); stroke-width: 1; }
-    .od-tick { font-size: 11px; fill: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+    .od-tick { font-size: 13px; fill: var(--color-text-muted); font-variant-numeric: tabular-nums; }
     .od-tick--year { font-weight: 600; fill: var(--color-text-secondary); }
-    .od-value { font-size: 12px; font-weight: 600; fill: var(--color-text); }
+    .od-value { font-size: 14px; font-weight: 600; fill: var(--color-text); }
     .od-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
     .od-dot { stroke: var(--color-surface); stroke-width: 2; }
     .od-annot { stroke: var(--color-text-muted); stroke-width: 1; }
-    .od-annot-label { font-size: 11px; fill: var(--color-text-secondary); }
+    .od-annot-label { font-size: 13px; fill: var(--color-text-secondary); }
     .od-hitarea { fill: transparent; }
     .od-hit { cursor: default; outline: none; }
     .od-hit:focus-visible .od-hitarea { stroke: var(--color-primary); stroke-width: 2; }
@@ -413,7 +413,7 @@
     .od-legend { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); padding: 0; margin: 0 0 var(--space-2); font-size: var(--text-xs); color: var(--color-text-secondary); }
     .od-legend li { display: flex; align-items: center; gap: 6px; margin: 0; }
     .od-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
-    .od-tip { position: absolute; z-index: 50; display: none; pointer-events: none; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); box-shadow: 0 4px 12px rgba(0,0,0,0.12); padding: 8px 10px; font-size: 12px; color: var(--color-text-secondary); max-width: 240px; }
+    .od-tip { position: absolute; z-index: 50; display: none; pointer-events: none; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); box-shadow: 0 4px 12px rgba(0,0,0,0.12); padding: 8px 10px; font-size: 14px; color: var(--color-text-secondary); max-width: 240px; }
     .od-tip__title { font-weight: 600; color: var(--color-text-muted); margin-bottom: 4px; }
     .od-tip__row { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
     .od-tip__row strong { color: var(--color-text); font-variant-numeric: tabular-nums; }
@@ -423,8 +423,9 @@
     /* Numeric table cells */
     .num { font-variant-numeric: tabular-nums; text-align: right; }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261016" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20261022">
+  <script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
   <!-- Skip to main content link -->
@@ -846,9 +847,9 @@
             <div id="dq-result" style="display: none; padding: var(--space-4); background: rgba(79, 133, 115, 0.08); border-radius: 6px; border-left: 3px solid var(--color-primary);">
               <div style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 6px;">Expected interview</div>
               <div style="font-size: 18px; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-3);" id="dq-interview-date"></div>
-              <div style="font-size: 12px; color: var(--color-text); margin-bottom: 6px;" id="dq-il-estimate"></div>
-              <div style="font-size: 12px; color: var(--color-text-secondary);" id="dq-range"></div>
-              <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 8px;" id="dq-confidence"></div>
+              <div style="font-size: 14px; color: var(--color-text); margin-bottom: 6px;" id="dq-il-estimate"></div>
+              <div style="font-size: 14px; color: var(--color-text-secondary);" id="dq-range"></div>
+              <div style="font-size: 13px; color: var(--color-text-secondary); margin-top: 8px;" id="dq-confidence"></div>
             </div>
           </div>
 
@@ -872,8 +873,8 @@
             <div id="passport-result" style="display: none; padding: var(--space-4); background: rgba(79, 133, 115, 0.08); border-radius: 6px; border-left: 3px solid var(--color-primary);">
               <div style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 6px;">Expected passport arrival</div>
               <div style="font-size: 18px; font-weight: 700; color: var(--color-text); margin-bottom: var(--space-3);" id="passport-date"></div>
-              <div style="font-size: 12px; color: var(--color-text-secondary);" id="passport-range"></div>
-              <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 8px;" id="passport-confidence"></div>
+              <div style="font-size: 14px; color: var(--color-text-secondary);" id="passport-range"></div>
+              <div style="font-size: 13px; color: var(--color-text-secondary); margin-top: 8px;" id="passport-confidence"></div>
             </div>
           </div>
 

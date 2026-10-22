@@ -59,19 +59,11 @@ body {
   padding: 2.25rem 1.5rem 5rem;
 }
 
-.breadcrumb {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-bottom: 1.5rem;
-}
-.breadcrumb a { color: var(--accent); text-decoration: none; }
-.breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
-.breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
 
 /* HERO */
 .eyebrow {
   font-family: var(--font-ui);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 0.6rem;
@@ -149,7 +141,7 @@ em { font-style: italic; }
 }
 .toc-title {
   font-family: var(--font-ui);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--muted);
   margin-bottom: 0.6rem;
@@ -175,7 +167,7 @@ figure img {
   display: block;
 }
 figcaption {
-  font-size: 0.76rem;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-top: 0.45rem;
   text-align: center;
@@ -191,7 +183,7 @@ th {
   font-family: var(--font-ui);
   font-weight: 600;
   color: #fff;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   white-space: nowrap;
 }
 td {
@@ -222,7 +214,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
 }
 .stage-pill {
   font-family: var(--font-ui);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: #fff;
   background: var(--accent);
@@ -274,7 +266,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
   display: block;
   font-family: var(--font-ui);
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--ink);
   margin-bottom: 0.3rem;
 }
@@ -301,7 +293,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
 .keydate span {
   display: block;
   margin-top: 0.12rem;
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.5;
 }
@@ -329,7 +321,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
 }
 .voice-who {
   font-family: var(--font-ui);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--accent-dark);
   padding-top: 0.12rem;
@@ -341,7 +333,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
 }
 
 .provenance {
-  font-size: 0.79rem;
+  font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.6;
   margin-top: 1.1rem;
@@ -370,7 +362,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
   background: var(--accent);
   color: #fff;
   font-family: var(--font-ui);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   font-weight: 600;
   padding: 0.5rem 1rem;
   border-radius: 7px;
@@ -386,7 +378,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
 }
 .sources h2 { margin-top: 0; }
 .sources ol {
-  font-size: 0.81rem;
+  font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.68;
 }
@@ -395,7 +387,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
 .sources a:hover { color: var(--accent-dark); }
 .sources > summary { cursor: pointer; }
 .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
-.sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+.sources > summary .sources-hint { font-size: 0.875rem; color: var(--muted); margin-left: 0.4rem; }
 .sources[open] > summary .sources-hint { display: none; }
 .sources > summary + * { margin-top: 0.8rem; }
 
@@ -442,21 +434,21 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
   position: absolute; left: 0.9rem; top: 0.72rem;
   width: 1.55rem; height: 1.55rem; border-radius: 50%;
   background: var(--accent); color: #fff;
-  font-family: var(--font-ui); font-weight: 700; font-size: 0.8rem;
+  font-family: var(--font-ui); font-weight: 700; font-size: 0.875rem;
   display: flex; align-items: center; justify-content: center;
 }
-.steps .step-link { display: inline-block; margin-top: 0.25rem; font-size: 0.85rem; font-weight: 600; }
+.steps .step-link { display: inline-block; margin-top: 0.25rem; font-size: 0.875rem; font-weight: 600; }
 
 /* Back-to-contents link after long sections */
-.to-contents { display: block; text-align: right; font-size: 0.78rem; margin-top: 1rem; }
+.to-contents { display: block; text-align: right; font-size: 0.875rem; margin-top: 1rem; }
 
 /* Tool forms */
 .tool { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem 1.3rem; margin: 1rem 0 1.75rem; }
 .tool fieldset { border: none; margin: 0 0 1rem; padding: 0; min-width: 0; }
 .tool legend { font-family: var(--font-ui); font-weight: 700; font-size: 0.92rem; margin-bottom: 0.5rem; color: var(--ink); }
 .field { display: grid; gap: 0.25rem; margin-bottom: 0.85rem; }
-.field label { font-family: var(--font-ui); font-weight: 600; font-size: 0.86rem; }
-.field .hint { font-size: 0.79rem; color: var(--muted); }
+.field label { font-family: var(--font-ui); font-weight: 600; font-size: 0.875rem; }
+.field .hint { font-size: 0.875rem; color: var(--muted); }
 .field input[type="date"], .field input[type="text"], .field input[type="number"], .field select, .field textarea {
   font: inherit; font-size: 0.93rem;
   padding: 0.5rem 0.65rem;
@@ -473,7 +465,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
 .check input { margin-top: 0.3rem; flex-shrink: 0; }
 .btn {
   display: inline-flex; align-items: center; gap: 0.4rem;
-  font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600;
+  font-family: var(--font-ui); font-size: 0.875rem; font-weight: 600;
   padding: 0.55rem 1rem; border-radius: 7px; cursor: pointer;
   background: var(--accent); color: #fff; border: 1px solid var(--accent);
 }
@@ -497,7 +489,7 @@ tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
 
 .output {
   white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.8rem; line-height: 1.55;
+  font-size: 0.875rem; line-height: 1.55;
   background: var(--code-bg); color: var(--code-text);
   border-radius: 8px; padding: 1rem 1.1rem; overflow-x: auto; margin: 0.75rem 0;
 }

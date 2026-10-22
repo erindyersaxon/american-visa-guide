@@ -59,7 +59,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Nav + footer styles live in /css/nav.css (shared component) */
+    /* Nav + footer styles live in /css/nav.css?v=20261022 (shared component) */
 
     /* LAYOUT */
     .page-wrap {
@@ -68,19 +68,11 @@
       padding: 2.25rem 1.5rem 5rem;
     }
 
-    .breadcrumb {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
-    .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
 
     /* HERO */
     .eyebrow {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--accent);
       margin-bottom: 0.6rem;
@@ -158,7 +150,7 @@
     }
     .toc-title {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--muted);
       margin-bottom: 0.6rem;
@@ -184,7 +176,7 @@
       display: block;
     }
     figcaption {
-      font-size: 0.76rem;
+      font-size: 0.875rem;
       color: var(--muted);
       margin-top: 0.45rem;
       text-align: center;
@@ -200,7 +192,7 @@
       font-family: var(--font-ui);
       font-weight: 600;
       color: #fff;
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       white-space: nowrap;
     }
     td {
@@ -231,7 +223,7 @@
     }
     .stage-pill {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: #fff;
       background: var(--accent);
@@ -283,7 +275,7 @@
       display: block;
       font-family: var(--font-ui);
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       color: var(--ink);
       margin-bottom: 0.3rem;
     }
@@ -311,7 +303,7 @@
       background: var(--accent);
       color: #fff;
       font-family: var(--font-ui);
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       font-weight: 600;
       padding: 0.5rem 1rem;
       border-radius: 7px;
@@ -327,7 +319,7 @@
     }
     .sources h2 { margin-top: 0; }
     .sources ol {
-      font-size: 0.81rem;
+      font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.68;
     }
@@ -336,7 +328,7 @@
     .sources a:hover { color: var(--accent-dark); }
     .sources > summary { cursor: pointer; }
     .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
-    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources > summary .sources-hint { font-size: 0.875rem; color: var(--muted); margin-left: 0.4rem; }
     .sources[open] > summary .sources-hint { display: none; }
     .sources > summary + * { margin-top: 0.8rem; }
 
@@ -347,18 +339,17 @@
     /* Keep anchored headings clear of the sticky site header. */
     .page-wrap [id] { scroll-margin-top: 80px; }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261016" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20261022">
+  <script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<div class="page-wrap">
+<main class="page-wrap" id="main-content">
 
-  <div class="breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/interview">Your interview</a><span>/</span>221(g)
-  </div>
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li aria-current="page">221(g)</li></ol></nav>
 
   <div data-live-notice="page"></div>
 
@@ -366,7 +357,7 @@
 
   <h1>Section 221(g): <span>how to prevent it, and how to resolve it</span></h1>
 
-  <p class="lead">A 221(g) is a temporary refusal at the window: the officer needs something before deciding your case. At London it is most often a missing financial document, which you can supply before the interview. This page shows you the green refusal sheet, sets out what to do at each stage to keep your case clear of one, and tells you how to respond if you already hold one.</p>
+  <p class="lead">A 221(g) is a temporary refusal at the window: the officer needs something before deciding your case. At London it is most often a missing financial document, which you can supply before the interview. This page shows you the green refusal sheet and what to do at each stage to avoid one. If you already hold one, it tells you how to respond.</p>
 
   <div class="callout callout-good">
     <span class="callout-title">Already holding a green sheet, or called back?</span>
@@ -438,7 +429,7 @@
     </figure>
   </div>
 
-  <p style="font-size:0.82rem;color:var(--muted);">Real green sheet issued at US Embassy London, July 2026, with personal details removed.</p>
+  <p style="font-size:0.875rem;color:var(--muted);">Real green sheet issued at US Embassy London, July 2026, with personal details removed.</p>
 
   <p><strong>Know what each box asks for.</strong> The <a href="/221g-sheet">green sheet triage</a> lists every box that can appear on the sheet and what it requires. Tick the boxes on your sheet and it builds your to-do list. Read it before interview day too: each box is a document you can have ready in advance.</p>
 
@@ -452,7 +443,7 @@
     <figcaption>The public charge checklist as issued, with five items ticked. Each unticked line is a document the post <em>can</em> ask for.</figcaption>
   </figure>
 
-  <p style="font-size:0.82rem;color:var(--muted);">Community-supplied copy of a checklist issued at Consulate General Lagos, 2026. It carries no case number or applicant name.</p>
+  <p style="font-size:0.875rem;color:var(--muted);">Community-supplied copy of a checklist issued at Consulate General Lagos, 2026. It carries no case number or applicant name.</p>
 
   <p><strong>Have all of it before the interview.</strong> A case that arrives with the whole list leaves the officer nothing to request. The <a href="/public-charge#deliverables">evidence pack on the public charge page</a> covers every line, labelled file by file, to upload to CEAC and email with your statement. If you get one, send everything at once, by the route the post's follow-up email gives: see <a href="#resolve">if you already have a 221(g)</a>.</p>
 
@@ -476,7 +467,7 @@
   <!-- DOMICILE -->
   <h2 id="domicile">The petitioner's domicile problem</h2>
 
-  <p>A joint sponsor can fix income. Nobody can fix the petitioner's domicile. If the petitioner cannot show that their principal residence is in the United States, they cannot act as a sponsor, a joint sponsor cannot be accepted, and the officer must refuse the case (<a href="https://fam.state.gov/fam/09FAM/09FAM060114.html" target="_blank" rel="noopener noreferrer">9 FAM 601.14-7</a>). It catches couples living together in the UK more than most.</p>
+  <p>A joint sponsor can fix income. Nobody can fix the petitioner's domicile. If the petitioner cannot show their principal residence is in the United States, the petitioner cannot act as a sponsor. The officer cannot accept a joint sponsor either, and must refuse the case (<a href="https://fam.state.gov/fam/09FAM/09FAM060114.html" target="_blank" rel="noopener noreferrer">9 FAM 601.14-7</a>). It catches couples living together in the UK more than most.</p>
 
   <ul>
     <li><strong>Check for the employment exception first.</strong> A petitioner abroad for a set period who works for the US government, a recognised US research institution, or a US firm engaged in foreign trade (or its subsidiary) already counts as US-domiciled.</li>
@@ -514,7 +505,7 @@
       <li>Ask each sponsor and I-864A household member to check for a credit freeze before signing, and to lift it when asked. The 08/24/26 edition authorizes a credit check on each of them.</li>
       <li>Upload <a href="/domicile#evidence">domicile evidence</a> for the petitioner even where NVC does not ask for it, and do not rest it on a lease: US tax filings showing domestic earned income, a W-2 or US job offer with a start date, utility bills, a state ID. If the petitioner lives abroad, add evidence that they are re-establishing domicile.</li>
     </ul>
-    <p style="margin:0.6rem 0 0;font-size:0.84rem;color:var(--muted);">More in the <a href="/guide/nvc">NVC stage of the guide</a> and the <a href="/checklist-nvc.html">NVC checklist</a>.</p>
+    <p style="margin:0.6rem 0 0;font-size:0.875rem;color:var(--muted);">More in the <a href="/guide/nvc">NVC stage of the guide</a> and the <a href="/checklist-nvc.html">NVC checklist</a>.</p>
   </div>
 
   <div class="stage-card">
@@ -548,7 +539,7 @@
       <span class="stage-title">Everything already in CEAC</span>
     </div>
     <ul style="margin-bottom:0;">
-      <li><strong>Get each financial document into CEAC before interview day.</strong> No rule bars evidence at the window, but officers decide from what is in CEAC, and a document you produce for the first time in the room can draw a 221(g) asking you to submit it through the proper route. Bring originals, but do not rely on handing them over.</li>
+      <li><strong>Get each financial document into CEAC before interview day.</strong> No rule bars evidence at the window. Officers decide from what is in CEAC, though, and a document you produce for the first time in the room can draw a 221(g) asking you to submit it through the proper route. Bring originals, but do not rely on handing them over.</li>
       <li>One exception: a paper copy of something you <em>already uploaded</em> to CEAC can rescue a case when staff cannot see the upload. This has saved cases at document check.</li>
       <li>Make your answers match your DS-260 and CEAC. Officers probe inconsistencies.</li>
     </ul>
@@ -685,9 +676,9 @@
     </ol>
   </details>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 22 October 2026, when we split refusals into 221(g), 212(a)(4), administrative processing and visa refused. On 16 October 2026 we moved the petitioner domicile section to <a href="/domicile">its own page</a> and the box-by-box table to the <a href="/221g-sheet">green sheet triage</a>. On 1 October 2026 we moved the history request and technology check sections to <a href="/administrative-processing">their own page</a>.</p>
+  <p style="margin-top:1.75rem;font-size:0.875rem;color:var(--muted);">Reviewed 22 October 2026, when we split refusals into 221(g), 212(a)(4), administrative processing and visa refused. On 16 October 2026 we moved the petitioner domicile section to <a href="/domicile">its own page</a> and the box-by-box table to the <a href="/221g-sheet">green sheet triage</a>. On 1 October 2026 we moved the history request and technology check sections to <a href="/administrative-processing">their own page</a>.</p>
 
-</div>
+</main>
 
 <div id="footer-placeholder"></div>
 

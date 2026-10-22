@@ -59,7 +59,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Nav + footer styles live in /css/nav.css (shared component) */
+    /* Nav + footer styles live in /css/nav.css?v=20261022 (shared component) */
 
     /* LAYOUT */
     .page-wrap {
@@ -68,19 +68,11 @@
       padding: 2.25rem 1.5rem 5rem;
     }
 
-    .breadcrumb {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
-    .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
 
     /* HERO */
     .eyebrow {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--accent);
       margin-bottom: 0.6rem;
@@ -158,7 +150,7 @@
     }
     .toc-title {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--muted);
       margin-bottom: 0.6rem;
@@ -184,7 +176,7 @@
       display: block;
     }
     figcaption {
-      font-size: 0.76rem;
+      font-size: 0.875rem;
       color: var(--muted);
       margin-top: 0.45rem;
       text-align: center;
@@ -200,7 +192,7 @@
       font-family: var(--font-ui);
       font-weight: 600;
       color: #fff;
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       white-space: nowrap;
     }
     td {
@@ -231,7 +223,7 @@
     }
     .stage-pill {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: #fff;
       background: var(--accent);
@@ -283,7 +275,7 @@
       display: block;
       font-family: var(--font-ui);
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       color: var(--ink);
       margin-bottom: 0.3rem;
     }
@@ -310,7 +302,7 @@
     .keydate span {
       display: block;
       margin-top: 0.12rem;
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.5;
     }
@@ -338,7 +330,7 @@
     }
     .voice-who {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--accent-dark);
       padding-top: 0.12rem;
@@ -350,7 +342,7 @@
     }
 
     .provenance {
-      font-size: 0.79rem;
+      font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.6;
       margin-top: 1.1rem;
@@ -379,7 +371,7 @@
       background: var(--accent);
       color: #fff;
       font-family: var(--font-ui);
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       font-weight: 600;
       padding: 0.5rem 1rem;
       border-radius: 7px;
@@ -395,7 +387,7 @@
     }
     .sources h2 { margin-top: 0; }
     .sources ol {
-      font-size: 0.81rem;
+      font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.68;
     }
@@ -404,7 +396,7 @@
     .sources a:hover { color: var(--accent-dark); }
     .sources > summary { cursor: pointer; }
     .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
-    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources > summary .sources-hint { font-size: 0.875rem; color: var(--muted); margin-left: 0.4rem; }
     .sources[open] > summary .sources-hint { display: none; }
     .sources > summary + * { margin-top: 0.8rem; }
 
@@ -413,18 +405,17 @@
       .page-wrap { padding: 1.5rem 1rem 4rem; }
     }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261016" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20261022">
+  <script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<div class="page-wrap">
+<main class="page-wrap" id="main-content">
 
-  <div class="breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/interview">Your interview</a><span>/</span>Visa pause struck down
-  </div>
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li aria-current="page">Visa pause struck down</li></ol></nav>
 
   <div data-live-notice="page"></div>
 
@@ -578,9 +569,9 @@
     </ol>
   </details>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 16 October 2026. On that date we moved the account of the 31 August status conference and the later court dates to the <a href="/september-2026-update#timeline">timeline</a>.</p>
+  <p style="margin-top:1.75rem;font-size:0.875rem;color:var(--muted);">Reviewed 16 October 2026. On that date we moved the account of the 31 August status conference and the later court dates to the <a href="/september-2026-update#timeline">timeline</a>.</p>
 
-</div>
+</main>
 
 <div id="footer-placeholder"></div>
 

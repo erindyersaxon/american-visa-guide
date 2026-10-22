@@ -58,7 +58,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Nav + footer styles live in /css/nav.css (shared component) */
+    /* Nav + footer styles live in /css/nav.css?v=20261022 (shared component) */
 
     /* LAYOUT */
     .page-wrap {
@@ -67,19 +67,11 @@
       padding: 2.25rem 1.5rem 5rem;
     }
 
-    .breadcrumb {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--accent-dark); text-decoration: underline; }
-    .breadcrumb span { margin: 0 0.35rem; opacity: 0.5; }
 
     /* HERO */
     .eyebrow {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: var(--accent);
       margin-bottom: 0.6rem;
@@ -156,7 +148,7 @@
       color: #fff;
       font-family: var(--font-ui);
       font-weight: 700;
-      font-size: 0.68rem;
+      font-size: 0.875rem;
       padding: 0.2rem 0.55rem;
       border-radius: 5px;
       margin-top: 0.18rem;
@@ -174,7 +166,7 @@
       font-family: var(--font-ui);
       font-weight: 600;
       color: #fff;
-      font-size: 0.78rem;
+      font-size: 0.875rem;
       white-space: nowrap;
     }
     td {
@@ -219,7 +211,7 @@
     }
     .remedy-step {
       font-family: var(--font-ui);
-      font-size: 0.68rem;
+      font-size: 0.875rem;
       font-weight: 700;
       color: #fff;
       background: var(--accent);
@@ -235,7 +227,7 @@
     }
     .remedy-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-left: auto; }
     .badge {
-      font-size: 0.69rem;
+      font-size: 0.875rem;
       font-weight: 600;
       padding: 0.18rem 0.55rem;
       border-radius: 999px;
@@ -292,7 +284,7 @@
       display: block;
       font-family: var(--font-ui);
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       color: var(--ink);
       margin-bottom: 0.3rem;
     }
@@ -320,7 +312,7 @@
       border-radius: 7px;
       padding: 2.4rem 1.1rem 1.1rem;
       font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
-      font-size: 0.8rem;
+      font-size: 0.875rem;
       line-height: 1.62;
       color: var(--code-text);
       white-space: pre-wrap;
@@ -335,7 +327,7 @@
       border: none;
       border-radius: 5px;
       padding: 0.25rem 0.65rem;
-      font-size: 0.7rem;
+      font-size: 0.875rem;
       font-family: var(--font-ui);
       font-weight: 600;
       cursor: pointer;
@@ -352,7 +344,7 @@
     }
     .sources h2 { margin-top: 0; }
     .sources ol {
-      font-size: 0.81rem;
+      font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.68;
     }
@@ -361,7 +353,7 @@
     .sources a:hover { color: var(--accent-dark); }
     .sources > summary { cursor: pointer; }
     .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
-    .sources > summary .sources-hint { font-size: 0.78rem; color: var(--muted); margin-left: 0.4rem; }
+    .sources > summary .sources-hint { font-size: 0.875rem; color: var(--muted); margin-left: 0.4rem; }
     .sources[open] > summary .sources-hint { display: none; }
     .sources > summary + * { margin-top: 0.8rem; }
 
@@ -372,20 +364,18 @@
       .remedy-toggle-inner { gap: 0.5rem; }
     }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20260930n">
-  <script src="/js/nav.js?v=20261016" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20261022">
+  <script src="/js/nav.js?v=20261022" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<div class="page-wrap">
+<main class="page-wrap" id="main-content">
 
-  <div class="breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/guide.html">Guide</a><span>/</span>Delayed I-130 remedies
-  </div>
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guide">Guide</a></li><li><a href="/guide/delayed-i130">Stage 1A: Delayed I-130</a></li><li aria-current="page">Delayed I-130 remedies</li></ol></nav>
 
-  <p class="stage-backlink" style="font-size:13px;font-weight:600;margin:0 0 10px;">← Part of <a href="/guide/delayed-i130" style="color:#3e7188;text-decoration:none;">Stage 1A: Delayed I-130</a></p>
   <p class="eyebrow">When your case stalls</p>
 
   <h1>Significantly delayed I-130 petitions: <span>remedies and escalation</span></h1>
@@ -1011,7 +1001,7 @@ Sincerely,
   <!-- SOURCES -->
   <details class="sources">
     <summary><h2>Sources</h2><span class="sources-hint">(13, tap to show)</span></summary>
-    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.75rem;">Primary government, statutory, and judicial sources. Verify current officials, fees, and figures before relying on them.</p>
+    <p style="font-size:0.875rem;color:var(--muted);margin-bottom:0.75rem;">Primary government, statutory, and judicial sources. Verify current officials, fees, and figures before relying on them.</p>
     <ol>
       <li>USCIS, <a href="https://www.uscis.gov/policy-manual/volume-1-part-a-chapter-5">Policy Manual, Volume 1, Part A, Chapter 5: Expedite Requests</a> (qualifying criteria; pregnancy is not listed).</li>
       <li>USCIS, <a href="https://www.uscis.gov/forms/filing-guidance/expedite-requests">Expedite Requests</a> (criteria and how to request).</li>
@@ -1029,9 +1019,9 @@ Sincerely,
     </ol>
   </details>
 
-  <p style="margin-top:1.75rem;font-size:0.79rem;color:var(--muted);">Reviewed 27 September 2026.</p>
+  <p style="margin-top:1.75rem;font-size:0.875rem;color:var(--muted);">Reviewed 27 September 2026.</p>
 
-</div>
+</main>
 
 <div id="footer-placeholder"></div>
 

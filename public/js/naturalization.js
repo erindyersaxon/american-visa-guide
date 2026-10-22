@@ -288,7 +288,7 @@
     html += row('N-336', 'Request a hearing if the N-400 is denied. File within 30 days of the decision', 'if',
       money(FEES.n336Online) + ' online<br>' + money(FEES.n336Paper) + ' paper', 'https://www.uscis.gov/n-336');
     html += '</tbody></table></div>';
-    html += '<p style="font-size:12px;color:var(--muted);">Fees from the ' + link('https://www.uscis.gov/g-1055', 'USCIS fee schedule (G-1055)') + '. Biometrics are included in the N-400 fee. Check the ' + link('https://www.uscis.gov/feecalculator', 'USCIS fee calculator') + ' on the day you file.</p>';
+    html += '<p style="font-size:14px;color:var(--muted);">Fees from the ' + link('https://www.uscis.gov/g-1055', 'USCIS fee schedule (G-1055)') + '. Biometrics are included in the N-400 fee. Check the ' + link('https://www.uscis.gov/feecalculator', 'USCIS fee calculator') + ' on the day you file.</p>';
 
     // Documents
     html += '<h3>Documents</h3>';
@@ -312,7 +312,7 @@
     html += '</ul>';
     html += '<p><strong>Bring to the interview:</strong> your appointment notice, green card, state-issued ID, every passport and travel document you have used since becoming a resident, and the originals of everything you sent in' + (path === '3' ? ', plus your spouse\'s proof of citizenship and the marriage evidence above' : '') + '.</p>';
     html += '<p>Upload only the documents that apply to you. The N-400 instructions list further evidence for other bases of eligibility not covered here: military service (INA 328 and 329), spouses of US citizens employed abroad (INA 319(b)), and VAWA self-petitioners.</p>';
-    html += '<p style="font-size:12px;color:var(--muted);">Source: ' + link('https://www.uscis.gov/n-400', 'Form N-400 instructions and Document Checklist (M-477)') + '.</p>';
+    html += '<p style="font-size:14px;color:var(--muted);">Source: ' + link('https://www.uscis.gov/n-400', 'Form N-400 instructions and Document Checklist (M-477)') + '.</p>';
 
     render(html);
   }
@@ -326,7 +326,7 @@
       row('N-600', 'Certificate of Citizenship. Optional: it proves citizenship but does not grant it', 'if', money(FEES.n600Online) + ' online<br>' + money(FEES.n600Paper) + ' paper', 'https://www.uscis.gov/n-600') +
       row('DS-11', 'US passport application, using the green card, foreign passport and the parent\'s proof of citizenship', 'if', 'See State Department fees', 'https://travel.state.gov/content/travel/en/passports/need-passport/under-16.html') +
       '</tbody></table></div>' +
-      '<p style="font-size:12px;color:var(--muted);">Sources: ' + link('https://www.uscis.gov/policy-manual/volume-12-part-h-chapter-4', 'USCIS Policy Manual Vol. 12 Part H Ch. 4') + '; ' + link('https://www.uscis.gov/policy-manual/volume-12-part-h-chapter-2', 'Ch. 2: Definition of Child') + '; ' + link('https://www.uscis.gov/g-1055', 'USCIS fee schedule (G-1055)') + '.</p>';
+      '<p style="font-size:14px;color:var(--muted);">Sources: ' + link('https://www.uscis.gov/policy-manual/volume-12-part-h-chapter-4', 'USCIS Policy Manual Vol. 12 Part H Ch. 4') + '; ' + link('https://www.uscis.gov/policy-manual/volume-12-part-h-chapter-2', 'Ch. 2: Definition of Child') + '; ' + link('https://www.uscis.gov/g-1055', 'USCIS fee schedule (G-1055)') + '.</p>';
   }
 
   function tlItem(done, when, what, note) {
