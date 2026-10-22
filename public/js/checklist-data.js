@@ -538,7 +538,7 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "yes"
    },
-   "note": "Written statement plus a labelled evidence pack (treat both as mandatory, even though the embassy calls the statement voluntary): the last 3 years of IRS tax returns and 3 months of payslips and bank statements for every sponsor, the petitioner's health insurance and housing, and the beneficiary's own CV, diplomas, bank statements, assets and health insurance quote. Upload the pack to CEAC, email it, and print it for the binder. See <a href=\"/public-charge#deliverables\">the evidence pack</a> and the <a href=\"/public-charge.html\">statement template</a>.",
+   "note": "Written statement plus a labelled evidence pack (treat both as mandatory, even though the embassy calls the statement voluntary): the last 3 years of IRS tax returns and 3 months of payslips and bank statements for every sponsor, the petitioner's health insurance and housing, and the beneficiary's own CV, diplomas, bank statements, assets, retirement plan and health insurance quote. Upload the pack to CEAC, email it, and print it for the binder. See <a href=\"/public-charge#deliverables\">the evidence pack</a> and the <a href=\"/public-charge.html\">statement template</a>.",
    "items": [
     {
      "list": "binder",
@@ -548,7 +548,7 @@ var AVG_DOCS = {
     {
      "list": "binder",
      "id": "s3-13",
-     "label": "<strong>Printed copy of the evidence pack</strong>, on its own Public Charge tab, in the same order and under the same file codes as your CEAC upload. When the officer asks for a document, you can find it by code. Members preparing for re-interviews bring everything: CV, diplomas, insurance quotes and the beneficiary's bank and investment statements."
+     "label": "<strong>Printed copy of the evidence pack</strong>, on its own Public Charge tab, in the same order and under the same file codes as your CEAC upload. When the officer asks for a document, you can find it by code. Members preparing for re-interviews bring everything: CV, diplomas, insurance quotes and the beneficiary's bank and investment statements. If anyone is self-employed, the pack also holds 12 months of bank statements (business account preferred) and proof the business is registered and trading."
     }
    ]
   },

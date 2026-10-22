@@ -168,7 +168,7 @@
     <fieldset>
       <legend>7. Savings, assets and debts</legend>
       <div class="field-row">
-        <div class="field"><label for="savings">Total savings (US dollars) <span class="hint">(add up every account, bring a statement for each, and learn each account's bank and balance. Put pensions under property or investments)</span></label><input type="text" id="savings" placeholder="$30,000"></div>
+        <div class="field"><label for="savings">Total savings (US dollars) <span class="hint">(add up every account, bring a statement for each, and learn each account's bank and balance. Put pensions under retirement below)</span></label><input type="text" id="savings" placeholder="$30,000"></div>
         <div class="field"><label for="saveswho">Held by</label>
           <select id="saveswho"><option value="me">Me</option><option value="joint">My petitioner and me jointly</option></select></div>
         <div class="field"><label for="savemonths">Would cover costs for about (months)</label><input type="text" id="savemonths" placeholder="6"></div>
@@ -188,6 +188,9 @@
         <div class="field"><label for="slcmonth">Expected monthly repayment ($)</label><input type="text" id="slcmonth"></div>
         <div class="field"><label for="slcpaid">Paid from</label><input type="text" id="slcpaid" value="my salary"></div>
       </div>
+      <p class="hint" style="margin:0.8rem 0 0.4rem;"><strong>Retirement.</strong> Officers ask how you will fund it. Tick one, fill the other, or do both.</p>
+      <label class="check"><input type="checkbox" id="retirework" checked> I will work in the US and earn Social Security credits</label>
+      <div class="field"><label for="retireplan">Other retirement plan <span class="hint">(optional; name each, with provider and value)</span></label><input type="text" id="retireplan" placeholder="a workplace pension with Aviva, worth about $45,000, and investments of about $15,000"></div>
     </fieldset>
 
     <fieldset>
@@ -217,14 +220,16 @@
       <label class="check"><input type="checkbox" id="ev-petsavings"> P06 Petitioner savings, investment and retirement statements</label>
       <label class="check"><input type="checkbox" id="ev-petother"> P07 Petitioner proof of other income</label>
       <label class="check"><input type="checkbox" id="ev-petdebts"> P08 Petitioner debt statements</label>
+      <label class="check"><input type="checkbox" id="ev-petbiz"> P09 Petitioner business records, if self-employed</label>
       <label class="check"><input type="checkbox" id="ev-jstax"> J01 Joint sponsor IRS tax transcripts or returns, last 3 years, and proof of citizenship or residence</label>
       <label class="check"><input type="checkbox" id="ev-jspay"> J02 Joint sponsor payslips, bank statements and latest W-2</label>
       <label class="check"><input type="checkbox" id="ev-jsrel"> J03 Joint sponsor relationship statement</label>
       <label class="check"><input type="checkbox" id="ev-jsassets"> J04 Joint sponsor proof of assets</label>
+      <label class="check"><input type="checkbox" id="ev-jsbiz"> J05 Joint sponsor business records, if self-employed</label>
       <label class="check"><input type="checkbox" id="ev-cv" checked> B01 My CV</label>
       <label class="check"><input type="checkbox" id="ev-diplomas" checked> B02 My diplomas, degree certificates and licences</label>
       <label class="check"><input type="checkbox" id="ev-bank" checked> B03 My bank statements, last 3 months, every account</label>
-      <label class="check"><input type="checkbox" id="ev-savings"> B04 My savings, investment and pension statements</label>
+      <label class="check"><input type="checkbox" id="ev-savings"> B04 My savings and investment statements</label>
       <label class="check"><input type="checkbox" id="ev-property"> B05 Proof of ownership and value of my property</label>
       <label class="check"><input type="checkbox" id="ev-employer"> B06 My employer letter, or a US job offer</label>
       <label class="check"><input type="checkbox" id="ev-quote" checked> B07 My health insurance quote</label>
@@ -232,6 +237,8 @@
       <label class="check"><input type="checkbox" id="ev-slc"> B09 My debt statements, including my UK student loan statement</label>
       <label class="check"><input type="checkbox" id="ev-credential"> B10 My credential evaluation or licensing correspondence</label>
       <label class="check"><input type="checkbox" id="ev-englishproof"> B11 My proof of English</label>
+      <label class="check"><input type="checkbox" id="ev-biz"> B12 My business records</label>
+      <label class="check"><input type="checkbox" id="ev-retirement"> B13 My retirement plan statements and UK State Pension forecast</label>
     </fieldset>
   </form>
 
@@ -263,6 +270,6 @@
 
 <div id="footer-placeholder"></div>
 
-<script src="/js/statement-builder.js?v=20261022"></script>
+<script src="/js/statement-builder.js?v=20261022c"></script>
 </body>
 </html>
