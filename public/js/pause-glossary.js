@@ -39,7 +39,7 @@
       status: 'Still in force. The pause rulings do not affect it.',
       uk: 'No, unless you also hold a listed nationality. Check its dual-national exception.',
       link: '/221g#confusions',
-      linkText: '221(g) vs 212(a)(4) vs AP vs denial',
+      linkText: '221(g) vs 212(a)(4) vs AP vs visa refused',
     },
   ];
 
