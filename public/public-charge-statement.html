@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Build a public charge statement for a US Embassy London immigrant visa interview. Fill in a form and get the finished email, covering all five public charge factors, with the evidence list and work and education appendices.">
+  <meta name="description" content="Build a public charge statement for a US Embassy London immigrant visa interview, for a spouse, a child or son or daughter (IR2), or a parent (IR5). Fill in a form and get the finished email, covering all five public charge factors, with the evidence list and work and education appendices.">
   <title>Public charge statement builder | American Visa Guide</title>
   <link rel="canonical" href="https://www.americanvisaguide.com/public-charge-statement">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -18,6 +18,9 @@
     .tool fieldset:first-of-type { border-top: none; padding-top: 0; }
     .opt { display: none; }
     .opt.is-on { display: block; }
+    .check.opt.is-on { display: flex; }
+    .field-row.opt.is-on { display: grid; }
+    span.opt.is-on { display: inline; }
     .pc-bar { position: sticky; bottom: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin: 1.5rem 0 0; padding: 0.7rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 -2px 10px rgba(0,0,0,0.08); font-size: 0.9rem; }
     .pc-bar.is-done { border-color: var(--accent); }
     .pc-bar a { font-weight: 600; white-space: nowrap; }
@@ -37,7 +40,7 @@
 
   <p class="eyebrow">Tool &middot; Public charge</p>
   <h1>Public charge <span>statement builder</span></h1>
-  <p class="lead">Fill in the form and the builder writes your statement in the order the officer reads it: income first, savings last. The bar at the bottom of your screen counts the gaps left. It takes about 30 minutes.</p>
+  <p class="lead">Fill in the form and the builder writes your statement in the order the officer reads it: income first, savings last. It works for a spouse, a child, a son or daughter, or a parent of a US citizen. The bar at the bottom of your screen counts the gaps left. It takes about 30 minutes.</p>
 
   <div class="callout callout-info">
     <span class="callout-title">Before you start</span>
@@ -47,29 +50,57 @@
   <form class="tool" id="pc-form" autocomplete="off">
 
     <fieldset>
+      <legend>Who is applying</legend>
+      <div class="field"><label for="rel">The applicant is the petitioner's</label>
+        <select id="rel">
+          <option value="spouse">Spouse (IR1 or CR1)</option>
+          <option value="child">Child under 18 (IR2)</option>
+          <option value="adult">Son or daughter aged 18 or over (IR2 or F1)</option>
+          <option value="parent">Parent (IR5)</option>
+          <option value="other">Other relative</option>
+        </select>
+        <span class="hint">The builder changes its questions and the statement to fit. What differs: <a href="/public-charge#ir2">children</a>, <a href="/public-charge#ir5">parents</a>.</span></div>
+      <div class="callout callout-info opt" data-show="rel=child">For a child under 18, the petitioner writes the statement on the child's behalf. Where a box says <em>you</em> or <em>your</em>, give the child's details in sections 1 and 2, and your own as the petitioner from section 3 on. Your email address goes in section 1.</div>
+      <div class="field-row opt" data-show="rel=child">
+        <div class="field"><label for="prel">You, the petitioner, are the child's</label><input type="text" id="prel" placeholder="father"></div>
+      </div>
+      <label class="check opt" data-show="rel=child"><input type="checkbox" id="exempt"> <span>The child is under 18, unmarried, and will live with me in the US in my legal and physical custody, so needs no Form I-864. <a href="/public-charge#minor-child">Check this</a>.</span></label>
+      <div class="field opt" data-show="rel!=spouse&amp;rel!=child"><label for="relother">You are the petitioner's</label><input type="text" id="relother" placeholder="mother"></div>
+      <div class="field opt" data-show="rel=adult"><label for="indepsince">You have supported yourself since <span class="hint">(optional; leave empty if your parent supports you)</span></label><input type="text" id="indepsince" placeholder="2017"></div>
+    </fieldset>
+
+    <fieldset>
       <legend>1. You and your case</legend>
       <div class="field-row">
         <div class="field"><label for="case">Case number</label><input type="text" id="case" placeholder="LND0123456789"></div>
-        <div class="field"><label for="name">Your full name</label><input type="text" id="name"></div>
-        <div class="field"><label for="email">Your email address</label><input type="text" id="email"></div>
+        <div class="field"><label for="name">Your full name <span class="hint opt" data-show="rel=child">(the child&rsquo;s)</span></label><input type="text" id="name"></div>
+        <div class="field"><label for="email">Your email address <span class="hint opt" data-show="rel=child">(the petitioner&rsquo;s)</span></label><input type="text" id="email"></div>
         <div class="field"><label for="idate">Interview date</label><input type="text" id="idate" placeholder="2 October 2026"></div>
-        <div class="field"><label for="age">Your age</label><input type="number" id="age" min="0" max="120"></div>
+        <div class="field"><label for="age">Your age <span class="hint opt" data-show="rel=child">(the child&rsquo;s)</span></label><input type="number" id="age" min="0" max="120"></div>
         <div class="field"><label for="english">English</label>
           <select id="english"><option value="first">English is my first language</option><option value="fluent">Fluent, not my first language</option></select></div>
       </div>
       <div class="field opt" data-show="english=fluent"><label for="englishbasis">Evidence of fluency</label><input type="text" id="englishbasis" placeholder="degree and current employment"><span class="hint">Completes: "I have used it throughout my ..."</span></div>
-      <div class="field-row">
+      <div class="opt" data-show="rel=child">
+        <div class="field-row">
+          <div class="field"><label for="grade">School year now</label><input type="text" id="grade" placeholder="Year 9"></div>
+          <div class="field"><label for="school">Current school</label><input type="text" id="school"></div>
+          <div class="field"><label for="schoolend">Expects to finish school in</label><input type="text" id="schoolend" placeholder="2031"></div>
+          <div class="field"><label for="usschool">US school or school district</label><input type="text" id="usschool" placeholder="Denver Public Schools"></div>
+        </div>
+        <div class="field"><label for="afterschool">Plans after school <span class="hint">(optional)</span></label><input type="text" id="afterschool" placeholder="to study engineering at university"></div>
+        <div class="field"><label for="carer">Who looks after the child day to day <span class="hint">(optional, if not only you)</span></label><input type="text" id="carer" placeholder="my wife and I, with after-school care at the school"></div>
+        <div class="field"><label for="custody">The child's parents</label>
+          <select id="custody"><option value="together">Live together, and both move</option><option value="apart">Live apart</option></select></div>
+        <div class="field opt" data-show="custody=apart"><label for="custodydetail">The other parent, and the custody arrangement</label><input type="text" id="custodydetail" placeholder="The child's mother, Sarah Jones, lives in Manchester and has consented in writing to the move"></div>
+      </div>
+      <div class="field-row opt" data-show="rel!=child">
         <div class="field"><label for="qual">Highest qualification</label><input type="text" id="qual" placeholder="BSc (Hons) Accounting"></div>
         <div class="field"><label for="qualinst">Institution</label><input type="text" id="qualinst"></div>
         <div class="field"><label for="qualyear">Year awarded</label><input type="text" id="qualyear"></div>
       </div>
-      <div class="field"><label for="extraqual">Other licences, certifications or training <span class="hint">(optional)</span></label><input type="text" id="extraqual" placeholder="ACCA membership, and 8 years of on-the-job training in audit"></div>
-      <div class="field-row">
-        <div class="field"><label for="rel">Your relationship to the petitioner</label>
-          <select id="rel"><option value="spouse">Spouse</option><option value="other">Other</option></select></div>
-        <div class="field opt" data-show="rel=other"><label for="relother">Relationship</label><input type="text" id="relother" placeholder="parent"></div>
-      </div>
-      <div class="field"><label for="owndeps">Your dependents <span class="hint">(leave empty if none)</span></label><input type="text" id="owndeps" placeholder="Amelia (6), who is traveling with me"></div>
+      <div class="field opt" data-show="rel!=child"><label for="extraqual">Other licences, certifications or training <span class="hint">(optional)</span></label><input type="text" id="extraqual" placeholder="ACCA membership, and 8 years of on-the-job training in audit"></div>
+      <div class="field opt" data-show="rel!=child"><label for="owndeps">Your dependents <span class="hint">(leave empty if none)</span></label><input type="text" id="owndeps" placeholder="Amelia (6), who is traveling with me"></div>
       <div class="field"><label for="petdeps">The petitioner's dependents <span class="hint">(everyone they support financially, not only tax dependents; leave empty if none besides you)</span></label><input type="text" id="petdeps" placeholder="2 dependents: Tom (10), their son, and their mother, whom they support financially"></div>
       <div class="field"><label for="depcare">Any dependent's health or care need, and who pays <span class="hint">(optional)</span></label><input type="text" id="depcare" placeholder="Tom has asthma, managed with an inhaler covered by the petitioner's employer plan"></div>
     </fieldset>
@@ -88,7 +119,7 @@
     <fieldset>
       <legend>3. Housing</legend>
       <div class="field-row">
-        <div class="field"><label for="liveswith">You will live with</label><input type="text" id="liveswith" placeholder="my husband, James Smith"></div>
+        <div class="field"><label for="liveswith"><span class="opt" data-show="rel!=child">You will live with</span><span class="opt" data-show="rel=child">The child will live with</span></label><input type="text" id="liveswith" placeholder="my husband, James Smith"></div>
         <div class="field"><label for="address">Full US address <span class="hint">(leave empty if not confirmed)</span></label><input type="text" id="address"></div>
       </div>
       <div class="field-row opt" data-show="!address">
@@ -98,7 +129,7 @@
       <div class="field"><label for="housingpaid">Housing costs met by</label><input type="text" id="housingpaid" value="my petitioner's income"></div>
     </fieldset>
 
-    <fieldset>
+    <fieldset class="opt" data-show="rel!=child">
       <legend>4. Your work</legend>
       <div class="field-row">
         <div class="field"><label for="job">Your job title or profession</label><input type="text" id="job"></div>
@@ -110,7 +141,8 @@
       </div>
       <div class="field"><label for="licence">If your profession is licensed in the US: status and timeline <span class="hint">(optional)</span></label><input type="text" id="licence" placeholder="begun credential evaluation with WES, and expect to complete the CPA exams by mid-2027"></div>
       <div class="field"><label for="workplan">After the move</label>
-        <select id="workplan"><option value="keep">I will keep my current job, working from the US</option><option value="seek">I will look for work after arrival</option></select></div>
+        <select id="workplan"><option value="keep">I will keep my current job, working from the US</option><option value="seek">I will look for work after arrival</option><option value="retired">I am retired and will not work in the US</option></select></div>
+      <div class="field opt" data-show="workplan=retired"><label for="retiredsince">Retired in</label><input type="text" id="retiredsince" placeholder="2022"><span class="hint">Fill the job boxes above with the work you did before you retired.</span></div>
       <div class="opt" data-show="workplan=keep">
         <label class="check"><input type="checkbox" id="keepconfirmed"> My employer has confirmed in writing that I can work from the US</label>
         <div class="field-row">
@@ -151,6 +183,8 @@
       <legend>6. Health insurance</legend>
       <div class="field"><label for="ins">Cover after arrival</label>
         <select id="ins"><option value="employer">Added to the petitioner's (or a family member's) employer plan</option><option value="own">Buying my own plan</option></select></div>
+      <p class="hint opt" data-show="rel=parent">A permanent resident can enroll in Medicare only after five years of continuous residence. Until then a parent usually buys a marketplace plan; the statement says so. <a href="/public-charge#ir5">Why</a>.</p>
+      <p class="hint opt" data-show="rel=adult">An employer plan that covers children must keep them until age 26. From 26, buy your own plan. <a href="/public-charge#adult-child">Why</a>.</p>
       <div class="field-row opt" data-show="ins=employer">
         <div class="field"><label for="insemployer">Through employer</label><input type="text" id="insemployer"></div>
         <div class="field"><label for="inssince">The plan holder has worked there since</label><input type="text" id="inssince" placeholder="2019"></div>
@@ -166,20 +200,21 @@
 
     <fieldset>
       <legend>7. Savings, assets and debts</legend>
+      <p class="hint opt" data-show="rel=child" style="margin:0 0 0.6rem;">Give your own savings, property and debts as the petitioner, and any savings in the child's name under &ldquo;Held by&rdquo;.</p>
       <div class="field-row">
         <div class="field"><label for="savings">Total savings (US dollars) <span class="hint">(add up every account, bring a statement for each, and learn each account's bank and balance. Put pensions under retirement below)</span></label><input type="text" id="savings" placeholder="$30,000"></div>
         <div class="field"><label for="saveswho">Held by</label>
-          <select id="saveswho"><option value="me">Me</option><option value="joint">My petitioner and me jointly</option></select></div>
+          <select id="saveswho"><option value="me">Me</option><option value="joint">My petitioner and me jointly</option></select><span class="hint opt" data-show="rel=child">&ldquo;Me&rdquo; is you, the petitioner. Choose jointly if some is in the child's name.</span></div>
         <div class="field"><label for="savemonths">Would cover costs for about (months)</label><input type="text" id="savemonths" placeholder="6"></div>
       </div>
       <div class="field-row opt" data-show="saveswho=joint">
         <div class="field"><label for="saveme">Of which in my name</label><input type="text" id="saveme"></div>
-        <div class="field"><label for="savepet">Of which in the petitioner's name</label><input type="text" id="savepet"></div>
+        <div class="field"><label for="savepet"><span class="opt" data-show="rel!=child">Of which in the petitioner's name</span><span class="opt" data-show="rel=child">Of which in the child's name</span></label><input type="text" id="savepet"></div>
       </div>
       <div class="field"><label for="property">Property or investments <span class="hint">(optional; only what you can prove at the window)</span></label><input type="text" id="property" placeholder="a flat in Leeds, owned outright; investments of approximately $12,000"></div>
-      <div class="field"><label for="otherincome">Other income <span class="hint">(optional)</span></label><input type="text" id="otherincome" placeholder="approximately $400 per month from freelance bookkeeping, paid by invoice"></div>
+      <div class="field opt" data-show="rel!=child"><label for="otherincome">Other income <span class="hint">(optional)</span></label><input type="text" id="otherincome" placeholder="approximately $400 per month from freelance bookkeeping, paid by invoice"></div>
       <div class="field"><label for="debts">Debts and liabilities, and how they are paid <span class="hint">(leave empty if none significant)</span></label><input type="text" id="debts" placeholder="a car loan of $8,000, serviced from my salary at $250 per month"></div>
-      <label class="check"><input type="checkbox" id="slc"> I have a UK student loan</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="slc"> I have a UK student loan</label>
       <div class="field-row opt" data-show="slc">
         <div class="field"><label for="slcplan">Plan</label><select id="slcplan"><option>1</option><option selected>2</option><option>4</option><option>5</option><option>Postgraduate</option></select></div>
         <div class="field"><label for="slcgbp">Balance (£)</label><input type="text" id="slcgbp"></div>
@@ -187,14 +222,17 @@
         <div class="field"><label for="slcmonth">Expected monthly repayment ($)</label><input type="text" id="slcmonth"></div>
         <div class="field"><label for="slcpaid">Paid from</label><input type="text" id="slcpaid" value="my salary"></div>
       </div>
-      <p class="hint" style="margin:0.8rem 0 0.4rem;"><strong>Retirement.</strong> Officers ask how you will fund it. Tick one, fill the other, or do both.</p>
+      <div class="opt" data-show="rel!=child">
+      <p class="hint" style="margin:0.8rem 0 0.4rem;"><strong>Retirement.</strong> Officers ask how you will fund it. Tick one, fill the other, or do both. If you are retired, list each pension you receive now, in dollars per year, and say it continues in the US.</p>
       <label class="check"><input type="checkbox" id="retirework" checked> I will work in the US and earn Social Security credits</label>
       <div class="field"><label for="retireplan">Other retirement plan <span class="hint">(optional; name each, with provider and value)</span></label><input type="text" id="retireplan" placeholder="a workplace pension with Aviva, worth about $45,000, and investments of about $15,000"></div>
+      </div>
+      <div class="field opt" data-show="rel=parent"><label for="ltc">If you could no longer live alone, who would care for you, and who would pay</label><input type="text" id="ltc" placeholder="I would live with my son, and my savings and pension would pay for any care at home"><span class="hint">Questionnaires ask about long-term care at government expense. <a href="/public-charge#ir5">Why</a>.</span></div>
     </fieldset>
 
     <fieldset>
       <legend>8. Public benefits and institutional care</legend>
-      <div class="field"><label for="benefits">Have you ever received means-tested benefits (for example Universal Credit, Housing Benefit, Council Tax Support), or used a food bank?</label>
+      <div class="field"><label for="benefits"><span class="opt" data-show="rel=child">(For the child)</span> Have you ever received means-tested benefits (for example Universal Credit, Housing Benefit, Council Tax Support), or used a food bank?</label>
         <select id="benefits"><option value="no">No, never</option><option value="yes">Yes</option></select></div>
       <div class="field opt" data-show="benefits=yes"><label for="benefitsdetail">What, when, why, and what changed</label><input type="text" id="benefitsdetail" placeholder="I received Universal Credit in the United Kingdom from March 2020 to October 2020, following redundancy. That period ended when I started my current job, and I have been employed since October 2020."></div>
       <div class="field"><label for="petbenefits">The petitioner's history <span class="hint">(leave empty if never)</span></label><input type="text" id="petbenefits" placeholder="received SNAP from 2018 to 2019, following a job loss, which ended when they joined their current employer"></div>
@@ -202,7 +240,7 @@
       <div class="field"><label for="institution">Long-term institutional care at government expense, for you or the petitioner <span class="hint">(leave empty if never; ordinary NHS care does not count)</span></label><input type="text" id="institution"></div>
     </fieldset>
 
-    <fieldset>
+    <fieldset class="opt" data-show="rel!=child">
       <legend>9. Appendices: work and education history</legend>
       <div class="field"><label for="workhist">Work history, one position per line, most recent first</label><textarea id="workhist" placeholder="Senior Auditor – Smith &amp; Co – 2019 to present&#10;Auditor – Jones LLP – 2015 to 2019"></textarea><span class="hint">Title – employer – years. Posts ask for this as a list.</span></div>
       <div class="field"><label for="eduhist">Education and qualifications, one per line, most recent first</label><textarea id="eduhist" placeholder="ACCA Membership – ACCA – 2018&#10;BSc (Hons) Accounting – University of Leeds – 2014"></textarea></div>
@@ -225,19 +263,23 @@
       <label class="check"><input type="checkbox" id="ev-jsrel"> J03 Joint sponsor relationship statement</label>
       <label class="check"><input type="checkbox" id="ev-jsassets"> J04 Joint sponsor proof of assets</label>
       <label class="check"><input type="checkbox" id="ev-jsbiz"> J05 Joint sponsor business records, if self-employed</label>
-      <label class="check"><input type="checkbox" id="ev-cv" checked> B01 My CV</label>
-      <label class="check"><input type="checkbox" id="ev-diplomas" checked> B02 My diplomas, degree certificates and licences</label>
-      <label class="check"><input type="checkbox" id="ev-bank" checked> B03 My bank statements, last 3 months, every account</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-cv" checked> B01 My CV</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-diplomas" checked> B02 My diplomas, degree certificates and licences</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-bank" checked> B03 My bank statements, last 3 months, every account</label>
       <label class="check"><input type="checkbox" id="ev-savings"> B04 My savings and investment statements</label>
-      <label class="check"><input type="checkbox" id="ev-property"> B05 Proof of ownership and value of my property</label>
-      <label class="check"><input type="checkbox" id="ev-employer"> B06 My employer letter, or a US job offer</label>
-      <label class="check"><input type="checkbox" id="ev-quote" checked> B07 My health insurance quote</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-property"> B05 Proof of ownership and value of my property</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-employer"> B06 My employer letter, or a US job offer</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-quote" checked> B07 My health insurance quote</label>
       <label class="check"><input type="checkbox" id="ev-treatment"> B08 The US price of my ongoing treatment</label>
-      <label class="check"><input type="checkbox" id="ev-slc"> B09 My debt statements, including my UK student loan statement</label>
-      <label class="check"><input type="checkbox" id="ev-credential"> B10 My credential evaluation or licensing correspondence</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-slc"> B09 My debt statements, including my UK student loan statement</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-credential"> B10 My credential evaluation or licensing correspondence</label>
       <label class="check"><input type="checkbox" id="ev-englishproof"> B11 My proof of English</label>
-      <label class="check"><input type="checkbox" id="ev-biz"> B12 My business records</label>
-      <label class="check"><input type="checkbox" id="ev-retirement"> B13 My retirement plan statements and UK State Pension forecast</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-biz"> B12 My business records</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-retirement"> B13 My retirement plan statements and UK State Pension forecast</label>
+      <label class="check opt" data-show="rel=child"><input type="checkbox" id="ev-birth"> B14 The child's full birth certificate</label>
+      <label class="check opt" data-show="rel=child"><input type="checkbox" id="ev-custody"> B15 Custody order, or the other parent's written consent</label>
+      <label class="check opt" data-show="rel=child"><input type="checkbox" id="ev-school"> B16 School report, and proof of a US school place</label>
+      <label class="check opt" data-show="rel=adult|rel=parent"><input type="checkbox" id="ev-address"> B17 Proof I live at my petitioner's address now</label>
     </fieldset>
   </form>
 
@@ -269,6 +311,6 @@
 
 <div id="footer-placeholder"></div>
 
-<script src="/js/statement-builder.js?v=20261022c"></script>
+<script src="/js/statement-builder.js?v=20261022d"></script>
 </body>
 </html>
