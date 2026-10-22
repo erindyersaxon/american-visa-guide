@@ -122,7 +122,7 @@ The domicile page's word count falls because two of its callouts now hold bullet
 ## 4. Still to do
 
 1. **Fact review of the rewrites.** The plain-English pass changed wording only, but the site covers legal process. Read the stage pages once with the facts in mind, starting with CRBA, NVC and the Interview stage.
-2. **Inline styles on non-stage pages.** Stage pages no longer shrink callout text with inline sizes. Other pages (221(g), public charge, Life in the USA) still carry some; moving them into classes would let one rule set them.
+2. **Done 22 October 2026: small text on the remaining pages.** 142 inline sizes on reading text removed so it inherits body size; source credits, review dates, captions and labels raised to at least 14px; form fields set to 16px. Life in the USA and Naturalization had their main text classes at 14px; those now read at body size. The guide overview table moved from 14px to 16px. The one-page interview-day sheet keeps its smaller sizes so it prints on one page.
 3. **Generate the stage sidebar from one file.** Twelve pages carry two copies each of the same list (sidebar and mobile drawer). `nav.js` already does this for the top nav.
 4. **Done 22 October 2026: sub-stages 1A and 1B renamed.** They are now "If your I-130 is delayed" and "If your child is a US citizen (CRBA)", indented under Stage 1 in the sidebar and breadcrumbs. "Next stage" from Stage 1 goes straight to Stage 2: NVC, and Stage 1 links to both pages in its document box. URLs are unchanged.
 5. **Glossary underlines.** Every abbreviation carries a dotted underline, which reads as a link. Mark the first use on each page only.

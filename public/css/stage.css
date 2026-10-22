@@ -1048,7 +1048,7 @@
   .hub-toc-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 16px;
     margin: 12px 0 0;
   }
   .hub-toc-table thead th {
@@ -1090,13 +1090,13 @@
     .hub-toc-table { white-space: normal; overflow: visible; }
     .hub-toc-table tbody { max-height: none; overflow: visible; }
     .hub-toc-table tbody tr:nth-child(odd) > * { background: transparent; }
-    .hub-toc-table tbody th { white-space: normal; font-size: 15px; border-bottom: 1px solid var(--border-subtle); }
+    .hub-toc-table tbody th { white-space: normal; font-size: 16px; border-bottom: 1px solid var(--border-subtle); }
     .hub-toc-table td { border-bottom: none; padding: 4px 12px; }
     .hub-toc-table td:last-child { padding-bottom: 12px; }
     .hub-toc-table td::before {
       content: attr(data-label) ': ';
       font-family: var(--font-ui);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--text-secondary);
     }
