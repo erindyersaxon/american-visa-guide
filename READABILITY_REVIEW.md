@@ -28,7 +28,7 @@ Measured with a script over the text inside `<main>` on every page (Flesch-Kinca
 3. **Lines too long.** Stage page text ran to about 1,060px wide, around 110 to 120 characters a line at 16px.
 4. **Three breadcrumb patterns, and 13 child pages without a trail.** Interview pages used "Home / Your interview / X". Stage pages used "Guide › Stage" with no Home. Checklists and worksheets used "← Part of Stage N" and no trail. Glossary, the question bank, the September update and the checklist family had no breadcrumb.
 5. **Four long pages had no `<main>` landmark** (221(g), administrative processing, delayed I-130 remedies, visa pause). Screen reader users could not jump to the content, and the skip link had no target.
-6. **Long sentences on the hardest pages.** The CRBA page averaged 29.5 words a sentence. On the interview stage 28% of sentences ran over 25 words. The 221(g), public charge and NVC pages each had sentences of 40 to 69 words.
+6. **Long sentences on the hardest pages.** The 221(g), public charge, NVC and CRBA pages each had sentences of 40 to 69 words. (An earlier version of this line overstated average sentence length; see the correction in section 3.)
 7. **Inconsistent stage names.** "7: After Interview", "Stage 7: After the Interview" and "After the interview" all named the same page; Title Case and sentence case were mixed.
 
 ## 3. What changed
@@ -59,18 +59,15 @@ Measured with a script over the text inside `<main>` on every page (Flesch-Kinca
 - Guide hub heading changed from the site name to "Your visa, step by step", with a one-line instruction to find your stage.
 - 25 of the longest sentences rewritten or turned into lists on CRBA, interview, before you leave, NVC, 221(g) and public charge.
 
+**Correction, 22 October 2026.** The first audit joined bullet points without full stops into one long "sentence", which inflated every grade. The corrected audit treats each bullet and block as its own unit. Corrected baseline for the stage pages: grade 7.9 to 10.2, 12 to 16 words a sentence.
+
 | Page | FK grade before → after | Words per sentence | Sentences over 25 words |
 |---|---|---|---|
-| Stage 1B: CRBA | 15.0 → 13.4 | 29.5 → 25.7 | 23% → 22% |
-| Stage 6: Interview | 11.2 → 10.3 | 21.2 → 19.0 | 28% → 21% |
-| Stage 8: Before you leave | 11.8 → 11.2 | 21.1 → 20.7 | 22% → 19% |
-| 221(g) | 9.0 → 8.9 | 16.2 → 15.9 | 12% → 10% |
-
-The page-level numbers move a little because the rewrites target the passages a reader hits first. Most stage pages still sit at grade 10 to 11. GOV.UK's target is far lower.
+| Stage 1B: CRBA (full rewrite) | 8.8 → 6.5 | 12.9 → 11.9 | 7% → 4% |
 
 ## 4. Still to do
 
-1. **A full plain-English pass, page by page.** Start with CRBA (grade 13.4), Before you leave (11.2), Delayed I-130 (11.2), Interview letter received (10.5) and Life in the USA (11.3). Check each page for sentences over 25 words; about 60 remain over 30 words on the stage, 221(g) and public charge pages alone.
+1. **A full plain-English pass, page by page.** In progress: CRBA done. Next by corrected grade: Delayed I-130 (10.2), Delayed I-130 remedies (9.6), I-130 (8.8), Before you leave (8.7), Interview letter received (8.7). Check each page for sentences over 25 words; about 60 remain over 30 words on the stage, 221(g) and public charge pages alone.
 2. **Move inline `style="font-size:14px"` into classes.** Community-account paragraphs on stage pages carry inline sizes, so the reader sees them smaller than body text. A `.community-note` class would let one rule set them.
 3. **Generate the stage sidebar from one file.** Twelve pages carry two copies each of the same list (sidebar and mobile drawer). `nav.js` already does this for the top nav.
 4. **Rename sub-stages 1A and 1B.** A non-expert reads "1A" as a step everyone takes. "If your I-130 is delayed" and "If your child is already a US citizen" say who the page is for.
