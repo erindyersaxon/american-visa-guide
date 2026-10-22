@@ -548,7 +548,7 @@ var AVG_DOCS = {
     {
      "list": "binder",
      "id": "s3-13",
-     "label": "<strong>Printed copy of the evidence pack</strong>, on its own Public Charge tab, in the same order and under the same file codes as your CEAC upload. When the officer asks for a document, you can find it by code. Members preparing for re-interviews bring everything: CV, diplomas, insurance quotes and the beneficiary's bank and investment statements."
+     "label": "<strong>Printed copy of the evidence pack</strong>, on its own Public Charge tab, in the same order and under the same file codes as your CEAC upload. When the officer asks for a document, you can find it by code. Members preparing for re-interviews bring everything: CV, diplomas, insurance quotes and the beneficiary's bank and investment statements. If anyone is self-employed, the pack also holds 12 months of bank statements (business account preferred) and proof the business is registered and trading."
     }
    ]
   },
