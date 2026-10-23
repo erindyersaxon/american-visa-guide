@@ -1,0 +1,76 @@
+{
+  "lastRun": "2026-10-23T18:58:43.439Z",
+  "sources": {
+    "embassy-london": {
+      "lastOk": "2026-10-23T18:58:43.439Z",
+      "fetched": 10,
+      "queued": 0
+    },
+    "fr-state": {
+      "lastOk": "2026-10-23T18:58:43.439Z",
+      "fetched": 20,
+      "queued": 0
+    },
+    "fr-uscis": {
+      "lastOk": "2026-10-23T18:58:43.439Z",
+      "fetched": 20,
+      "queued": 0
+    },
+    "uscis-news": {
+      "lastOk": "2026-10-23T18:58:43.439Z",
+      "fetched": 250,
+      "queued": 1
+    },
+    "state-press": {
+      "lastOk": "2026-10-23T18:58:43.439Z",
+      "fetched": 10,
+      "queued": 0
+    },
+    "gnews-embassy": {
+      "lastOk": "2026-10-23T18:58:43.439Z",
+      "fetched": 0,
+      "queued": 0
+    },
+    "gnews-family": {
+      "lastOk": "2026-10-23T18:58:43.439Z",
+      "fetched": 53,
+      "queued": 1
+    }
+  },
+  "items": [
+    {
+      "id": "8c7dd0d862",
+      "status": "pending",
+      "source": "gnews-family",
+      "sourceName": "Vanguard News",
+      "type": "press",
+      "date": "2026-10-22",
+      "title": "UK: 9 types of marriages that may not qualify for a spouse visa or residence permit",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQV0hiYnJiSnd0bENyeGJFWGJFSFh4R2VOTW5mRXZjUzNIOTNRbmhaWjFhX3dIVUVnaDhRSDlZci1mNUk4ZUhSbjVVUGd4SEg3ZWdENk5IU2ZENzI3WjdKQkp4RDJCV0ZlQkJPenIyT21yOVg2ajJiSUhNNEpheE9oUFFDNkRqYnNzRmFSUUx2bDdWVC1FM2FXZFlveE5WcmJubHhpcDZsUXdfd1lzenpUNlZWN0QzdDRKbURF0gHAAUFVX3lxTFBRUzZDMlZzTTFIV0xkWkhSS1ZMaTBLd204dnRwZ2dTRGgzUTFZcHhPRndwMjZubzZ0akR6OEN6YWlIU05VV3g3X3dCWEFnNUtSbkxXMW12eGpGa2pWZ2NWbUtsTnY2azZYcTBEZW9LZ0wza2x4TDZROUtvdzh6dVFHVFUydEl3SDhsVVNITmFuV0FhVWlJaUpUZ1VaWFVucFIwRFpiRmFWY0pRWkVyNWdKa1BIc29CaVZlVUc1VTRhdA?oc=5",
+      "summary": "UK: 9 types of marriages that may not qualify for a spouse visa or residence permit Vanguard News",
+      "matched": [
+        "spouse visa",
+        "visa"
+      ],
+      "score": 4,
+      "foundAt": "2026-10-23T18:58:43.439Z"
+    },
+    {
+      "id": "a181a341e6",
+      "status": "pending",
+      "source": "uscis-news",
+      "sourceName": "USCIS",
+      "type": "official",
+      "date": "2026-09-30",
+      "title": "USCIS Announces FY 2027 Inflation Increase for Certain Immigration-Related Fees",
+      "url": "https://www.uscis.gov/newsroom/alerts/uscis-announces-fy-2027-inflation-increase-for-certain-immigration-related-fees",
+      "summary": "U.S. Citizenship and Immigration Services has issued a Federal Register notice that will increase certain H.R. 1 immigration-related fees for fiscal year 2027.",
+      "matched": [
+        "fees",
+        "immigration"
+      ],
+      "score": 3,
+      "foundAt": "2026-10-23T18:58:43.439Z"
+    }
+  ]
+}

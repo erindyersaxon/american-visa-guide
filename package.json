@@ -6,7 +6,9 @@
     "dev": "ts-node-dev --transpile-only --respawn src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "lint": "echo \"No lint configured. Add ESLint if needed.\""
+    "news:collect": "node --max-http-header-size=131072 scripts/news/collect.mjs",
+    "news:review": "node scripts/news/review.mjs",
+    "lint":"echo \"No lint configured. Add ESLint if needed.\""
   },
   "dependencies": {
     "express": "^4.18.4"

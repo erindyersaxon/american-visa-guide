@@ -1,0 +1,44 @@
+# Daily news collection. Fetches the sources in scripts/news/sources.mjs,
+# adds anything new to the review queue (data/news-queue.json) and commits
+# it. Nothing is published: items reach /news only when approved with
+# `npm run news:review`. Commits that touch only the queue skip the Vercel
+# deploy (see ignoreCommand in vercel.json).
+name: Collect news
+
+on:
+  schedule:
+    - cron: '30 6 * * *'   # 06:30 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Collect
+        run: npm run news:collect
+
+      - name: Commit queue
+        run: |
+          git add data/news-queue.json
+          if git diff --cached --quiet; then
+            echo "Queue unchanged."
+            exit 0
+          fi
+          pending=$(node -e "console.log(require('./data/news-queue.json').items.filter(i => i.status === 'pending').length)")
+          git -c user.name="news-bot" -c user.email="news-bot@users.noreply.github.com" \
+            commit -m "News queue: ${pending} pending review"
+          git pull --rebase
+          git push

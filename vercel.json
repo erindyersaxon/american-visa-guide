@@ -4,6 +4,7 @@
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':(exclude)data/news-queue.json'",
   "headers": [
     {
       "source": "/(.*)",
