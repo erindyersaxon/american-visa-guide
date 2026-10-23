@@ -395,6 +395,30 @@
   outline-offset: 3px;
 }
 
+/* "Cookie settings" opens the consent banner (js/consent.js), so it is a
+   button dressed as a footer link. */
+.avg-footer__linkbtn {
+  display: block;
+  margin-top: 0.35rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: #f4efe6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.avg-footer__linkbtn:hover {
+  color: #c8dde6;
+}
+
+.avg-footer__linkbtn:focus-visible {
+  outline: 2px solid #c8dde6;
+  outline-offset: 3px;
+}
+
 .avg-footer__kofi {
   display: inline-flex;
   align-items: center;

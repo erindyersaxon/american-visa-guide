@@ -3,16 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- Cookiebot consent manager: must be the first script so auto-blocking works -->
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Microsoft Clarity: runs only after statistics consent -->
-<script type="text/plain" data-cookieconsent="statistics">
-(function(c,l,a,r,i,t,y){
-  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window,document,"clarity","script","wlfs757o2n");
-</script>
+<script src="/js/consent.js?v=20261023" defer></script>
     <title>Privacy Policy | American Visa Guide</title>
     <meta name="description" content="Privacy policy for americanvisaguide.com" />
     <link rel="canonical" href="https://www.americanvisaguide.com/privacy" />
@@ -21,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/design-system.css?v=20261022" />
-    <script id="CookieDeclaration" src="https://consent.cookiebot.com/ab078a21-a012-4558-9efa-0c068d1e4366/cookiedeclaration.js" type="text/javascript" async></script>
     <style>
       .privacy-container { max-width: var(--max-width-prose); margin: 0 auto; }
       /* The contact address is one long unbreakable token: let it wrap rather
@@ -39,14 +29,15 @@
       .privacy-section p { margin-bottom: var(--space-4); color: var(--color-text); line-height: var(--line-lg); }
       .privacy-section strong { color: var(--color-navy); }
       .privacy-section a { color: var(--color-navy); font-weight: var(--weight-semibold); }
+      .privacy-consent-btn { padding: 0; background: none; border: 0; font: inherit; color: var(--color-navy); font-weight: var(--weight-semibold); text-decoration: underline; cursor: pointer; }
       .info-box { padding: var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy-light); border-radius: var(--radius-lg); margin: var(--space-8) 0; }
       .info-box strong { color: var(--color-navy); display: block; margin-bottom: var(--space-2); }
       .contact-info { background: var(--color-surface-alt); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin-top: var(--space-6); }
       .contact-info strong { color: var(--color-navy); display: block; margin-bottom: var(--space-2); }
       .contact-info a { color: var(--color-navy); font-weight: var(--weight-semibold); word-break: break-all; }
     </style>
-    <link rel="stylesheet" href="/css/nav.css?v=20261022">
-  <script src="/js/nav.js?v=20261022" defer></script>
+    <link rel="stylesheet" href="/css/nav.css?v=20261023">
+  <script src="/js/nav.js?v=20261023" defer></script>
 <link rel="stylesheet" href="/css/readability.css?v=20261022">
 </head>
   <body>
@@ -58,7 +49,7 @@
         <div class="privacy-container">
           <header class="privacy-header">
             <h1 class="privacy-title">Privacy Policy</h1>
-            <p class="privacy-subtitle">Last updated: 12 June 2026</p>
+            <p class="privacy-subtitle">Last updated: 23 October 2026</p>
           </header>
 
           <div class="privacy-intro">
@@ -78,8 +69,10 @@
             <h3>3. Browser-stored worksheet data</h3>
             <p>The DS-260 and I-864 worksheets store your inputs in your browser tab memory only. This data is never transmitted to any server and is lost when you close or refresh the tab. <strong>We have no access to your worksheet inputs.</strong></p>
 
-            <h3>4. Cookies</h3>
-            <p>This site uses <strong>no first-party cookies</strong>. Microsoft Clarity may set third-party cookies for session analytics. <strong>No advertising or tracking cookies are used.</strong></p>
+            <h3 id="cookies">4. Cookies</h3>
+            <p>On your first visit a banner asks whether you're happy for Microsoft Clarity to run. <strong>Clarity does not load, and sets no cookies, unless you choose "Yes".</strong> If you say yes, Clarity sets its own cookies (such as <code>_clck</code> and <code>_clsk</code>) to tell visits apart and join up a session. <strong>No advertising cookies are used.</strong></p>
+            <p>Your answer is saved in your browser's local storage (not a cookie) under the name <code>avg-consent</code>, so the banner doesn't ask you on every page. It never leaves your device.</p>
+            <p>You can change your mind at any time: <button type="button" class="privacy-consent-btn" data-consent-open>Open cookie settings</button>. Choosing "No thanks" after saying yes stops Clarity and deletes its cookies.</p>
           </section>
 
           <section class="privacy-section">

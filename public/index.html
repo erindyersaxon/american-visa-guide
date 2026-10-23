@@ -3,16 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Cookiebot consent manager: must be the first script so auto-blocking works -->
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab078a21-a012-4558-9efa-0c068d1e4366" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Microsoft Clarity: runs only after statistics consent -->
-<script type="text/plain" data-cookieconsent="statistics">
-(function(c,l,a,r,i,t,y){
-  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window,document,"clarity","script","wlfs757o2n");
-</script>
+<script src="/js/consent.js?v=20261023" defer></script>
   <title>American Visa Guide | UK to US Family Visa</title>
   <meta name="description" content="A plain-language guide and community data tracker for people going through the US family immigrant visa process via the US Embassy London. Real wait times, step-by-step guidance, checklists, and more.">
   <link rel="canonical" href="https://www.americanvisaguide.com/">
@@ -27,8 +18,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/css/main.css?v=20261022">
   <link rel="stylesheet" href="/css/components.css?v=20261022">
-  <link rel="stylesheet" href="/css/nav.css?v=20261022">
-  <script src="/js/nav.js?v=20261022" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20261023">
+  <script src="/js/nav.js?v=20261023" defer></script>
 
   <!-- Prefetch community data early so the "This Week in the Community" section can render -->
   <script>
@@ -536,6 +527,18 @@
       </div>
     </section>
 
+    <!-- EMBASSY AND VISA NEWS: informational, below the community updates
+         and navigation, above the intro strip. Items live in /js/news.js. -->
+    <section class="content-section" aria-labelledby="news-hd">
+      <div class="container">
+        <div class="section-hd">
+          <h2 class="section-hd__title" id="news-hd">Embassy and visa news</h2>
+          <p class="section-hd__sub">Recent announcements, rule changes and press coverage, checked by hand. For background; your own emails from the embassy or NVC come first.</p>
+        </div>
+        <div data-news data-news-limit="5"></div>
+      </div>
+    </section>
+
     <!-- INTRO STRIP -->
     <section class="home-intro" aria-labelledby="intro-label">
       <div class="container">
@@ -559,18 +562,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- EMBASSY AND VISA NEWS: informational, last on the page so it never
-         sits above the community updates. Items live in /js/news.js. -->
-    <section class="content-section" aria-labelledby="news-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="news-hd">Embassy and visa news</h2>
-          <p class="section-hd__sub">Recent announcements, rule changes and press coverage, checked by hand. For background; your own emails from the embassy or NVC come first.</p>
-        </div>
-        <div data-news data-news-limit="5"></div>
       </div>
     </section>
 

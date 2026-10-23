@@ -149,6 +149,7 @@
       <div>
         <p class="avg-footer__hd">Legal</p>
         <a href="/privacy.html">Privacy Policy</a>
+        <button type="button" class="avg-footer__linkbtn" data-consent-open>Cookie settings</button>
       </div>
       <div>
         <p class="avg-footer__hd">Support</p>
