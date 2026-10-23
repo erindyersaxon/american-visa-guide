@@ -93,12 +93,21 @@
     }
   }
 
+  /* How long an answer lasts before the banner asks again. A "No" lasts
+     half as long as a "Yes": still well clear of nagging, but people
+     who said no once get a fair second chance to say yes. */
+  const MONTHS_VALID = { accepted: 12, rejected: 6 };
+
   /* Decide whether a saved choice still counts, or whether to ask again.
      record = { choice: 'accepted' | 'rejected', version, savedAt: ISO string }
      Return true to keep the choice, false to show the banner again. */
   function isChoiceStillValid(record) {
-    // TODO: decide how long a choice lasts (see note in chat).
-    return true;
+    const months = MONTHS_VALID[record.choice];
+    const savedAt = new Date(record.savedAt);
+    if (!months || isNaN(savedAt)) return false;
+    const expires = new Date(savedAt);
+    expires.setMonth(expires.getMonth() + months);
+    return new Date() < expires;
   }
 
   /* ---- Clarity ------------------------------------------------------ */
