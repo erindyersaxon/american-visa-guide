@@ -26,7 +26,21 @@ export const TERMS = {
   'visa bulletin': 3,
   'public charge': 3,
   'affidavit of support': 3,
-  'I-130': 3, 'I-864': 3, 'DS-260': 3, 'DS-864': 3,
+  // Forms across the whole journey: petition, visa, green card, removing
+  // conditions, citizenship. Unhyphenated spellings are common in press
+  // and on Reddit.
+  'I-130': 3, 'I130': 3,
+  'I-864': 3, 'I864': 3,
+  'DS-260': 3, 'DS260': 3,
+  'DS-864': 3,
+  'I-551': 3, 'I551': 3,
+  'I-90': 3, 'I90': 3,
+  'I-751': 3, 'I751': 3,
+  'N-400': 3, 'N400': 3,
+  'removal of conditions': 3,
+  'remove conditions': 3,
+  'naturalization': 2,
+  'citizenship test': 2,
   '221(g)': 3,
   'administrative processing': 3,
   'visa pause': 3,
@@ -60,6 +74,10 @@ export const EXCLUDE = [
   'student visa', 'F-1', 'J-1', 'H-1B', 'H-2A', 'H-2B', 'L-1', 'O-1',
   'E-2 visa', 'EB-1', 'EB-2', 'EB-3', 'EB-5', 'golden visa', 'gold card', 'ESTA',
   'Sunshine Act',
+  // USCIS publishes many enforcement stories; they mention naturalization
+  // and green cards but are not process news.
+  'Convicted', 'Charged', 'Sentenced', 'Indicted', 'Pleads Guilty',
+  'Arrested', 'Denaturalized', 'Smuggling',
 ];
 
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

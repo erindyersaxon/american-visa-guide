@@ -65,7 +65,7 @@ export const SOURCES = [
     needs: 'visa',
     url: fr([
       ['conditions[agencies][]', 'u-s-citizenship-and-immigration-services'],
-      ['conditions[term]', '"public charge" | "affidavit of support" | "I-130" | "immigrant visa" | fee'],
+      ['conditions[term]', '"public charge" | "affidavit of support" | "immigrant visa" | fee | "I-130" | "I-864" | "I-551" | "I-90" | "I-751" | "N-400"'],
     ]),
   },
   {
