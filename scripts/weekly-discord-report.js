@@ -110,11 +110,21 @@ const byName = (entries) => entries.length
   ? entries.map(e => `${e.who} (${shortDate(e.date)})`).join('\n')
   : '*none noted*'
 
+// Same rule as nextInterview() in api/data.js: once a member reports a
+// reschedule or re-interview, `interview` keeps the original date and the
+// appointment to show is new_interview_at. A change with no new date yet means
+// cancelled: show nothing.
+const nextInterview = (r) => r.interview_change_type
+  ? (r.new_interview_at ? String(r.new_interview_at).slice(0, 10) : null)
+  : r.interview
+
 const buildReport = (rows, runDate) => {
   const { upcoming, previous } = reportWindows(runDate)
-  const london = rows.filter(r => r.embassy === EMBASSY)
+  const london = rows
+    .filter(r => r.embassy === EMBASSY)
+    .map(r => ({ ...r, next_interview: nextInterview(r) }))
 
-  const interviews = pick(london, 'interview', upcoming)
+  const interviews = pick(london, 'next_interview', upcoming)
   const medicals = pick(london, 'medical', upcoming)
   const flights = pick(london, 'flight', upcoming)
   const i130s = pick(london, 'i130_approval', previous)
@@ -170,7 +180,8 @@ const fetchRows = async () => {
   const missing = [!url && 'SUPABASE_URL', !key && 'SUPABASE_ANON_KEY'].filter(Boolean)
   if (missing.length) throw new Error(`Missing environment variables: ${missing.join(', ')}`)
 
-  const select = 'username_raw,embassy,interview,medical,flight,i130_approval,dq_date'
+  const select = 'username_raw,embassy,interview,interview_change_type,new_interview_at,' +
+    'medical,flight,i130_approval,dq_date'
   const res = await fetch(
     `${url}/rest/v1/form_responses?embassy=eq.${encodeURIComponent(EMBASSY)}&select=${select}`,
     { headers: { apikey: key, Authorization: `Bearer ${key}` } }
