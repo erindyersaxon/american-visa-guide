@@ -7,23 +7,29 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const PUBLIC = path.join(__dirname, '..', 'public');
+const PUBLIC = process.env.STAGE_PAGES_ROOT || path.join(__dirname, '..', 'public');
 const snapshot = require('./fixtures/stage-ids.json');
 const allowlist = require('./fixtures/stage-inline-allowlist.json');
 
 const PAGES = ['guide.html', ...['after-interview', 'before-you-leave', 'crba', 'delayed-i130', 'i130',
   'interview-letter', 'interview', 'medical', 'nvc', 'us-entry', 'waiting'].map(p => `guide/${p}.html`)];
-const OLD = ['info-card', 'info-card-head', 'stage-h1', 'stage-meta', 'stage-bottomline', 'stage-actions'];
+const OLD = ['info-card', 'info-card-head', 'stage-h1', 'stage-meta', 'stage-bottomline', 'stage-actions',
+  'warning', 'tip']; // old .info-card modifiers: callouts use callout-warn / callout-good
+
+// Attribute values in any quoting: "x", 'x' or bare x
+const attrValues = (html, name) => [...html.matchAll(new RegExp(`\\s${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'gi'))]
+  .map(m => m[1] ?? m[2] ?? m[3]);
+const version = (html, file) => (html.match(new RegExp(`/css/${file}\\?v=([0-9a-z]+)`)) || [])[1];
 
 for (const page of PAGES) {
   test(`stage page ${page}`, () => {
     const html = fs.readFileSync(path.join(PUBLIC, page), 'utf8');
 
     const allowed = new Set(allowlist.filter(a => a.page === page).map(a => a.style));
-    const styles = [...html.matchAll(/\sstyle="([^"]*)"/g)].map(m => m[1]);
+    const styles = attrValues(html, 'style');
     assert.deepEqual(styles.filter(s => !allowed.has(s)), [], `${page}: inline styles`);
 
-    const classTokens = [...html.matchAll(/\sclass="([^"]*)"/g)].flatMap(m => m[1].split(/\s+/));
+    const classTokens = attrValues(html, 'class').flatMap(v => v.split(/\s+/));
     assert.deepEqual(classTokens.filter(t => OLD.includes(t)), [], `${page}: old classes`);
 
     const main = html.match(/<main\b[^>]*\sclass="([^"]*)"/);
@@ -37,3 +43,12 @@ for (const page of PAGES) {
     assert.deepEqual(ids, snapshot[page], `${page}: ids`);
   });
 }
+
+// /css is served immutable: every page must ask for the same build of each stylesheet.
+test('stage pages share one version of each stylesheet', () => {
+  for (const file of ['guide-article.css', 'stage.css']) {
+    const versions = new Set(PAGES.map(p => version(fs.readFileSync(path.join(PUBLIC, p), 'utf8'), file)));
+    assert.equal(versions.size, 1, `${file}: ${[...versions].join(', ')}`);
+    assert.ok([...versions][0], `${file}: missing ?v=`);
+  }
+});
