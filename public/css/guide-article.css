@@ -153,3 +153,84 @@
 @media (max-width: 639px) {
   .stat-row > .stat-box { flex-basis: 100%; }
 }
+
+/* Member stories (same names as article.css, for piece 4) */
+.guide-article .voices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0;
+}
+.guide-article .voice {
+  padding: 14px 16px;
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border);
+  border-left: 3px solid var(--ga-text);
+  border-radius: var(--ga-radius);
+}
+.guide-article .voice-who {
+  margin-bottom: 4px;
+  font-family: var(--ga-font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ga-muted);
+}
+.guide-article .voice-what { font-size: 1em; }
+
+/* "Had your …? Add it to the tracker" prompt */
+.guide-article .article-prompt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  background: var(--ga-good-bg);
+  border: 1px solid var(--ga-border);
+  border-radius: var(--ga-radius);
+}
+.guide-article .article-prompt p { margin: 0; }
+
+/* Links styled as buttons */
+.guide-article .article-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--ga-text);
+  color: #ffffff;
+  font-family: var(--ga-font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--ga-radius);
+  text-decoration: none;
+}
+
+.guide-article .text-muted { color: var(--ga-muted); }
+
+.guide-article .article-actions-section { margin: 0 0 24px; }
+
+/* Tables and figures in article content */
+.guide-article table th,
+.guide-article table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--ga-border);
+  text-align: left;
+}
+.guide-article figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ga-border);
+  border-radius: var(--ga-radius);
+}
+
+@media print {
+  .guide-article .callout,
+  .guide-article .voice,
+  .stat-box {
+    page-break-inside: avoid;
+    border: 1pt solid #999;
+    background: none;
+  }
+  .guide-article .article-prompt,
+  .guide-article .article-cta { display: none; }
+}
