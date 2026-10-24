@@ -57,22 +57,22 @@
 
   const CSS = `
     .news-filters { display:flex; flex-wrap:wrap; gap:0.5rem; margin:0 0 1.25rem; }
-    .news-filters button { font:inherit; font-size:15px; padding:0.35rem 0.85rem; border-radius:999px; border:1px solid #a9cbd9; background:#fff; color:#2f5a6e; cursor:pointer; }
-    .news-filters button[aria-pressed="true"] { background:#2f5a6e; border-color:#2f5a6e; color:#fff; }
+    .news-filters button { font:inherit; font-size:15px; padding:0.35rem 0.85rem; border-radius:999px; border:1px solid #cbd5e1; background:#fff; color:#1e293b; cursor:pointer; }
+    .news-filters button[aria-pressed="true"] { background:#1e293b; border-color:#1e293b; color:#fff; }
     .news-list { list-style:none; margin:0; padding:0; }
     .news-item { padding:1rem 0; border-bottom:1px solid #e3ddd0; }
     .news-item:first-child { padding-top:0; }
-    .news-meta { display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem; font-size:14px; color:#56524a; margin:0 0 0.3rem; }
+    .news-meta { display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem; font-size:14px; color:#334155; margin:0 0 0.3rem; }
     .news-tag { font-size:13px; font-weight:700; padding:0.1rem 0.5rem; border-radius:4px; }
     .news-tag--official { background:#e1ecf2; color:#24485a; }
     .news-tag--press { background:#efe9dc; color:#5a4a26; }
     .news-tag--community { background:#ece4f2; color:#4d2f6b; }
     .news-title { font-size:17px; font-weight:600; line-height:1.4; margin:0 0 0.3rem; }
-    .news-title a { color:#2f5a6e; text-decoration:underline; text-underline-offset:2px; }
+    .news-title a { color:#1e293b; text-decoration:underline; text-underline-offset:2px; }
     .news-note { margin:0; line-height:1.55; max-width:none; }
-    .news-empty { color:#56524a; }
+    .news-empty { color:#334155; }
     .news-more { margin:1rem 0 0; }
-    .news-more a { color:#2f5a6e; font-weight:600; text-decoration:underline; text-underline-offset:2px; }`;
+    .news-more a { color:#1e293b; font-weight:600; text-decoration:underline; text-underline-offset:2px; }`;
 
   const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December'];

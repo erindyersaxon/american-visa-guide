@@ -44,20 +44,20 @@
   ];
 
   const CSS = `
-    .pause-glossary { margin:1.25rem 0 1.75rem; border:1px solid #ddd6cb; border-radius:10px; background:#fdfaf3; overflow:hidden; font-size:0.86rem; line-height:1.55; }
-    .pause-glossary summary { cursor:pointer; padding:0.8rem 1.1rem; font-weight:700; color:#2f5a6e; list-style:none; }
+    .pause-glossary { margin:1.25rem 0 1.75rem; border:1px solid #e2e8f0; border-radius:10px; background:#ffffff; overflow:hidden; font-size:0.86rem; line-height:1.55; }
+    .pause-glossary summary { cursor:pointer; padding:0.8rem 1.1rem; font-weight:700; color:#1e293b; list-style:none; }
     .pause-glossary summary::-webkit-details-marker { display:none; }
     .pause-glossary summary::before { content:"\\25B8"; display:inline-block; margin-right:0.5rem; transition:transform .15s; }
     .pause-glossary[open] summary::before { transform:rotate(90deg); }
-    .pause-glossary__intro { padding:0 1.1rem 0.6rem; color:#6a6560; margin:0; }
-    .pause-glossary__list { display:grid; gap:0; margin:0; padding:0; list-style:none; border-top:1px solid #e7e0d4; }
-    .pause-glossary__row { display:grid; grid-template-columns: 11rem 1fr; gap:0.35rem 1rem; padding:0.75rem 1.1rem; border-bottom:1px solid #e7e0d4; }
+    .pause-glossary__intro { padding:0 1.1rem 0.6rem; color:#475569; margin:0; }
+    .pause-glossary__list { display:grid; gap:0; margin:0; padding:0; list-style:none; border-top:1px solid #e2e8f0; }
+    .pause-glossary__row { display:grid; grid-template-columns: 11rem 1fr; gap:0.35rem 1rem; padding:0.75rem 1.1rem; border-bottom:1px solid #e2e8f0; }
     .pause-glossary__row:last-child { border-bottom:none; }
-    .pause-glossary__term { font-weight:700; color:#1e1c17; }
+    .pause-glossary__term { font-weight:700; color:#0f172a; }
     .pause-glossary__body p { margin:0 0 0.3rem; }
     .pause-glossary__body p:last-child { margin:0; }
-    .pause-glossary__label { font-weight:600; color:#6a6560; }
-    .pause-glossary a { color:#2f5a6e; font-weight:600; }
+    .pause-glossary__label { font-weight:600; color:#475569; }
+    .pause-glossary a { color:#1e293b; font-weight:600; }
     @media (max-width:600px) { .pause-glossary__row { grid-template-columns:1fr; } }
     @media print { .pause-glossary summary::before { content:none; } }`;
 

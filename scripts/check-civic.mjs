@@ -66,6 +66,9 @@ export function SCOPE(root = ROOT) {
     ...listDir(path.join(root, "public"), (n) => n.endsWith(".html")),
     ...listDir(path.join(root, "public", "guide"), (n) => n.endsWith(".html")),
     path.join(root, "public", "js", "nav.js"),
+    ...["consent", "glossary", "live-notice", "news", "page-contents", "pause-glossary"].map((n) =>
+      path.join(root, "public", "js", n + ".js"),
+    ),
     path.join(root, "public", "favicon.svg"),
     path.join(root, "scripts", "og-image-source.html"),
   ];

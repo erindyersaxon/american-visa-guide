@@ -43,13 +43,13 @@
   }
 
   const PAGE_CSS = `
-    .live-note { background:#edf4f8; border:1px solid #a9cbd9; border-left:4px solid #3e7188; border-radius:8px; padding:0.85rem 1.1rem; margin:0 0 1.5rem; color:#1e1c17; line-height:1.55; }
+    .live-note { background:#f1f5f9; border:1px solid #cbd5e1; border-left:4px solid #0f172a; border-radius:8px; padding:0.85rem 1.1rem; margin:0 0 1.5rem; color:#0f172a; line-height:1.55; }
     .live-note p { margin:0 0 0.4rem; max-width:none; }
     .live-note p:last-child { margin-bottom:0; }
     .live-note ul { margin:0 0 0.4rem; padding-left:1.2rem; }
-    .live-note__head { font-weight:700; color:#2f5a6e; }
-    .live-note__meta { font-size:14px; color:#56524a; }
-    .live-note a { color:#2f5a6e; font-weight:600; text-decoration:underline; text-underline-offset:2px; }
+    .live-note__head { font-weight:700; color:#1e293b; }
+    .live-note__meta { font-size:14px; color:#334155; }
+    .live-note a { color:#1e293b; font-weight:600; text-decoration:underline; text-underline-offset:2px; }
     @media print { .live-note { display:none; } }`;
 
   function ensurePageCss() {

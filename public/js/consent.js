@@ -43,8 +43,8 @@
 .avg-consent {
   position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 10000;
   max-width: 560px; margin: 0 auto;
-  background: var(--color-surface, #FDFAF3); color: var(--color-text, #1e1c17);
-  border: 1px solid var(--color-border-strong, #a39c8e); border-radius: 10px;
+  background: var(--color-surface, #ffffff); color: var(--color-text, #0f172a);
+  border: 1px solid var(--color-border-strong, #64748b); border-radius: 10px;
   box-shadow: var(--shadow-overlay, 0 1px 2px rgba(15,23,42,.08));
   font-family: var(--font-body, 'Public Sans', system-ui, sans-serif);
   font-size: 0.9375rem; line-height: 1.5;
@@ -53,19 +53,19 @@
 .avg-consent__inner { padding: 18px 20px; }
 .avg-consent__hd {
   margin: 0 0 6px; font-family: var(--font-display, Georgia, serif);
-  font-size: 1.125rem; font-weight: 700; color: var(--color-navy, #2b3a42);
+  font-size: 1.125rem; font-weight: 700; color: var(--color-navy, #0f172a);
 }
 .avg-consent__body { margin: 0 0 14px; }
-.avg-consent__body a { color: var(--color-gold, #3e7188); font-weight: 600; }
+.avg-consent__body a { color: var(--color-gold, #0f172a); font-weight: 600; }
 .avg-consent__actions { display: flex; gap: 10px; flex-wrap: wrap; }
 .avg-consent__btn {
   flex: 1 1 140px; min-height: 44px; padding: 10px 16px;
   font: inherit; font-weight: 600; cursor: pointer;
-  background: var(--color-navy, #2b3a42); color: var(--color-text-inverse, #fff);
-  border: 2px solid var(--color-navy, #2b3a42); border-radius: 6px;
+  background: var(--color-navy, #0f172a); color: var(--color-text-inverse, #fff);
+  border: 2px solid var(--color-navy, #0f172a); border-radius: 6px;
 }
-.avg-consent__btn:hover { background: var(--color-navy-light, #3d5260); border-color: var(--color-navy-light, #3d5260); }
-.avg-consent__btn:focus-visible { outline: 3px solid var(--color-gold, #3e7188); outline-offset: 2px; }
+.avg-consent__btn:hover { background: var(--color-navy-light, #334155); border-color: var(--color-navy-light, #334155); }
+.avg-consent__btn:focus-visible { outline: 3px solid var(--color-gold, #0f172a); outline-offset: 2px; }
 @media print { .avg-consent { display: none !important; } }
 `;
 
