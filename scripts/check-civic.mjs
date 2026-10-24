@@ -42,6 +42,24 @@ export const MARK_RULES = [
   ["public/life.html", ".page-hero-eyebrow"],
   ["public/life.html", ".page-hero h1 span"],
   ["public/life.html", ".page-hero-h1 span"],
+  ["public/index.html", ".home-hero__title em"],
+  ...["221g", "administrative-processing", "delayed-i130-remedies", "visa-pause"].flatMap((n) => [
+    [`public/${n}.html`, ".eyebrow"],
+    [`public/${n}.html`, "h1 span"],
+    [`public/${n}.html`, "h1 em"],
+  ]),
+  ["public/naturalization.html", ".page-hero-eyebrow"],
+  ["public/naturalization.html", ".page-hero-h1 span"],
+  ["public/workbook.html", ".workbook-eyebrow"],
+  ["public/workbook.html", ".workbook-header h1 span"],
+  ["public/i864-household-decision-tree.html", ".eyebrow"],
+  ["public/i864-household-decision-tree.html", ".intro h1 em"],
+  ["public/404.html", ".nf-eyebrow"],
+  ["public/404.html", ".nf-title em"],
+  ["public/news.html", ".pg-eyebrow"],
+  ["public/public-charge.html", ".pg-eyebrow"],
+  ["public/september-2026-update.html", ".pg-eyebrow"],
+  ["public/checklists.html", ".tools-header__eyebrow"],
 ];
 export const ROUND_ALLOW = [
   ".steps > li::before",
@@ -405,8 +423,15 @@ export function checkMarks(rules, root = ROOT) {
     const hits = bl.filter((b) => b.selector.split(",").map((s) => s.trim()).includes(selector));
     if (hits.length === 0) {
       out.push(viol(file, 1, "marks", `no block for ${selector}`));
-    } else if (!hits.some((b) => /--color-mark|991b1b/i.test(b.body))) {
-      out.push(viol(file, hits[0].line, "marks", `${selector} lacks --color-mark or #991B1B`));
+      continue;
+    }
+    // Every matching block must set the mark in a color declaration, so a
+    // later copy of the rule cannot quietly override it.
+    for (const b of hits) {
+      const colors = b.decls.filter((d) => d.prop === "color");
+      if (colors.length === 0 || !colors.every((d) => /--color-mark|991b1b/i.test(d.value))) {
+        out.push(viol(file, b.line, "marks", `${selector} color must be --color-mark or #991B1B`));
+      }
     }
   }
   return out;

@@ -94,11 +94,22 @@ test("blocks is linear on large input", () => {
   assert.ok(Date.now() - t < 3000);
 });
 
-test("marks requires --color-mark or 991b1b in the block", () => {
-  const f = fx("m.css", ".ok{color:var(--color-mark)}\n.ok2{border-color:#991B1B}\n.bad{color:blue}\n");
+test("marks requires --color-mark or 991b1b in a color declaration", () => {
+  const f = fx("m.css", ".ok{color:var(--color-mark, #991B1B)}\n.ok2{color:#991b1b}\n.bad{color:blue}\n.border{border-color:#991B1B}\n");
   assert.equal(checkMarks([[f, ".ok"], [f, ".ok2"]]).length, 0);
   assert.equal(checkMarks([[f, ".bad"]]).length, 1);
   assert.equal(checkMarks([[f, ".missing"]]).length, 1);
+  // The mark in another property does not count.
+  assert.equal(checkMarks([[f, ".border"]]).length, 1);
+});
+
+test("marks checks every block for the selector, not just one", () => {
+  const f = fx("m2.css", ".e{color:var(--color-mark)}\n.x, .e{color:var(--accent)}\n");
+  const v = checkMarks([[f, ".e"]]);
+  assert.equal(v.length, 1);
+  assert.equal(v[0].line, 2);
+  const g = fx("m3.html", "<style>\n.e{color:var(--color-mark)}\n@media (max-width:1px){.e{font-size:1px}}\n</style>\n");
+  assert.equal(checkMarks([[g, ".e"]]).length, 1);
 });
 
 const GOOD_NAV = [
