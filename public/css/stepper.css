@@ -33,7 +33,7 @@
   max-width: 1200px;
   min-height: 56px;
   margin: 0 auto;
-  padding: 6px 16px;
+  padding: 4px 16px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -64,7 +64,7 @@
   grid-template-columns: auto 1fr;
   column-gap: 8px;
   align-items: center;
-  padding: 4px 0;
+  padding: 2px 0;
   border-bottom: 2px solid transparent;
 }
 
@@ -104,10 +104,9 @@
 
 .visa-stepper__head {
   min-width: 0;
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 2px 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .visa-stepper__label {
@@ -135,8 +134,10 @@
 }
 
 .visa-stepper__meta {
+  position: relative;
   grid-column: 2;
-  min-height: 16px;
+  min-width: 0;
+  min-height: 18px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -166,12 +167,24 @@
   white-space: nowrap;
 }
 
-/* Desktop: "This is me" shows on hover and focus, and always while unset */
-.visa-stepper__choose { opacity: 0; }
-.visa-stepper__step:hover .visa-stepper__choose,
-.visa-stepper__choose:focus-visible,
-.visa-stepper--unset .visa-stepper__choose { opacity: 1; }
+/* Desktop: while unset, "This is me" sits beside the tag. Once a step is set
+   it takes the place of the badge and tag on hover or keyboard focus. */
 .visa-stepper__step--in-progress .visa-stepper__choose { display: none; }
+@media (min-width: 768px) {
+  .visa-stepper:not(.visa-stepper--unset) .visa-stepper__choose {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+  .visa-stepper:not(.visa-stepper--unset) .visa-stepper__step:hover .visa-stepper__choose,
+  .visa-stepper:not(.visa-stepper--unset) .visa-stepper__choose:focus-visible { opacity: 1; }
+  .visa-stepper:not(.visa-stepper--unset) .visa-stepper__step:hover .visa-stepper__meta > :not(.visa-stepper__choose),
+  .visa-stepper:not(.visa-stepper--unset) .visa-stepper__meta:has(.visa-stepper__choose:focus-visible) > :not(.visa-stepper__choose) {
+    visibility: hidden;
+  }
+}
 
 .visa-stepper a:focus-visible,
 .visa-stepper button:focus-visible {
@@ -250,7 +263,6 @@
   }
   .visa-stepper__step { padding: 6px 0; }
   .visa-stepper__step + .visa-stepper__step::before { display: none; }
-  .visa-stepper__choose { opacity: 1; }
 }
 
 @media print {
