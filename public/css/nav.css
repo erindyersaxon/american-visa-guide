@@ -472,3 +472,12 @@
   padding-top: 1.25rem;
   border-top: 1px solid var(--nav-raised);
 }
+
+/* Height of the sticky stack (nav, plus the visa stepper where js/stepper.js
+   mounts it), so in-page anchors land below it. */
+:root { --sticky-offset: 64px; }
+html.has-stepper { --sticky-offset: 120px; }          /* 64 + 56 */
+@media (max-width: 767px) {
+  html.has-stepper { --sticky-offset: 108px; }        /* 64 + 44 */
+}
+html { scroll-padding-top: calc(var(--sticky-offset) + 8px); }

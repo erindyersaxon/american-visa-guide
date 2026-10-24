@@ -191,9 +191,9 @@
   .sidebar {
     position: fixed;
     left: 20px;
-    top: 100px;
+    top: calc(var(--sticky-offset, 64px) + 36px);
     width: 280px;
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - var(--sticky-offset, 64px) - 56px);
     overflow-y: auto;
     padding-top: 0;
     background: var(--card-bg);
@@ -367,7 +367,6 @@
   /* Sections */
   .section {
     margin-bottom: 56px;
-    scroll-margin-top: 72px;
   }
 
   .section-header {
