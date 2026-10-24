@@ -16,13 +16,14 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20261024c">
+<link rel="stylesheet" href="/css/stage.css?v=20261025b">
 <link rel="stylesheet" href="/css/nav.css?v=20261024c">
 <link rel="stylesheet" href="/css/stepper.css?v=20261025a">
 <script src="/js/community-stats.js?v=20261024d" defer></script>
 <script src="/js/stepper-core.js?v=20261024d" defer></script>
 <script src="/js/stepper.js?v=20261024d" defer></script>
 <script src="/js/nav.js?v=20261024c" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025b">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
@@ -91,29 +92,31 @@
   </aside>
 
   <!-- Main -->
-  <main class="main" id="main-content" role="main">
+  <main class="main guide-article" id="main-content" role="main">
 
     <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guide">Guide</a></li><li><a href="/guide/i130">Stage 1: I-130</a></li><li aria-current="page">If your child is a US citizen</li></ol></nav>
 
-    <h1 class="stage-h1">CRBA: if your child is already a US citizen</h1>
+    <header class="article-header">
+    <h1>CRBA: if your child is already a US citizen</h1>
 
-    <p class="stage-meta">
+    <p class="article-meta">
       <span><span aria-hidden="true">⏱</span> About 4 weeks for a simple UK birth</span>
       <span>CRBA $100, first passport $135 under 16</span>
       <span>Apply before age 18, soon after the birth if you can</span>
-      <span>Reviewed 27 Sept 2026</span>
+      <span>Reviewed <time datetime="2026-09-27">27 Sept 2026</time></span>
     </p>
 
-    <div class="stage-bottomline">
+    <div class="article-summary">
       <p><strong>You are here:</strong> Your child was born in the UK to a US citizen parent. Your child may already be a US citizen.</p>
       <p><strong>What happens:</strong> A child who is already a citizen needs a CRBA (Consular Report of Birth Abroad) and a US passport, not an immigrant visa. This runs separately from the I-130 process. Most cases succeed or fail on the evidence of time the US citizen parent spent in the US, which the law calls physical presence.</p>
       <p><strong>Do this first:</strong> Find the citizenship rule that fits your family (see <a href="#crba_2">who qualifies</a>). Then check the US citizen parent can prove the time in the US that rule needs: usually 5 years before the birth, with 2 of those years after age 14.</p>
     </div>
+    </header>
 
 
-    <section class="stage-actions" aria-labelledby="action-list-title">
+    <section class="article-actions-section" aria-labelledby="action-list-title">
       <h2 id="action-list-title">Action list</h2>
-      <ol>
+      <ol class="article-actions">
         <li><span class="role role--petitioner">US citizen parent<span class="sr-only">:</span></span> Gather evidence that you spent at least 5 years in the US before your child’s birth, with at least 2 of those years after you turned 14.</li>
         <li><span class="role role--either">Either parent<span class="sr-only">:</span></span> Fill in the eCRBA on MyTravelGov and the DS-11 passport form. Do not sign the DS-11. Add the SS-5 if you want a Social Security number for your child. Upload your documents and pay the $100 CRBA fee.</li>
         <li><span class="role role--either">Either parent<span class="sr-only">:</span></span> Email the London CRBA unit to book the appointment. Give your child’s name, date of birth and CRBA case number.</li>
@@ -128,10 +131,10 @@
     <section class="section stage-content" id="crba">
       <p>A child born in the UK to a US citizen parent may be a US citizen from birth. That child does not need an immigrant visa. They need a <strong>CRBA (Consular Report of Birth Abroad)</strong> to prove their citizenship, and a US passport to travel. The CRBA runs separately from the I-130 process.</p>
 
-      <div class="info-card tip">
-        <div class="info-card-head">CRBA or I-130?</div>
+      <div class="callout callout-good">
+        <div class="callout-title">CRBA or I-130?</div>
         <p>Check CRBA eligibility before you file anything. If your child is a US citizen from birth, an I-130 for an IR2 visa is the wrong route. A CRBA is faster and simpler, and skips the visa process. One question decides it: does the US citizen parent meet the physical presence rule?</p>
-        <p style="margin:0;">If your child is <em>not</em> a US citizen from birth, file an I-130 for an IR2 visa.</p>
+        <p>If your child is <em>not</em> a US citizen from birth, file an I-130 for an IR2 visa.</p>
       </div>
 
       <div class="sub-controls">
@@ -177,28 +180,28 @@
           <div class="sub-acc-content">
             <p>The most common London case is married parents, where one parent is a US citizen and the other is not. The US citizen parent must prove they spent <strong>at least 5 years in the US before the child’s birth, with at least 2 of those years after age 14</strong> (INA 301(g)).</p>
             <p>Other family situations follow other rules:</p>
-            <ul style="margin-bottom:10px;">
+            <ul>
               <li><strong>Married, and both parents are US citizens:</strong> one parent must have lived in the US at some point before the birth. There is no 5-year count (INA 301(c)).</li>
               <li><strong>Unmarried, and the mother is the US citizen:</strong> she needs 1 year in the US without a break, at any time before the birth (INA 309(c)).</li>
               <li><strong>Unmarried, and the father is the US citizen:</strong> the 5-year rule applies. He also needs clear and convincing evidence that he is the child’s biological father. He must legitimate or acknowledge paternity before the child turns 18, and agree in writing to support the child until 18 (INA 309(a)).</li>
             </ul>
-            <p>Check which rule fits your family on the <a href="https://travel.state.gov/content/travel/en/legal/travel-legal-considerations/us-citizenship/Acquisition-US-Citizenship-Child-Born-Abroad.html" target="_blank" rel="noopener noreferrer">State Department’s acquisition page</a>. For most families, the evidence of time in the US decides the case. Weak evidence leads to delay or refusal. <a href="https://travel.state.gov/content/travel/en/international-travel/while-abroad/birth-abroad.html" target="_blank" rel="noopener noreferrer" style="font-size:14px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[travel.state.gov: Birth Abroad]</a></p>
+            <p>Check which rule fits your family on the <a href="https://travel.state.gov/content/travel/en/legal/travel-legal-considerations/us-citizenship/Acquisition-US-Citizenship-Child-Born-Abroad.html" target="_blank" rel="noopener noreferrer">State Department’s acquisition page</a>. For most families, the evidence of time in the US decides the case. Weak evidence leads to delay or refusal. <a href="https://travel.state.gov/content/travel/en/international-travel/while-abroad/birth-abroad.html" target="_blank" rel="noopener noreferrer" class="text-muted source-link" title="Official source">[travel.state.gov: Birth Abroad]</a></p>
 
-            <p style="margin-bottom:10px;">The time does not need to be in one block: visits of any length add up. Count only days spent in the US, and <strong>leave out every day abroad</strong>, including holidays and short trips. It does not matter whether you were in the US legally or illegally, or whether you were a US citizen at the time.</p>
+            <p>The time does not need to be in one block: visits of any length add up. Count only days spent in the US, and <strong>leave out every day abroad</strong>, including holidays and short trips. It does not matter whether you were in the US legally or illegally, or whether you were a US citizen at the time.</p>
 
-            <div class="info-card tip">
-              <div class="info-card-head">What counts as time in the US</div>
-              <ul style="margin:0;padding-left:16px;">
+            <div class="callout callout-good">
+              <div class="callout-title">What counts as time in the US</div>
+              <ul>
                 <li>Time inside the US. Separate stays add up.</li>
                 <li>Honorable US military service abroad, or time abroad as the dependent of someone serving. You need official military records.</li>
                 <li>Work abroad for the US government or certain international organizations, or time abroad as the dependent of someone doing that work. You need official records.</li>
               </ul>
             </div>
 
-            <div class="info-card warning">
-              <div class="info-card-head">Evidence that works, and evidence that doesn’t</div>
-              <p style="font-weight:600;color:var(--text-primary);margin-bottom:6px;">The embassy accepts:</p>
-              <ul style="padding-left:16px;margin-bottom:12px;">
+            <div class="callout callout-warn">
+              <div class="callout-title">Evidence that works, and evidence that doesn’t</div>
+              <p class="text-strong">The embassy accepts:</p>
+              <ul>
                 <li>Official school transcripts: primary, secondary or university</li>
                 <li>W-2 forms, with a letter from the employer’s HR department</li>
                 <li>Passports that show both US entries <em>and</em> exits. If you used several passports, the dates can be hard to piece together.</li>
@@ -207,8 +210,8 @@
                 <li>US medical records, which count only for the exact dates of treatment</li>
                 <li>Your CBP entry and exit records, which you request under FOIA at <a href="https://www.cbp.gov/site-policy-notices/foia/faq-foia" target="_blank" rel="noopener noreferrer">cbp.gov</a></li>
               </ul>
-              <p style="font-weight:600;color:var(--text-primary);margin-bottom:6px;">The embassy does not accept these as proof of time in the US:</p>
-              <ul style="padding-left:16px;margin:0;">
+              <p class="text-strong">The embassy does not accept these as proof of time in the US:</p>
+              <ul>
                 <li>A US driver’s license: it does not show when you were there or for how long</li>
                 <li>A diploma without transcripts: you may have earned credits abroad</li>
                 <li>A lease or mortgage: many people keep homes in more than one country</li>
@@ -219,7 +222,7 @@
               </ul>
             </div>
 
-            <p style="font-size:15px;color:var(--text-secondary);margin-top:4px;">Sources: <a href="https://common.usembassy.gov/wp-content/uploads/sites/161/2023/04/acs-crba-and-proof-of-physical-presence.pdf" target="_blank" rel="noopener noreferrer">US Embassy CRBA: Proving Physical Presence (PDF)</a> · <a href="https://uk.usembassy.gov/wp-content/uploads/sites/204/2025/10/Proof-of-Physical-Presence-Information-Notice-Oct-2025.pdf" target="_blank" rel="noopener noreferrer">US Embassy London, Oct 2025 Notice</a></p>
+            <p class="text-muted text-small">Sources: <a href="https://common.usembassy.gov/wp-content/uploads/sites/161/2023/04/acs-crba-and-proof-of-physical-presence.pdf" target="_blank" rel="noopener noreferrer">US Embassy CRBA: Proving Physical Presence (PDF)</a> · <a href="https://uk.usembassy.gov/wp-content/uploads/sites/204/2025/10/Proof-of-Physical-Presence-Information-Notice-Oct-2025.pdf" target="_blank" rel="noopener noreferrer">US Embassy London, Oct 2025 Notice</a></p>
           </div>
         </div>
       </div>
@@ -271,40 +274,40 @@
         <div class="sub-acc-body" id="crba_4-body">
           <div class="sub-acc-content">
             <div class="two-col">
-              <div class="info-card">
-                <div class="info-card-head">Your child’s documents</div>
-                <ul style="margin:0;">
+              <div class="callout callout-info">
+                <div class="callout-title">Your child’s documents</div>
+                <ul>
                   <li>Long-form UK birth certificate listing both parents</li>
                   <li>A passport photo</li>
                   <li>Your child’s other passport, if they have one. You keep it.</li>
                 </ul>
               </div>
-              <div class="info-card">
-                <div class="info-card-head">US citizen parent’s documents</div>
-                <ul style="margin:0;">
+              <div class="callout callout-info">
+                <div class="callout-title">US citizen parent’s documents</div>
+                <ul>
                   <li>Proof of US citizenship: a US passport or naturalization certificate</li>
                   <li>Evidence of time in the US (see <a href="#crba_2">who qualifies</a>)</li>
                 </ul>
               </div>
-              <div class="info-card">
-                <div class="info-card-head">Proof of the parents’ relationship</div>
-                <ul style="margin:0;">
+              <div class="callout callout-info">
+                <div class="callout-title">Proof of the parents’ relationship</div>
+                <ul>
                   <li>Your marriage certificate, if you are married</li>
                   <li>Divorce or death certificates for any earlier marriages</li>
                 </ul>
               </div>
-              <div class="info-card">
-                <div class="info-card-head">Other parent’s documents</div>
-                <ul style="margin:0;">
+              <div class="callout callout-info">
+                <div class="callout-title">Other parent’s documents</div>
+                <ul>
                   <li>Passport or national ID</li>
                   <li>A notarized DS-3053 consent form, if they are not attending</li>
                 </ul>
               </div>
             </div>
 
-            <div class="info-card warning">
-              <div class="info-card-head">Do not forget</div>
-              <ul style="margin:0;">
+            <div class="callout callout-warn">
+              <div class="callout-title">Do not forget</div>
+              <ul>
                 <li><strong>The prepaid Royal Mail Special Delivery return envelope.</strong> Bring it to the appointment. Without it, the embassy cannot send back the CRBA and passport.</li>
                 <li><strong>The unsigned DS-11.</strong> Sign it at the appointment, not before.</li>
               </ul>
@@ -325,9 +328,9 @@
               <li><strong>Lost CRBA:</strong> ask the US Department of State for a replacement, not the London embassy.</li>
             </ul>
 
-            <div class="info-card">
-              <div class="info-card-head">Official guidance</div>
-              <p style="margin:0;"><a href="https://uk.usembassy.gov/consular-report-of-birth-abroad-crba-and-first-u-s-passport/" target="_blank" rel="noopener noreferrer">US Embassy London: CRBA and First US Passport</a></p>
+            <div class="callout callout-info">
+              <div class="callout-title">Official guidance</div>
+              <p><a href="https://uk.usembassy.gov/consular-report-of-birth-abroad-crba-and-first-u-s-passport/" target="_blank" rel="noopener noreferrer">US Embassy London: CRBA and First US Passport</a></p>
             </div>
           </div>
         </div>
@@ -359,7 +362,7 @@
 </div>
 
 <button id="back-top" aria-label="Back to top"
-  style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--text-inverse);border:none;font-size:18px;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:99;display:flex;align-items:center;justify-content:center;font-weight:700;">↑</button>
+  class="back-top">↑</button>
 <!-- Shared live policy notice (single source, mounted into [data-live-notice]) -->
 <script src="/js/live-notice.js?v=20261024c"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->

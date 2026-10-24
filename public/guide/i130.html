@@ -16,13 +16,14 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20261024c">
+<link rel="stylesheet" href="/css/stage.css?v=20261025b">
 <link rel="stylesheet" href="/css/nav.css?v=20261024c">
 <link rel="stylesheet" href="/css/stepper.css?v=20261025a">
 <script src="/js/community-stats.js?v=20261024d" defer></script>
 <script src="/js/stepper-core.js?v=20261024d" defer></script>
 <script src="/js/stepper.js?v=20261024d" defer></script>
 <script src="/js/nav.js?v=20261024c" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025b">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
@@ -91,27 +92,29 @@
   </aside>
 
   <!-- Main -->
-  <main class="main" id="main-content" role="main">
+  <main class="main guide-article" id="main-content" role="main">
 
     <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guide">Guide</a></li><li aria-current="page">Stage 1: I-130</li></ol></nav>
 
-    <h1 class="stage-h1">Stage 1: USCIS / I-130</h1>
+    <header class="article-header">
+    <h1>Stage 1: USCIS / I-130</h1>
 
-    <p class="stage-meta">
+    <p class="article-meta">
       <span><span aria-hidden="true">⏱</span> IR visas: stalled at priority dates around 25 Feb 2025, now 19+ months and rising</span>
-      <span>Reviewed 27 Sept 2026</span>
+      <span>Reviewed <time datetime="2026-09-27">27 Sept 2026</time></span>
     </p>
 
-    <div class="stage-bottomline">
+    <div class="article-summary">
       <p><strong>You are here:</strong> You are starting the process. The petitioner, the US citizen or green card holder, files Form I-130 with USCIS for the beneficiary, the relative who will move.</p>
-      <p><strong>What happens:</strong> The I-130 proves your family relationship qualifies. It does not look at your finances and it does not issue a visa. When USCIS approves it (the NOA2 notice), your case moves to the National Visa Center. <a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[USCIS I-130]</a> Nobody can give a reliable processing time for a case filed today: see <a href="#i130-status">Current status</a> below. If your priority date is on or after 25 February 2025, read <a href="/guide/delayed-i130">If your I-130 is delayed</a>.</p>
+      <p><strong>What happens:</strong> The I-130 proves your family relationship qualifies. It does not look at your finances and it does not issue a visa. When USCIS approves it (the NOA2 notice), your case moves to the National Visa Center. <a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer" class="text-muted source-link" title="Official source">[USCIS I-130]</a> Nobody can give a reliable processing time for a case filed today: see <a href="#i130-status">Current status</a> below. If your priority date is on or after 25 February 2025, read <a href="/guide/delayed-i130">If your I-130 is delayed</a>.</p>
       <p><strong>Do this first:</strong> Work through the <a href="/checklist-i130">I-130 pre-submission checklist</a>, then file online.</p>
     </div>
+    </header>
 
 
-    <section class="stage-actions" aria-labelledby="action-list-title">
+    <section class="article-actions-section" aria-labelledby="action-list-title">
       <h2 id="action-list-title">Action list</h2>
-      <ol>
+      <ol class="article-actions">
         <li><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Create a free USCIS online account at myaccount.uscis.gov.</li>
         <li><span class="role role--either">Either<span class="sr-only">:</span></span> Work through the <a href="/checklist-i130">I-130 pre-submission checklist</a> before you start the form. A complete, consistent package is the best thing you can do for your timeline.</li>
         <li><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> For a spouse petition, fill in Form I-130A (Supplemental Information for Spouse Beneficiary). You do not need to sign it if you fill it in outside the United States.</li>
@@ -135,17 +138,16 @@
 
     <!-- Stage content: moved verbatim from guide.html -->
     <section class="section stage-content" id="uscis">
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
-        <span style="font-size:15px;flex-shrink:0;"></span>
-        <p style="color:rgba(15,23,42,0.78);margin:0;">Filed or approved? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your I-130 priority date and approval date to the community tracker →</a></p>
+      <div class="article-prompt">
+        <p class="text-muted">Filed or approved? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">Add your I-130 priority date and approval date to the community tracker →</a></p>
       </div>
 
-      <div class="info-card warning" id="i130-status">
-        <div class="info-card-head">Current status: the queue has stopped at priority dates around 25 February 2025</div>
-        <p style="margin-bottom:10px;">Community tracking shows USCIS has largely stopped deciding I-130s for consular cases. USCIS has not announced a pause, and this is not official data. Decisions fell from mid-February 2026, and the front of the line has barely moved since. <a href="https://trackmyvisa.com/i130" target="_blank" rel="noopener noreferrer">Track My Visa</a> reports that the oldest undecided petitions have priority dates of around <strong>25 February 2025</strong>. The little movement left is in cases filed before that date. Those petitions have now waited about <strong>19 months</strong>, and each week of the stall adds to that and to your total wait. Until early February 2026, filing to decision took about 12 months. <strong>Do not plan around that figure.</strong> Treat any published 12-month estimate as a minimum from a period that has ended, not a forecast.</p>
-        <p style="margin-bottom:10px;"><strong>This stall is unusual. It is not a normal backlog.</strong> Few cases past the 25 February 2025 line have been approved. Community reports say nearly all of those escalated, with a demand letter or a writ of mandamus; the queue did not reach them in turn. If your priority date is on or after that line, read <a href="/guide/delayed-i130">If your I-130 is delayed</a> and the <a href="/delayed-i130-remedies">remedies and escalation guide</a>. A writ forces a decision, not an approval, and escalation guarantees nothing.</p>
-        <p style="margin:0;">The stall showed no sign of easing through summer 2026. It affects every consular case, whatever your nationality. It is separate from the 75-country visa pause, which a federal court <a href="/visa-pause.html">struck down on 21 August 2026</a>. AOS and DCF filings are not in this queue.</p>
-        <p style="margin:12px 0 0;">USCIS decides the I-130, not an embassy, so this stage runs the same wherever you file from. This site does not track it. <a href="https://trackmyvisa.com/" target="_blank" rel="noopener noreferrer">Track My Visa</a> does, across all consulates, with regular updates on the queue: go there for current I-130 numbers. The official USCIS quarterly figures lag behind the community data. Our <a href="/data#official-data">national data</a> section shows them from October 2023, next to State Department visa issuances.</p>
+      <div class="callout callout-warn" id="i130-status">
+        <div class="callout-title">Current status: the queue has stopped at priority dates around 25 February 2025</div>
+        <p>Community tracking shows USCIS has largely stopped deciding I-130s for consular cases. USCIS has not announced a pause, and this is not official data. Decisions fell from mid-February 2026, and the front of the line has barely moved since. <a href="https://trackmyvisa.com/i130" target="_blank" rel="noopener noreferrer">Track My Visa</a> reports that the oldest undecided petitions have priority dates of around <strong>25 February 2025</strong>. The little movement left is in cases filed before that date. Those petitions have now waited about <strong>19 months</strong>, and each week of the stall adds to that and to your total wait. Until early February 2026, filing to decision took about 12 months. <strong>Do not plan around that figure.</strong> Treat any published 12-month estimate as a minimum from a period that has ended, not a forecast.</p>
+        <p><strong>This stall is unusual. It is not a normal backlog.</strong> Few cases past the 25 February 2025 line have been approved. Community reports say nearly all of those escalated, with a demand letter or a writ of mandamus; the queue did not reach them in turn. If your priority date is on or after that line, read <a href="/guide/delayed-i130">If your I-130 is delayed</a> and the <a href="/delayed-i130-remedies">remedies and escalation guide</a>. A writ forces a decision, not an approval, and escalation guarantees nothing.</p>
+        <p>The stall showed no sign of easing through summer 2026. It affects every consular case, whatever your nationality. It is separate from the 75-country visa pause, which a federal court <a href="/visa-pause.html">struck down on 21 August 2026</a>. AOS and DCF filings are not in this queue.</p>
+        <p>USCIS decides the I-130, not an embassy, so this stage runs the same wherever you file from. This site does not track it. <a href="https://trackmyvisa.com/" target="_blank" rel="noopener noreferrer">Track My Visa</a> does, across all consulates, with regular updates on the queue: go there for current I-130 numbers. The official USCIS quarterly figures lag behind the community data. Our <a href="/data#official-data">national data</a> section shows them from October 2023, next to State Department visa issuances.</p>
       </div>
 
       <div class="steps">
@@ -193,7 +195,7 @@
         </button>
         <div class="sub-acc-body" id="filing-i130-body">
           <div class="sub-acc-content">
-            <p style="margin-bottom:12px;">We recommend filing online for consular cases. You get your NOA1 receipt at once, you upload documents instead of posting originals, and you can track the case in the portal. The steps below run in order, and each links to the detail.</p>
+            <p>We recommend filing online for consular cases. You get your NOA1 receipt at once, you upload documents instead of posting originals, and you can track the case in the portal. The steps below run in order, and each links to the detail.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
@@ -246,28 +248,28 @@
         </div>
       </div>
 
-      <div class="info-card tip">
-        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Where to go for field-by-field help</div>
-        <p style="margin:0;">This guide stays at the level of steps, because the form's questions and screens change over time. For detail, use the official <a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer">USCIS I-130 page and instructions</a>, and <a href="https://youtu.be/xQup-wCRjBU" target="_blank" rel="noopener noreferrer">Kseniya International's online I-130 filing walkthrough</a> for a screen-by-screen guide to the spouse petition.</p>
+      <div class="callout callout-good">
+        <div class="callout-title"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Where to go for field-by-field help</div>
+        <p>This guide stays at the level of steps, because the form's questions and screens change over time. For detail, use the official <a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer">USCIS I-130 page and instructions</a>, and <a href="https://youtu.be/xQup-wCRjBU" target="_blank" rel="noopener noreferrer">Kseniya International's online I-130 filing walkthrough</a> for a screen-by-screen guide to the spouse petition.</p>
       </div>
           </div>
         </div>
       </div>
 
-      <div class="info-card warning">
-        <div class="info-card-head">Transgender and non-binary applicants</div>
-        <p style="margin:0;">Under current US policy (April 2025), USCIS takes sex from the original birth certificate and recognizes only male or female. If your documents show different sex markers, expect delays at USCIS, NVC and the embassy medical. See <a href="/guide/medical">Stage 5: Medical exam</a> for full guidance and support resources.</p>
+      <div class="callout callout-warn">
+        <div class="callout-title">Transgender and non-binary applicants</div>
+        <p>Under current US policy (April 2025), USCIS takes sex from the original birth certificate and recognizes only male or female. If your documents show different sex markers, expect delays at USCIS, NVC and the embassy medical. See <a href="/guide/medical">Stage 5: Medical exam</a> for full guidance and support resources.</p>
       </div>
 
-      <div class="info-card tip">
-        <div class="info-card-head">Fixing typos or errors on your I-130</div>
-        <p style="margin:0;">If USCIS made a typing error, or you spot a mistake on your I-130 after filing, ask for a correction with USCIS's <a href="https://egov.uscis.gov/e-request/typo" target="_blank" rel="noopener noreferrer">e-Request for Typographical Error Correction</a>. You can do this at any stage, before or after approval. Send evidence of the error and the correct information.</p>
+      <div class="callout callout-good">
+        <div class="callout-title">Fixing typos or errors on your I-130</div>
+        <p>If USCIS made a typing error, or you spot a mistake on your I-130 after filing, ask for a correction with USCIS's <a href="https://egov.uscis.gov/e-request/typo" target="_blank" rel="noopener noreferrer">e-Request for Typographical Error Correction</a>. You can do this at any stage, before or after approval. Send evidence of the error and the correct information.</p>
       </div>
 
-      <div class="info-card tip">
-        <div class="info-card-head">Downloading a PDF copy of your I-130</div>
-        <p style="margin-bottom:12px;">The <strong>"Download PDF"</strong> link in your myUSCIS portal gives you a copy of the I-130. It looks like the paper form and fills in what you submitted online. Some fields come out wrong. That is normal.</p>
-        <img src="/images/i130-download-pdf.png" alt="myUSCIS Your Cases page showing an I-130 Petition for Alien Relative case with the Download PDF link circled below the submission date and receipt number" style="width:100%;height:auto;border:1px solid var(--border);border-radius:8px;" loading="lazy">
+      <div class="callout callout-good">
+        <div class="callout-title">Downloading a PDF copy of your I-130</div>
+        <p>The <strong>"Download PDF"</strong> link in your myUSCIS portal gives you a copy of the I-130. It looks like the paper form and fills in what you submitted online. Some fields come out wrong. That is normal.</p>
+        <img class="article-img" src="/images/i130-download-pdf.png" alt="myUSCIS Your Cases page showing an I-130 Petition for Alien Relative case with the Download PDF link circled below the submission date and receipt number" loading="lazy">
       </div>
 
       <div class="sub-controls">
@@ -281,7 +283,7 @@
         </button>
         <div class="sub-acc-body" id="linking-i130-body">
           <div class="sub-acc-content">
-            <p style="margin-bottom:12px;">Filing I-130s for more than one family member, such as a spouse and a child? USCIS will not link them for you. Make the connection clear yourself, so the cases move through NVC together:</p>
+            <p>Filing I-130s for more than one family member, such as a spouse and a child? USCIS will not link them for you. Make the connection clear yourself, so the cases move through NVC together:</p>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
@@ -327,9 +329,9 @@
         </div>
       </div>
 
-      <div class="info-card tip">
-        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Make the link obvious</div>
-        <p style="margin:0;">USCIS has to review everything you upload. Clear labels, ordered files and an obvious link between cases matter more than volume.</p>
+      <div class="callout callout-good">
+        <div class="callout-title"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Make the link obvious</div>
+        <p>USCIS has to review everything you upload. Clear labels, ordered files and an obvious link between cases matter more than volume.</p>
       </div>
           </div>
         </div>
@@ -342,11 +344,11 @@
         </button>
         <div class="sub-acc-body" id="uscis-api-check-body">
           <div class="sub-acc-content">
-            <p style="margin-bottom:12px;">Your myUSCIS account loads case data from an internal web service. You can open that data in your browser and see fields the normal case page hides, including a status code and the times behind the last update. You only see your own case, while signed in to your own account.</p>
+            <p>Your myUSCIS account loads case data from an internal web service. You can open that data in your browser and see fields the normal case page hides, including a status code and the times behind the last update. You only see your own case, while signed in to your own account.</p>
 
-            <div class="info-card warning">
-              <div class="info-card-head">Read this before you use it</div>
-              <p style="margin:0;">This is not an official USCIS tool, and USCIS does not document it for the public. You cannot always read the codes, the data can be incomplete or out of date, and USCIS can change or remove it without notice. Use it out of curiosity only. Do not make decisions, judge your timeline or file anything based on it. For a case status you can rely on, use your myUSCIS case page and the <a href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">USCIS Case Status tool</a>.</p>
+            <div class="callout callout-warn">
+              <div class="callout-title">Read this before you use it</div>
+              <p>This is not an official USCIS tool, and USCIS does not document it for the public. You cannot always read the codes, the data can be incomplete or out of date, and USCIS can change or remove it without notice. Use it out of curiosity only. Do not make decisions, judge your timeline or file anything based on it. For a case status you can rely on, use your myUSCIS case page and the <a href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">USCIS Case Status tool</a>.</p>
             </div>
 
       <div class="steps">
@@ -376,7 +378,7 @@
           <div class="step-body">
             <div class="step-title">Look for these fields</div>
             <div class="step-desc">
-              <ul style="margin:0;padding-left:18px;">
+              <ul>
                 <li><code>eventCode</code>: the exact status code for the case. Codes are drawn from the <a href="https://niem.github.io/model/4.2/scr/BenefitDocumentStatusCategoryCodeSimpleType/index.html" target="_blank" rel="noopener noreferrer">NIEM benefit document status code list</a>, though not every code there is used and USCIS does not publish its own mapping.</li>
                 <li><code>eventTimestamp</code>: the date and time of the last case event.</li>
                 <li><code>dateUpdated</code>: when USCIS last updated the case record in their system.</li>
@@ -386,9 +388,9 @@
         </div>
       </div>
 
-      <div class="info-card tip">
-        <div class="info-card-head">What a change here does and does not mean</div>
-        <p style="margin:0;">A new timestamp means something changed your record. It does not mean an officer reviewed your petition: routine system updates, address changes and internal transfers all change these fields. The signals that matter are still on the case page: a move to "Actively Being Reviewed", a new document in your account, or an RFE. Processing times on myUSCIS go up and down. That means nothing.</p>
+      <div class="callout callout-good">
+        <div class="callout-title">What a change here does and does not mean</div>
+        <p>A new timestamp means something changed your record. It does not mean an officer reviewed your petition: routine system updates, address changes and internal transfers all change these fields. The signals that matter are still on the case page: a move to "Actively Being Reviewed", a new document in your account, or an RFE. Processing times on myUSCIS go up and down. That means nothing.</p>
       </div>
           </div>
         </div>
@@ -401,30 +403,30 @@
         </button>
         <div class="sub-acc-body" id="petitioner-interview-body">
           <div class="sub-acc-content">
-            <div class="info-card warning">
-              <p style="margin-bottom:10px;">USCIS can require any petitioner or beneficiary to attend an interview before it decides an I-130 (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-103/subpart-A/section-103.2" target="_blank" rel="noopener">8 CFR 103.2(b)(9)</a>). In a consular case it happens at a <strong>USCIS field office in the United States</strong>, while the I-130 is still pending. A petitioner living abroad must travel there.</p>
-              <p style="margin:0;"><strong>Do not miss it.</strong> If you miss it without asking to reschedule <em>before</em> the appointment, USCIS treats the petition as abandoned and denies it (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-103/subpart-A/section-103.2" target="_blank" rel="noopener">8 CFR 103.2(b)(13)(ii)</a>). You cannot appeal that denial. You can only file a motion to reopen, or a new I-130 with a new fee. Call the USCIS Contact Center (1-800-375-5283) as soon as you know of a conflict.</p>
+            <div class="callout callout-warn">
+              <p>USCIS can require any petitioner or beneficiary to attend an interview before it decides an I-130 (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-103/subpart-A/section-103.2" target="_blank" rel="noopener">8 CFR 103.2(b)(9)</a>). In a consular case it happens at a <strong>USCIS field office in the United States</strong>, while the I-130 is still pending. A petitioner living abroad must travel there.</p>
+              <p><strong>Do not miss it.</strong> If you miss it without asking to reschedule <em>before</em> the appointment, USCIS treats the petition as abandoned and denies it (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-103/subpart-A/section-103.2" target="_blank" rel="noopener">8 CFR 103.2(b)(13)(ii)</a>). You cannot appeal that denial. You can only file a motion to reopen, or a new I-130 with a new fee. Call the USCIS Contact Center (1-800-375-5283) as soon as you know of a conflict.</p>
             </div>
 
-            <h3 style="font-size:14px;margin:16px 0 6px;">Why it happens</h3>
-            <p style="margin-bottom:12px;">USCIS does not say why it calls you. Its policy guidance lists the triggers: missing or weak documents, important inconsistencies, suspected fraud, and negative information about the beneficiary (<a href="https://www.uscis.gov/policy-manual/volume-6-part-b-chapter-5" target="_blank" rel="noopener">6 USCIS-PM B.5(B)</a>; <a href="https://www.cliniclegal.org/resources/humanitarian-relief/temporary-protected-status-and-deferred-enforced-departure/recent" target="_blank" rel="noopener">CLINIC, July 2026</a>). A notice is not a finding of fraud.</p>
+            <h3 class="heading-small">Why it happens</h3>
+            <p>USCIS does not say why it calls you. Its policy guidance lists the triggers: missing or weak documents, important inconsistencies, suspected fraud, and negative information about the beneficiary (<a href="https://www.uscis.gov/policy-manual/volume-6-part-b-chapter-5" target="_blank" rel="noopener">6 USCIS-PM B.5(B)</a>; <a href="https://www.cliniclegal.org/resources/humanitarian-relief/temporary-protected-status-and-deferred-enforced-departure/recent" target="_blank" rel="noopener">CLINIC, July 2026</a>). A notice is not a finding of fraud.</p>
 
-            <h3 style="font-size:14px;margin:16px 0 6px;">What members report</h3>
-            <ul style="margin:0 0 12px;padding-left:18px;">
+            <h3 class="heading-small">What members report</h3>
+            <ul>
               <li><strong>Notice:</strong> usually two weeks to a month, and one member had about a week.</li>
               <li><strong>The beneficiary:</strong> the notice template asks the beneficiary to come too. The Contact Center told several petitioners with spouses abroad that only the petitioner had to attend. Call and confirm for your own case, and note the agent's name and the date.</li>
               <li><strong>The interview:</strong> short. Officers asked about the spouse (name, date of birth, hometown, job, family, past US visas) and the relationship (how you met, the proposal, the wedding, visits, children). Answer truthfully and consistently with what you filed.</li>
               <li><strong>Demand letters and writs:</strong> members reported more interviews after they started using them. Interviews happened before too, and no evidence shows either one causes an interview.</li>
             </ul>
 
-            <h3 style="font-size:14px;margin:16px 0 6px;">Be ready before you are asked</h3>
-            <ul style="margin:0 0 12px;padding-left:18px;">
+            <h3 class="heading-small">Be ready before you are asked</h3>
+            <ul>
               <li>A valid US passport and photo ID, the interview notice, and a plan for travelling at short notice.</li>
               <li>Originals and copies of everything filed with the I-130, including the marriage certificate, prior divorce or death certificates, and children's birth certificates and custody papers.</li>
               <li>Relationship evidence dated <strong>after</strong> you filed: visits, travel records, communication and financial ties.</li>
               <li>Police reports and certified court records for any arrest, even one dismissed or expunged. Certified translations of foreign documents.</li>
             </ul>
-            <p style="margin:0;">Your notice has its own checklist, and that comes before this list. If the officer asks for more evidence afterwards, send exactly what they ask for, by their deadline and in their way.</p>
+            <p>Your notice has its own checklist, and that comes before this list. If the officer asks for more evidence afterwards, send exactly what they ask for, by their deadline and in their way.</p>
           </div>
         </div>
       </div>
@@ -455,7 +457,7 @@
 </div>
 
 <button id="back-top" aria-label="Back to top"
-  style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--text-inverse);border:none;font-size:18px;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:99;display:flex;align-items:center;justify-content:center;font-weight:700;">↑</button>
+  class="back-top">↑</button>
 <!-- Shared live policy notice (single source, mounted into [data-live-notice]) -->
 <script src="/js/live-notice.js?v=20261024c"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
