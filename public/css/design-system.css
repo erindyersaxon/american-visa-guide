@@ -1,6 +1,13 @@
 /*
    American Visa Guide, Design System
-   Charcoal-blue + Steel-blue colour scheme (warm cream backgrounds)
+   Civic Editorial palette: slate on cool off-white, one sparing red mark.
+   Legacy token names are kept; the values changed. Real roles:
+     --color-navy*:         structural slate (text, dark bands)
+     --color-gold:          link and old accent, now slate
+     --color-primary:       slate; primary buttons and focus
+     --color-mark:          #991B1B, eyebrows and italic heading words only
+     --color-mark-on-dark:  #F87171, the same mark on dark bands
+     --color-error/destructive: #7F1D1D, error and destructive states
    Fonts: Public Sans (body and UI) with Georgia for headings
  */
 
@@ -14,6 +21,10 @@
   --color-navy-dark:   #020617;
   --color-navy-light:  #334155;
   --color-navy-xlight: #f1f5f9;
+
+  /* Red mark: sparing, never a button or link fill */
+  --color-mark:         #991B1B;
+  --color-mark-on-dark: #F87171;
 
   /* Accent palette: steel blue (legacy --color-gold names kept) */
   --color-gold:        #0f172a;   /* WCAG AA as text on white/cream */
@@ -54,7 +65,7 @@
 
   /* Brand aliases for legacy pages */
   --color-primary:        var(--color-navy);
-  --color-primary-hover:  var(--color-navy-light);
+  --color-primary-hover:  #1E293B;
   --color-primary-border: var(--color-navy-light);
   --color-primary-subtle: var(--color-navy-xlight);
   --color-primary-text:   #FFFFFF;
@@ -202,7 +213,7 @@ table {
 h1 span, h1 em, h2 em {
   font-style: italic;
   font-weight: var(--weight-medium);
-  color: var(--color-gold);
+  color: var(--color-mark, #991B1B);
 }
 
 h1 { font-size: var(--size-4xl); }
@@ -338,9 +349,9 @@ code {
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: var(--color-navy);
-  border-color: var(--color-navy);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
 }
 
 .btn-secondary:hover {

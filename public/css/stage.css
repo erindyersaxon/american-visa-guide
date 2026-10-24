@@ -300,7 +300,7 @@
     margin-bottom: 12px;
   }
 
-  h1 span { color: var(--accent); }
+  h1 span { color: var(--color-mark, #991B1B); font-style: italic; }
 
   .page-subtitle {
     font-size: 15px;
@@ -857,9 +857,9 @@
 
   /* Shared page hero */
   .page-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
-  .page-hero-eyebrow { font-family:var(--font-ui); font-size: 14px; font-weight: 700;color: var(--accent); margin-bottom: 12px; }
+  .page-hero-eyebrow { font-family:var(--font-ui); font-size: 14px; font-weight: 700;color: var(--color-mark, #991B1B); margin-bottom: 12px; }
   .page-hero-h1 { font-family:var(--font-display); font-size: clamp(32px,7vw,52px); font-weight:700; line-height: 1.05; margin-bottom: 14px; }
-  .page-hero-h1 span { color: var(--accent); font-style: italic; font-weight: 500; }
+  .page-hero-h1 span { color: var(--color-mark, #991B1B); font-style: italic; font-weight: 500; }
   .page-hero-sub { font-size: 15px; color: rgba(15,23,42,0.78); max-width: 560px; line-height: 1.7; }
 
   /* Shared footer */

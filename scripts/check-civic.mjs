@@ -8,8 +8,41 @@ import { fileURLToPath } from "node:url";
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 // Filled in by later tasks.
-export const PAIRS = []; // [fg, bg, min] (Task 3)
-export const MARK_RULES = []; // [file, selector] (Task 3)
+export const PAIRS = [
+  // [fg, bg, min]; a value starting with -- resolves from design-system.css :root
+  ["--color-text", "--color-bg", 4.5],
+  ["--color-text", "--color-surface-alt", 4.5],
+  ["--color-text-secondary", "--color-bg", 4.5],
+  ["--color-text-secondary", "--color-surface-alt", 4.5],
+  ["--color-text-muted", "--color-bg", 4.5],
+  ["--color-text-muted", "--color-surface-alt", 4.5],
+  ["--color-gold", "--color-bg", 4.5],
+  ["--color-mark", "--color-bg", 4.5],
+  ["--color-mark-on-dark", "--color-navy", 4.5],
+  ["--color-border-strong", "--color-bg", 3],
+  ["--color-error", "--color-destructive-subtle", 4.5],
+  ["--color-success", "--color-success-subtle", 4.5],
+  ["--color-warning", "--color-warning-subtle", 4.5],
+  ["--color-text-inverse", "--color-navy", 4.5],
+  ["#CBD5E1", "#0F172A", 4.5],
+  ["#94A3B8", "#0F172A", 4.5],
+  ["#F87171", "#0F172A", 4.5],
+  ["#F8FAFC", "#1E293B", 4.5],
+];
+export const MARK_RULES = [
+  // [file, selector]
+  ["public/css/design-system.css", "h1 span"],
+  ["public/css/components.css", ".page-header__eyebrow"],
+  ["public/css/components.css", ".page-header__title span"],
+  ["public/css/article.css", ".eyebrow"],
+  ["public/css/article.css", "h1 span"],
+  ["public/css/stage.css", "h1 span"],
+  ["public/css/stage.css", ".page-hero-eyebrow"],
+  ["public/css/stage.css", ".page-hero-h1 span"],
+  ["public/life.html", ".page-hero-eyebrow"],
+  ["public/life.html", ".page-hero h1 span"],
+  ["public/life.html", ".page-hero-h1 span"],
+];
 export const ROUND_ALLOW = []; // selectors allowed to stay round (Task 5)
 
 const MAP_PATH = path.join(ROOT, "scripts", "civic-palette-map.json");

@@ -65,6 +65,7 @@ main a.inline-link {
 
 main a:not([class]):hover,
 main a.inline-link:hover {
+  color: var(--color-mark, #991B1B);
   text-decoration-thickness: max(3px, 0.1875rem);
 }
 
