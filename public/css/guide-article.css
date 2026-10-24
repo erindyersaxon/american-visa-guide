@@ -354,3 +354,207 @@
   .guide-article .grid-2 { grid-template-columns: 1fr 1fr; }
   .guide-article .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
 }
+
+/* ---- Article pages (standalone reference and tool pages) ---- */
+
+.guide-article .article-eyebrow {
+  margin-bottom: 0.6rem;
+  font-family: var(--ga-font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ga-mark);
+}
+.guide-article .article-lead {
+  max-width: 680px;
+  margin-bottom: 1.75rem;
+  font-size: 1.05rem;
+  color: var(--ga-muted);
+}
+
+.guide-article .disclaimer {
+  margin-bottom: 2.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--ga-warn-bg);
+  border: 1px solid var(--ga-warn-line);
+  border-left: 3px solid var(--ga-warn);
+  border-radius: var(--ga-radius);
+  color: var(--ga-text);
+}
+.guide-article .disclaimer strong { font-family: var(--ga-font-ui); }
+
+/* On this page */
+.guide-article .toc {
+  margin-bottom: 2.25rem;
+  padding: 1.1rem 1.35rem;
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border);
+  border-radius: var(--ga-radius);
+}
+.guide-article .toc-title {
+  margin-bottom: 0.6rem;
+  font-family: var(--ga-font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ga-muted);
+}
+.guide-article .toc ol { margin: 0; padding-left: 1.1rem; columns: 2; column-gap: 1.75rem; }
+.guide-article .toc li { margin-bottom: 0.3rem; }
+@media (max-width: 560px) { .guide-article .toc ol { columns: 1; } }
+.guide-article .to-contents { display: block; margin-top: 1rem; text-align: right; font-size: 14px; }
+
+.guide-article .sheet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.1rem 0 0.6rem;
+}
+@media (max-width: 620px) { .guide-article .sheet-grid { grid-template-columns: 1fr; } }
+
+/* Step cards (/221g prevention and resolution stages) */
+.guide-article .step-card {
+  margin-bottom: 1rem;
+  padding: 1.15rem 1.3rem 1.3rem;
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border);
+  border-left: 3px solid var(--ga-text);
+  border-radius: var(--ga-radius);
+}
+.guide-article .step-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.6rem;
+}
+.guide-article .step-pill {
+  padding: 0.18rem 0.55rem;
+  background: var(--ga-text);
+  border-radius: var(--ga-radius);
+  color: #ffffff;
+  font-family: var(--ga-font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.guide-article .step-title {
+  font-family: var(--ga-font-ui);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ga-text);
+}
+
+/* Key dates */
+.guide-article .keydates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+  gap: 0.6rem;
+  margin: 1.15rem 0;
+}
+.guide-article .keydate {
+  padding: 0.7rem 0.9rem;
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border);
+  border-radius: var(--ga-radius);
+}
+.guide-article .keydate b { display: block; font-family: var(--ga-font-ui); font-size: 0.95rem; }
+.guide-article .keydate span {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ga-muted);
+}
+.guide-article .keydate.next { background: var(--ga-warn-bg); border-color: var(--ga-warn-line); }
+.guide-article .keydate.next b { color: var(--ga-warn); }
+
+.guide-article .provenance {
+  margin-top: 1.1rem;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ga-muted);
+}
+
+/* Back to the guide */
+.guide-article .guide-return {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--ga-text);
+  border-radius: var(--ga-radius);
+  color: #ffffff;
+  font-family: var(--ga-font-ui);
+  font-size: 14px;
+  font-weight: 600;
+}
+.guide-article .guide-return:hover { color: #ffffff; text-decoration: none; opacity: 0.9; }
+
+/* Sources */
+.guide-article .sources {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--ga-border);
+}
+.guide-article .sources h2 { margin-top: 0; }
+.guide-article .sources ol { font-size: 14px; line-height: 1.68; color: var(--ga-muted); }
+.guide-article .sources li { margin-bottom: 0.45rem; }
+.guide-article .sources > summary { cursor: pointer; }
+.guide-article .sources > summary h2 { display: inline-block; margin: 0; padding-bottom: 0; border-bottom: none; }
+.guide-article .sources > summary .sources-hint { margin-left: 0.4rem; font-size: 14px; color: var(--ga-muted); }
+.guide-article .sources[open] > summary .sources-hint { display: none; }
+.guide-article .sources > summary + * { margin-top: 0.8rem; }
+
+/* Situation chooser: large tappable cards */
+.guide-article .chooser { display: grid; gap: 0.75rem; margin: 1.25rem 0 2rem; }
+.guide-article .chooser-card {
+  display: block;
+  padding: 1rem 1.2rem;
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border);
+  border-left: 3px solid var(--ga-text);
+  border-radius: var(--ga-radius);
+  color: var(--ga-text);
+}
+.guide-article .chooser-card:hover { background: var(--ga-info-bg); color: var(--ga-text); text-decoration: none; }
+.guide-article .chooser-card b { display: block; margin-bottom: 0.2rem; font-family: var(--ga-font-ui); font-size: 1.02rem; }
+.guide-article .chooser-card span { display: block; font-size: 14px; line-height: 1.55; color: var(--ga-muted); }
+.guide-article .chooser-card--warn { border-left-color: var(--ga-warn); }
+.guide-article .chooser-card--alert { border-left-color: var(--ga-alert); }
+
+/* Numbered step list with a link per step */
+.guide-article .steps { list-style: none; margin: 1rem 0 1.5rem; padding: 0; counter-reset: step; }
+.guide-article .steps > li {
+  position: relative;
+  margin-bottom: 0.55rem;
+  padding: 0.75rem 1rem 0.75rem 3.1rem;
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border);
+  border-radius: var(--ga-radius);
+  counter-increment: step;
+}
+.guide-article .steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0.9rem;
+  top: 0.72rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  background: var(--ga-text);
+  color: #ffffff;
+  font-family: var(--ga-font-ui);
+  font-size: 14px;
+  font-weight: 700;
+}
+.guide-article .steps .step-link { display: inline-block; margin-top: 0.25rem; font-size: 14px; font-weight: 600; }
+
+/* Utilities */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+@media print {
+  .no-print, .site-nav, .avg-footer, .page-live-notice, .pause-glossary { display: none !important; }
+}
