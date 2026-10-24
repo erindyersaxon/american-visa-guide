@@ -45,7 +45,7 @@
   max-width: 560px; margin: 0 auto;
   background: var(--color-surface, #FDFAF3); color: var(--color-text, #1e1c17);
   border: 1px solid var(--color-border-strong, #a39c8e); border-radius: 10px;
-  box-shadow: 0 8px 28px rgba(30, 43, 50, 0.18);
+  box-shadow: var(--shadow-overlay, 0 1px 2px rgba(15,23,42,.08));
   font-family: var(--font-body, 'Public Sans', system-ui, sans-serif);
   font-size: 0.9375rem; line-height: 1.5;
 }
