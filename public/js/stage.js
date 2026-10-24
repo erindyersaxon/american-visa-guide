@@ -55,6 +55,15 @@ document.querySelectorAll('.sub-acc-item').forEach(syncSubAccAria)
 // Deep links (e.g. /guide/i130#uscis-api-check, /guide/nvc#dq-notice) should
 // open the accordion that is, or contains, the target, not just scroll to a
 // collapsed heading, and land below the sticky header.
+// Height of the sticky stack (nav, plus the visa stepper when it is mounted),
+// from the --sticky-offset that css/nav.css defines; falls back to the nav.
+function stickyOffset() {
+  const v = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sticky-offset'))
+  if (v) return v
+  const header = document.querySelector('header, .site-header, .site-nav, nav')
+  return header && getComputedStyle(header).position.match(/sticky|fixed/) ? header.offsetHeight : 0
+}
+
 function openSubAccFromHash() {
   const id = decodeURIComponent(window.location.hash.slice(1))
   if (!id) return
@@ -67,8 +76,7 @@ function openSubAccFromHash() {
     item = item.parentElement && item.parentElement.closest('.sub-acc-item')
   }
   // Clear the sticky site header rather than tucking the heading under it
-  const header = document.querySelector('header, .site-header, .site-nav, nav')
-  const offset = (header && getComputedStyle(header).position.match(/sticky|fixed/) ? header.offsetHeight : 0) + 16
+  const offset = stickyOffset() + 16
   window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset })
 }
 openSubAccFromHash()
@@ -142,7 +150,7 @@ function updateActiveLink() {
   let current = ''
   sectionElements.forEach(section => {
     const sectionTop = section.offsetTop
-    if (window.scrollY >= sectionTop - 100) {
+    if (window.scrollY >= sectionTop - stickyOffset() - 36) {
       current = section.getAttribute('id')
     }
   })
