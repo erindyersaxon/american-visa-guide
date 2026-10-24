@@ -13,7 +13,7 @@ export const MARK_RULES = []; // [file, selector] (Task 3)
 export const ROUND_ALLOW = []; // selectors allowed to stay round (Task 5)
 
 const MAP_PATH = path.join(ROOT, "scripts", "civic-palette-map.json");
-const TOKEN_FILE = path.join(ROOT, "public", "css", "main.css");
+const TOKEN_FILE = path.join(ROOT, "public", "css", "design-system.css");
 
 // ---------------------------------------------------------------- file set
 
