@@ -133,13 +133,10 @@
       padding: var(--space-6);
       text-decoration: none;
       color: inherit;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      transition: border-color 0.15s ease;
     }
     .nav-card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: var(--color-primary-border);
-      transform: translateY(-1px);
+      border-color: var(--color-border-strong, #64748B);
       text-decoration: none;
     }
     .nav-card:focus-visible {
@@ -276,7 +273,6 @@
       border-radius: var(--radius-md);
       padding: var(--space-4);
       text-align: center;
-      box-shadow: var(--shadow-sm);
     }
     .week-card__value {
       font-family: var(--font-body);

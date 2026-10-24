@@ -13,12 +13,10 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  box-shadow: var(--shadow-sm);
 }
 
 .card--raised {
   background-color: var(--color-surface-raised);
-  box-shadow: var(--shadow-md);
 }
 
 .card--bordered {
@@ -70,7 +68,6 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -365,7 +362,6 @@
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-text-inverse);
-  box-shadow: 0 0 0 4px var(--color-primary-subtle);
 }
 
 .step__body {
@@ -683,7 +679,6 @@
   background-color: var(--color-surface);
   color: var(--color-text);
   border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-xs);
 }
 
 .btn--secondary:hover {
@@ -815,7 +810,7 @@
 .form-textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px var(--color-primary-subtle);
+  box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px #0F172A;
 }
 
 .form-input--error,
@@ -828,7 +823,7 @@
 .form-select--error:focus,
 .form-textarea--error:focus {
   border-color: var(--color-destructive);
-  box-shadow: 0 0 0 3px var(--color-destructive-subtle);
+  box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px #7F1D1D;
 }
 
 /* Select arrow */
@@ -912,7 +907,6 @@
   overflow-x: auto;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
 }
 
 .table {
@@ -1093,7 +1087,7 @@
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-overlay);
   font-size: var(--text-sm);
   max-width: 400px;
 }

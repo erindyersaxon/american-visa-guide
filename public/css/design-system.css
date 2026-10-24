@@ -151,9 +151,11 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.10);
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-overlay: 0 1px 2px rgba(15,23,42,.08);
 
   /* Motion */
   --transition-fast: 150ms ease;
@@ -344,8 +346,7 @@ code {
   border-color: var(--color-navy-dark);
   color: #FFFFFF;
   text-decoration: none;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-strong, #64748B);
 }
 
 .btn-secondary {

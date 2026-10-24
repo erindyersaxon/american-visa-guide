@@ -26,13 +26,11 @@
       text-decoration: none;
       color: inherit;
       border-radius: var(--radius-lg);
-      transition: transform 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
+      transition: border-color 150ms var(--ease-out);
     }
     .tool-card-link:hover .tool-card {
-      border-color: var(--color-primary-border);
-      box-shadow: var(--shadow-md);
+      border-color: var(--color-border-strong, #64748B);
     }
-    .tool-card-link:hover { transform: translateY(-2px); }
     .tool-card-link:focus-visible {
       outline: 2px solid var(--color-primary);
       outline-offset: 3px;
@@ -46,8 +44,7 @@
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       padding: var(--space-6);
-      box-shadow: var(--shadow-sm);
-      transition: border-color 150ms, box-shadow 150ms;
+      transition: border-color 150ms;
       gap: var(--space-4);
     }
 
@@ -221,7 +218,6 @@
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       padding: var(--space-6);
-      box-shadow: var(--shadow-sm);
     }
     .resource-card h3 {
       font-family: var(--font-display);
