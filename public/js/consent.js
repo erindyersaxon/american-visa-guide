@@ -4,7 +4,7 @@
    Microsoft Clarity. Clarity never loads until the visitor accepts.
 
    Include once in <head> on every page:
-     <script src="/js/consent.js?v=YYYYMMDD" defer></script>
+     <script src="/js/consent.js?v=20261024" defer></script>
 
    The choice is kept in localStorage (strictly necessary, not a cookie).
    Anything can reopen the banner with window.avgConsent.open(), for
