@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/article.css?v=20261025c">
+  <link rel="stylesheet" href="/css/article-base.css?v=20261025c">
   <link rel="stylesheet" href="/css/tools.css?v=20261025c">
   <link rel="stylesheet" href="/css/nav.css?v=20261024c">
   <link rel="stylesheet" href="/css/stepper.css?v=20261025a">
@@ -19,19 +19,22 @@
   <script src="/js/stepper-core.js?v=20261024d" defer></script>
   <script src="/js/stepper.js?v=20261024d" defer></script>
   <script src="/js/nav.js?v=20261024c" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<main class="page-wrap" id="main">
+<main class="page-wrap guide-article" id="main">
 
   <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li aria-current="page">Date checker</li></ol></nav>
 
-  <p class="eyebrow">Tool &middot; US Embassy London</p>
+  <header class="article-header">
+  <p class="article-eyebrow">Tool &middot; US Embassy London</p>
   <h1>Interview <span>date checker</span></h1>
-  <p class="lead">Enter the dates you have. The checker works out when your public charge statement is due, the last day you can enter the US, and whether anything expires first. Only the interview date is needed; add the rest for a fuller check.</p>
+  <p class="article-lead">Enter the dates you have. The checker works out when your public charge statement is due, the last day you can enter the US, and whether anything expires first. Only the interview date is needed; add the rest for a fuller check.</p>
+  </header>
 
   <form class="tool" id="d-form" autocomplete="off">
     <div class="field-row">
@@ -90,8 +93,8 @@
   <p>More on the medical: <a href="/guide/medical#medical-validity">Stage 5</a>.</p>
 
   <h2 id="rules">What each check is based on</h2>
-  <div class="table-wrap">
-    <table>
+  <div class="table-card">
+    <table class="article-table">
       <thead><tr><th>Check</th><th>Rule used</th></tr></thead>
       <tbody>
         <tr><td>Statement deadline</td><td>Five working days before the interview, skipping weekends, US federal holidays and bank holidays in England (the embassy closes on both). <a href="/public-charge#submit">Why five days</a>.</td></tr>
