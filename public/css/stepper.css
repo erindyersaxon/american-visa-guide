@@ -49,6 +49,7 @@
 
 .visa-stepper__list {
   flex: 1;
+  min-width: 0;
   display: flex;
   gap: 24px;
   margin: 0;
@@ -61,7 +62,7 @@
   flex: 1;
   min-width: 0;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   column-gap: 8px;
   align-items: center;
   padding: 2px 0;
@@ -127,6 +128,7 @@
   color: var(--vs-muted);
   font-size: 12px;
   white-space: nowrap;
+  flex: none;
 }
 .visa-stepper__step--in-progress .visa-stepper__badge {
   border-color: var(--vs-ink);
@@ -144,6 +146,9 @@
 }
 
 .visa-stepper__tag {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--vs-muted);
   font-size: 12px;
   font-variant-numeric: tabular-nums lining-nums;
@@ -162,6 +167,7 @@
 }
 .visa-stepper__choose,
 .visa-stepper__change {
+  flex: none;
   font-size: 12px;
   text-decoration: underline;
   white-space: nowrap;

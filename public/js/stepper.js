@@ -64,7 +64,9 @@
       badge.setAttribute('aria-hidden', 'true');
       meta.append(badge);
     }
-    const tag = el('span', 'visa-stepper__tag', tags ? core.formatTag(tags[step.id]) || '' : '');
+    const tagText = tags ? core.formatTag(tags[step.id]) || '' : '';
+    const tag = el('span', 'visa-stepper__tag', tagText);
+    if (tagText) tag.title = tagText; // the tag can be cut short on narrow screens
     const pick = el('button', 'visa-stepper__choose', 'This is me');
     pick.type = 'button';
     pick.dataset.focusKey = 'choose-' + step.id;
