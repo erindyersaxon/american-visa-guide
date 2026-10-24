@@ -12,7 +12,9 @@
   --vs-muted:   var(--color-text-muted, var(--text-secondary, #475569));
   --vs-border:  var(--color-border, #e2e8f0);
   --vs-strong:  var(--color-border-strong, #64748b);
-  --vs-mark:    var(--color-mark, var(--color-gold, var(--color-accent, var(--accent, #0f172a))));
+  /* The one red mark. stage.css and article.css pages don't define
+     --color-mark, so fall back to the red itself, not to their slate accents. */
+  --vs-mark:    var(--color-mark, #991B1B);
   --vs-on-ink:  var(--color-text-inverse, var(--text-inverse, #ffffff));
   --vs-radius:  var(--radius-sm, 0.25rem);
   --vs-font:    var(--font-ui, 'Public Sans', system-ui, sans-serif);
