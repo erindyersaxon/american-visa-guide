@@ -415,8 +415,34 @@ export function checkMarks(rules, root = ROOT) {
 // ---------------------------------------------------------------- nav
 
 // Stub. Task 6 implements the nav rules.
-export function checkNav(navCss) { // eslint-disable-line no-unused-vars
-  return [];
+export function checkNav(navCss, extra = {}) {
+  const f = "public/css/nav.css";
+  const out = [];
+  const first = navCss.trimStart().split("\n")[0];
+  if (!(/^@import\b/.test(first) && /Source\+Serif\+4/.test(first) && /text=/.test(first))) {
+    out.push(viol(f, 1, "nav", "nav.css must start with an @import containing Source+Serif+4 and text="));
+  }
+  const bl = blocks(navCss);
+  const brand = bl.find((b) => b.selector === ".nav-brand-text");
+  const ff = brand && brand.decls.find((d) => d.prop === "font-family");
+  if (!ff || !/^['"]Source Serif 4['"]/.test(ff.value)) {
+    out.push(viol(f, brand ? brand.line : 0, "nav", ".nav-brand-text font-family must start with 'Source Serif 4'"));
+  }
+  for (const b of bl) {
+    if (/\.(site-nav|site-banner|avg-footer|nav-menu)\b/.test(b.selector) && b.body.includes("var(--color-")) {
+      out.push(viol(f, b.line, "nav", `${b.selector} uses var(--color-*); use --nav-* tokens`));
+    }
+  }
+  const focus = bl.find((b) => b.selector === ".site-nav .nav-link:focus-visible");
+  if (!focus || !focus.body.includes("var(--nav-text-strong)")) {
+    out.push(viol(f, focus ? focus.line : 0, "nav", ".site-nav .nav-link:focus-visible must use var(--nav-text-strong)"));
+  }
+  for (const [name, text] of Object.entries(extra)) {
+    const t = text.toLowerCase();
+    if (!t.includes("#f8fafc")) out.push(viol(name, 0, "nav", "brand tile must be #f8fafc"));
+    if (t.includes("#ece5d6")) out.push(viol(name, 0, "nav", "old brand tile #ece5d6 still present"));
+  }
+  return out;
 }
 
 // ---------------------------------------------------------------- CLI
@@ -440,7 +466,11 @@ function run(name) {
     case "marks": return checkMarks(MARK_RULES);
     case "nav": {
       const p = path.join(ROOT, "public", "css", "nav.css");
-      return checkNav(fs.existsSync(p) ? fs.readFileSync(p, "utf8") : "");
+      const rd = (...a) => fs.readFileSync(path.join(ROOT, ...a), "utf8");
+      return checkNav(fs.existsSync(p) ? fs.readFileSync(p, "utf8") : "", {
+        "public/js/nav.js": rd("public", "js", "nav.js"),
+        "public/favicon.svg": rd("public", "favicon.svg"),
+      });
     }
     default: return null;
   }

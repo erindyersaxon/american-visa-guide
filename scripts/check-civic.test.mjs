@@ -101,8 +101,34 @@ test("marks requires --color-mark or 991b1b in the block", () => {
   assert.equal(checkMarks([[f, ".missing"]]).length, 1);
 });
 
-test("stubs and exported data", () => {
-  assert.deepEqual(checkNav("x"), []);
+const GOOD_NAV = [
+  "@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&text=AmericanVisGud%20&display=swap');",
+  ":root{--nav-bg:#0F172A;--nav-text-strong:#F8FAFC}",
+  ".site-nav{background:var(--nav-bg)}",
+  ".nav-brand-text{font-family:'Source Serif 4',Georgia,serif}",
+  ".site-nav .nav-link:focus-visible{outline:2px solid var(--nav-text-strong)}",
+].join("\n");
+
+test("nav accepts a conforming stylesheet and tile files", () => {
+  assert.deepEqual(checkNav(GOOD_NAV, { "nav.js": 'fill="#f8fafc"', "favicon.svg": 'fill="#F8FAFC"' }), []);
+});
+
+test("nav flags a missing import, wrong wordmark font, page tokens, focus colour, old tile", () => {
+  assert.equal(checkNav(GOOD_NAV.split("\n").slice(1).join("\n")).length, 1);
+  assert.equal(checkNav(GOOD_NAV.replace("'Source Serif 4',Georgia", "Georgia")).length, 1);
+  assert.equal(checkNav(GOOD_NAV.replace("var(--nav-bg)", "var(--color-surface, #fff)")).length, 1);
+  assert.equal(checkNav(GOOD_NAV.replace("outline:2px solid var(--nav-text-strong)", "outline:2px solid red")).length, 1);
+  assert.equal(checkNav(GOOD_NAV.replace("&text=AmericanVisGud%20", "")).length, 1);
+  assert.equal(checkNav(GOOD_NAV, { "nav.js": 'fill="#ece5d6"' }).length, 2);
+});
+
+test("nav flags var(--color-) in footer, banner and mobile menu blocks", () => {
+  for (const sel of [".avg-footer", ".site-banner", ".nav-menu", ".avg-footer a"]) {
+    assert.equal(checkNav(GOOD_NAV + `\n${sel}{color:var(--color-text)}`).length, 1, sel);
+  }
+});
+
+test("exported data", () => {
   assert.ok(Array.isArray(PAIRS) && Array.isArray(MARK_RULES) && Array.isArray(ROUND_ALLOW));
   const s = SCOPE();
   assert.ok(s.some((p) => p.endsWith("public/css/main.css")));
