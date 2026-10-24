@@ -447,47 +447,6 @@
 
   strong { color: var(--text-primary); font-weight: 500; }
 
-  /* Info cards */
-  .info-card {
-    background: rgba(71,85,105,0.08);
-    border: 1px solid rgba(71,85,105,0.25);
-    border-radius: var(--radius-md, 0.375rem);
-    padding: 18px 20px;
-    margin: 16px 0;
-    transition: all 0.15s;
-  }
-
-  .info-card:hover { border-color: rgba(71,85,105,0.4); }
-
-  .info-card.warning {
-    background: rgba(127,29,29,0.08);
-    border-color: rgba(127,29,29,0.25);
-  }
-
-  .info-card.warning:hover { border-color: rgba(127,29,29,0.4); }
-
-  .info-card.tip {
-    background: rgba(79,133,115,0.08);
-    border-color: rgba(79,133,115,0.25);
-  }
-
-  .info-card.tip:hover { border-color: rgba(79,133,115,0.4); }
-
-  .info-card-head {
-    font-family:var(--font-ui);
-    font-size: 17px;
-    line-height: 1.35;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .info-card.warning .info-card-head { color: var(--red); }
-  .info-card.tip .info-card-head { color: var(--teal-light); }
-
   /* Interview cancellation notice (Aug 2026) */
   .alert-banner {
     background: rgba(127,29,29,0.09);
@@ -738,38 +697,6 @@
     table.fee-table td:last-child { white-space: nowrap; }
   }
 
-  /* Checklist */
-  .checklist {
-    list-style: none;
-    padding: 12px 14px;
-    margin: 12px 0;
-    background: rgba(15,23,42,0.02);
-    border-left: 3px solid var(--accent);
-    border-radius: 6px;
-  }
-
-  .checklist li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 7px 0;
-    border-bottom: 1px solid rgba(71,85,105,0.06);
-    font-size: 16px;
-    color: var(--text-primary);
-    overflow-wrap: anywhere; /* long email addresses must not widen the page */
-  }
-
-  .checklist li:last-child { border-bottom: none; }
-
-  .checklist li::before {
-    content: '☑';
-    color: var(--accent);
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    font-weight: bold;
-  }
-
   /* Two col */
   .two-col {
     display: grid;
@@ -898,26 +825,7 @@
   }
 
 
-  .stage-h1 { margin-bottom: 10px; }
-
-  .stage-meta {
-    font-family: var(--font-ui);
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-  }
-  .stage-meta > span { display: inline-block; }
-  .stage-meta > span + span::before { content: '·'; margin: 0 8px; color: var(--text-secondary); }
-
-  .stage-bottomline {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
-    border-radius: var(--radius-md, 0.375rem);
-    padding: 16px 20px;
-    margin-bottom: 20px;
-  }
-  .stage-actions h2,
+  .article-actions-section h2,
   .stage-docs h2,
   .stage-verify h2 {
     font-family: var(--font-ui);
@@ -926,15 +834,6 @@
     color: var(--accent);
     margin: 0 0 8px;
   }
-  .stage-bottomline p { font-size: 1em; margin: 0; }
-  .stage-bottomline p + p { margin-top: 8px; }
-
-  .stage-actions {
-    margin-bottom: 20px;
-  }
-  .stage-actions ol { margin: 0; padding-left: 22px; }
-  .stage-actions li { font-size: 1em; margin-bottom: 8px; }
-
   /* Role tag. Colour is never the only signal: the role name is always
      shown. 16px bold per the owner's accessibility rules. */
   .role {
