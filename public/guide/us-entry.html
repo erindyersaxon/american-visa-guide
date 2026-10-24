@@ -16,13 +16,14 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20261024c">
+<link rel="stylesheet" href="/css/stage.css?v=20261025b">
 <link rel="stylesheet" href="/css/nav.css?v=20261024c">
 <link rel="stylesheet" href="/css/stepper.css?v=20261025a">
 <script src="/js/community-stats.js?v=20261024d" defer></script>
 <script src="/js/stepper-core.js?v=20261024d" defer></script>
 <script src="/js/stepper.js?v=20261024d" defer></script>
 <script src="/js/nav.js?v=20261024c" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025b">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
@@ -91,28 +92,30 @@
   </aside>
 
   <!-- Main -->
-  <main class="main" id="main-content" role="main">
+  <main class="main guide-article" id="main-content" role="main">
 
     <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guide">Guide</a></li><li aria-current="page">Stage 9: US entry</li></ol></nav>
 
-    <h1 class="stage-h1">Stage 9: US entry</h1>
+    <header class="article-header">
+    <h1>Stage 9: US entry</h1>
 
-    <p class="stage-meta">
+    <p class="article-meta">
       <span><span aria-hidden="true">⏱</span> Green card up to 90 days from entry or fee payment</span>
       <span>$235 USCIS Immigrant Fee</span>
-      <span>Reviewed 27 Sept 2026</span>
+      <span>Reviewed <time datetime="2026-09-27">27 Sept 2026</time></span>
     </p>
 
-    <div class="stage-bottomline">
+    <div class="article-summary">
       <p><strong>You are here:</strong> You have your visa and you are travelling.</p>
       <p><strong>What happens:</strong> You become a lawful permanent resident when a CBP officer inspects you and admits you on your immigrant visa. That happens at the port of entry: an airport, a preclearance airport, or a land border. The visa lets you ask to enter. It does not guarantee entry. USCIS mails your green card once you pay the $235 USCIS Immigrant Fee.</p>
       <p><strong>Do this first:</strong> Pay the Immigrant Fee, and confirm your US address with the CBP officer.</p>
     </div>
+    </header>
 
 
-    <section class="stage-actions" aria-labelledby="action-list-title">
+    <section class="article-actions-section" aria-labelledby="action-list-title">
       <h2 id="action-list-title">Action list</h2>
-      <ol>
+      <ol class="article-actions">
         <li><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Pay the $235 USCIS Immigrant Fee at my.uscis.gov. USCIS will not make your green card until you pay.</li>
         <li><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> At the port of entry, confirm or update your US address with the CBP officer. USCIS mails your green card there.</li>
         <li><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Sign up for USPS Informed Delivery as soon as you arrive.</li>
@@ -132,9 +135,8 @@
 
     <!-- Stage content: moved verbatim from guide.html -->
     <section class="section stage-content" id="entry">
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
-        <span style="font-size:15px;flex-shrink:0;"></span>
-        <p style="color:rgba(15,23,42,0.78);margin:0;">Arrived in the US? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your date of entry to the US to the community tracker →</a></p>
+      <div class="article-prompt">
+        <p class="text-muted">Arrived in the US? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your date of entry to the US to the community tracker →</a></p>
       </div>
       <p>Show your passport with the immigrant visa at the port of entry. The CBP officer inspects you and decides whether to let you in. The visa does not guarantee entry. The officer can still find you inadmissible, for example if your facts have changed since the interview, or if something comes to light that you did not disclose. The moment the officer admits you, you are a <strong>lawful permanent resident</strong>.</p>
 
@@ -145,50 +147,50 @@
         <li>If you have <a href="https://ttp.dhs.gov/" target="_blank" rel="noopener noreferrer">Global Entry</a>, tell Global Entry in person that your status has changed. The easiest time is as you enter as a green card holder.</li>
       </ul>
 
-      <div class="info-card tip">
-        <div class="info-card-head">US Preclearance: clear CBP before you leave</div>
-        <p style="margin-bottom:10px;">Several airports outside the US have CBP preclearance. Clearing there counts as your official port of entry, and you land in the US as a domestic passenger, with no immigration queue. Immigrant visa holders can use all of them.</p>
+      <div class="callout callout-good">
+        <div class="callout-title">US Preclearance: clear CBP before you leave</div>
+        <p>Several airports outside the US have CBP preclearance. Clearing there counts as your official port of entry, and you land in the US as a domestic passenger, with no immigration queue. Immigrant visa holders can use all of them.</p>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;">
           <div>
-            <div style="font-size:14px;font-weight:700;color:var(--teal-light);margin-bottom:6px;">Ireland</div>
-            <div style="font-size:16px;line-height:1.6;">Dublin (DUB)<br><span style="font-size:13px;color:var(--text-secondary);">07:00–16:30 IST</span><br>Shannon (SNN)<br><span style="font-size:13px;color:var(--text-secondary);">09:00–17:00 IST</span></div>
+            <div style="font-size:14px;font-weight:700;color:var(--teal-light);">Ireland</div>
+            <div style="font-size:16px;line-height:1.6;">Dublin (DUB)<br><span class="text-muted" style="font-size:13px;">07:00–16:30 IST</span><br>Shannon (SNN)<br><span class="text-muted" style="font-size:13px;">09:00–17:00 IST</span></div>
           </div>
           <div>
-            <div style="font-size:14px;font-weight:700;color:var(--teal-light);margin-bottom:6px;">Canada</div>
+            <div style="font-size:14px;font-weight:700;color:var(--teal-light);">Canada</div>
             <div style="font-size:16px;line-height:1.6;">Toronto Pearson (YYZ)<br>Vancouver (YVR)<br>Montreal (YUL)<br>Calgary (YYC)<br>Edmonton (YEG)<br>Ottawa (YOW)<br>Halifax (YHZ)<br>Winnipeg (YWG)</div>
           </div>
           <div>
-            <div style="font-size:14px;font-weight:700;color:var(--teal-light);margin-bottom:6px;">Other</div>
-            <div style="font-size:16px;line-height:1.6;">Abu Dhabi (AUH)<br><span style="font-size:13px;color:var(--text-secondary);">AUH no longer gives physical entry stamps. Contact deferred inspection on arrival if you need one.</span></div>
+            <div style="font-size:14px;font-weight:700;color:var(--teal-light);">Other</div>
+            <div style="font-size:16px;line-height:1.6;">Abu Dhabi (AUH)<br><span class="text-muted" style="font-size:13px;">AUH no longer gives physical entry stamps. Contact deferred inspection on arrival if you need one.</span></div>
           </div>
         </div>
 
-        <p style="margin-bottom:0;"><strong>Drawbacks:</strong> once you are through, you find few shops and few backup flights, above all at Shannon. Irish preclearance keeps fixed hours. Flights outside those hours clear CBP when they land in the US instead.</p>
+        <p><strong>Drawbacks:</strong> once you are through, you find few shops and few backup flights, above all at Shannon. Irish preclearance keeps fixed hours. Flights outside those hours clear CBP when they land in the US instead.</p>
       </div>
 
-      <div class="sub-acc-item" id="other-entry" data-sub-group="entry-other" style="margin:16px 0;">
+      <div class="sub-acc-item" id="other-entry" data-sub-group="entry-other">
         <button class="sub-acc-trigger" aria-expanded="false" aria-controls="other-entry-body" onclick="toggleSubAcc('other-entry')">
           <span class="sub-acc-label">Other ways in: US territories, and land borders from Mexico or Canada</span>
           <span class="sub-acc-chevron">▼</span>
         </button>
         <div class="sub-acc-body" id="other-entry-body">
           <div class="sub-acc-content">
-      <div class="info-card">
-        <div class="info-card-head">Entering via Puerto Rico or US Territories</div>
-        <p style="margin-bottom:6px;">Puerto Rico, the US Virgin Islands, Guam, American Samoa and the Northern Mariana Islands are US territories. Immigrant visa holders can enter through San Juan (SJU) or another territory airport. You become a permanent resident there, just as at a mainland US airport.</p>
-        <p style="margin:0;">If you settle in a territory rather than a state, some USCIS and SSA steps may differ slightly from the mainland.</p>
+      <div class="callout callout-info">
+        <div class="callout-title">Entering via Puerto Rico or US Territories</div>
+        <p>Puerto Rico, the US Virgin Islands, Guam, American Samoa and the Northern Mariana Islands are US territories. Immigrant visa holders can enter through San Juan (SJU) or another territory airport. You become a permanent resident there, just as at a mainland US airport.</p>
+        <p>If you settle in a territory rather than a state, some USCIS and SSA steps may differ slightly from the mainland.</p>
       </div>
 
-      <div class="info-card">
-        <div class="info-card-head">Entering by land from Mexico or Canada</div>
-        <p style="margin-bottom:10px;">Immigrant visa holders can use any staffed <strong>Class A land port of entry</strong> on either border. You show your passport with the immigrant visa to the CBP officer, just as at an airport. Land crossings have no preclearance. Inspection happens at the US border, so expect to queue. Waits for walkers and cars can differ a lot. CBP reads London visas ("IV Docs in CCD") electronically at land borders too.</p>
-        <ul style="margin-bottom:10px;">
+      <div class="callout callout-info">
+        <div class="callout-title">Entering by land from Mexico or Canada</div>
+        <p>Immigrant visa holders can use any staffed <strong>Class A land port of entry</strong> on either border. You show your passport with the immigrant visa to the CBP officer, just as at an airport. Land crossings have no preclearance. Inspection happens at the US border, so expect to queue. Waits for walkers and cars can differ a lot. CBP reads London visas ("IV Docs in CCD") electronically at land borders too.</p>
+        <ul>
           <li><strong>Busiest Mexico crossings:</strong> San Ysidro and Otay Mesa (Tijuana), Calexico, Nogales, El Paso, Laredo.</li>
           <li><strong>Busiest Canada crossings:</strong> Peace Arch and Pacific Highway (Blaine, WA), Detroit (Windsor), Port Huron, the Buffalo and Niagara Falls bridges, Champlain (NY).</li>
         </ul>
-        <p style="margin:0;">Confirm your US mailing address with the officer, because USCIS sends the green card there.</p>
-        <p style="color:var(--text-secondary);margin:10px 0 0;">Sources: <a href="https://bwt.cbp.gov/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">CBP Border Wait Times</a> · <a href="https://www.bts.gov/browse-statistics-subject/border-crossings" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">BTS Border Crossing data</a></p>
+        <p>Confirm your US mailing address with the officer, because USCIS sends the green card there.</p>
+        <p class="text-muted">Sources: <a href="https://bwt.cbp.gov/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">CBP Border Wait Times</a> · <a href="https://www.bts.gov/browse-statistics-subject/border-crossings" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">BTS Border Crossing data</a></p>
       </div>
           </div>
         </div>
@@ -196,88 +198,88 @@
 
       <h2 id="green-card">Green card</h2>
       <p>USCIS starts making your green card (Form I-551) once you pay the $235 USCIS Immigrant Fee. <a href="/guide/after-interview">Stage 7</a> covers how to pay. USCIS gives these delivery times:</p>
-      <table style="width:100%;border-collapse:collapse;font-size:14px;margin:12px 0 16px;">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
         <thead>
           <tr>
-            <th style="text-align:left;padding:12px 12px;background:rgba(15,23,42,0.08);border-left:3px solid var(--accent);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:14px;font-weight:700;">Entry</th>
-            <th style="text-align:left;padding:12px 12px;background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:14px;font-weight:700;">Fee timing</th>
-            <th style="text-align:left;padding:12px 12px;background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:14px;font-weight:700;">When to expect the card</th>
+            <th style="text-align:left;background:rgba(15,23,42,0.08);border-left:3px solid var(--accent);border-bottom:2px solid var(--border);font-size:14px;font-weight:700;">Entry</th>
+            <th style="text-align:left;background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);font-size:14px;font-weight:700;">Fee timing</th>
+            <th style="text-align:left;background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);font-size:14px;font-weight:700;">When to expect the card</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding:9px 12px;border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Entered on immigrant visa</td>
-            <td style="padding:9px 12px;border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Fee paid <strong>before</strong> entry</td>
-            <td style="padding:9px 12px;border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Up to <strong>90 days from entry date</strong></td>
+            <td style="border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Entered on immigrant visa</td>
+            <td style="border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Fee paid <strong>before</strong> entry</td>
+            <td style="border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Up to <strong>90 days from entry date</strong></td>
           </tr>
           <tr style="background:rgba(15,23,42,0.02);">
-            <td style="padding:9px 12px;border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Entered on immigrant visa</td>
-            <td style="padding:9px 12px;border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Fee paid <strong>after</strong> entry</td>
-            <td style="padding:9px 12px;border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Up to <strong>90 days from payment date</strong></td>
+            <td style="border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Entered on immigrant visa</td>
+            <td style="border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Fee paid <strong>after</strong> entry</td>
+            <td style="border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Up to <strong>90 days from payment date</strong></td>
           </tr>
           <tr style="background:rgba(15,23,42,0.02);">
-            <td style="padding:9px 12px;border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Entered on immigrant visa</td>
-            <td style="padding:9px 12px;border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Fee <strong>not yet paid</strong></td>
-            <td style="padding:9px 12px;border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">USCIS will not make the card until you pay at <a href="https://my.uscis.gov/accounts/uscis-immigrant-fee/about-you" target="_blank" rel="noopener noreferrer">my.uscis.gov</a></td>
+            <td style="border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Entered on immigrant visa</td>
+            <td style="border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Fee <strong>not yet paid</strong></td>
+            <td style="border:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">USCIS will not make the card until you pay at <a href="https://my.uscis.gov/accounts/uscis-immigrant-fee/about-you" target="_blank" rel="noopener noreferrer">my.uscis.gov</a></td>
           </tr>
         </tbody>
       </table>
-      <p style="color:var(--text-secondary);">Source: <a href="https://egov.uscis.gov/processing-times/expect-green-card" target="_blank" rel="noopener noreferrer">egov.uscis.gov: When to expect your Green Card</a></p>
+      <p class="text-muted">Source: <a href="https://egov.uscis.gov/processing-times/expect-green-card" target="_blank" rel="noopener noreferrer">egov.uscis.gov: When to expect your Green Card</a></p>
 
-      <div class="info-card warning">
-        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Keep your address up to date</div>
-        <p style="margin-bottom:6px;">USCIS mails your green card to the address you gave at your visa interview, or the new one you gave at the port of entry. If you move after you arrive, update your address in the beneficiary's USCIS account, or by post on the AR-11, <strong>within 10 days. The law requires this.</strong> The petitioner and any joint sponsor have a separate duty: while their I-864 obligation lasts, each must file <a href="https://www.uscis.gov/i-865" target="_blank" rel="noopener noreferrer">Form I-865, Sponsor's Notice of Change of Address</a>, within 30 days of moving (INA 213A(d)). If they do not, they face civil fines. A US citizen sponsor does not file an AR-11.</p>
-        <p style="margin:0;">One member updated their address, and USCIS still sent the card to the old one. The landlord forwarded it, a week late. After entry, check the address in your USCIS account and take a screenshot.</p>
+      <div class="callout callout-warn">
+        <div class="callout-title"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Keep your address up to date</div>
+        <p>USCIS mails your green card to the address you gave at your visa interview, or the new one you gave at the port of entry. If you move after you arrive, update your address in the beneficiary's USCIS account, or by post on the AR-11, <strong>within 10 days. The law requires this.</strong> The petitioner and any joint sponsor have a separate duty: while their I-864 obligation lasts, each must file <a href="https://www.uscis.gov/i-865" target="_blank" rel="noopener noreferrer">Form I-865, Sponsor's Notice of Change of Address</a>, within 30 days of moving (INA 213A(d)). If they do not, they face civil fines. A US citizen sponsor does not file an AR-11.</p>
+        <p>One member updated their address, and USCIS still sent the card to the old one. The landlord forwarded it, a week late. After entry, check the address in your USCIS account and take a screenshot.</p>
       </div>
 
-      <div class="info-card">
-        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Long names may print shortened</div>
-        <p style="margin:0;">Some USCIS systems limit the number of characters, so a long name can appear cut short, or without hyphens, on your green card and other USCIS documents. This is normal, and you do not need to ask for a correction. When you apply for a driver's license or state ID, bring your birth or marriage certificate to show your full legal name. <a href="https://www.uscis.gov/policy-manual/volume-11-part-a-chapter-2#footnote-3" target="_blank" rel="noopener noreferrer">See USCIS Policy Manual, Vol. 11, Part A, Ch. 2, footnote 3</a>.</p>
+      <div class="callout callout-info">
+        <div class="callout-title"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Long names may print shortened</div>
+        <p>Some USCIS systems limit the number of characters, so a long name can appear cut short, or without hyphens, on your green card and other USCIS documents. This is normal, and you do not need to ask for a correction. When you apply for a driver's license or state ID, bring your birth or marriage certificate to show your full legal name. <a href="https://www.uscis.gov/policy-manual/volume-11-part-a-chapter-2#footnote-3" target="_blank" rel="noopener noreferrer">See USCIS Policy Manual, Vol. 11, Part A, Ch. 2, footnote 3</a>.</p>
       </div>
 
-      <div class="info-card warning">
-        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Carry proof of your status</div>
-        <p style="margin:0;">Every permanent resident aged 18 or over must carry proof of registration at all times (INA 264(e), 8 U.S.C. &sect;&nbsp;1304(e)). Until your green card arrives, that is your passport with the immigrant visa stamp. After that, it is the green card. Not carrying it is a federal misdemeanour, and the government has pushed enforcement of the registration rules since 2025. A photocopy does not count.</p>
+      <div class="callout callout-warn">
+        <div class="callout-title"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Carry proof of your status</div>
+        <p>Every permanent resident aged 18 or over must carry proof of registration at all times (INA 264(e), 8 U.S.C. &sect;&nbsp;1304(e)). Until your green card arrives, that is your passport with the immigrant visa stamp. After that, it is the green card. Not carrying it is a federal misdemeanour, and the government has pushed enforcement of the registration rules since 2025. A photocopy does not count.</p>
       </div>
 
-      <div class="info-card">
-        <div class="info-card-head">Tracking the card</div>
-        <p style="margin-bottom:6px;">Your Immigrant Fee receipt has an <strong>IOE number</strong> for Form I-551. It is not your visa case number, and not the IOE number on your I-130. Enter it at <a href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">egov.uscis.gov</a> to track production.</p>
-        <p style="margin:0;">Set up myUSCIS accounts before you need them: one for the beneficiary, and one each for the petitioner and any joint sponsor, linked to the case. In the beneficiary's account you can track the case and file an AR-11 address change online, which is faster than the paper form.</p>
+      <div class="callout callout-info">
+        <div class="callout-title">Tracking the card</div>
+        <p>Your Immigrant Fee receipt has an <strong>IOE number</strong> for Form I-551. It is not your visa case number, and not the IOE number on your I-130. Enter it at <a href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">egov.uscis.gov</a> to track production.</p>
+        <p>Set up myUSCIS accounts before you need them: one for the beneficiary, and one each for the petitioner and any joint sponsor, linked to the case. In the beneficiary's account you can track the case and file an AR-11 address change online, which is faster than the paper form.</p>
       </div>
 
       <p>The USPS tracking number often does not appear in your USCIS online status. To get it, contact USCIS: use the Emma chat at uscis.gov, or call 1 (800) 375-5283 and ask for a live agent.</p>
 
-      <div class="info-card">
-        <div class="info-card-head">Biometrics appointment (I-797C)</div>
-        <p style="margin-bottom:6px;">Some members get an I-797C notice after entry, calling them to a biometrics appointment at an Application Support Center (ASC) before USCIS issues the green card. This is not standard. It happens when USCIS cannot use the biometrics it already has. Known causes: you held a green card before (old biometrics expire after 15 months), or the photo or fingerprints from the embassy were poor quality.</p>
-        <p style="margin-bottom:6px;">If you get this notice, bring the I-797C, valid photo ID, and your passport with the visa stamp. USCIS usually makes the card within days of the appointment. Do not skip it: USCIS will not make the card until you complete biometrics. The notice does not mean anything is wrong with your case or your permanent resident status.</p>
-        <p style="margin:0;">The Service Center code on the notice (FCE means Florida, for example) shows the processing center, not the state you live in. The TCR field may be blank. That is normal.</p>
+      <div class="callout callout-info">
+        <div class="callout-title">Biometrics appointment (I-797C)</div>
+        <p>Some members get an I-797C notice after entry, calling them to a biometrics appointment at an Application Support Center (ASC) before USCIS issues the green card. This is not standard. It happens when USCIS cannot use the biometrics it already has. Known causes: you held a green card before (old biometrics expire after 15 months), or the photo or fingerprints from the embassy were poor quality.</p>
+        <p>If you get this notice, bring the I-797C, valid photo ID, and your passport with the visa stamp. USCIS usually makes the card within days of the appointment. Do not skip it: USCIS will not make the card until you complete biometrics. The notice does not mean anything is wrong with your case or your permanent resident status.</p>
+        <p>The Service Center code on the notice (FCE means Florida, for example) shows the processing center, not the state you live in. The TCR field may be blank. That is normal.</p>
       </div>
 
       <h2 id="ssn">Social Security Number</h2>
-      <p>If you answered "Yes" to the SSN question on the DS-260 (Enumeration on Entry), the Social Security Administration (SSA) starts your application automatically and mails the card after you arrive. You need no appointment. <a href="https://www.ssa.gov/ssnvisa/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[SSA: SSN for Immigrants]</a> <a href="https://www.ssa.gov/faqs/en/questions/KA-10040.html" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[SSA: Enumeration on Entry FAQ]</a> You cannot track the card once it is in the mail.</p>
+      <p>If you answered "Yes" to the SSN question on the DS-260 (Enumeration on Entry), the Social Security Administration (SSA) starts your application automatically and mails the card after you arrive. You need no appointment. <a href="https://www.ssa.gov/ssnvisa/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:13px;border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[SSA: SSN for Immigrants]</a> <a href="https://www.ssa.gov/faqs/en/questions/KA-10040.html" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:13px;border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[SSA: Enumeration on Entry FAQ]</a> You cannot track the card once it is in the mail.</p>
 
       <p><strong>If your card has not arrived 10 business days after entry</strong>, go to your local SSA office. Several members ticked the option on the DS-260, and the SSA still had no record of their application. Staff took a new application on the spot. Bring your passport with the visa stamp and your foreign birth certificate. Some offices serve only people who live in their area, so check with your local office before you go. Some people book an appointment in advance, in case the card does not come.</p>
 
-      <div class="info-card tip">
-        <div class="info-card-head">SSA appointment tip</div>
-        <p style="margin-bottom:6px;">If the SSA officer does not know immigrant visas, or asks for an I-94, the SSA's own policy manual explains how to handle immigrant visa holders. A printout can help: <a href="https://secure.ssa.gov/poms.nsf/lnx/0110211025" target="_blank" rel="noopener noreferrer">secure.ssa.gov/poms.nsf/lnx/0110211025</a></p>
-        <p style="margin-bottom:6px;">Some offices take walk-ins. Check Google reviews for your local office before you go. <a href="https://www.ssa.gov/manage-benefits/make-an-appointment" target="_blank" rel="noopener noreferrer">Make or change an appointment here.</a></p>
-        <p style="margin:0;">Common problems: the card goes to the wrong address, the SSA misses the apartment number, or the application never starts despite the DS-260 answer. Confirm your full address, including the apartment number, with SSA staff.</p>
+      <div class="callout callout-good">
+        <div class="callout-title">SSA appointment tip</div>
+        <p>If the SSA officer does not know immigrant visas, or asks for an I-94, the SSA's own policy manual explains how to handle immigrant visa holders. A printout can help: <a href="https://secure.ssa.gov/poms.nsf/lnx/0110211025" target="_blank" rel="noopener noreferrer">secure.ssa.gov/poms.nsf/lnx/0110211025</a></p>
+        <p>Some offices take walk-ins. Check Google reviews for your local office before you go. <a href="https://www.ssa.gov/manage-benefits/make-an-appointment" target="_blank" rel="noopener noreferrer">Make or change an appointment here.</a></p>
+        <p>Common problems: the card goes to the wrong address, the SSA misses the apartment number, or the application never starts despite the DS-260 answer. Confirm your full address, including the apartment number, with SSA staff.</p>
       </div>
 
-      <div class="info-card">
-        <div class="info-card-head">Register for USPS Informed Delivery</div>
-        <p style="margin:0;"><a href="https://informeddelivery.usps.com/" target="_blank" rel="noopener noreferrer">USPS Informed Delivery</a> shows you scans of your mail before it arrives. Sign up as soon as you arrive, and you will see the green card and SSN card coming before they reach your mailbox.</p>
+      <div class="callout callout-info">
+        <div class="callout-title">Register for USPS Informed Delivery</div>
+        <p><a href="https://informeddelivery.usps.com/" target="_blank" rel="noopener noreferrer">USPS Informed Delivery</a> shows you scans of your mail before it arrives. Sign up as soon as you arrive, and you will see the green card and SSN card coming before they reach your mailbox.</p>
       </div>
 
-      <div style="text-align:center;margin:32px 0 8px;">
-        <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#FFFFFF;font-family:var(--font-ui);font-size:14px;font-weight:700;padding:12px 24px;border-radius:var(--radius-md, 0.375rem);text-decoration:none;">
+      <div style="text-align:center;">
+        <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;background:var(--teal);color:#FFFFFF;font-family:var(--font-ui);font-size:14px;font-weight:700;border-radius:var(--radius-md, 0.375rem);text-decoration:none;">
           Submit your timeline to the community tracker
         </a>
       </div>
-      <p style="color:var(--text-secondary);text-align:center;">Your data helps the community. It takes 5 minutes.</p>
+      <p class="text-muted" style="text-align:center;">Your data helps the community. It takes 5 minutes.</p>
       <a href="#main-content" class="section-top-link" aria-label="Back to top of page">↑ Back to top</a>
     </section>
 
@@ -304,7 +306,7 @@
 </div>
 
 <button id="back-top" aria-label="Back to top"
-  style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--text-inverse);border:none;font-size:18px;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:99;display:flex;align-items:center;justify-content:center;font-weight:700;">↑</button>
+  class="back-top">↑</button>
 <!-- Shared live policy notice (single source, mounted into [data-live-notice]) -->
 <script src="/js/live-notice.js?v=20261024c"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->

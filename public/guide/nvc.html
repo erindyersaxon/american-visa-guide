@@ -16,13 +16,14 @@
 <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/stage.css?v=20261024c">
+<link rel="stylesheet" href="/css/stage.css?v=20261025b">
 <link rel="stylesheet" href="/css/nav.css?v=20261024c">
 <link rel="stylesheet" href="/css/stepper.css?v=20261025a">
 <script src="/js/community-stats.js?v=20261024d" defer></script>
 <script src="/js/stepper-core.js?v=20261024d" defer></script>
 <script src="/js/stepper.js?v=20261024d" defer></script>
 <script src="/js/nav.js?v=20261024c" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025b">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
@@ -91,28 +92,30 @@
   </aside>
 
   <!-- Main -->
-  <main class="main" id="main-content" role="main">
+  <main class="main guide-article" id="main-content" role="main">
 
     <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guide">Guide</a></li><li aria-current="page">Stage 2: NVC</li></ol></nav>
 
-    <h1 class="stage-h1">Stage 2: National Visa Center (NVC)</h1>
+    <header class="article-header">
+    <h1>Stage 2: National Visa Center (NVC)</h1>
 
-    <p class="stage-meta">
+    <p class="article-meta">
       <span><span aria-hidden="true">⏱</span> Typical review 14 days if no issues</span>
       <span>$325 visa fee + $120 Affidavit of Support fee</span>
-      <span>Reviewed 27 Sept 2026</span>
+      <span>Reviewed <time datetime="2026-09-27">27 Sept 2026</time></span>
     </p>
 
-    <div class="stage-bottomline">
+    <div class="article-summary">
       <p><strong>You are here:</strong> USCIS has approved your I-130 and passed your case to the National Visa Center (NVC).</p>
       <p><strong>What happens:</strong> NVC collects your fees, the DS-260 application, and your financial and civil documents. The goal is Documentarily Qualified (DQ) status. DQ is the NVC minimum. London expects more, so meet the higher standard.</p>
       <p><strong>Do this first:</strong> Get the IRS tax transcript itself for every sponsor.</p>
     </div>
+    </header>
 
 
-    <section class="stage-actions" aria-labelledby="action-list-title">
+    <section class="article-actions-section" aria-labelledby="action-list-title">
       <h2 id="action-list-title">Action list</h2>
-      <ol>
+      <ol class="article-actions">
         <li><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Pay the $325 visa processing fee and the $120 Affidavit of Support fee from a US bank account, one after the other.</li>
         <li><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Fill in the I-864 and sign it by hand. Line up a joint sponsor if you rely on assets, or if income is anywhere near the threshold.</li>
         <li><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Get the IRS Tax Return Transcript for every sponsor and joint sponsor, and upload it before the interview.</li>
@@ -136,21 +139,20 @@
 
     <!-- Stage content: moved verbatim from guide.html -->
     <section class="section stage-content" id="nvc">
-      <div style="display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px;">
-        <span style="font-size:15px;flex-shrink:0;"></span>
-        <p style="color:rgba(15,23,42,0.78);margin:0;">Reached DQ? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your NVC dates and DQ date to the community tracker →</a></p>
+      <div class="article-prompt">
+        <p class="text-muted">Reached DQ? <a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);font-weight:600;text-decoration:none;">Add your NVC dates and DQ date to the community tracker →</a></p>
       </div>
       <p>Once USCIS approves the I-130, your case moves to the National Visa Center (NVC). NVC collects your fees, the DS-260 visa application, and your financial and civil documents. It then passes the case to the US Embassy London to schedule an interview. Your goal at this stage is <strong>Documentarily Qualified (DQ)</strong> status.</p>
 
-      <div class="info-card warning" id="nvc-bar">
-        <div class="info-card-head">NVC's bar is lower than London's. Meet London's.</div>
-        <p style="margin-bottom:6px;">Documentarily Qualified (DQ) means NVC accepts that your documents meet the federal minimum. It does not mean the US Embassy London will accept the same evidence at interview. London looks harder at the same documents. Cases have reached DQ with, say, only a copy of the tax return, then been refused under 221(g) at interview because London wanted the IRS transcript itself.</p>
-        <p style="margin:0;">This site always recommends London's higher standard, even where it goes beyond what NVC or the State Department officially requires. The interview is the finish line, not DQ. A 221(g) for a document you could have sent at NVC costs far more time than meeting the higher bar first. Where our checklists ask for more than USCIS or the State Department, we mean it: the extra reflects what London does.</p>
+      <div class="callout callout-warn" id="nvc-bar">
+        <div class="callout-title">NVC's bar is lower than London's. Meet London's.</div>
+        <p>Documentarily Qualified (DQ) means NVC accepts that your documents meet the federal minimum. It does not mean the US Embassy London will accept the same evidence at interview. London looks harder at the same documents. Cases have reached DQ with, say, only a copy of the tax return, then been refused under 221(g) at interview because London wanted the IRS transcript itself.</p>
+        <p>This site always recommends London's higher standard, even where it goes beyond what NVC or the State Department officially requires. The interview is the finish line, not DQ. A 221(g) for a document you could have sent at NVC costs far more time than meeting the higher bar first. Where our checklists ask for more than USCIS or the State Department, we mean it: the extra reflects what London does.</p>
       </div>
 
-      <p style="color:var(--text-secondary);">The community Discord NVC channels give full step-by-step help. They follow the official <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition/step-2-begin-nvc-processing.html" target="_blank" rel="noopener noreferrer">NVC process at Travel.State.gov</a>.</p>
+      <p class="text-muted">The community Discord NVC channels give full step-by-step help. They follow the official <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition/step-2-begin-nvc-processing.html" target="_blank" rel="noopener noreferrer">NVC process at Travel.State.gov</a>.</p>
 
-      <h2 style="margin-top:32px;">The most common RFEs (Requests for Evidence)</h2>
+      <h2>The most common RFEs (Requests for Evidence)</h2>
       <p>NVC does not use the term RFE. The community calls it an RFE when NVC rejects a document in CEAC and asks for it again.</p>
       <div class="sub-acc-item open" id="nvc_rfe" data-sub-group="nvc-alerts">
         <button class="sub-acc-trigger" aria-expanded="true" aria-controls="nvc_rfe-body" onclick="toggleSubAcc('nvc_rfe')">
@@ -159,7 +161,7 @@
         </button>
         <div class="sub-acc-body" id="nvc_rfe-body">
           <div class="sub-acc-content">
-            <ul style="margin-bottom:12px;">
+            <ul>
               <li><strong>Missing or incomplete Form I-864 (Affidavit of Support):</strong> The petitioner (main sponsor) and each joint sponsor fill in separate I-864s. Household members fill in I-864As.</li>
               <li><strong>Incomplete document scans:</strong> A folded corner or a missing side triggers an RFE. Show every page in full, and scan both sides of two-sided documents.</li>
               <li><strong>Inconsistent information between forms:</strong> Names, birthdates or addresses that differ between the I-130, I-864, DS-260 and civil documents cause RFEs. Use the same exact legal names everywhere.</li>
@@ -167,9 +169,9 @@
               <li><strong>An I-864 signed digitally instead of by hand.</strong></li>
               <li><strong>Documents uploaded to the wrong CEAC category.</strong></li>
             </ul>
-            <div class="info-card tip">
-              <div class="info-card-head">Prevention is faster than correction</div>
-              <p style="margin:0;">Prepare your documents to the higher standard the US Embassy London uses, so your submission is complete the first time and leaves nothing to question.</p>
+            <div class="callout callout-good">
+              <div class="callout-title">Prevention is faster than correction</div>
+              <p>Prepare your documents to the higher standard the US Embassy London uses, so your submission is complete the first time and leaves nothing to question.</p>
             </div>
           </div>
         </div>
@@ -180,7 +182,7 @@
         <button class="sub-ctrl" onclick="subAccGroup('nvc', false)">Collapse all</button>
       </div>
 
-      <h3 style="margin-top:32px;margin-bottom:16px;font-size:15px;color:var(--text-primary);">Getting started</h3>
+      <h3 style="font-size:15px;">Getting started</h3>
       <div class="sub-acc-item" id="nvc_0" data-sub-group="nvc">
         <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_0-body" onclick="toggleSubAcc('nvc_0')">
           <span class="sub-acc-label">Step 1: Welcome letter</span>
@@ -201,15 +203,15 @@
           <div class="sub-acc-content">
             <p>Sign in at <a href="https://ceac.state.gov/IV/Login.aspx" target="_blank" rel="noopener noreferrer">ceac.state.gov/IV</a> with your Case Number and Invoice ID. The account can take up to 72 hours to work after the welcome letter. In CEAC you pay fees, submit the DS-260, upload documents and get messages from NVC.</p>
 
-      <div class="info-card warning">
-        <div class="info-card-head">12-month inactivity rule</div>
-        <p style="margin:0;">INA 203(g) makes NVC close a case if the applicant does not apply for the visa within one year of hearing it is available. Only a real step on the case resets the clock: paying fees, submitting the DS-260 or documents, or contacting NVC. NVC may not count signing in to CEAC as contact, so do not rely on it. Closing the case also cancels the approved I-130.</p>
+      <div class="callout callout-warn">
+        <div class="callout-title">12-month inactivity rule</div>
+        <p>INA 203(g) makes NVC close a case if the applicant does not apply for the visa within one year of hearing it is available. Only a real step on the case resets the clock: paying fees, submitting the DS-260 or documents, or contacting NVC. NVC may not count signing in to CEAC as contact, so do not rely on it. Closing the case also cancels the approved I-130.</p>
       </div>
           </div>
         </div>
       </div>
 
-      <h3 style="margin-top:32px;margin-bottom:16px;font-size:15px;color:var(--text-primary);">Payments and application</h3>
+      <h3 style="font-size:15px;">Payments and application</h3>
       <div class="sub-acc-item" id="nvc_2" data-sub-group="nvc">
         <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_2-body" onclick="toggleSubAcc('nvc_2')">
           <span class="sub-acc-label">Step 3: Fees</span>
@@ -224,7 +226,7 @@
           <tr><td>Affidavit of Support Fee</td><td>$120</td></tr>
         </tbody>
       </table>
-      <p style="color:var(--text-secondary);">Pay the two fees separately in CEAC, each from a US bank account (checking or savings). Both must clear before you can fill in the rest of CEAC, including the DS-260. Allow up to 10 calendar days for each. More info: <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition/step-3-pay-fees.html" target="_blank" rel="noopener noreferrer">NVC fee guidance</a>.</p>
+      <p class="text-muted">Pay the two fees separately in CEAC, each from a US bank account (checking or savings). Both must clear before you can fill in the rest of CEAC, including the DS-260. Allow up to 10 calendar days for each. More info: <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition/step-3-pay-fees.html" target="_blank" rel="noopener noreferrer">NVC fee guidance</a>.</p>
           </div>
         </div>
       </div>
@@ -238,22 +240,22 @@
             <p>The petitioner's income must reach <strong>125% of the US Federal Poverty Guidelines</strong> for their household size. If it falls short, you need a <strong>joint sponsor</strong>. A petitioner living abroad should not assume their income counts. Income from a foreign job generally counts only if it appears on the US tax return and will continue after the move to the US. A foreign job usually will not continue. Use the <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition/affidavit-of-support.html" target="_blank" rel="noopener noreferrer">NVC Poverty Guidelines Calculator</a> to check.</p>
       <p>Sign the I-864 <strong>by hand</strong>: print it, sign it in ink, and scan it. Do not use a digital or e-signature. The I-864EZ exists for simple cases, but many people have problems with it. We recommend the standard I-864 for everyone.</p>
 
-      <div class="info-card warning">
-        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Relying on assets is risky at London</div>
-        <p style="margin:0;">London is highly skeptical of petitioners who rely only on assets. Cases resting mainly on savings, property or investments have drawn a 221(g) at interview even when they met the asset rules, and often ended up needing a joint sponsor anyway. If you rely only on assets, get a joint sponsor. The same discretion applies to income. Officers have judged sponsor income "too low" at the window and asked for a joint sponsor even where it exceeded the 125% guideline. If income is near the threshold, line up a joint sponsor in advance.</p>
+      <div class="callout callout-warn">
+        <div class="callout-title"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Relying on assets is risky at London</div>
+        <p>London is highly skeptical of petitioners who rely only on assets. Cases resting mainly on savings, property or investments have drawn a 221(g) at interview even when they met the asset rules, and often ended up needing a joint sponsor anyway. If you rely only on assets, get a joint sponsor. The same discretion applies to income. Officers have judged sponsor income "too low" at the window and asked for a joint sponsor even where it exceeded the 125% guideline. If income is near the threshold, line up a joint sponsor in advance.</p>
       </div>
 
-      <div class="info-card tip">
-        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> I-864 preparation worksheet</div>
-        <p style="margin-bottom:6px;">Prepare every answer on the worksheet before you open CEAC. The form is long and CEAC is unreliable, so a finished worksheet saves you from losing work.</p>
-        <a href="/worksheet-i864" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--text-inverse);font-family:var(--font-ui);font-size:14px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">Open I-864 Worksheet</a>
+      <div class="callout callout-good">
+        <div class="callout-title"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> I-864 preparation worksheet</div>
+        <p>Prepare every answer on the worksheet before you open CEAC. The form is long and CEAC is unreliable, so a finished worksheet saves you from losing work.</p>
+        <a href="/worksheet-i864" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;background:var(--accent);color:var(--text-inverse);font-family:var(--font-ui);font-size:14px;font-weight:700;border-radius:6px;text-decoration:none;">Open I-864 Worksheet</a>
       </div>
 
-      <div class="info-card" id="uscis-online-account-number">
-        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Finding your USCIS Online Account Number</div>
-        <p style="margin-bottom:6px;">The I-864 asks for your USCIS Online Account Number "(if any)". This 12-digit number is not your IOE receipt number, and myUSCIS does not show it on your profile. If you filed the I-130 on paper and never got a USCIS Account Access Notice, you may not have one. Leave the field blank. A blank answer does not make your case incomplete.</p>
-        <p style="margin-bottom:6px;">If your account shows a case with an IOE receipt number, you can make myUSCIS display the number by opening a new online I-130 draft. You enter nothing and submit nothing.</p>
-        <ol style="margin:0 0 6px;padding-left:18px;">
+      <div class="callout callout-info" id="uscis-online-account-number">
+        <div class="callout-title"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Finding your USCIS Online Account Number</div>
+        <p>The I-864 asks for your USCIS Online Account Number "(if any)". This 12-digit number is not your IOE receipt number, and myUSCIS does not show it on your profile. If you filed the I-130 on paper and never got a USCIS Account Access Notice, you may not have one. Leave the field blank. A blank answer does not make your case incomplete.</p>
+        <p>If your account shows a case with an IOE receipt number, you can make myUSCIS display the number by opening a new online I-130 draft. You enter nothing and submit nothing.</p>
+        <ol>
           <li>Log in at <a href="https://my.uscis.gov/" target="_blank" rel="noopener noreferrer">my.uscis.gov</a>. Under <strong>My Account → Home</strong>, check that <strong>Your Cases</strong> lists a receipt number starting with IOE.</li>
           <li>Go to <strong>My Account → File a form online</strong>.</li>
           <li>In <strong>Select the form you want to file online</strong>, choose <strong>I-130, Petition for Alien Relative</strong> and click <strong>Continue</strong>.</li>
@@ -262,13 +264,13 @@
           <li>Select <strong>Next</strong> through the next six or so pages, without typing anything. Stop at the <strong>Additional information</strong> page, which opens with "What is your current immigration status?"</li>
           <li>Scroll to <strong>What is your USCIS Online Account Number?</strong> myUSCIS fills in the number for you. Copy it into the I-864.</li>
         </ol>
-        <p style="margin:0;">Do not submit the draft or pay a fee. USCIS does not publish this route. A member of r/immigration shared it, and USCIS can change the screens at any time. For the form's own wording, see the <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">I-864 instructions on uscis.gov</a>.</p>
+        <p>Do not submit the draft or pay a fee. USCIS does not publish this route. A member of r/immigration shared it, and USCIS can change the screens at any time. For the form's own wording, see the <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">I-864 instructions on uscis.gov</a>.</p>
       </div>
           </div>
         </div>
       </div>
 
-      <h3 style="margin-top:32px;margin-bottom:16px;font-size:15px;color:var(--text-primary);">Documents and checks</h3>
+      <h3 style="font-size:15px;">Documents and checks</h3>
       <div class="sub-acc-item" id="nvc_4" data-sub-group="nvc">
         <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_4-body" onclick="toggleSubAcc('nvc_4')">
           <span class="sub-acc-label">Step 5: Financial documents</span>
@@ -276,22 +278,22 @@
         </button>
         <div class="sub-acc-body" id="nvc_4-body">
           <div class="sub-acc-content">
-            <div class="info-card warning">
-        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> IRS tax transcript: treat it as required for London</div>
-        <p style="margin-bottom:6px;">NVC accepts either an IRS tax transcript or a complete copy of the filed return for the most recent year, and only "strongly recommends" the transcript (<a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-5-collect-financial-evidence-and-other-supporting-documents.html" target="_blank" rel="noopener noreferrer">travel.state.gov, Step 5</a>). London has still issued 221(g)s for a missing transcript after DQ, with the full return, W-2 and pay stubs on file. <strong>Get the transcript from <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/individuals/get-transcript</a> for every sponsor and joint sponsor, and upload it before the interview.</strong></p>
-        <p style="margin-bottom:6px;"><strong>If you cannot get the transcript yet:</strong></p>
-        <ul style="margin:0;padding-left:20px;">
+            <div class="callout callout-warn">
+        <div class="callout-title"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> IRS tax transcript: treat it as required for London</div>
+        <p>NVC accepts either an IRS tax transcript or a complete copy of the filed return for the most recent year, and only "strongly recommends" the transcript (<a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-5-collect-financial-evidence-and-other-supporting-documents.html" target="_blank" rel="noopener noreferrer">travel.state.gov, Step 5</a>). London has still issued 221(g)s for a missing transcript after DQ, with the full return, W-2 and pay stubs on file. <strong>Get the transcript from <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/individuals/get-transcript</a> for every sponsor and joint sponsor, and upload it before the interview.</strong></p>
+        <p><strong>If you cannot get the transcript yet:</strong></p>
+        <ul>
           <li><strong>Filed an extension</strong> (DOS-recognized): a copy of IRS Form 4868 or a signed statement confirming it, plus the year before's transcript or return.</li>
           <li><strong>Not required to file</strong> (DOS-recognized): a signed statement citing the IRS filing threshold, plus other evidence of income such as pay stubs, benefit statements or an employer letter.</li>
           <li><strong>Filed, but the IRS has not issued the transcript</strong> (no official substitute): upload the signed 1040, W-2s, pay stubs and the IRS e-file acceptance, and add a CEAC note that the transcript will follow before the interview. Some members also put "Where's My Refund" screenshots and the acceptance email into one labelled PDF. That helps before the interview, but it has not cleared a 221(g) once issued. Only the transcript does that.</li>
         </ul>
-        <p style="margin:8px 0 0;">On 21 October 2026 London approved Matt without his joint sponsor's 2025 transcript. He had the sponsor's 2025 return, the extension to file, and returns and transcripts for the two years before, and the officer did not ask about it (<a href="/guide/interview#matt-ir1">Matt's account</a>).</p>
+        <p>On 21 October 2026 London approved Matt without his joint sponsor's 2025 transcript. He had the sponsor's 2025 return, the extension to file, and returns and transcripts for the two years before, and the officer did not ask about it (<a href="/guide/interview#matt-ir1">Matt's account</a>).</p>
       </div>
 
-      <div class="info-card tip">
-        <div class="info-card-head">NVC is where you plan against a 221(g)</div>
-        <p style="margin-bottom:10px;">The best step you can take to avoid a 221(g) at interview: upload the IRS transcript itself for every sponsor here, and line up a joint sponsor if income is anywhere near the threshold. Our 221(g) page explains what to put in place now, before you DQ.</p>
-        <a href="/221g" style="display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#FFFFFF;font-family:var(--font-ui);font-size:14px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">Plan against a 221(g) →</a>
+      <div class="callout callout-good">
+        <div class="callout-title">NVC is where you plan against a 221(g)</div>
+        <p>The best step you can take to avoid a 221(g) at interview: upload the IRS transcript itself for every sponsor here, and line up a joint sponsor if income is anywhere near the threshold. Our 221(g) page explains what to put in place now, before you DQ.</p>
+        <a href="/221g" class="article-cta">Plan against a 221(g) →</a>
       </div>
 
             <ul class="checklist">
@@ -303,23 +305,23 @@
         <li>Evidence of US domicile <strong>for the petitioner</strong>, even if NVC does not list it, and for any joint sponsor. Upload it under "Other": driver's license, job offer, lease, US bills, school enrollment, moving quote, or a letter of intent. A joint sponsor can fix low income but <strong>cannot fix the petitioner's domicile</strong>. A lease alone shows an address, not where you live. See <a href="/domicile">the petitioner's domicile problem</a></li>
       </ul>
 
-      <div class="info-card">
-        <div class="info-card-head"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Self-employed sponsors</div>
-        <p style="margin-bottom:6px;"><strong>Required (USCIS I-864 checklist):</strong></p>
-        <ul style="margin-bottom:10px;">
+      <div class="callout callout-info">
+        <div class="callout-title"><span class="role role--petitioner">Petitioner<span class="sr-only">:</span></span> Self-employed sponsors</div>
+        <p><strong>Required (USCIS I-864 checklist):</strong></p>
+        <ul>
           <li>The complete federal tax return with every schedule attached: Schedule C (sole proprietor / single-member LLC), Schedule E (rental / partnership / S-corp), Schedule F (farm income), Schedule SE</li>
           <li>The latest tax year is required; we strongly recommend up to 3 years</li>
           <li>Any 1099s issued to or by the business</li>
         </ul>
-        <p style="margin-bottom:6px;"><strong>Recommended (makes the case stronger and an RFE or 221(g) less likely):</strong></p>
-        <ul style="margin-bottom:10px;">
+        <p><strong>Recommended (makes the case stronger and an RFE or 221(g) less likely):</strong></p>
+        <ul>
           <li>12 months of business bank statements</li>
           <li>A signed, dated statement describing the business and the sponsor's role and share of ownership</li>
           <li>Business registration or EIN letter, and any licence the occupation requires</li>
           <li>A signed year-to-date profit and loss statement</li>
           <li>Client contracts or invoices showing ongoing work</li>
         </ul>
-        <p style="margin:0;">None of these replaces the tax return. Officers treat Schedule C as the main evidence. Self-employed joint sponsors need the same.</p>
+        <p>None of these replaces the tax return. Officers treat Schedule C as the main evidence. Self-employed joint sponsors need the same.</p>
       </div>
           </div>
         </div>
@@ -332,44 +334,44 @@
         <div class="sub-acc-body" id="nvc_9-body">
           <div class="sub-acc-content">
             <p><strong>Every joint sponsor needs:</strong></p>
-            <ul style="margin-bottom:12px;">
+            <ul>
               <li>Form I-864, separate from the petitioner's and signed by hand</li>
               <li>IRS tax return transcript (see the transcript box under Step 5: treat it as required for London)</li>
               <li>Proof of US citizenship or LPR status</li>
               <li>Proof of US domicile</li>
             </ul>
-            <p style="margin-bottom:4px;"><strong>W-2 employed:</strong></p>
-            <ul style="margin-bottom:12px;">
+            <p><strong>W-2 employed:</strong></p>
+            <ul>
               <li>W-2s for the latest tax year (3 years recommended)</li>
               <li>Employment letter on company letterhead (position, start date, salary)</li>
               <li>Recent pay stubs (minimum 3, ideally 6 months)</li>
             </ul>
-            <p style="margin-bottom:12px;"><strong>Self-employed, or not required to file taxes:</strong> the same evidence as for the petitioner under Step 5 above.</p>
-            <p style="margin-bottom:4px;"><strong>Retired:</strong></p>
-            <ul style="margin-bottom:12px;">
+            <p><strong>Self-employed, or not required to file taxes:</strong> the same evidence as for the petitioner under Step 5 above.</p>
+            <p><strong>Retired:</strong></p>
+            <ul>
               <li>Social Security benefit statement (SSA-1099) or pension statement</li>
               <li>Proof of ongoing benefit (award letter, most recent 1099-R)</li>
               <li>If drawing from retirement accounts: statements showing distribution pattern</li>
             </ul>
-            <p style="margin-bottom:4px;"><strong>Military:</strong></p>
-            <ul style="margin-bottom:12px;">
+            <p><strong>Military:</strong></p>
+            <ul>
               <li>LES (Leave and Earnings Statement) showing base pay, BAH, BAS</li>
               <li>Most recent W-2</li>
             </ul>
-            <p style="margin-bottom:4px;"><strong>Using a household member's income (I-864A):</strong></p>
-            <ul style="margin-bottom:12px;">
+            <p><strong>Using a household member's income (I-864A):</strong></p>
+            <ul>
               <li>Form I-864A completed by the household member</li>
               <li>Household member's proof of income (same as their employment type above)</li>
               <li>Proof the household member resides with the joint sponsor</li>
               <li>Proof of relationship or lawful basis for including them</li>
             </ul>
-            <p style="margin-bottom:4px;"><strong>Using assets instead of, or alongside, income:</strong></p>
-            <ul style="margin-bottom:12px;">
+            <p><strong>Using assets instead of, or alongside, income:</strong></p>
+            <ul>
               <li>London has refused cases resting on assets even where the multiplier was met: 3× the shortfall for a US citizen's spouse or child aged 18 or over, 5× in most other cases. Get a joint sponsor instead.</li>
               <li>If you use assets anyway: proof of ownership, acquisition date and value, and any liens against them.</li>
             </ul>
-            <p style="margin-bottom:4px;"><strong>If the sponsor is married and files jointly with a spouse who is not sponsoring:</strong></p>
-            <ul style="margin-bottom:0;">
+            <p><strong>If the sponsor is married and files jointly with a spouse who is not sponsoring:</strong></p>
+            <ul>
               <li>The full joint return is fine, but the sponsor should also send W-2s or 1099s that show their own income. Only the sponsor's own income counts, unless the spouse also signs Form I-864A.</li>
             </ul>
           </div>
@@ -382,21 +384,21 @@
         </button>
         <div class="sub-acc-body" id="nvc_5-body">
           <div class="sub-acc-content">
-            <p>The DS-260 is the immigrant visa application form. You fill it in on CEAC. <a href="https://ceac.state.gov/IV/Login.aspx" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[CEAC DS-260]</a> <strong>CEAC times out after about 10 minutes of inactivity, and you lose your work.</strong> Prepare every answer on the worksheet before you sign in. Once you submit, you cannot edit it yourself, so check everything twice. If you find an error, ask NVC to reopen it through the <a href="https://nvc.state.gov/inquiry" target="_blank" rel="noopener noreferrer">Public Inquiry Form</a>, or tell the consular officer at the interview, who can correct it there.</p>
+            <p>The DS-260 is the immigrant visa application form. You fill it in on CEAC. <a href="https://ceac.state.gov/IV/Login.aspx" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:13px;border-bottom:1px dotted var(--text-secondary);text-decoration:none;" title="Official source">[CEAC DS-260]</a> <strong>CEAC times out after about 10 minutes of inactivity, and you lose your work.</strong> Prepare every answer on the worksheet before you sign in. Once you submit, you cannot edit it yourself, so check everything twice. If you find an error, ask NVC to reopen it through the <a href="https://nvc.state.gov/inquiry" target="_blank" rel="noopener noreferrer">Public Inquiry Form</a>, or tell the consular officer at the interview, who can correct it there.</p>
       <p>You need: passport details, every address since age 16, 10 years of jobs, 5 years of travel, family details, and US contact details. Print the DS-260 confirmation page after you submit. You need it at the medical and the interview.</p>
-      <p style="margin-bottom:6px;">On the vaccination question: if you plan to get missing vaccines at the medical, choose "Other" and explain in the box.</p>
+      <p>On the vaccination question: if you plan to get missing vaccines at the medical, choose "Other" and explain in the box.</p>
       <p>For a child who is a US citizen (through a CRBA, for example), answer <strong>No</strong> to "Is the child immigrating with you?" The child returns as a citizen; they are not immigrating.</p>
 
-      <div class="info-card tip">
-        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> DS-260 preparation worksheet</div>
-        <p style="margin-bottom:6px;">Fill this in before you sign in to CEAC, so a timeout does not lose your work.</p>
-        <a href="/worksheet-ds260" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--text-inverse);font-family:var(--font-ui);font-size:14px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">Open DS-260 Worksheet</a>
+      <div class="callout callout-good">
+        <div class="callout-title"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> DS-260 preparation worksheet</div>
+        <p>Fill this in before you sign in to CEAC, so a timeout does not lose your work.</p>
+        <a href="/worksheet-ds260" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;background:var(--accent);color:var(--text-inverse);font-family:var(--font-ui);font-size:14px;font-weight:700;border-radius:6px;text-decoration:none;">Open DS-260 Worksheet</a>
       </div>
           </div>
         </div>
       </div>
 
-      <h3 style="margin-top:32px;margin-bottom:16px;font-size:15px;color:var(--text-primary);">Final steps at NVC</h3>
+      <h3 style="font-size:15px;">Final steps at NVC</h3>
       <div class="sub-acc-item" id="nvc_8" data-sub-group="nvc">
         <button class="sub-acc-trigger" aria-expanded="false" aria-controls="nvc_8-body" onclick="toggleSubAcc('nvc_8')">
           <span class="sub-acc-label">Police certificate decision tree</span>
@@ -404,50 +406,50 @@
         </button>
         <div class="sub-acc-body" id="nvc_8-body">
           <div class="sub-acc-content">
-            <p style="color:var(--text-secondary);margin-bottom:12px;">Use this to work out which police certificates you need. You may need more than one. Each must be an original or a certified copy; NVC does not accept photocopies. <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-5-collect-financial-evidence-and-other-supporting-documents/step-7-collect-civil-documents.html" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);text-decoration:none;">[travel.state.gov: Civil Documents]</a></p>
+            <p class="text-muted">Use this to work out which police certificates you need. You may need more than one. Each must be an original or a certified copy; NVC does not accept photocopies. <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-5-collect-financial-evidence-and-other-supporting-documents/step-7-collect-civil-documents.html" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:13px;border-bottom:1px dotted var(--text-secondary);text-decoration:none;">[travel.state.gov: Civil Documents]</a></p>
 
-      <div class="info-card warning">
-        <div class="info-card-head"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Citizen of another country? Act early</div>
-        <p style="margin-bottom:6px;">If you are a citizen of a country you no longer live in, and you lived there for more than 6 months at any time, even as a child, you need a police certificate from that country. Holding the passport without ever living there does not mean you need one. The embassy will not issue a visa until you meet this requirement.</p>
-        <p style="margin-bottom:6px;">The UK ACRO certificate lasts 12 months. Certificates from other countries generally never expire, as long as you have not gone back to live there. Order early anyway, because processing times vary widely by country.</p>
-        <p style="margin:0;">A police certificate from a country you do not live in now can take months, and you may have to go there in person. Find out early what you need, and start near the end of the I-130 wait or early at NVC. NVC needs every certificate before it grants DQ. The UK ACRO certificate takes about 30 days.</p>
+      <div class="callout callout-warn">
+        <div class="callout-title"><span class="role role--beneficiary">Beneficiary<span class="sr-only">:</span></span> Citizen of another country? Act early</div>
+        <p>If you are a citizen of a country you no longer live in, and you lived there for more than 6 months at any time, even as a child, you need a police certificate from that country. Holding the passport without ever living there does not mean you need one. The embassy will not issue a visa until you meet this requirement.</p>
+        <p>The UK ACRO certificate lasts 12 months. Certificates from other countries generally never expire, as long as you have not gone back to live there. Order early anyway, because processing times vary widely by country.</p>
+        <p>A police certificate from a country you do not live in now can take months, and you may have to go there in person. Find out early what you need, and start near the end of the I-130 wait or early at NVC. NVC needs every certificate before it grants DQ. The UK ACRO certificate takes about 30 days.</p>
       </div>
 
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
         <table style="width:100%;border-collapse:collapse;font-size:14px;">
           <thead>
             <tr>
-              <th style="padding:12px 14px;background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);border-left:3px solid var(--accent);color:var(--text-primary);font-size:14px;font-weight:700;text-align:left;">If you…</th>
-              <th style="padding:12px 14px;background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:14px;font-weight:700;text-align:left;">And…</th>
-              <th style="padding:12px 14px;background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);color:var(--text-primary);font-size:14px;font-weight:700;text-align:left;">You need a certificate from…</th>
+              <th style="background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);border-left:3px solid var(--accent);font-size:14px;font-weight:700;text-align:left;">If you…</th>
+              <th style="background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);font-size:14px;font-weight:700;text-align:left;">And…</th>
+              <th style="background:rgba(15,23,42,0.08);border-bottom:2px solid var(--border);font-size:14px;font-weight:700;text-align:left;">You need a certificate from…</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.9);font-weight:600;">Hold citizenship of any country</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">You are 16 or older, and lived there for more than 6 months at any point in your life, including as a child</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:var(--teal-light);font-weight:600;">That country, even if you left long ago</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.9);font-weight:600;">Hold citizenship of any country</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">You are 16 or older, and lived there for more than 6 months at any point in your life, including as a child</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:var(--teal-light);font-weight:600;">That country, even if you left long ago</td>
             </tr>
             <tr style="background:rgba(15,23,42,0.02);">
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.9);font-weight:600;">Are 16 or older</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Currently living in a country different from your nationality, for more than 6 months</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:var(--teal-light);font-weight:600;">Your current country of residence</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.9);font-weight:600;">Are 16 or older</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Currently living in a country different from your nationality, for more than 6 months</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:var(--teal-light);font-weight:600;">Your current country of residence</td>
             </tr>
             <tr>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.9);font-weight:600;">Have ever lived in another country for 12+ months</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Were 16 or older when you lived there</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:var(--teal-light);font-weight:600;">That country</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.9);font-weight:600;">Have ever lived in another country for 12+ months</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Were 16 or older when you lived there</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:var(--teal-light);font-weight:600;">That country</td>
             </tr>
             <tr style="background:rgba(15,23,42,0.02);">
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.9);font-weight:600;">Were ever arrested anywhere</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Whatever your age, the length of stay or the outcome</td>
-              <td style="padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08);color:var(--teal-light);font-weight:600;">The city and/or country where you were arrested</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.9);font-weight:600;">Were ever arrested anywhere</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:rgba(15,23,42,0.85);">Whatever your age, the length of stay or the outcome</td>
+              <td style="border-bottom:1px solid rgba(15,23,42,0.08);color:var(--teal-light);font-weight:600;">The city and/or country where you were arrested</td>
             </tr>
           </tbody>
         </table>
-        <div style="padding:12px 14px;background:rgba(79,133,115,0.06);border-top:1px solid rgba(79,133,115,0.15);">
-          <p style="color:var(--text-secondary);margin-bottom:6px;"><strong style="color:var(--text-primary);">Note:</strong> People who live or lived in the US do <strong style="color:var(--text-primary);">not</strong> need a US police certificate.</p>
-          <p style="color:var(--text-secondary);margin:0;"><strong style="color:var(--text-primary);">Validity (London embassy guidance):</strong> The UK police certificate (ACRO) lasts <strong style="color:var(--text-primary);">12 months</strong> from the date of issue. Every other police certificate lasts <strong style="color:var(--text-primary);">indefinitely</strong>, unless you go back and live in that country for 6+ months (your country of birth or current residence) or 12+ months (any other country). Source: <a href="https://uk.usembassy.gov/immigrant-visas-faqs-visa-processing-documents/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">US Embassy London FAQ</a></p>
+        <div style="background:rgba(79,133,115,0.06);border-top:1px solid rgba(79,133,115,0.15);">
+          <p class="text-muted"><strong>Note:</strong> People who live or lived in the US do <strong>not</strong> need a US police certificate.</p>
+          <p class="text-muted"><strong>Validity (London embassy guidance):</strong> The UK police certificate (ACRO) lasts <strong>12 months</strong> from the date of issue. Every other police certificate lasts <strong>indefinitely</strong>, unless you go back and live in that country for 6+ months (your country of birth or current residence) or 12+ months (any other country). Source: <a href="https://uk.usembassy.gov/immigrant-visas-faqs-visa-processing-documents/" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">US Embassy London FAQ</a></p>
         </div>
       </div>
           </div>
@@ -469,8 +471,8 @@
         <li>Passport biographic page</li>
         <li>Court, prison, or military records (if applicable)</li>
       </ul>
-      <p style="color:var(--text-secondary);">Documents not in English need certified translations. Check the <a href="https://travel.state.gov/content/travel/en/us-visas/Visa-Reciprocity-and-Civil-Documents-by-Country.html" target="_blank" rel="noopener noreferrer">NVC Document Finder / Reciprocity Schedule</a> for each country's rules. Scan in color, include every page, and keep each file under 2 MB (CEAC's limit); PDF is best. For certified translations, members recommend <a href="https://rushtranslate.com/" target="_blank" rel="noopener noreferrer">Rush Translate</a>.</p>
-      <p style="color:var(--text-secondary);">After you upload everything, select <strong>Submit Documents</strong>. Uploading alone does not put you in the review queue. Do not post originals to NVC. Bring them to the interview.</p>
+      <p class="text-muted">Documents not in English need certified translations. Check the <a href="https://travel.state.gov/content/travel/en/us-visas/Visa-Reciprocity-and-Civil-Documents-by-Country.html" target="_blank" rel="noopener noreferrer">NVC Document Finder / Reciprocity Schedule</a> for each country's rules. Scan in color, include every page, and keep each file under 2 MB (CEAC's limit); PDF is best. For certified translations, members recommend <a href="https://rushtranslate.com/" target="_blank" rel="noopener noreferrer">Rush Translate</a>.</p>
+      <p class="text-muted">After you upload everything, select <strong>Submit Documents</strong>. Uploading alone does not put you in the review queue. Do not post originals to NVC. Bring them to the interview.</p>
           </div>
         </div>
       </div>
@@ -490,9 +492,9 @@
       </ul>
       <p><strong>Note:</strong> DQ does not mean your evidence is enough. It only puts you in the queue for an interview. London often expects more at interview than NVC does for DQ. Meet the higher bar the first time where you can, to avoid delay.</p>
 
-      <div class="info-card warning">
-        <div class="info-card-head">What DQ does not mean</div>
-        <ul style="margin:0;">
+      <div class="callout callout-warn">
+        <div class="callout-title">What DQ does not mean</div>
+        <ul>
           <li>that your interview is scheduled</li>
           <li>that CEAC shows your case at the embassy: it still says "At NVC"</li>
           <li>that you will get a visa</li>
@@ -501,62 +503,62 @@
       </div>
 
       <h2 id="dq-notice">What the DQ notice email looks like</h2>
-      <p style="color:var(--text-secondary);margin-bottom:12px;">The DQ notice arrives by email from <strong>National_Visa_Center@state.gov</strong> with the subject <strong>Notice regarding your Immigrant Visa Case becoming Documentarily Qualified</strong>. The name and Case ID below are placeholders. Read what it says and what it does not. NVC has everything it needs and will now work with London on scheduling. <strong>Your interview is not scheduled yet.</strong> The date comes later, in a separate notice (see <a href="/guide/waiting">Stage 3</a>).</p>
+      <p class="text-muted">The DQ notice arrives by email from <strong>National_Visa_Center@state.gov</strong> with the subject <strong>Notice regarding your Immigrant Visa Case becoming Documentarily Qualified</strong>. The name and Case ID below are placeholders. Read what it says and what it does not. NVC has everything it needs and will now work with London on scheduling. <strong>Your interview is not scheduled yet.</strong> The date comes later, in a separate notice (see <a href="/guide/waiting">Stage 3</a>).</p>
 
-      <div class="info-card warning">
-        <div class="info-card-head">Expect this wording to change</div>
-        <p style="margin:0;">NVC can change this notice at any time, and we expect it to change with the coming public charge changes, above all the line saying sponsors may need to give updated evidence of other income, assets and current employment. The text below is the notice as NVC sent it when we wrote this, not a fixed template. Read it with the <a href="/guide/waiting#public-charge-statement">public charge section</a>.</p>
+      <div class="callout callout-warn">
+        <div class="callout-title">Expect this wording to change</div>
+        <p>NVC can change this notice at any time, and we expect it to change with the coming public charge changes, above all the line saying sponsors may need to give updated evidence of other income, assets and current employment. The text below is the notice as NVC sent it when we wrote this, not a fixed template. Read it with the <a href="/guide/waiting#public-charge-statement">public charge section</a>.</p>
       </div>
 
-      <div style="background:#ffffff;border:1px solid rgba(15,23,42,0.1);border-radius:10px;padding:20px 24px;margin-bottom:24px;font-size:14px;line-height:1.7;">
-        <div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(15,23,42,0.08);">
-          <div style="font-weight:600;color:var(--text-primary);margin-bottom:2px;">From: National Visa Center &lt;National_Visa_Center@state.gov&gt;</div>
-          <div style="color:var(--text-secondary);">To: [Beneficiary] / [Petitioner]</div>
-          <div style="color:var(--text-secondary);">Subject: <strong style="color:var(--text-primary);">Notice regarding your Immigrant Visa Case becoming Documentarily Qualified</strong></div>
+      <div style="background:#ffffff;border:1px solid rgba(15,23,42,0.1);border-radius:10px;font-size:14px;line-height:1.7;">
+        <div style="border-bottom:1px solid rgba(15,23,42,0.08);">
+          <div style="font-weight:600;">From: National Visa Center &lt;National_Visa_Center@state.gov&gt;</div>
+          <div class="text-muted">To: [Beneficiary] / [Petitioner]</div>
+          <div class="text-muted">Subject: <strong>Notice regarding your Immigrant Visa Case becoming Documentarily Qualified</strong></div>
         </div>
 
-        <p style="margin-bottom:12px;color:rgba(15,23,42,0.85);">Dear BENEFICIARY,</p>
-        <p style="margin-bottom:12px;color:rgba(15,23,42,0.85);">The National Visa Center (NVC) received all of the fees, forms, and documents that are required prior to scheduling your immigrant visa interview at the U.S. Embassy/Consulate General overseas.</p>
-        <p style="margin-bottom:12px;color:rgba(15,23,42,0.85);">NVC will work with the U.S. Embassy/Consulate General in LONDON, GRBR to schedule an interview appointment for you. Once we have confirmed an interview date, we will send a notice to you, your petitioner, and attorney (if applicable).</p>
-        <p style="margin-bottom:12px;color:rgba(15,23,42,0.85);">Please do NOT make any travel arrangements, sell property, or give up employment until you have received an immigrant visa from the U.S. Embassy/Consulate General.</p>
-        <p style="margin-bottom:8px;color:rgba(15,23,42,0.85);">The U.S. Embassy/Consulate General may require additional documentation at the time of the interview. Please visit <a href="https://nvc.state.gov/prep" target="_blank" rel="noopener noreferrer">https://nvc.state.gov/prep</a> for information about immigrant visa interviews. Additionally, the petitioner, as the sponsor, and all other sponsors (household members and joint sponsors), may be required to provide updated or additional evidence to you to present at the time of your interview, such as:</p>
-        <ul style="margin:0 0 12px 0;padding-left:20px;color:rgba(15,23,42,0.85);">
+        <p style="color:rgba(15,23,42,0.85);">Dear BENEFICIARY,</p>
+        <p style="color:rgba(15,23,42,0.85);">The National Visa Center (NVC) received all of the fees, forms, and documents that are required prior to scheduling your immigrant visa interview at the U.S. Embassy/Consulate General overseas.</p>
+        <p style="color:rgba(15,23,42,0.85);">NVC will work with the U.S. Embassy/Consulate General in LONDON, GRBR to schedule an interview appointment for you. Once we have confirmed an interview date, we will send a notice to you, your petitioner, and attorney (if applicable).</p>
+        <p style="color:rgba(15,23,42,0.85);">Please do NOT make any travel arrangements, sell property, or give up employment until you have received an immigrant visa from the U.S. Embassy/Consulate General.</p>
+        <p style="color:rgba(15,23,42,0.85);">The U.S. Embassy/Consulate General may require additional documentation at the time of the interview. Please visit <a href="https://nvc.state.gov/prep" target="_blank" rel="noopener noreferrer">https://nvc.state.gov/prep</a> for information about immigrant visa interviews. Additionally, the petitioner, as the sponsor, and all other sponsors (household members and joint sponsors), may be required to provide updated or additional evidence to you to present at the time of your interview, such as:</p>
+        <ul style="color:rgba(15,23,42,0.85);">
           <li>Other income</li>
           <li>Assets</li>
           <li>Proof of current employment</li>
         </ul>
-        <p style="margin-bottom:16px;color:rgba(15,23,42,0.85);"><strong style="color:var(--text-primary);">Note:</strong> You submitted documentation to the National Visa Center through the Consular Electronic Application Center (CEAC). You can continue to upload documents to CEAC up until the date of your visa interview.</p>
-        <p style="margin-bottom:16px;color:rgba(15,23,42,0.85);">Regards,<br>National Visa Center,<br>U.S. Department of State</p>
-        <p style="margin-bottom:8px;color:rgba(15,23,42,0.85);"><strong style="color:var(--text-primary);">Case ID:</strong> LND0123456789</p>
-        <p style="margin:0;color:rgba(15,23,42,0.85);"><strong style="color:var(--text-primary);">**NOTE: Please do not reply to this email. This is not a monitored account. If you have questions, please review the help topics available to you at <a href="https://nvc.state.gov/ask" target="_blank" rel="noopener noreferrer">https://nvc.state.gov/ask</a>.**</strong></p>
+        <p style="color:rgba(15,23,42,0.85);"><strong>Note:</strong> You submitted documentation to the National Visa Center through the Consular Electronic Application Center (CEAC). You can continue to upload documents to CEAC up until the date of your visa interview.</p>
+        <p style="color:rgba(15,23,42,0.85);">Regards,<br>National Visa Center,<br>U.S. Department of State</p>
+        <p style="color:rgba(15,23,42,0.85);"><strong>Case ID:</strong> LND0123456789</p>
+        <p style="color:rgba(15,23,42,0.85);"><strong>**NOTE: Please do not reply to this email. This is not a monitored account. If you have questions, please review the help topics available to you at <a href="https://nvc.state.gov/ask" target="_blank" rel="noopener noreferrer">https://nvc.state.gov/ask</a>.**</strong></p>
       </div>
 
       <p><strong>If you have not heard from NVC within 10 business days, send a <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/ask-nvc.html" target="_blank" rel="noopener noreferrer">Public Inquiry</a> on the NVC website.</strong></p>
 
-      <div class="info-card warning">
-        <div class="info-card-head">Family members with different DQ dates: act now</div>
-        <p style="margin-bottom:10px;">If several family members apply together, such as a spouse and children who could not get a CRBA, or stepchildren, they may reach DQ at different times and get different interview dates.</p>
-        <p style="margin-bottom:10px;"><strong>Email the embassy and ask it to put every case in the same interview appointment.</strong> Include the IOE numbers (case reference numbers) for every applicant. The embassy can group them so everyone is seen on the same day.</p>
-        <p style="margin-bottom:6px;">Email: <a href="mailto:LNDIVSubmissions@state.gov">LNDIVSubmissions@state.gov</a></p>
-        <p style="color:var(--text-secondary);margin:0;">Do this as soon as you see the DQ dates differ. Do not wait until separate ILs have gone out.</p>
+      <div class="callout callout-warn">
+        <div class="callout-title">Family members with different DQ dates: act now</div>
+        <p>If several family members apply together, such as a spouse and children who could not get a CRBA, or stepchildren, they may reach DQ at different times and get different interview dates.</p>
+        <p><strong>Email the embassy and ask it to put every case in the same interview appointment.</strong> Include the IOE numbers (case reference numbers) for every applicant. The embassy can group them so everyone is seen on the same day.</p>
+        <p>Email: <a href="mailto:LNDIVSubmissions@state.gov">LNDIVSubmissions@state.gov</a></p>
+        <p class="text-muted">Do this as soon as you see the DQ dates differ. Do not wait until separate ILs have gone out.</p>
       </div>
 
 
-      <div class="info-card tip">
-        <div class="info-card-head" id="nvc-strategic-hold">Choosing when to finish NVC</div>
-        <p style="margin-bottom:6px;">Some applicants hold off on paying NVC fees or submitting documents, to control when their case joins the London queue. They may want a better time of year for the interview, to match a job start date, or to avoid disrupting a school year.</p>
-        <p style="margin-bottom:6px;">That is a fair personal choice, and NVC does not penalize a slower case. The London queue may be longer or shorter by the time you DQ, and nobody can predict it more than a few months ahead.</p>
-        <p style="margin-bottom:6px;">If you do hold at NVC, look at the <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">Visa Bulletin</a> and any known backlogs when you decide. Community data on <a href="/data" style="color:var(--teal-light);">the tracker</a> shows where the London queue stands now.</p>
-        <div style="background:rgba(127,29,29,0.08);border:1px solid rgba(127,29,29,0.25);border-radius:6px;padding:10px 12px;margin-top:4px;">
-          <p style="font-weight:600;color:var(--text-primary);margin-bottom:4px;">12-month inactivity rule: INA §203(g)</p>
-          <p style="margin:0;">If you do not apply within one year of NVC telling you a visa is available, NVC closes the case under INA 203(g), and the I-130 approval is cancelled automatically (8 CFR 205.1(a)(1)). To reopen it, you must prove within two years that the delay was beyond your control. Only a real step on the case resets the clock: paying fees, submitting the DS-260 or documents, or contacting NVC. NVC may not count signing in to CEAC as contact, so do not rely on it. If you are holding your case on purpose, take a real step well inside every 12 months.</p>
+      <div class="callout callout-good">
+        <div class="callout-title" id="nvc-strategic-hold">Choosing when to finish NVC</div>
+        <p>Some applicants hold off on paying NVC fees or submitting documents, to control when their case joins the London queue. They may want a better time of year for the interview, to match a job start date, or to avoid disrupting a school year.</p>
+        <p>That is a fair personal choice, and NVC does not penalize a slower case. The London queue may be longer or shorter by the time you DQ, and nobody can predict it more than a few months ahead.</p>
+        <p>If you do hold at NVC, look at the <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);">Visa Bulletin</a> and any known backlogs when you decide. Community data on <a href="/data" style="color:var(--teal-light);">the tracker</a> shows where the London queue stands now.</p>
+        <div style="background:rgba(127,29,29,0.08);border:1px solid rgba(127,29,29,0.25);border-radius:6px;">
+          <p style="font-weight:600;">12-month inactivity rule: INA §203(g)</p>
+          <p>If you do not apply within one year of NVC telling you a visa is available, NVC closes the case under INA 203(g), and the I-130 approval is cancelled automatically (8 CFR 205.1(a)(1)). To reopen it, you must prove within two years that the delay was beyond your control. Only a real step on the case resets the clock: paying fees, submitting the DS-260 or documents, or contacting NVC. NVC may not count signing in to CEAC as contact, so do not rely on it. If you are holding your case on purpose, take a real step well inside every 12 months.</p>
         </div>
       </div>
 
-      <div class="info-card tip">
-        <div class="info-card-head">NVC document checklist</div>
-        <p style="margin-bottom:6px;">The full submission checklist: financial and civil documents, upload standards, and common mistakes.</p>
-        <a href="/checklist-nvc" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#FFFFFF;font-family:var(--font-ui);font-size:14px;font-weight:700;padding:7px 14px;border-radius:6px;text-decoration:none;">Open NVC Checklist</a>
+      <div class="callout callout-good">
+        <div class="callout-title">NVC document checklist</div>
+        <p>The full submission checklist: financial and civil documents, upload standards, and common mistakes.</p>
+        <a href="/checklist-nvc" target="_blank" rel="noopener noreferrer" class="article-cta">Open NVC Checklist</a>
       </div>
           </div>
         </div>
@@ -588,7 +590,7 @@
 </div>
 
 <button id="back-top" aria-label="Back to top"
-  style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--text-inverse);border:none;font-size:18px;cursor:pointer;opacity:0;transition:opacity 0.3s;z-index:99;display:flex;align-items:center;justify-content:center;font-weight:700;">↑</button>
+  class="back-top">↑</button>
 <!-- Shared live policy notice (single source, mounted into [data-live-notice]) -->
 <script src="/js/live-notice.js?v=20261024c"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
