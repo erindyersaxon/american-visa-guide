@@ -681,6 +681,9 @@ export default async function handler(req, res) {
   const previousWeekOf = previousStart.toISOString().split('T')[0]
 
   // --- Assemble response ---
+  // The stepper fetches this on every visa-process page, so let the CDN serve
+  // one copy for 10 minutes and refresh it in the background. Errors stay uncached.
+  res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=3600')
   return res.status(200).json({
     meta: {
       total_members: deduped.length,
