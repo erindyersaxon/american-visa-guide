@@ -51,7 +51,42 @@
     return ok ? obj : null;
   }
 
-  const api = { STAT_KEYS, MIN_N, isStat, usable, formatDuration, pickStats, parseCachedStats };
+  const CACHE_KEY = 'avg-stage-stats';
+  let inflight = null;
+
+  function defaultStorage() {
+    try { return root.sessionStorage; } catch (e) { return null; } // the getter itself can throw
+  }
+
+  // Resolves the stats map, or null when /api/data is unavailable. Never rejects.
+  // Callers on the same page share one request; a failure lets a later call retry.
+  function load(deps) {
+    const fetchFn = (deps && deps.fetch) || (root.fetch && root.fetch.bind(root));
+    const storage = deps && deps.storage !== undefined ? deps.storage : defaultStorage();
+    if (inflight) return inflight;
+
+    let cached = null;
+    try { cached = storage && parseCachedStats(storage.getItem(CACHE_KEY)); } catch (e) { cached = null; }
+    if (cached) return (inflight = Promise.resolve(cached));
+    if (!fetchFn) return Promise.resolve(null);
+
+    inflight = Promise.resolve()
+      .then(function () { return fetchFn('/api/data'); })
+      .then(function (r) { return r && r.ok ? r.json() : null; })
+      .then(function (json) {
+        if (!json) { inflight = null; return null; }
+        const stats = pickStats(json);
+        try { if (storage) storage.setItem(CACHE_KEY, JSON.stringify(stats)); } catch (e) { /* ignore */ }
+        return stats;
+      })
+      .catch(function () { inflight = null; return null; });
+    return inflight;
+  }
+
+  // Tests only: forget the shared in-flight promise.
+  function _reset() { inflight = null; }
+
+  const api = { STAT_KEYS, MIN_N, isStat, usable, formatDuration, pickStats, parseCachedStats, load, _reset };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.AVGStats = api;
 })(typeof window !== 'undefined' ? window : this);

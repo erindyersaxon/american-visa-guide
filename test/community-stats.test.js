@@ -44,3 +44,53 @@ test('parseCachedStats rejects junk and round-trips valid', () => {
   bad.docs_to_dq_med = { median: 0, n: 9 };
   assert.equal(S.parseCachedStats(JSON.stringify(bad)), null);
 });
+
+function fakeFetch(body, status = 200) {
+  const f = async () => { f.calls++; return { ok: status === 200, status, json: async () => body }; };
+  f.calls = 0;
+  return f;
+}
+function memStorage() {
+  const m = {};
+  return { getItem: k => (k in m ? m[k] : null), setItem: (k, v) => { m[k] = String(v); }, m };
+}
+const API = { stage_avgs: { il_to_medical_med: { median: 45, n: 186 } } };
+
+test('load shares one in-flight request', async () => {
+  S._reset();
+  const f = fakeFetch(API), st = memStorage();
+  const [a, b] = await Promise.all([S.load({ fetch: f, storage: st }), S.load({ fetch: f, storage: st })]);
+  assert.equal(f.calls, 1);
+  assert.deepEqual(a, b);
+  assert.deepEqual(JSON.parse(st.m['avg-stage-stats']).il_to_medical_med, { median: 45, n: 186 });
+});
+
+test('load uses a valid cache without fetching', async () => {
+  S._reset();
+  const f = fakeFetch(API), st = memStorage();
+  st.setItem('avg-stage-stats', JSON.stringify(S.pickStats(API)));
+  assert.deepEqual((await S.load({ fetch: f, storage: st })).il_to_medical_med, { median: 45, n: 186 });
+  assert.equal(f.calls, 0);
+});
+
+test('load refetches over a corrupt cache', async () => {
+  S._reset();
+  const f = fakeFetch(API), st = memStorage();
+  st.setItem('avg-stage-stats', '{');
+  await S.load({ fetch: f, storage: st });
+  assert.equal(f.calls, 1);
+});
+
+test('load works when storage throws', async () => {
+  S._reset();
+  const f = fakeFetch(API);
+  const boom = { getItem() { throw new Error('denied'); }, setItem() { throw new Error('denied'); } };
+  assert.deepEqual((await S.load({ fetch: f, storage: boom })).il_to_medical_med, { median: 45, n: 186 });
+});
+
+test('load resolves null on 503 and on network error', async () => {
+  S._reset();
+  assert.equal(await S.load({ fetch: fakeFetch({ error: 'x' }, 503), storage: memStorage() }), null);
+  S._reset();
+  assert.equal(await S.load({ fetch: async () => { throw new Error('offline'); }, storage: memStorage() }), null);
+});
