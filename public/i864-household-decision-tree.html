@@ -212,6 +212,10 @@
   }
   .i864-calculator a { color: var(--gold); }
   .i864-calculator a:hover { color: var(--purple); }
+  /* Source strip sits on slate inside <main>: (0,2,1) and (0,3,1) beat the
+     rules above and readability.css main a:not([class]):hover (0,2,2). */
+  .i864-calculator .source-strip a { color: var(--gold-lt); }
+  .i864-calculator .source-strip a:hover { color: var(--color-mark-on-dark, #F87171); }
 </style>
 <link rel="stylesheet" href="/css/readability.css?v=20261024">
 </head>
