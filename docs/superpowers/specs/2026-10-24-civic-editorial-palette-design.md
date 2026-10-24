@@ -77,17 +77,17 @@ nav indicator, the "Visa" word in the nav brand, and the skip-link outline.
 
 ## 2. Typography and components
 
-**Type.**
+**Type.** (Revised 2026-10-24 during planning: `public/css/readability.css`,
+added 22 Oct, loads last on every page and sets `--font-display` to Public
+Sans on purpose, following GOV.UK and USWDS. Erin chose to keep that.)
 
-- `--font-display` becomes
-  `'Source Serif 4', Georgia, 'Iowan Old Style', serif`.
-- Load Source Serif 4 (optical size axis, weights 400 and 600, italic 400)
-  with `display=swap` wherever Public Sans is loaded: the 33 pages with a
-  Google Fonts `<link>`, and the `@import` in `design-system.css`.
-- Heading weight is 600.
-- Keep the `tabular-nums lining-nums` rule (`design-system.css:195`) and
-  rewrite its comment so it no longer mentions Georgia.
-- Body and UI type stay Public Sans.
+- Headings and body stay Public Sans. `readability.css` typography is not
+  changed, and neither are the `--font-display` definitions it overrides.
+- Source Serif 4 replaces Georgia on the nav wordmark (`.nav-brand-text` in
+  `public/css/nav.css`) only, at weight 600. It is loaded by an `@import` at
+  the top of `nav.css`, subset with the Google Fonts `text=` parameter to the
+  characters of "American Visa Guide", with `display=swap`.
+- The wordmark stack is `'Source Serif 4', Georgia, 'Iowan Old Style', serif`.
 
 **Radius.**
 
@@ -106,8 +106,10 @@ nav indicator, the "Visa" word in the nav brand, and the skip-link outline.
    `--color-border-strong` instead of lifting the element.
 2. Floating layers (nav dropdown, mobile menu, tooltips): a 1px border plus
    `--shadow-overlay`.
-3. Focus rings drawn with `box-shadow`: kept, recoloured to a 2px `#0F172A`
-   ring with a 2px offset.
+3. Focus rings: the GOV.UK yellow focus in `readability.css` (links, buttons,
+   inputs) stays exactly as it is. Component focus halos in
+   `components.css` are recoloured to a 2px `#0F172A` ring with a 2px offset
+   (`#7F1D1D` for the destructive variant).
 
 **Buttons.**
 
@@ -139,7 +141,7 @@ These files: `public/js/nav.js`, `public/css/nav.css`.
 | Active link (`aria-current`, `--active`) | White on `#1E293B`, 2px `#F87171` bottom bar |
 | Brand text | Off-white; the "Visa" span is `#F87171` |
 | Support link | `--radius-md`, 1px `#475569` border, off-white text |
-| Focus ring | 2px `#F8FAFC` (the only place the ring colour flips) |
+| Focus outline (`.nav-link:focus-visible`) | 2px `#F8FAFC`; the GOV.UK yellow fill from `readability.css` still applies |
 
 **Banner (`.site-banner`).** `#1E293B`, one step lighter than the nav. Links
 are off-white and underlined.
@@ -167,13 +169,14 @@ on any of these:
 
 - An old-palette hex value (a key of the swap map) appears in `public/`. The
   only allowed exceptions are the brand chevrons `#bf3b3b` and `#2e4a7d`.
-- A `box-shadow` appears outside `--shadow-overlay`, focus rings and
-  `print.css`.
+- A `box-shadow` appears outside `--shadow-overlay`, focus rings,
+  `readability.css` and `print.css`.
 - A full radius (`--radius-full`, `9999px`, `999px`, `50%`) appears on
   anything other than the circle and line elements listed in the plan.
 - A token pair in section 1 or section 3 misses WCAG AA: 4.5:1 for text,
   3:1 for UI borders.
-- A page loads Public Sans but not Source Serif 4.
+- `nav.css` does not import Source Serif 4, or `.nav-brand-text` does not
+  use it.
 
 **Browser pass.** All 52 pages, at 1280px and 375px.
 
