@@ -8,7 +8,8 @@
      --color-mark:          #991B1B, eyebrows and italic heading words only
      --color-mark-on-dark:  #F87171, the same mark on dark bands
      --color-error/destructive: #7F1D1D, error and destructive states
-   Fonts: Public Sans (body and UI) with Georgia for headings
+   Fonts: Public Sans for headings, body and UI (readability.css sets
+   --font-display); Source Serif 4 only on the nav wordmark (nav.css)
  */
 
 /* Font Import */
@@ -26,7 +27,7 @@
   --color-mark:         #991B1B;
   --color-mark-on-dark: #F87171;
 
-  /* Accent palette: steel blue (legacy --color-gold names kept) */
+  /* Accent palette: slate (legacy --color-gold names kept) */
   --color-gold:        #0f172a;   /* WCAG AA as text on white/cream */
   --color-gold-light:  #cbd5e1;   /* for use on dark navy backgrounds */
   --color-gold-xlight: #f1f5f9;

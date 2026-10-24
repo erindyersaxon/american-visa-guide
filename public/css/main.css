@@ -1,7 +1,7 @@
 /*
    American Visa Guide, Design Tokens & Base Styles
-   Fonts: Georgia (headings) + Public Sans (body/UI)
-   Palette: Charcoal-blue primary · Steel-blue accent · Warm cream bg
+   Fonts: Public Sans throughout (readability.css sets --font-display)
+   Palette: Civic Editorial; slate primary and links, off-white bg, red mark
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
@@ -60,7 +60,7 @@
   --color-destructive:      #7f1d1d;
   --color-destructive-subtle: #fef2f2;
   --color-destructive-border: #fecaca;
-  --color-destructive-hover:  #7f1d1d;
+  --color-destructive-hover:  #450a0a;
 
   /* Red mark: eyebrows and italic heading words only */
   --color-mark:               #991B1B;
@@ -124,9 +124,9 @@
   /* Border Radius */
   --radius-sm:    0.25rem;   /*  4px */
   --radius-md:    0.375rem;  /*  6px */
-  --radius-lg: 0.375rem;   /* 12px */
-  --radius-xl: 0.375rem;      /* 16px */
-  --radius-2xl: 0.375rem;    /* 24px */
+  --radius-lg:    0.375rem;  /*  6px */
+  --radius-xl:    0.375rem;  /*  6px */
+  --radius-2xl:   0.375rem;  /*  6px */
   --radius-full:  9999px;
 
   /* Shadows */
@@ -197,7 +197,7 @@
   --color-destructive:      #fecaca;
   --color-destructive-subtle: #290808;
   --color-destructive-border: #7f1d1d;
-  --color-destructive-hover:  #fecaca;
+  --color-destructive-hover:  #fee2e2;
   --shadow-xs:  none;
   --shadow-sm:  none;
   --shadow-md:  none;
@@ -242,7 +242,7 @@
   --color-destructive:      #7f1d1d;
   --color-destructive-subtle: #fef2f2;
   --color-destructive-border: #fecaca;
-  --color-destructive-hover:  #7f1d1d;
+  --color-destructive-hover:  #450a0a;
   --shadow-xs:  none;
   --shadow-sm:  none;
   --shadow-md:  none;

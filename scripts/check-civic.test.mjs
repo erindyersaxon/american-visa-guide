@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import {
   blocks, checkHex, checkShadow, checkRadius, checkContrast, checkMarks, checkNav,
-  PAIRS, MARK_RULES, ROUND_ALLOW, SCOPE,
+  PAIRS, MARK_RULES, ROUND_ALLOW, SCOPE, CHECKS, parseChecks,
 } from "./check-civic.mjs";
 
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), "civic-"));
@@ -113,7 +113,7 @@ test("marks checks every block for the selector, not just one", () => {
 });
 
 const GOOD_NAV = [
-  "@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&text=AmericanVisGud%20&display=swap');",
+  "@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,600&text=AmericanVisGud%20&display=swap');",
   ":root{--nav-bg:#0F172A;--nav-text-strong:#F8FAFC}",
   ".site-nav{background:var(--nav-bg)}",
   ".nav-brand-text{font-family:'Source Serif 4',Georgia,serif}",
@@ -144,4 +144,12 @@ test("exported data", () => {
   const s = SCOPE();
   assert.ok(s.some((p) => p.endsWith("public/css/main.css")));
   assert.ok(s.some((p) => p.endsWith("public/guide")|| p.includes("public/guide/")));
+});
+
+test("CLI accepts several check names and all", () => {
+  assert.deepEqual(parseChecks(["contrast", "marks", "hex"]), ["contrast", "marks", "hex"]);
+  assert.deepEqual(parseChecks(["all"]), CHECKS);
+  assert.deepEqual(parseChecks(["marks", "all"]), ["marks", ...CHECKS.filter((c) => c !== "marks")]);
+  assert.equal(parseChecks([]), null);
+  assert.equal(parseChecks(["marks", "nope"]), null);
 });

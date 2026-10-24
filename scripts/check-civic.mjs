@@ -439,7 +439,8 @@ export function checkMarks(rules, root = ROOT) {
 
 // ---------------------------------------------------------------- nav
 
-// Stub. Task 6 implements the nav rules.
+// Nav, banner and footer rules: the wordmark font, --nav-* tokens only,
+// the nav focus colour and the brand tile colour.
 export function checkNav(navCss, extra = {}) {
   const f = "public/css/nav.css";
   const out = [];
@@ -501,13 +502,25 @@ function run(name) {
   }
 }
 
-const CHECKS = ["hex", "shadow", "radius", "contrast", "marks", "nav"];
+export const CHECKS = ["hex", "shadow", "radius", "contrast", "marks", "nav"];
+
+// Turn CLI arguments into check names. "all" expands to every check; any
+// unknown name (or no names) returns null.
+export function parseChecks(args) {
+  if (args.length === 0) return null;
+  const names = [];
+  for (const a of args) {
+    if (a === "all") names.push(...CHECKS);
+    else if (CHECKS.includes(a)) names.push(a);
+    else return null;
+  }
+  return [...new Set(names)];
+}
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const arg = process.argv[2];
-  const names = arg === "all" ? CHECKS : CHECKS.includes(arg) ? [arg] : null;
+  const names = parseChecks(process.argv.slice(2));
   if (!names) {
-    console.error("usage: check-civic.mjs <hex|shadow|radius|contrast|marks|nav|all>");
+    console.error("usage: check-civic.mjs <hex|shadow|radius|contrast|marks|nav|all> [more checks...]");
     process.exit(2);
   }
   let failed = false;
