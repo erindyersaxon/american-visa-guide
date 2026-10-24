@@ -20,13 +20,13 @@
     --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
     --font-ui: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-body: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --navy:#2b3a42;--navy-mid:#233038;--blue:#3d5260;
-      --bg:#f4efe6;
-      --accent:#3e7188;--accent-light:#5a8fa6;
+      --navy:#0f172a;--navy-mid:#1e293b;--blue:#334155;
+      --bg:#f8fafc;
+      --accent:#0f172a;--accent-light:#475569;
       --teal:#4f8573;--teal-light:#3f6b5c;
-      --red:#b04a38;--white:#1e1c17;--muted:#6a6560;
-      --card-bg:#fdfaf3;--border:rgba(62,113,136,0.25);
-      --border-subtle:rgba(30,28,23,0.1);
+      --red:#7f1d1d;--white:#0f172a;--muted:#475569;
+      --card-bg:#ffffff;--border:rgba(15,23,42,0.25);
+      --border-subtle:rgba(15,23,42,0.1);
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -44,7 +44,7 @@
     .page-hero-eyebrow{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--teal-light);margin-bottom:12px}
     .page-hero h1{font-family:var(--font-display);font-size:clamp(28px,5vw,42px);font-weight:700;line-height:1.1;margin-bottom:14px}
     .page-hero h1 span{color:var(--accent);font-style:italic;font-weight:500}
-    .page-hero p{font-size:17px;color:rgba(30,28,23,0.78);max-width:560px;line-height:1.7}
+    .page-hero p{font-size:17px;color:rgba(15,23,42,0.78);max-width:560px;line-height:1.7}
 
     /* MAP */
     .map-section{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:40px}
@@ -58,12 +58,12 @@
 
     .map-wrap{position:relative;width:100%}
     #us-map{width:100%;height:auto;display:block}
-    .state{fill:rgba(43,58,66,0.07);stroke:rgba(30,28,23,0.2);stroke-width:0.5;transition:fill 0.2s,opacity 0.2s;cursor:default}
-    .state:hover{opacity:0.8;stroke:rgba(90,143,166,0.6);stroke-width:1}
+    .state{fill:rgba(15,23,42,0.07);stroke:rgba(15,23,42,0.2);stroke-width:0.5;transition:fill 0.2s,opacity 0.2s;cursor:default}
+    .state:hover{opacity:0.8;stroke:rgba(71,85,105,0.6);stroke-width:1}
     .state.has-data{cursor:pointer}
 
     /* Tooltip */
-    #tooltip{position:fixed;background:#fdfaf3;border:1px solid var(--border);border-radius:10px;padding:12px 16px;pointer-events:none;z-index:999;display:none;min-width:140px;box-shadow:0 8px 32px rgba(0,0,0,0.15)}
+    #tooltip{position:fixed;background:#ffffff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;pointer-events:none;z-index:999;display:none;min-width:140px;box-shadow:0 8px 32px rgba(0,0,0,0.15)}
     #tooltip .tt-name{font-family:var(--font-ui);font-size:14px;font-weight:800;color:var(--white);margin-bottom:4px}
     #tooltip .tt-count{font-size:22px;font-weight:900;font-family:var(--font-ui);color:var(--teal-light);line-height:1}
     #tooltip .tt-label{font-size:13px;color:var(--muted);margin-top:2px}
@@ -79,10 +79,10 @@
 
     /* State leaderboard */
     .state-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px, 100%), 1fr));gap:8px;margin-top:24px}
-    .state-row{display:flex;align-items:center;gap:10px;background:#fdfaf3;border:1px solid var(--border-subtle);border-radius:8px;padding:8px 12px}
+    .state-row{display:flex;align-items:center;gap:10px;background:#ffffff;border:1px solid var(--border-subtle);border-radius:8px;padding:8px 12px}
     .state-row.top{background:rgba(79,133,115,0.08);border-color:rgba(79,133,115,0.2)}
     .state-rank{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--muted);width:18px;flex-shrink:0}
-    .state-name{font-size:14px;color:rgba(30,28,23,0.85);flex:1}
+    .state-name{font-size:14px;color:rgba(15,23,42,0.85);flex:1}
     .state-count{font-family:var(--font-ui);font-size:16px;font-weight:800;color:var(--teal-light)}
 
     /* CONTENT */
@@ -90,47 +90,47 @@
     .section-label{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--accent);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
     .content-section h3{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--white);margin:20px 0 10px}
     .content-section h3:first-child{margin-top:0}
-    .content-section p{font-size:1em;color:rgba(30,28,23,0.85);margin-bottom:10px;line-height:1.75}
-    .content-section ul,.content-section ol{font-size:1em;color:rgba(30,28,23,0.85);padding-left:20px;margin-bottom:10px}
+    .content-section p{font-size:1em;color:rgba(15,23,42,0.85);margin-bottom:10px;line-height:1.75}
+    .content-section ul,.content-section ol{font-size:1em;color:rgba(15,23,42,0.85);padding-left:20px;margin-bottom:10px}
     .content-section li{margin-bottom:4px}
     .content-section a{color:var(--teal-light);text-decoration:none}
     .content-section a:hover{text-decoration:underline}
     .content-section strong{color:var(--white)}
-    .info-card{background:#fdfaf3;border:1px solid var(--border-subtle);border-radius:10px;padding:16px;margin-bottom:12px}
+    .info-card{background:#ffffff;border:1px solid var(--border-subtle);border-radius:10px;padding:16px;margin-bottom:12px}
     .info-card-head{font-family:var(--font-ui);font-size:17px;font-weight:700;color:var(--accent);margin-bottom:8px}
-    .info-card p{font-size:1em;color:rgba(30,28,23,0.85);margin-bottom:6px}
+    .info-card p{font-size:1em;color:rgba(15,23,42,0.85);margin-bottom:6px}
     .info-card p:last-child{margin-bottom:0}
-    .info-card.warning{border-color:rgba(176,74,56,0.3);background:rgba(176,74,56,0.06)}
+    .info-card.warning{border-color:rgba(127,29,29,0.3);background:rgba(127,29,29,0.06)}
     .info-card.tip{border-color:rgba(79,133,115,0.25);background:rgba(79,133,115,0.05)}
     .sub-acc-item{border:1px solid var(--border-subtle);border-radius:8px;margin-bottom:5px;overflow:hidden;transition:border-color 0.2s}
-    .sub-acc-item.open{border-color:rgba(90,143,166,0.2)}
-    .sub-acc-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:#fdfaf3;border:none;cursor:pointer;text-align:left;transition:background 0.15s}
-    .sub-acc-trigger:hover{background:#ece5d6}
-    .sub-acc-item.open .sub-acc-trigger{background:#ece5d6;border-bottom:1px solid var(--border-subtle)}
+    .sub-acc-item.open{border-color:rgba(71,85,105,0.2)}
+    .sub-acc-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:#ffffff;border:none;cursor:pointer;text-align:left;transition:background 0.15s}
+    .sub-acc-trigger:hover{background:#f8fafc}
+    .sub-acc-item.open .sub-acc-trigger{background:#f8fafc;border-bottom:1px solid var(--border-subtle)}
     .sub-acc-label{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--white)}
     .sub-acc-chevron{color:var(--muted);font-size:13px;transition:transform 0.25s,color 0.15s;flex-shrink:0}
     .sub-acc-item.open .sub-acc-chevron{transform:rotate(180deg);color:var(--accent)}
     .sub-acc-body{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1)}
     .sub-acc-item.open .sub-acc-body{max-height:9999px}
-    .sub-acc-content{padding:16px 18px;background:rgba(30,28,23,0.025);font-size:1em}
+    .sub-acc-content{padding:16px 18px;background:rgba(15,23,42,0.025);font-size:1em}
     .sub-controls{display:flex;gap:8px;margin:0 0 12px}
-    .sub-ctrl{font-size:13px;font-weight:600;color:var(--muted);background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:5px;padding:4px 12px;cursor:pointer;transition:all 0.15s;font-family:var(--font-ui)}
+    .sub-ctrl{font-size:13px;font-weight:600;color:var(--muted);background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius:5px;padding:4px 12px;cursor:pointer;transition:all 0.15s;font-family:var(--font-ui)}
     .sub-ctrl:hover{color:var(--white);border-color:var(--accent)}
     .tracker-memo{display:flex;align-items:center;gap:10px;background:rgba(79,133,115,0.07);border:1px solid rgba(79,133,115,0.18);border-radius:8px;padding:10px 14px;margin-bottom:20px}
-    .tracker-memo p{font-size:1em;color:rgba(30,28,23,0.78);margin:0}
+    .tracker-memo p{font-size:1em;color:rgba(15,23,42,0.78);margin:0}
     .tracker-memo a{color:var(--teal-light);font-weight:600;text-decoration:none}
     table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:12px}
-    th{padding:8px 12px;background:rgba(90,143,166,0.08);color:var(--muted);font-size:14px;text-align:left;border:1px solid var(--border-subtle)}
-    td{padding:8px 12px;border:1px solid rgba(30,28,23,0.1);color:rgba(30,28,23,0.85)}
+    th{padding:8px 12px;background:rgba(71,85,105,0.08);color:var(--muted);font-size:14px;text-align:left;border:1px solid var(--border-subtle)}
+    td{padding:8px 12px;border:1px solid rgba(15,23,42,0.1);color:rgba(15,23,42,0.85)}
     @media(max-width:600px){.map-stats{gap:12px}}
-    .tl-btn{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--muted);background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:5px;padding:4px 12px;cursor:pointer;transition:all 0.15s}
-    .tl-btn:hover{color:var(--white);border-color:rgba(90,143,166,0.4)}
-    .tl-btn.active{color:var(--accent);border-color:rgba(90,143,166,0.4);background:rgba(90,143,166,0.06)}
-    .tl-stat-card{background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:10px;padding:12px 14px}
+    .tl-btn{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--muted);background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius:5px;padding:4px 12px;cursor:pointer;transition:all 0.15s}
+    .tl-btn:hover{color:var(--white);border-color:rgba(71,85,105,0.4)}
+    .tl-btn.active{color:var(--accent);border-color:rgba(71,85,105,0.4);background:rgba(71,85,105,0.06)}
+    .tl-stat-card{background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius:10px;padding:12px 14px}
     .tl-stat-val{font-family:var(--font-body);font-variant-numeric:tabular-nums;font-size:22px;font-weight:600;color:var(--accent);line-height:1;margin-bottom:3px}
     .tl-stat-label{font-size:13px;color:var(--muted)}
     .tl-pill{display:inline-block;font-size:13px;padding:2px 7px;border-radius:4px;font-weight:700;font-family:var(--font-ui)}
-    .tl-pill-yes{background:rgba(176,74,56,0.15);color:var(--red)}
+    .tl-pill-yes{background:rgba(127,29,29,0.15);color:var(--red)}
     .tl-pill-no{background:rgba(79,133,115,0.12);color:var(--teal-light)}
   
   /* Shared page hero */
@@ -138,7 +138,7 @@
   .page-hero-eyebrow { font-family:var(--font-ui); font-size: 14px; font-weight: 700;color: var(--accent); margin-bottom: 12px; }
   .page-hero-h1 { font-family:var(--font-display); font-size: clamp(32px,7vw,52px); font-weight:700; line-height: 1.05; margin-bottom: 14px; }
   .page-hero-h1 span { color: var(--accent); font-style: italic; font-weight: 500; }
-  .page-hero-sub { font-size: 15px; color: rgba(30,28,23,0.78); max-width: 560px; line-height: 1.7; }
+  .page-hero-sub { font-size: 15px; color: rgba(15,23,42,0.78); max-width: 560px; line-height: 1.7; }
 
   /* Shared footer */
   .site-footer { border-top: 1px solid var(--border); margin-top: 48px; padding: 28px 0 20px; }
@@ -183,8 +183,8 @@
   </div>
 
   <!-- POST-APPROVAL ENTRY POINT -->
-  <div class="sub-acc-item" id="life_approved" data-sub-group="approved" style="margin-bottom:40px;border-color:rgba(90,143,166,0.3);">
-    <button class="sub-acc-trigger" onclick="toggleSubAcc('life_approved')" style="background:rgba(90,143,166,0.08);">
+  <div class="sub-acc-item" id="life_approved" data-sub-group="approved" style="margin-bottom:40px;border-color:rgba(71,85,105,0.3);">
+    <button class="sub-acc-trigger" onclick="toggleSubAcc('life_approved')" style="background:rgba(71,85,105,0.08);">
       <span class="sub-acc-label">You got approved: congratulations</span>
       <span class="sub-acc-chevron">▼</span>
     </button>
@@ -667,33 +667,33 @@
   <div class="content-section">
     <h2 class="section-label" style="margin-top:0;">Keeping your green card</h2>
 
-    <p style="color:rgba(30,28,23,0.85);margin-bottom:20px;">Once you arrive as a permanent resident, you have more to learn: protecting your status when you travel, removing the conditions on a CR1 green card, and later applying for US citizenship. Each section below includes a checklist of the key forms involved.</p>
+    <p style="color:rgba(15,23,42,0.85);margin-bottom:20px;">Once you arrive as a permanent resident, you have more to learn: protecting your status when you travel, removing the conditions on a CR1 green card, and later applying for US citizenship. Each section below includes a checklist of the key forms involved.</p>
 
     <!-- Reentry Permit Checklist card -->
     <div class="info-card tip" style="margin-bottom:20px;">
       <div class="info-card-head">Key forms at a glance</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px, 100%), 1fr));gap:8px;margin-top:4px;">
-        <a href="https://www.uscis.gov/i-131" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
+        <a href="https://www.uscis.gov/i-131" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--white);">Form I-131</span>
           <span style="color:var(--muted);">Reentry Permit: traveling for 1+ year</span>
         </a>
-        <a href="https://www.uscis.gov/i-751" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
+        <a href="https://www.uscis.gov/i-751" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--white);">Form I-751</span>
           <span style="color:var(--muted);">Remove conditions: CR1/CR2 holders</span>
         </a>
-        <a href="https://www.uscis.gov/i-90" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
+        <a href="https://www.uscis.gov/i-90" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--white);">Form I-90</span>
           <span style="color:var(--muted);">Renew or replace your green card</span>
         </a>
-        <a href="https://www.uscis.gov/n-400" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
+        <a href="https://www.uscis.gov/n-400" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--white);">Form N-400</span>
           <span style="color:var(--muted);">Application for Naturalization</span>
         </a>
-        <a href="https://www.uscis.gov/n-470" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
+        <a href="https://www.uscis.gov/n-470" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--white);">Form N-470</span>
           <span style="color:var(--muted);">Preserve residence: qualifying jobs abroad only</span>
         </a>
-        <a href="https://www.uscis.gov/n-600" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(30,28,23,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
+        <a href="https://www.uscis.gov/n-600" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;gap:3px;background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius:8px;padding:10px 12px;text-decoration:none;">
           <span style="font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--white);">Form N-600</span>
           <span style="color:var(--muted);">Certificate of Citizenship: children under CCA</span>
         </a>
@@ -800,7 +800,7 @@
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <span class="acc-tag niche" style="display:inline-flex;align-items:center;gap:5px;font-size:14px;font-weight:600;background:rgba(106,101,96,0.1);color:var(--muted);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;margin-bottom:12px;">CR1 / CR2 holders only</span>
+            <span class="acc-tag niche" style="display:inline-flex;align-items:center;gap:5px;font-size:14px;font-weight:600;background:rgba(71,85,105,0.1);color:var(--muted);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;margin-bottom:12px;">CR1 / CR2 holders only</span>
             <p style="margin-bottom:12px;">If you entered on a <strong>CR1</strong> visa (married less than 2 years at the time of US entry), you received a 2-year conditional green card. You must file <strong>Form I-751 (Petition to Remove Conditions on Residence)</strong> to upgrade it to a permanent 10-year green card. If you do not file, your conditional status terminates automatically when the card expires.</p>
 
             <div class="info-card warning">
@@ -872,10 +872,10 @@
         </button>
         <div class="sub-acc-body">
           <div class="sub-acc-content">
-            <span class="acc-tag niche" style="display:inline-flex;align-items:center;gap:5px;font-size:14px;font-weight:600;background:rgba(106,101,96,0.1);color:var(--muted);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;margin-bottom:12px;">IR2 / CR2 children under 18</span>
+            <span class="acc-tag niche" style="display:inline-flex;align-items:center;gap:5px;font-size:14px;font-weight:600;background:rgba(71,85,105,0.1);color:var(--muted);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;margin-bottom:12px;">IR2 / CR2 children under 18</span>
 
             <p style="margin-bottom:12px;">If your minor children came with you on IR2 or CR2 visas, they may already be US citizens automatically, by law. The exception is when the US citizen is their stepparent (see below). Under the <strong>Child Citizenship Act of 2000</strong> (INA &sect;320), a child born outside the US automatically acquires US citizenship the moment all of the following are true:</p>
-            <ul style="color:rgba(30,28,23,0.85);padding-left:16px;margin-bottom:12px;">
+            <ul style="color:rgba(15,23,42,0.85);padding-left:16px;margin-bottom:12px;">
               <li>At least one parent is a US citizen (by birth or naturalization), and the child is that parent's <strong>biological or adopted</strong> child</li>
               <li>The child is under 18</li>
               <li>The child is a lawful permanent resident (green card or I-551 stamp)</li>
@@ -955,7 +955,7 @@ const INSET_ABBR = {'Alaska':'AK','Hawaii':'HI','Puerto Rico':'PR','US Virgin Is
 
 // Color scale: none → deep teal → gold
 const colorScale = (count, max) => {
-  if (!count || count === 0) return 'rgba(43,58,66,0.07)';
+  if (!count || count === 0) return 'rgba(15,23,42,0.07)';
   const t = Math.sqrt(count / max); // sqrt for perceptual balance
   // interpolate teal → gold
   const r = Math.round(42  + (200 - 42)  * t);
@@ -1050,7 +1050,7 @@ async function buildMap() {
   svg.append('path')
     .datum(stateMesh)
     .attr('fill', 'none')
-    .attr('stroke', 'rgba(30,28,23,0.25)')
+    .attr('stroke', 'rgba(15,23,42,0.25)')
     .attr('stroke-width', 0.5)
     .attr('d', path);
 

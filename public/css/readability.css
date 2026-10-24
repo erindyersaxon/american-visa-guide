@@ -112,7 +112,7 @@ summary:focus-visible {
 .avg-crumbs li {
   margin: 0;
   max-width: none;
-  color: var(--color-text-muted, #6a6560);
+  color: var(--color-text-muted, #475569);
 }
 
 .avg-crumbs li + li::before {
@@ -121,7 +121,7 @@ summary:focus-visible {
 }
 
 .avg-crumbs a {
-  color: var(--color-text, #1e1c17);
+  color: var(--color-text, #0f172a);
   text-decoration: underline;
   text-decoration-thickness: max(1px, 0.0625rem);
   text-underline-offset: 0.15em;
@@ -132,7 +132,7 @@ summary:focus-visible {
   margin: 0 0 16px;
   font-size: 15px;
   font-weight: 600;
-  color: var(--color-text-muted, #6a6560);
+  color: var(--color-text-muted, #475569);
 }
 
 .avg-partof a {

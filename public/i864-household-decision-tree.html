@@ -20,29 +20,29 @@
      house values, matching the convention in css/design-system.css?v=20261022.
  */
   :root {
-    --navy:     #2b3a42;   /* charcoal blue: dark surfaces */
-    --navy-mid: #3d5260;
-    --gold:     #3e7188;   /* steel blue accent, AA on cream */
-    --gold-lt:  #c8dde6;   /* accent tint for use on dark surfaces */
-    --cream:    #f4efe6;   /* page background */
-    --surface:  #fdfaf3;   /* card surface */
-    --surface-alt: #ede8de;
-    --slate:    #6a6560;
+    --navy:     #0f172a;   /* charcoal blue: dark surfaces */
+    --navy-mid: #334155;
+    --gold:     #0f172a;   /* steel blue accent, AA on cream */
+    --gold-lt:  #cbd5e1;   /* accent tint for use on dark surfaces */
+    --cream:    #f8fafc;   /* page background */
+    --surface:  #ffffff;   /* card surface */
+    --surface-alt: #f1f5f9;
+    --slate:    #475569;
     --green:    #3f6b5c;
-    --green-lt: #ebf1ec;
+    --green-lt: #eff5f0;
     --green-bd: #d2e2d6;
     --amber:    #875325;
-    --amber-lt: #f6ecd9;
-    --amber-bd: #e6d3b0;
-    --red:      #b04a38;
-    --red-lt:   #f7e9e6;
-    --red-bd:   #ecccc4;
-    --purple:    #2f5a6e;  /* legacy name: now deep steel */
-    --purple-lt: #edf4f8;
-    --purple-bd: #bcd6e0;
-    --border:   #ddd6cb;
-    --border-soft: #e7e0d4;
-    --text:     #1e1c17;
+    --amber-lt: #fbf5ec;
+    --amber-bd: #e5cfa8;
+    --red:      #7f1d1d;
+    --red-lt:   #fef2f2;
+    --red-bd:   #fecaca;
+    --purple:    #1e293b;  /* legacy name: now deep steel */
+    --purple-lt: #f1f5f9;
+    --purple-bd: #cbd5e1;
+    --border:   #e2e8f0;
+    --border-soft: #e2e8f0;
+    --text:     #0f172a;
     --font-display-calc: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
     --font-ui-calc:  'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-body-calc:'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -71,7 +71,7 @@
 
   /* STEP CARD */
   .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 1rem; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
-  .step-card.active { border-color: var(--gold); box-shadow: 0 1px 3px rgba(43,58,66,0.07); }
+  .step-card.active { border-color: var(--gold); box-shadow: 0 1px 3px rgba(15,23,42,0.07); }
   .step-card.completed { border-color: var(--green-bd); background: var(--surface-alt); }
   .step-card.hidden { display: none; }
 
@@ -188,7 +188,7 @@
   .note-item strong { color: var(--text); }
   .note-num { flex-shrink: 0; font-weight: 700; color: var(--gold); font-size: 1rem; line-height: 1.3; }
 
-  .source-strip { padding: 1rem 1.5rem; background: var(--navy); font-size: 0.875rem; color: rgba(244,239,230,0.7); line-height: 1.65; }
+  .source-strip { padding: 1rem 1.5rem; background: var(--navy); font-size: 0.875rem; color: rgba(248,250,252,0.7); line-height: 1.65; }
   .source-strip a { color: var(--gold-lt); text-decoration: none; }
   .source-strip a:hover { text-decoration: underline; }
 

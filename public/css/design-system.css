@@ -10,47 +10,47 @@
 /* Design Tokens */
 :root {
   /* Structural palette: blue-charcoal (legacy --color-navy names kept) */
-  --color-navy:        #2b3a42;
-  --color-navy-dark:   #1e2b32;
-  --color-navy-light:  #3d5260;
-  --color-navy-xlight: #e8eef1;
+  --color-navy:        #0f172a;
+  --color-navy-dark:   #020617;
+  --color-navy-light:  #334155;
+  --color-navy-xlight: #f1f5f9;
 
   /* Accent palette: steel blue (legacy --color-gold names kept) */
-  --color-gold:        #3e7188;   /* WCAG AA as text on white/cream */
-  --color-gold-light:  #c8dde6;   /* for use on dark navy backgrounds */
-  --color-gold-xlight: #edf4f8;
+  --color-gold:        #0f172a;   /* WCAG AA as text on white/cream */
+  --color-gold-light:  #cbd5e1;   /* for use on dark navy backgrounds */
+  --color-gold-xlight: #f1f5f9;
 
   /* Surfaces */
-  --color-surface:     #FDFAF3;
-  --color-surface-alt: #f7f2e9;
+  --color-surface:     #ffffff;
+  --color-surface-alt: #f1f5f9;
 
   /* Borders */
-  --color-border:        #ddd6cb;
-  --color-border-strong: #a39c8e;
+  --color-border:        #e2e8f0;
+  --color-border-strong: #64748b;
 
   /* Text */
-  --color-text:        #1e1c17;
-  --color-text-secondary: #56524a;
-  --color-text-muted:  #6a6560;
-  --color-text-on-dark: #F4EFE6;
+  --color-text:        #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted:  #475569;
+  --color-text-on-dark: #f8fafc;
   --color-text-inverse: #FFFFFF;
 
   /* Background (alias for worksheet pages) */
-  --color-bg:     #f4efe6;
-  --color-bg-alt: #ede8de;
+  --color-bg:     #f8fafc;
+  --color-bg-alt: #f1f5f9;
 
   /* Status */
-  --color-error:             #a83a3a;
-  --color-destructive:       #9b3434;
-  --color-destructive-subtle:  #f8ece7;
-  --color-destructive-border:  #dfa9a0;
+  --color-error:             #7f1d1d;
+  --color-destructive:       #7f1d1d;
+  --color-destructive-subtle:  #fef2f2;
+  --color-destructive-border:  #fecaca;
   --color-success:           #4a6b50;
-  --color-success-subtle:    #e9f0e6;
+  --color-success-subtle:    #eff5f0;
   --color-warning:           #875325;
-  --color-warning-subtle:    #f7efdc;
-  --color-warning-border:    #d9bb86;
-  --color-info:              #3e7188;
-  --color-info-subtle:       #edf4f8;
+  --color-warning-subtle:    #fbf5ec;
+  --color-warning-border:    #e5cfa8;
+  --color-info:              #0f172a;
+  --color-info-subtle:       #f1f5f9;
 
   /* Brand aliases for legacy pages */
   --color-primary:        var(--color-navy);
@@ -152,7 +152,7 @@
 
   /* Focus */
   --focus-outline: 2px solid var(--color-gold);
-  --focus-ring:    0 0 0 3px rgba(90,143,166, 0.4);
+  --focus-ring:    0 0 0 3px rgba(71,85,105, 0.4);
 
   /* Z-index */
   --z-sticky:   100;
@@ -397,7 +397,7 @@ code {
 .badge--info {
   background-color: var(--color-info-subtle);
   color: var(--color-info);
-  border-color: #a9cbd9;
+  border-color: #cbd5e1;
 }
 
 .badge--warning {
@@ -422,8 +422,8 @@ code {
 }
 
 .stage-chip.badge-int      { background: var(--color-navy-xlight); color: var(--color-navy); }
-.stage-chip.badge-nvc      { background: #edf4f8; color: #3e7188; }
-.stage-chip.badge-preappt  { background: #f7efdc; color: #875325; }
+.stage-chip.badge-nvc      { background: #f1f5f9; color: #0f172a; }
+.stage-chip.badge-preappt  { background: #fbf5ec; color: #875325; }
 .stage-chip.badge-journey  { background: var(--color-success-subtle); color: var(--color-success); }
 
 /* Interview detail (guide page) */

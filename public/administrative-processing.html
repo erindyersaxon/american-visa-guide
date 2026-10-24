@@ -16,35 +16,35 @@
       --font-ui: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --font-body: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-      --bg:          #f4efe6;
-      --surface:     #fdfaf3;
-      --surface-alt: #ede8de;
-      --surface-hov: #e4ddcf;
-      --ink:         #1e1c17;
-      --muted:       #6a6560;
+      --bg:          #f8fafc;
+      --surface:     #ffffff;
+      --surface-alt: #f1f5f9;
+      --surface-hov: #e2e8f0;
+      --ink:         #0f172a;
+      --muted:       #475569;
 
-      --accent:      #3e7188;   /* steel blue, AA on cream */
-      --accent-dark: #2f5a6e;
-      --accent-deco: #5a8fa6;
+      --accent:      #0f172a;   /* steel blue, AA on cream */
+      --accent-dark: #1e293b;
+      --accent-deco: #475569;
 
-      --line:        #ddd6cb;
-      --line-soft:   #e7e0d4;
+      --line:        #e2e8f0;
+      --line-soft:   #e2e8f0;
 
-      --warn-bg:     #f6ecd9;
-      --warn-border: #e6d3b0;
+      --warn-bg:     #fbf5ec;
+      --warn-border: #e5cfa8;
       --warn-edge:   #b07840;
       --warn-ink:    #875325;
 
-      --danger:      #b04a38;
-      --danger-bg:   #f7e9e6;
-      --danger-border:#ecccc4;
+      --danger:      #7f1d1d;
+      --danger-bg:   #fef2f2;
+      --danger-border:#fecaca;
 
       --sage:        #3f6b5c;
-      --sage-bg:     #ebf1ec;
+      --sage-bg:     #eff5f0;
       --sage-border: #d2e2d6;
 
-      --code-bg:     #2b3a42;
-      --code-text:   #cfdde3;
+      --code-bg:     #0f172a;
+      --code-text:   #e2e8f0;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -204,7 +204,7 @@
     }
     td:first-child { font-weight: 600; color: var(--accent-dark); }
     tr:last-child td { border-bottom: none; }
-    tbody tr:nth-child(even) td { background: rgba(43,58,66,0.03); }
+    tbody tr:nth-child(even) td { background: rgba(15,23,42,0.03); }
 
     /* STAGE / MITIGATION CARDS */
     .stage-card {
@@ -256,7 +256,7 @@
     }
     .callout-warn a { color: var(--accent-dark); }
     .callout-info {
-      background: rgba(62,113,136,0.06);
+      background: rgba(15,23,42,0.06);
       border: 1px solid var(--line);
       border-left: 3px solid var(--accent-deco);
     }
@@ -264,7 +264,7 @@
       background: var(--danger-bg);
       border: 1px solid var(--danger-border);
       border-left: 3px solid var(--danger);
-      color: #7a3022;
+      color: #7f1d1d;
     }
     .callout-alert a { color: var(--accent-dark); }
     .callout-good {
