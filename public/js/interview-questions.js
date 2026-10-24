@@ -13,6 +13,10 @@
    history form issued after it, at a post other than London, shared
    publicly in September 2026. They are included for the same reason,
    and for applicants in technical fields.
+   Questions attributed to 'Public report, London' come from one
+   applicant's own account of a London interview in October 2026, posted
+   publicly. It was a fiancé case, so those questions are reworded for
+   spouse, parent and child applicants.
 
    Officers are confirming what they already know from your DS-260 and
    petition. They are not testing you. Answer honestly and consistently;
@@ -80,6 +84,7 @@
     { q: 'Tell me the full story of how your relationship progressed.', theme: 'relationship', cats: ['spouse'], tip: 'Have a natural timeline in your head: meeting → dating → engagement → marriage.', from: 'Mia' },
     { q: 'How long have you been together?', theme: 'relationship', cats: ['spouse'], from: 'Multiple reports' },
     { q: 'Has your petitioner visited the UK, and when?', theme: 'relationship', cats: ['spouse'], from: 'Mia' },
+    { q: 'How many times have you seen each other in person? When did you last see each other?', theme: 'relationship', cats: ['spouse'], tip: 'Have the visits and dates straight. They should match your petition and your travel history.', from: 'Public report, London' },
 
     // The wedding & ceremony
     { q: 'Where did you get married?', theme: 'wedding', cats: ['spouse'], from: 'Mia' },
@@ -93,6 +98,7 @@
     { q: 'What do your petitioner’s parents do for work?', theme: 'petitioner', cats: ['spouse'], tip: 'Comes up especially if you’ll be living with them at first.', from: 'Mia' },
     { q: 'Does your petitioner have a mortgage?', theme: 'petitioner', cats: 'all', tip: 'The largest of the debts the officer weighs. Know whether there is one and roughly what is outstanding.', from: 'Esther' },
     { q: 'Is your petitioner in a union?', theme: 'petitioner', cats: 'all', tip: 'Asked of a petitioner working somewhere unionised. Union membership speaks to job security and health coverage, so it helps you: know the answer.', from: 'Esther' },
+    { q: 'Is your petitioner working full-time?', theme: 'petitioner', cats: 'all', tip: 'Know their hours, and whether the job is permanent or a contract.', from: 'Public report, London' },
     { q: 'Who else lives at the address?', theme: 'petitioner', cats: 'all', tip: 'Everyone, not just the people on the petition. Family status is a statutory public charge factor.', from: 'Esther' },
     { q: 'When did your petitioner buy the house in the US, and what is the address?', theme: 'petitioner', cats: 'all', tip: 'Asked of a petitioner who had moved abroad and kept a US home. It tests the domicile tie, so bring the deed or mortgage statement.', from: 'Ilma' },
     { q: 'What was your petitioner’s job in the US, where was it, and what did it pay? What do they do and earn now?', theme: 'petitioner', cats: 'all', tip: 'Asked when the petitioner works abroad. Know both jobs and both salaries.', from: 'Ilma' },
@@ -113,12 +119,16 @@
     { q: 'Will your company allow you to work from the US? If not, what is your plan?', theme: 'work', cats: 'all', tip: 'Do not assume a remote job survives the move: many employers will not permit it, for tax and payroll reasons. Get written confirmation if you are relying on it, and have a fallback if you are not.', from: 'Esther' },
     { q: 'What did you study, and where? Do you have any other certifications?', theme: 'work', cats: 'all', tip: 'Have the full list, not just the highest qualification. Posts ask for education history as a list with subject, institution and year.', from: 'Esther' },
     { q: 'Can I see your degree certificate and transcript?', theme: 'work', cats: 'all', tip: 'Bring originals for every qualification you name, plus evidence of awards or records you list. If you have just finished a course and have no certificate yet, bring a letter from the university. One officer kept the applicant’s undergraduate transcript.', from: 'Matt' },
+    { q: 'Are you qualified to do that work in the US?', theme: 'work', cats: 'all', tip: 'Regulated jobs such as teaching, nursing and law need a US licence or credential evaluation before you can work. Know which applies to you.', from: 'Public report, London' },
+    { q: 'How long does getting your qualification recognised take? What will you do in the meantime?', theme: 'work', cats: 'all', tip: 'Have a rough timescale and a plan for the gap. The second half is the part the officer cares about.', from: 'Public report, London' },
+    { q: 'Where do you plan to work? Who hires in your field near where you will live?', theme: 'work', cats: 'all', tip: 'A UK teacher was asked about school districts near her US address. Look up two or three real employers before the interview.', from: 'Public report, London' },
 
     // Finances, sponsorship & benefits
-    { q: 'Have you, or your petitioner, ever received financial aid or benefits from the government?', theme: 'finances', cats: 'all', from: 'Multiple reports' },
+    { q: 'Have you, or your petitioner, ever received financial aid or benefits from the government?', theme: 'finances', cats: 'all', tip: 'Any government, not just the US. One officer gave Universal Credit as an example.', from: 'Multiple reports' },
     { q: 'Do you have any debt? Does your petitioner?', theme: 'finances', cats: 'all', from: 'Multiple reports' },
     { q: 'Do you have savings you’re bringing with you? Roughly how much? Does your petitioner have savings?', theme: 'finances', cats: 'all', tip: 'Have a ballpark figure ready. You won’t need exact numbers.', from: 'Multiple reports' },
     { q: 'Do you have a joint sponsor? Who are they, and what do they do?', theme: 'finances', cats: 'all', tip: 'Know their name, relationship to you, job and income. One member was told he “probably” needed one and was still approved.', from: 'Multiple reports' },
+    { q: 'How long has your joint sponsor been in their current job?', theme: 'finances', cats: 'all', tip: 'Stability counts as well as salary. Know their start date, and bring their employment letter.', from: 'Public report, London' },
     { q: 'Why did you add a joint sponsor if your petitioner’s income was enough?', theme: 'finances', cats: 'all', tip: 'Have the real reason in one sentence. “We weren’t sure” invites the next question. A short US tax history is not a reason: the I-864 requires only the most recent tax year, though the last three are strongly recommended.', from: 'Interview at another post' },
     { q: 'Has your joint sponsor sponsored anyone else before, or ever received public assistance?', theme: 'finances', cats: 'all', tip: 'You answer this, not the sponsor. An earlier I-864 that has not ended adds to their household size, so check it before you file.', from: 'Interview at another post' },
 
@@ -138,6 +148,7 @@
 
     // Medical, insurance & conditions
     { q: 'Do you have any medical conditions?', theme: 'medical', cats: 'all', from: 'Mia' },
+    { q: 'Does your health condition affect your ability to work?', theme: 'medical', cats: 'all', tip: 'Asked after a condition came up. Health is weighed for what it means for work and cost. Give a short, honest answer, and bring a doctor’s letter if the condition is well managed.', from: 'Public report, London' },
     { q: 'Do you have a plan for medication or treatment once you’re in the US?', theme: 'medical', cats: 'all', from: 'Mia' },
     { q: 'How will you get health insurance in the US?', theme: 'medical', cats: 'all', tip: 'Even a general plan (spouse’s employer, marketplace, etc.) is reassuring.', from: 'Mia' },
     { q: 'Are you on your petitioner’s insurance plan?', theme: 'medical', cats: 'all', tip: 'If not yet, say when you will be and what covers you until then.', from: 'Esther' },
