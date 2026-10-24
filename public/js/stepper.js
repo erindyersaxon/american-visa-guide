@@ -1,20 +1,19 @@
 /*
    Visa process stepper: renders the bar that js/nav.js mounts under the nav.
    The reader picks their step; it lives in localStorage['avg-step'].
-   Timeframe tags come from /api/data, cached per visit in
-   sessionStorage['avg-step-tags']. Logic lives in js/stepper-core.js.
+   Timeframe tags come from the shared community-stats loader (js/community-stats.js).
+   Logic lives in js/stepper-core.js.
    Spec: docs/superpowers/specs/2026-10-24-visa-process-stepper-design.md
  */
 (function () {
   'use strict';
 
   const STEP_KEY = 'avg-step';
-  const TAGS_KEY = 'avg-step-tags';
   const BADGE = { completed: 'Completed', 'in-progress': 'In progress', upcoming: 'Upcoming' };
 
   let root = null;
   let current = null;
-  let tags = null;
+  let stats = null;
 
   function readStep() {
     try { return window.AVGStepperCore.parseStoredStep(localStorage.getItem(STEP_KEY)); }
@@ -64,7 +63,7 @@
       badge.setAttribute('aria-hidden', 'true');
       meta.append(badge);
     }
-    const tagText = tags ? core.formatTag(tags[step.id]) || '' : '';
+    const tagText = stats ? core.formatTag(stats[step.statKey]) || '' : '';
     const tag = el('span', 'visa-stepper__tag', tagText);
     if (tagText) tag.title = tagText; // the tag can be cut short on narrow screens
     const pick = el('button', 'visa-stepper__choose', 'This is me');
@@ -138,19 +137,14 @@
   }
 
   function loadTags() {
-    const core = window.AVGStepperCore;
-    try { tags = core.parseCachedTags(sessionStorage.getItem(TAGS_KEY)); } catch (e) { tags = null; }
-    if (tags) return;
-    fetch('/api/data')
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (json) {
-        if (!json) return;
-        tags = core.pickTags(json);
-        try { sessionStorage.setItem(TAGS_KEY, JSON.stringify(tags)); } catch (e) { /* ignore */ }
-        if (root) render();
-      })
-      .catch(function () { /* no tags: the bar works without them */ });
+    if (!window.AVGStats) return; // no tags: the bar works without them
+    window.AVGStats.load().then(function (loaded) {
+      if (!loaded) return;
+      stats = loaded;
+      if (root) render();
+    });
   }
+
 
   function mount(nav) {
     const core = window.AVGStepperCore;

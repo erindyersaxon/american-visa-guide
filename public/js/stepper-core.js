@@ -14,8 +14,12 @@
     { id: 4, label: 'Visa approval & passport courier', short: 'Visa & courier', href: '/guide/after-interview', statKey: 'interview_to_passport_med' },
   ];
 
-  // Matches MIN_TREND_N in api/data.js: below this a median says too little.
-  const MIN_N = 5;
+  // Validation and wording of community medians live in js/community-stats.js.
+  function stats() {
+    return typeof module !== 'undefined' && module.exports
+      ? require('./community-stats.js')
+      : root.AVGStats;
+  }
 
   // Visa-process pages, as clean paths. /guide/* and /checklist-* match by prefix.
   const PAGES = [
@@ -38,37 +42,10 @@
     return stepId === current ? 'in-progress' : 'upcoming';
   }
 
-  function isStat(stat) {
-    return !!stat && typeof stat.median === 'number' && Number.isFinite(stat.median) &&
-      stat.median > 0 && typeof stat.n === 'number' && Number.isFinite(stat.n);
-  }
-
   function formatTag(stat) {
-    if (!isStat(stat) || stat.n < MIN_N) return null;
-    const when = stat.median >= 14
-      ? '~' + Math.round(stat.median / 7) + ' wks'
-      : '~' + stat.median + ' days';
-    return when + ' typical · ' + stat.n + ' members';
-  }
-
-  function pickTags(apiData) {
-    const avgs = (apiData && apiData.stage_avgs) || {};
-    const tags = {};
-    STEPS.forEach(function (s) {
-      const stat = avgs[s.statKey];
-      tags[s.id] = stat ? { median: stat.median, n: stat.n } : null;
-    });
-    return tags;
-  }
-
-  function parseCachedTags(raw) {
-    let obj;
-    try { obj = JSON.parse(raw); } catch (e) { return null; }
-    if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return null;
-    const ok = STEPS.every(function (s) {
-      return s.id in obj && (obj[s.id] === null || isStat(obj[s.id]));
-    });
-    return ok ? obj : null;
+    const S = stats();
+    if (!S.usable(stat)) return null;
+    return S.formatDuration(stat.median) + ' typical · ' + stat.n + ' members';
   }
 
   function isStepperPage(pathname) {
@@ -79,7 +56,7 @@
     return PAGES.indexOf(p) !== -1 || PREFIXES.some(function (pre) { return p.indexOf(pre) === 0; });
   }
 
-  const api = { STEPS, MIN_N, parseStoredStep, stepStatus, formatTag, pickTags, parseCachedTags, isStepperPage };
+  const api = { STEPS, parseStoredStep, stepStatus, formatTag, isStepperPage };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.AVGStepperCore = api;
 })(typeof window !== 'undefined' ? window : this);
