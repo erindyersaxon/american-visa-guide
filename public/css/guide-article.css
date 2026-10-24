@@ -143,6 +143,10 @@
 .stat-box__source {
   margin-top: 4px;
   font-size: 14px;
+  line-height: 1.4;
+  /* The live source line ("Median of N member timelines · how we count")
+     wraps to two lines on narrow boxes; reserve them so nothing shifts. */
+  min-height: 2.8em;
   color: var(--ga-muted);
 }
 
