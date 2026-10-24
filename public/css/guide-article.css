@@ -96,6 +96,7 @@
   border-radius: var(--ga-radius);
   font-size: 1em;
   color: var(--ga-text);
+  overflow-wrap: anywhere; /* bare URLs used as link text must not overflow on phones */
 }
 .guide-article .callout p { margin: 0; font-size: 1em; }
 .guide-article .callout p + p { margin-top: 8px; }
@@ -264,6 +265,7 @@
 .guide-article .article-prompt--large { gap: 16px; padding: 22px 24px; }
 .guide-article .prompt-icon { flex-shrink: 0; font-size: 36px; }
 .guide-article .prompt-title {
+  margin-bottom: 4px;
   font-family: var(--ga-font-ui);
   font-size: 1em;
   font-weight: 700;
@@ -271,6 +273,7 @@
 
 /* Email mock-ups (NVC and interview letter examples) */
 .guide-article .email-mock {
+  padding: 20px 24px;
   background: var(--ga-surface);
   border: 1px solid var(--ga-border);
   border-radius: var(--ga-radius);
@@ -278,10 +281,16 @@
   line-height: 1.7;
 }
 .guide-article .email-mock-head {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ga-border);
+}
+/* Header with a second column (date) beside the From/To/Subject block */
+.guide-article .email-mock-head--split {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-bottom: 1px solid var(--ga-border);
+  gap: 12px;
 }
 
 /* Tables: card wrapper scrolls sideways on narrow screens */
@@ -304,36 +313,43 @@
 .guide-article .article-table th:first-child { border-left: 3px solid var(--ga-text); }
 .guide-article .article-table .row-alt { background: var(--ga-info-bg); }
 .guide-article .table-note {
+  padding: 12px 14px;
   background: var(--ga-good-bg);
   border-top: 1px solid var(--ga-border);
 }
 
 /* Panels and grids */
 .guide-article .panel {
+  padding: 20px 24px;
   background: var(--ga-surface);
   border: 1px solid var(--ga-border);
   border-radius: var(--ga-radius);
 }
 .guide-article .panel-title {
+  margin-bottom: 10px;
   font-family: var(--ga-font-ui);
   font-size: 14px;
   font-weight: 700;
 }
 .guide-article .panel-subhead {
+  margin-bottom: 8px;
+  padding-bottom: 6px;
   font-size: 14px;
   font-weight: 600;
   border-bottom: 1px solid var(--ga-border);
 }
 .guide-article .card-grid {
   display: grid;
+  gap: 12px;
   grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
 }
 .guide-article .card-grid--wide {
   display: grid;
+  gap: 12px;
   grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
 }
 .guide-article .grid-2,
-.guide-article .grid-3 { display: grid; grid-template-columns: 1fr; }
+.guide-article .grid-3 { display: grid; grid-template-columns: 1fr; gap: 12px; }
 @media (min-width: 640px) {
   .guide-article .grid-2 { grid-template-columns: 1fr 1fr; }
   .guide-article .grid-3 { grid-template-columns: 1fr 1fr 1fr; }

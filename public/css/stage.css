@@ -1038,3 +1038,6 @@
   opacity: 0;
   transition: opacity 0.3s;
 }
+
+/* /guide hub: a shorter hero than the stage pages */
+.page-hero--compact { padding: 36px 0 28px; margin-bottom: 28px; }
