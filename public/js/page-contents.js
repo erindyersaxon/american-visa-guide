@@ -10,7 +10,7 @@
   const CSS = `
     .contents-fab { position:fixed; right:16px; bottom:16px; z-index:50; display:none;
       font:600 0.82rem/1 'Public Sans', system-ui, sans-serif; color:#fff; background:#1e293b;
-      border-radius:999px; padding:0.7rem 1rem; text-decoration:none; border:1px solid var(--color-border, #E2E8F0); box-shadow:var(--shadow-overlay, 0 1px 2px rgba(15,23,42,.08)); }
+      border-radius:var(--radius-md, 0.375rem); padding:0.7rem 1rem; text-decoration:none; border:1px solid var(--color-border, #E2E8F0); box-shadow:var(--shadow-overlay, 0 1px 2px rgba(15,23,42,.08)); }
     .contents-fab.is-on { display:inline-block; }
     .contents-fab:hover, .contents-fab:focus-visible { background:#0f172a; color:#fff; text-decoration:none; }
     .contents-fab:focus-visible { outline:3px solid #ffffff; outline-offset:2px; }

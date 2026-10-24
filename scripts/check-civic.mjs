@@ -43,7 +43,23 @@ export const MARK_RULES = [
   ["public/life.html", ".page-hero h1 span"],
   ["public/life.html", ".page-hero-h1 span"],
 ];
-export const ROUND_ALLOW = []; // selectors allowed to stay round (Task 5)
+export const ROUND_ALLOW = [
+  ".steps > li::before",
+  ".step__marker",
+  '.form-check-input[type="radio"]',
+  '.form-check-input[type="radio"]:checked::after',
+  ".nav-toggle-bar",
+  ".mobile-nav-toggle",
+  ".step-num",
+  ".status-dot",
+  ".step-number",
+  ".tooltip-trigger",
+  ".home-hero__eyebrow-dot",
+  ".stage-badge",
+  ".steps li::before",
+  ".tl li::after",
+  "--radius-full", // token definition itself; matched by property name
+]; // circles, lines and radios allowed to stay round
 
 const MAP_PATH = path.join(ROOT, "scripts", "civic-palette-map.json");
 const TOKEN_FILE = path.join(ROOT, "public", "css", "design-system.css");

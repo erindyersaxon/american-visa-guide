@@ -44,7 +44,7 @@
   position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 10000;
   max-width: 560px; margin: 0 auto;
   background: var(--color-surface, #ffffff); color: var(--color-text, #0f172a);
-  border: 1px solid var(--color-border-strong, #64748b); border-radius: 10px;
+  border: 1px solid var(--color-border-strong, #64748b); border-radius: var(--radius-md, 0.375rem);
   box-shadow: var(--shadow-overlay, 0 1px 2px rgba(15,23,42,.08));
   font-family: var(--font-body, 'Public Sans', system-ui, sans-serif);
   font-size: 0.9375rem; line-height: 1.5;

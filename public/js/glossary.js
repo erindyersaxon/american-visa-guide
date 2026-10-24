@@ -71,7 +71,7 @@
   ];
 
   const CSS = `
-    .glossary { margin:1.25rem 0 1.75rem; border:1px solid #e2e8f0; border-radius:10px; background:#ffffff; overflow:hidden; font-size:0.86rem; line-height:1.55; }
+    .glossary { margin:1.25rem 0 1.75rem; border:1px solid #e2e8f0; border-radius:var(--radius-md, 0.375rem); background:#ffffff; overflow:hidden; font-size:0.86rem; line-height:1.55; }
     .glossary summary { cursor:pointer; padding:0.8rem 1.1rem; font-weight:700; color:#1e293b; list-style:none; }
     .glossary summary::-webkit-details-marker { display:none; }
     .glossary summary::before { content:"\\25B8"; display:inline-block; margin-right:0.5rem; transition:transform .15s; }

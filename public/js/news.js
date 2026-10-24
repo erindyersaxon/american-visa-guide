@@ -57,7 +57,7 @@
 
   const CSS = `
     .news-filters { display:flex; flex-wrap:wrap; gap:0.5rem; margin:0 0 1.25rem; }
-    .news-filters button { font:inherit; font-size:15px; padding:0.35rem 0.85rem; border-radius:999px; border:1px solid #cbd5e1; background:#fff; color:#1e293b; cursor:pointer; }
+    .news-filters button { font:inherit; font-size:15px; padding:0.35rem 0.85rem; border-radius:var(--radius-md, 0.375rem); border:1px solid #cbd5e1; background:#fff; color:#1e293b; cursor:pointer; }
     .news-filters button[aria-pressed="true"] { background:#1e293b; border-color:#1e293b; color:#fff; }
     .news-list { list-style:none; margin:0; padding:0; }
     .news-item { padding:1rem 0; border-bottom:1px solid #e3ddd0; }
