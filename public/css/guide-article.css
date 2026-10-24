@@ -234,3 +234,106 @@
   .guide-article .article-prompt,
   .guide-article .article-cta { display: none; }
 }
+
+/* Small text utilities (14px is the site minimum) */
+.guide-article .text-small { font-size: 14px; }
+.guide-article .text-note { display: block; font-size: 14px; }
+.guide-article .text-center { text-align: center; }
+.guide-article .text-strong { font-weight: 600; }
+.guide-article .text-alert { color: var(--ga-alert); }
+.guide-article .heading-small { font-size: 1em; }
+
+/* Source links: "[USCIS: Immigrant Fee]" style citations */
+.guide-article .source-link {
+  font-size: 14px;
+  border-bottom: 1px dotted var(--ga-muted);
+  text-decoration: none;
+}
+
+/* Images and figures */
+.guide-article .article-img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--ga-border);
+  border-radius: var(--ga-radius);
+}
+.guide-article .figure-narrow { max-width: 320px; }
+
+/* Larger end-of-journey prompt on the hub */
+.guide-article .article-prompt--large { gap: 16px; padding: 22px 24px; }
+.guide-article .prompt-icon { flex-shrink: 0; font-size: 36px; }
+.guide-article .prompt-title {
+  font-family: var(--ga-font-ui);
+  font-size: 1em;
+  font-weight: 700;
+}
+
+/* Email mock-ups (NVC and interview letter examples) */
+.guide-article .email-mock {
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border);
+  border-radius: var(--ga-radius);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.guide-article .email-mock-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--ga-border);
+}
+
+/* Tables: card wrapper scrolls sideways on narrow screens */
+.guide-article .table-card {
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border);
+  border-radius: var(--ga-radius);
+  overflow-x: auto;
+}
+.guide-article .article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.guide-article .article-table th {
+  background: var(--ga-info-bg);
+  border-bottom: 2px solid var(--ga-border);
+  font-weight: 700;
+}
+.guide-article .article-table th:first-child { border-left: 3px solid var(--ga-text); }
+.guide-article .article-table .row-alt { background: var(--ga-info-bg); }
+.guide-article .table-note {
+  background: var(--ga-good-bg);
+  border-top: 1px solid var(--ga-border);
+}
+
+/* Panels and grids */
+.guide-article .panel {
+  background: var(--ga-surface);
+  border: 1px solid var(--ga-border);
+  border-radius: var(--ga-radius);
+}
+.guide-article .panel-title {
+  font-family: var(--ga-font-ui);
+  font-size: 14px;
+  font-weight: 700;
+}
+.guide-article .panel-subhead {
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--ga-border);
+}
+.guide-article .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+}
+.guide-article .card-grid--wide {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+}
+.guide-article .grid-2,
+.guide-article .grid-3 { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 640px) {
+  .guide-article .grid-2 { grid-template-columns: 1fr 1fr; }
+  .guide-article .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+}
