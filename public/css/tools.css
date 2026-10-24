@@ -78,3 +78,6 @@
 @media print {
   .btn-row { display: none !important; }
 }
+
+/* "(optional)" note inside a field label */
+.field label .optional { font-weight: 400; }

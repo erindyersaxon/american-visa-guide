@@ -558,3 +558,4 @@
 @media print {
   .no-print, .site-nav, .avg-footer, .page-live-notice, .pause-glossary { display: none !important; }
 }
+.guide-article .figure-centred { max-width: 540px; margin: 1.1rem auto 0.3rem; }
