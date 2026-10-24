@@ -342,17 +342,22 @@ code {
 }
 
 .btn-primary:hover {
-  background-color: var(--color-navy-dark);
-  border-color: var(--color-navy-dark);
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
   color: #FFFFFF;
   text-decoration: none;
-  border-color: var(--color-border-strong, #64748B);
 }
 
+/* 1px border plus 1px extra padding keeps the same height as the 2px .btn. */
 .btn-secondary {
   background: var(--color-surface);
   border: 1px solid var(--color-border-strong);
   color: var(--color-text);
+  padding: calc(var(--space-3) + 1px) calc(var(--space-6) + 1px);
+}
+
+.btn-secondary.btn-sm {
+  padding: calc(var(--space-2) + 1px) calc(var(--space-4) + 1px);
 }
 
 .btn-secondary:hover {
