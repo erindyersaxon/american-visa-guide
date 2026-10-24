@@ -51,6 +51,12 @@
     return ok ? obj : null;
   }
 
+  // What a stat box shows for `key`, or null to keep the author's fallback text.
+  function statBoxView(key, stats) {
+    if (STAT_KEYS.indexOf(key) === -1 || !stats || !usable(stats[key])) return null;
+    return { value: formatDuration(stats[key].median), n: stats[key].n };
+  }
+
   const CACHE_KEY = 'avg-stage-stats';
   let inflight = null;
 
@@ -86,7 +92,7 @@
   // Tests only: forget the shared in-flight promise.
   function _reset() { inflight = null; }
 
-  const api = { STAT_KEYS, MIN_N, isStat, usable, formatDuration, pickStats, parseCachedStats, load, _reset };
+  const api = { STAT_KEYS, MIN_N, isStat, usable, formatDuration, pickStats, parseCachedStats, statBoxView, load, _reset };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.AVGStats = api;
 })(typeof window !== 'undefined' ? window : this);

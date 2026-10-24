@@ -94,3 +94,15 @@ test('load resolves null on 503 and on network error', async () => {
   S._reset();
   assert.equal(await S.load({ fetch: async () => { throw new Error('offline'); }, storage: memStorage() }), null);
 });
+
+test('statBoxView usable stat', () => {
+  const stats = S.pickStats({ stage_avgs: { medical_to_interview_med: { median: 14, n: 187 } } });
+  assert.deepEqual(S.statBoxView('medical_to_interview_med', stats), { value: '~2 wks', n: 187 });
+});
+
+test('statBoxView unknown key, no data, small n', () => {
+  const stats = S.pickStats({ stage_avgs: { docs_to_dq_med: { median: 20, n: 4 } } });
+  assert.equal(S.statBoxView('medical_to_interviw_med', stats), null);
+  assert.equal(S.statBoxView('medical_to_interview_med', null), null);
+  assert.equal(S.statBoxView('docs_to_dq_med', stats), null);
+});
