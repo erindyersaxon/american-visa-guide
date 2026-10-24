@@ -365,7 +365,7 @@
   /* Sections */
   .section {
     margin-bottom: 56px;
-    scroll-margin-top: 72px;
+    scroll-margin-top: calc(var(--sticky-offset, 64px) + 8px);
   }
 
   .section-header {

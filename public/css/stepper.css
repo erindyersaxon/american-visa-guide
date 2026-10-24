@@ -1,0 +1,258 @@
+/*
+   Visa process stepper: sticky bar under the shared nav on visa-process pages.
+   Rendered by js/stepper.js. Pages load one of three token sets
+   (design-system.css, main.css or stage.css), so the --vs-* tokens below
+   resolve through each in turn; the hex values are last-resort fallbacks only.
+ */
+
+.visa-stepper {
+  --vs-ink:     var(--color-navy, var(--color-primary, var(--navy-mid, #2b3a42)));
+  --vs-bg:      var(--color-bg, var(--bg, #f4efe6));
+  --vs-text:    var(--color-text, var(--text-primary, #1e1c17));
+  --vs-muted:   var(--color-text-muted, var(--text-secondary, #6a6560));
+  --vs-border:  var(--color-border, #ddd6cb);
+  --vs-strong:  var(--color-border-strong, #a39c8e);
+  --vs-mark:    var(--color-mark, var(--color-gold, var(--color-accent, var(--accent, #3e7188))));
+  --vs-on-ink:  var(--color-text-inverse, var(--text-inverse, #ffffff));
+  --vs-radius:  var(--radius-sm, 0.25rem);
+  --vs-font:    var(--font-ui, 'Public Sans', system-ui, sans-serif);
+
+  position: sticky;
+  top: 64px;
+  z-index: 99;
+  background: var(--vs-bg);
+  border-bottom: 1px solid var(--vs-border);
+  color: var(--vs-text);
+  font-family: var(--vs-font);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.visa-stepper__inner {
+  box-sizing: border-box;
+  max-width: 1200px;
+  min-height: 56px;
+  margin: 0 auto;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.visa-stepper__prompt {
+  margin: 0;
+  color: var(--vs-muted);
+  white-space: nowrap;
+}
+
+.visa-stepper__toggle { display: none; }
+
+.visa-stepper__list {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.visa-stepper__step {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 8px;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.visa-stepper__step--in-progress { border-bottom-color: var(--vs-mark); }
+
+/* Connector between steps */
+.visa-stepper__step + .visa-stepper__step::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 14px;
+  width: 16px;
+  height: 1px;
+  background: var(--vs-border);
+}
+.visa-stepper__step--completed + .visa-stepper__step::before { background: var(--vs-ink); }
+
+.visa-stepper__dot {
+  position: relative;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--vs-strong);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+.visa-stepper__step--completed .visa-stepper__dot {
+  background: var(--vs-ink);
+  border-color: var(--vs-ink);
+  color: var(--vs-on-ink);
+}
+.visa-stepper__step--in-progress .visa-stepper__dot { border-color: var(--vs-ink); }
+
+.visa-stepper__head {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+}
+
+.visa-stepper__label {
+  color: var(--vs-text);
+  font-weight: 500;
+  text-decoration: none;
+}
+.visa-stepper__label:hover { text-decoration: underline; }
+.visa-stepper__step--in-progress .visa-stepper__label { font-weight: 700; }
+.visa-stepper__step--completed .visa-stepper__label,
+.visa-stepper__step--upcoming .visa-stepper__label { color: var(--vs-muted); }
+.visa-stepper__short { display: none; }
+
+.visa-stepper__badge {
+  padding: 0 6px;
+  border: 1px solid var(--vs-border);
+  border-radius: var(--vs-radius);
+  color: var(--vs-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.visa-stepper__step--in-progress .visa-stepper__badge {
+  border-color: var(--vs-ink);
+  color: var(--vs-ink);
+}
+
+.visa-stepper__meta {
+  grid-column: 2;
+  min-height: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.visa-stepper__tag {
+  color: var(--vs-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums lining-nums;
+  white-space: nowrap;
+}
+
+.visa-stepper__choose,
+.visa-stepper__change,
+.visa-stepper__toggle {
+  font: inherit;
+  color: var(--vs-ink);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.visa-stepper__choose,
+.visa-stepper__change {
+  font-size: 12px;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* Desktop: "This is me" shows on hover and focus, and always while unset */
+.visa-stepper__choose { opacity: 0; }
+.visa-stepper__step:hover .visa-stepper__choose,
+.visa-stepper__choose:focus-visible,
+.visa-stepper--unset .visa-stepper__choose { opacity: 1; }
+.visa-stepper__step--in-progress .visa-stepper__choose { display: none; }
+
+.visa-stepper a:focus-visible,
+.visa-stepper button:focus-visible {
+  outline: var(--focus-outline, 2px solid var(--vs-ink));
+  outline-offset: 2px;
+}
+
+.visa-stepper__live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .visa-stepper__step--in-progress .visa-stepper__dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid var(--vs-ink);
+    border-radius: 50%;
+    opacity: 0;
+    animation: visa-stepper-pulse 2.5s ease-out 3;
+  }
+}
+
+@keyframes visa-stepper-pulse {
+  0%   { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Tablet: short labels */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .visa-stepper__full { display: none; }
+  .visa-stepper__short { display: inline; }
+  .visa-stepper__prompt { display: none; }
+}
+
+/* Mobile: one collapsed row that opens into a vertical list */
+@media (max-width: 767px) {
+  .visa-stepper__inner {
+    min-height: 44px;
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .visa-stepper__toggle {
+    display: block;
+    min-height: 44px;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .visa-stepper__prompt,
+  .visa-stepper__list,
+  .visa-stepper__change { display: none; }
+
+  .visa-stepper.is-open { position: static; }
+  .visa-stepper.is-open .visa-stepper__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 8px;
+  }
+  .visa-stepper.is-open .visa-stepper__change {
+    display: block;
+    align-self: flex-start;
+    margin-bottom: 12px;
+  }
+  .visa-stepper__step { padding: 6px 0; }
+  .visa-stepper__step + .visa-stepper__step::before { display: none; }
+  .visa-stepper__choose { opacity: 1; }
+}
+
+@media print {
+  .visa-stepper { display: none !important; }
+}
