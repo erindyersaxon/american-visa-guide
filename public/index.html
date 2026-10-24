@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="/js/consent.js?v=20261023b" defer></script>
+<script src="/js/consent.js?v=20261024c" defer></script>
   <title>American Visa Guide | UK to US Family Visa</title>
   <meta name="description" content="A plain-language guide and community data tracker for people going through the US family immigrant visa process via the US Embassy London. Real wait times, step-by-step guidance, checklists, and more.">
   <link rel="canonical" href="https://www.americanvisaguide.com/">
@@ -16,13 +16,13 @@
   <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/css/main.css?v=20261022">
-  <link rel="stylesheet" href="/css/components.css?v=20261022">
-  <link rel="stylesheet" href="/css/nav.css?v=20261024">
-  <link rel="stylesheet" href="/css/stepper.css?v=20261024b">
+  <link rel="stylesheet" href="/css/main.css?v=20261024c">
+  <link rel="stylesheet" href="/css/components.css?v=20261024c">
+  <link rel="stylesheet" href="/css/nav.css?v=20261024c">
+  <link rel="stylesheet" href="/css/stepper.css?v=20261024c">
   <script src="/js/stepper-core.js?v=20261024" defer></script>
   <script src="/js/stepper.js?v=20261024b" defer></script>
-  <script src="/js/nav.js?v=20261024" defer></script>
+  <script src="/js/nav.js?v=20261024c" defer></script>
 
   <!-- Prefetch community data early so the "This Week in the Community" section can render -->
   <script>
@@ -78,7 +78,7 @@
     }
     .home-hero__title em {
       font-style: normal;
-      color: var(--color-accent);
+      color: var(--color-mark, #991B1B);
     }
     .home-hero__sub {
       font-size: var(--text-lg);
@@ -136,13 +136,10 @@
       padding: var(--space-6);
       text-decoration: none;
       color: inherit;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      transition: border-color 0.15s ease;
     }
     .nav-card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: var(--color-primary-border);
-      transform: translateY(-1px);
+      border-color: var(--color-border-strong, #64748B);
       text-decoration: none;
     }
     .nav-card:focus-visible {
@@ -279,7 +276,6 @@
       border-radius: var(--radius-md);
       padding: var(--space-4);
       text-align: center;
-      box-shadow: var(--shadow-sm);
     }
     .week-card__value {
       font-family: var(--font-body);
@@ -333,13 +329,13 @@
     .home-routes__label { font-weight: 700; font-size: 0.875rem; margin-bottom: 0.5rem; }
     .home-routes ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .home-routes a {
-      display: inline-block; padding: 0.55rem 0.9rem; border-radius: 999px;
-      background: #fdfaf3; border: 1px solid #ddd6cb; color: #2f5a6e;
+      display: inline-block; padding: 0.55rem 0.9rem; border-radius: var(--radius-md, 0.375rem);
+      background: #ffffff; border: 1px solid #e2e8f0; color: #1e293b;
       font-weight: 600; font-size: 0.88rem; text-decoration: none;
     }
-    .home-routes a:hover, .home-routes a:focus-visible { background: #2f5a6e; border-color: #2f5a6e; color: #fff; }
+    .home-routes a:hover, .home-routes a:focus-visible { background: #1e293b; border-color: #1e293b; color: #fff; }
   </style>
-<link rel="stylesheet" href="/css/readability.css?v=20261022">
+<link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
   <a href="#main-content" class="skip-to-main" style="position: absolute; top: -40px; left: 0; background: var(--color-primary); color: white; padding: 8px 16px; text-decoration: none; z-index: 100;">Skip to main content</a>
@@ -572,7 +568,7 @@
 
   <div id="footer-placeholder"></div>
 
-  <script src="/js/news.js?v=20261023b"></script>
+  <script src="/js/news.js?v=20261024c"></script>
   <script src="/js/env.js?v=20260626"></script>
   <script src="/js/main.js?v=20260626"></script>
 

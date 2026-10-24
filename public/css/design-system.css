@@ -1,7 +1,15 @@
 /*
    American Visa Guide, Design System
-   Charcoal-blue + Steel-blue colour scheme (warm cream backgrounds)
-   Fonts: Public Sans (body and UI) with Georgia for headings
+   Civic Editorial palette: slate on cool off-white, one sparing red mark.
+   Legacy token names are kept; the values changed. Real roles:
+     --color-navy*:         structural slate (text, dark bands)
+     --color-gold:          link and old accent, now slate
+     --color-primary:       slate; primary buttons and focus
+     --color-mark:          #991B1B, eyebrows and italic heading words only
+     --color-mark-on-dark:  #F87171, the same mark on dark bands
+     --color-error/destructive: #7F1D1D, error and destructive states
+   Fonts: Public Sans for headings, body and UI (readability.css sets
+   --font-display); Source Serif 4 only on the nav wordmark (nav.css)
  */
 
 /* Font Import */
@@ -10,51 +18,55 @@
 /* Design Tokens */
 :root {
   /* Structural palette: blue-charcoal (legacy --color-navy names kept) */
-  --color-navy:        #2b3a42;
-  --color-navy-dark:   #1e2b32;
-  --color-navy-light:  #3d5260;
-  --color-navy-xlight: #e8eef1;
+  --color-navy:        #0f172a;
+  --color-navy-dark:   #020617;
+  --color-navy-light:  #334155;
+  --color-navy-xlight: #f1f5f9;
 
-  /* Accent palette: steel blue (legacy --color-gold names kept) */
-  --color-gold:        #3e7188;   /* WCAG AA as text on white/cream */
-  --color-gold-light:  #c8dde6;   /* for use on dark navy backgrounds */
-  --color-gold-xlight: #edf4f8;
+  /* Red mark: sparing, never a button or link fill */
+  --color-mark:         #991B1B;
+  --color-mark-on-dark: #F87171;
+
+  /* Accent palette: slate (legacy --color-gold names kept) */
+  --color-gold:        #0f172a;   /* WCAG AA as text on white/cream */
+  --color-gold-light:  #cbd5e1;   /* for use on dark navy backgrounds */
+  --color-gold-xlight: #f1f5f9;
 
   /* Surfaces */
-  --color-surface:     #FDFAF3;
-  --color-surface-alt: #f7f2e9;
+  --color-surface:     #ffffff;
+  --color-surface-alt: #f1f5f9;
 
   /* Borders */
-  --color-border:        #ddd6cb;
-  --color-border-strong: #a39c8e;
+  --color-border:        #e2e8f0;
+  --color-border-strong: #64748b;
 
   /* Text */
-  --color-text:        #1e1c17;
-  --color-text-secondary: #56524a;
-  --color-text-muted:  #6a6560;
-  --color-text-on-dark: #F4EFE6;
+  --color-text:        #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted:  #475569;
+  --color-text-on-dark: #f8fafc;
   --color-text-inverse: #FFFFFF;
 
   /* Background (alias for worksheet pages) */
-  --color-bg:     #f4efe6;
-  --color-bg-alt: #ede8de;
+  --color-bg:     #f8fafc;
+  --color-bg-alt: #f1f5f9;
 
   /* Status */
-  --color-error:             #a83a3a;
-  --color-destructive:       #9b3434;
-  --color-destructive-subtle:  #f8ece7;
-  --color-destructive-border:  #dfa9a0;
+  --color-error:             #7f1d1d;
+  --color-destructive:       #7f1d1d;
+  --color-destructive-subtle:  #fef2f2;
+  --color-destructive-border:  #fecaca;
   --color-success:           #4a6b50;
-  --color-success-subtle:    #e9f0e6;
+  --color-success-subtle:    #eff5f0;
   --color-warning:           #875325;
-  --color-warning-subtle:    #f7efdc;
-  --color-warning-border:    #d9bb86;
-  --color-info:              #3e7188;
-  --color-info-subtle:       #edf4f8;
+  --color-warning-subtle:    #fbf5ec;
+  --color-warning-border:    #e5cfa8;
+  --color-info:              #0f172a;
+  --color-info-subtle:       #f1f5f9;
 
   /* Brand aliases for legacy pages */
   --color-primary:        var(--color-navy);
-  --color-primary-hover:  var(--color-navy-light);
+  --color-primary-hover:  #1E293B;
   --color-primary-border: var(--color-navy-light);
   --color-primary-subtle: var(--color-navy-xlight);
   --color-primary-text:   #FFFFFF;
@@ -136,13 +148,15 @@
   --radius-sm:   0.25rem;
   --radius-md:   0.375rem;
   --radius-lg:   0.5rem;
-  --radius-xl:   0.75rem;
+  --radius-xl: 0.375rem;
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.10);
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-overlay: 0 1px 2px rgba(15,23,42,.08);
 
   /* Motion */
   --transition-fast: 150ms ease;
@@ -152,7 +166,7 @@
 
   /* Focus */
   --focus-outline: 2px solid var(--color-gold);
-  --focus-ring:    0 0 0 3px rgba(90,143,166, 0.4);
+  --focus-ring:    0 0 0 3px rgba(71,85,105, 0.4);
 
   /* Z-index */
   --z-sticky:   100;
@@ -202,7 +216,7 @@ table {
 h1 span, h1 em, h2 em {
   font-style: italic;
   font-weight: var(--weight-medium);
-  color: var(--color-gold);
+  color: var(--color-mark, #991B1B);
 }
 
 h1 { font-size: var(--size-4xl); }
@@ -306,7 +320,7 @@ code {
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
   border: 2px solid transparent;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   font-family: var(--font-body);
   font-size: var(--size-base);
   font-weight: var(--weight-semibold);
@@ -329,18 +343,22 @@ code {
 }
 
 .btn-primary:hover {
-  background-color: var(--color-navy-dark);
-  border-color: var(--color-navy-dark);
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
   color: #FFFFFF;
   text-decoration: none;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
 }
 
+/* 1px border plus 1px extra padding keeps the same height as the 2px .btn. */
 .btn-secondary {
-  background-color: transparent;
-  color: var(--color-navy);
-  border-color: var(--color-navy);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  padding: calc(var(--space-3) + 1px) calc(var(--space-6) + 1px);
+}
+
+.btn-secondary.btn-sm {
+  padding: calc(var(--space-2) + 1px) calc(var(--space-4) + 1px);
 }
 
 .btn-secondary:hover {
@@ -372,7 +390,7 @@ code {
   display: inline-flex;
   align-items: center;
   padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: var(--size-xs);
   font-weight: var(--weight-semibold);
   line-height: 1.4;
@@ -397,7 +415,7 @@ code {
 .badge--info {
   background-color: var(--color-info-subtle);
   color: var(--color-info);
-  border-color: #a9cbd9;
+  border-color: #cbd5e1;
 }
 
 .badge--warning {
@@ -416,14 +434,14 @@ code {
 .stage-chip {
   display: inline-block;
   padding: 0.2em 0.6em;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: var(--size-xs);
   font-weight: var(--weight-semibold);
 }
 
 .stage-chip.badge-int      { background: var(--color-navy-xlight); color: var(--color-navy); }
-.stage-chip.badge-nvc      { background: #edf4f8; color: #3e7188; }
-.stage-chip.badge-preappt  { background: #f7efdc; color: #875325; }
+.stage-chip.badge-nvc      { background: #f1f5f9; color: #0f172a; }
+.stage-chip.badge-preappt  { background: #fbf5ec; color: #875325; }
 .stage-chip.badge-journey  { background: var(--color-success-subtle); color: var(--color-success); }
 
 /* Interview detail (guide page) */

@@ -1,20 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,600&text=AmericanVisGud%20&display=swap');
+
 /*
-   American Visa Guide: Shared site chrome (nav + footer)
+   American Visa Guide: Shared site chrome (nav, banner, footer)
    Single source of truth for the top nav and footer on every page.
    Markup is injected by /js/nav.js.
 
-   Colour/font values fall back to palette literals so the nav
-   renders identically on pages that don't load the token files
+   Everything here uses the --nav-* tokens below, never page tokens, so the
+   chrome renders identically on pages that don't load the token files
    (guide.html / life.html use their own embedded tokens).
  */
 
-/* Sitewide policy banner: sits above the nav, injected by /js/nav.js.
-   Palette literals mirror the fallbacks used throughout this file so the
-   banner renders on pages that do not load the token files. */
+:root {
+  --nav-bg: #0F172A;
+  --nav-raised: #1E293B;
+  --nav-line: #334155;
+  --nav-text: #CBD5E1;
+  --nav-text-muted: #94A3B8;
+  --nav-text-strong: #F8FAFC;
+  --nav-mark: #F87171;
+  --nav-control: #475569;
+}
+
+/* Sitewide policy banner: sits above the nav, injected by /js/nav.js. */
 
 .site-banner {
-  background-color: var(--color-navy, #2e4a7d);
-  color: #fdfaf3;
+  background-color: var(--nav-raised);
+  color: var(--nav-text-strong);
   font-family: var(--font-body, 'Public Sans', system-ui, -apple-system, sans-serif);
   font-size: 0.875rem;
   line-height: 1.5;
@@ -42,19 +53,23 @@
   margin: 0;
 }
 
-.site-banner a {
-  color: #fdfaf3;
+/* The doubled class lifts these link rules to (0,2,1) and (0,3,1) for hover,
+   above page rules such as `.i864-calculator a:hover` and readability.css
+   `main a:not([class]):hover` (0,2,2), so links stay legible on slate. */
+.site-banner.site-banner a {
+  color: var(--nav-text-strong);
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.site-banner a:hover {
+.site-banner.site-banner a:hover {
+  color: var(--nav-text-strong);
   text-decoration: none;
 }
 
-.site-banner a:focus-visible {
-  outline: 2px solid #fdfaf3;
+.site-banner.site-banner a:focus-visible {
+  outline: 2px solid var(--nav-text-strong);
   outline-offset: 2px;
 }
 
@@ -73,9 +88,8 @@
   top: 0;
   z-index: 100;
   height: 64px;
-  background-color: var(--color-surface, #fdfaf3);
-  border-bottom: 1px solid var(--color-border, #ddd6cb);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-raised);
 }
 
 .nav-container {
@@ -106,15 +120,16 @@
 }
 
 .nav-brand-text {
-  font-family: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
+  font-family: 'Source Serif 4', Georgia, 'Iowan Old Style', serif;
+  font-weight: 600;
   font-size: 1.125rem;
-  color: var(--color-text, #1e1c17);
+  color: var(--nav-text-strong);
   line-height: 1;
 }
 
 .nav-brand-text span {
   font-style: italic;
-  color: var(--color-accent, var(--color-gold, #3e7188));
+  color: var(--nav-mark);
 }
 
 .nav-menu {
@@ -127,6 +142,7 @@
 }
 
 .site-nav .nav-link {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -135,7 +151,7 @@
   font-family: var(--font-ui, 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-text-secondary, #56524a);
+  color: var(--nav-text);
   text-decoration: none;
   white-space: nowrap;
   transition: color 150ms ease, background-color 150ms ease;
@@ -150,8 +166,8 @@
 }
 
 .site-nav .nav-link:hover {
-  color: var(--color-text, #1e1c17);
-  background-color: var(--color-bg, #f4efe6);
+  color: var(--nav-text-strong);
+  background-color: var(--nav-raised);
 }
 
 .site-nav .nav-link:hover svg {
@@ -160,9 +176,21 @@
 
 .site-nav .nav-link[aria-current="page"],
 .site-nav .nav-link--active {
-  color: var(--color-primary, #2b3a42);
-  background-color: var(--color-primary-subtle, #e8eef1);
+  color: var(--nav-text-strong);
+  background-color: var(--nav-raised);
   font-weight: 600;
+}
+
+/* 2px active bar, drawn out of flow so it never shifts the layout */
+.site-nav .nav-link[aria-current="page"]::after,
+.site-nav .nav-link--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--nav-mark);
 }
 
 .site-nav .nav-link[aria-current="page"] svg,
@@ -171,19 +199,19 @@
 }
 
 .site-nav .nav-link--support {
-  color: var(--color-accent, var(--color-gold, #3e7188));
-  border: 1px solid var(--color-accent-border, #a9cbd9);
-  border-radius: 9999px;
+  color: var(--nav-text-strong);
+  border: 1px solid var(--nav-control);
+  border-radius: var(--radius-md, 0.375rem);
   padding-inline: 1rem;
 }
 
 .site-nav .nav-link--support:hover {
-  background-color: var(--color-accent-subtle, #edf4f8);
-  color: var(--color-accent-hover, #2f5a6e);
+  background-color: var(--nav-raised);
+  color: var(--nav-text-strong);
 }
 
 .site-nav .nav-link:focus-visible {
-  outline: 2px solid var(--color-primary, #2b3a42);
+  outline: 2px solid var(--nav-text-strong);
   outline-offset: 2px;
 }
 
@@ -197,8 +225,8 @@
   width: 40px;
   height: 40px;
   background: none;
-  border: 1px solid var(--color-border, #ddd6cb);
-  border-radius: 0.375rem;
+  border: 1px solid var(--nav-line);
+  border-radius: var(--radius-md, 0.375rem);
   cursor: pointer;
   padding: 0.5rem;
   flex-shrink: 0;
@@ -206,12 +234,12 @@
 }
 
 .nav-toggle:hover {
-  background-color: var(--color-bg, #f4efe6);
-  border-color: var(--color-border-strong, #a39c8e);
+  background-color: var(--nav-raised);
+  border-color: var(--nav-control);
 }
 
 .nav-toggle:focus-visible {
-  outline: 2px solid var(--color-primary, #2b3a42);
+  outline: 2px solid var(--nav-text-strong);
   outline-offset: 2px;
 }
 
@@ -219,7 +247,7 @@
   display: block;
   width: 18px;
   height: 2px;
-  background-color: var(--color-text-secondary, #56524a);
+  background-color: var(--nav-text);
   border-radius: 9999px;
   transition: transform 200ms ease, opacity 200ms ease;
 }
@@ -262,9 +290,9 @@
     align-items: stretch;
     gap: 0.25rem;
     padding: 0.75rem;
-    background-color: var(--color-surface, #fdfaf3);
-    border-bottom: 1px solid var(--color-border, #ddd6cb);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
+    background-color: var(--nav-bg);
+    border-top: 1px solid var(--nav-line);
+    box-shadow: var(--shadow-overlay, 0 1px 2px rgba(15,23,42,.08));
     transform: translateY(-8px);
     opacity: 0;
     pointer-events: none;
@@ -298,8 +326,8 @@
   left: 0.5rem;
   z-index: 400;
   padding: 0.5rem 1rem;
-  background-color: var(--color-primary, #2b3a42);
-  color: #ffffff;
+  background-color: var(--nav-text-strong);
+  color: var(--nav-bg);
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: 0.375rem;
@@ -310,17 +338,17 @@
 
 .skip-link:focus {
   transform: translateY(0);
-  outline: 2px solid #ffffff;
+  outline: 2px solid #991B1B;
   outline-offset: 2px;
 }
 
 /* Shared site footer
    Colours are solid (not rgba) and set on every text element, so page-level
-   `p`/`a` rules can't override them. Contrast on #1e2b32:
-   #f4efe6 ≈ 13:1, #d9d3c8 ≈ 10:1, #c8dde6 ≈ 10:1 — all pass WCAG AAA. */
+   `p`/`a` rules can't override them. Contrast on #0F172A: #F8FAFC about 17:1,
+   #CBD5E1 about 12:1, #94A3B8 about 7:1. */
 .avg-footer {
-  background-color: var(--color-navy-dark, #1e2b32);
-  color: #f4efe6;
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
   font-family: var(--font-body, 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
   font-size: 1rem;
   line-height: 1.6;
@@ -343,12 +371,12 @@
   line-height: 1.7;
   max-width: 65ch;
   margin: 0 0 2rem;
-  color: #f4efe6;
+  color: var(--nav-text);
 }
 
 .avg-footer__note p {
   margin: 0;
-  color: #f4efe6;
+  color: var(--nav-text);
 }
 
 .avg-footer__note .avg-footer__note-hd {
@@ -357,7 +385,7 @@
 }
 
 .avg-footer__note strong {
-  color: #f4efe6;
+  color: var(--nav-text-strong);
   font-weight: 700;
 }
 
@@ -366,19 +394,20 @@
   grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
   gap: 1.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(244, 239, 230, 0.25);
+  border-top: 1px solid var(--nav-raised);
 }
 
 .avg-footer__hd {
   font-family: var(--font-body, 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
   font-size: 1.125rem;
   font-weight: 700;
-  color: #f4efe6 !important;
+  color: var(--nav-text-strong) !important;
   margin: 0 0 0.5rem;
 }
 
-.avg-footer a {
-  color: #f4efe6;
+/* Doubled class: see the banner link rules above. */
+.avg-footer.avg-footer a {
+  color: var(--nav-text-strong);
   text-decoration: underline;
   text-underline-offset: 3px;
   /* The contact address is one 286px unbreakable token; without this it sets
@@ -386,12 +415,12 @@
   overflow-wrap: anywhere;
 }
 
-.avg-footer a:hover {
-  color: #c8dde6;
+.avg-footer.avg-footer a:hover {
+  color: var(--nav-mark);
 }
 
-.avg-footer a:focus-visible {
-  outline: 2px solid #c8dde6;
+.avg-footer.avg-footer a:focus-visible {
+  outline: 2px solid var(--nav-text-strong);
   outline-offset: 3px;
 }
 
@@ -404,18 +433,18 @@
   background: none;
   border: 0;
   font: inherit;
-  color: #f4efe6;
+  color: var(--nav-text-strong);
   text-decoration: underline;
   text-underline-offset: 3px;
   cursor: pointer;
 }
 
 .avg-footer__linkbtn:hover {
-  color: #c8dde6;
+  color: var(--nav-mark);
 }
 
 .avg-footer__linkbtn:focus-visible {
-  outline: 2px solid #c8dde6;
+  outline: 2px solid var(--nav-text-strong);
   outline-offset: 3px;
 }
 
@@ -425,23 +454,23 @@
   gap: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #f4efe6 !important;
-  border: 1px solid rgba(200, 221, 230, 0.7);
-  border-radius: 9999px;
+  color: var(--nav-text-strong) !important;
+  border: 1px solid var(--nav-control);
+  border-radius: var(--radius-md, 0.375rem);
   padding: 0.5rem 1rem;
   text-decoration: none !important;
 }
 
 .avg-footer__kofi:hover {
-  background: rgba(200, 221, 230, 0.12);
+  background: var(--nav-raised);
 }
 
 .avg-footer__copyright {
   font-size: 0.9375rem;
-  color: #d9d3c8 !important;
+  color: var(--nav-text-muted) !important;
   margin: 2rem 0 0;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(244, 239, 230, 0.25);
+  border-top: 1px solid var(--nav-raised);
 }
 
 /* Height of the sticky stack (nav, plus the visa stepper where js/stepper.js

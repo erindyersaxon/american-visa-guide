@@ -31,7 +31,7 @@
     <a href="/index.html" class="nav-brand" aria-label="American Visa Guide: home">
       <span class="nav-brand-mark" aria-hidden="true">
         <svg width="32" height="32" viewBox="0 0 24 24">
-          <rect width="24" height="24" rx="5" fill="#ece5d6"/>
+          <rect width="24" height="24" rx="5" fill="#f8fafc"/>
           <path d="M4 5 h5.5 L13.5 12 L9.5 19 H4 L8 12 Z" fill="#bf3b3b"/>
           <path d="M11 5 h5.5 L20.5 12 L16.5 19 H11 L15 12 Z" fill="#2e4a7d"/>
         </svg>

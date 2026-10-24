@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="/js/consent.js?v=20261023b" defer></script>
+<script src="/js/consent.js?v=20261024c" defer></script>
   <title>Data Tracker | American Visa Guide</title>
   <meta name="description" content="Real wait times and outcomes for US family immigrant visas through the US Embassy London. Community-sourced data from 200+ members: DQ to IL averages, interview scheduling, passport return times.">
   <link rel="canonical" href="https://www.americanvisaguide.com/data">
@@ -16,8 +16,8 @@
   <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
 
 
-  <link rel="stylesheet" href="/css/main.css?v=20261022">
-  <link rel="stylesheet" href="/css/components.css?v=20261022">
+  <link rel="stylesheet" href="/css/main.css?v=20261024c">
+  <link rel="stylesheet" href="/css/components.css?v=20261024c">
 
   <style>
     /* Accessibility: Skip link */
@@ -62,7 +62,7 @@
     .skel--mid    { width: 50%; }
     .skel--narrow { width: 30%; }
     .skel--val    { height: 2.25rem; width: 5.5rem; }
-    .skel--chip   { height: 1.5rem; width: 5rem; border-radius: var(--radius-full); }
+    .skel--chip   { height: 1.5rem; width: 5rem; border-radius: var(--radius-sm, 0.25rem); }
     .skel--row    { height: 2.25rem; width: 100%; }
 
     /* Status banner */
@@ -139,7 +139,6 @@
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       padding: var(--space-4) var(--space-5);
-      box-shadow: var(--shadow-sm);
     }
     .metric-card__label {
       font-size: var(--text-sm);
@@ -191,7 +190,6 @@
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
     }
     /* Two-row grid: the status badge shares a line with the stage name, so it
        never competes with the summary for width. A nowrap badge in the same
@@ -259,7 +257,6 @@
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
       padding: var(--space-5);
-      box-shadow: var(--shadow-sm);
     }
     .trend-card__period {
       font-size: var(--text-sm);
@@ -302,7 +299,6 @@
       border-radius: var(--radius-lg);
       padding: var(--space-5);
       text-align: center;
-      box-shadow: var(--shadow-sm);
     }
     .outcome-card__value {
       font-family: var(--font-body);
@@ -404,7 +400,7 @@
     .od-legend { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); padding: 0; margin: 0 0 var(--space-2); font-size: var(--text-xs); color: var(--color-text-secondary); }
     .od-legend li { display: flex; align-items: center; gap: 6px; margin: 0; }
     .od-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
-    .od-tip { position: absolute; z-index: 50; display: none; pointer-events: none; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); box-shadow: 0 4px 12px rgba(0,0,0,0.12); padding: 8px 10px; font-size: 14px; color: var(--color-text-secondary); max-width: 240px; }
+    .od-tip { position: absolute; z-index: 50; display: none; pointer-events: none; background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); box-shadow: var(--shadow-overlay, 0 1px 2px rgba(15,23,42,.08)); padding: 8px 10px; font-size: 14px; color: var(--color-text-secondary); max-width: 240px; }
     .od-tip__title { font-weight: 600; color: var(--color-text-muted); margin-bottom: 4px; }
     .od-tip__row { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
     .od-tip__row strong { color: var(--color-text); font-variant-numeric: tabular-nums; }
@@ -414,12 +410,12 @@
     /* Numeric table cells */
     .num { font-variant-numeric: tabular-nums; text-align: right; }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20261024">
-  <link rel="stylesheet" href="/css/stepper.css?v=20261024b">
+  <link rel="stylesheet" href="/css/nav.css?v=20261024c">
+  <link rel="stylesheet" href="/css/stepper.css?v=20261024c">
   <script src="/js/stepper-core.js?v=20261024" defer></script>
   <script src="/js/stepper.js?v=20261024b" defer></script>
-  <script src="/js/nav.js?v=20261024" defer></script>
-<link rel="stylesheet" href="/css/readability.css?v=20261022">
+  <script src="/js/nav.js?v=20261024c" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
   <!-- Skip to main content link -->
@@ -837,7 +833,7 @@
           <p class="section-hd__sub">Based on community data from 200+ cases at London Embassy. Select a date and we'll predict the next milestone using median timelines from real cases.</p>
         </div>
 
-        <div style="background: rgba(176, 74, 56, 0.08); border: 1px solid rgba(176, 74, 56, 0.25); border-radius: 8px; padding: var(--space-4); margin-bottom: var(--space-6); font-size: var(--text-sm); color: rgba(30, 28, 23, 0.75);">
+        <div style="background: rgba(127,29,29, 0.08); border: 1px solid rgba(127,29,29, 0.25); border-radius: 8px; padding: var(--space-4); margin-bottom: var(--space-6); font-size: var(--text-sm); color: rgba(15,23,42, 0.75);">
           <strong style="color: var(--color-text);">Predictions, not guarantees!</strong> These are estimates based on historical community timelines. Individual cases may vary. Use these for ballpark planning only.
         </div>
 
@@ -847,7 +843,7 @@
           <div aria-disabled="true" style="background: var(--color-bg-alt); border: 1px dashed var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); opacity: 0.6; filter: grayscale(1);">
             <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4);">
               <h3 style="font-family: var(--font-display); font-size: 16px; font-weight: 700; margin: 0;">DQ → Interview</h3>
-              <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border: 1px solid var(--color-border); border-radius: 999px; color: var(--color-text-secondary);">Out of order</span>
+              <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border: 1px solid var(--color-border); border-radius: var(--radius-sm, 0.25rem); color: var(--color-text-secondary);">Out of order</span>
             </div>
             <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4);">This calculator projected interview dates from historical Interview Letter drops. The embassy has stopped issuing ILs, so those patterns no longer predict anything. It returns once ILs resume and a new pattern emerges.</p>
 

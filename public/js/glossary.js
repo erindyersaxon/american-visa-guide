@@ -71,19 +71,19 @@
   ];
 
   const CSS = `
-    .glossary { margin:1.25rem 0 1.75rem; border:1px solid #ddd6cb; border-radius:10px; background:#fdfaf3; overflow:hidden; font-size:0.86rem; line-height:1.55; }
-    .glossary summary { cursor:pointer; padding:0.8rem 1.1rem; font-weight:700; color:#2f5a6e; list-style:none; }
+    .glossary { margin:1.25rem 0 1.75rem; border:1px solid #e2e8f0; border-radius:var(--radius-md, 0.375rem); background:#ffffff; overflow:hidden; font-size:0.86rem; line-height:1.55; }
+    .glossary summary { cursor:pointer; padding:0.8rem 1.1rem; font-weight:700; color:#1e293b; list-style:none; }
     .glossary summary::-webkit-details-marker { display:none; }
     .glossary summary::before { content:"\\25B8"; display:inline-block; margin-right:0.5rem; transition:transform .15s; }
     .glossary[open] summary::before { transform:rotate(90deg); }
-    .glossary__list { margin:0; padding:0; list-style:none; border-top:1px solid #e7e0d4; }
-    .glossary__row { display:grid; grid-template-columns:10rem 1fr; gap:0.25rem 1rem; padding:0.6rem 1.1rem; border-bottom:1px solid #e7e0d4; }
+    .glossary__list { margin:0; padding:0; list-style:none; border-top:1px solid #e2e8f0; }
+    .glossary__row { display:grid; grid-template-columns:10rem 1fr; gap:0.25rem 1rem; padding:0.6rem 1.1rem; border-bottom:1px solid #e2e8f0; }
     .glossary__row:last-child { border-bottom:none; }
-    .glossary__term { font-weight:700; color:#1e1c17; }
-    .glossary__full { display:block; font-weight:600; color:#6a6560; }
-    .glossary__body { margin:0; color:#1e1c17; }
-    .glossary a { color:#2f5a6e; font-weight:600; }
-    .glossary__more { padding:0.6rem 1.1rem; margin:0; border-top:1px solid #e7e0d4; }
+    .glossary__term { font-weight:700; color:#0f172a; }
+    .glossary__full { display:block; font-weight:600; color:#475569; }
+    .glossary__body { margin:0; color:#0f172a; }
+    .glossary a { color:#1e293b; font-weight:600; }
+    .glossary__more { padding:0.6rem 1.1rem; margin:0; border-top:1px solid #e2e8f0; }
     abbr.gl-abbr { text-decoration:underline dotted; text-underline-offset:2px; cursor:help; }
     @media (max-width:600px) { .glossary__row { grid-template-columns:1fr; } }
     @media print { .glossary summary::before { content:none; } }`;

@@ -6,13 +6,13 @@
  */
 
 .visa-stepper {
-  --vs-ink:     var(--color-navy, var(--color-primary, var(--navy-mid, #2b3a42)));
-  --vs-bg:      var(--color-bg, var(--bg, #f4efe6));
-  --vs-text:    var(--color-text, var(--text-primary, #1e1c17));
-  --vs-muted:   var(--color-text-muted, var(--text-secondary, #6a6560));
-  --vs-border:  var(--color-border, #ddd6cb);
-  --vs-strong:  var(--color-border-strong, #a39c8e);
-  --vs-mark:    var(--color-mark, var(--color-gold, var(--color-accent, var(--accent, #3e7188))));
+  --vs-ink:     var(--color-navy, var(--color-primary, var(--navy-mid, #0f172a)));
+  --vs-bg:      var(--color-bg, var(--bg, #f8fafc));
+  --vs-text:    var(--color-text, var(--text-primary, #0f172a));
+  --vs-muted:   var(--color-text-muted, var(--text-secondary, #475569));
+  --vs-border:  var(--color-border, #e2e8f0);
+  --vs-strong:  var(--color-border-strong, #64748b);
+  --vs-mark:    var(--color-mark, var(--color-gold, var(--color-accent, var(--accent, #0f172a))));
   --vs-on-ink:  var(--color-text-inverse, var(--text-inverse, #ffffff));
   --vs-radius:  var(--radius-sm, 0.25rem);
   --vs-font:    var(--font-ui, 'Public Sans', system-ui, sans-serif);
