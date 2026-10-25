@@ -10,358 +10,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
-      --font-ui: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --font-body: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-      --bg:          #f8fafc;
-      --surface:     #ffffff;
-      --surface-alt: #f1f5f9;
-      --surface-hov: #e2e8f0;
-      --ink:         #0f172a;
-      --muted:       #475569;
-
-      --accent:      #0f172a;   /* steel blue, AA on cream */
-      --accent-dark: #1e293b;
-      --accent-deco: #475569;
-
-      --line:        #e2e8f0;
-      --line-soft:   #e2e8f0;
-
-      --warn-bg:     #fbf5ec;
-      --warn-border: #e5cfa8;
-      --warn-edge:   #b07840;
-      --warn-ink:    #875325;
-
-      --danger:      #7f1d1d;
-      --danger-bg:   #fef2f2;
-      --danger-border:#fecaca;
-
-      --sage:        #3f6b5c;
-      --sage-bg:     #eff5f0;
-      --sage-border: #d2e2d6;
-
-      --code-bg:     #0f172a;
-      --code-text:   #e2e8f0;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 1rem;
-      line-height: 1.72;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Nav + footer styles live in /css/nav.css?v=20261024c (shared component) */
-
-    /* LAYOUT */
-    .page-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 2.25rem 1.5rem 5rem;
-    }
-
-
-    /* HERO */
-    .eyebrow {
-      font-family: var(--font-ui);
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--color-mark, #991B1B);
-      margin-bottom: 0.6rem;
-    }
-    h1 {
-      font-family: var(--font-display);
-      font-size: clamp(1.7rem, 4.4vw, 2.4rem);
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.15;
-      margin-bottom: 0.9rem;
-    }
-    h1 span, h1 em { color: var(--color-mark, #991B1B); font-style: italic; font-weight: 500; }
-    .lead {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 680px;
-      margin-bottom: 1.75rem;
-    }
-
-    /* DISCLAIMER */
-    .disclaimer {
-      background: var(--warn-bg);
-      border: 1px solid var(--warn-border);
-      border-left: 4px solid var(--warn-edge);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 2.25rem;
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--warn-ink);
-    }
-    .disclaimer strong { color: var(--warn-ink); font-family: var(--font-ui); }
-    .disclaimer a { color: var(--accent-dark); }
-
-    /* SECTION HEADINGS */
-    h2 {
-      font-family: var(--font-display);
-      font-size: 1.42rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin: 2.5rem 0 0.9rem;
-      padding-bottom: 0.45rem;
-      border-bottom: 1px solid var(--line);
-    }
-    h3 {
-      font-family: var(--font-ui);
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin: 1.6rem 0 0.5rem;
-    }
-
-    p { margin-bottom: 0.85rem; }
-    p:last-child { margin-bottom: 0; }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--accent-dark); text-decoration: underline; }
-
-    ul, ol { padding-left: 1.35rem; margin-bottom: 0.85rem; }
-    li { margin-bottom: 0.38rem; }
-    li:last-child { margin-bottom: 0; }
-    strong { color: var(--ink); font-weight: 600; }
-    em { font-style: italic; }
-
-    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-
-    /* ON THIS PAGE */
-    .toc {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md, 0.375rem);
-      padding: 1.1rem 1.35rem;
-      margin-bottom: 2.25rem;
-    }
-    .toc-title {
-      font-family: var(--font-ui);
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-    .toc ol { margin: 0; padding-left: 1.1rem; columns: 2; column-gap: 1.75rem; }
-    .toc li { font-size: 1rem; margin-bottom: 0.3rem; }
-    @media (max-width: 560px) { .toc ol { columns: 1; } }
-
-    /* FIGURE / IMAGES */
-    .sheet-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 1.1rem 0 0.6rem;
-    }
-    @media (max-width: 620px) { .sheet-grid { grid-template-columns: 1fr; } }
-    figure { margin: 0; }
-    figure img {
-      width: 100%;
-      height: auto;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      display: block;
-    }
-    figcaption {
-      font-size: 0.875rem;
-      color: var(--muted);
-      margin-top: 0.45rem;
-      text-align: center;
-    }
-
-    /* TABLE */
-    .table-wrap { overflow-x: auto; margin: 1.1rem 0 1.4rem; border-radius: 8px; border: 1px solid var(--line); }
-    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
-    thead tr { background: var(--code-bg); }
-    th {
-      text-align: left;
-      padding: 0.6rem 0.9rem;
-      font-family: var(--font-ui);
-      font-weight: 600;
-      color: #fff;
-      font-size: 0.875rem;
-      white-space: nowrap;
-    }
-    td {
-      padding: 0.58rem 0.9rem;
-      border-bottom: 1px solid var(--line-soft);
-      vertical-align: top;
-      color: var(--ink);
-    }
-    td:first-child { font-weight: 600; color: var(--accent-dark); }
-    tr:last-child td { border-bottom: none; }
-    tbody tr:nth-child(even) td { background: rgba(15,23,42,0.03); }
-
-    /* STAGE / MITIGATION CARDS */
-    .stage-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--accent);
-      border-radius: var(--radius-md, 0.375rem);
-      padding: 1.15rem 1.3rem 1.3rem;
-      margin-bottom: 1rem;
-    }
-    .stage-head {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.6rem;
-    }
-    .stage-pill {
-      font-family: var(--font-ui);
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: #fff;
-      background: var(--accent);
-      padding: 0.18rem 0.55rem;
-      border-radius: 5px;
-      white-space: nowrap;
-      letter-spacing: 0.04em;
-    }
-    .stage-title {
-      font-family: var(--font-ui);
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    /* CALLOUTS */
-    .callout {
-      border-radius: 7px;
-      padding: 0.8rem 1.05rem;
-      margin: 0.9rem 0;
-      font-size: 0.895rem;
-      line-height: 1.63;
-    }
-    .callout-warn {
-      background: var(--warn-bg);
-      border: 1px solid var(--warn-border);
-      border-left: 3px solid var(--warn-edge);
-      color: var(--warn-ink);
-    }
-    .callout-warn a { color: var(--accent-dark); }
-    .callout-info {
-      background: rgba(15,23,42,0.06);
-      border: 1px solid var(--line);
-      border-left: 3px solid var(--accent-deco);
-    }
-    .callout-alert {
-      background: var(--danger-bg);
-      border: 1px solid var(--danger-border);
-      border-left: 3px solid var(--danger);
-      color: #7f1d1d;
-    }
-    .callout-alert a { color: var(--accent-dark); }
-    .callout-good {
-      background: var(--sage-bg);
-      border: 1px solid var(--sage-border);
-      border-left: 3px solid var(--sage);
-    }
-    .callout-title {
-      display: block;
-      font-family: var(--font-ui);
-      font-weight: 700;
-      font-size: 0.875rem;
-      color: var(--ink);
-      margin-bottom: 0.3rem;
-    }
-
-    /* CHECKLIST */
-    .checklist { list-style: none; padding: 0; }
-    .checklist li {
-      padding: 0.28rem 0 0.28rem 1.55rem;
-      position: relative;
-      font-size: 1rem;
-    }
-    .checklist li::before {
-      content: "\2713";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* BACK TO GUIDE */
-    .guide-return {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background: var(--accent);
-      color: #fff;
-      font-family: var(--font-ui);
-      font-size: 0.875rem;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 7px;
-      margin-top: 0.5rem;
-    }
-    .guide-return:hover { background: var(--accent-dark); color: #fff; text-decoration: none; }
-
-    /* SOURCES */
-    .sources {
-      margin-top: 3rem;
-      padding-top: 1.4rem;
-      border-top: 1px solid var(--line);
-    }
-    .sources h2 { margin-top: 0; }
-    .sources ol {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.68;
-    }
-    .sources li { margin-bottom: 0.45rem; }
-    .sources a { color: var(--accent); }
-    .sources a:hover { color: var(--accent-dark); }
-    .sources > summary { cursor: pointer; }
-    .sources > summary h2 { display: inline-block; margin: 0; border-bottom: none; padding-bottom: 0; }
-    .sources > summary .sources-hint { font-size: 0.875rem; color: var(--muted); margin-left: 0.4rem; }
-    .sources[open] > summary .sources-hint { display: none; }
-    .sources > summary + * { margin-top: 0.8rem; }
-
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      .page-wrap { padding: 1.5rem 1rem 4rem; }
-    }
-    /* Keep anchored headings clear of the sticky site header. */
-  </style>
+  <link rel="stylesheet" href="/css/article-base.css?v=20261025c">
   <link rel="stylesheet" href="/css/nav.css?v=20261024c">
   <link rel="stylesheet" href="/css/stepper.css?v=20261025a">
   <script src="/js/community-stats.js?v=20261024d" defer></script>
   <script src="/js/stepper-core.js?v=20261024d" defer></script>
   <script src="/js/stepper.js?v=20261024d" defer></script>
   <script src="/js/nav.js?v=20261024c" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<main class="page-wrap" id="main-content">
+<main class="page-wrap guide-article" id="main-content">
 
   <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li aria-current="page">221(g)</li></ol></nav>
 
   <div data-live-notice="page"></div>
 
-  <p class="eyebrow">US Embassy London · Immigrant Visa Unit</p>
+  <header class="article-header">
+  <p class="article-eyebrow">US Embassy London · Immigrant Visa Unit</p>
 
   <h1>Section 221(g): <span>how to prevent it, and how to resolve it</span></h1>
 
-  <p class="lead">A 221(g) is a temporary refusal at the window: the officer needs something before deciding your case. At London it is most often a missing financial document, which you can supply before the interview. This page shows you the green refusal sheet and what to do at each stage to avoid one. If you already hold one, it tells you how to respond.</p>
+  <p class="article-lead">A 221(g) is a temporary refusal at the window: the officer needs something before deciding your case. At London it is most often a missing financial document, which you can supply before the interview. This page shows you the green refusal sheet and what to do at each stage to avoid one. If you already hold one, it tells you how to respond.</p>
+  </header>
 
   <div class="callout callout-good">
     <span class="callout-title">Already holding a green sheet, or called back?</span>
@@ -396,20 +71,20 @@
 
   <p>At London the officer hands you a green <strong>Consular Section: Immigrant Visa Unit</strong> sheet, with boxes ticked. The address to send documents to, <strong>LNDIVSubmissions@state.gov</strong>, is printed at the top. The ticked boxes are the whole of what you must clear. The sheet divides 221(g) into two types, and the type decides what happens next:</p>
 
-  <div class="stage-card">
-    <div class="stage-head">
-      <span class="stage-pill">Type 1</span>
-      <span class="stage-title">Additional administrative processing</span>
+  <div class="step-card">
+    <div class="step-card-head">
+      <span class="step-pill">Type 1</span>
+      <span class="step-card-title">Additional administrative processing</span>
     </div>
-    <p style="margin-bottom:0;">A mandatory background or eligibility review. The sheet says nobody can speed it up or waive it, and it has no set timeframe. You cannot check its status; the Embassy contacts you when it finishes. You often have nothing to submit, though some posts ask for your personal history and CV: see <a href="/administrative-processing">administrative processing</a>. It is the less common type, and you control less of it.</p>
+    <p>A mandatory background or eligibility review. The sheet says nobody can speed it up or waive it, and it has no set timeframe. You cannot check its status; the Embassy contacts you when it finishes. You often have nothing to submit, though some posts ask for your personal history and CV: see <a href="/administrative-processing">administrative processing</a>. It is the less common type, and you control less of it.</p>
   </div>
 
-  <div class="stage-card">
-    <div class="stage-head">
-      <span class="stage-pill">Type 2</span>
-      <span class="stage-title">Submission of additional evidence</span>
+  <div class="step-card">
+    <div class="step-card-head">
+      <span class="step-pill">Type 2</span>
+      <span class="step-card-title">Submission of additional evidence</span>
     </div>
-    <p style="margin-bottom:0;">The officer needs the ticked documents before processing can continue. This is the common London 221(g), it most often concerns money, and this page aims to help you avoid it. You control the outcome: send what is ticked, and the case moves again.</p>
+    <p>The officer needs the ticked documents before processing can continue. This is the common London 221(g), it most often concerns money, and this page aims to help you avoid it. You control the outcome: send what is ticked, and the case moves again.</p>
   </div>
 
   <div class="callout callout-good">
@@ -433,7 +108,7 @@
     </figure>
   </div>
 
-  <p style="font-size:0.875rem;color:var(--muted);">Real green sheet issued at US Embassy London, July 2026, with personal details removed.</p>
+  <p class="text-small text-muted">Real green sheet issued at US Embassy London, July 2026, with personal details removed.</p>
 
   <p><strong>Know what each box asks for.</strong> The <a href="/221g-sheet">green sheet triage</a> lists every box that can appear on the sheet and what it requires. Tick the boxes on your sheet and it builds your to-do list. Read it before interview day too: each box is a document you can have ready in advance.</p>
 
@@ -442,12 +117,12 @@
 
   <p>Some posts now add a <strong>public charge</strong> heading to the 221(g) form, with its own document list. Below is the version Consulate General Lagos issued in 2026. We have no confirmation that London uses the same wording. We show it because the list names the documents an officer weighs for public charge at any post, so it doubles as a preparation checklist. This 221(g) holds the case open for documents. It is a different refusal from <a href="#confusions">212(a)(4)</a>, where the officer finds you likely to become a public charge.</p>
 
-  <figure style="max-width:540px;margin:1.1rem auto 0.3rem;">
+  <figure class="figure-centred">
     <img src="/images/221g-public-charge-lagos-2026.jpg?v=20260918" alt="Photograph of a 221(g) public charge checklist headed &quot;4A PUBLIC CHARGE&quot; from the Consulate General of the United States, Walter Carrington Crescent, Victoria Island, Lagos. Below a preamble about overcoming public charge concerns, a list of requestable documents runs down the page with a blank line beside each. Five are ticked: description of work history, education history, beneficiary work plans in the US, evidence of the beneficiary's savings, investment and retirement accounts, and a price quote for health insurance coverage for the applicant's age and gender in the state where they will reside. Unticked entries include tax transcripts, pay stubs, W-2, other petitioner income, petitioner health insurance, petitioner assets, petitioner housing, how the joint sponsor is related to the petitioner, and a new joint sponsor I-864. Instructions at the foot direct the applicant to upload to ceac.state.gov and email lagosiv@state.gov." loading="lazy">
     <figcaption>The public charge checklist as issued, with five items ticked. Each unticked line is a document the post <em>can</em> ask for.</figcaption>
   </figure>
 
-  <p style="font-size:0.875rem;color:var(--muted);">Community-supplied copy of a checklist issued at Consulate General Lagos, 2026. It carries no case number or applicant name.</p>
+  <p class="text-small text-muted">Community-supplied copy of a checklist issued at Consulate General Lagos, 2026. It carries no case number or applicant name.</p>
 
   <p><strong>Have all of it before the interview.</strong> A case that arrives with the whole list leaves the officer nothing to request. The <a href="/public-charge#deliverables">evidence pack on the public charge page</a> covers every line, labelled file by file, to upload to CEAC and email with your statement. If you get one, send everything at once, by the route the post's follow-up email gives: see <a href="#resolve">if you already have a 221(g)</a>.</p>
 
@@ -486,38 +161,38 @@
 
   <p>Most 221(g)s trace back to a gap you could have seen earlier. Close these at each stage, and the officer has nothing left to request at the window.</p>
 
-  <div class="stage-card">
-    <div class="stage-head">
-      <span class="stage-pill">Stage 1 &middot; I-130</span>
-      <span class="stage-title">Plan; nothing to submit yet</span>
+  <div class="step-card">
+    <div class="step-card-head">
+      <span class="step-pill">Stage 1 &middot; I-130</span>
+      <span class="step-card-title">Plan; nothing to submit yet</span>
     </div>
-    <ul style="margin-bottom:0;">
+    <ul>
       <li><strong>If the US citizen petitioner lives overseas,</strong> plan how they will show a US domicile, up to moving back, job hunting and relocation. It needs to be in place by the time the petition reaches NVC. Read <a href="/domicile">petitioner domicile</a> now: a joint sponsor cannot cover it, and a petitioner abroad for years has the most ground to make up.</li>
       <li><strong>Ask whether you may need a joint sponsor.</strong> You may if the petitioner's income is low, they are a student, they earn no W-2 or self-employment income, or they live overseas with you.</li>
     </ul>
   </div>
 
-  <div class="stage-card">
-    <div class="stage-head">
-      <span class="stage-pill">Stage 2 &middot; NVC</span>
-      <span class="stage-title">Meet London's bar, not the DQ minimum</span>
+  <div class="step-card">
+    <div class="step-card-head">
+      <span class="step-pill">Stage 2 &middot; NVC</span>
+      <span class="step-card-title">Meet London's bar, not the DQ minimum</span>
     </div>
-    <ul style="margin-bottom:0;">
+    <ul>
       <li><strong>Upload the IRS tax transcript</strong> for each sponsor and joint sponsor, from <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">irs.gov/individuals/get-transcript</a>, even if NVC granted DQ on a 1040 copy. No other step prevents more 221(g)s.</li>
       <li>If the transcript is not ready, upload the complete signed 1040, W-2s, pay stubs and the IRS e-file acceptance. Add a CEAC note that the transcript will follow before the interview.</li>
       <li>If income is marginal, provide a full joint sponsor package: their own I-864, transcript, proof of US status and proof of US domicile.</li>
       <li>Ask each sponsor and I-864A household member to check for a credit freeze before signing, and to lift it when asked. The 08/24/26 edition authorizes a credit check on each of them.</li>
       <li>Upload <a href="/domicile#evidence">domicile evidence</a> for the petitioner even if NVC does not ask for it, and do not rely on a lease. Use US tax filings showing income earned in the US, a W-2 or US job offer with a start date, utility bills, a state ID. If the petitioner lives abroad, add evidence that they are re-establishing domicile.</li>
     </ul>
-    <p style="margin:0.6rem 0 0;color:var(--muted);">More in the <a href="/guide/nvc">NVC stage of the guide</a> and the <a href="/checklist-nvc.html">NVC checklist</a>.</p>
+    <p class="text-muted">More in the <a href="/guide/nvc">NVC stage of the guide</a> and the <a href="/checklist-nvc.html">NVC checklist</a>.</p>
   </div>
 
-  <div class="stage-card">
-    <div class="stage-head">
-      <span class="stage-pill">Stage 3 &middot; Waiting for your interview letter</span>
-      <span class="stage-title">Refresh everything before interview day</span>
+  <div class="step-card">
+    <div class="step-card-head">
+      <span class="step-pill">Stage 3 &middot; Waiting for your interview letter</span>
+      <span class="step-card-title">Refresh everything before interview day</span>
     </div>
-    <ul style="margin-bottom:0;">
+    <ul>
       <li>If a tax-filing deadline has passed since DQ, upload the newest year's transcript to CEAC so the officer sees current figures.</li>
       <li>Check that your passport is valid for at least six months beyond your intended entry date, and renew it now if not.</li>
       <li>Get your ACRO police certificate (the Embassy accepts it for 12 months) and make sure you can reach your civil document originals.</li>
@@ -525,24 +200,24 @@
     </ul>
   </div>
 
-  <div class="stage-card">
-    <div class="stage-head">
-      <span class="stage-pill">Stage 5 &middot; Medical &amp; document check</span>
-      <span class="stage-title">Do not count on document check to catch your gaps</span>
+  <div class="step-card">
+    <div class="step-card-head">
+      <span class="step-pill">Stage 5 &middot; Medical &amp; document check</span>
+      <span class="step-card-title">Do not count on document check to catch your gaps</span>
     </div>
     <p>Embassy staff check your documents on the day of your medical, about two weeks before the interview. They sometimes flag a missing document, but they miss things.</p>
-    <ul style="margin-bottom:0;">
+    <ul>
       <li>Members have passed the document check with real gaps nobody flagged, such as a missing IRS transcript, missing domicile evidence or a joint sponsor they needed. They then got a 221(g) for the same item at the interview. Had staff flagged them at document check, the couple could have fixed each gap in the two weeks before the interview.</li>
       <li>Treat document check as a backstop. Run your own check against the boxes on the green sheet, and arrive interview-ready whether or not staff flag anything.</li>
     </ul>
   </div>
 
-  <div class="stage-card">
-    <div class="stage-head">
-      <span class="stage-pill">Stage 6 &middot; Interview day</span>
-      <span class="stage-title">Everything already in CEAC</span>
+  <div class="step-card">
+    <div class="step-card-head">
+      <span class="step-pill">Stage 6 &middot; Interview day</span>
+      <span class="step-card-title">Everything already in CEAC</span>
     </div>
-    <ul style="margin-bottom:0;">
+    <ul>
       <li><strong>Get each financial document into CEAC before interview day.</strong> No rule bars evidence at the window. Officers decide from what is in CEAC, though. A document you produce for the first time in the room can draw a 221(g) asking you to send it the proper way. Bring originals, but do not rely on handing them over.</li>
       <li>One exception: a paper copy of something you <em>already uploaded</em> to CEAC can rescue a case when staff cannot see the upload. This has saved cases at document check.</li>
       <li>Make your answers match your DS-260 and CEAC. Officers probe inconsistencies.</li>
@@ -565,7 +240,7 @@
   <div class="callout callout-alert">
     <span class="callout-title">Do not fall back on CEAC, and post only what the email asks for</span>
     <p>Unless the email tells you to use CEAC, do not upload your response there. Members who uploaded 221(g) evidence to CEAC after a London interview, without being told to, report the documents sitting at <em>Submitted</em> for weeks with the case stalled.</p>
-    <p style="margin-bottom:0;">Do not generate a courier QR code in <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a> unless the email asks for physical documents. One applicant believes that doing so unprompted led the post to require everything by post.</p>
+    <p>Do not generate a courier QR code in <a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a> unless the email asks for physical documents. One applicant believes that doing so unprompted led the post to require everything by post.</p>
   </div>
 
   <h3>What happens next</h3>
@@ -576,7 +251,7 @@
 
   <div class="callout callout-good">
     <span class="callout-title">One London 221(g), start to finish (2025)</span>
-    <ul style="margin:0 0 0.6rem 1.2rem;">
+    <ul>
       <li><strong>14 November:</strong> interview, 221(g)</li>
       <li><strong>17 November:</strong> follow-up email with submission instructions</li>
       <li><strong>18 November:</strong> documents uploaded through the link in the email; a request for the passport arrives the same day</li>
@@ -586,7 +261,7 @@
       <li><strong>17 December:</strong> passport delivered</li>
       <li><strong>18 December:</strong> flight to the US</li>
     </ul>
-    <p style="margin-bottom:0;">About three and a half weeks from documents to visa, and five from interview to arrival. One case, not a promise.</p>
+    <p>About three and a half weeks from documents to visa, and five from interview to arrival. One case, not a promise.</p>
   </div>
 
   <p><strong>If administrative processing is ticked</strong> instead of a document list, you often have nothing to submit. No one can expedite or waive it, and it has no published timeframe; the Embassy contacts you when it finishes. Add <strong>LNDIVSubmissions@state.gov</strong> and the courier's senders to your safe-senders list. If the post asks for your personal history and CV, see <a href="/administrative-processing">administrative processing</a>.</p>
@@ -617,8 +292,8 @@
 
   <p>The State Department calls every outcome other than an issued visa a <strong>refusal</strong>, including a 221(g). What matters is the section of law the officer names, because it decides what you do next. Read the section on your sheet, then find it below. This page uses &ldquo;visa refused&rdquo; for a refusal that new documents cannot fix.</p>
 
-  <div class="table-wrap">
-    <table>
+  <div class="table-card">
+    <table class="article-table">
       <thead>
         <tr><th>What</th><th>What it means</th><th>What you do</th></tr>
       </thead>
@@ -654,9 +329,9 @@
 
   <div data-pause-glossary></div>
 
-  <div style="margin-top:2rem;">
+  <div class="article-return">
     <a href="/guide/interview" class="guide-return">&larr; Back to the interview stage of the guide</a>
-    <a href="/interview" class="guide-return" style="margin-left:0.4rem;">Your interview hub</a>
+    <a href="/interview" class="guide-return">Your interview hub</a>
   </div>
 
   <!-- SOURCES -->
@@ -680,7 +355,7 @@
     </ol>
   </details>
 
-  <p style="margin-top:1.75rem;font-size:0.875rem;color:var(--muted);">Reviewed 22 October 2026, when we split refusals into 221(g), 212(a)(4), administrative processing and visa refused. On 16 October 2026 we moved the petitioner domicile section to <a href="/domicile">its own page</a> and the box-by-box table to the <a href="/221g-sheet">green sheet triage</a>. On 1 October 2026 we moved the history request and technology check sections to <a href="/administrative-processing">their own page</a>.</p>
+  <p class="text-small text-muted article-reviewed">Reviewed 22 October 2026, when we split refusals into 221(g), 212(a)(4), administrative processing and visa refused. On 16 October 2026 we moved the petitioner domicile section to <a href="/domicile">its own page</a> and the box-by-box table to the <a href="/221g-sheet">green sheet triage</a>. On 1 October 2026 we moved the history request and technology check sections to <a href="/administrative-processing">their own page</a>.</p>
 
 </main>
 

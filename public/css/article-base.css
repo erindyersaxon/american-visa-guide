@@ -1,0 +1,153 @@
+/* American Visa Guide: page base for the standalone article and tool pages
+   (reset, body, page layout and plain element typography). Moved verbatim from
+   article.css so the cascade with readability.css is unchanged. Components live
+   in guide-article.css; tool forms in tools.css.
+   Spec: docs/superpowers/specs/2026-10-25-article-pages-migration-design.md */
+
+:root {
+  --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
+  --font-ui: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --bg:          #f8fafc;
+  --surface:     #ffffff;
+  --surface-alt: #f1f5f9;
+  --surface-hov: #e2e8f0;
+  --ink:         #0f172a;
+  --muted:       #475569;
+
+  --accent:      #0f172a;   /* steel blue, AA on cream */
+  --accent-dark: #1e293b;
+  --accent-deco: #475569;
+
+  --line:        #e2e8f0;
+  --line-soft:   #e2e8f0;
+
+  --warn-bg:     #fbf5ec;
+  --warn-border: #e5cfa8;
+  --warn-edge:   #b07840;
+  --warn-ink:    #875325;
+
+  --danger:      #7f1d1d;
+  --danger-bg:   #fef2f2;
+  --danger-border:#fecaca;
+
+  --sage:        #3f6b5c;
+  --sage-bg:     #eff5f0;
+  --sage-border: #d2e2d6;
+
+  --code-bg:     #0f172a;
+  --code-text:   #e2e8f0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* LAYOUT */
+.page-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.25rem 1.5rem 5rem;
+}
+
+
+/* HERO */
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4.4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 0.9rem;
+}
+h1 span, h1 em { color: var(--color-mark, #991B1B); font-style: italic; font-weight: 500; }
+
+/* SECTION HEADINGS */
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.42rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2.5rem 0 0.9rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line);
+}
+h3 {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 1.6rem 0 0.5rem;
+}
+
+p { margin-bottom: 0.85rem; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+ul, ol { padding-left: 1.35rem; margin-bottom: 0.85rem; }
+li { margin-bottom: 0.38rem; }
+li:last-child { margin-bottom: 0; }
+strong { color: var(--ink); font-weight: 600; }
+em { font-style: italic; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* FIGURES */
+figure { margin: 0; }
+figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: block;
+}
+figcaption {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 0.45rem;
+  text-align: center;
+}
+
+/* TABLE */
+table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+thead tr { background: var(--code-bg); }
+th {
+  text-align: left;
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+td {
+  padding: 0.58rem 0.9rem;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+  color: var(--ink);
+}
+td:first-child { font-weight: 600; color: var(--accent-dark); }
+tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) td { background: rgba(15,23,42,0.03); }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .page-wrap { padding: 1.5rem 1rem 4rem; }
+}
+
+@media print {
+  body { background: #fff; }
+  .page-wrap { padding: 0; max-width: none; }
+}

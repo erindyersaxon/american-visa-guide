@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/article.css?v=20261024c">
+  <link rel="stylesheet" href="/css/article-base.css?v=20261025c">
+  <link rel="stylesheet" href="/css/tools.css?v=20261025c">
   <link rel="stylesheet" href="/css/nav.css?v=20261024c">
   <link rel="stylesheet" href="/css/stepper.css?v=20261025a">
   <script src="/js/community-stats.js?v=20261024d" defer></script>
@@ -32,37 +33,41 @@
       body { font-size: 10.5pt; line-height: 1.4; }
       .sheet { border: none; padding: 0; }
       .sheet h2 { margin-top: 0.6rem; }
-      .intro, .avg-crumbs, .eyebrow, .lead, .return { display: none !important; }
+      .intro, .avg-crumbs, .article-eyebrow, .article-lead, .return { display: none !important; }
       h1 { font-size: 16pt; margin-bottom: 0.3rem; }
     }
+      .btn-row.intro { margin-bottom: 1.25rem; }
   </style>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<main class="page-wrap" id="main">
+<main class="page-wrap guide-article" id="main">
 
   <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li aria-current="page">Interview-day sheet</li></ol></nav>
 
-  <p class="eyebrow">Printable &middot; US Embassy London</p>
+  <header class="article-header">
+  <p class="article-eyebrow">Printable &middot; US Embassy London</p>
   <h1>Interview-day sheet</h1>
-  <p class="lead intro">One page to print and put on top of your binder. Everything on it comes from <a href="/guide/interview">Stage 6</a> and the <a href="/checklist-interview">interview checklist</a>, where the reasons are explained.</p>
+  </header>
+  <p class="article-lead intro">One page to print and put on top of your binder. Everything on it comes from <a href="/guide/interview">Stage 6</a> and the <a href="/checklist-interview">interview checklist</a>, where the reasons are explained.</p>
 
-  <div class="btn-row intro no-print" style="margin-bottom:1.25rem;">
+  <div class="btn-row intro no-print">
     <button type="button" class="btn" onclick="window.print()">Print this sheet</button>
   </div>
 
   <div class="sheet">
-    <p style="font-size:0.9rem;">Case number: <span class="fill">&nbsp;</span> &nbsp; Interview: <span class="fill">&nbsp;</span> at <span class="fill" style="min-width:4rem;">&nbsp;</span></p>
+    <p class="text-small">Case number: <span class="fill">&nbsp;</span> &nbsp; Interview: <span class="fill">&nbsp;</span> at <span class="fill" style="min-width:4rem;">&nbsp;</span></p>
 
     <div class="cols">
       <div>
         <h2>Where</h2>
-        <p style="font-size:0.875rem;"><strong>South Pavilion, off Ponton Road</strong>: not the main Nine Elms Lane entrance.<br>US Embassy, 33 Nine Elms Lane, London SW11 7US.<br>Stations: Vauxhall or Nine Elms.<br>Arrive 30 to 45 minutes early. No laptops or large bags.</p>
-        <p style="font-size:0.875rem;">At the entrance, go to the front and say: <strong>&ldquo;I am here for an immigrant visa interview.&rdquo;</strong> If staff send you to the queue, join it straight away.</p>
-        <p style="font-size:0.875rem;">Embassy visa inquiries: +44 20 3608 6998</p>
+        <p class="text-small"><strong>South Pavilion, off Ponton Road</strong>: not the main Nine Elms Lane entrance.<br>US Embassy, 33 Nine Elms Lane, London SW11 7US.<br>Stations: Vauxhall or Nine Elms.<br>Arrive 30 to 45 minutes early. No laptops or large bags.</p>
+        <p class="text-small">At the entrance, go to the front and say: <strong>&ldquo;I am here for an immigrant visa interview.&rdquo;</strong> If staff send you to the queue, join it straight away.</p>
+        <p class="text-small">Embassy visa inquiries: +44 20 3608 6998</p>
 
         <h2>The night before</h2>
         <ul class="checklist">
@@ -107,10 +112,10 @@
       <li>Passport kept and told they intend to approve: good news. Courier return is typically 2 to 3 working days for pick-up, 5 to 7 for delivery</li>
       <li>Handed a green 221(g) sheet: read only the ticked boxes, note the date on it, and wait for the follow-up email</li>
     </ul>
-    <p style="font-size:0.875rem;color:var(--muted);margin-top:0.8rem;">americanvisaguide.com/interview &middot; Reviewed 30 September 2026 &middot; Not legal advice</p>
+    <p class="text-small text-muted">americanvisaguide.com/interview &middot; Reviewed 30 September 2026 &middot; Not legal advice</p>
   </div>
 
-  <div class="return" style="margin-top:2rem;">
+  <div class="return article-return">
     <a href="/interview" class="guide-return">&larr; Back to your interview hub</a>
   </div>
 

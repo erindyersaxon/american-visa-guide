@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/article.css?v=20261024c">
+  <link rel="stylesheet" href="/css/article-base.css?v=20261025c">
+  <link rel="stylesheet" href="/css/tools.css?v=20261025c">
   <link rel="stylesheet" href="/css/nav.css?v=20261024c">
   <link rel="stylesheet" href="/css/stepper.css?v=20261025a">
   <script src="/js/community-stats.js?v=20261024d" defer></script>
@@ -33,19 +34,22 @@
     .pc-gaps.is-done { color: var(--accent-dark); }
     @media print { .pc-bar { display: none; } }
   </style>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<main class="page-wrap" id="main">
+<main class="page-wrap guide-article" id="main">
 
   <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li><a href="/public-charge">Public charge</a></li><li aria-current="page">Statement builder</li></ol></nav>
 
-  <p class="eyebrow">Tool &middot; Public charge</p>
+  <header class="article-header">
+  <p class="article-eyebrow">Tool &middot; Public charge</p>
   <h1>Public charge <span>statement builder</span></h1>
-  <p class="lead">Fill in the form and the builder writes your statement in the order the officer reads it: income first, savings last. It works for a spouse, a child, a son or daughter, or a parent of a US citizen. The bar at the bottom of your screen counts the gaps left. It takes about 30 minutes.</p>
+  <p class="article-lead">Fill in the form and the builder writes your statement in the order the officer reads it: income first, savings last. It works for a spouse, a child, a son or daughter, or a parent of a US citizen. The bar at the bottom of your screen counts the gaps left. It takes about 30 minutes.</p>
+  </header>
 
   <div class="callout callout-info">
     <span class="callout-title">Before you start</span>
@@ -205,8 +209,8 @@
 
     <fieldset>
       <legend>7. Savings, assets and debts</legend>
-      <div class="callout callout-warn" style="margin:0 0 0.8rem;">Savings back up regular income; they do not replace it. London has refused cases that met the I-864 asset test on paper. Make sure sections 4 and 5 show a salary, pension or joint sponsor that pays the costs, and the statement lists savings last, as a buffer. <a href="/public-charge#risks">Why</a>.</div>
-      <p class="hint opt" data-show="rel=child" style="margin:0 0 0.6rem;">Give your own savings, property and debts as the petitioner, and any savings in the child's name under &ldquo;Held by&rdquo;.</p>
+      <div class="callout callout-warn">Savings back up regular income; they do not replace it. London has refused cases that met the I-864 asset test on paper. Make sure sections 4 and 5 show a salary, pension or joint sponsor that pays the costs, and the statement lists savings last, as a buffer. <a href="/public-charge#risks">Why</a>.</div>
+      <p class="hint opt" data-show="rel=child">Give your own savings, property and debts as the petitioner, and any savings in the child's name under &ldquo;Held by&rdquo;.</p>
       <div class="field-row">
         <div class="field"><label for="savings">Total savings (US dollars) <span class="hint">(add up every account, bring a statement for each, and learn each account's bank and balance. Put pensions under retirement below)</span></label><input type="text" id="savings" placeholder="$30,000"></div>
         <div class="field"><label for="saveswho">Held by</label>
@@ -229,7 +233,7 @@
         <div class="field"><label for="slcpaid">Paid from</label><input type="text" id="slcpaid" value="my salary"></div>
       </div>
       <div class="opt" data-show="rel!=child">
-      <p class="hint" style="margin:0.8rem 0 0.4rem;"><strong>Retirement.</strong> Officers ask how you will fund it. Tick one, fill the other, or do both. If you are retired, list each pension you receive now, in dollars per year, and say it continues in the US.</p>
+      <p class="hint"><strong>Retirement.</strong> Officers ask how you will fund it. Tick one, fill the other, or do both. If you are retired, list each pension you receive now, in dollars per year, and say it continues in the US.</p>
       <label class="check"><input type="checkbox" id="retirework" checked> I will work in the US and earn Social Security credits</label>
       <div class="field"><label for="retireplan">Other retirement plan <span class="hint">(optional; name each, with provider and value)</span></label><input type="text" id="retireplan" placeholder="a workplace pension with Aviva, worth about $45,000, and investments of about $15,000"></div>
       </div>
@@ -254,7 +258,7 @@
 
     <fieldset>
       <legend>10. Evidence you are attaching</legend>
-      <p class="hint" style="margin:0 0 0.6rem;">Tick each file in your <a href="/public-charge#deliverables">evidence pack</a>. The codes match the file names. Some boxes tick themselves from your answers above.</p>
+      <p class="hint">Tick each file in your <a href="/public-charge#deliverables">evidence pack</a>. The codes match the file names. Some boxes tick themselves from your answers above.</p>
       <label class="check"><input type="checkbox" id="ev-pettax" checked> P01 Petitioner IRS tax transcripts or returns, last 3 years</label>
       <label class="check"><input type="checkbox" id="ev-petpay" checked> P02 Petitioner payslips, last 3 months, and latest W-2</label>
       <label class="check"><input type="checkbox" id="ev-petbank" checked> P03 Petitioner bank statements, last 3 months</label>
@@ -304,12 +308,12 @@
     <button type="button" class="btn btn--ghost" id="pc-clear">Clear the form</button>
   </div>
 
-  <div class="callout callout-warn" style="margin-top:1.5rem;">
+  <div class="callout callout-warn">
     <span class="callout-title">Then rehearse it</span>
     The officer will test what you wrote. <a href="/public-charge#questions">Answer these questions out loud</a>, or drill the <a href="/interview-questions?theme=publiccharge">public charge flashcards</a>.
   </div>
 
-  <div style="margin-top:2rem;">
+  <div class="article-return">
     <a href="/public-charge" class="guide-return">&larr; Back to public charge</a>
   </div>
 
