@@ -62,3 +62,8 @@ test('data.html shows each wait only in the phase cards', () => {
   const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- PIPELINE STATUS -->');
   assert.match(html.slice(start, end), /id="tn-days-since"/);
 });
+
+test('data.html has no IL to interview scheduling table', () => {
+  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
+  assert.doesNotMatch(html, /id="sched-hd"|data-il-interview|il-interview\.js/);
+});
