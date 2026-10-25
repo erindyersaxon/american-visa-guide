@@ -64,11 +64,19 @@ export const PHASES = [
 
 const FIELDS = ['median', 'p25', 'p75', 'n', 'window_days', 'suppressed', 'small_sample']
 
-// Members whose step started inside the window used but who haven't reached its end:
-// the counted medians only see finished cases, so readers need to see who is still waiting.
+// Milestones in process order. A member who has recorded any milestone after a
+// step's end has moved on, even if they skipped filling in that end date.
+const MILESTONES = ['i130_approval', 'nvc_welcome_letter', 'nvc_fees_paid', 'nvc_docs_submitted',
+  'dq_date', 'interview_letter', 'medical', 'next_interview', 'passport_in_hand']
+
+// Members whose step started inside the window used but who haven't reached its end
+// or anything after it: the counted medians only see finished cases, so readers need
+// to see who is still waiting.
 const stillWaiting = (rows, from, to, windowDays, now) => {
   const cutoff = new Date(now); cutoff.setDate(cutoff.getDate() - (windowDays ?? Infinity))
-  return rows.filter(r => r[from] && !r[to] && (windowDays == null || new Date(r[from]) >= cutoff)).length
+  const later = MILESTONES.slice(MILESTONES.indexOf(to) + 1)
+  return rows.filter(r => r[from] && !r[to] && !later.some(f => r[f]) &&
+    (windowDays == null || new Date(r[from]) >= cutoff)).length
 }
 
 export const buildPhases = ({ deduped, standard, intervals }, { now = new Date(), daysBetween }) =>
@@ -76,7 +84,8 @@ export const buildPhases = ({ deduped, standard, intervals }, { now = new Date()
     let stats, waiting = null
     if (ph.source === 'intervals') {
       stats = intervals[ph.key]
-      waiting = stats ? stats.censored ?? null : null
+      // a labelled count (e.g. 'passport not reported') isn't about waiting: leave it out
+      waiting = stats && !stats.censored_label ? stats.censored ?? null : null
     } else {
       const rows = ph.rows === 'standard' ? standard : deduped
       const gap = r => daysBetween(r[ph.from], r[ph.to])

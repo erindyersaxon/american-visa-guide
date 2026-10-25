@@ -105,7 +105,8 @@ test('buildPhases excludes expedited from standard phases', async () => {
 test('buildPhases reports members still waiting', async () => {
   const rows = Array.from({ length: 40 }, (_, i) => member(i, 300));
   // 5 members submitted documents in the same window but have no DQ yet
-  for (let i = 0; i < 5; i++) rows.push(member(100 + i, 300, { dq_date: null, interview_letter: null }));
+  for (let i = 0; i < 5; i++) rows.push(member(100 + i, 300, { dq_date: null, interview_letter: null, medical: null,
+    interview: null, next_interview: null, passport_from: null, passport_in_hand: null }));
   const p = byKey(await build(rows));
   assert.equal(p.docs_to_dq.n, 40);
   assert.equal(p.docs_to_dq.still_waiting, 5);
@@ -118,4 +119,24 @@ test('buildPhases measures medical to the rescheduled interview', async () => {
   for (const r of rows) r.next_interview = plus(r.medical, 40);
   const p = byKey(await build(rows));
   assert.equal(p.medical_to_interview.median, 40);
+});
+
+test('buildPhases does not count members past the step as still waiting', async () => {
+  const rows = Array.from({ length: 40 }, (_, i) => member(i, 300));
+  // 3 members never filled in the welcome letter but went on to pay fees and reach DQ
+  for (let i = 0; i < 3; i++) rows.push(member(200 + i, 300, { nvc_welcome_letter: null }));
+  // 2 members approved with nothing after: genuinely waiting for the welcome letter
+  for (let i = 0; i < 2; i++) rows.push(member(300 + i, 300, { nvc_welcome_letter: null, nvc_fees_paid: null,
+    nvc_docs_submitted: null, dq_date: null, interview_letter: null, medical: null, interview: null,
+    next_interview: null, passport_from: null, passport_in_hand: null }));
+  const p = byKey(await build(rows));
+  assert.equal(p.approval_to_welcome.still_waiting, 2);
+});
+
+test('buildPhases leaves out a headline count that is not about waiting', async () => {
+  const intervals = { ...INTERVALS, interview_to_passport: { ...INTERVALS.interview_to_passport, censored: 96, censored_label: 'passport not reported' } };
+  const P = await load();
+  const p = byKey(P.buildPhases({ deduped: [], standard: [], intervals }, { now: NOW, daysBetween }));
+  assert.equal(p.interview_to_passport.still_waiting, null);
+  assert.equal(p.dq_to_il.still_waiting, INTERVALS.dq_to_il.censored);
 });
