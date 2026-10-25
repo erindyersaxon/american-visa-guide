@@ -44,3 +44,8 @@ test('data.html keeps the not-a-forecast caveat with the phase cards', () => {
   assert.ok(start > 0 && end > start, 'phases section present');
   assert.match(html.slice(start, end), /Historical data, not a forecast/);
 });
+
+test('data.html DQ backlog has no expected-batch estimates', () => {
+  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
+  assert.doesNotMatch(html, /Expected Batch|expectedBatchLabel|drops away|drop expected to reach/);
+});
