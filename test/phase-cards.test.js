@@ -26,7 +26,7 @@ test('cardView small sample', () => assert.match(
 
 test('cardView months boundary', () => {
   assert.match(C.cardView(phase({ median: 60, p25: 50, p75: 70, n: 40 })).source, /≈ 2\.0 months/);
-  assert.doesNotMatch(C.cardView(phase({ median: 59, p25: 50, p75: 70, n: 40 })).source, /months/);
+  assert.doesNotMatch(C.cardView(phase({ median: 59, p25: 50, p75: 70, n: 40 })).source, /≈/);
 });
 
 test('cardView null median reads as not enough reports', () =>
