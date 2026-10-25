@@ -409,13 +409,26 @@
 
     /* Numeric table cells */
     .num { font-variant-numeric: tabular-nums; text-align: right; }
+    /* Wait times by phase */
+    .phase-group { margin: 1.25rem 0 0.5rem; font-size: 1rem; }
+    .phase-cards-empty { color: var(--color-text-muted); }
+    .freshness-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--color-text-muted);
+    }
   </style>
   <link rel="stylesheet" href="/css/nav.css?v=20261024c">
   <link rel="stylesheet" href="/css/stepper.css?v=20261025a">
   <script src="/js/community-stats.js?v=20261024d" defer></script>
   <script src="/js/stepper-core.js?v=20261024d" defer></script>
   <script src="/js/stepper.js?v=20261024d" defer></script>
+  <script src="/js/phase-cards.js?v=20261025d" defer></script>
   <script src="/js/nav.js?v=20261024c" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
@@ -495,6 +508,17 @@
         <p class="metrics-note" style="margin-top: var(--space-2);">
           IL drop figures reflect <strong>Immediate Relative (IR)</strong> visas, based on the volume of data submitted. Family-Sponsored Preference cases follow the same London process but are currently tracking about a month behind IR. This tracker counts only people who send in their information. For the wider official picture, see <a href="#official-data">the national USCIS and State Department figures</a> below, the <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/iv-wait-times.html" target="_blank" rel="noopener noreferrer">NVC immigrant visa scheduling status tool</a>, or read more on the <a href="/guide/waiting">guide page</a>.
         </p>
+      </div>
+    </section>
+
+    <!-- WAIT TIMES BY PHASE -->
+    <section class="content-section" aria-labelledby="phases-hd">
+      <div class="container">
+        <div class="section-hd">
+          <h2 class="section-hd__title" id="phases-hd">Wait times by phase</h2>
+          <p class="section-hd__sub">Median days for each step, with the range most members fall within.</p>
+        </div>
+        <div id="phase-cards"></div>
       </div>
     </section>
 
@@ -784,45 +808,6 @@
             <div class="metric-card__sub">median days</div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- PER-STAGE TIMING TABLE -->
-    <section class="content-section" aria-labelledby="timing-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="timing-hd">Median Stage-by-Stage Timings</h2>
-          <p class="section-hd__sub">Community-reported median times for each leg of the London immigrant visa process. Individual experiences vary.</p>
-        </div>
-
-        <div class="table-wrapper" role="region" aria-labelledby="timing-hd" tabindex="0">
-          <table class="table">
-            <caption class="sr-only">Median processing time for each stage of the US immigrant visa application through the US Embassy London, based on community-reported data</caption>
-            <thead>
-              <tr>
-                <th scope="col">Stage</th>
-                <th scope="col" class="num">Median (days)</th>
-                <th scope="col" class="num">Median (months)</th>
-              </tr>
-            </thead>
-            <tbody id="timing-tbody">
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="trend-note">
-          <strong>Historical data, not a forecast:</strong> The DQ &rarr; Interview Letter median
-          covers drops up to 14 July 2026, the last one recorded. ILs have not gone out since, so
-          that figure does not tell you how long your own wait will run. We will update it once
-          ILs resume and a new pattern emerges.
-        </p>
       </div>
     </section>
 
@@ -1341,7 +1326,6 @@
       if (!vals.length) return null;
       return Math.round(vals.reduce((s, v) => s + Number(v), 0) / vals.length);
     }
-    function toMonths(d) { return d != null ? (d / 30.44).toFixed(1) : 'n/a'; }
     function set(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
     function txt(id, t)    { const el = document.getElementById(id); if (el) el.textContent = t; }
 
@@ -1414,7 +1398,7 @@
       `;
     }
 
-    function renderMetrics(drops, stats) {
+    function renderMetrics(drops, stats, snapshot) {
       const last = drops?.[0];
       const lastDate = last?.drop_date || last?.recorded_at;
       const days = daysAgo(lastDate);
@@ -1429,8 +1413,12 @@
       const tn = document.getElementById('tn-days-since');
       if (tn) tn.textContent = days != null ? `, ${days} days ago` : '';
       const w = stats?.members_waiting;
+      const note = document.getElementById('m-members-note');
+      if (note) note.classList.add('freshness-badge');
       txt('m-members-note', w != null
-        ? `Community data from ${w.toLocaleString('en-GB')} members in the London pipeline.`
+        ? (snapshot
+          ? `From ${w.toLocaleString('en-GB')} London Embassy applicant submissions (snapshot).`
+          : `Updated continuously from ${w.toLocaleString('en-GB')} London Embassy applicant submissions.`)
         : '');
       set('il-latest-dq', fmtDate(stats?.latest_dq_with_il));
       // Interview date range from the most recent drop with reported interviews
@@ -1622,27 +1610,6 @@
       set('pp-mail',   stats.median_mail_days   != null ? String(stats.median_mail_days)   : 'n/a');
     }
 
-    function renderTimings(d) {
-      const tbody = document.getElementById('timing-tbody');
-      if (!tbody) return;
-      const sa = d.stage_avgs || {}, ks = d.key_stats || {};
-      const getMed = obj => obj?.median ?? null;
-      const stages = [
-        ['I-130 Approval → NVC Welcome',    getMed(sa.approval_to_welcome_med)],
-        ['NVC Fees → Documents Submitted',  getMed(sa.fees_to_docs_med)],
-        ['Documents Submitted → DQ',        getMed(sa.docs_to_dq_med)],
-        ['DQ → Interview Letter (IL)',      d.trends?.dq_to_il?.all_time?.median],
-        ['IL → Medical Appointment',        getMed(sa.il_to_medical_med)],
-        ['Medical Appointment → Interview', getMed(sa.medical_to_interview_med)],
-        ['Interview → Passport Return',     getMed(sa.interview_to_passport_med)],
-      ];
-      tbody.innerHTML = stages.map(([label, a]) => `<tr>
-          <th scope="row" style="font-weight:var(--font-normal);">${label}</th>
-          <td class="num">${a != null ? a : 'n/a'}</td>
-          <td class="num">${a != null ? toMonths(a) : 'n/a'}</td>
-        </tr>`).join('');
-    }
-
     /* Boot */
     async function boot() {
       let d, usedFallback = false;
@@ -1659,7 +1626,8 @@
 
       const { drops, stats } = fromApiData(d);
       renderBanner(drops, stats);
-      renderMetrics(drops, stats);
+      renderMetrics(drops, stats, usedFallback);
+      if (window.AVGPhaseCards) AVGPhaseCards.render(document.getElementById('phase-cards'), d.phases, d.phase_groups);
       renderPipeline(stats);
       renderDropTable(drops);
       renderAwaiting(d, drops);
@@ -1667,7 +1635,6 @@
       renderTrends(d.trends);
       renderOutcomes(stats);
       renderPassport(stats);
-      renderTimings(d);
     }
 
     document.readyState === 'loading'
