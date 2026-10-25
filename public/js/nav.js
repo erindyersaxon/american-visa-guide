@@ -226,7 +226,6 @@
     }
 
     mountBanner(nav);
-    if (window.AVGStepper) window.AVGStepper.mount(nav);
     markActive(nav);
     wireToggle(nav);
     mountFooter();

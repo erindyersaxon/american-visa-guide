@@ -1,7 +1,7 @@
 /*
    Community stats: the one place the site reads community medians.
    Pure helpers plus a loader for /api/data stage_avgs, cached per visit in
-   sessionStorage['avg-stage-stats']. Used by js/stepper.js and js/stat-box.js.
+   sessionStorage['avg-stage-stats']. Used by js/stat-box.js.
    Browser: window.AVGStats. Node (tests): module.exports.
    Spec: docs/superpowers/specs/2026-10-24-guide-article-components-design.md
  */
