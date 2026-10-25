@@ -81,3 +81,6 @@
 
 /* "(optional)" note inside a field label */
 .field label .optional { font-weight: 400; }
+
+/* Note under a tool's buttons ("Your dates stay on this device") */
+.btn-row + .hint { margin-top: 0.75rem; }

@@ -565,3 +565,7 @@
    gives header rows a dark background, which the light header cells replace. */
 .guide-article.page-wrap .table-card { margin: 1.1rem 0 1.4rem; }
 .guide-article.page-wrap .article-table thead tr { background: none; }
+
+/* Spacing the article pages' inline margins used to give */
+.guide-article .article-return { margin-top: 2rem; }
+.guide-article .article-reviewed { margin-top: 1.75rem; font-size: 14px; color: var(--ga-muted); }
