@@ -33,6 +33,11 @@ The overhaul is split into four pieces, each with its own spec, plan and PR:
   `key_stats` fields
 - other /data sections
 
+**Standing rule for all four pieces:** IL Drop History stays a table in every
+piece. Later pieces may restyle it, but not convert it to cards or remove
+columns. It is a comparison table read across rows (drop date, day, time, DQ
+dates covered, interview dates, gap since previous, ILs issued) and down drops.
+
 ## 2. Decisions taken
 
 | Question | Decision |
