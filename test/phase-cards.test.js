@@ -49,3 +49,16 @@ test('data.html DQ backlog has no expected-batch estimates', () => {
   const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
   assert.doesNotMatch(html, /Expected Batch|expectedBatchLabel|drops away|drop expected to reach/);
 });
+
+test('cardView adds the all-time median when given', () => {
+  assert.equal(C.cardView(phase({ all_time_median: 68 })).source,
+    'most: 70–95 days · ≈ 2.8 months · 46 members · last 6 months · all-time median 68 days');
+  assert.doesNotMatch(C.cardView(phase()).source, /all-time/);
+});
+
+test('data.html shows each wait only in the phase cards', () => {
+  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
+  assert.doesNotMatch(html, /Typical recent wait|id="iv-(dqil|iliv|ivpp)"|id="t-(alltime|6mo)"|id="trend-hd"|renderIntervals|renderTrends/);
+  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- PIPELINE STATUS -->');
+  assert.match(html.slice(start, end), /id="tn-days-since"/);
+});

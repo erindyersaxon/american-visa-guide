@@ -245,46 +245,6 @@
     }
 
     /* Trend cards */
-    .trend-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-4);
-    }
-    @media (min-width: 640px) { .trend-grid { grid-template-columns: repeat(2,1fr); } }
-
-    .trend-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-5);
-    }
-    .trend-card__period {
-      font-size: var(--text-sm);
-      font-weight: var(--font-semibold);
-      letter-spacing: var(--tracking-wide);
-      color: var(--color-text-muted);
-    }
-    .trend-card__value {
-      font-family: var(--font-body);
-      font-variant-numeric: tabular-nums;
-      font-weight: var(--weight-semibold);
-      font-size: var(--text-3xl);
-      color: var(--color-text);
-      line-height: 1.1;
-      margin-top: var(--space-2);
-      min-height: 2.25rem;
-    }
-    .trend-card__dir {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-1);
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      margin-top: var(--space-2);
-    }
-    .trend-card__dir--up   { color: var(--color-destructive); }
-    .trend-card__dir--down { color: var(--color-success); }
-    .trend-card__dir--flat { color: var(--color-text-muted); }
 
     /* Outcome cards */
     .outcome-grid {
@@ -426,7 +386,7 @@
   <script src="/js/community-stats.js?v=20261024d" defer></script>
   <script src="/js/stepper-core.js?v=20261024d" defer></script>
   <script src="/js/stepper.js?v=20261024d" defer></script>
-  <script src="/js/phase-cards.js?v=20261025d" defer></script>
+  <script src="/js/phase-cards.js?v=20261026a" defer></script>
   <script src="/js/nav.js?v=20261024c" defer></script>
 <link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
@@ -519,10 +479,14 @@
           <p class="section-hd__sub">Median days for each step, with the range most members fall within.</p>
         </div>
         <p class="trend-note">
-          <strong>Historical data, not a forecast:</strong> The DQ &rarr; Interview Letter median
-          covers drops up to 14 July 2026, the last one recorded. ILs have not gone out since, so
-          that figure does not tell you how long your own wait will run. We will update it once
-          ILs resume and a new pattern emerges.
+          <strong>Historical data, not a forecast:</strong> IL drops have stopped. Nothing has
+          landed since 14 July 2026<span id="tn-days-since"></span>: the 6&ndash;16 August window we
+          projected passed with no drop, and the gap is now longer than any in our recorded drop
+          history. Members waiting at other posts report the same silence, so this does not look
+          like a London-specific problem. The DQ &rarr; Interview Letter figures below cover drops up
+          to that last one, when the wait was already lengthening: the recent median runs longer
+          than the all-time median. Until drops resume, treat them as a record of what happened,
+          not a prediction of when your letter will arrive.
         </p>
         <div id="phase-cards"></div>
       </div>
@@ -670,12 +634,6 @@
           <p class="section-hd__sub">The month your Interview Letter arrived and the month interviews have been scheduled. IL → interview is typically ~2 months. Observed pattern from London community members.</p>
         </div>
 
-        <div class="metric-card" style="margin-bottom: var(--space-5);">
-          <div class="metric-card__label">Typical recent wait</div>
-          <div class="metric-card__value" id="iv-iliv"><span class="skel skel--val" aria-hidden="true"></span></div>
-          <div class="metric-card__sub" id="iv-iliv-sub"></div>
-        </div>
-
         <div class="table-wrapper" role="region" aria-labelledby="sched-hd" tabindex="0">
           <table class="table table--striped table--compact">
             <caption class="sr-only">Observed pattern: the month an Interview Letter was received and the month the interview was scheduled</caption>
@@ -688,46 +646,6 @@
             <tbody data-il-interview></tbody>
           </table>
         </div>
-      </div>
-    </section>
-
-    <!-- DQ → IL WAIT TIME TRENDS -->
-    <section class="content-section" aria-labelledby="trend-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="trend-hd">DQ → IL Wait Time Trends</h2>
-          <p class="section-hd__sub">Median days from Documentarily Qualified to Interview Letter. A downward trend means the queue is moving faster.</p>
-        </div>
-
-        <div class="metric-card" style="margin-bottom: var(--space-5);">
-          <div class="metric-card__label">Typical recent wait</div>
-          <div class="metric-card__value" id="iv-dqil"><span class="skel skel--val" aria-hidden="true"></span></div>
-          <div class="metric-card__sub" id="iv-dqil-sub"></div>
-        </div>
-
-        <div class="trend-grid">
-          <div class="trend-card">
-            <div class="trend-card__period">All Time</div>
-            <div class="trend-card__value" id="t-alltime"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="trend-card__dir" id="t-alltime-dir"></div>
-          </div>
-          <div class="trend-card">
-            <div class="trend-card__period">Last 6 Months</div>
-            <div class="trend-card__value" id="t-6mo"><span class="skel skel--val" aria-hidden="true"></span></div>
-            <div class="trend-card__dir" id="t-6mo-dir"></div>
-          </div>
-        </div>
-
-        <p class="trend-note">
-          <strong>What we're seeing:</strong> IL drops have stopped. Nothing has landed since
-          14 July 2026<span id="tn-days-since"></span>: the 6&ndash;16 August window we projected passed with no
-          drop, and the gap is now longer than any in our recorded drop history. Members waiting at
-          other posts report the same silence, so this does not look like a London-specific problem.
-          The trend figures above describe the period up to that last drop, when the wait from DQ to
-          Interview Letter was already lengthening. The last six months ran longer than the
-          all-time median. Until drops resume, treat those numbers as a record of what happened, not
-          a prediction of when your letter will arrive.
-        </p>
       </div>
     </section>
 
@@ -785,12 +703,6 @@
         <div class="section-hd">
           <h2 class="section-hd__title" id="passport-hd">Passport Return Times</h2>
           <p class="section-hd__sub">After visa approval at interview: median days to receive your passport with visa stamp.</p>
-        </div>
-
-        <div class="metric-card" style="margin-bottom: var(--space-5);">
-          <div class="metric-card__label">Overall (all methods)</div>
-          <div class="metric-card__value" id="iv-ivpp"><span class="skel skel--val" aria-hidden="true"></span></div>
-          <div class="metric-card__sub" id="iv-ivpp-sub"></div>
         </div>
 
         <div class="passport-grid">
@@ -1507,59 +1419,6 @@
       }
     }
 
-    /* Signature intervals: median + IQR + sample size + right-censored tail.
-       Honors the API's suppression flags (hide below n=10, warn below n=30). */
-    function renderIntervals(d) {
-      const iv = d.intervals || {};
-      const card = (obj, id, waitingWord) => {
-        const o = obj || {};
-        if (o.suppressed || o.median == null) {
-          set(id, 'n/a');
-          txt(id + '-sub', o.n ? `Insufficient data (n=${o.n})` : 'Insufficient data');
-          return;
-        }
-        set(id, `${o.median} <span style="font-size:var(--size-sm,0.85rem);font-weight:var(--font-normal,400);">days</span>`);
-        const parts = [];
-        if (o.p25 != null && o.p75 != null) parts.push(`most: ${o.p25}–${o.p75} days`);
-        parts.push(`from ${o.n} cases`);
-        if (o.small_sample) parts.push('few cases so far, treat as rough');
-        if (o.censored) parts.push(`${o.censored} ${o.censored_label || waitingWord}`);
-        parts.push(o.window_days ? `last ${o.window_days} days` : 'all time');
-        txt(id + '-sub', parts.join(' · '));
-      };
-      card(iv.dq_to_il,              'iv-dqil', 'still waiting');
-      card(iv.il_to_interview,       'iv-iliv', 'still waiting');
-      card(iv.interview_to_passport, 'iv-ivpp', 'passport not reported');
-    }
-
-    function renderTrends(trends) {
-      const t = trends?.dq_to_il;
-      if (!t || t.all_time == null) return;
-      const allMedian = t.all_time.median;
-
-      function setTrend(valId, dirId, val, ref, isBaseline) {
-        const el = document.getElementById(dirId);
-        if (val == null) {
-          set(valId, 'n/a');
-          if (el) { el.className = 'trend-card__dir'; el.innerHTML = '<span>Not enough recent data</span>'; }
-          return;
-        }
-        set(valId, `${val} days`);
-        if (!el || ref == null || isBaseline) {
-          if (el && isBaseline) el.style.display = 'none';
-          return;
-        }
-        const diff = val - ref;
-        const dir  = Math.abs(diff) < 7 ? 'flat' : diff > 0 ? 'up' : 'down';
-        const icon  = { up:'↑', down:'↓', flat:'→' }[dir];
-        const label = { up:'Longer than all-time median (slower)', down:'Shorter than all-time median (faster)', flat:'Similar to all-time median' }[dir];
-        el.className = `trend-card__dir trend-card__dir--${dir}`;
-        el.innerHTML = `<span aria-hidden="true">${icon}</span><span>${label}</span>`;
-      }
-      setTrend('t-alltime', 't-alltime-dir', allMedian,    allMedian, true);
-      setTrend('t-6mo',     't-6mo-dir',     t.last_6m.median, allMedian, false);
-    }
-
     function renderOutcomes(stats) {
       if (!stats) return;
       set('o-approved', stats.approved_pct      != null ? `${stats.approved_pct}%`      : 'n/a');
@@ -1590,12 +1449,12 @@
       const { drops, stats } = fromApiData(d);
       renderBanner(drops, stats);
       renderMetrics(drops, stats, usedFallback);
+      const dqIl = (d.phases || []).find(p => p.key === 'dq_to_il');
+      if (dqIl) dqIl.all_time_median = d.trends?.dq_to_il?.all_time?.median ?? null;
       if (window.AVGPhaseCards) AVGPhaseCards.render(document.getElementById('phase-cards'), d.phases, d.phase_groups);
       renderPipeline(stats);
       renderDropTable(drops);
       renderAwaiting(d);
-      renderIntervals(d);
-      renderTrends(d.trends);
       renderOutcomes(stats);
       renderPassport(stats);
     }
