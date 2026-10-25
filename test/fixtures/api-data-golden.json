@@ -1,0 +1,116 @@
+{
+  "intervals": {
+    "dq_to_il": {
+      "n": 32,
+      "median": 82,
+      "p25": 68,
+      "p75": 96,
+      "p90": 106,
+      "min": 60,
+      "max": 109,
+      "suppressed": false,
+      "small_sample": false,
+      "window_days": 270,
+      "censored": 0
+    },
+    "il_to_interview": {
+      "n": 31,
+      "median": 48,
+      "p25": 42,
+      "p75": 60,
+      "p90": 64,
+      "min": 31,
+      "max": 119,
+      "suppressed": false,
+      "small_sample": false,
+      "window_days": 180,
+      "censored": 0
+    },
+    "interview_to_passport": {
+      "n": 32,
+      "median": 7,
+      "p25": 5,
+      "p75": 8,
+      "p90": 9,
+      "min": 3,
+      "max": 9,
+      "suppressed": false,
+      "small_sample": false,
+      "window_days": 180,
+      "censored": 8,
+      "censored_label": "passport not reported"
+    }
+  },
+  "stage_avgs": {
+    "pd_to_approval": null,
+    "pd_to_approval_med": null,
+    "approval_to_welcome": 13,
+    "approval_to_welcome_med": {
+      "avg": 13,
+      "median": 14,
+      "min": 6,
+      "max": 20,
+      "n": 59
+    },
+    "welcome_to_fees": 11,
+    "welcome_to_fees_med": {
+      "avg": 11,
+      "median": 11,
+      "min": 3,
+      "max": 20,
+      "n": 57
+    },
+    "fees_to_docs": 26,
+    "fees_to_docs_med": {
+      "avg": 26,
+      "median": 27,
+      "min": 10,
+      "max": 52,
+      "n": 58
+    },
+    "docs_to_dq": 19,
+    "docs_to_dq_med": {
+      "avg": 19,
+      "median": 19,
+      "min": 10,
+      "max": 30,
+      "n": 58
+    },
+    "approval_to_dq": 69,
+    "approval_to_dq_stats": {
+      "avg": 69,
+      "median": 69,
+      "min": 34,
+      "max": 99,
+      "n": 59
+    },
+    "il_to_medical": 41,
+    "il_to_medical_med": {
+      "avg": 41,
+      "median": 40,
+      "min": 20,
+      "max": 60,
+      "n": 58
+    },
+    "medical_to_interview": 12,
+    "medical_to_interview_med": {
+      "avg": 12,
+      "median": 11,
+      "min": 5,
+      "max": 20,
+      "n": 57
+    },
+    "interview_to_passport": 7,
+    "interview_to_passport_med": {
+      "avg": 7,
+      "median": 7,
+      "min": 3,
+      "max": 9,
+      "n": 51
+    }
+  },
+  "meta": {
+    "total_members": 60,
+    "total_submissions": 61
+  }
+}
