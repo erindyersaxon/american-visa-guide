@@ -1244,6 +1244,20 @@
         il_to_interview:       { median:50, p25:42, p75:59, p90:73,  n:84, window_days:180, censored:13, suppressed:false, small_sample:false },
         interview_to_passport: { median:5,  p25:3,  p75:7,  p90:9,   n:62, window_days:180, censored:96, censored_label:'passport not reported', suppressed:false, small_sample:false },
       },
+      // Phase timings copied from production /api/data on 25 Oct 2026 (255 members);
+      // still-waiting counts left out because they go out of date fastest.
+      phases: [
+        { key:"approval_to_welcome", group:"nvc", label:"I-130 approval → NVC welcome letter", median:5, p25:4, p75:6, n:56, window_days:365, suppressed:false, small_sample:false, still_waiting:null },
+        { key:"welcome_to_fees", group:"nvc", label:"Welcome letter → fees paid", median:1, p25:1, p75:5, n:34, window_days:365, suppressed:false, small_sample:false, still_waiting:null },
+        { key:"fees_to_docs", group:"nvc", label:"Fees paid → documents submitted", median:10, p25:6, p75:20, n:63, window_days:365, suppressed:false, small_sample:false, still_waiting:null },
+        { key:"docs_to_dq", group:"nvc", label:"Documents submitted → DQ", median:10, p25:7, p75:19, n:39, window_days:270, suppressed:false, small_sample:false, still_waiting:null },
+        { key:"dq_to_il", group:"waiting", label:"DQ → interview letter", median:94, p25:79, p75:98, n:44, window_days:270, suppressed:false, small_sample:false, still_waiting:null },
+        { key:"il_to_interview", group:"waiting", label:"Interview letter → interview", median:47, p25:39, p75:54, n:47, window_days:180, suppressed:false, small_sample:false, still_waiting:null },
+        { key:"il_to_medical", group:"interview", label:"Interview letter → medical", median:33, p25:25, p75:40, n:41, window_days:180, suppressed:false, small_sample:false, still_waiting:null },
+        { key:"medical_to_interview", group:"interview", label:"Medical → interview", median:14, p25:14, p75:16, n:65, window_days:180, suppressed:false, small_sample:false, still_waiting:null },
+        { key:"interview_to_passport", group:"after", label:"Interview → passport back", median:5, p25:3, p75:7, n:47, window_days:180, suppressed:false, small_sample:false, still_waiting:null },
+      ],
+      phase_groups: [ { key:"nvc", label:"NVC" }, { key:"waiting", label:"Waiting for your interview" }, { key:"interview", label:"Interview stage" }, { key:"after", label:"After the interview" } ],
       outcomes: { approved:98, not_approved:3, cleared:5, denied:1, visa_pause:3, total:110, approval_pct:94 },
       stage_avgs: { approval_to_welcome:6, welcome_to_fees:8, fees_to_docs:19, docs_to_dq:19, il_to_medical:46, interview_to_passport:6 },
       il_schedule: {
