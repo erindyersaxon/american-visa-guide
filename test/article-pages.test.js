@@ -58,10 +58,32 @@ for (const page of PAGES) {
   });
 }
 
+const STAGE_PAGES = ['guide.html', ...fs.readdirSync(path.join(PUBLIC, 'guide'))
+  .filter(f => f.endsWith('.html')).map(f => `guide/${f}`)];
+const readPublic = p => fs.readFileSync(path.join(PUBLIC, p), 'utf8');
+
 test('article pages share stylesheet builds with the stage pages', () => {
-  const stageV = version(fs.readFileSync(path.join(PUBLIC, 'guide/nvc.html'), 'utf8'), 'guide-article.css');
-  assert.deepEqual([...new Set(PAGES.map(p => version(read(p), 'guide-article.css')))], [stageV], 'guide-article.css');
+  const stageVersions = new Set(STAGE_PAGES.map(p => version(readPublic(p), 'guide-article.css')));
+  assert.equal(stageVersions.size, 1, `stage pages guide-article.css: ${[...stageVersions].join(', ')}`);
+  assert.deepEqual([...new Set(PAGES.map(p => version(read(p), 'guide-article.css')))], [...stageVersions], 'guide-article.css');
+  const baseV = new Set(PAGES.map(p => version(read(p), 'article-base.css')));
+  assert.equal(baseV.size, 1, `article-base.css: ${[...baseV].join(', ')}`);
+  assert.ok([...baseV][0], 'article-base.css: missing on a page');
   const toolV = new Set(TOOL_PAGES.map(p => version(read(p), 'tools.css')));
   assert.equal(toolV.size, 1, `tools.css: ${[...toolV].join(', ')}`);
   assert.ok([...toolV][0], 'tools.css: missing ?v=');
+});
+
+// guide-article.css also serves the stage pages: the article-page section must not
+// define classes the stage pages already use, or it would restyle them.
+test('article-page rules do not reach the stage pages', () => {
+  const css = fs.readFileSync(path.join(PUBLIC, 'css/guide-article.css'), 'utf8');
+  const section = css.slice(css.indexOf('/* ---- Article pages')).replace(/\/\*[\s\S]*?\*\//g, '');
+  // Selectors that start .guide-article.page-wrap only match article pages (stage pages have no .page-wrap)
+  const selectors = [...section.matchAll(/([^{}]+)\{/g)].flatMap(m => m[1].split(','))
+    .map(s => s.trim()).filter(s => s && !s.startsWith('@') && !s.startsWith('.guide-article.page-wrap'));
+  const defined = new Set(selectors.flatMap(s => [...s.matchAll(/\.([a-zA-Z][\w-]*)/g)].map(m => m[1])));
+  const SHARED_ON_PURPOSE = new Set(['guide-article', 'sr-only', 'next']); // same utility; .next only as .keydate.next
+  const stageClasses = new Set(STAGE_PAGES.flatMap(p => attrValues(readPublic(p), 'class').flatMap(v => v.split(/\s+/))));
+  assert.deepEqual([...defined].filter(c => stageClasses.has(c) && !SHARED_ON_PURPOSE.has(c)), []);
 });

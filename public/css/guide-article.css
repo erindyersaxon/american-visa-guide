@@ -307,6 +307,7 @@
 }
 .guide-article .article-table th {
   background: var(--ga-info-bg);
+  color: var(--ga-text);
   border-bottom: 2px solid var(--ga-border);
   font-weight: 700;
 }
@@ -436,7 +437,7 @@
   font-weight: 700;
   white-space: nowrap;
 }
-.guide-article .step-title {
+.guide-article .step-card-title {
   font-family: var(--ga-font-ui);
   font-size: 1.02rem;
   font-weight: 700;
@@ -522,9 +523,9 @@
 .guide-article .chooser-card--warn { border-left-color: var(--ga-warn); }
 .guide-article .chooser-card--alert { border-left-color: var(--ga-alert); }
 
-/* Numbered step list with a link per step */
-.guide-article .steps { list-style: none; margin: 1rem 0 1.5rem; padding: 0; counter-reset: step; }
-.guide-article .steps > li {
+/* Numbered step list with a link per step (named step-list: stage pages use .steps) */
+.guide-article .step-list { list-style: none; margin: 1rem 0 1.5rem; padding: 0; counter-reset: step; }
+.guide-article .step-list > li {
   position: relative;
   margin-bottom: 0.55rem;
   padding: 0.75rem 1rem 0.75rem 3.1rem;
@@ -533,7 +534,7 @@
   border-radius: var(--ga-radius);
   counter-increment: step;
 }
-.guide-article .steps > li::before {
+.guide-article .step-list > li::before {
   content: counter(step);
   position: absolute;
   left: 0.9rem;
@@ -550,7 +551,7 @@
   font-size: 14px;
   font-weight: 700;
 }
-.guide-article .steps .step-link { display: inline-block; margin-top: 0.25rem; font-size: 14px; font-weight: 600; }
+.guide-article .step-list .step-link { display: inline-block; margin-top: 0.25rem; font-size: 14px; font-weight: 600; }
 
 /* Utilities */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
@@ -559,3 +560,8 @@
   .no-print, .site-nav, .avg-footer, .page-live-notice, .pause-glossary { display: none !important; }
 }
 .guide-article .figure-centred { max-width: 540px; margin: 1.1rem auto 0.3rem; }
+
+/* Article pages: tables keep the spacing the old .table-wrap had; article-base.css
+   gives header rows a dark background, which the light header cells replace. */
+.guide-article.page-wrap .table-card { margin: 1.1rem 0 1.4rem; }
+.guide-article.page-wrap .article-table thead tr { background: none; }
