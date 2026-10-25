@@ -31,3 +31,16 @@ test('cardView months boundary', () => {
 
 test('cardView null median reads as not enough reports', () =>
   assert.equal(C.cardView(phase({ median: null, p25: null, p75: null, n: 0, suppressed: true })).value, 'Not enough reports yet'));
+
+test('cardView shows members still waiting', () => {
+  assert.equal(C.cardView(phase({ still_waiting: 3 })).source,
+    'most: 70–95 days · ≈ 2.8 months · 46 members · 3 still waiting · last 6 months');
+  assert.doesNotMatch(C.cardView(phase({ still_waiting: 0 })).source, /still waiting/);
+});
+
+test('data.html keeps the not-a-forecast caveat with the phase cards', () => {
+  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
+  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- PIPELINE STATUS -->');
+  assert.ok(start > 0 && end > start, 'phases section present');
+  assert.match(html.slice(start, end), /Historical data, not a forecast/);
+});

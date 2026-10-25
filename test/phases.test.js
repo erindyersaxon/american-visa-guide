@@ -50,7 +50,7 @@ const member = (i, ago, over = {}) => {
     dq = plus(docs, 15), il = plus(dq, 80), med = plus(il, 30), iv = plus(med, 10), pp = plus(iv, 5);
   return { username_raw: `m${i}`, i130_approval: appr, nvc_welcome_letter: welcome, nvc_fees_paid: fees,
     nvc_docs_submitted: docs, dq_date: dq, interview_letter: il, medical: med, interview: iv,
-    passport_from: iv, passport_in_hand: pp, interview_expedited: false, ...over };
+    passport_from: iv, next_interview: iv, passport_in_hand: pp, interview_expedited: false, ...over }; // api/data.js sets both from the current interview
 };
 const INTERVALS = {
   dq_to_il: { n: 40, median: 80, p25: 70, p75: 90, p90: 99, min: 60, max: 110, suppressed: false, small_sample: false, window_days: 180, censored: 3 },
@@ -100,4 +100,22 @@ test('buildPhases excludes expedited from standard phases', async () => {
   assert.equal(p.medical_to_interview.n, 36);
   assert.equal(p.il_to_medical.n, 36);
   assert.equal(p.approval_to_welcome.n, 40);
+});
+
+test('buildPhases reports members still waiting', async () => {
+  const rows = Array.from({ length: 40 }, (_, i) => member(i, 300));
+  // 5 members submitted documents in the same window but have no DQ yet
+  for (let i = 0; i < 5; i++) rows.push(member(100 + i, 300, { dq_date: null, interview_letter: null }));
+  const p = byKey(await build(rows));
+  assert.equal(p.docs_to_dq.n, 40);
+  assert.equal(p.docs_to_dq.still_waiting, 5);
+  assert.equal(p.dq_to_il.still_waiting, INTERVALS.dq_to_il.censored); // headline phases copy their censored count
+});
+
+test('buildPhases measures medical to the rescheduled interview', async () => {
+  const rows = Array.from({ length: 40 }, (_, i) => member(i, 300));
+  // the original interview was 10 days after the medical; it was rescheduled to 40 days after
+  for (const r of rows) r.next_interview = plus(r.medical, 40);
+  const p = byKey(await build(rows));
+  assert.equal(p.medical_to_interview.median, 40);
 });

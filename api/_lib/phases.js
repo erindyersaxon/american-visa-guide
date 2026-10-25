@@ -57,17 +57,26 @@ export const PHASES = [
   { key: 'dq_to_il', group: 'waiting', label: 'DQ → interview letter', source: 'intervals' },
   { key: 'il_to_interview', group: 'waiting', label: 'Interview letter → interview', source: 'intervals' },
   { key: 'il_to_medical', group: 'interview', label: 'Interview letter → medical', from: 'interview_letter', to: 'medical', rows: 'standard', cap: 180 },
-  { key: 'medical_to_interview', group: 'interview', label: 'Medical → interview', from: 'medical', to: 'interview', rows: 'standard', cap: 60 },
+  // to the member's current interview: after a reschedule, `interview` keeps the cancelled date
+  { key: 'medical_to_interview', group: 'interview', label: 'Medical → interview', from: 'medical', to: 'next_interview', rows: 'standard', cap: 60 },
   { key: 'interview_to_passport', group: 'after', label: 'Interview → passport back', source: 'intervals' },
 ]
 
 const FIELDS = ['median', 'p25', 'p75', 'n', 'window_days', 'suppressed', 'small_sample']
 
+// Members whose step started inside the window used but who haven't reached its end:
+// the counted medians only see finished cases, so readers need to see who is still waiting.
+const stillWaiting = (rows, from, to, windowDays, now) => {
+  const cutoff = new Date(now); cutoff.setDate(cutoff.getDate() - (windowDays ?? Infinity))
+  return rows.filter(r => r[from] && !r[to] && (windowDays == null || new Date(r[from]) >= cutoff)).length
+}
+
 export const buildPhases = ({ deduped, standard, intervals }, { now = new Date(), daysBetween }) =>
   PHASES.map(ph => {
-    let stats
+    let stats, waiting = null
     if (ph.source === 'intervals') {
       stats = intervals[ph.key]
+      waiting = stats ? stats.censored ?? null : null
     } else {
       const rows = ph.rows === 'standard' ? standard : deduped
       const gap = r => daysBetween(r[ph.from], r[ph.to])
@@ -77,8 +86,10 @@ export const buildPhases = ({ deduped, standard, intervals }, { now = new Date()
         return d !== null && d > 0 && (ph.cap === null || d <= ph.cap)
       }
       stats = rollingWindow(rows, ph.from, gap, valid, now)
+      waiting = stillWaiting(rows, ph.from, ph.to, stats.window_days, now)
     }
     const out = { key: ph.key, group: ph.group, label: ph.label }
     for (const f of FIELDS) out[f] = stats ? stats[f] : null
+    out.still_waiting = waiting
     return out
   })

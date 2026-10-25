@@ -126,7 +126,7 @@ export default async function handler(req, res) {
   // for a reschedule or re-interview is new_interview_at, not `interview`.
   // Measuring from the original date counted pippyd0321 (221(g) on 08-05,
   // approved 10-08, passport 10-15) as 71 days instead of 7.
-  for (const r of deduped) r.passport_from = nextInterview(r)
+  for (const r of deduped) r.passport_from = r.next_interview = nextInterview(r)
 
   // Standard cases only (exclude expedited for wait time calcs)
   const standard = deduped.filter(r => !r.interview_expedited)

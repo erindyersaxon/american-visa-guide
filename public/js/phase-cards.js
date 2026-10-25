@@ -27,6 +27,7 @@
     if (!hidden && phase.p25 != null && phase.p75 != null) parts.push('most: ' + phase.p25 + '–' + phase.p75 + ' days');
     if (!hidden && phase.median >= 60) parts.push(formatMonths(phase.median));
     parts.push(phase.n + ' members');
+    if (phase.still_waiting > 0) parts.push(phase.still_waiting + ' still waiting');
     parts.push(windowLabel(phase.window_days));
     if (!hidden && phase.small_sample) parts.push('small sample');
     return { value: hidden ? 'Not enough reports yet' : formatDays(phase.median), source: parts.join(' · ') };
