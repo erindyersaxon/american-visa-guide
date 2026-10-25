@@ -38,3 +38,47 @@ export const rollingWindow = (rows, cohortField, valueFn, filterFn, now) => {
       return { ...robustStats(vals), window_days: days === Infinity ? null : days }
   }
 }
+
+// Wait times by phase, in display order (spec §3). Phases whose numbers the
+// signature intervals already publish copy them, so a card and a headline
+// stat can never disagree. Caps drop impossible gaps (data-entry errors).
+export const GROUPS = [
+  { key: 'nvc', label: 'NVC' },
+  { key: 'waiting', label: 'Waiting for your interview' },
+  { key: 'interview', label: 'Interview stage' },
+  { key: 'after', label: 'After the interview' },
+]
+
+export const PHASES = [
+  { key: 'approval_to_welcome', group: 'nvc', label: 'I-130 approval → NVC welcome letter', from: 'i130_approval', to: 'nvc_welcome_letter', rows: 'deduped', cap: 90 },
+  { key: 'welcome_to_fees', group: 'nvc', label: 'Welcome letter → fees paid', from: 'nvc_welcome_letter', to: 'nvc_fees_paid', rows: 'deduped', cap: 90 },
+  { key: 'fees_to_docs', group: 'nvc', label: 'Fees paid → documents submitted', from: 'nvc_fees_paid', to: 'nvc_docs_submitted', rows: 'deduped', cap: 180 },
+  { key: 'docs_to_dq', group: 'nvc', label: 'Documents submitted → DQ', from: 'nvc_docs_submitted', to: 'dq_date', rows: 'deduped', cap: 180 },
+  { key: 'dq_to_il', group: 'waiting', label: 'DQ → interview letter', source: 'intervals' },
+  { key: 'il_to_interview', group: 'waiting', label: 'Interview letter → interview', source: 'intervals' },
+  { key: 'il_to_medical', group: 'interview', label: 'Interview letter → medical', from: 'interview_letter', to: 'medical', rows: 'standard', cap: 180 },
+  { key: 'medical_to_interview', group: 'interview', label: 'Medical → interview', from: 'medical', to: 'interview', rows: 'standard', cap: 60 },
+  { key: 'interview_to_passport', group: 'after', label: 'Interview → passport back', source: 'intervals' },
+]
+
+const FIELDS = ['median', 'p25', 'p75', 'n', 'window_days', 'suppressed', 'small_sample']
+
+export const buildPhases = ({ deduped, standard, intervals }, { now = new Date(), daysBetween }) =>
+  PHASES.map(ph => {
+    let stats
+    if (ph.source === 'intervals') {
+      stats = intervals[ph.key]
+    } else {
+      const rows = ph.rows === 'standard' ? standard : deduped
+      const gap = r => daysBetween(r[ph.from], r[ph.to])
+      const valid = r => {
+        if (!r[ph.from] || !r[ph.to]) return false
+        const d = gap(r)
+        return d !== null && d > 0 && (ph.cap === null || d <= ph.cap)
+      }
+      stats = rollingWindow(rows, ph.from, gap, valid, now)
+    }
+    const out = { key: ph.key, group: ph.group, label: ph.label }
+    for (const f of FIELDS) out[f] = stats ? stats[f] : null
+    return out
+  })

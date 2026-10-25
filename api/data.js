@@ -14,7 +14,7 @@ const ukTime = (d) => {
   return `${part('hour')}:${part('minute')}`
 }
 
-import { rollingWindow } from './_lib/phases.js'
+import { rollingWindow, buildPhases, GROUPS } from './_lib/phases.js'
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).end()
@@ -650,7 +650,10 @@ export default async function handler(req, res) {
   // The stepper fetches this on every visa-process page, so let the CDN serve
   // one copy for 10 minutes and refresh it in the background. Errors stay uncached.
   res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=3600')
+  const phases = buildPhases({ deduped, standard, intervals }, { now: new Date(), daysBetween })
   return res.status(200).json({
+    phases,
+    phase_groups: GROUPS,
     meta: {
       total_members: deduped.length,
       total_submissions: rows.length,

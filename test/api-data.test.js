@@ -42,3 +42,16 @@ test('api/data output is unchanged for the fixture', async () => {
   assert.deepEqual(pinned(body), JSON.parse(fs.readFileSync(GOLDEN, 'utf8')));
 });
 
+
+test('api/data exposes phases and phase_groups', async () => {
+  const body = await runHandler(ROWS, NOW);
+  assert.equal(body.phases.length, 9);
+  assert.deepEqual(body.phase_groups.map(g => g.key), ['nvc', 'waiting', 'interview', 'after']);
+  for (const ph of body.phases) {
+    assert.equal(typeof ph.n, 'number', ph.key);
+    assert.ok(ph.n <= body.meta.total_members, `${ph.key}: n ${ph.n} > members`); // the resubmission counts once
+  }
+  const p = Object.fromEntries(body.phases.map(x => [x.key, x]));
+  for (const k of ['dq_to_il', 'il_to_interview', 'interview_to_passport'])
+    assert.equal(p[k].median, body.intervals[k].median, k);
+});
