@@ -62,7 +62,6 @@ export const MARK_RULES = [
   ["public/checklists.html", ".tools-header__eyebrow"],
 ];
 export const ROUND_ALLOW = [
-  ".visa-stepper__dot",
   ".steps > li::before",
   ".step__marker",
   '.form-check-input[type="radio"]',
