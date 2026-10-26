@@ -372,6 +372,13 @@
     /* Wait times by phase */
     .phase-group { margin: 1.25rem 0 0.5rem; font-size: 1rem; }
     .phase-cards-empty { color: var(--color-text-muted); }
+    .stat-box__note {
+      margin-top: var(--space-2) !important;
+      padding-left: var(--space-2);
+      border-left: 3px solid var(--color-warning-border);
+      font-size: var(--text-sm);
+      color: var(--color-warning);
+    }
     .freshness-badge {
       display: inline-block;
       padding: 2px 10px;
@@ -382,7 +389,7 @@
     }
   </style>
   <link rel="stylesheet" href="/css/nav.css?v=20261025a">
-  <script src="/js/phase-cards.js?v=20261026a" defer></script>
+  <script src="/js/phase-cards.js?v=20261026b" defer></script>
   <script src="/js/nav.js?v=20261025a" defer></script>
 <link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
@@ -467,27 +474,6 @@
       </div>
     </section>
 
-    <!-- WAIT TIMES BY PHASE -->
-    <section class="content-section" aria-labelledby="phases-hd">
-      <div class="container">
-        <div class="section-hd">
-          <h2 class="section-hd__title" id="phases-hd">Wait times by phase</h2>
-          <p class="section-hd__sub">Median days for each step, with the range most members fall within.</p>
-        </div>
-        <p class="trend-note">
-          <strong>Historical data, not a forecast:</strong> IL drops have stopped. Nothing has
-          landed since 14 July 2026<span id="tn-days-since"></span>: the 6&ndash;16 August window we
-          projected passed with no drop, and the gap is now longer than any in our recorded drop
-          history. Members waiting at other posts report the same silence, so this does not look
-          like a London-specific problem. The DQ &rarr; Interview Letter figures below cover drops up
-          to that last one, when the wait was already lengthening: the recent median runs longer
-          than the all-time median. Until drops resume, treat them as a record of what happened,
-          not a prediction of when your letter will arrive.
-        </p>
-        <div id="phase-cards"></div>
-      </div>
-    </section>
-
     <!-- PIPELINE STATUS -->
     <section class="content-section" aria-labelledby="pipeline-hd">
       <div class="container">
@@ -542,6 +528,27 @@
         <p class="metrics-note" style="margin-top: var(--space-4);">
           <strong>Updated 26 October 2026.</strong> <a href="/interview">Your interview: start here &rarr;</a> After the court vacated the 75-country pause, London started emailing applicants refused under it or under 221(g) to book a new interview: <a href="/reinterview">re-interview after a 221(g)</a>.
         </p>
+      </div>
+    </section>
+
+    <!-- WAIT TIMES BY PHASE -->
+    <section class="content-section" aria-labelledby="phases-hd">
+      <div class="container">
+        <div class="section-hd">
+          <h2 class="section-hd__title" id="phases-hd">Wait times by phase</h2>
+          <p class="section-hd__sub">Median days for each step, with the range most members fall within.</p>
+        </div>
+        <p class="trend-note">
+          <strong>Historical data, not a forecast:</strong> IL drops have stopped. Nothing has
+          landed since 14 July 2026<span id="tn-days-since"></span>: the 6&ndash;16 August window we
+          projected passed with no drop, and the gap is now longer than any in our recorded drop
+          history. Members waiting at other posts report the same silence, so this does not look
+          like a London-specific problem. The DQ &rarr; Interview Letter figures below cover drops up
+          to that last one, when the wait was already lengthening: the recent median runs longer
+          than the all-time median. Until drops resume, treat them as a record of what happened,
+          not a prediction of when your letter will arrive.
+        </p>
+        <div id="phase-cards"></div>
       </div>
     </section>
 
@@ -1156,6 +1163,11 @@
       london: { status:'paused', text:'London has sent no Interview Letters since 14 July 2026, and other posts report the same. Treat the DQ-to-IL figures here as history, not a forecast. The only applicants interviewing now have a rescheduled interview or a re-interview. London canceled immigrant visa interviews and same-day document checks booked for August to October 2026 for public charge training; medicals appear unaffected. So far, September interviews have moved to October and November, and October ones to December. After the court vacated the 75-country pause, London started emailing applicants refused under it or under 221(g) to book a re-interview. <a href="/interview">What to do if you have a new date →</a> <a href="/reinterview">Re-interview after a 221(g) →</a>' },
     };
 
+    /* Editorial caveats under phase cards whose member data conflicts with official figures */
+    const PHASE_NOTES = {
+      docs_to_dq: 'Conflicts with NVC: as of 26 October 2026, NVC is reviewing documents submitted on 18 August, a 69-day wait. These member reports span 9 months, so plan on the NVC figure.',
+    };
+
     /* Map the /api/data response into the shapes the render functions consume */
     function fromApiData(d) {
       const sched = d.il_schedule || {};
@@ -1423,7 +1435,7 @@
       renderMetrics(drops, stats, usedFallback);
       const dqIl = (d.phases || []).find(p => p.key === 'dq_to_il');
       if (dqIl) dqIl.all_time_median = d.trends?.dq_to_il?.all_time?.median ?? null;
-      if (window.AVGPhaseCards) AVGPhaseCards.render(document.getElementById('phase-cards'), d.phases, d.phase_groups);
+      if (window.AVGPhaseCards) AVGPhaseCards.render(document.getElementById('phase-cards'), d.phases, d.phase_groups, PHASE_NOTES);
       renderPipeline(stats);
       renderDropTable(drops);
       renderAwaiting(d);
