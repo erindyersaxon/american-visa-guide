@@ -77,7 +77,7 @@
       <div class="privacy-warning"><strong>Privacy Notice (cannot be dismissed):</strong> This is a personal planning tool. It is not connected to USCIS, NVC, or any official system. Do not submit it, share it, or send it to anyone. Your answers are only stored in your current browser tab: if you close or refresh this tab, your answers are gone. Save your work using the Print or Copy buttons below before closing.</div>
       <div class="save-buttons"><button type="button" class="btn" onclick="window.print()">Print Worksheet</button><button type="button" class="btn" onclick="copyToClipboard()">Copy to Clipboard</button></div>
       <div class="warning-banner"><strong>Wet Signature Required:</strong> The I-864 must be wet signed: print, sign by hand, scan back in. Do NOT use a digital or e-signature. Standard I-864 is recommended over I-864EZ even for simple cases.</div>
-      <div class="warning-banner"><strong>Use the 08/24/26 edition:</strong> USCIS accepts only the 08/24/26 edition of the I-864, I-864A and I-864EZ from 1 October 2026. Check the edition date at the foot of every page, and download a new blank form from <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">uscis.gov/i-864</a> if yours is older.</div>
+      <div class="warning-banner"><strong>Use the 08/24/26 edition:</strong> USCIS accepts only the 08/24/26 edition of the I-864, I-864A and I-864EZ from 1 October 2026. Check the edition date at the foot of every page, and download a new blank form from <a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">uscis.gov/i-864</a> if yours is older. Signing this edition authorizes a credit check on each sponsor, so lift any credit freeze if asked.</div>
       <form id="worksheetForm">
         <section class="ws-section">
           <h2 class="ws-section-title">Part 0: EZ Eligibility Check</h2>
@@ -166,6 +166,7 @@
         </section>
         <section class="ws-section">
           <h2 class="ws-section-title">Part 6: Assets (if income alone insufficient)</h2>
+          <p class="ws-note"><strong>Skip this part if income meets the threshold.</strong> Form I-864 Part 7 states that you are not required to complete it if your household income exceeds the guideline for your household size. NVC does not need asset figures from you at this stage.</p>
           <p class="ws-note">Assets can be used to supplement income. Assets must be worth <strong>3×</strong> the gap between your income and the 125% threshold if the immigrant is the spouse, or a child aged 18 or over, of a US citizen (the usual IR-1/CR-1 case). In most other cases they must be worth <strong>5×</strong> the gap. Liquid assets most useful; property equity harder to document. See the <a href="i864-household-decision-tree.html">household decision tree</a> for the full rules, and note London’s reluctance to accept assets in place of income.</p>
           <div class="ws-field-group"><label class="ws-label" for="assetCash">Cash and bank accounts</label><input type="text" class="ws-input asset-input" id="assetCash" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
           <div class="ws-field-group"><label class="ws-label" for="assetStocks">Stocks and bonds</label><input type="text" class="ws-input asset-input" id="assetStocks" placeholder="$" autocomplete="off" oninput="updateAssets()"></div>
@@ -177,6 +178,7 @@
           <h2 class="ws-section-title">Part 7: Checklist Before Filing</h2>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl0"> Every form is the <strong>08/24/26</strong> edition, with no pages mixed in from an older edition</label></div>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl1"> I-864 printed and wet signed by hand</label></div>
+          <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl1b"> Credit freeze lifted at Equifax, Experian and TransUnion, if required</label></div>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl2"> IRS Tax Transcript obtained for every sponsor and joint sponsor on the case (not a copy of return)</label></div>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl2b"> Transcript uploaded to CEAC before the interview date, even if DQ was granted on a 1040 copy. London has issued 221(g) for a missing transcript despite DQ</label></div>
           <div class="ws-checkbox-group"><label class="ws-checkbox-label"><input type="checkbox" name="cl3"> W-2s / 1099s included</label></div>
