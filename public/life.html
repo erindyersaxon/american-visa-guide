@@ -560,6 +560,12 @@
       </div>
 
       <div class="info-card">
+        <div class="info-card-head">Evaluations for immigration</div>
+        <p style="margin-bottom:6px;">IEE also runs a separate credential evaluation service for immigration. IEE aims it at temporary worker visas such as the H-1B and at employment-based petitions, where the petition relies on a foreign degree. IEE accepts legible scans for immigration evaluations and says its reports follow AACRAO EDGE. <a href="https://myiee.org/immigration" target="_blank" rel="noopener noreferrer" style="font-size:14px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Source">[IEE: Immigration services]</a></p>
+        <p style="margin:0;">On a family-based immigrant visa you do not need one. A document-by-document or course-by-course report can still help with <a href="/public-charge#factors" style="color:var(--teal-light);">public charge</a>: education and skills is one of the five factors the consular officer weighs, and the report tells the officer what your degree equals in the US. <a href="https://fam.state.gov/fam/09FAM/09FAM030208.html" target="_blank" rel="noopener noreferrer" style="font-size:14px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none;" title="Official source">[9 FAM 302.8]</a></p>
+      </div>
+
+      <div class="info-card">
         <div class="info-card-head">Where to send the report</div>
         <p style="margin-bottom:6px;">You can have the evaluator send the report straight to an employer or university, or send it to you. If you hold your own copy and a school or employer later wants an official copy direct from the evaluator, you reorder and pay for another one.</p>
         <ul style="margin:0;">
@@ -1177,6 +1183,16 @@ function toggleSubAcc(id) {
 function subAccGroup(group, expand) {
   document.querySelectorAll('[data-sub-group="'+group+'"]').forEach(el => el.classList.toggle('open', expand));
 }
+// Deep links (e.g. /life#life_3b) open the target accordion
+function openSubAccFromHash() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  const item = id && document.getElementById(id);
+  if (!item || !item.classList.contains('sub-acc-item')) return;
+  item.classList.add('open');
+  item.scrollIntoView({block:'start'});
+}
+openSubAccFromHash();
+window.addEventListener('hashchange', openSubAccFromHash);
 
 // GC & SSN Timeline Data
 const TL_DATA = [
