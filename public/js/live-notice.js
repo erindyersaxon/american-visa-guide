@@ -18,7 +18,7 @@
   // batches ("drops"); this says where the queue stands and sends readers
   // to the interview hub for the steps. The id keeps old
   // /guide#interview-cancellations links working.
-  const UPDATED = '23 October 2026';
+  const UPDATED = '4 November 2026';
 
   function notice(opts) {
     const hub = location.pathname.replace(/\.html$/, '') === '/interview'
@@ -36,7 +36,7 @@
         <li><strong>EB-2:</strong> 20 October &rarr; 1 December</li>
       </ul>
       <p>The K-1 and EB-2 reports are listed for timing only: the steps on this site are written for family immigrant visas.</p>
-      <p>London has not sent any interview letters since <strong>14 July 2026</strong>. We are waiting for drops to resume.</p>
+      <p>London has not sent any interview letters since <strong>14 July 2026</strong>. We are waiting for drops to resume. State's court filings say each post must finish in-person public charge training before it processes new cases. <a href="/september-2026-update#training">Why new interviews are waiting</a>.</p>
       <p>${hub}<a href="/data">See the data</a></p>
       <p class="live-note__meta">Updated ${UPDATED}.</p>
     </div>`;
