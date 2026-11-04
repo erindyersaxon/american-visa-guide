@@ -23,7 +23,7 @@
       status: 'Vacated by a court on 21 August 2026, and the guidance behind it rescinded on 10 September 2026. Refusals made only because of it are being reconsidered. On 19 October 2026 the Second Circuit temporarily stayed the order on those refusals; the Department says its review continues.',
       uk: 'No. The UK was not on the list. It applied at London only to applicants interviewing on a listed passport.',
       link: '/september-2026-update',
-      linkText: 'Both pauses vacated',
+      linkText: 'Immigrant visa pause vacated',
     },
     {
       term: 'Diversity visa pause',
