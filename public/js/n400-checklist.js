@@ -44,7 +44,7 @@
       ['f4', 'Save a PDF of the submitted N-400 and your receipt notice (I-797C)', 'Reread it before your interview. The officer will go through it with you line by line. The receipt notice also extends your green card\'s validity by 24 months, so keep it with your card.'],
     ]},
     { key: 'after', title: 'While your case is pending', items: [
-      ['a1', 'Attend your biometrics appointment', 'Every N-400 applicant attends, even if you gave biometrics before. Bring the appointment notice and photo ID. If you miss it without rescheduling, USCIS treats the application as abandoned and denies it. ' + link('https://www.uscis.gov/sites/default/files/document/policy-manual-updates/20251212-PhotographReuse.pdf', '[USCIS policy alert, Dec. 12, 2025]')],
+      ['a1', 'Attend your biometrics appointment', 'Every N-400 applicant attends, even if you gave biometrics before. Bring the appointment notice and photo ID. If you miss it without rescheduling, USCIS treats the application as abandoned and denies it. See <a href="/naturalization/biometrics">step 4: biometrics</a>. ' + link('https://www.uscis.gov/sites/default/files/document/policy-manual-updates/20251212-PhotographReuse.pdf', '[USCIS policy alert, Dec. 12, 2025]')],
       ['a2', 'Report any change of address within 10 days', 'Through your USCIS account or Form AR-11. Missed notices are a common reason for delays and denials.'],
       ['a3', 'Keep trips abroad short', 'Continuous residence must continue until your oath.'],
       ['a4', 'Study for the civics test', 'Use the <a href="/naturalization/test#flashcards">civics flashcards</a>, and practice saying your N-400 answers aloud. English practice sheets are on <a href="/checklists.html#naturalization">Checklists &amp; Tools</a>.'],
