@@ -49,7 +49,7 @@ const prevNext = html => {
   return { found: !!nav, prev: rel('prev'), next: rel('next') };
 };
 
-test('every section page has the hub sidebar, desktop and drawer', { todo: 'until Task 6' }, () => {
+test('every section page has the hub sidebar, desktop and drawer', () => {
   const canon = sidebars(read('naturalization.html'))[0];
   for (const p of SECTION_PAGES) {
     const s = sidebars(read(p));
@@ -58,14 +58,14 @@ test('every section page has the hub sidebar, desktop and drawer', { todo: 'unti
   }
 });
 
-test('aria-current marks the page itself', { todo: 'until Task 6' }, () => {
+test('aria-current marks the page itself', () => {
   for (const p of SECTION_PAGES) {
     const current = [...read(p).matchAll(/<a href="([^"]+)" aria-current="page"/g)].map(m => m[1]);
     assert.deepEqual(current, [URL_OF(p), URL_OF(p)], `${p}: once in sidebar, once in drawer`);
   }
 });
 
-test('step pages link Previous/Next along the chain', { todo: 'until Task 6' }, () => {
+test('step pages link Previous/Next along the chain', () => {
   STEP_CHAIN.slice(1).forEach((url, i) => {
     const pn = prevNext(read(url.slice(1) + '.html'));
     assert.ok(pn.found, `${url}: has stage-prevnext`);
@@ -118,4 +118,44 @@ test('step 1 eligibility page', () => {
   assert.equal(pn.prev, '/naturalization');
   assert.equal(pn.next, '/naturalization/test');
   assert.deepEqual(scriptsOn(html), []);
+});
+
+// ---------- Hub and legacy anchors ----------
+const vm = require('node:vm');
+const ANCHORS = {
+  timeline: '/naturalization/when-can-i-apply', calc: '/naturalization/when-can-i-apply',
+  prepare: '/checklist-n400', prep: '/checklist-n400',
+  civics: '/naturalization/test#flashcards', flashcards: '/naturalization/test#flashcards',
+  english: '/naturalization/test#english', resources: '/naturalization#help',
+};
+const redirectFor = hash => {
+  let got;
+  const sandbox = { location: { hash, replace: u => { got = u; } }, window: { addEventListener() {} } };
+  vm.runInNewContext(read('js/naturalization-anchors.js'), sandbox);
+  return got;
+};
+
+test('legacy anchors resolve', () => {
+  for (const [hash, url] of Object.entries(ANCHORS)) {
+    assert.equal(redirectFor('#' + hash), url, `#${hash}`);
+    const [file, frag] = url.split('#');
+    const html = read(file.slice(1) + '.html');
+    if (frag) assert.ok(hasId(html, frag), `${url}: id exists`);
+  }
+  for (const hash of ['#help', '#steps', '#community-h', '']) assert.equal(redirectFor(hash), undefined, hash);
+});
+
+test('hub links every built page and lists unbuilt steps as text', () => {
+  const html = read('naturalization.html');
+  assert.ok(html.indexOf('/js/naturalization-anchors.js') < html.indexOf('</head>'), 'anchor map in head');
+  const steps = (html.match(/<section[^>]*id="steps"[\s\S]*?<\/section>/) || [''])[0];
+  for (const url of ['/naturalization/eligibility', '/naturalization/when-can-i-apply', '/naturalization/test', '/checklist-n400']) {
+    assert.ok(steps.includes(`href="${url}"`), `links ${url}`);
+  }
+  for (const t of ['Good moral character', 'Fill in and file Form N-400', 'Biometrics', 'Interview', 'Oath ceremony', 'After you become a citizen']) {
+    assert.ok(steps.includes(t), `lists ${t}`);
+  }
+  for (const id of ['help', 'not-covered', 'community-h']) assert.ok(hasId(html, id), `id ${id}`);
+  assert.deepEqual(scriptsOn(html), []);
+  assert.ok(!fs.existsSync(path.join(PUBLIC, 'js/naturalization.js')), 'old script deleted');
 });

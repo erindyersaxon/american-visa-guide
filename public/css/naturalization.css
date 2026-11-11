@@ -158,3 +158,14 @@
   .natz-tool .community .btn-link,.natz-tool .calc-actions,.natz-tool .prep-tools,.natz-tool #flashcards{display:none!important}
 }
 @media (prefers-reduced-motion: reduce){.natz-tool .fc-inner{transition:none}}
+
+/* Hub step-by-step list (GOV.UK-style): numbered circles joined by a line */
+.natz-tool .natz-steps{list-style:none;padding:0;margin:0 0 32px;counter-reset:natz}
+.natz-tool .natz-steps>li{counter-increment:natz;position:relative;padding:0 0 22px 48px;margin:0}
+.natz-tool .natz-steps>li::before{content:counter(natz);position:absolute;left:0;top:0;width:32px;height:32px;line-height:30px;text-align:center;border-radius:50%;border:2px solid var(--accent);background:var(--card-bg);font-family:var(--font-ui);font-weight:700;font-size:15px;color:var(--accent)}
+.natz-tool .natz-steps>li::after{content:'';position:absolute;left:15px;top:36px;bottom:4px;width:2px;background:var(--border-subtle)}
+.natz-tool .natz-steps>li:last-child::after{display:none}
+.natz-tool .natz-steps h3{font-family:var(--font-ui);font-size:18px;font-weight:800;margin:3px 0 4px}
+.natz-tool .natz-steps p{margin:0 0 6px}
+.natz-tool .natz-steps ul{margin:4px 0 0;padding-left:18px}
+.natz-tool .natz-soon{font-size:14px;color:var(--muted);font-style:italic}
