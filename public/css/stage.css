@@ -233,6 +233,20 @@
     font-weight: 500;
   }
 
+  /* A step whose page is not written yet (naturalization section): shown in
+     sequence so the journey is complete, but not a link */
+  .sidebar-nav .sidebar-pending {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    padding: 10px 12px;
+    border-left: 3px solid transparent;
+    line-height: 1.4;
+    font-weight: 500;
+    cursor: default;
+  }
+
   /* Optional pages that sit under a stage: indented, so they read as
      "only if this applies", not as a step everyone takes */
   .sidebar-nav .sidebar-sub a {
