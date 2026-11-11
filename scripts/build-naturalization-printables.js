@@ -15,6 +15,12 @@
 //
 // Usage (Playwright is not a site dependency, so install it on demand):
 //   npx -y -p playwright node scripts/build-naturalization-printables.js
+// If that fails with "Cannot find module 'playwright'" (npx does not set NODE_PATH),
+// point Node at npx's temporary install:
+//   npx -y -p playwright sh -c 'NODE_PATH=$(dirname "$(command -v playwright)")/.. node scripts/build-naturalization-printables.js'
+// To use an installed Chrome instead of Playwright's browser download, prefix either
+// command with CHROMIUM_PATH, e.g. on a Mac:
+//   CHROMIUM_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 // Optional: PUBLIC_SANS_DIR=<dir with public-sans-latin-{400,700}-normal.woff2>
 // embeds Public Sans in the PDFs; otherwise a system sans-serif is used.
 
@@ -256,7 +262,9 @@ async function main() {
     'naturalization-english-flashcards.pdf': flashcardPdfHtml('Naturalization English Test Flashcards', ENGLISH_LEAD, PRINT_STEPS, englishCards()),
   };
   const { chromium } = require('playwright');
-  const launch = fs.existsSync('/opt/pw-browsers/chromium') ? { executablePath: '/opt/pw-browsers/chromium' } : {};
+  // CHROMIUM_PATH=<any Chrome/Chromium binary> skips Playwright's own browser download
+  const exe = process.env.CHROMIUM_PATH || (fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : '');
+  const launch = exe ? { executablePath: exe } : {};
   const browser = await chromium.launch(launch);
   const page = await browser.newPage();
   for (const [f, html] of Object.entries(pdfs)) {
