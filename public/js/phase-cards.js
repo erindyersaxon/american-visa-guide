@@ -41,7 +41,8 @@
     return node;
   }
 
-  function render(container, phases, groups) {
+  // notes: optional { phaseKey: text } of editorial caveats shown under a card
+  function render(container, phases, groups, notes) {
     if (!container) return;
     container.replaceChildren();
     if (!Array.isArray(phases) || !phases.length || !Array.isArray(groups)) {
@@ -58,6 +59,7 @@
         const box = el('div', 'stat-box');
         box.dataset.phase = p.key;
         box.append(el('p', 'stat-box__value', view.value), el('p', 'stat-box__label', p.label), el('p', 'stat-box__source', view.source));
+        if (notes && notes[p.key]) box.append(el('p', 'stat-box__note', notes[p.key]));
         row.append(box);
       });
       container.append(row);

@@ -216,3 +216,12 @@ test('eligibility: no unsupported claims; early filing 3-month rule explained', 
 test('calculator timeline pills stay in a row', () => {
   assert.match(read('css/naturalization.css'), /\.natz-tool \.steps\{[^}]*flex-direction:row/);
 });
+
+test('tool-script links to hub sections resolve', () => {
+  const hub = read('naturalization.html');
+  for (const file of Object.keys(SCRIPTS)) {
+    for (const [, frag] of read(file).matchAll(/href="\/naturalization#([a-z-]+)"/g)) {
+      assert.ok(hasId(hub, frag), `${file}: /naturalization#${frag}`);
+    }
+  }
+});

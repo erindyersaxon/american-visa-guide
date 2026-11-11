@@ -15,29 +15,34 @@
     <link rel="stylesheet" href="/css/print.css?v=20261025a" media="print" />
     <style>
       .pg-container { max-width: var(--max-width-prose); margin: 0 auto; }
-      .pg-header { margin-bottom: var(--space-8); padding-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); }
+      .pg-header { margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--color-border); }
       .pg-eyebrow { font-size: var(--size-sm); color: var(--color-mark, #991B1B); font-weight: var(--weight-semibold); margin-bottom: var(--space-2); }
-      .pg-title { font-size: var(--size-3xl); font-weight: var(--weight-bold); color: var(--color-navy); margin-bottom: var(--space-4); }
+      .pg-title { font-size: var(--size-3xl); font-weight: var(--weight-bold); color: var(--color-navy); margin-bottom: var(--space-3); }
       .pg-dateline { font-size: var(--size-xs); color: var(--color-text-muted); }
-      .pg-intro { font-size: var(--size-base); color: var(--color-text); line-height: var(--line-lg); margin-bottom: var(--space-8); }
-      .info-card { padding: var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy-light); border-radius: var(--radius-lg); margin-bottom: var(--space-6); }
-      .info-card strong { color: var(--color-navy); }
-      .info-card p { margin-bottom: var(--space-4); font-size: var(--size-sm); line-height: var(--line-lg); }
-      .info-card ul, .info-card ol { margin: var(--space-4) 0 var(--space-4) var(--space-6); }
-      .info-card li { margin-bottom: var(--space-2); font-size: var(--size-sm); line-height: var(--line-lg); }
-      .tip-card { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin-bottom: var(--space-6); }
-      .tip-card strong { color: var(--color-navy); }
-      .tip-card p { margin-bottom: var(--space-4); font-size: var(--size-sm); line-height: var(--line-lg); }
-      .tip-card ul { margin: var(--space-4) 0 var(--space-4) var(--space-6); }
-      .tip-card li { margin-bottom: var(--space-2); font-size: var(--size-sm); line-height: var(--line-lg); }
-      .warning-card { padding: var(--space-6); background: #fee2e2; border: 2px solid var(--color-error); border-radius: var(--radius-lg); margin-bottom: var(--space-6); }
-      .warning-card strong { color: var(--color-error); }
-      .warning-card p { margin-bottom: var(--space-4); font-size: var(--size-sm); line-height: var(--line-lg); }
-      .section-title { font-size: var(--size-xl); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-8) 0 var(--space-4) 0; }
-      .toc { padding: var(--space-5) var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy-light); border-radius: var(--radius-lg); margin-bottom: var(--space-8); }
+      .summary { padding: var(--space-5) var(--space-6); background: var(--color-gold-xlight); border-left: 4px solid var(--color-gold); border-radius: var(--radius-md); margin-bottom: var(--space-6); }
+      .summary h2 { font-size: var(--size-base); font-weight: var(--weight-bold); color: var(--color-navy); margin: 0 0 var(--space-2); }
+      .summary ul { margin: 0 0 0 var(--space-5); }
+      .summary li { margin-bottom: var(--space-2); }
+      .summary li:last-child { margin-bottom: 0; }
+      .pg-container > p { margin-bottom: var(--space-4); }
+      .toc { margin-bottom: var(--space-8); }
       .toc strong { color: var(--color-navy); font-size: var(--size-sm); }
-      .toc ol { margin: var(--space-3) 0 0 var(--space-6); }
-      .toc li { margin-bottom: var(--space-2); font-size: var(--size-sm); }
+      .toc ol { margin: var(--space-2) 0 0 var(--space-5); }
+      .toc li { margin-bottom: var(--space-1); font-size: var(--size-sm); }
+      .section-title { font-size: var(--size-xl); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-10, 2.5rem) 0 var(--space-3); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
+      .sub-title { font-size: var(--size-lg); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-6) 0 var(--space-2); }
+      main ul.plain { margin: var(--space-3) 0 var(--space-4) var(--space-5); }
+      main ul.plain li { margin-bottom: var(--space-2); }
+      .flag { font-size: var(--size-xs); font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-mark, #991B1B); margin-right: var(--space-2); }
+      .more { margin: var(--space-4) 0; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+      .more summary { cursor: pointer; padding: var(--space-3) var(--space-4); font-weight: var(--weight-semibold); color: var(--color-navy); }
+      .more > div { padding: 0 var(--space-4) var(--space-4); }
+      .timeline { list-style: none; margin: 0; padding: 0; }
+      .timeline li { display: grid; grid-template-columns: 7.5rem 1fr; gap: var(--space-3); padding: var(--space-2) 0; border-bottom: 1px solid var(--color-border); max-width: none; }
+      .timeline li:last-child { border-bottom: none; }
+      .timeline .when { font-weight: var(--weight-semibold); color: var(--color-navy); }
+      .timeline .yr { padding-top: var(--space-4); font-weight: var(--weight-bold); color: var(--color-text-muted); font-size: var(--size-sm); display: block; border-bottom: none; }
+      @media (max-width: 600px) { .timeline li { grid-template-columns: 1fr; gap: 0; } }
       .embassy-note { font-size: var(--size-xs); color: var(--color-text-muted); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
     </style>
     <link rel="stylesheet" href="/css/nav.css?v=20261025a">
@@ -52,176 +57,161 @@
       <div class="container">
         <div class="pg-container">
           <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/interview">Your interview</a></li><li aria-current="page">Both visa pauses vacated</li></ol></nav>
-          <div data-live-notice="page"></div>
           <header class="pg-header">
             <div class="pg-eyebrow">US Embassy London &middot; Policy update</div>
             <h1 class="pg-title">Both visa pauses have been vacated</h1>
-            <p class="pg-dateline">Posted 12 September 2026. Reviewed 16 October 2026. This page tracks a live situation and will be updated as the two cases move.</p>
+            <p class="pg-dateline">Posted 12 September 2026. Reviewed 4 November 2026. We update this page as the cases move.</p>
           </header>
 
-          <div class="pg-intro">
-            <p>Two separate pauses stopped immigrant visas for two different groups of people. Two separate federal courts have now struck both of them down, and on 10 September 2026 the State Department told every embassy and consulate in the world that the guidance behind them is rescinded. Neither pause is a lawful reason to refuse anyone. What follows is what the documents say, what the Department has committed to doing, and what is still unresolved.</p>
-          </div>
-
-          <div class="tip-card">
-            <strong>The bottom line</strong>
-            <p style="margin-top: var(--space-3);">Both pauses are void. The courts set aside refusals made <em>only</em> because of either pause, and sent them back to consular officers to decide again on the facts. That covers everyone affected, not only the people who sued.</p>
-            <p style="margin-bottom: 0;">That is not the same as a visa, and it is not a timetable. The Department has given no date by which reconsideration will be finished, and it has rescheduled immigrant visa appointments worldwide in the meantime.</p>
-          </div>
+          <section class="summary" aria-labelledby="short">
+            <h2 id="short">In short</h2>
+            <ul>
+              <li>Courts struck down both pauses. On 10 September 2026 the State Department told every post to stop applying them.</li>
+              <li>Refusals made <em>only</em> because of a pause go back to an officer to decide again. You do not refile or pay again.</li>
+              <li>The Department has set no finish date. London is calling pause cases back for a full interview.</li>
+              <li>The 19 October 2026 Second Circuit stay paused the order on individual refusals. The policy itself stays vacated. <a href="#standing">Details</a>.</li>
+              <li>The diversity visa window ran 14 to 23 October 2026 and has closed.</li>
+            </ul>
+          </section>
 
           <div data-pause-glossary></div>
 
           <div class="toc">
             <strong>On this page</strong>
             <ol>
-              <li><a href="#what">What the two pauses were</a></li>
-              <li><a href="#courts">What the courts decided</a></li>
-              <li><a href="#cable">What the Department has told its posts</a></li>
-              <li><a href="#standing">Where each case stands now</a></li>
-              <li><a href="#timeline">Timeline</a></li>
-              <li><a href="#you">If your case was caught by either pause</a></li>
+              <li><a href="#you">What to do now</a></li>
+              <li><a href="#standing">Where each case stands</a></li>
+              <li><a href="#what">The two pauses and the court rulings</a></li>
+              <li><a href="#cable">What posts have been told</a></li>
               <li><a href="#notmean">What this does not mean</a></li>
-              <li><a href="#read">Read the documents yourself</a></li>
+              <li><a href="#timeline">Timeline</a></li>
+              <li><a href="#read">Sources</a></li>
             </ol>
           </div>
 
-          <h2 class="section-title" id="what">What the two pauses were</h2>
+          <h2 class="section-title" id="you">What to do now</h2>
+          <p>If a pause caught your case:</p>
+          <ul class="plain">
+            <li><strong>Do not start again.</strong> The court set your refusal aside. Nothing needs refiling.</li>
+            <li><strong>Renew stale documents now.</strong> Medicals and police certificates expire. Three named plaintiffs left their October interviews with a new 221(g) because their medical had run out.</li>
+            <li><strong>Check email and your AIS account daily.</strong> London gave one applicant less than 24 hours' notice of a new date.</li>
+            <li><strong>Prepare for public charge questions.</strong> The officer fills in a worksheet covering all five statutory factors. See <a href="/public-charge.html">public charge</a>.</li>
+            <li><strong>Got a new 221(g)?</strong> Officers must state the specific reason. See <a href="/221g.html">221(g)</a> and <a href="/reinterview">re-interview after a 221(g)</a>.</li>
+          </ul>
 
-          <div class="info-card">
-            <strong>The diversity visa pause, from 20 December 2025</strong>
-            <p style="margin-top: var(--space-3);">On 19 December 2025 the Department, working with DHS, told consular officers to refuse <strong>every diversity visa applicant</strong> under INA 221(g), unless already refused on some other ground. The stated reason was national security concerns about applicant vetting and identity verification. Refusals began the following day.</p>
-            <p style="margin-bottom: 0;">This one ran against a clock that no court can easily stop. Diversity visas cannot ordinarily be issued after the end of the fiscal year, which fell on <strong>30 September 2026</strong>. The court has since ordered processing from 14 to 23 October 2026: see <a href="#standing">where each case stands now</a>.</p>
-          </div>
+          <h2 class="section-title" id="standing">Where each case stands</h2>
 
-          <div class="info-card">
-            <strong>The immigrant visa pause, from 21 January 2026</strong>
-            <p style="margin-top: var(--space-3);">On 14 January 2026 the Department told consular officers to refuse under INA 221(g) <strong>every immigrant visa applicant who is a national of one of 75 countries</strong> assessed as a high risk of becoming a public charge, again unless already refused on another ground. It took effect on 21 January 2026.</p>
-            <p style="margin-bottom: 0;">The trigger was <strong>nationality, not the embassy you interviewed at</strong>. If you interviewed at US Embassy London on a non-UK passport and were caught by this, you were caught by this pause. More than <strong>43,000</strong> immigrant visa applications fall within the resulting court order.</p>
-          </div>
+          <h3 class="sub-title">Immigrant visas: review continues, part of the ruling stayed</h3>
+          <p>The judgment set aside the policy and each refusal made only under it. On 19 October 2026 the Second Circuit temporarily stayed the second part while it decides the government's stay motion. No post may apply the pause.</p>
+          <p>On 23 October the Department told the district court its review instructions have not changed. It asked the court not to set deadlines during the stay. The court has not ruled.</p>
+          <p>The Department counts about <strong>43,000</strong> pause refusals and gives no finish date. Between 21 August and 30 September officers decided about 706 again: roughly 318 approved, 388 refused.</p>
+          <p>London is calling pause cases back for a full interview. Bring your passport and all your documents. The officer looks at anything that changed since the refusal, such as the petitioner moving abroad.</p>
 
-          <h2 class="section-title" id="courts">What the courts decided</h2>
+          <h3 class="sub-title">Diversity visas: the window has closed</h3>
+          <p>The court found the Department's compliance less than substantial. It ordered posts to reconsider FY-2026 pause refusals from <strong>14 to 23 October 2026</strong>, local time. The government has appealed to the Ninth Circuit. If no officer decided your DV-2026 case in that window, any further relief depends on the appeal. Speak to an immigration attorney.</p>
 
-          <div class="info-card">
-            <strong>21 August 2026: the immigrant visa pause is vacated</strong>
-            <p style="margin-top: var(--space-3);">In <em>Catholic Legal Immigration Network, Inc. v. Rubio</em>, No. 1:26-cv-00858-JAV, the US District Court for the Southern District of New York vacated the immigrant visa pause and remanded the refusals made under it, so that consular officers reconsider those cases without applying it. Our existing page on that decision, <a href="/visa-pause.html">the nationality visa pause, struck down</a>, covers it in detail.</p>
-            <p style="margin-bottom: 0;">Vacatur is not limited to the plaintiffs. It removes the policy itself.</p>
-          </div>
+          <h2 class="section-title" id="what">The two pauses and the court rulings</h2>
+          <ul class="plain">
+            <li><strong>Diversity visa pause</strong>, from 20 December 2025: a 221(g) refusal for every diversity visa applicant, citing vetting concerns.</li>
+            <li><strong>Immigrant visa pause</strong>, from 21 January 2026: a 221(g) refusal for every immigrant visa applicant from 75 countries the Department rated high risk for public charge. Nationality triggered it, not the embassy. A non-UK passport holder interviewing in London could be caught.</li>
+          </ul>
 
-          <div class="info-card">
-            <strong>28 August 2026: the diversity visa pause is vacated</strong>
-            <p style="margin-top: var(--space-3);">In <em>Medani v. Trump</em>, No. 5:26-cv-06332-EJD, the US District Court for the Northern District of California temporarily vacated the diversity visa pause, the 75-country immigrant visa pause, and a third policy adopted by USCIS. The court certified a subclass of <strong>all selectees and derivative beneficiaries under the FY-2026 Diversity Visa Program</strong> who were subject to either pause, and ordered the Department, to the extent practicable and in good faith, to take all reasonable steps during the remainder of the diversity visa fiscal year to reconsider applications refused solely under either pause and to resume ordinary adjudication.</p>
-            <p style="margin-bottom: 0;">Note the word <em>temporarily</em>. This came through a preliminary injunction, so it holds while the case proceeds rather than settling it.</p>
-          </div>
+          <h3 class="sub-title" id="courts">What the courts decided</h3>
+          <ul class="plain">
+            <li><strong>21 August 2026:</strong> the Southern District of New York vacated the immigrant visa pause in <a href="https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/" target="_blank" rel="noopener noreferrer"><em>CLINIC v. Rubio</em></a>. Vacatur removes the policy for everyone, not only the plaintiffs. Full write-up: <a href="/visa-pause.html">the nationality visa pause, struck down</a>.</li>
+            <li><strong>28 August 2026:</strong> the Northern District of California temporarily vacated both pauses in <a href="https://www.courtlistener.com/docket/73529774/medani-v-trump/" target="_blank" rel="noopener noreferrer"><em>Medani v. Trump</em></a>, by preliminary injunction. It covers all FY-2026 diversity visa selectees caught by either pause.</li>
+            <li><strong>Narrower cases:</strong> the District of Columbia granted relief to named plaintiffs in <a href="https://www.courtlistener.com/docket/72494270/ivanov-v-trump/" target="_blank" rel="noopener noreferrer"><em>Ivanov v. Trump</em></a> (about 1,900 DV-2026 selectees) and <a href="https://www.courtlistener.com/docket/72304355/storie-v-trump/" target="_blank" rel="noopener noreferrer"><em>Storie v. Trump</em></a>.</li>
+          </ul>
 
-          <div class="info-card">
-            <strong>Two more cases, narrower relief</strong>
-            <p style="margin-top: var(--space-3); margin-bottom: 0;">The US District Court for the District of Columbia granted similar relief to named plaintiffs in <em>Ivanov v. Trump</em>, covering roughly 1,900 DV-2026 selectees and their beneficiaries, and in <em>Storie v. Trump</em>. In <em>Storie</em> the court ordered the Department to complete the adjudication within 30 days, and posts have been told to take the required steps by <strong>24 September 2026</strong>.</p>
-          </div>
+          <h2 class="section-title" id="cable">What posts have been told</h2>
+          <p>Cable 26 STATE 88862 (10 September 2026) rescinds both pauses in full. No one may be refused under 221(g) for either pause. Posts must:</p>
+          <ul class="plain">
+            <li>find every pause refusal and work them oldest first;</li>
+            <li>write to applicants for anything missing, including new medicals;</li>
+            <li>give the specific reason for any fresh 221(g);</li>
+            <li>complete the public charge worksheet in every immigrant visa case.</li>
+          </ul>
+          <p>The cable expects some applicants to attend a second interview. A call-back does not signal a problem.</p>
 
-          <h2 class="section-title" id="cable">What the Department has told its posts</h2>
+          <h3 class="sub-title" id="later">Who goes first</h3>
+          <p>Cable 26 STATE 89798 (14 September) and a Visa Office message of 21 September set the queue. Posts take named plaintiffs and Chief of Mission exception cases first, then everyone else by refusal date. A manager reviews a share of decisions each day, and approved cases go through a further review (IVAR) before the visa prints.</p>
+          <p>If a post replies that your case is &ldquo;being reviewed in the order in which they were refused,&rdquo; it is using the Department's set wording.</p>
+          <p><span class="flag">Unconfirmed</span>Applicants report that families of US service members and government staff go first. No filed document says so. Unless a Chief of Mission exception request went in for your case, do not count on it.</p>
 
-          <div class="info-card">
-            <strong>Cable 26 STATE 88862, 10 September 2026</strong>
-            <p style="margin-top: var(--space-3);">This is the instruction that reaches the officer at the window, and you can read it. The government filed it in court on 11 September 2026. It went to all diplomatic and consular posts as an immediate action request. In its own words, both pauses are <strong>no longer in effect</strong>, it rescinds the underlying guidance <strong>in its entirety</strong>, and <strong>no applicants may be refused under INA 221(g) for either pause</strong>. What it requires of posts:</p>
-            <ul>
-              <li><strong>Find the cases.</strong> All posts must run the 221(g) tracker report to identify applications refused under either pause.</li>
-              <li><strong>Work them oldest first.</strong> Posts start with the earliest refusals and work forward to the present. That means 20 December 2025 for the diversity visa pause and 21 January 2026 for the immigrant visa pause.</li>
-              <li><strong>Contact applicants in writing</strong> to request anything missing, including updated medicals, and continue processing.</li>
-              <li><strong>Clear the refusal with a specific case note</strong> recording that the pause is no longer in effect, using wording the cable sets out.</li>
-              <li><strong>Articulate any new refusal.</strong> Where an officer enters a fresh INA 221(g) refusal for something else, such as an expired medical or missing vetting, they must make clear notes of the specific reasons and clearly articulate the reason both in the case notes and to the applicant.</li>
-              <li><strong>Complete the public charge worksheet</strong> in all immigrant visa cases, including diversity visa cases, and complete the public charge training.</li>
-              <li><strong>Clean up the websites.</strong> Posts had to strip references to the vacated pauses from their own pages and confirm they had done so by 11 September 2026.</li>
-            </ul>
-            <p style="margin-bottom: 0;">Applicants may be asked to re-appear for an additional interview. That is expressly contemplated by the cable and is not a sign that something has gone wrong.</p>
-          </div>
-
-          <div class="tip-card">
-            <strong>Why your interview moved</strong>
-            <p style="margin-top: var(--space-3); margin-bottom: 0;">The same cable gives posts the official answer to the rescheduling that has hit immigrant visa appointments worldwide: &ldquo;In early August, the Department of State launched a global training initiative at all of our embassies and consulates worldwide. To accommodate this in-depth training, appointments for immigrant visa (IV) services will be adjusted.&rdquo; In court the Department added that the rescheduling also buys it time to identify and reconsider the cases covered by these orders. The training is the new public charge training: see <a href="/public-charge.html">public charge</a>, and <a href="/guide#interview-cancellations">our live notice on the cancellations</a>.</p>
-          </div>
-
-          <h2 class="section-title" id="standing">Where each case stands now</h2>
-
-          <div class="info-card">
-            <strong>The immigrant visa side: reconsideration under way, ruling under appeal</strong>
-            <p style="margin-top: var(--space-3);">The vacatur still applies. The government has appealed, and the Second Circuit has not ruled on its request to pause the judgment. The Department told the court it covers more than 43,000 applications and is working through them as it goes, with <strong>no completion date</strong>. The district court heard argument on 14 October on whether to set one, and has not ruled.</p>
-            <p style="margin-bottom: 0;">London is calling pause cases back for a <strong>full interview</strong>, with an instruction to bring your passport and all your documents, and approved one on 2 October 2026. It is not meant to be a fresh start, but the officer assesses anything that has changed since the refusal, such as the petitioner moving abroad. Some applicants will need an updated medical or police certificate. See <a href="/reinterview">re-interview after a 221(g)</a>.</p>
-          </div>
-
-          <div class="warning-card">
-            <strong>The diversity visa side: a window from 14 to 23 October</strong>
-            <p style="margin-top: var(--space-3);">The court found the Department's compliance <strong>less than substantial</strong> and ordered posts to reconsider FY-2026 applications refused solely under either pause, and to resume ordinary adjudication, from <strong>14 October 2026 at 12:01 a.m. to 23 October 2026 at 11:59 p.m.</strong>, in each post's local time. The order covers every FY-2026 selectee who submitted a DS-260. The government has appealed to the Ninth Circuit. The court holds a status conference on <strong>22 October 2026</strong>.</p>
-            <p style="margin-bottom: 0;">If you are a DV-2026 selectee refused only because of a pause, or your case is still pending, watch your email daily. The window closes on 23 October 2026.</p>
-          </div>
-
-          <h2 class="section-title" id="timeline">Timeline</h2>
-
-          <div class="info-card">
-            <strong>Both cases, in date order</strong>
-            <p style="margin-top: var(--space-3);"><em>CLINIC</em> is the immigrant visa case (S.D.N.Y.). <em>Medani</em> is the diversity visa case (N.D. Cal.). Docket numbers are under <a href="#read">read the documents yourself</a>.</p>
-            <ul>
-              <li><strong>19 December 2025:</strong> the Department orders the diversity visa pause. Refusals begin the next day.</li>
-              <li><strong>14 January 2026:</strong> the Department announces the 75-country immigrant visa pause, effective 21 January.</li>
-              <li><strong>Early August 2026:</strong> the Department launches global public charge training and starts rescheduling immigrant visa appointments worldwide.</li>
-              <li><strong>21 August:</strong> <em>CLINIC</em> vacates the immigrant visa pause. Final judgment on that ruling follows on 24 August.</li>
-              <li><strong>26 August:</strong> the <em>CLINIC</em> plaintiffs move to enforce the judgment, arguing that the Department is treating the vacated policy as live.</li>
-              <li><strong>28 August:</strong> <em>Medani</em> temporarily vacates the diversity visa pause, the 75-country pause and a USCIS policy, by preliminary injunction.</li>
-              <li id="aug31"><strong>31 August:</strong> at a <em>CLINIC</em> status conference, Judge Vargas grants the enforcement motion in part and orders a status report by 8 September. She presses the point that remanded cases should not be reassessed under new public charge requirements. Government counsel agrees that this is his understanding, but says some cases may need re-evaluation, and confirms that many applicants will need reinterviews and fresh medicals and police certificates. Our account comes from notes of the public call, checked against the filings. It is a paraphrase, not a transcript.</li>
-              <li><strong>8 September:</strong> the Department reports that it can identify the affected applications, more than 43,000, and has rescheduled immigrant visa appointments through September.</li>
-              <li><strong>10 September:</strong> cable 26 STATE 88862 rescinds the guidance behind both pauses. The government appeals <em>CLINIC</em> to the Second Circuit. At a <em>Medani</em> hearing the Department does not deny that it has scheduled or held no diversity visa interviews since the injunction. The court orders status reports every Monday, Wednesday and Friday.</li>
-              <li><strong>21 September:</strong> a second <em>Medani</em> hearing. Posts had been deciding about 83 diversity visa applications a day, against about 230 a day in September 2025. The pace rises afterwards.</li>
-              <li><strong>23 September:</strong> London emails the first reported pause case with an interview date of 2 October.</li>
-              <li><strong>24 September:</strong> <em>CLINIC</em> orders the parties to show cause why the court should not set a deadline for deciding the remanded cases. Posts face a 24 September deadline under <em>Storie v. Trump</em>.</li>
-              <li><strong>25 September:</strong> the <em>CLINIC</em> court refuses to pause its judgment.</li>
-              <li><strong>28 September:</strong> the government asks the Second Circuit for a stay. The Department reports 2,026 diversity visas issued and 1,788 refused since the injunction.</li>
-              <li><strong>30 September:</strong> the fiscal year ends. <em>Medani</em> finds compliance less than substantial and orders ten more days of processing, but declines to hold back the roughly 40,000 unused diversity visas.</li>
-              <li><strong>1 October:</strong> <em>Medani</em> pauses that order for ten days so the Department can instruct its posts.</li>
-              <li><strong>2 October:</strong> an officer at London approves a pause case refused on 15 May, after a full round of public charge questions.</li>
-              <li><strong>13 October:</strong> <em>Medani</em> fixes the diversity visa window at 14 to 23 October.</li>
-              <li><strong>14 October:</strong> the window opens. The government appeals the <em>Medani</em> orders to the Ninth Circuit. The <em>CLINIC</em> court hears argument on a deadline. The plaintiffs file a proposed order the next day.</li>
-              <li><strong>22 October:</strong> <em>Medani</em> status conference.</li>
-              <li style="margin-bottom: 0;"><strong>23 October:</strong> the diversity visa window closes.</li>
-            </ul>
-          </div>
-
-          <h2 class="section-title" id="you">If your case was caught by either pause</h2>
-
-          <div class="info-card">
-            <strong>What to do</strong>
-            <ul style="margin-top: var(--space-3);">
-              <li><strong>Do not start again.</strong> Your refusal has been set aside by operation of the court's order. There is nothing to refile and no new fee.</li>
-              <li><strong>Check your documents have not gone stale.</strong> Medical examinations and police certificates expire. If yours has, or is close, renew it now rather than after the post asks. The post works oldest cases first, and you do not want your own paperwork to hold your case up.</li>
-              <li><strong>Watch your email and your AIS account daily.</strong> One London case this month was given a new interview date with less than 24 hours' notice. Rescheduling is happening, and the notice can be almost none.</li>
-              <li><strong>Prepare for the public charge questions.</strong> The officer reconsidering your case will complete a public charge worksheet covering all five statutory factors. Our <a href="/public-charge.html">public charge page</a> sets out what those factors are and includes a statement template.</li>
-              <li><strong>Already had an ordinary 221(g) before the pause, and now have a new interview date?</strong> The officer can assess the whole case against the current public charge standard, not only the box ticked on your old sheet. See <a href="/reinterview">re-interview after a 221(g)</a>.</li>
-              <li><strong>If you get a new 221(g), read it carefully.</strong> Officers have been told to articulate the specific reason in what they tell you. See <a href="/221g.html">how to prevent and resolve a 221(g)</a>.</li>
-            </ul>
-          </div>
+          <h3 class="sub-title" id="training">Why pause cases move and new interviews do not</h3>
+          <p>Cable 26 STATE 86164 (1 September) requires each consular section to finish in-person public charge training before it processes immigrant visas. On 5 October the Department told the <em>CLINIC</em> court that pause cases are exempt from the in-person part.</p>
+          <p>London is calling pause cases back and has emailed new dates for canceled interviews from 6 November. It has sent no new interview letters since 14 July 2026. No public document says when London finishes its training. See <a href="/guide#interview-cancellations">our live notice on cancellations</a>.</p>
 
           <h2 class="section-title" id="notmean">What this does not mean</h2>
+          <ul class="plain">
+            <li><strong>You do not have a visa yet.</strong> An officer decides your case on its merits. A refusal with a separate, genuine ground stands.</li>
+            <li><strong>Public charge still applies.</strong> Officers now use a worksheet and new training, and managers review decisions.</li>
+            <li><strong>The travel ban still applies.</strong> <a href="https://www.congress.gov/crs-product/IN12631" target="_blank" rel="noopener noreferrer">Proclamation 10998</a> suspends immigrant visas for nationals of 39 countries, immediate relatives included. Clearing the pause refusal does not override it.</li>
+            <li><strong>Neither ruling is final.</strong> The government has appealed both. Check the latest position before you make plans you cannot undo.</li>
+          </ul>
 
-          <div class="warning-card">
-            <strong>Read these limits before you plan around any of it</strong>
-            <p style="margin-top: var(--space-3);">A vacated pause is not an approved visa. Your case goes back to a consular officer to be decided on its merits, and every ordinary ground of ineligibility still applies. A refusal that had a separate, genuine ground stands.</p>
-            <p>Public charge has not gone away. It is the opposite. The officer reconsidering your case uses a public charge worksheet and has had new public charge training, and a manager may review the decision.</p>
-            <p>Other restrictions are untouched. The cable is explicit that applications ineligible under the INA, including under the Presidential Proclamation issued under INA 212(f), need no further processing beyond clearing the pause refusal. In practice that means <a href="https://www.congress.gov/crs-product/IN12631" target="_blank" rel="noopener noreferrer">Proclamation 10998</a>, in force since 1 January 2026, which suspends immigrant visas for nationals of 39 countries and removed the exception for immediate relatives of US citizens. If you are a national of one of those countries, clearing the pause refusal does not by itself lead to a visa.</p>
-            <p style="margin-bottom: 0;">And neither ruling is final. The immigrant visa ruling is a district court judgment, and the government has appealed it. The diversity visa ruling is a preliminary injunction that holds only while the case runs, and the government has appealed it to the Ninth Circuit. Check the current position before making irreversible plans.</p>
-          </div>
+          <h2 class="section-title" id="timeline">Timeline</h2>
+          <p><em>CLINIC</em> is the immigrant visa case. <em>Medani</em> is the diversity visa case.</p>
+          <details class="more" id="timeline-list">
+            <summary>Show the full timeline (December 2025 to October 2026)</summary>
+            <div>
+              <ul class="timeline">
+                <li class="yr">2025 to early 2026</li>
+                <li><span class="when">19 Dec 2025</span><span>The Department orders the diversity visa pause. Refusals start the next day.</span></li>
+                <li><span class="when">14 Jan 2026</span><span>The Department announces the 75-country immigrant visa pause, effective 21 January.</span></li>
+                <li class="yr">August 2026</li>
+                <li><span class="when">Early Aug</span><span>The Department launches global public charge training and starts rescheduling interviews.</span></li>
+                <li><span class="when">15 Aug</span><span>Cable 26 STATE 80666 makes the public charge worksheet mandatory.</span></li>
+                <li><span class="when">21 Aug</span><span><em>CLINIC</em> vacates the immigrant visa pause. Final judgment follows on 24 August.</span></li>
+                <li><span class="when">26 Aug</span><span><em>CLINIC</em> plaintiffs move to enforce the judgment.</span></li>
+                <li><span class="when">28 Aug</span><span><em>Medani</em> temporarily vacates both pauses by preliminary injunction.</span></li>
+                <li id="aug31"><span class="when">31 Aug</span><span><em>CLINIC</em> status conference. Judge Vargas says remanded cases should not face new public charge requirements. Government counsel agrees, but says some cases need re-evaluation and many will need new interviews, medicals and police certificates. Our account paraphrases notes of the public call, checked against the filings.</span></li>
+                <li class="yr">September 2026</li>
+                <li><span class="when">1 Sep</span><span>Cable 26 STATE 86164 sets four public charge training requirements. See <a href="#training">training</a>.</span></li>
+                <li><span class="when">8 Sep</span><span>The Department reports more than 43,000 affected applications.</span></li>
+                <li><span class="when">10 Sep</span><span>Cable 26 STATE 88862 rescinds both pauses. The government appeals <em>CLINIC</em>. <em>Medani</em> orders status reports three times a week.</span></li>
+                <li><span class="when">14 Sep</span><span>Cable 26 STATE 89798 expands daily manager review.</span></li>
+                <li><span class="when">21 Sep</span><span><em>Medani</em> hearing: posts are deciding about 83 diversity visas a day against 230 a year earlier. The Visa Office sets the queue order. See <a href="#later">who goes first</a>.</span></li>
+                <li><span class="when">23 Sep</span><span>London emails the first reported pause case an interview date.</span></li>
+                <li><span class="when">24 Sep</span><span><em>CLINIC</em> asks why it should not set a deadline. <em>Storie</em> deadline for posts.</span></li>
+                <li><span class="when">25 Sep</span><span><em>CLINIC</em> refuses to pause its judgment.</span></li>
+                <li><span class="when">28 Sep</span><span>The government asks the Second Circuit for a stay. 2,026 diversity visas issued and 1,788 refused since the injunction.</span></li>
+                <li><span class="when">30 Sep</span><span>Fiscal year ends. <em>Medani</em> orders ten more days of processing.</span></li>
+                <li class="yr">October 2026</li>
+                <li><span class="when">1 Oct</span><span><em>Medani</em> pauses that order for ten days so posts can be instructed.</span></li>
+                <li><span class="when">2 Oct</span><span>London approves a pause case refused on 15 May.</span></li>
+                <li><span class="when">5 Oct</span><span>The Department says every immigrant visa post has resumed pause cases.</span></li>
+                <li><span class="when">13 Oct</span><span><em>Medani</em> fixes the diversity visa window at 14 to 23 October.</span></li>
+                <li><span class="when">14 Oct</span><span>Window opens. The government appeals <em>Medani</em> to the Ninth Circuit.</span></li>
+                <li><span class="when">19 Oct</span><span>The Second Circuit temporarily stays the <em>CLINIC</em> order on individual refusals.</span></li>
+                <li><span class="when">21 Oct</span><span><em>Medani</em> status conference.</span></li>
+                <li><span class="when">23 Oct</span><span>Diversity visa window closes. The Department asks <em>CLINIC</em> to hold off on deadlines.</span></li>
+              </ul>
+            </div>
+          </details>
 
-          <h2 class="section-title" id="read">Read the documents yourself</h2>
-
-          <div class="info-card">
-            <strong>Primary sources</strong>
-            <p style="margin-top: var(--space-3);">Everything on this page comes from documents filed on a public court docket. Nothing here rests on a leaked copy or on social media. If you see a version of the cable or the worksheet circulating online, treat it as unverified unless it appears as a filing on a docket.</p>
-            <ul>
-              <li>Cable <strong>26 STATE 88862</strong>, 10 September 2026, to all diplomatic and consular posts: filed as ECF 95-1 in <em>Medani v. Trump</em>, No. 5:26-cv-06332 (N.D. Cal.), on 11 September 2026</li>
-              <li><em>Medani v. Trump</em>, No. 5:26-cv-06332-EJD (N.D. Cal.): preliminary injunction of 28 August 2026, the order enforcing it of 10 September 2026 (ECF 93), the order granting ten days of supplemental relief of 30 September 2026 (ECF 137), the order temporarily staying it of 1 October 2026 (ECF 141), the order setting the 14 to 23 October window of 13 October 2026 (ECF 149) and the notice of appeal of 14 October 2026 (ECF 152)</li>
-              <li><em>CLINIC v. Rubio</em>, No. 1:26-cv-00858-JAV (S.D.N.Y.): order of 21 August 2026, the Department's status report and supporting declaration of 8 September 2026 (ECF 96 and ECF 96-1), the notice of appeal of 10 September 2026 (ECF 98), the order to show cause of 24 September 2026 (ECF 108) and the order denying a stay of 25 September 2026 (ECF 109)</li>
-              <li><em>CLINIC v. Rubio</em>, No. 26-2573 (2d Cir.): the government's motion for a stay pending appeal of 28 September 2026</li>
-              <li>INA 212(a)(4) and 9 FAM 302.8, the published law and guidance on public charge</li>
-            </ul>
-            <p style="margin-bottom: 0;">Dockets can be read through PACER or CourtListener. Our related pages: <a href="/visa-pause.html">the nationality visa pause, struck down</a>, <a href="/reinterview">re-interview after a 221(g)</a>, <a href="/public-charge.html">public charge</a>, <a href="/221g.html">221(g)</a>.</p>
-          </div>
+          <h2 class="section-title" id="read">Sources</h2>
+          <p>Every fact on this page comes from public court filings. Treat any copy of a cable that is not on a docket as unverified.</p>
+          <ul class="plain">
+            <li><a href="https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/" target="_blank" rel="noopener noreferrer"><em>CLINIC v. Rubio</em>, No. 1:26-cv-00858 (S.D.N.Y.)</a></li>
+            <li><a href="https://www.courtlistener.com/docket/74793181/catholic-legal-immigration-network-inc-v-rubio/" target="_blank" rel="noopener noreferrer"><em>CLINIC v. Rubio</em>, No. 26-2573 (2d Cir.), the appeal</a></li>
+            <li><a href="https://www.courtlistener.com/docket/73529774/medani-v-trump/" target="_blank" rel="noopener noreferrer"><em>Medani v. Trump</em>, No. 5:26-cv-06332 (N.D. Cal.)</a></li>
+            <li><a href="https://www.courtlistener.com/docket/72494270/ivanov-v-trump/" target="_blank" rel="noopener noreferrer"><em>Ivanov v. Trump</em>, No. 1:26-cv-00915 (D.D.C.)</a> and <a href="https://www.courtlistener.com/docket/72304355/storie-v-trump/" target="_blank" rel="noopener noreferrer"><em>Storie v. Trump</em>, No. 1:26-cv-00567 (D.D.C.)</a></li>
+            <li><a href="https://www.law.cornell.edu/uscode/text/8/1182" target="_blank" rel="noopener noreferrer">INA 212(a)(4)</a> and <a href="https://fam.state.gov/fam/09FAM/09FAM030208.html" target="_blank" rel="noopener noreferrer">9 FAM 302.8</a>, the public charge law and guidance</li>
+          </ul>
+          <details class="more">
+            <summary>Where each cable and filing sits on the docket</summary>
+            <div>
+              <ul class="plain">
+                <li><strong>26 STATE 88862</strong> (10 Sep): <em>Medani</em> ECF 95-1.</li>
+                <li><strong>26 STATE 86164</strong> (1 Sep) and <strong>26 STATE 80666</strong> (15 Aug): <em>Medani</em> ECF 115-2 and 115-3, with a Consular Affairs declaration at ECF 115-1.</li>
+                <li><strong>26 STATE 89798</strong> (14 Sep) and the Visa Office message (21 Sep): <em>CLINIC</em> ECF 114-2 and 114-3, with a declaration at ECF 114-1.</li>
+                <li><em>Medani</em> orders: enforcement (ECF 93), ten days' relief (ECF 137), temporary stay (ECF 141), the 14 to 23 October window (ECF 149), notice of appeal (ECF 152).</li>
+                <li><em>CLINIC</em> filings: status report (ECF 96, 96-1), notice of appeal (ECF 98), order to show cause (ECF 108), stay denied (ECF 109), Second Circuit stay (ECF 126), letter asking to defer enforcement (ECF 132).</li>
+              </ul>
+            </div>
+          </details>
+          <p>Related: <a href="/visa-pause.html">the nationality visa pause, struck down</a> &middot; <a href="/reinterview">re-interview after a 221(g)</a> &middot; <a href="/public-charge.html">public charge</a> &middot; <a href="/221g.html">221(g)</a></p>
 
           <p style="margin-top: var(--space-6);"><a href="/interview" style="font-weight:600;">&larr; Your interview hub</a> &middot; <a href="/guide/interview" style="font-weight:600;">Stage 6: the embassy interview</a></p>
 
@@ -233,10 +223,25 @@
     </main>
 
     <footer></footer>
-    <script src="/js/live-notice.js?v=20261024c"></script>
-    <script src="/js/pause-glossary.js?v=20261024c"></script>
+    <script src="/js/pause-glossary.js?v=20261104a"></script>
     <script src="/js/page-contents.js?v=20261024c"></script>
     <script src="/js/shared.js?v=20260612"></script>
+    <script>
+      // Open a collapsed section when a link points into it (e.g. #aug31, #timeline).
+      (function () {
+        function reveal() {
+          var id = location.hash.slice(1);
+          if (!id) return;
+          var el = document.getElementById(id);
+          if (!el) return;
+          if (id === 'timeline') el = document.getElementById('timeline-list');
+          var d = el.closest ? el.closest('details') : null;
+          if (d && !d.open) { d.open = true; document.getElementById(id).scrollIntoView(); }
+        }
+        window.addEventListener('hashchange', reveal);
+        document.addEventListener('DOMContentLoaded', reveal);
+      })();
+    </script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         renderPage({

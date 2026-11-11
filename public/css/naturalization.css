@@ -154,6 +154,15 @@
 
 .natz-tool .reviewed{font-size:14px;color:var(--muted);margin-top:-8px;margin-bottom:24px}
 
+/* Added on main (taxes, delays, sources) before the split */
+.natz-tool .pill-news{background:rgba(51,65,85,0.12);color:var(--blue)}
+.natz-tool .pill-anecdote{background:rgba(127,29,29,0.1);color:var(--red)}
+.natz-tool .res .pill{margin-left:0;align-self:flex-start}
+.natz-tool .res .src{align-self:flex-start;margin-top:2px}
+.natz-tool .changed{margin-bottom:24px}
+.natz-tool .changed li{margin-bottom:6px}
+.natz-tool .sources{padding-left:20px}
+.natz-tool .sources li{font-size:15px;margin-bottom:6px;line-height:1.55}
 @media print{
   .natz-tool .community .btn-link,.natz-tool .calc-actions,.natz-tool .prep-tools,.natz-tool #flashcards{display:none!important}
 }

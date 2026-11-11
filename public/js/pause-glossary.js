@@ -12,7 +12,7 @@
     {
       term: 'Interview cancellations',
       what: 'London immigrant visa interviews booked for September 2026 were canceled so officers could take the new public charge training. Same-day document checks were canceled with them.',
-      status: 'Being rescheduled by email. Not a refusal.',
+      status: 'Being rescheduled by email. Not a refusal. New interviews wait until each post finishes in-person public charge training; pause cases are exempt.',
       uk: 'Yes: every London immigrant visa applicant, whatever their nationality.',
       link: '/guide#interview-cancellations',
       linkText: 'Live notice',
@@ -20,7 +20,7 @@
     {
       term: 'Nationality visa pause (75 countries)',
       what: 'From 21 January 2026, a 221(g) refusal for every immigrant visa applicant holding the nationality of one of 75 listed countries.',
-      status: 'Vacated by a court on 21 August 2026, and the guidance behind it rescinded on 10 September 2026. Refusals made only because of it are being reconsidered.',
+      status: 'Vacated by a court on 21 August 2026, and the guidance behind it rescinded on 10 September 2026. Refusals made only because of it are being reconsidered. On 19 October 2026 the Second Circuit temporarily stayed the order on those refusals; the Department says its review continues.',
       uk: 'No. The UK was not on the list. It applied at London only to applicants interviewing on a listed passport.',
       link: '/september-2026-update',
       linkText: 'Both pauses vacated',

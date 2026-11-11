@@ -1,43 +1,60 @@
 {
-  "lastRun": "2026-10-23T18:58:43.439Z",
+  "lastRun": "2026-11-10T15:08:55.010Z",
   "sources": {
     "embassy-london": {
-      "lastOk": "2026-10-23T18:58:43.439Z",
+      "lastOk": "2026-11-10T15:08:55.010Z",
       "fetched": 10,
       "queued": 0
     },
     "fr-state": {
-      "lastOk": "2026-10-23T18:58:43.439Z",
+      "lastOk": "2026-11-10T15:08:55.010Z",
       "fetched": 20,
       "queued": 0
     },
     "fr-uscis": {
-      "lastOk": "2026-10-23T18:58:43.439Z",
+      "lastOk": "2026-11-10T15:08:55.010Z",
       "fetched": 20,
       "queued": 0
     },
     "uscis-news": {
-      "lastOk": "2026-10-23T18:58:43.439Z",
+      "lastOk": "2026-11-10T15:08:55.010Z",
       "fetched": 250,
-      "queued": 1
+      "queued": 0
     },
     "state-press": {
-      "lastOk": "2026-10-23T18:58:43.439Z",
+      "lastOk": "2026-11-10T15:08:55.010Z",
       "fetched": 10,
       "queued": 0
     },
     "gnews-embassy": {
-      "lastOk": "2026-10-23T18:58:43.439Z",
+      "lastOk": "2026-11-10T15:08:55.010Z",
       "fetched": 0,
       "queued": 0
     },
     "gnews-family": {
-      "lastOk": "2026-10-23T18:58:43.439Z",
-      "fetched": 53,
+      "lastOk": "2026-11-10T15:08:55.010Z",
+      "fetched": 24,
       "queued": 1
     }
   },
   "items": [
+    {
+      "id": "7179d5d4f8",
+      "status": "pending",
+      "source": "gnews-family",
+      "sourceName": "Hypefresh Magazine, Inc.",
+      "type": "press",
+      "date": "2026-11-09",
+      "title": "UK Residency Through Marriage 2026: Spouse Visa Rules, 5-Year ILR Path & Costs",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNSlhud1VkQ2dlZy1WcmVYOXl5ZjNRNVJBbEpJb0JmQTB4NWhNYV9fSGFlQk5ubVJXazFoTEZrLVpXOEVPSTNJV2dEWXA5dkk4S3JCb1pWTXZtN3Z1N3RlZU9BMlZDemtLQ2ZPLUpsWHoyZkxzN19JWFJTSG5WUW52Sjk1bVpHb0FEdmdHSDgyLUdESEtlek5NbFBnemd6WW96LVIw?oc=5",
+      "summary": "UK Residency Through Marriage 2026: Spouse Visa Rules, 5-Year ILR Path & Costs Hypefresh Magazine, Inc.",
+      "matched": [
+        "spouse visa",
+        "visa"
+      ],
+      "score": 4,
+      "foundAt": "2026-11-10T15:08:55.010Z"
+    },
     {
       "id": "8c7dd0d862",
       "status": "pending",

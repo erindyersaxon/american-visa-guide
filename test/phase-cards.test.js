@@ -40,7 +40,7 @@ test('cardView shows members still waiting', () => {
 
 test('data.html keeps the not-a-forecast caveat with the phase cards', () => {
   const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
-  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- PIPELINE STATUS -->');
+  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- IL DROP HISTORY TABLE -->');
   assert.ok(start > 0 && end > start, 'phases section present');
   assert.match(html.slice(start, end), /Historical data, not a forecast/);
 });
@@ -59,11 +59,31 @@ test('cardView adds the all-time median when given', () => {
 test('data.html shows each wait only in the phase cards', () => {
   const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
   assert.doesNotMatch(html, /Typical recent wait|id="iv-(dqil|iliv|ivpp)"|id="t-(alltime|6mo)"|id="trend-hd"|renderIntervals|renderTrends/);
-  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- PIPELINE STATUS -->');
+  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- IL DROP HISTORY TABLE -->');
   assert.match(html.slice(start, end), /id="tn-days-since"/);
 });
 
 test('data.html has no IL to interview scheduling table', () => {
   const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
   assert.doesNotMatch(html, /id="sched-hd"|data-il-interview|il-interview\.js/);
+});
+
+test('data.html puts pipeline status above wait times by phase', () => {
+  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
+  const pipeline = html.indexOf('id="pipeline-hd"'), phases = html.indexOf('id="phases-hd"');
+  assert.ok(pipeline > 0 && phases > pipeline);
+});
+
+test('render adds a note under the matching card only', () => {
+  const nodes = [];
+  const mk = tag => ({ tag, children: [], dataset: {}, append(...c) { this.children.push(...c); }, replaceChildren() { this.children = []; } });
+  global.document = { createElement: tag => { const n = mk(tag); nodes.push(n); return n; } };
+  const container = mk('div');
+  C.render(container, [phase({ key: 'docs_to_dq', group: 'nvc', label: 'Docs → DQ' }), phase({ key: 'fees_to_docs', group: 'nvc', label: 'Fees → docs' })],
+    [{ key: 'nvc', label: 'NVC' }], { docs_to_dq: 'Conflicts with NVC' });
+  delete global.document;
+  const boxes = container.children[1].children;
+  const notes = b => b.children.filter(c => c.className === 'stat-box__note').map(c => c.textContent);
+  assert.deepEqual(notes(boxes[0]), ['Conflicts with NVC']);
+  assert.deepEqual(notes(boxes[1]), []);
 });

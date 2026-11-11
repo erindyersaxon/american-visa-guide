@@ -26,7 +26,7 @@ const ROOT = path.join(__dirname, '..');
 const OUT_PDF = path.join(ROOT, 'public', 'downloads');
 const OUT_DOC = path.join(ROOT, 'build', 'printables');
 const SITE = 'https://www.americanvisaguide.com';
-const REVIEWED = 'September 27, 2026';
+const REVIEWED = 'November 11, 2026';
 
 // ---------- load site data ----------
 function loadWindowScript(file) {
