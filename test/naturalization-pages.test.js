@@ -94,3 +94,17 @@ test('checklist page', () => {
   assert.deepEqual(scriptsOn(html), ['n400-checklist.js']);
   assert.equal(prevNext(html).found, false, 'tools carry no pager');
 });
+
+// ---------- Step pages ----------
+test('step 5 test page', () => {
+  const html = read('naturalization/test.html');
+  for (const id of ['civics', 'flashcards', 'fc-card', 'english', 'exemptions', 'study-help']) {
+    assert.ok(hasId(html, id), `id ${id}`);
+  }
+  assert.ok(html.indexOf('/js/naturalization-test.js') !== -1 &&
+    html.indexOf('/js/naturalization-test.js') < html.indexOf('/js/civics-flashcards.js'), 'data loads before flashcards');
+  assert.deepEqual(scriptsOn(html), ['civics-flashcards.js']);
+  const pn = prevNext(html);
+  assert.equal(pn.prev, '/naturalization/eligibility');
+  assert.equal(pn.next, undefined, 'last built step has no next');
+});
