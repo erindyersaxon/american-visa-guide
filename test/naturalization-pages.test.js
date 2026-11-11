@@ -182,3 +182,37 @@ test('no links to removed anchors', () => {
     .test(fs.readFileSync(f, 'utf8'))).map(f => path.relative(PUBLIC, f));
   assert.deepEqual(bad, []);
 });
+
+// ---------- Final-review fixes ----------
+test('printables build reads PREP from the checklist script', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'scripts/build-naturalization-printables.js'), 'utf8');
+  const fn = src.slice(src.indexOf('function loadPrep'), src.indexOf('const PREP = loadPrep'));
+  const file = (fn.match(/path\.join\(ROOT, '([^']+)'\)/) || [])[1];
+  assert.equal(file, 'public/js/n400-checklist.js');
+  assert.match(read('js/n400-checklist.js'), /const PREP = (\[[\s\S]*?\n  \]);/, 'PREP pattern still matches');
+});
+
+const section = (html, id) => (html.match(new RegExp(`<section[^>]*id="${id}"[\\s\\S]*?</section>`)) || [''])[0];
+
+test('eligibility: waiting periods after a 1-year absence match Vol. 12 Part D ch. 3', () => {
+  const cr = section(read('naturalization/eligibility.html'), 'continuous-residence');
+  for (const t of ['4 years and 6 months', '4 years and 1 day', '2 years and 6 months', '2 years and 1 day', 'N-470']) {
+    assert.ok(cr.includes(t), t);
+  }
+});
+
+test('eligibility: 3-year rule lists continuous residence and marriage until the oath', () => {
+  const s = section(read('naturalization/eligibility.html'), 'three-year');
+  assert.match(s, /lived in the US continuously/);
+  assert.match(s, /until you take the oath/);
+});
+
+test('eligibility: no unsupported claims; early filing 3-month rule explained', () => {
+  const html = read('naturalization/eligibility.html');
+  assert.doesNotMatch(html, /keep the fee/);
+  assert.match(section(html, 'state-residence'), /before your interview/);
+});
+
+test('calculator timeline pills stay in a row', () => {
+  assert.match(read('css/naturalization.css'), /\.natz-tool \.steps\{[^}]*flex-direction:row/);
+});

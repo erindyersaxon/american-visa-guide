@@ -9,7 +9,7 @@
 //
 // The content comes from the same files the site uses, so rerun this after
 // editing any of them:
-//   public/js/naturalization.js       (PREP: the preparation checklist)
+//   public/js/n400-checklist.js       (PREP: the preparation checklist)
 //   public/js/naturalization-test.js  (the 2025 civics questions)
 //   public/js/english-test.js         (reading/writing vocabulary, interview words)
 //
@@ -38,16 +38,13 @@ const CIVICS = loadWindowScript('public/js/naturalization-test.js').AVG_NATZ_TES
 const ENGLISH = loadWindowScript('public/js/english-test.js').AVG_ENGLISH_TEST;
 
 function loadPrep() {
-  const src = fs.readFileSync(path.join(ROOT, 'public/js/naturalization.js'), 'utf8');
+  const src = fs.readFileSync(path.join(ROOT, 'public/js/n400-checklist.js'), 'utf8');
   const m = src.match(/const PREP = (\[[\s\S]*?\n  \]);/);
-  if (!m) throw new Error('PREP not found in naturalization.js');
+  if (!m) throw new Error('PREP not found in n400-checklist.js');
   const link = (href, text) => '<a href="' + href + '">' + text + '</a>';
   const prep = vm.runInNewContext(m[1], { link });
   // Rewrite on-page references for a standalone document
-  const fix = (s) => s
-    .replace('Use the calculator above', 'Use the calculator at americanvisaguide.com/naturalization')
-    .replace(/href="#civics"/g, 'href="' + SITE + '/naturalization#civics"')
-    .replace(/href="\//g, 'href="' + SITE + '/');
+  const fix = (s) => s.replace(/href="\//g, 'href="' + SITE + '/');
   return prep.map((g) => ({ title: g.title, items: g.items.map((i) => [fix(i[1]), fix(i[2])]) }));
 }
 const PREP = loadPrep();
