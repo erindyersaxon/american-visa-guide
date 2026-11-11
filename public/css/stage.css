@@ -130,6 +130,24 @@
 
   .mobile-nav-toggle:active { transform: scale(0.95); }
 
+  /* Section drawer button with a visible word, so it can't be confused with
+     the site menu (☰) in the top bar. Used by the naturalization pages. */
+  .mobile-nav-toggle--labelled {
+    width: auto;
+    padding: 0 18px 0 14px;
+    border-radius: 24px;
+    gap: 8px;
+    font-family: 'Public Sans', system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .mobile-nav-toggle--labelled > span { font-size: 18px; }
+
+  /* Visible "(coming soon)" on unwritten steps: the state is in words, not
+     only in the grey colour */
+  .sidebar-nav .sidebar-soon { font-weight: 400; font-style: italic; }
+  .sidebar-onpage { margin-bottom: 16px; }
+
   .mobile-nav-toggle.hidden {
     transform: translateY(120px);
     opacity: 0;
@@ -239,7 +257,6 @@
     display: block;
     font-size: 14px;
     color: var(--text-secondary);
-    opacity: 0.7;
     padding: 10px 12px;
     border-left: 3px solid transparent;
     line-height: 1.4;
