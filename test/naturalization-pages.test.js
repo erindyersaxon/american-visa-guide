@@ -73,3 +73,24 @@ test('step pages link Previous/Next along the chain', { todo: 'until Task 6' }, 
     assert.equal(pn.next, STEP_CHAIN[i + 2], `${url}: next`);
   });
 });
+
+// ---------- Tool pages ----------
+const TOOL_SCRIPTS = ['n400-calculator.js', 'n400-checklist.js', 'civics-flashcards.js'];
+const scriptsOn = html => TOOL_SCRIPTS.filter(s => html.includes(`/js/${s}`));
+const hasId = (html, id) => new RegExp(`\\sid="${id}"`).test(html);
+
+test('calculator page', () => {
+  const html = read('naturalization/when-can-i-apply.html');
+  for (const id of ['calc', 'c-result']) assert.ok(hasId(html, id), `id ${id}`);
+  assert.match(html, /class="[^"]*\bnatz-tool\b/);
+  assert.deepEqual(scriptsOn(html), ['n400-calculator.js']);
+  assert.equal(prevNext(html).found, false, 'tools carry no pager');
+});
+
+test('checklist page', () => {
+  const html = read('checklist-n400.html');
+  for (const id of ['prep', 'prep-reset']) assert.ok(hasId(html, id), `id ${id}`);
+  assert.match(html, /class="[^"]*\bnatz-tool\b/);
+  assert.deepEqual(scriptsOn(html), ['n400-checklist.js']);
+  assert.equal(prevNext(html).found, false, 'tools carry no pager');
+});
