@@ -305,7 +305,7 @@
     html += '<li>Certified court dispositions, arrest reports and proof you completed any sentence, for every arrest, citation or charge anywhere in the world <span class="pill pill-if">If you were ever arrested or cited</span></li>';
     html += '<li>Evidence of continuous residence for any trip of more than 6 months: IRS tax transcripts, pay stubs, rent or mortgage records, bank and credit card statements, car registration and insurance, and passport stamps <span class="pill pill-if">If any trip was over 6 months</span></li>';
     html += '<li>Legal proof of any name change: marriage certificate, divorce decree, court order <span class="pill pill-if">If your name changed</span></li>';
-    html += '<li>An IRS or state payment agreement and proof of payments <span class="pill pill-if">If you owe tax</span></li>';
+    html += '<li>IRS tax account transcripts and proof of full payment, plus a written explanation of any penalty or late payment. If you are still on a payment plan, talk to an attorney before you file <span class="pill pill-if">If you owed tax or paid late</span> <a href="#taxes">See Taxes</a></li>';
     html += '<li>The support order and proof you have paid it, such as cancelled checks, receipts, court or agency payment records, or wage garnishment records <span class="pill pill-if">If you pay child or spousal support, or have children who do not live with you</span></li>';
     html += '<li>A Selective Service Status Information Letter and your written explanation of why you did not register <span class="pill pill-if">If you are a man who did not register between 18 and 26</span></li>';
     html += '<li>A full English translation of every document not in English, with the translator\'s signed statement that it is complete and accurate and that they are competent to translate. Anyone fluent except you can translate ' + link('https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-103/subpart-A/section-103.2', '[8 CFR 103.2(b)(3)]') + ' <span class="pill pill-if">If any document is not in English</span></li>';
@@ -370,11 +370,14 @@
       ['b6', 'Write out your employment and school history for the past 5 years', 'Include gaps, unemployment, self-employment and retirement.'],
       ['b7', 'Gather your marital history and your spouse\'s details', 'Dates of every marriage and divorce for you and your spouse, and your spouse\'s proof of citizenship if you use the 3-year rule.'],
       ['b8', 'List all your children', 'Including adult, stepchildren and deceased children, with dates of birth and where they live.'],
-      ['b9', 'Order IRS tax return transcripts for the past 3 or 5 years', 'Free from ' + link('https://www.irs.gov/individuals/get-transcript', 'IRS Get Transcript') + '. Check you filed as a resident every year, and set up a payment plan for any tax owed.'],
+      ['b9', 'Order IRS tax return transcripts and tax account transcripts for every year of the statutory period', 'Free from ' + link('https://www.irs.gov/individuals/get-transcript', 'IRS Get Transcript') + '. Return transcripts show you filed as a resident. Account transcripts show payments, penalties (transaction code 176 or 170), interest and any balance. Pay every balance in full before you file, and finish any payment plan first. See <a href="#taxes">Taxes</a>.'],
+      ['b17', 'Check that each year of the statutory period meets estimated-tax safe harbor', 'If you are employed (W-2), raise your W-4 withholding. If you are self-employed, run an LLC or have high income, make quarterly estimated payments. Prepay 110% of last year\'s tax if last year\'s income was over $150,000. See <a href="#taxes">Taxes</a>.'],
+      ['b18', 'Get copies of your earlier immigration forms and check your N-400 against them', 'Your I-130, DS-260 or DS-230, and I-485. Children, marriages, addresses and trips must match. If you lack copies, file a ' + link('https://www.uscis.gov/records/request-records-through-the-freedom-of-information-act-or-privacy-act', 'FOIA request') + ' with USCIS. See <a href="#delays">Savane</a>.'],
+      ['b19', 'Gather evidence of good character', 'Employment records, community involvement and family responsibilities. Officers weigh positive evidence as well as misconduct.'],
       ['b10', 'Men: check Selective Service registration', 'Required if you lived in the US as a permanent resident at any time between ages 18 and 25. Check at ' + link('https://www.sss.gov/verify/', 'sss.gov/verify') + '.'],
       ['b11', 'Get certified court records for any arrest, citation or charge', 'From the court and police in every place it happened, even if the record was sealed or expunged.'],
       ['b12', 'Copy your green card, front and back', 'Required with every N-400.'],
-      ['b13', 'Decide between online and paper filing', 'Online costs $710 and gives you live case updates. The $380 reduced fee and the I-912 fee waiver need a paper filing.'],
+      ['b13', 'Decide between online and paper filing', 'Online costs $710 and gives you live case updates. The $380 reduced fee and the I-912 fee waiver need a paper filing. A proposed rule would raise the fee and end both: see <a href="#fee">fee changes</a>.'],
       ['b15', 'Arrange English translations of any document not in English', 'Each needs a full translation and the translator\'s signed statement that it is complete and accurate. Anyone fluent except you can translate.'],
       ['b16', 'If you pay child support, or have children who do not live with you, gather proof of support', 'The support order and records of payment: cancelled checks, receipts, court or agency payment records, or wage garnishment. Failing to support dependents can count against good moral character.'],
       ['b14', 'Create a USCIS online account', 'At ' + link('https://my.uscis.gov/', 'my.uscis.gov') + '. You also need it for address changes and notices.'],
@@ -392,12 +395,12 @@
       ['a2', 'Report any change of address within 10 days', 'Through your USCIS account or Form AR-11. Missed notices are a common reason for delays and denials.'],
       ['a3', 'Keep trips abroad short', 'Continuous residence must continue until your oath.'],
       ['a4', 'Study for the civics test', 'Use the <a href="#civics">civics flashcards</a>, and practice saying your N-400 answers aloud. English practice sheets are on <a href="/checklists.html#naturalization">Checklists &amp; Tools</a>.'],
-      ['a5', 'Keep filing taxes, and avoid any new arrest or citation', 'Good moral character runs until the oath.'],
+      ['a5', 'Keep filing taxes on time, and prepay enough during the year', 'File by the deadline every year, even if you owed or paid late before. If you earn wages (W-2), raise your W-4 withholding. If you are self-employed, run an LLC or have high income, make quarterly estimated payments large enough to avoid the underpayment penalty. Pay by April even if you file an extension. Avoid any new arrest or citation: good moral character runs until the oath.'],
       ['a6', 'Reply to any request for evidence before the deadline', 'Send everything asked for in one response.'],
     ]},
     { key: 'interview', title: 'Interview day', items: [
       ['i1', 'Bring your interview notice, green card, state ID, and every passport and travel document', 'Include expired passports used since you became a resident.'],
-      ['i2', 'Bring the originals of everything you submitted', 'Plus marriage evidence for the 3-year rule or a pending I-751, and tax transcripts.'],
+      ['i2', 'Bring the originals of everything you submitted', 'Plus marriage evidence for the 3-year rule or a pending I-751, IRS return and account transcripts, and proof of tax payments.'],
       ['i3', 'Arrive early and expect to go through security', 'The officer places you under oath before asking about your application.'],
       ['i4', 'Get your Form N-652 before you leave', 'It shows whether your case was granted, continued (usually a retest or more documents), or denied.'],
     ]},
