@@ -1,0 +1,180 @@
+/*
+   Naturalization section: styles for the moved tools (filing date calculator,
+   N-400 preparation list, civics flashcards) and the community callout.
+   Moved from the <style> block of the old single-page naturalization.html.
+   Everything is scoped under .natz-tool, which also carries that page's colour
+   variables, so nothing here can clash with stage.css or guide-article.css.
+   Spec: docs/superpowers/specs/2026-11-11-naturalization-section-design.md
+ */
+.natz-tool{
+  --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
+  --font-ui: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --navy:#0f172a;--navy-mid:#1e293b;--blue:#334155;
+  --bg:#f8fafc;
+  --accent:#0f172a;--accent-light:#475569;
+  --teal:#0f172a;--teal-light:#0f172a;
+  --red:#7f1d1d;--white:#0f172a;--muted:#475569;
+  --card-bg:#ffffff;--border:rgba(15,23,42,0.25);
+  --border-subtle:rgba(15,23,42,0.1);
+  color:var(--white);font-family:var(--font-body);line-height:1.75;
+}
+/* Community callout */
+.natz-tool .community{display:flex;gap:16px;align-items:flex-start;background:rgba(71,85,105,0.08);border:1px solid rgba(71,85,105,0.3);border-radius: var(--radius-md, 0.375rem);padding:18px 20px;margin-bottom:24px}
+.natz-tool .community-icon{flex-shrink:0;width:40px;height:40px;border-radius: var(--radius-md, 0.375rem);background:var(--accent);display:flex;align-items:center;justify-content:center}
+.natz-tool .community h2{font-family:var(--font-ui);font-size:15px;font-weight:800;margin-bottom:4px}
+.natz-tool .community p{font-size:1em;color:rgba(15,23,42,0.85);margin-bottom:10px;line-height:1.65}
+.natz-tool .community .btn-link{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;font-family:var(--font-ui);font-size:14px;font-weight:700;padding:8px 16px;border-radius: var(--radius-md, 0.375rem);text-decoration:none}
+.natz-tool .community .btn-link:hover{opacity:0.9}
+
+/* Sections */
+.natz-tool .content-section{margin-bottom:64px}
+.natz-tool .section-label{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--accent);margin-bottom:6px}
+.natz-tool .content-section h2{font-family:var(--font-display);font-size:clamp(22px,4vw,28px);font-weight:700;margin-bottom:10px;line-height:1.2}
+.natz-tool .section-intro{font-size:14px;color:rgba(15,23,42,0.8);max-width:680px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.natz-tool .content-section h3{font-family:var(--font-ui);font-size:19px;font-weight:800;margin:24px 0 10px}
+.natz-tool .content-section p{font-size:1em;color:rgba(15,23,42,0.85);margin-bottom:10px;line-height:1.75}
+.natz-tool .content-section ul{font-size:1em;color:rgba(15,23,42,0.85);padding-left:20px;margin-bottom:10px}
+.natz-tool .content-section li{margin-bottom:4px}
+.natz-tool .content-section a{color:var(--teal-light)}
+.natz-tool .content-section strong{color:var(--white)}
+.natz-tool .src{font-size:13px;color:var(--muted);border-bottom:1px dotted var(--muted);text-decoration:none!important;white-space:nowrap}
+
+.natz-tool .info-card{background:var(--card-bg);border:1px solid var(--border-subtle);border-radius: var(--radius-md, 0.375rem);padding:16px;margin-bottom:12px}
+.natz-tool .info-card-head{font-family:var(--font-ui);font-size:17px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.natz-tool .info-card p,.natz-tool .info-card li{font-size:1em}
+.natz-tool .info-card p:last-child,.natz-tool .info-card ul:last-child{margin-bottom:0}
+.natz-tool .info-card.warning{border-color:rgba(127,29,29,0.3);background:rgba(127,29,29,0.06)}
+.natz-tool .info-card.warning .info-card-head{color:var(--red)}
+.natz-tool .info-card.tip{border-color:rgba(79,133,115,0.25);background:rgba(79,133,115,0.05)}
+.natz-tool .info-card.tip .info-card-head{color:var(--teal-light)}
+.natz-tool .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px}
+
+.natz-tool table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:12px}
+.natz-tool th{padding:8px 12px;background:rgba(71,85,105,0.08);color:var(--muted);font-size:14px;text-align:left;border:1px solid var(--border-subtle)}
+.natz-tool td{padding:8px 12px;border:1px solid var(--border-subtle);color:rgba(15,23,42,0.85);vertical-align:top}
+.natz-tool .table-scroll{overflow-x:auto}
+
+/* Preparation checklist */
+.natz-tool .prep-group{background:var(--card-bg);border:1px solid var(--border-subtle);border-radius: var(--radius-md, 0.375rem);padding:16px 18px;margin-bottom:12px}
+.natz-tool .prep-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.natz-tool .prep-head h3{margin:0}
+.natz-tool .prep-count{font-size:14px;color:var(--muted);white-space:nowrap}
+.natz-tool .prep-list{list-style:none;padding:0!important;margin:0!important}
+.natz-tool .prep-list li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-top:1px solid var(--border-subtle);margin:0}
+.natz-tool .prep-list li:first-child{border-top:none}
+.natz-tool .prep-list input{margin-top:5px;width:16px;height:16px;accent-color:var(--teal);flex-shrink:0;cursor:pointer}
+.natz-tool .prep-list label{font-size:1em;cursor:pointer;line-height:1.6}
+.natz-tool .prep-list input:checked + label{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(15,23,42,0.3)}
+.natz-tool .prep-list label small{display:block;font-size:15px;color:var(--muted);text-decoration:none}
+.natz-tool .prep-tools{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.natz-tool .ctrl{font-family:var(--font-ui);font-size:14px;font-weight:600;color:var(--navy);background:var(--card-bg);border:1px solid var(--border-subtle);border-radius:6px;padding:6px 12px;cursor:pointer}
+.natz-tool .ctrl:hover{border-color:var(--accent);color:var(--accent)}
+.natz-tool .ctrl:focus-visible,.natz-tool .fc-card:focus-visible,.natz-tool select:focus-visible,.natz-tool input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Calculator */
+.natz-tool .steps{flex-direction:row;list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0!important;margin:4px 0 14px!important;counter-reset:st}
+.natz-tool .steps li{counter-increment:st;font-family:var(--font-ui);font-size:1em;font-weight:600;color:var(--navy);background:var(--card-bg);border:1px solid var(--border-subtle);border-radius: var(--radius-md, 0.375rem);padding:3px 12px 3px 6px;margin:0}
+.natz-tool .steps li::before{content:counter(st);display:inline-block;width:18px;height:18px;line-height:18px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:14px;margin-right:6px}
+.natz-tool .calc{background:var(--card-bg);border:1px solid var(--border);border-radius: var(--radius-md, 0.375rem);padding:22px}
+.natz-tool .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:14px 18px}
+.natz-tool .field{display:flex;flex-direction:column;gap:5px}
+.natz-tool .field label{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--navy)}
+.natz-tool .field .hint{font-size:13px;color:var(--muted);line-height:1.5}
+.natz-tool .field select,.natz-tool .field input[type=date]{font-family:var(--font-body);font-size:14px;padding:8px 10px;border:1px solid rgba(15,23,42,0.2);border-radius:8px;background:#fff;color:var(--white);width:100%}
+.natz-tool .field-wide{grid-column:1/-1}
+.natz-tool .calc-actions{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.natz-tool .btn-primary{font-family:var(--font-ui);font-size:14px;font-weight:700;color:#fff;background:var(--navy);border:none;border-radius:8px;padding:10px 20px;cursor:pointer}
+.natz-tool .btn-primary:hover{background:var(--blue)}
+.natz-tool .calc-error{font-size:14px;color:var(--red);margin-top:10px}
+.natz-tool .result{margin-top:22px;border-top:1px solid var(--border);padding-top:20px}
+.natz-tool .result-banner{border-radius: var(--radius-md, 0.375rem);padding:16px 18px;margin-bottom:18px}
+.natz-tool .result-banner.go{background:rgba(79,133,115,0.1);border:1px solid rgba(79,133,115,0.3)}
+.natz-tool .result-banner.wait{background:rgba(71,85,105,0.08);border:1px solid rgba(71,85,105,0.3)}
+.natz-tool .result-banner.stop{background:rgba(127,29,29,0.06);border:1px solid rgba(127,29,29,0.3)}
+.natz-tool .result-kicker{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--muted);margin-bottom:2px}
+.natz-tool .result-date{font-family:var(--font-display);font-size:clamp(24px,5vw,32px);font-weight:700;line-height:1.15}
+.natz-tool .result-sub{font-size:14px;color:rgba(15,23,42,0.8);margin-top:4px}
+.natz-tool .tl{list-style:none;padding:0!important;margin:0 0 16px!important;position:relative}
+.natz-tool .tl li{position:relative;padding:0 0 14px 28px;margin:0}
+.natz-tool .tl li::before{content:'';position:absolute;left:7px;top:8px;bottom:-8px;width:2px;background:rgba(15,23,42,0.25)}
+.natz-tool .tl li:last-child::before{display:none}
+.natz-tool .tl li::after{content:'';position:absolute;left:2px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--card-bg);border:2px solid var(--accent)}
+.natz-tool .tl li.done::after{background:var(--teal);border-color:var(--teal)}
+.natz-tool .tl-when{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--accent)}
+.natz-tool .tl-what{font-size:14px;font-weight:700}
+.natz-tool .tl-note{font-size:15px;color:var(--muted);line-height:1.55}
+.natz-tool .pill{display:inline-block;font-family:var(--font-ui);font-size:13px;font-weight:700;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.natz-tool .pill-req{background:rgba(15,23,42,0.12);color:var(--accent)}
+.natz-tool .pill-if{background:rgba(71,85,105,0.12);color:var(--muted)}
+.natz-tool .fee{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Flashcards */
+.natz-tool .fc-controls-top{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;background:var(--card-bg);border:1px solid var(--border-subtle);border-radius: var(--radius-md, 0.375rem);padding:14px 16px;margin-bottom:18px}
+.natz-tool .fc-controls-top .field{min-width:200px;flex:1}
+.natz-tool .fc-check{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.natz-tool .fc-check input{width:16px;height:16px;accent-color:var(--accent)}
+.natz-tool .fc-stage{display:flex;flex-direction:column;align-items:center}
+.natz-tool .fc-meta{width:100%;max-width:560px;display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--muted);margin-bottom:8px}
+.natz-tool .fc-meta strong{color:var(--navy)}
+.natz-tool .fc-card{width:100%;max-width:560px;min-height:320px;perspective:1400px;background:transparent;border:none;padding:0;cursor:pointer;font-family:inherit;text-align:center}
+.natz-tool .fc-inner{position:relative;width:100%;min-height:320px;transition:transform 0.5s cubic-bezier(0,0,0.2,1);transform-style:preserve-3d}
+.natz-tool .fc-card.is-flipped .fc-inner{transform:rotateY(180deg)}
+.natz-tool .fc-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px;border-radius: var(--radius-md, 0.375rem);border:1px solid rgba(15,23,42,0.12);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:auto}
+.natz-tool .fc-front{background:var(--card-bg)}
+.natz-tool .fc-back{background:#f1f5f9;transform:rotateY(180deg);justify-content:flex-start}
+.natz-tool .fc-eyebrow{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--muted)}
+.natz-tool .fc-q{font-family:var(--font-display);font-size:clamp(18px,3.4vw,22px);line-height:1.35;color:var(--navy)}
+.natz-tool .fc-hint{font-size:13px;color:var(--muted)}
+.natz-tool .fc-answers{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;width:100%;text-align:left}
+.natz-tool .fc-answers li{background:#fff;border:1px solid rgba(15,23,42,0.12);border-radius:8px;padding:6px 12px;font-size:1em;color:var(--white)}
+.natz-tool .fc-uscis{font-size:14px;color:rgba(15,23,42,0.75);text-align:left;width:100%}
+.natz-tool .fc-note{font-size:15px;color:var(--teal-light);text-align:left;width:100%;background:rgba(79,133,115,0.08);border-radius:6px;padding:6px 10px}
+.natz-tool .fc-star{display:inline-block;font-family:var(--font-ui);font-size:13px;font-weight:700;color:var(--accent);background:rgba(15,23,42,0.1);border-radius:4px;padding:1px 7px}
+.natz-tool .fc-mark{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;justify-content:center}
+.natz-tool .fc-mark button{min-width:130px}
+.natz-tool .btn-known{font-family:var(--font-ui);font-size:14px;font-weight:700;background:#eff5f0;color:#4a6b50;border:1px solid #4a6b50;border-radius:8px;padding:8px 14px;cursor:pointer}
+.natz-tool .btn-review{font-family:var(--font-ui);font-size:14px;font-weight:700;background:#f1f5f9;color:var(--navy);border:1px solid var(--accent);border-radius:8px;padding:8px 14px;cursor:pointer}
+.natz-tool .fc-nav{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;justify-content:center}
+.natz-tool .fc-status{font-size:14px;color:var(--muted);margin-top:10px;min-height:1.4em;text-align:center}
+.natz-tool .fc-empty{text-align:center;font-size:14px;color:var(--muted);padding:32px}
+.natz-tool .fc-list{margin-top:16px}
+.natz-tool .fc-list summary{font-family:var(--font-ui);font-size:14px;font-weight:700;cursor:pointer;color:var(--navy)}
+.natz-tool .fc-list ol{font-size:1em;padding-left:28px!important;margin-top:10px}
+.natz-tool .fc-list ol li{margin-bottom:8px}
+.natz-tool .fc-list ol li span{display:block;color:var(--muted);font-size:1em}
+
+/* Resources */
+.natz-tool .res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:10px}
+.natz-tool .res{display:flex;flex-direction:column;gap:4px;background:var(--card-bg);border:1px solid var(--border-subtle);border-radius: var(--radius-md, 0.375rem);padding:14px 16px;text-decoration:none}
+.natz-tool a.res:hover{border-color:var(--accent)}
+.natz-tool .res-tag{font-family:var(--font-ui);font-size:13px;font-weight:700;color:var(--muted)}
+.natz-tool .res-name{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--white)}
+.natz-tool .res-desc{font-size:15px;color:rgba(15,23,42,0.78);line-height:1.6}
+
+.natz-tool .reviewed{font-size:14px;color:var(--muted);margin-top:-8px;margin-bottom:24px}
+
+/* Added on main (taxes, delays, sources) before the split */
+.natz-tool .pill-news{background:rgba(51,65,85,0.12);color:var(--blue)}
+.natz-tool .pill-anecdote{background:rgba(127,29,29,0.1);color:var(--red)}
+.natz-tool .res .pill{margin-left:0;align-self:flex-start}
+.natz-tool .res .src{align-self:flex-start;margin-top:2px}
+.natz-tool .changed{margin-bottom:24px}
+.natz-tool .changed li{margin-bottom:6px}
+.natz-tool .sources{padding-left:20px}
+.natz-tool .sources li{font-size:15px;margin-bottom:6px;line-height:1.55}
+@media print{
+  .natz-tool .community .btn-link,.natz-tool .calc-actions,.natz-tool .prep-tools,.natz-tool #flashcards{display:none!important}
+}
+@media (prefers-reduced-motion: reduce){.natz-tool .fc-inner{transition:none}}
+
+/* Hub step-by-step list (GOV.UK-style): numbered circles joined by a line */
+.natz-tool .natz-steps{list-style:none;padding:0;margin:0 0 32px;counter-reset:natz}
+.natz-tool .natz-steps>li{counter-increment:natz;position:relative;padding:0 0 22px 48px;margin:0}
+.natz-tool .natz-steps>li::before{content:counter(natz);position:absolute;left:0;top:0;width:32px;height:32px;line-height:30px;text-align:center;border-radius:50%;border:2px solid var(--accent);background:var(--card-bg);font-family:var(--font-ui);font-weight:700;font-size:15px;color:var(--accent)}
+.natz-tool .natz-steps>li::after{content:'';position:absolute;left:15px;top:36px;bottom:4px;width:2px;background:var(--border-subtle)}
+.natz-tool .natz-steps>li:last-child::after{display:none}
+.natz-tool .natz-steps h3{font-family:var(--font-ui);font-size:18px;font-weight:800;margin:3px 0 4px}
+.natz-tool .natz-steps p{margin:0 0 6px}
+.natz-tool .natz-steps ul{margin:4px 0 0;padding-left:18px}
+.natz-tool .natz-soon{font-size:14px;color:var(--muted);font-style:italic}
