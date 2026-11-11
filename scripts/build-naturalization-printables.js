@@ -26,7 +26,7 @@ const ROOT = path.join(__dirname, '..');
 const OUT_PDF = path.join(ROOT, 'public', 'downloads');
 const OUT_DOC = path.join(ROOT, 'build', 'printables');
 const SITE = 'https://www.americanvisaguide.com';
-const REVIEWED = 'September 27, 2026';
+const REVIEWED = 'November 11, 2026';
 
 // ---------- load site data ----------
 function loadWindowScript(file) {
@@ -46,7 +46,7 @@ function loadPrep() {
   // Rewrite on-page references for a standalone document
   const fix = (s) => s
     .replace('Use the calculator above', 'Use the calculator at americanvisaguide.com/naturalization')
-    .replace(/href="#civics"/g, 'href="' + SITE + '/naturalization#civics"')
+    .replace(/href="#(civics|taxes|delays|fee)"/g, 'href="' + SITE + '/naturalization#$1"')
     .replace(/href="\//g, 'href="' + SITE + '/');
   return prep.map((g) => ({ title: g.title, items: g.items.map((i) => [fix(i[1]), fix(i[2])]) }));
 }
