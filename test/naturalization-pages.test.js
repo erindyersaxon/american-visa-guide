@@ -159,3 +159,26 @@ test('hub links every built page and lists unbuilt steps as text', () => {
   assert.deepEqual(scriptsOn(html), []);
   assert.ok(!fs.existsSync(path.join(PUBLIC, 'js/naturalization.js')), 'old script deleted');
 });
+
+// ---------- Nav, sitemap, inbound links ----------
+test('nav maps the section', () => {
+  const nav = read('js/nav.js');
+  assert.match(nav, /\/\^\\\/naturalization\\\/\/\.test\(window\.location\.pathname\)/, 'section path rule');
+  assert.match(nav, /'checklist-n400': 'naturalization'/);
+});
+
+test('sitemap lists the section', () => {
+  const map = read('sitemap.xml');
+  for (const p of SECTION_PAGES) {
+    assert.ok(map.includes(`<loc>https://www.americanvisaguide.com${URL_OF(p)}</loc>`), URL_OF(p));
+  }
+});
+
+test('no links to removed anchors', () => {
+  const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e =>
+    e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]);
+  const files = walk(PUBLIC).filter(f => /\.(html|js)$/.test(f) && !f.endsWith('naturalization-anchors.js'));
+  const bad = files.filter(f => /naturalization(\.html)?#(timeline|calc|prepare|prep|civics|english|resources)\b/
+    .test(fs.readFileSync(f, 'utf8'))).map(f => path.relative(PUBLIC, f));
+  assert.deepEqual(bad, []);
+});

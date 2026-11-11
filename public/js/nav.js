@@ -200,6 +200,7 @@
     'english-test': 'naturalization',
     'life': 'life',
     'naturalization': 'naturalization',
+    'checklist-n400': 'naturalization',
     'about': 'about',
     'privacy': 'about',
   };
@@ -255,7 +256,11 @@
       .replace(/\.html$/, '') || 'index';
     // Stage pages live under /guide/ and belong to the Guide, even where a
     // stage shares a file name with a hub (guide/interview vs /interview).
-    const active = /^\/guide\//.test(window.location.pathname) ? 'guide' : ACTIVE_MAP[file];
+    // Naturalization pages live under /naturalization/ (their file names, such
+    // as interview or test, would otherwise match other nav keys).
+    const active = /^\/guide\//.test(window.location.pathname) ? 'guide'
+      : /^\/naturalization\//.test(window.location.pathname) ? 'naturalization'
+      : ACTIVE_MAP[file];
     if (!active) return;
     const link = nav.querySelector('.nav-link[data-navpage="' + active + '"]');
     if (link) {
