@@ -108,3 +108,14 @@ test('step 5 test page', () => {
   assert.equal(pn.prev, '/naturalization/eligibility');
   assert.equal(pn.next, undefined, 'last built step has no next');
 });
+
+test('step 1 eligibility page', () => {
+  const html = read('naturalization/eligibility.html');
+  for (const id of ['five-year', 'three-year', 'continuous-residence', 'physical-presence',
+    'state-residence', 'early-filing', 'sources']) assert.ok(hasId(html, id), `id ${id}`);
+  assert.match(html, /href="\/naturalization\/when-can-i-apply"/);
+  const pn = prevNext(html);
+  assert.equal(pn.prev, '/naturalization');
+  assert.equal(pn.next, '/naturalization/test');
+  assert.deepEqual(scriptsOn(html), []);
+});
