@@ -37,6 +37,7 @@
     { key: 'filing', title: 'Filing the N-400', items: [
       ['f1', 'Answer every question, using "None" or "N/A" where nothing applies', 'Your answers must match your tax, travel and court records.'],
       ['f2', 'Attach all required initial evidence', 'USCIS can deny an incomplete filing without asking for missing documents first.'],
+      ['f7', 'Include at least two character reference letters', 'From US citizens who know you well and are not relatives. USCIS uses them to decide whether to skip a neighborhood investigation. See the <a href="/naturalization/file-n400#character-letters">letter guide and template</a>.'],
       ['f3', 'Pay the fee, or attach Form I-912', 'Do not send a fee with a waiver request: USCIS will take the payment and ignore the waiver.'],
       ['f5', 'If you file online, submit within 30 days of your last edit', 'USCIS keeps an online draft for 30 days from the last time you worked on it, then deletes it. A draft is not filed until you submit and pay. ' + link('https://www.uscis.gov/policy-manual/volume-1-part-b-chapter-6', '[USCIS Policy Manual Vol. 1 Part B Ch. 6]')],
       ['f6', 'Name and combine your uploads so the officer can follow them', 'One PDF per document type, numbered and named for what it is, for example 01_GreenCard.pdf, 02_Tax_Transcripts.pdf, 03_Marriage_Certificate.pdf. Criminal and court records must be complete, official copies.'],
