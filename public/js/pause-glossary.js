@@ -23,9 +23,10 @@
       status: 'Vacated by a court on 21 August 2026, and the guidance behind it rescinded on 10 September 2026. Refusals made only because of it are being reconsidered. On 19 October 2026 the Second Circuit temporarily stayed the order on those refusals; the Department says its review continues.',
       uk: 'No. The UK was not on the list. It applied at London only to applicants interviewing on a listed passport.',
       link: '/september-2026-update',
-      linkText: 'Both pauses vacated',
+      linkText: 'Immigrant visa pause vacated',
     },
     {
+      key: 'dv',
       term: 'Diversity visa pause',
       what: 'From 20 December 2025, a 221(g) refusal for every diversity visa applicant.',
       status: 'Temporarily vacated by a court on 28 August 2026 (a preliminary injunction), and the guidance rescinded on 10 September 2026.',
@@ -61,8 +62,11 @@
     @media (max-width:600px) { .pause-glossary__row { grid-template-columns:1fr; } }
     @media print { .pause-glossary summary::before { content:none; } }`;
 
-  function markup(open) {
-    const rows = ROWS.map(r => `
+  const WORDS = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six'];
+
+  function markup(open, hide) {
+    const shown = ROWS.filter(r => !(r.key && hide.includes(r.key)));
+    const rows = shown.map(r => `
       <li class="pause-glossary__row">
         <div class="pause-glossary__term">${r.term}</div>
         <div class="pause-glossary__body">
@@ -73,7 +77,7 @@
       </li>`).join('');
     return `
     <details class="pause-glossary"${open ? ' open' : ''}>
-      <summary>Which "pause" do you mean? Four different things share the word</summary>
+      <summary>Which "pause" do you mean? ${WORDS[shown.length] || shown.length} different things share the word</summary>
       <p class="pause-glossary__intro">On this site, "interview cancellations" means the September rescheduling. "Pause" means one of the two refusal policies the courts struck down.</p>
       <ul class="pause-glossary__list">${rows}</ul>
     </details>`;
@@ -89,7 +93,9 @@
       document.head.appendChild(st);
     }
     mounts.forEach(el => {
-      el.outerHTML = markup(el.getAttribute('data-pause-glossary') === 'open').trim();
+      // data-pause-glossary-hide="dv" (space-separated row keys) hides rows on one page only.
+      const hide = (el.getAttribute('data-pause-glossary-hide') || '').split(/\s+/).filter(Boolean);
+      el.outerHTML = markup(el.getAttribute('data-pause-glossary') === 'open', hide).trim();
     });
   }
 
