@@ -1,93 +1,148 @@
 {
-  "lastRun": "2026-11-10T15:08:55.010Z",
+  "lastRun": "2026-11-15T19:52:37.554Z",
   "sources": {
     "embassy-london": {
-      "lastOk": "2026-11-10T15:08:55.010Z",
+      "lastOk": "2026-11-15T19:52:37.554Z",
       "fetched": 10,
       "queued": 0
     },
     "fr-state": {
-      "lastOk": "2026-11-10T15:08:55.010Z",
+      "lastOk": "2026-11-15T19:52:37.554Z",
       "fetched": 20,
       "queued": 0
     },
     "fr-uscis": {
-      "lastOk": "2026-11-10T15:08:55.010Z",
+      "lastOk": "2026-11-15T19:52:37.554Z",
       "fetched": 20,
       "queued": 0
     },
     "uscis-news": {
-      "lastOk": "2026-11-10T15:08:55.010Z",
+      "lastOk": "2026-11-15T19:52:37.554Z",
       "fetched": 250,
       "queued": 0
     },
     "state-press": {
-      "lastOk": "2026-11-10T15:08:55.010Z",
+      "lastOk": "2026-11-15T19:52:37.554Z",
       "fetched": 10,
       "queued": 0
     },
     "gnews-embassy": {
-      "lastOk": "2026-11-10T15:08:55.010Z",
+      "lastOk": "2026-11-15T19:52:37.554Z",
       "fetched": 0,
       "queued": 0
     },
     "gnews-family": {
-      "lastOk": "2026-11-10T15:08:55.010Z",
-      "fetched": 24,
+      "lastOk": "2026-11-15T19:52:37.554Z",
+      "fetched": 16,
+      "queued": 0
+    },
+    "docket-clinic-sdny": {
+      "lastOk": "2026-11-15T19:52:37.554Z",
+      "fetched": 30,
       "queued": 1
+    },
+    "docket-clinic-ca2": {
+      "lastOk": "2026-11-15T19:52:37.554Z",
+      "fetched": 30,
+      "queued": 0
+    },
+    "docket-medani": {
+      "lastOk": "2026-11-15T19:52:37.554Z",
+      "fetched": 30,
+      "queued": 6
     }
   },
   "items": [
     {
-      "id": "7179d5d4f8",
-      "status": "pending",
-      "source": "gnews-family",
-      "sourceName": "Hypefresh Magazine, Inc.",
-      "type": "press",
-      "date": "2026-11-09",
-      "title": "UK Residency Through Marriage 2026: Spouse Visa Rules, 5-Year ILR Path & Costs",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNSlhud1VkQ2dlZy1WcmVYOXl5ZjNRNVJBbEpJb0JmQTB4NWhNYV9fSGFlQk5ubVJXazFoTEZrLVpXOEVPSTNJV2dEWXA5dkk4S3JCb1pWTXZtN3Z1N3RlZU9BMlZDemtLQ2ZPLUpsWHoyZkxzN19JWFJTSG5WUW52Sjk1bVpHb0FEdmdHSDgyLUdESEtlek5NbFBnemd6WW96LVIw?oc=5",
-      "summary": "UK Residency Through Marriage 2026: Spouse Visa Rules, 5-Year ILR Path & Costs Hypefresh Magazine, Inc.",
-      "matched": [
-        "spouse visa",
-        "visa"
+      "id": "8d5f5a83f1",
+      "status": "approved",
+      "source": "reddit-london-week",
+      "sourceName": "Reddit: r/NationalVisaCenter, r/K1VisaInfo and others",
+      "type": "community",
+      "date": "2026-11-15",
+      "period": {
+        "from": "2026-11-08",
+        "to": "2026-11-15"
+      },
+      "title": "London this week: 8–15 November. Some rebooked interviews pushed again to January",
+      "url": "",
+      "note": "London is still working through interviews it cancelled in September. This week some of those rebooked November dates were moved again, to early January. Interviews that went ahead mostly ended in approval, with public charge now a regular topic. These are member reports, not an embassy announcement.",
+      "points": [
+        {
+          "label": "Interview letters and scheduling",
+          "text": "London has not sent new interview letters since 14 July 2026, and no one reported one this week for a case waiting at NVC. State's court filings say each post must finish in-person public charge training before it processes new cases. Applicants DQ'd in June 2026 say they are still waiting, even though the scheduling tool lists June DQs for immediate relatives. Direct consular filing petitioners expect London to clear its rebooking backlog before it takes new filings."
+        },
+        {
+          "label": "Reschedules and cancellations",
+          "text": "Several K-1 and spousal applicants whose September interviews had been rebooked for 12 or 13 November were emailed, a day or two before, that the date had moved again to early January 2027. Others with 13 November dates still had their interviews and said only one window was open. Two applicants were turned away or rescheduled because their medical results had not reached the embassy. The panel physician allows 5 working days for results to arrive, so leave at least that between the medical and the interview."
+        },
+        {
+          "label": "Outcomes",
+          "text": "Applicants with rebooked September interviews reported approvals this week, including an IR-1 on 9 November. Approved cases typically spend 2 to 5 working days in administrative processing before CEAC shows Issued. One applicant interviewed on 6 November had their passport posted on 12 November."
+        },
+        {
+          "label": "Public charge and 221(g)",
+          "text": "Officers are asking about housing plans, health insurance, savings and work plans. One IR-1 applicant was approved with only a savings statement. At least two applicants were refused on public charge grounds (212(a)(4)), including an IR-1 family of five relying on a joint sponsor near the minimum. One K-1 was given a 221(g) for insurance and job-search evidence. Cases put in 221(g) in June to August report little movement after 4 to 5 months, though one August K-1 was automatically scheduled for a re-interview in late November."
+        }
       ],
-      "score": 4,
-      "foundAt": "2026-11-10T15:08:55.010Z"
-    },
-    {
-      "id": "8c7dd0d862",
-      "status": "pending",
-      "source": "gnews-family",
-      "sourceName": "Vanguard News",
-      "type": "press",
-      "date": "2026-10-22",
-      "title": "UK: 9 types of marriages that may not qualify for a spouse visa or residence permit",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQV0hiYnJiSnd0bENyeGJFWGJFSFh4R2VOTW5mRXZjUzNIOTNRbmhaWjFhX3dIVUVnaDhRSDlZci1mNUk4ZUhSbjVVUGd4SEg3ZWdENk5IU2ZENzI3WjdKQkp4RDJCV0ZlQkJPenIyT21yOVg2ajJiSUhNNEpheE9oUFFDNkRqYnNzRmFSUUx2bDdWVC1FM2FXZFlveE5WcmJubHhpcDZsUXdfd1lzenpUNlZWN0QzdDRKbURF0gHAAUFVX3lxTFBRUzZDMlZzTTFIV0xkWkhSS1ZMaTBLd204dnRwZ2dTRGgzUTFZcHhPRndwMjZubzZ0akR6OEN6YWlIU05VV3g3X3dCWEFnNUtSbkxXMW12eGpGa2pWZ2NWbUtsTnY2azZYcTBEZW9LZ0wza2x4TDZROUtvdzh6dVFHVFUydEl3SDhsVVNITmFuV0FhVWlJaUpUZ1VaWFVucFIwRFpiRmFWY0pRWkVyNWdKa1BIc29CaVZlVUc1VTRhdA?oc=5",
-      "summary": "UK: 9 types of marriages that may not qualify for a spouse visa or residence permit Vanguard News",
-      "matched": [
-        "spouse visa",
-        "visa"
+      "sources": [
+        {
+          "label": "It was moved.... again",
+          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1xsn3lj/it_was_moved_again/"
+        },
+        {
+          "label": "London new interviews",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xv9p6m/london_new_interviews/"
+        },
+        {
+          "label": "London IR1 interview complete",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xrrpwy/london_ir1_interview_complete/"
+        },
+        {
+          "label": "Husband's IR-1 refused due to public charge",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xssq6h/husbands_ir1_refused_due_to_public_charge/"
+        },
+        {
+          "label": "Fiancé went to London K-1 interview, turned away",
+          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1xro25n/fiance_went_to_london_k1_interview_turned_away/"
+        },
+        {
+          "label": "London IR1/CR1: latest DQ dates receiving interview letters",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xwa498/london_ir1cr1_latest_dq_dates_receiving_interview/"
+        }
       ],
-      "score": 4,
-      "foundAt": "2026-10-23T18:58:43.439Z"
-    },
-    {
-      "id": "a181a341e6",
-      "status": "pending",
-      "source": "uscis-news",
-      "sourceName": "USCIS",
-      "type": "official",
-      "date": "2026-09-30",
-      "title": "USCIS Announces FY 2027 Inflation Increase for Certain Immigration-Related Fees",
-      "url": "https://www.uscis.gov/newsroom/alerts/uscis-announces-fy-2027-inflation-increase-for-certain-immigration-related-fees",
-      "summary": "U.S. Citizenship and Immigration Services has issued a Federal Register notice that will increase certain H.R. 1 immigration-related fees for fiscal year 2027.",
-      "matched": [
-        "fees",
-        "immigration"
+      "urls": [
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xvdz4q/consulates_who_have_restarted_scheduling_iv_appts/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xv9p6m/london_new_interviews/",
+        "https://www.reddit.com/r/K1VisaInfo/comments/1xsn3lj/it_was_moved_again/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xrrpwy/london_ir1_interview_complete/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xssq6h/husbands_ir1_refused_due_to_public_charge/",
+        "https://www.reddit.com/r/K1VisaInfo/comments/1xro25n/fiance_went_to_london_k1_interview_turned_away/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xthmvw/administrative_processing_london/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xvb3w4/221g_at_us_embassy_london_medical_expired_before/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xuphko/london_k1_reinterview_automatically_scheduled/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xwa498/london_ir1cr1_latest_dq_dates_receiving_interview/",
+        "https://www.reddit.com/r/visainterviews/comments/1xrq3vu/london_ir1_221g_ap/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xuaw39/how_long_it_takes_to_receive_visapassport_after/",
+        "https://www.reddit.com/r/K1VisaInfo/comments/1xvf7eb/221g_refusal_submission_of_additional_evidence/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xwjwai/london_dcf_i130_recent_experiences_and_timelines/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xsmx5y/appointment_rescheduled_due_to_medical_not/",
+        "https://www.reddit.com/r/USCIS/comments/1xwjwwe/london_dcf_i130_recent_experiences_and_timelines/",
+        "https://www.reddit.com/r/MovingToUSA/comments/1xwjvqm/london_dcf_i130_recent_experiences_and_timelines/",
+        "https://www.reddit.com/r/usvisascheduling/comments/1xu6yot/administrative_processing_london/",
+        "https://www.reddit.com/r/visainterviews/comments/1xu6yzc/administrative_processing_london/"
       ],
-      "score": 3,
-      "foundAt": "2026-10-23T18:58:43.439Z"
+      "summary": "19 thread(s) with 149 in-week mention(s), 2026-11-08 to 2026-11-15. Rewrite note and points before approving.",
+      "matched": [
+        "il",
+        "reschedule",
+        "outcome"
+      ],
+      "score": 149,
+      "reports": 149,
+      "foundAt": "2026-11-15T19:35:42.325Z",
+      "generatedTitle": "London this week: 8–15 November",
+      "decidedAt": "2026-11-15T19:35:48.869Z"
     },
     {
       "id": "647fe42890",
@@ -221,95 +276,167 @@
       "replacedBy": "8d5f5a83f1"
     },
     {
-      "id": "8d5f5a83f1",
-      "status": "approved",
-      "source": "reddit-london-week",
-      "sourceName": "Reddit: r/NationalVisaCenter, r/K1VisaInfo and others",
-      "type": "community",
-      "date": "2026-11-15",
-      "period": {
-        "from": "2026-11-08",
-        "to": "2026-11-15"
-      },
-      "title": "London this week: 8–15 November. Some rebooked interviews pushed again to January",
-      "url": "",
-      "note": "London is still working through interviews it cancelled in September. This week some of those rebooked November dates were moved again, to early January. Interviews that went ahead mostly ended in approval, with public charge now a regular topic. These are member reports, not an embassy announcement.",
-      "points": [
-        {
-          "label": "Interview letters and scheduling",
-          "text": "London has not sent new interview letters since 14 July 2026, and no one reported one this week for a case waiting at NVC. State's court filings say each post must finish in-person public charge training before it processes new cases. Applicants DQ'd in June 2026 say they are still waiting, even though the scheduling tool lists June DQs for immediate relatives. Direct consular filing petitioners expect London to clear its rebooking backlog before it takes new filings."
-        },
-        {
-          "label": "Reschedules and cancellations",
-          "text": "Several K-1 and spousal applicants whose September interviews had been rebooked for 12 or 13 November were emailed, a day or two before, that the date had moved again to early January 2027. Others with 13 November dates still had their interviews and said only one window was open. Two applicants were turned away or rescheduled because their medical results had not reached the embassy. The panel physician allows 5 working days for results to arrive, so leave at least that between the medical and the interview."
-        },
-        {
-          "label": "Outcomes",
-          "text": "Applicants with rebooked September interviews reported approvals this week, including an IR-1 on 9 November. Approved cases typically spend 2 to 5 working days in administrative processing before CEAC shows Issued. One applicant interviewed on 6 November had their passport posted on 12 November."
-        },
-        {
-          "label": "Public charge and 221(g)",
-          "text": "Officers are asking about housing plans, health insurance, savings and work plans. One IR-1 applicant was approved with only a savings statement. At least two applicants were refused on public charge grounds (212(a)(4)), including an IR-1 family of five relying on a joint sponsor near the minimum. One K-1 was given a 221(g) for insurance and job-search evidence. Cases put in 221(g) in June to August report little movement after 4 to 5 months, though one August K-1 was automatically scheduled for a re-interview in late November."
-        }
-      ],
-      "sources": [
-        {
-          "label": "It was moved.... again",
-          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1xsn3lj/it_was_moved_again/"
-        },
-        {
-          "label": "London new interviews",
-          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xv9p6m/london_new_interviews/"
-        },
-        {
-          "label": "London IR1 interview complete",
-          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xrrpwy/london_ir1_interview_complete/"
-        },
-        {
-          "label": "Husband's IR-1 refused due to public charge",
-          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xssq6h/husbands_ir1_refused_due_to_public_charge/"
-        },
-        {
-          "label": "Fiancé went to London K-1 interview, turned away",
-          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1xro25n/fiance_went_to_london_k1_interview_turned_away/"
-        },
-        {
-          "label": "London IR1/CR1: latest DQ dates receiving interview letters",
-          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xwa498/london_ir1cr1_latest_dq_dates_receiving_interview/"
-        }
-      ],
-      "urls": [
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xvdz4q/consulates_who_have_restarted_scheduling_iv_appts/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xv9p6m/london_new_interviews/",
-        "https://www.reddit.com/r/K1VisaInfo/comments/1xsn3lj/it_was_moved_again/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xrrpwy/london_ir1_interview_complete/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xssq6h/husbands_ir1_refused_due_to_public_charge/",
-        "https://www.reddit.com/r/K1VisaInfo/comments/1xro25n/fiance_went_to_london_k1_interview_turned_away/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xthmvw/administrative_processing_london/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xvb3w4/221g_at_us_embassy_london_medical_expired_before/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xuphko/london_k1_reinterview_automatically_scheduled/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xwa498/london_ir1cr1_latest_dq_dates_receiving_interview/",
-        "https://www.reddit.com/r/visainterviews/comments/1xrq3vu/london_ir1_221g_ap/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xuaw39/how_long_it_takes_to_receive_visapassport_after/",
-        "https://www.reddit.com/r/K1VisaInfo/comments/1xvf7eb/221g_refusal_submission_of_additional_evidence/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xwjwai/london_dcf_i130_recent_experiences_and_timelines/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xsmx5y/appointment_rescheduled_due_to_medical_not/",
-        "https://www.reddit.com/r/USCIS/comments/1xwjwwe/london_dcf_i130_recent_experiences_and_timelines/",
-        "https://www.reddit.com/r/MovingToUSA/comments/1xwjvqm/london_dcf_i130_recent_experiences_and_timelines/",
-        "https://www.reddit.com/r/usvisascheduling/comments/1xu6yot/administrative_processing_london/",
-        "https://www.reddit.com/r/visainterviews/comments/1xu6yzc/administrative_processing_london/"
-      ],
-      "summary": "19 thread(s) with 149 in-week mention(s), 2026-11-08 to 2026-11-15. Rewrite note and points before approving.",
+      "id": "f6a2fd3102",
+      "status": "pending",
+      "source": "docket-medani",
+      "sourceName": "Medani v. Trump (N.D. Cal.)",
+      "type": "official",
+      "date": "2026-11-11",
+      "title": "Medani v. Trump: REPLY (re 162 Emergency MOTION to Enforce Judgment as to a Nonparty Class Member by Class Representatives Under Rule 71 ) filed…",
+      "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/?order_by=desc#entry-173",
+      "summary": "REPLY (re 162 Emergency MOTION to Enforce Judgment as to a Nonparty Class Member by Class Representatives Under Rule 71 ) filed byRoksana Medani. (Morrison, Curtis) (Filed on 11/11/2026) (Entered: 11/11/2026) Document: https://ecf.cand.uscourts.gov/doc1/035027919810?caseid=472914",
       "matched": [
-        "il",
-        "reschedule",
-        "outcome"
+        "reply"
       ],
-      "score": 149,
-      "reports": 149,
-      "foundAt": "2026-11-15T19:35:42.325Z",
-      "generatedTitle": "London this week: 8–15 November",
-      "decidedAt": "2026-11-15T19:35:48.869Z"
+      "score": 3,
+      "foundAt": "2026-11-15T19:52:37.554Z"
+    },
+    {
+      "id": "7179d5d4f8",
+      "status": "pending",
+      "source": "gnews-family",
+      "sourceName": "Hypefresh Magazine, Inc.",
+      "type": "press",
+      "date": "2026-11-09",
+      "title": "UK Residency Through Marriage 2026: Spouse Visa Rules, 5-Year ILR Path & Costs",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNSlhud1VkQ2dlZy1WcmVYOXl5ZjNRNVJBbEpJb0JmQTB4NWhNYV9fSGFlQk5ubVJXazFoTEZrLVpXOEVPSTNJV2dEWXA5dkk4S3JCb1pWTXZtN3Z1N3RlZU9BMlZDemtLQ2ZPLUpsWHoyZkxzN19JWFJTSG5WUW52Sjk1bVpHb0FEdmdHSDgyLUdESEtlek5NbFBnemd6WW96LVIw?oc=5",
+      "summary": "UK Residency Through Marriage 2026: Spouse Visa Rules, 5-Year ILR Path & Costs Hypefresh Magazine, Inc.",
+      "matched": [
+        "spouse visa",
+        "visa"
+      ],
+      "score": 4,
+      "foundAt": "2026-11-10T15:08:55.010Z"
+    },
+    {
+      "id": "edaf321d07",
+      "status": "pending",
+      "source": "docket-medani",
+      "sourceName": "Medani v. Trump (N.D. Cal.)",
+      "type": "official",
+      "date": "2026-11-09",
+      "title": "Medani v. Trump: ORDER REGARDING 170 PLAINTIFFS' EX PARTE APPLICATION FOR CLARIFICATION. Signed by Judge Edward J. Davila on 11/9/2026. (ejdlc3, COURT…",
+      "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/?order_by=desc#entry-172",
+      "summary": "ORDER REGARDING 170 PLAINTIFFS' EX PARTE APPLICATION FOR CLARIFICATION. Signed by Judge Edward J. Davila on 11/9/2026. (ejdlc3, COURT STAFF) (Filed on 11/9/2026) (Entered: 11/09/2026) Document: https://storage.courtlistener.com/recap/gov.uscourts.cand.472914/gov.uscourts.cand.472914.172.0.pdf",
+      "matched": [
+        "order"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-15T19:52:37.554Z"
+    },
+    {
+      "id": "34a0db3234",
+      "status": "pending",
+      "source": "docket-clinic-sdny",
+      "sourceName": "CLINIC v. Rubio (S.D.N.Y.)",
+      "type": "official",
+      "date": "2026-11-06",
+      "title": "CLINIC v. Rubio: Amended Complaint",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/?order_by=desc#entry-134",
+      "summary": "Amended Complaint Document: https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.134.0.pdf",
+      "matched": [
+        "complaint"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-15T19:52:37.554Z"
+    },
+    {
+      "id": "27f576e36e",
+      "status": "pending",
+      "source": "docket-medani",
+      "sourceName": "Medani v. Trump (N.D. Cal.)",
+      "type": "official",
+      "date": "2026-11-05",
+      "title": "Medani v. Trump: OPPOSITION/RESPONSE (re 162 Emergency MOTION to Enforce Judgment as to a Nonparty Class Member by Class Representatives Under Rule 71 )…",
+      "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/?order_by=desc#entry-169",
+      "summary": "OPPOSITION/RESPONSE (re 162 Emergency MOTION to Enforce Judgment as to a Nonparty Class Member by Class Representatives Under Rule 71 ) filed byJoseph B. Edlow, Stephen N. Miller, Markwayne Mullin, Marco A. Rubio, Donald J. Trump. (Attachments: # 1 Declaration, # 2 Declaration, # 3 Proposed Order)(Chu, Nag Young) (Filed on 11/5/2026) (Entered: 11/05/2026) Document: https://ecf.cand.uscourts.gov/do",
+      "matched": [
+        "response"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-15T19:52:37.554Z"
+    },
+    {
+      "id": "1c30c4eb17",
+      "status": "pending",
+      "source": "docket-medani",
+      "sourceName": "Medani v. Trump (N.D. Cal.)",
+      "type": "official",
+      "date": "2026-10-28",
+      "title": "Medani v. Trump: Transcript of Proceedings held on 09/29/2026, before Judge Davila. Court Reporter Irene L. Rodriguez, email address…",
+      "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/?order_by=desc#entry-167",
+      "summary": "Transcript of Proceedings held on 09/29/2026, before Judge Davila. Court Reporter Irene L. Rodriguez, email address Irene_Rodriguez@cand.uscourts.gov. Per General Order No. 59 and Judicial Conference policy, this transcript may be viewed only at the Clerk's Office public terminal or may be purchased through the Court Reporter until the deadline for the Release of Transcript Restriction. After that",
+      "matched": [
+        "transcript"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-15T19:52:37.554Z"
+    },
+    {
+      "id": "10cbb355aa",
+      "status": "pending",
+      "source": "docket-medani",
+      "sourceName": "Medani v. Trump (N.D. Cal.)",
+      "type": "official",
+      "date": "2026-10-28",
+      "title": "Medani v. Trump: Transcript of Proceedings held on 08/27/2026, before Judge Davila. Court Reporter Irene L. Rodriguez, email address…",
+      "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/?order_by=desc#entry-166",
+      "summary": "Transcript of Proceedings held on 08/27/2026, before Judge Davila. Court Reporter Irene L. Rodriguez, email address Irene_Rodriguez@cand.uscourts.gov. Per General Order No. 59 and Judicial Conference policy, this transcript may be viewed only at the Clerk's Office public terminal or may be purchased through the Court Reporter until the deadline for the Release of Transcript Restriction. After that",
+      "matched": [
+        "transcript"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-15T19:52:37.554Z"
+    },
+    {
+      "id": "ac3fdbff01",
+      "status": "pending",
+      "source": "docket-medani",
+      "sourceName": "Medani v. Trump (N.D. Cal.)",
+      "type": "official",
+      "date": "2026-10-26",
+      "title": "Medani v. Trump: STATUS REPORT by Todd Blanche, Joseph B. Edlow, Stephen N. Miller, Markwayne Mullin, Marco A. Rubio, Donald J. Trump. (Chu, Nag Young)…",
+      "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/?order_by=desc#entry-164",
+      "summary": "STATUS REPORT by Todd Blanche, Joseph B. Edlow, Stephen N. Miller, Markwayne Mullin, Marco A. Rubio, Donald J. Trump. (Chu, Nag Young) (Filed on 10/26/2026) (Entered: 10/26/2026) Document: https://ecf.cand.uscourts.gov/doc1/035027843716?caseid=472914",
+      "matched": [
+        "status report"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-15T19:52:37.554Z"
+    },
+    {
+      "id": "8c7dd0d862",
+      "status": "pending",
+      "source": "gnews-family",
+      "sourceName": "Vanguard News",
+      "type": "press",
+      "date": "2026-10-22",
+      "title": "UK: 9 types of marriages that may not qualify for a spouse visa or residence permit",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQV0hiYnJiSnd0bENyeGJFWGJFSFh4R2VOTW5mRXZjUzNIOTNRbmhaWjFhX3dIVUVnaDhRSDlZci1mNUk4ZUhSbjVVUGd4SEg3ZWdENk5IU2ZENzI3WjdKQkp4RDJCV0ZlQkJPenIyT21yOVg2ajJiSUhNNEpheE9oUFFDNkRqYnNzRmFSUUx2bDdWVC1FM2FXZFlveE5WcmJubHhpcDZsUXdfd1lzenpUNlZWN0QzdDRKbURF0gHAAUFVX3lxTFBRUzZDMlZzTTFIV0xkWkhSS1ZMaTBLd204dnRwZ2dTRGgzUTFZcHhPRndwMjZubzZ0akR6OEN6YWlIU05VV3g3X3dCWEFnNUtSbkxXMW12eGpGa2pWZ2NWbUtsTnY2azZYcTBEZW9LZ0wza2x4TDZROUtvdzh6dVFHVFUydEl3SDhsVVNITmFuV0FhVWlJaUpUZ1VaWFVucFIwRFpiRmFWY0pRWkVyNWdKa1BIc29CaVZlVUc1VTRhdA?oc=5",
+      "summary": "UK: 9 types of marriages that may not qualify for a spouse visa or residence permit Vanguard News",
+      "matched": [
+        "spouse visa",
+        "visa"
+      ],
+      "score": 4,
+      "foundAt": "2026-10-23T18:58:43.439Z"
+    },
+    {
+      "id": "a181a341e6",
+      "status": "pending",
+      "source": "uscis-news",
+      "sourceName": "USCIS",
+      "type": "official",
+      "date": "2026-09-30",
+      "title": "USCIS Announces FY 2027 Inflation Increase for Certain Immigration-Related Fees",
+      "url": "https://www.uscis.gov/newsroom/alerts/uscis-announces-fy-2027-inflation-increase-for-certain-immigration-related-fees",
+      "summary": "U.S. Citizenship and Immigration Services has issued a Federal Register notice that will increase certain H.R. 1 immigration-related fees for fiscal year 2027.",
+      "matched": [
+        "fees",
+        "immigration"
+      ],
+      "score": 3,
+      "foundAt": "2026-10-23T18:58:43.439Z"
     }
   ]
 }
