@@ -108,9 +108,9 @@
       "date": "2026-11-06",
       "type": "official",
       "source": "CLINIC v. Rubio (S.D.N.Y.)",
-      "title": "CLINIC lawsuit widened to challenge the State Department's public charge processing rules",
-      "url": "https://www.nilc.org/litigation/clinic-v-rubio/",
-      "note": "On 6 November the plaintiffs filed an amended complaint (ECF 134), which the court allowed on 21 October. According to the National Immigration Law Center, one of the plaintiffs' lawyers, it now challenges the State Department's wider global public charge processing rules, not only the 75-country pause. It argues those rules unlawfully create new standards for immigrant visa eligibility and delay, refuse or stall applications worldwide. Nothing changes for applicants yet: the 21 August ruling and the Second Circuit's temporary stay stand, and the court has not ruled on the new claims. See [public charge](/public-charge) and [why new interviews are waiting](/visa-pause#training)."
+      "title": "CLINIC lawsuit now challenges the public charge cables behind interview delays",
+      "url": "https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.134.0.pdf",
+      "note": "On 6 November the plaintiffs filed an amended complaint (ECF 134), which the court allowed on 21 October. Beyond the 75-country pause, it now challenges the November 2025 cable that set the State Department's public charge standards, the August and September 2026 cables requiring the public charge worksheet and the in-person training (26 STATE 80666, 86164, 88862 and 89798), and the extra manager review of approvals. It asks the court to set these aside and order posts to resume case-by-case decisions. Eleven plaintiffs joined and three withdrew. Nothing changes for applicants yet: the court has not ruled on the new claims. See [public charge](/public-charge) and [why new interviews are waiting](/visa-pause#training)."
     },
     {
       "id": "reddit-2026-10-23-reschedules",
