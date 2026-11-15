@@ -104,6 +104,15 @@
       "note": "Track My Visa reports more case activity on IR consular I-130s at the old front of the line (priority dates around 25 February 2025), though many of those cases still have no decision. It has heard unofficially that some USCIS field offices have started processing them; USCIS has not confirmed this, and Track My Visa has not moved its front-of-line estimate, so plan around the stall. If you have an IR consular I-130 pending, add your USCIS field office to your Track My Visa dashboard to help. See [the I-130 stage](/guide/i130#i130-status)."
     },
     {
+      "id": "34a0db3234",
+      "date": "2026-11-06",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "CLINIC lawsuit widened to challenge the State Department's public charge processing rules",
+      "url": "https://www.nilc.org/litigation/clinic-v-rubio/",
+      "note": "On 6 November the plaintiffs filed an amended complaint (ECF 134), which the court allowed on 21 October. According to the National Immigration Law Center, one of the plaintiffs' lawyers, it now challenges the State Department's wider global public charge processing rules, not only the 75-country pause. It argues those rules unlawfully create new standards for immigrant visa eligibility and delay, refuse or stall applications worldwide. Nothing changes for applicants yet: the 21 August ruling and the Second Circuit's temporary stay stand, and the court has not ruled on the new claims. See [public charge](/public-charge) and [why new interviews are waiting](/visa-pause#training)."
+    },
+    {
       "id": "reddit-2026-10-23-reschedules",
       "date": "2026-10-23",
       "type": "community",

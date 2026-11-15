@@ -277,7 +277,7 @@
     },
     {
       "id": "f6a2fd3102",
-      "status": "pending",
+      "status": "rejected",
       "source": "docket-medani",
       "sourceName": "Medani v. Trump (N.D. Cal.)",
       "type": "official",
@@ -289,11 +289,14 @@
         "reply"
       ],
       "score": 3,
-      "foundAt": "2026-11-15T19:52:37.554Z"
+      "foundAt": "2026-11-15T19:52:37.554Z",
+      "review": "suggest reject",
+      "reviewNote": "Medani v. Trump is a diversity visa (DV lottery) class action; reply on a motion to enforce for one non-party class member. No effect on family immigrant visas.",
+      "decidedAt": "2026-11-15T19:59:53.622Z"
     },
     {
       "id": "7179d5d4f8",
-      "status": "pending",
+      "status": "rejected",
       "source": "gnews-family",
       "sourceName": "Hypefresh Magazine, Inc.",
       "type": "press",
@@ -306,11 +309,14 @@
         "visa"
       ],
       "score": 4,
-      "foundAt": "2026-11-10T15:08:55.010Z"
+      "foundAt": "2026-11-10T15:08:55.010Z",
+      "review": "suggest reject",
+      "reviewNote": "About UK spouse visas and ILR, not US immigrant visas.",
+      "decidedAt": "2026-11-15T19:59:53.624Z"
     },
     {
       "id": "edaf321d07",
-      "status": "pending",
+      "status": "rejected",
       "source": "docket-medani",
       "sourceName": "Medani v. Trump (N.D. Cal.)",
       "type": "official",
@@ -322,27 +328,35 @@
         "order"
       ],
       "score": 3,
-      "foundAt": "2026-11-15T19:52:37.554Z"
+      "foundAt": "2026-11-15T19:52:37.554Z",
+      "review": "suggest reject",
+      "reviewNote": "Medani (diversity visa case): procedural order; only the pending enforcement motion is before the court.",
+      "decidedAt": "2026-11-15T19:59:53.624Z"
     },
     {
       "id": "34a0db3234",
-      "status": "pending",
+      "status": "approved",
       "source": "docket-clinic-sdny",
       "sourceName": "CLINIC v. Rubio (S.D.N.Y.)",
       "type": "official",
       "date": "2026-11-06",
-      "title": "CLINIC v. Rubio: Amended Complaint",
-      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/?order_by=desc#entry-134",
+      "title": "CLINIC lawsuit widened to challenge the State Department's public charge processing rules",
+      "url": "https://www.nilc.org/litigation/clinic-v-rubio/",
       "summary": "Amended Complaint Document: https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.134.0.pdf",
       "matched": [
         "complaint"
       ],
       "score": 3,
-      "foundAt": "2026-11-15T19:52:37.554Z"
+      "foundAt": "2026-11-15T19:52:37.554Z",
+      "review": "ready to approve",
+      "rawTitle": "CLINIC v. Rubio: Amended Complaint",
+      "note": "On 6 November the plaintiffs filed an amended complaint (ECF 134), which the court allowed on 21 October. According to the National Immigration Law Center, one of the plaintiffs' lawyers, it now challenges the State Department's wider global public charge processing rules, not only the 75-country pause. It argues those rules unlawfully create new standards for immigrant visa eligibility and delay, refuse or stall applications worldwide. Nothing changes for applicants yet: the 21 August ruling and the Second Circuit's temporary stay stand, and the court has not ruled on the new claims. See [public charge](/public-charge) and [why new interviews are waiting](/visa-pause#training).",
+      "reviewNote": "Based on NILC's case page (updated 9 Nov 2026). The complaint itself (143 pages) not read in full.",
+      "decidedAt": "2026-11-15T19:59:53.299Z"
     },
     {
       "id": "27f576e36e",
-      "status": "pending",
+      "status": "rejected",
       "source": "docket-medani",
       "sourceName": "Medani v. Trump (N.D. Cal.)",
       "type": "official",
@@ -354,11 +368,14 @@
         "response"
       ],
       "score": 3,
-      "foundAt": "2026-11-15T19:52:37.554Z"
+      "foundAt": "2026-11-15T19:52:37.554Z",
+      "review": "suggest reject",
+      "reviewNote": "Medani (diversity visa case): government opposition to the enforcement motion for one class member.",
+      "decidedAt": "2026-11-15T19:59:53.624Z"
     },
     {
       "id": "1c30c4eb17",
-      "status": "pending",
+      "status": "rejected",
       "source": "docket-medani",
       "sourceName": "Medani v. Trump (N.D. Cal.)",
       "type": "official",
@@ -370,11 +387,14 @@
         "transcript"
       ],
       "score": 3,
-      "foundAt": "2026-11-15T19:52:37.554Z"
+      "foundAt": "2026-11-15T19:52:37.554Z",
+      "review": "suggest reject",
+      "reviewNote": "Medani (diversity visa case): transcript of 29 Sep hearing, not public until the release date.",
+      "decidedAt": "2026-11-15T19:59:53.624Z"
     },
     {
       "id": "10cbb355aa",
-      "status": "pending",
+      "status": "rejected",
       "source": "docket-medani",
       "sourceName": "Medani v. Trump (N.D. Cal.)",
       "type": "official",
@@ -386,11 +406,14 @@
         "transcript"
       ],
       "score": 3,
-      "foundAt": "2026-11-15T19:52:37.554Z"
+      "foundAt": "2026-11-15T19:52:37.554Z",
+      "review": "suggest reject",
+      "reviewNote": "Medani (diversity visa case): transcript of 27 Aug hearing, not public until the release date.",
+      "decidedAt": "2026-11-15T19:59:53.624Z"
     },
     {
       "id": "ac3fdbff01",
-      "status": "pending",
+      "status": "rejected",
       "source": "docket-medani",
       "sourceName": "Medani v. Trump (N.D. Cal.)",
       "type": "official",
@@ -402,11 +425,14 @@
         "status report"
       ],
       "score": 3,
-      "foundAt": "2026-11-15T19:52:37.554Z"
+      "foundAt": "2026-11-15T19:52:37.554Z",
+      "review": "suggest reject",
+      "reviewNote": "Medani (diversity visa case): government final status report on DV adjudication; not available on CourtListener.",
+      "decidedAt": "2026-11-15T19:59:53.624Z"
     },
     {
       "id": "8c7dd0d862",
-      "status": "pending",
+      "status": "rejected",
       "source": "gnews-family",
       "sourceName": "Vanguard News",
       "type": "press",
@@ -419,11 +445,14 @@
         "visa"
       ],
       "score": 4,
-      "foundAt": "2026-10-23T18:58:43.439Z"
+      "foundAt": "2026-10-23T18:58:43.439Z",
+      "review": "suggest reject",
+      "reviewNote": "About UK spouse visas, not US immigrant visas.",
+      "decidedAt": "2026-11-15T19:59:53.624Z"
     },
     {
       "id": "a181a341e6",
-      "status": "pending",
+      "status": "rejected",
       "source": "uscis-news",
       "sourceName": "USCIS",
       "type": "official",
@@ -436,7 +465,10 @@
         "immigration"
       ],
       "score": 3,
-      "foundAt": "2026-10-23T18:58:43.439Z"
+      "foundAt": "2026-10-23T18:58:43.439Z",
+      "review": "suggest reject",
+      "reviewNote": "Inflation increases to H.R. 1 fees for asylum, parole, EAD and TPS (effective 16 Oct 2026); none apply to family immigrant visas.",
+      "decidedAt": "2026-11-15T19:59:53.624Z"
     }
   ]
 }
