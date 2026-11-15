@@ -5,3 +5,6 @@ dist
 mcp.json
 .DS_Store
 build
+
+# Reddit research output (raw Reddit text, not for the repo)
+scripts/reddit/out/

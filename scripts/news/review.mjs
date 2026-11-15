@@ -80,6 +80,7 @@ function list(queue) {
     console.log(`    ${i.title}`);
     console.log(`    ${i.url}`);
     if (i.summary) console.log(`    ${i.summary.slice(0, 200)}`);
+    if (i.note) console.log(`    proposed note: ${i.note}`);
     console.log(`    matched: ${i.matched.join(', ')} (score ${i.score})\n`);
   }
   console.log(`${pending.length} pending.`);
@@ -114,6 +115,7 @@ async function main() {
       url: q.url,
     };
     if (typeof opts.note === 'string') item.note = opts.note;
+    else if (q.note) item.note = q.note; // proposed by a digest; --note overrides
     await saveNews(news, [...news.items, item]);
     q.status = 'approved';
     q.decidedAt = new Date().toISOString();
