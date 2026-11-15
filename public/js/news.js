@@ -38,31 +38,61 @@
   // BEGIN NEWS ITEMS
   const ITEMS = [
     {
-      "id": "647fe42890",
-      "date": "2026-11-14",
+      "id": "8d5f5a83f1",
+      "date": "2026-11-15",
       "type": "community",
-      "source": "r/NationalVisaCenter",
-      "title": "London still mostly rebooking cancelled interviews; scheduling tool unchanged",
-      "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xpgxto/updated_november_2026_iv_scheduling_tool_for/",
-      "note": "Applicants report London is still mainly rebooking interviews cancelled during the pause. The embassy's November scheduling tool update shows no change: June 2026 DQs for immediate relatives, March 2026 for family preference and February 2026 for employment-based cases. Applicants DQ'd in June and July report no interview letters yet, though one IR-1 direct consular filing case reports a new interview set for December. These are member reports, not an embassy announcement."
-    },
-    {
-      "id": "39e4c91231",
-      "date": "2026-11-14",
-      "type": "community",
-      "source": "r/NationalVisaCenter",
-      "title": "London rebooked interviews continue into December, some at short notice",
-      "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xdeu0k/london_embassy_just_got_a_rescheduled_interview/",
-      "note": "Applicants whose September and October interviews were cancelled report new dates on 13, 17 and 25 November and 8 and 10 December, across K-1, IR-1, F2A and EB-3 cases. Some new dates arrive only 7 to 11 days ahead, and at least one K-1 interview was moved again, from 12 November to January. Two applicants report being turned away or rescheduled because their medical results had not reached the embassy in time, so book the medical as soon as a date arrives. These are member reports, not an embassy announcement."
-    },
-    {
-      "id": "db1c375b1a",
-      "date": "2026-11-14",
-      "type": "community",
-      "source": "r/NationalVisaCenter",
-      "title": "London approvals resume, with more public charge questions at interview",
-      "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xrrpwy/london_ir1_interview_complete/",
-      "note": "Applicants report approvals for rebooked IR-1, F2A and K-1 interviews, usually with the passport kept and a few days of administrative processing before the case shows Issued. Interviews now include public charge questions on housing, health insurance, savings and work plans. Reports include an IR-1 refused under 212(a)(4) and a K-1 given a 221(g) asking for insurance and job-search evidence. Cases put in 221(g) before the pause (April to August) report little movement, though one K-1 from August was automatically scheduled for a re-interview in late November. These are member reports, not an embassy announcement."
+      "source": "Reddit: r/NationalVisaCenter, r/K1VisaInfo and others",
+      "title": "London this week: 8–15 November. Some rebooked interviews pushed again to January",
+      "url": "",
+      "note": "London is still working through interviews it cancelled in September. This week some of those rebooked November dates were moved again, to early January. Interviews that went ahead mostly ended in approval, with public charge now a regular topic. These are member reports, not an embassy announcement.",
+      "period": {
+        "from": "2026-11-08",
+        "to": "2026-11-15"
+      },
+      "points": [
+        {
+          "label": "Interview letters and scheduling",
+          "text": "No one reported a new interview letter for a case waiting at NVC. Applicants DQ'd in June 2026 say they are still waiting, even though the scheduling tool lists June DQs for immediate relatives. Direct consular filing petitioners expect London to clear its rebooking backlog before it takes new filings."
+        },
+        {
+          "label": "Reschedules and cancellations",
+          "text": "Several K-1 and spousal applicants whose September interviews had been rebooked for 12 or 13 November were emailed, a day or two before, that the date had moved again to early January 2027. Others with 13 November dates still had their interviews and said only one window was open. Two applicants were turned away or rescheduled because their medical results had not reached the embassy. The panel physician allows 5 working days for results to arrive, so leave at least that between the medical and the interview."
+        },
+        {
+          "label": "Outcomes",
+          "text": "Applicants with rebooked September interviews reported approvals this week, including an IR-1 on 9 November. Approved cases typically spend 2 to 5 working days in administrative processing before CEAC shows Issued. One applicant interviewed on 6 November had their passport posted on 12 November."
+        },
+        {
+          "label": "Public charge and 221(g)",
+          "text": "Officers are asking about housing plans, health insurance, savings and work plans. One IR-1 applicant was approved with only a savings statement. At least two applicants were refused on public charge grounds (212(a)(4)), including an IR-1 family of five relying on a joint sponsor near the minimum. One K-1 was given a 221(g) for insurance and job-search evidence. Cases put in 221(g) in June to August report little movement after 4 to 5 months, though one August K-1 was automatically scheduled for a re-interview in late November."
+        }
+      ],
+      "sources": [
+        {
+          "label": "It was moved.... again",
+          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1xsn3lj/it_was_moved_again/"
+        },
+        {
+          "label": "London new interviews",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xv9p6m/london_new_interviews/"
+        },
+        {
+          "label": "London IR1 interview complete",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xrrpwy/london_ir1_interview_complete/"
+        },
+        {
+          "label": "Husband's IR-1 refused due to public charge",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xssq6h/husbands_ir1_refused_due_to_public_charge/"
+        },
+        {
+          "label": "Fiancé went to London K-1 interview, turned away",
+          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1xro25n/fiance_went_to_london_k1_interview_turned_away/"
+        },
+        {
+          "label": "London IR1/CR1: latest DQ dates receiving interview letters",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xwa498/london_ir1cr1_latest_dq_dates_receiving_interview/"
+        }
+      ]
     },
     {
       "id": "reddit-2026-10-23-reschedules",
@@ -97,6 +127,10 @@
     .news-title { font-size:17px; font-weight:600; line-height:1.4; margin:0 0 0.3rem; }
     .news-title a { color:#1e293b; text-decoration:underline; text-underline-offset:2px; }
     .news-note { margin:0; line-height:1.55; max-width:none; }
+    .news-points { margin:0.5rem 0 0; padding-left:1.25rem; line-height:1.55; }
+    .news-points li { margin:0 0 0.35rem; }
+    .news-sources { margin:0.5rem 0 0; font-size:14px; color:#334155; line-height:1.55; }
+    .news-sources a { color:#1e293b; text-decoration:underline; text-underline-offset:2px; }
     .news-empty { color:#334155; }
     .news-more { margin:1rem 0 0; }
     .news-more a { color:#1e293b; font-weight:600; text-decoration:underline; text-underline-offset:2px; }`;
@@ -107,6 +141,15 @@
   function formatDate(iso) {
     const [y, m, d] = iso.split('-').map(Number);
     return `${d} ${MONTHS[m - 1]} ${y}`;
+  }
+
+  // Weekly roundups cover a period: "8–15 November 2026".
+  function formatRange({ from, to }) {
+    const [fy, fm, fd] = from.split('-').map(Number);
+    const [ty, tm, td] = to.split('-').map(Number);
+    if (fy === ty && fm === tm) return `${fd}–${td} ${MONTHS[tm - 1]} ${ty}`;
+    if (fy === ty) return `${fd} ${MONTHS[fm - 1]} – ${td} ${MONTHS[tm - 1]} ${ty}`;
+    return `${formatDate(from)} – ${formatDate(to)}`;
   }
 
   function el(tagName, attrs, text) {
@@ -123,7 +166,7 @@
     const meta = el('p', { class: 'news-meta' });
     meta.append(
       el('span', { class: `news-tag news-tag--${item.type}`, title: type.hint }, type.label),
-      el('time', { datetime: item.date }, formatDate(item.date)),
+      el('time', { datetime: item.date }, item.period ? formatRange(item.period) : formatDate(item.date)),
       document.createTextNode('·'),
       el('span', null, item.source)
     );
@@ -137,6 +180,26 @@
 
     li.append(meta, title);
     if (item.note) li.append(el('p', { class: 'news-note' }, item.note));
+
+    // Weekly roundup: one point per topic, then the threads it draws on.
+    if (Array.isArray(item.points) && item.points.length) {
+      const ul = el('ul', { class: 'news-points' });
+      item.points.forEach((pt) => {
+        const row = el('li');
+        if (pt.label) row.append(el('strong', null, `${pt.label}: `));
+        row.append(document.createTextNode(pt.text));
+        ul.append(row);
+      });
+      li.append(ul);
+    }
+    if (Array.isArray(item.sources) && item.sources.length) {
+      const p = el('p', { class: 'news-sources' }, 'From these threads: ');
+      item.sources.filter((s) => /^https?:\/\//.test(s.url)).forEach((s, i) => {
+        if (i) p.append(document.createTextNode(' · '));
+        p.append(el('a', { href: s.url, target: '_blank', rel: 'noopener noreferrer' }, s.label));
+      });
+      li.append(p);
+    }
     return li;
   }
 
