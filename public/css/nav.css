@@ -198,16 +198,111 @@
   opacity: 1;
 }
 
-.site-nav .nav-link--support {
-  color: var(--nav-text-strong);
-  border: 1px solid var(--nav-control);
-  border-radius: var(--radius-md, 0.375rem);
-  padding-inline: 1rem;
+/* The Guide group toggle is a <button> styled as a nav link. */
+.site-nav .nav-group-toggle {
+  background: none;
+  border: 0;
+  margin: 0;
+  font: inherit;
+  font-family: var(--font-ui, 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-.site-nav .nav-link--support:hover {
-  background-color: var(--nav-raised);
+.site-nav .nav-group-toggle .nav-caret {
+  width: 12px;
+  height: 12px;
+  opacity: 0.8;
+  transition: transform 150ms ease;
+}
+
+.site-nav .nav-group-toggle[aria-expanded="true"] .nav-caret {
+  transform: rotate(180deg);
+}
+
+.nav-item--group {
+  position: relative;
+}
+
+.nav-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav .nav-sublink {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  color: var(--nav-text);
+  font-family: var(--font-ui, 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+}
+
+.nav-sublink-title {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
   color: var(--nav-text-strong);
+}
+
+.nav-sublink-desc {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--nav-text-muted);
+}
+
+.site-nav .nav-sublink:hover {
+  background-color: var(--nav-raised);
+}
+
+.site-nav .nav-sublink[aria-current="page"] {
+  background-color: var(--nav-raised);
+  box-shadow: inset 2px 0 0 var(--nav-mark);
+}
+
+.site-nav .nav-sublink:focus-visible {
+  outline: 2px solid var(--nav-text-strong);
+  outline-offset: -2px;
+}
+
+/* Call to action: the one filled control in the bar */
+.nav-item--cta {
+  margin-left: 0.5rem;
+}
+
+.site-nav .nav-link--cta {
+  gap: 0.4rem;
+  color: var(--nav-bg);
+  background-color: var(--nav-text-strong);
+  font-weight: 600;
+  padding-inline: 0.9rem;
+}
+
+.site-nav .nav-link--cta svg {
+  width: 11px;
+  height: 11px;
+  opacity: 0.7;
+}
+
+.site-nav .nav-link--cta:hover {
+  color: var(--nav-bg);
+  background-color: #E2E8F0;
+}
+
+.visually-hidden-nav {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .site-nav .nav-link:focus-visible {
@@ -265,18 +360,34 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile / narrow nav: the ten menu items need ~1080px inline */
-/* The ten links need more than 1280px of row at full size, but .nav-container
-   caps at 1280px minus 48px of padding, so the full-size row never fits. Tighten
-   the links for the whole horizontal range above the 1120px hamburger
-   breakpoint. */
-@media (min-width: 1121px) {
-  .site-nav .nav-link svg { display: none; }
-  .site-nav .nav-link { padding: 0.5rem; font-size: 0.875rem; gap: 0; }
-  .nav-menu { gap: 0.125rem; }
+/* Wide screens: icons are for the stacked phone menu only. The Guide
+   group opens as a dropdown panel under its button. Five links plus the
+   call to action need about 820px beside the brand. */
+@media (min-width: 901px) {
+  .site-nav .nav-link svg:not(.nav-caret) { display: none; }
+  .site-nav .nav-link--cta svg { display: inline; }
+  .site-nav .nav-link { padding: 0.5rem 0.7rem; gap: 0.3rem; }
+  .nav-menu { gap: 0.25rem; }
+
+  .nav-submenu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    min-width: 19rem;
+    padding: 0.4rem;
+    background-color: var(--nav-bg);
+    border: 1px solid var(--nav-line);
+    border-radius: 0.5rem;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.35);
+    display: none;
+  }
+
+  .nav-submenu.is-open {
+    display: block;
+  }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 900px) {
   .nav-toggle {
     display: flex;
   }
@@ -286,6 +397,8 @@
     top: 64px;
     left: 0;
     right: 0;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
     flex-direction: column;
     align-items: stretch;
     gap: 0.25rem;
@@ -316,6 +429,38 @@
   .site-nav .nav-link svg {
     width: 18px;
     height: 18px;
+  }
+
+  /* In the stacked menu the Guide items are always listed under a plain
+     heading, so nothing is hidden behind a second tap. */
+  .site-nav .nav-group-toggle {
+    width: 100%;
+    font-size: 1rem;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .site-nav .nav-group-toggle .nav-caret { display: none; }
+
+  .nav-submenu {
+    padding-left: 2.6rem;
+  }
+
+  .site-nav .nav-sublink {
+    padding: 0.55rem 0.75rem;
+  }
+
+  .nav-item--cta {
+    margin: 0.5rem 0 0;
+  }
+
+  .site-nav .nav-link--cta {
+    justify-content: center;
+  }
+
+  .site-nav .nav-link--cta svg {
+    width: 12px;
+    height: 12px;
   }
 }
 

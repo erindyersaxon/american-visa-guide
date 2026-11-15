@@ -17,51 +17,6 @@ async function loadPartial(selector, url) {
   }
 }
 
-/* Nav: hamburger + active page */
-function initNav() {
-  // Active page
-  const path = window.location.pathname.replace(/\/$/, '') || '/';
-  document.querySelectorAll('.nav-link[data-navpage]').forEach(link => {
-    try {
-      const linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/$/, '') || '/';
-      if (linkPath === path) {
-        link.setAttribute('aria-current', 'page');
-        link.classList.add('nav-link--active');
-      }
-    } catch {
-      // external links. Skip
-    }
-  });
-
-  // Hamburger toggle
-  const toggle = document.querySelector('.nav-toggle');
-  const menu   = document.querySelector('.nav-menu');
-  if (!toggle || !menu) return;
-
-  toggle.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    menu.classList.toggle('is-open', !expanded);
-  });
-
-  // Close on outside click
-  document.addEventListener('click', e => {
-    if (!e.target.closest('.site-nav') && menu.classList.contains('is-open')) {
-      menu.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-      menu.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.focus();
-    }
-  });
-}
-
 /* Dark mode toggle (optional, wires up a button with
        data-theme-toggle if one exists on the page) */
 function initThemeToggle() {

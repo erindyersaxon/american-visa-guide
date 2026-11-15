@@ -24,11 +24,14 @@
 </div>
 `;
 
+  /* Top nav: five sections plus one call to action. Labels follow
+     docs/site-labels.md. About, Glossary, Privacy and Support live in the
+     footer; the brand mark is the home link. */
   const NAV_HTML = `
 <nav class="site-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-container">
 
-    <a href="/index.html" class="nav-brand" aria-label="American Visa Guide: home">
+    <a href="/" class="nav-brand" aria-label="American Visa Guide: home">
       <span class="nav-brand-mark" aria-hidden="true">
         <svg width="32" height="32" viewBox="0 0 24 24">
           <rect width="24" height="24" rx="5" fill="#f8fafc"/>
@@ -46,12 +49,43 @@
     </button>
 
     <ul class="nav-menu" id="nav-menu" role="list">
-      <li>
-        <a href="/" class="nav-link" data-navpage="home">
+      <li class="nav-item--group">
+        <button type="button" class="nav-link nav-group-toggle" data-navpage="guide" aria-expanded="false" aria-controls="nav-guide-menu">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
           </svg>
-          Home
+          Guide
+          <svg class="nav-caret" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <ul class="nav-submenu" id="nav-guide-menu" role="list">
+          <li>
+            <a href="/guide" class="nav-sublink" data-navsub="guide">
+              <span class="nav-sublink-title">Visa guide</span>
+              <span class="nav-sublink-desc">Every stage, from the I-130 to US entry</span>
+            </a>
+          </li>
+          <li>
+            <a href="/life" class="nav-sublink" data-navsub="life">
+              <span class="nav-sublink-title">Life in the USA</span>
+              <span class="nav-sublink-desc">Your first weeks and first year after landing</span>
+            </a>
+          </li>
+          <li>
+            <a href="/naturalization" class="nav-sublink" data-navsub="naturalization">
+              <span class="nav-sublink-title">Naturalization</span>
+              <span class="nav-sublink-desc">Becoming a US citizen, step by step</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/interview" class="nav-link" data-navpage="interview">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/>
+          </svg>
+          Interview
         </a>
       </li>
       <li>
@@ -63,70 +97,28 @@
         </a>
       </li>
       <li>
-        <a href="/guide.html" class="nav-link" data-navpage="guide">
+        <a href="/news" class="nav-link" data-navpage="news">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+            <path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9h4"/><line x1="10" y1="7" x2="18" y2="7"/><line x1="10" y1="11" x2="18" y2="11"/><line x1="10" y1="15" x2="15" y2="15"/>
           </svg>
-          Guide
+          News
         </a>
       </li>
       <li>
-        <a href="/interview" class="nav-link" data-navpage="interview">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/>
-          </svg>
-          Interview
-        </a>
-      </li>
-      <li>
-        <a href="/checklists.html" class="nav-link" data-navpage="checklists">
+        <a href="/checklists" class="nav-link" data-navpage="tools">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
           </svg>
-          Checklists &amp; Tools
+          Tools
         </a>
       </li>
-      <li>
-        <a href="/life.html" class="nav-link" data-navpage="life">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-          Life in the USA
-        </a>
-      </li>
-      <li>
-        <a href="/naturalization.html" class="nav-link" data-navpage="naturalization">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 22V4"/><path d="M4 4h13l-2 4 2 4H4"/>
-          </svg>
-          Naturalization
-        </a>
-      </li>
-      <li>
-        <a href="/about.html" class="nav-link" data-navpage="about">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
-          </svg>
-          About
-        </a>
-      </li>
-      <li>
-        <a href="https://forms.fillout.com/t/dTRqnkx9uxus" class="nav-link" target="_blank" rel="noopener noreferrer" data-navpage="submit">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
-          </svg>
-          Submit Timeline
-          <svg aria-label="opens in new tab" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.5;">
+      <li class="nav-item--cta">
+        <a href="https://forms.fillout.com/t/dTRqnkx9uxus" class="nav-link nav-link--cta" target="_blank" rel="noopener noreferrer" data-navpage="submit">
+          Submit your timeline
+          <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
           </svg>
-        </a>
-      </li>
-      <li>
-        <a href="https://ko-fi.com/erinsaidwhat" class="nav-link nav-link--support" target="_blank" rel="noopener noreferrer" data-navpage="support">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
-          </svg>
-          Support
+          <span class="visually-hidden-nav">(opens in a new tab)</span>
         </a>
       </li>
     </ul>
@@ -147,8 +139,13 @@
         <a href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo<wbr>@gmail.com</a>
       </div>
       <div>
+        <p class="avg-footer__hd">About</p>
+        <a href="/about">About this site</a><br>
+        <a href="/glossary">Glossary</a>
+      </div>
+      <div>
         <p class="avg-footer__hd">Legal</p>
-        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/privacy">Privacy Policy</a>
         <button type="button" class="avg-footer__linkbtn" data-consent-open>Cookie settings</button>
       </div>
       <div>
@@ -160,12 +157,14 @@
   </div>
 </footer>`;
 
-  /* Which nav item lights up for each page (sub-pages map to their hub) */
+  /* Which nav item lights up for each page (sub-pages map to their hub).
+     Pages not listed (home, about, privacy) light nothing. Values that are
+     Guide sub-sections ('life', 'naturalization') light the Guide button and
+     the matching item in its menu. */
   const ACTIVE_MAP = {
-    '': 'home',
-    'index': 'home',
     'data': 'data',
     'tracker': 'data',
+    'news': 'news',
     'guide': 'guide',
     'delayed-i130-remedies': 'guide',
     'mandamus-pro-se': 'guide',
@@ -184,25 +183,27 @@
     'interview-questions': 'interview',
     'history-worksheet': 'interview',
     'administrative-processing': 'interview',
-    'checklists': 'checklists',
-    'master-checklist': 'checklists',
-    'checklist-i130': 'checklists',
-    'checklist-nvc': 'checklists',
-    'checklist-medical': 'checklists',
-    'checklist-interview': 'checklists',
-    'checklist-binder': 'checklists',
-    'workbook': 'checklists',
-    'tools': 'checklists',
-    'worksheet-ds260': 'checklists',
-    'worksheet-i864': 'checklists',
-    'i864-household-decision-tree': 'checklists',
-    'english-test': 'naturalization',
+    'checklists': 'tools',
+    'master-checklist': 'tools',
+    'checklist-i130': 'tools',
+    'checklist-nvc': 'tools',
+    'checklist-medical': 'tools',
+    'checklist-interview': 'tools',
+    'checklist-binder': 'tools',
+    'workbook': 'tools',
+    'tools': 'tools',
+    'worksheet-ds260': 'tools',
+    'worksheet-i864': 'tools',
+    'i864-household-decision-tree': 'tools',
+    'relationship-evidence-template': 'tools',
+    'relationship-evidence-example': 'tools',
     'life': 'life',
     'naturalization': 'naturalization',
+    'english-test': 'naturalization',
     'checklist-n400': 'naturalization',
-    'about': 'about',
-    'privacy': 'about',
   };
+
+  const GUIDE_SECTIONS = { guide: 1, life: 1, naturalization: 1 };
 
   function mount() {
     const target = document.getElementById('nav-placeholder') || document.querySelector('nav');
@@ -228,6 +229,7 @@
     mountBanner(nav);
     markActive(nav);
     wireToggle(nav);
+    wireGroup(nav);
     mountFooter();
   }
 
@@ -251,21 +253,76 @@
   }
 
   function markActive(nav) {
-    const file = (window.location.pathname.split('/').pop() || 'index.html')
-      .replace(/\.html$/, '') || 'index';
+    const path = window.location.pathname;
+    const file = (path.split('/').pop() || 'index.html').replace(/\.html$/, '') || 'index';
     // Stage pages live under /guide/ and belong to the Guide, even where a
     // stage shares a file name with a hub (guide/interview vs /interview).
     // Naturalization pages live under /naturalization/ (their file names, such
     // as interview or test, would otherwise match other nav keys).
-    const active = /^\/guide\//.test(window.location.pathname) ? 'guide'
-      : /^\/naturalization\//.test(window.location.pathname) ? 'naturalization'
+    const active = /^\/guide\//.test(path) ? 'guide'
+      : /^\/naturalization\//.test(path) ? 'naturalization'
       : ACTIVE_MAP[file];
     if (!active) return;
+
+    if (GUIDE_SECTIONS[active]) {
+      const group = nav.querySelector('.nav-group-toggle[data-navpage="guide"]');
+      if (group) group.classList.add('nav-link--active');
+      const sub = nav.querySelector('.nav-sublink[data-navsub="' + active + '"]');
+      if (sub) sub.setAttribute('aria-current', 'page');
+      return;
+    }
     const link = nav.querySelector('.nav-link[data-navpage="' + active + '"]');
     if (link) {
       link.setAttribute('aria-current', 'page');
       link.classList.add('nav-link--active');
     }
+  }
+
+  /* Guide disclosure menu. On wide screens it opens as a dropdown; in the
+     hamburger menu its items are always listed, so the button is inert there
+     (CSS hides the caret). */
+  function wireGroup(nav) {
+    const btn = nav.querySelector('.nav-group-toggle');
+    const panel = btn && document.getElementById(btn.getAttribute('aria-controls'));
+    if (!btn || !panel) return;
+
+    // Matches the hamburger breakpoint in /css/nav.css
+    const stacked = window.matchMedia('(max-width: 900px)');
+
+    function setOpen(open) {
+      // In the stacked phone menu the items are always shown, so the
+      // button reports itself as expanded and ignores clicks.
+      const shown = stacked.matches || open;
+      btn.setAttribute('aria-expanded', String(shown));
+      panel.classList.toggle('is-open', !stacked.matches && open);
+    }
+
+    setOpen(false);
+    if (stacked.addEventListener) {
+      stacked.addEventListener('change', function () { setOpen(false); });
+    }
+
+    btn.addEventListener('click', function () {
+      if (stacked.matches) return;
+      setOpen(!panel.classList.contains('is-open'));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-item--group')) setOpen(false);
+    });
+
+    nav.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) {
+        setOpen(false);
+        btn.focus();
+        e.stopPropagation();
+      }
+    });
+
+    // Close when focus leaves the group (Tab past the last item)
+    btn.parentElement.addEventListener('focusout', function (e) {
+      if (!btn.parentElement.contains(e.relatedTarget)) setOpen(false);
+    });
   }
 
   function wireToggle(nav) {
