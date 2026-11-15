@@ -29,8 +29,8 @@
                means for a family visa applicant at London
 
    Mounts: <div data-news></div> on /news (full list with filters), and
-   <div data-news data-news-limit="5"></div> at the bottom of the
-   homepage. Bump ?v= on the script tag in BOTH pages after edits.
+   <div data-news data-news-limit="3" data-news-compact></div> on the
+   homepage (headlines only, each linking to its full entry on /news). Bump ?v= on the script tag in BOTH pages after edits.
  */
 (function () {
   'use strict';
@@ -357,7 +357,7 @@
     return p;
   }
 
-  function itemNode(item) {
+  function itemNode(item, compact) {
     const type = TYPES[item.type] || TYPES.press;
     // The id lets other pages link to one item: /news#<id>.
     const li = el('li', { class: 'news-item', 'data-type': item.type, id: item.id });
@@ -371,6 +371,13 @@
     );
 
     const title = el('p', { class: 'news-title' });
+    if (compact) {
+      // Headline only: link to the full entry on /news, where the summary,
+      // points and source threads are.
+      title.append(el('a', { href: '/news#' + item.id }, item.title));
+      li.append(meta, title);
+      return li;
+    }
     if (/^https?:\/\//.test(item.url)) {
       title.append(el('a', { href: item.url, target: '_blank', rel: 'noopener noreferrer' }, item.title));
     } else if (/^\/[^/]/.test(item.url || '')) {
@@ -405,11 +412,13 @@
   }
 
   function render(mount) {
-    // data-news-limit="5" shows the newest five, without filters, plus a
+    // data-news-limit="3" shows the newest three, without filters, plus a
     // link to the full list (the homepage). No limit: everything (/news).
+    // data-news-compact shows headlines only.
     const limit = parseInt(mount.dataset.newsLimit, 10) || 0;
     const all = ITEMS.slice().sort((a, b) => b.date.localeCompare(a.date));
     const items = limit ? all.slice(0, limit) : all;
+    const compact = mount.hasAttribute('data-news-compact');
     mount.replaceChildren();
 
     if (!items.length) {
@@ -418,7 +427,7 @@
     }
 
     const list = el('ul', { class: 'news-list' });
-    items.forEach(i => list.append(itemNode(i)));
+    items.forEach(i => list.append(itemNode(i, compact)));
 
     if (limit) {
       mount.append(list);
