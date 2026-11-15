@@ -75,6 +75,27 @@ function parseRss(xml) {
   });
 }
 
+// Atom (CourtListener docket feeds). A docket entry's own title is just
+// "Entry #134 in <case>", so the title is built from its description.
+function parseAtom(xml, source) {
+  return [...xml.matchAll(/<entry\b[^>]*>([\s\S]*?)<\/entry>/gi)].map(([, body]) => {
+    const link = body.match(/<link\b[^>]*rel="alternate"[^>]*href="([^"]+)"/i)
+      || body.match(/<link\b[^>]*href="([^"]+)"/i);
+    const pdf = body.match(/<link\b[^>]*rel="enclosure"[^>]*href="([^"]+)"/i)
+      || body.match(/<link\b[^>]*href="([^"]+)"[^>]*rel="enclosure"/i);
+    const desc = stripTags(decode(tag(body, 'summary') || tag(body, 'content')));
+    const raw = stripTags(decode(tag(body, 'title')));
+    const short = desc.length > 140 ? desc.slice(0, 137).replace(/\s+\S*$/, '') + '…' : desc;
+    return {
+      title: source.case && desc ? `${source.case}: ${short}` : raw,
+      url: link ? decode(link[1]) : '',
+      date: tag(body, 'published') || tag(body, 'updated'),
+      summary: [desc, pdf ? `Document: ${decode(pdf[1])}` : ''].filter(Boolean).join(' ').slice(0, 400),
+      key: link ? decode(link[1]) : undefined,
+    };
+  });
+}
+
 function parseFr(json) {
   return (JSON.parse(json).results || []).map((d) => ({
     title: d.title,
@@ -103,7 +124,9 @@ async function fetchSource(source) {
   const res = await fetch(source.url, { headers: HEADERS, redirect: 'follow', signal: AbortSignal.timeout(20000) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const body = await res.text();
-  return source.kind === 'fr' ? parseFr(body) : parseRss(body);
+  if (source.kind === 'fr') return parseFr(body);
+  if (source.kind === 'atom') return parseAtom(body, source);
+  return parseRss(body);
 }
 
 async function loadQueue() {
@@ -137,6 +160,7 @@ async function main() {
     for (const r of raw) {
       const date = isoDate(r.date);
       if (!r.url || !r.title || !date || daysAgo(date) > MAX_AGE_DAYS) continue;
+      if (source.since && date < source.since) continue;
 
       const id = createHash('sha1').update(r.key || r.url).digest('hex').slice(0, 10);
       if (known.has(id)) continue;

@@ -80,6 +80,11 @@ export const EXCLUDE = [
   'Arrested', 'Denaturalized', 'Smuggling',
 ];
 
+// Court docket entries (needs: 'docket'). Keep what moves the case; drop
+// housekeeping. SKIP wins over KEEP ("order granting ... pro hac vice").
+export const DOCKET_KEEP = /\b(order|opinion|judgment|memorandum|motion|letter|status report|declaration|notice of appeal|stay|enforce|hearing|conference|transcript|complaint|brief|response|reply|mandate|stipulation)\b/i;
+export const DOCKET_SKIP = /(notice of appearance|appearance|pro hac vice|admission|attorney,|notice to attorney|party modification|certificate of service|substitute counsel|corporate disclosure|summons|clerk'?s notice|filing error|deficien|notice to court|transcript order|set deadlines|usca case number|extension of time|letter from)/i;
+
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const re = (term) => new RegExp(`(?<![\\w-])${esc(term)}(?![\\w-])`, 'i');
 
@@ -89,11 +94,19 @@ const EXCLUDE_RES = EXCLUDE.map((t) => [t, re(t)]);
 
 /**
  * @param {{title: string, summary: string}} item
- * @param {{needs: 'visa' | 'visa+london'}} source
+ * @param {{needs: 'visa' | 'visa+london' | 'docket'}} source
  * @returns {{keep: boolean, score: number, matched: string[], reason?: string}}
  */
 export function judge(item, source) {
   const text = `${item.title}\n${item.summary}`;
+
+  if (source.needs === 'docket') {
+    if (DOCKET_SKIP.test(text)) return { keep: false, score: 0, matched: [], reason: 'docket housekeeping' };
+    const m = text.match(DOCKET_KEEP);
+    return m
+      ? { keep: true, score: 3, matched: [m[1].toLowerCase()] }
+      : { keep: false, score: 0, matched: [], reason: 'docket: no substantive filing' };
+  }
 
   const excluded = EXCLUDE_RES.find(([, r]) => r.test(item.title));
   if (excluded) return { keep: false, score: 0, matched: [], reason: `excluded: ${excluded[0]}` };
