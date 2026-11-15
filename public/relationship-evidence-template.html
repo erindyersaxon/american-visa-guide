@@ -508,7 +508,7 @@
       var missing = el('p', { 'class': 'hint' });
       function check() {
         var need = [['name', 'full name'], ['address', 'address'], ['contact', 'contact details'], ['dob', 'date of birth'], ['pob', 'place of birth'], ['relation', 'relationship to you'], ['knowledge', 'how they know about the marriage']].filter(function (r) { return !a[r[0]]; }).map(function (r) { return r[1]; });
-        missing.textContent = need.length ? 'Still missing, and required by USCIS: ' + need.join(', ') + '.' : 'All items USCIS requires are filled in. Print it unsigned: the writer signs in front of the notary.';
+        missing.textContent = need.length ? 'Still missing: ' + need.join(', ') + '.' : 'All items USCIS lists are filled in. Print it unsigned: the writer signs in front of the notary.';
       }
       card.addEventListener('input', check);
       card.appendChild(missing);
