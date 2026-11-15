@@ -128,7 +128,7 @@ var AVG_DOCS = {
     "medical": "yes",
     "interview": "yes"
    },
-   "note": "Certified copy. Required for all spouse petitions at all stages.",
+   "note": "Certified copy from the civil registry, timely registered. A church or ceremony certificate, or a marriage licence, is not enough (6 USCIS-PM B.6(C)(1)). Required for all spouse petitions at all stages.",
    "items": [
     {
      "list": "binder",
@@ -173,6 +173,11 @@ var AVG_DOCS = {
    },
    "note": "Required at all stages if name changed (marriage, deed poll, etc.)",
    "items": [
+    {
+     "list": "i130",
+     "id": "cons-6",
+     "label": "Every name that differs between documents is explained by a legal name change document: marriage certificate, deed poll or court order (6 USCIS-PM B.6(C)(1))"
+    },
     {
      "list": "nvc",
      "id": "nvc-26",
@@ -615,7 +620,7 @@ var AVG_DOCS = {
     {
      "list": "i130",
      "id": "evid-1",
-     "label": "Commingling of finances: joint bank statements (6+ months), shared bills, or joint credit cards"
+     "label": "Commingling of finances: joint bank statements over time, shared bills, or joint credit cards"
     }
    ]
   },
@@ -635,6 +640,63 @@ var AVG_DOCS = {
      "list": "i130",
      "id": "evid-2",
      "label": "Joint residence: lease or mortgage with both names (or utility bills showing same address over time)"
+    }
+   ]
+  },
+  {
+   "key": "joint-property",
+   "group": "relationship",
+   "name": "Joint property ownership",
+   "need": {
+    "i130": "cond",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "no"
+   },
+   "note": "Deeds, vehicle titles or other property in both names (8 CFR 204.2(a)(1)(i)(B)(1)).",
+   "items": [
+    {
+     "list": "i130",
+     "id": "evid-5",
+     "label": "Joint ownership of property (if any): deeds, vehicle titles, or insurance naming both of you"
+    }
+   ]
+  },
+  {
+   "key": "children-birth",
+   "group": "relationship",
+   "name": "Birth certificates of children born to the couple",
+   "need": {
+    "i130": "cond",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "no"
+   },
+   "note": "Only if you have children together (8 CFR 204.2(a)(1)(i)(B)(4)).",
+   "items": [
+    {
+     "list": "i130",
+     "id": "evid-6",
+     "label": "Birth certificates of children born to the couple (if any), naming both of you as parents"
+    }
+   ]
+  },
+  {
+   "key": "long-distance",
+   "group": "relationship",
+   "name": "Long-distance evidence",
+   "need": {
+    "i130": "cond",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "For spouses who live in different countries and have no joint account or lease. Remittance receipts, contracts or invoices for purchases in both names, past and recent social media posts, and flight bookings and boarding passes for each visit.",
+   "items": [
+    {
+     "list": "i130",
+     "id": "evid-8",
+     "label": "If you live in different countries: money transfer receipts, contracts or invoices for purchases in both names, past and recent social media posts, and flight bookings and boarding passes for each visit"
     }
    ]
   },
@@ -661,8 +723,14 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "no"
    },
-   "note": "Notarized statements. Helpful if evidence sparse.",
-   "items": []
+   "note": "Two or more notarized statements from people who are not the petitioner or beneficiary and who saw the relationship first-hand (8 CFR 103.2(b)(2)(i)). Helpful if other evidence is thin. Use the <a href=\"/relationship-evidence-template\">relationship evidence template</a>.",
+   "items": [
+    {
+     "list": "i130",
+     "id": "evid-7",
+     "label": "Optional: two or more notarized third-party affidavits, from people who are not parties to the petition and saw the relationship first-hand. Build them with the <a href=\"/relationship-evidence-template\">relationship evidence template</a>"
+    }
+   ]
   },
   {
    "key": "acro",

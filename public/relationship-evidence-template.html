@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/js/consent.js?v=20261024c" defer></script>
+  <meta name="description" content="A printable template for spousal I-130 and interview relationship evidence: a photo table with names, date, location and description, and a WhatsApp and call log table.">
+  <title>Relationship evidence template | American Visa Guide</title>
+  <link rel="canonical" href="https://www.americanvisaguide.com/relationship-evidence-template">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/article-base.css?v=20261025c">
+  <link rel="stylesheet" href="/css/tools.css?v=20261025c">
+  <link rel="stylesheet" href="/css/nav.css?v=20261025a">
+  <script src="/js/nav.js?v=20261111" defer></script>
+  <style>
+    .ev-table { width: 100%; border-collapse: collapse; margin: 0.75rem 0 1rem; table-layout: fixed; }
+    .ev-table th, .ev-table td { border: 1px solid var(--line); padding: 0.6rem; vertical-align: top; text-align: left; }
+    .ev-table th { font-family: var(--font-ui); font-size: 0.85rem; background: var(--surface-alt); color: var(--ink); }
+    .ev-table col.c-media { width: 55%; }
+    .ev-table tr { break-inside: avoid; page-break-inside: avoid; }
+    .ev-num { font-family: var(--font-ui); font-weight: 700; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.35rem; }
+
+    .media { display: grid; gap: 0.4rem; grid-template-columns: repeat(var(--n, 1), minmax(0, 1fr)); }
+    .media img { width: 100%; height: auto; max-height: 15rem; object-fit: contain; background: var(--surface-alt); border-radius: 0.25rem; display: block; }
+    .media-empty { border: 2px dashed var(--line); border-radius: 0.25rem; min-height: 8rem; display: grid; place-items: center; color: var(--muted); font-size: 0.85rem; text-align: center; padding: 0.5rem; }
+    .media-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.45rem; font-size: 0.85rem; }
+    .media-tools label.btn { cursor: pointer; }
+    .media-tools input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+
+    .ev-table .field { margin-bottom: 0.5rem; }
+    .ev-table .field textarea { min-height: 4.5rem; }
+    .row-tools { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.25rem; }
+    .btn--sm { padding: 0.25rem 0.6rem; font-size: 0.8rem; }
+    .count { font-size: 0.8rem; color: var(--muted); }
+    .count.over { color: var(--danger); font-weight: 600; }
+
+    .sample { border: 1px solid var(--line); border-radius: var(--radius-md, 0.375rem); background: var(--surface); padding: 0.75rem; margin: 0.75rem 0 1.5rem; }
+    .sample .ph { background: var(--surface-alt); border-radius: 0.25rem; aspect-ratio: 4 / 3; display: grid; place-items: center; color: var(--muted); font-size: 0.8rem; }
+    .sample dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 0.2rem 0.75rem; font-size: 0.9rem; }
+    .sample dt { font-weight: 600; font-family: var(--font-ui); }
+    .sample dd { margin: 0; }
+
+    .calls td input { width: 100%; border: 1px solid var(--line); border-radius: 0.25rem; padding: 0.3rem 0.4rem; font: inherit; }
+    .calls-wrap { overflow-x: auto; }
+    .calls { min-width: 34rem; table-layout: auto; }
+    .ev-table th, .ev-table td { overflow-wrap: anywhere; }
+    @media (max-width: 640px) {
+      .ev-table:not(.calls), .ev-table:not(.calls) tbody, .ev-table:not(.calls) tr, .ev-table:not(.calls) td { display: block; width: auto; }
+      .ev-table:not(.calls) thead { display: none; }
+      .ev-table:not(.calls) tr { border: 1px solid var(--line); margin-bottom: 0.75rem; }
+      .ev-table:not(.calls) td { border: none; }
+      .sample dl { grid-template-columns: 1fr; }
+      .sample dd { margin-bottom: 0.35rem; }
+    }
+    .aff-card { border: 1px solid var(--line); border-radius: var(--radius-md, 0.375rem); padding: 0.9rem 1rem; margin: 0.75rem 0; }
+    .aff-card h3 { margin: 0 0 0.6rem; font-size: 1rem; }
+    .aff-print { display: none; }
+    .aff-print p { margin: 0 0 0.8rem; white-space: pre-wrap; }
+    .aff-print .sig { margin-top: 2.5rem; }
+    .aff-print .notary { margin-top: 1.5rem; border: 1px solid #000; padding: 0.75rem; min-height: 9rem; }
+    .opt-tag { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.5rem; vertical-align: middle; margin-left: 0.4rem; }
+    .pv { display: none; white-space: pre-wrap; }
+    .print-head { display: none; }
+
+    @media print {
+      nav, footer, .avg-crumbs, .article-header, .callout, .sample, .no-print, .row-tools, .media-tools, .media-empty, .count, .article-return, #nav-placeholder, #footer-placeholder { display: none !important; }
+      .tool { border: none; padding: 0; margin: 0; }
+      .ev-table input, .ev-table textarea, .calls input { display: none !important; }
+      .ev-table .field label { font-size: 0.75rem; color: #444; }
+      .pv { display: block; }
+      .print-head { display: block; margin-bottom: 0.5rem; }
+      .print-head h2 { margin: 0 0 0.25rem; font-size: 1.15rem; }
+      .ev-section { break-before: page; }
+      .ev-section:first-of-type { break-before: auto; }
+      .media img { max-height: 9cm; }
+      .calls tr.empty, .ev-table tr.empty, .ev-section.empty { display: none !important; }
+      .ev-table th { color: #000 !important; background: #eee !important; }
+      .page-wrap { max-width: none !important; padding: 0 !important; }
+      .calls { min-width: 0; }
+      .aff-card { border: none; padding: 0; margin: 0; break-before: page; }
+      .aff-card:first-of-type { break-before: auto; }
+      .aff-card > *:not(.aff-print) { display: none !important; }
+      .aff-print { display: block; }
+      #aff-section .print-head { display: none; }
+    }
+  </style>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
+<link rel="stylesheet" href="/css/readability.css?v=20261024c">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<main class="page-wrap guide-article" id="main">
+
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guide/i130">I-130</a></li><li><a href="/checklist-i130">I-130 checklist</a></li><li aria-current="page">Relationship evidence template</li></ol></nav>
+
+  <header class="article-header">
+  <p class="article-eyebrow">Tool &middot; I-130 and interview</p>
+  <h1>Relationship evidence <span>template</span></h1>
+  <p class="article-lead">Lay out your photos and message logs so an officer can read each one in seconds: who is in it, when, where, and what it shows. Choose a few strong items from across your whole relationship. A labelled page of twelve photos says more than an unlabelled album of two hundred.</p>
+  </header>
+
+  <div class="callout callout-info">
+    <span class="callout-title">What the officer looks for</span>
+    <p>The US Embassy in Santo Domingo lists helpful proof of relationship as wedding photos, "photos of the couple's life together throughout the duration of the relationship, messages or call logs, past and recent social media posts", joint contracts or invoices, remittance receipts and joint bank statements. The consular officer who adjudicates the visa reviews it.</p>
+    <p>USCIS lists six kinds of evidence that a marriage is bona fide: joint property, a joint lease, shared finances, birth certificates of your children, affidavits from people who know you, and "any other documentation relevant to establishing that the parties did not enter the marriage for the purpose of evading immigration law". Photos and messages fall in that last group. They support the first five. They do not replace them.</p>
+    <p>USCIS judges your good faith intent "to establish a lasting relationship at the inception of the marriage". Include photos and messages from before and around the wedding, not only recent ones.</p>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-title">Leave these out</span>
+    <ul>
+      <li>Intimate photos: in bed together, not fully clothed, or intimate displays of affection. The Santo Domingo embassy calls them "neither appropriate nor convincing" and warns they "may even be detrimental to your credibility".</li>
+      <li>Near-duplicates. Pick the best photo from each day or event.</li>
+      <li>Message screenshots that show only greetings or emoji. Choose messages about plans, visits, family, money or the visa process.</li>
+      <li>Anything you cannot explain at interview. Expect the officer to ask about any item in the pack.</li>
+    </ul>
+  </div>
+
+  <h2 class="no-print">What a finished row looks like</h2>
+  <div class="sample" aria-label="Example of a completed photo row">
+    <table class="ev-table" style="margin:0">
+      <colgroup><col class="c-media"><col></colgroup>
+      <tbody><tr>
+        <td><div class="media" style="--n:2"><div class="ph">Photo 1</div><div class="ph">Photo 2</div></div></td>
+        <td>
+          <div class="ev-num">Photo 4 of 12</div>
+          <dl>
+            <dt>Who</dt><dd>Petitioner, beneficiary, and the beneficiary's parents</dd>
+            <dt>Date</dt><dd>14 February 2024</dd>
+            <dt>Where</dt><dd>Edinburgh, United Kingdom</dd>
+            <dt>What</dt><dd>Lunch at the beneficiary's parents' house on the petitioner's second visit. First time the petitioner met the family.</dd>
+          </dl>
+        </td>
+      </tr></tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info no-print">
+    <span class="callout-title">How to fill it in</span>
+    <ul>
+      <li>Cover the whole relationship: how you met, early visits, the engagement, the wedding, and visits since you filed. The months before the wedding show your intent when you married.</li>
+      <li>Use one row per event, with one to three photos. Name everyone in the photo, and give their relationship to you.</li>
+      <li>Match dates and places to your passport stamps, boarding passes and DS-260 travel history.</li>
+      <li>Use "Sort by date" before you print. Officers read a timeline faster than a pile.</li>
+      <li>Your photos and text stay in this browser. Nothing uploads. Large photos may not save between visits, so print or save as PDF when you finish.</li>
+    </ul>
+  </div>
+
+  <form class="tool" id="ev-form" autocomplete="off" onsubmit="return false">
+    <fieldset class="no-print">
+      <legend>Cover details</legend>
+      <div class="field-row">
+        <div class="field"><label for="ev-pet">Petitioner full name</label><input type="text" id="ev-pet" data-cover="pet"></div>
+        <div class="field"><label for="ev-ben">Beneficiary full name</label><input type="text" id="ev-ben" data-cover="ben"></div>
+        <div class="field"><label for="ev-case">Receipt or case number</label><input type="text" id="ev-case" data-cover="case" placeholder="IOE0123456789 or SDO2024123456"></div>
+      </div>
+    </fieldset>
+
+    <section class="ev-section" aria-labelledby="ph-title">
+      <div class="print-head"><h2>Relationship evidence: photographs</h2><p class="cover-line"></p></div>
+      <h2 id="ph-title" class="no-print">Photos</h2>
+      <table class="ev-table" id="ph-table">
+        <colgroup><col class="c-media"><col></colgroup>
+        <thead><tr><th scope="col">Photos (1 to 3)</th><th scope="col">Details</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="btn-row no-print">
+        <button type="button" class="btn" data-add="photos">Add photo row</button>
+        <button type="button" class="btn btn--ghost" data-sort="photos">Sort by date</button>
+      </div>
+    </section>
+
+    <section class="ev-section" aria-labelledby="msg-title">
+      <div class="print-head"><h2>Relationship evidence: messages</h2><p class="cover-line"></p></div>
+      <h2 id="msg-title" class="no-print">WhatsApp and other messages</h2>
+      <p class="no-print">Pick one or two screenshots per period. Show the contact name or number at the top of the chat, and the date header WhatsApp shows above each day's messages. Any message not in English needs a full English translation, with the translator's signed statement that the translation is complete and accurate and that they are competent to translate from that language. USCIS requires this for every foreign-language document.</p>
+      <table class="ev-table" id="msg-table">
+        <colgroup><col class="c-media"><col></colgroup>
+        <thead><tr><th scope="col">Screenshots (1 to 3)</th><th scope="col">Details</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="btn-row no-print">
+        <button type="button" class="btn" data-add="messages">Add message row</button>
+        <button type="button" class="btn btn--ghost" data-sort="messages">Sort by date</button>
+      </div>
+    </section>
+
+    <section class="ev-section" aria-labelledby="call-title">
+      <div class="print-head"><h2>Relationship evidence: call log summary</h2><p class="cover-line"></p></div>
+      <h2 id="call-title" class="no-print">Call log summary</h2>
+      <p class="no-print">One line per month shows regular contact over time. Take the counts from your phone bill or the app's call history, and attach one sample page of the bill or a screenshot behind this table.</p>
+      <div class="calls-wrap"><table class="ev-table calls" id="call-table">
+        <thead><tr><th scope="col">Month</th><th scope="col">App or carrier</th><th scope="col">Calls</th><th scope="col">Total time</th><th scope="col">Source attached</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+      <div class="btn-row no-print">
+        <button type="button" class="btn" id="call-add">Add month</button>
+      </div>
+    </section>
+
+    <section class="ev-section" id="aff-section" aria-labelledby="aff-title">
+      <div class="print-head"><h2>Affidavits</h2></div>
+      <h2 id="aff-title" class="no-print">Third-party affidavits <span class="opt-tag">Optional</span></h2>
+      <div class="no-print">
+        <p>A friend or relative who knows you both writes a statement about your relationship and signs it in front of a notary public. USCIS accepts affidavits "when primary or secondary evidence does not exist or is unavailable". Treat them as support for your documents. Skip this section if your joint documents and photos already cover the relationship.</p>
+        <p><strong>Who can write one.</strong> Get at least two, from different people. The regulation calls for "two or more affidavits, sworn to or affirmed by persons who are not parties to the petition who have direct personal knowledge of the event and circumstances." Each writer must:</p>
+        <ul>
+          <li>Not be a party to the petition. The petitioner and the beneficiary cannot write one.</li>
+          <li>Have direct personal knowledge: they saw the events themselves.</li>
+        </ul>
+        <p>Relatives can write one, and the writer does not need to be a US citizen.</p>
+        <p><strong>What each one contains.</strong> USCIS lists:</p>
+        <ul>
+          <li>Full name, address and contact details.</li>
+          <li>Date and place of birth, and relationship to you.</li>
+          <li>A copy of their government-issued ID, if available. Attach it behind the affidavit.</li>
+          <li>Full details of the facts, and how they know them first-hand.</li>
+        </ul>
+        <p>USCIS states that "affidavits that cannot be verified carry no weight". Use a phone number and email the writer answers, and make sure every date matches your photos and travel records.</p>
+        <p>Choose people who have seen you together in person: at the wedding, on visits, at family events. Ask each one to name dates and places. "They are a lovely couple" tells the officer nothing. "I hosted them for dinner in Manchester on 22 December 2024" does. The writer fills in their own details. Do not write it for them.</p>
+        <p><strong>Get it notarized.</strong> The writer prints the affidavit unsigned, takes photo ID to a notary public, swears or affirms that it is true, and signs in front of the notary. The notary completes the block at the end and adds their seal. Keep the original. USCIS "may, at any time, request submission of an original document", and a missed deadline can lead to denial. Bring the original to your interview as well as a copy. If the writer uses a language other than English, attach a certified English translation.</p>
+        <ul>
+          <li>In the United States, use a notary public commissioned in the writer's state.</li>
+          <li>In the United Kingdom, find a notary through the <a href="https://www.thenotariessociety.org.uk/" target="_blank" rel="noopener noreferrer">Notaries Society</a>. UK notaries charge a fee, so ask the price when you book.</li>
+        </ul>
+      </div>
+      <div id="aff-list"></div>
+      <div class="btn-row no-print">
+        <button type="button" class="btn" id="aff-add">Add an affidavit</button>
+      </div>
+    </section>
+
+    <div class="btn-row no-print" style="margin-top:1.5rem">
+      <button type="button" class="btn" onclick="window.print()">Print or save as PDF</button>
+      <button type="button" class="btn btn--ghost" id="ev-clear">Clear everything</button>
+    </div>
+    <p class="hint no-print" id="ev-status" aria-live="polite"></p>
+  </form>
+
+  <h2 class="no-print">Sources</h2>
+  <ul class="no-print">
+    <li>US Embassy Santo Domingo, guidance on proof of relationship for spousal petitions, quoted in <a href="https://dominicantoday.com/?p=194045" target="_blank" rel="noopener noreferrer">Dominican Today, 31 July 2023</a>.</li>
+    <li><a href="https://travel.state.gov/content/travel/en/us-visas/Supplements/Supplements_by_Post/SDO-Santo-Domingo.html" target="_blank" rel="noopener noreferrer">travel.state.gov: Santo Domingo immigrant visa supplement</a>, which asks for evidence of the relationship such as photographs, letters or emails.</li>
+    <li><a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-103/subpart-A/section-103.2" target="_blank" rel="noopener noreferrer">8 CFR 103.2</a>: (b)(2)(i) on affidavits, (b)(3) on translations, (b)(5) on requests for originals. Text current to 12 November 2026.</li>
+    <li><a href="https://www.uscis.gov/policy-manual/volume-7-part-a-chapter-4" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 7, Part A, Chapter 4: Documentation</a> [7 USCIS-PM A.4(B)(3)], on who may write an affidavit and what it should contain.</li>
+    <li><a href="https://www.uscis.gov/policy-manual/volume-6-part-b-chapter-6" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 6, Part B, Chapter 6: Spouses</a> [6 USCIS-PM B.6], Section B.3 (bona fide marriages) and Section C.1 (required documentation), updated 17 October 2025.</li>
+    <li><a href="https://www.thenotariessociety.org.uk/" target="_blank" rel="noopener noreferrer">The Notaries Society</a>, directory of notaries in England and Wales.</li>
+    <li><a href="https://www.ecfr.gov/current/title-8/section-204.2" target="_blank" rel="noopener noreferrer">8 CFR 204.2(a)(1)(i)(B)</a>, the regulation behind the six evidence types.</li>
+    <li><a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer">USCIS: Form I-130 and instructions</a>.</li>
+    <li><a href="https://fam.state.gov/fam/09FAM/09FAM010208.html" target="_blank" rel="noopener noreferrer">9 FAM 102.8: Family-based relationships</a>, the consular rules on which marriages qualify.</li>
+  </ul>
+
+  <div class="article-return">
+    <a href="/checklist-i130" class="guide-return">&larr; Back to the I-130 checklist</a>
+  </div>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script>
+(function () {
+  'use strict';
+  var KEY = 'avg-relationship-evidence-v1';
+  var MAX_IMG = 3, MAX_DESC = 250;
+  var FIELDS = {
+    photos: [
+      { k: 'who', label: 'Who is in it', ph: 'Petitioner, beneficiary, beneficiary\'s sister Ana' },
+      { k: 'date', label: 'Date', type: 'date' },
+      { k: 'where', label: 'Location', ph: 'Edinburgh, United Kingdom' },
+      { k: 'what', label: 'What it shows', area: true, ph: 'Lunch with the beneficiary\'s parents on the second visit. First time meeting the family.' }
+    ],
+    messages: [
+      { k: 'who', label: 'Between', ph: 'Petitioner and beneficiary (WhatsApp)' },
+      { k: 'date', label: 'Date of messages', type: 'date' },
+      { k: 'where', label: 'Platform and translation', ph: 'WhatsApp. Welsh, certified English translation attached.' },
+      { k: 'what', label: 'What it shows', area: true, ph: 'Planning the March 2025 visit: flight times, who collects whom from the airport.' }
+    ]
+  };
+  var state = load();
+
+  function blankRow() { return { imgs: [], who: '', date: '', where: '', what: '' }; }
+  function load() {
+    var d = null;
+    try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+    d = d || {};
+    return {
+      cover: d.cover || { pet: '', ben: '', 'case': '' },
+      photos: (d.photos && d.photos.length) ? d.photos : [blankRow()],
+      messages: (d.messages && d.messages.length) ? d.messages : [blankRow()],
+      calls: (d.calls && d.calls.length) ? d.calls : [{}, {}, {}],
+      affidavits: d.affidavits || []
+    };
+  }
+  var status = document.getElementById('ev-status');
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); status.textContent = ''; }
+    catch (e) { status.textContent = 'Your browser ran out of space to save the photos. Your text is still on screen: print or save as PDF before you leave this page.'; }
+  }
+
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (a) { if (a === 'text') n.textContent = attrs[a]; else n.setAttribute(a, attrs[a]); });
+    (kids || []).forEach(function (c) { if (c) n.appendChild(c); });
+    return n;
+  }
+  function fmtDate(s) {
+    if (!s) return '';
+    var d = new Date(s + 'T00:00:00');
+    return isNaN(d) ? s : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function downscale(file) {
+    return new Promise(function (resolve, reject) {
+      var r = new FileReader();
+      r.onerror = reject;
+      r.onload = function () {
+        var img = new Image();
+        img.onerror = reject;
+        img.onload = function () {
+          var s = Math.min(1, 1000 / Math.max(img.width, img.height));
+          var c = document.createElement('canvas');
+          c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+          resolve(c.toDataURL('image/jpeg', 0.8));
+        };
+        img.src = r.result;
+      };
+      r.readAsDataURL(file);
+    });
+  }
+
+  function renderTable(kind) {
+    var tbody = document.querySelector('#' + (kind === 'photos' ? 'ph' : 'msg') + '-table tbody');
+    var rows = state[kind];
+    var noun = kind === 'photos' ? 'Photo' : 'Message';
+    tbody.innerHTML = '';
+    rows.forEach(function (row, i) {
+      var media = el('div', { 'class': 'media', style: '--n:' + Math.max(1, row.imgs.length) });
+      if (!row.imgs.length) media.appendChild(el('div', { 'class': 'media-empty', text: 'Add 1 to 3 ' + (kind === 'photos' ? 'photos' : 'screenshots') }));
+      row.imgs.forEach(function (src, j) { media.appendChild(el('img', { src: src, alt: noun + ' ' + (i + 1) + ', image ' + (j + 1) })); });
+
+      var fileId = kind + '-file-' + i;
+      var file = el('input', { type: 'file', id: fileId, accept: 'image/*', multiple: '' });
+      file.addEventListener('change', function () {
+        var room = MAX_IMG - row.imgs.length;
+        var files = Array.prototype.slice.call(file.files, 0, room);
+        if (file.files.length > room) status.textContent = 'Each row holds up to ' + MAX_IMG + ' images. Start a new row for the rest.';
+        Promise.all(files.map(downscale)).then(function (urls) {
+          row.imgs = row.imgs.concat(urls); save(); renderTable(kind);
+        });
+      });
+      var tools = el('div', { 'class': 'media-tools' }, [
+        row.imgs.length < MAX_IMG ? el('label', { 'class': 'btn btn--ghost btn--sm', 'for': fileId, text: row.imgs.length ? 'Add another' : 'Choose images' }) : null,
+        row.imgs.length < MAX_IMG ? file : null,
+        row.imgs.length ? btn('Remove last image', function () { row.imgs.pop(); save(); renderTable(kind); }) : null
+      ]);
+
+      var details = el('td', null, [el('div', { 'class': 'ev-num', text: noun + ' ' + (i + 1) + ' of ' + rows.length })]);
+      FIELDS[kind].forEach(function (f) {
+        var id = kind + '-' + f.k + '-' + i;
+        var input = f.area ? el('textarea', { id: id, rows: '3', maxlength: String(MAX_DESC + 50) }) : el('input', { type: f.type || 'text', id: id });
+        if (f.ph) input.setAttribute('placeholder', f.ph);
+        input.value = row[f.k] || '';
+        var pv = el('div', { 'class': 'pv' });
+        var count = f.area ? el('span', { 'class': 'count' }) : null;
+        function sync() {
+          row[f.k] = input.value;
+          pv.textContent = f.type === 'date' ? fmtDate(input.value) : input.value;
+          if (count) {
+            var n = input.value.length;
+            count.textContent = n + ' / ' + MAX_DESC + ' characters' + (n > MAX_DESC ? '. Shorten it: one or two sentences.' : '');
+            count.className = 'count' + (n > MAX_DESC ? ' over' : '');
+          }
+        }
+        input.addEventListener('input', function () { sync(); save(); });
+        sync();
+        details.appendChild(el('div', { 'class': 'field' }, [el('label', { 'for': id, text: f.label }), input, pv, count]));
+      });
+      details.appendChild(el('div', { 'class': 'row-tools' }, [
+        i > 0 ? btn('Move up', function () { swap(rows, i, i - 1); save(); renderTable(kind); }) : null,
+        i < rows.length - 1 ? btn('Move down', function () { swap(rows, i, i + 1); save(); renderTable(kind); }) : null,
+        btn('Delete row', function () {
+          if ((row.imgs.length || row.what || row.who) && !confirm('Delete this row?')) return;
+          rows.splice(i, 1); if (!rows.length) rows.push(blankRow()); save(); renderTable(kind);
+        })
+      ]));
+
+      var tr = el('tr', null, [el('td', null, [media, tools]), details]);
+      function markRow() { tr.className = (row.imgs.length || row.who || row.date || row.where || row.what) ? '' : 'empty'; markSections(); }
+      tr.addEventListener('input', markRow);
+      tbody.appendChild(tr); markRow();
+    });
+  }
+  function markSections() {
+    Array.prototype.forEach.call(document.querySelectorAll('.ev-section'), function (sec) {
+      if (sec.id === 'aff-section') { sec.classList.toggle('empty', !state.affidavits.length); return; }
+      sec.classList.toggle('empty', !sec.querySelector('tbody tr:not(.empty)'));
+    });
+  }
+  function btn(text, fn) { var b = el('button', { type: 'button', 'class': 'btn btn--ghost btn--sm', text: text }); b.addEventListener('click', fn); return b; }
+  function swap(a, i, j) { var t = a[i]; a[i] = a[j]; a[j] = t; }
+
+  var CALL_COLS = ['month', 'app', 'calls', 'time', 'src'];
+  var CALL_PH = ['March 2025', 'WhatsApp', '42', '31 h 20 min', 'Screenshot, page 14'];
+  function renderCalls() {
+    var tbody = document.querySelector('#call-table tbody');
+    tbody.innerHTML = '';
+    state.calls.forEach(function (row, i) {
+      var tr = el('tr');
+      function mark() { tr.className = CALL_COLS.some(function (c) { return row[c]; }) ? '' : 'empty'; markSections(); }
+      CALL_COLS.forEach(function (c, j) {
+        var input = el('input', { type: 'text', 'aria-label': ['Month', 'App or carrier', 'Number of calls', 'Total time', 'Source attached'][j] + ', row ' + (i + 1), placeholder: i === 0 ? CALL_PH[j] : '' });
+        input.value = row[c] || '';
+        var pv = el('div', { 'class': 'pv', text: input.value });
+        input.addEventListener('input', function () { row[c] = input.value; pv.textContent = input.value; mark(); save(); });
+        tr.appendChild(el('td', null, [input, pv]));
+      });
+      mark();
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderCover() {
+    var c = state.cover;
+    var line = [c.pet && 'Petitioner: ' + c.pet, c.ben && 'Beneficiary: ' + c.ben, c['case'] && 'Case: ' + c['case']].filter(Boolean).join(' · ');
+    Array.prototype.forEach.call(document.querySelectorAll('.cover-line'), function (p) { p.textContent = line; });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cover]'), function (input) {
+    var k = input.getAttribute('data-cover');
+    input.value = state.cover[k] || '';
+    input.addEventListener('input', function () { state.cover[k] = input.value; renderCover(); save(); });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-add]'), function (b) {
+    b.addEventListener('click', function () { var k = b.getAttribute('data-add'); state[k].push(blankRow()); save(); renderTable(k); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-sort]'), function (b) {
+    b.addEventListener('click', function () {
+      var k = b.getAttribute('data-sort');
+      state[k].sort(function (a, z) { return (a.date || '9999') < (z.date || '9999') ? -1 : (a.date || '9999') > (z.date || '9999') ? 1 : 0; });
+      save(); renderTable(k);
+    });
+  });
+  document.getElementById('call-add').addEventListener('click', function () { state.calls.push({}); save(); renderCalls(); });
+  document.getElementById('ev-clear').addEventListener('click', function () {
+    if (!confirm('Clear every photo, message and call row from this browser?')) return;
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    location.reload();
+  });
+
+  var AFF_FIELDS = [
+    { k: 'name', label: 'Full name of the person making the affidavit' },
+    { k: 'dob', label: 'Date of birth', type: 'date' },
+    { k: 'pob', label: 'Place of birth', ph: 'City, country' },
+    { k: 'address', label: 'Full address', area: true, rows: 2 },
+    { k: 'relation', label: 'Relationship to the couple, and for how long', ph: 'Petitioner\'s sister. I have known the beneficiary since March 2023.' },
+    { k: 'knowledge', label: 'How they know about the relationship and the marriage', area: true, rows: 4, ph: 'I attended their wedding in London on 10 May 2025. I have spent time with them together on three visits.' },
+    { k: 'events', label: 'Specific occasions they saw the couple together: date, place, what happened', area: true, rows: 5, ph: '22 December 2024, Manchester: I hosted them for dinner and they told us about their engagement.' },
+    { k: 'contact', label: 'Phone number and email' },
+    { k: 'idcopy', label: 'Copy of government-issued ID attached', type: 'checkbox' },
+    { k: 'idtype', label: 'Type of ID attached', ph: 'UK passport' }
+  ];
+  function affText(a) {
+    var c = state.cover;
+    var couple = (c.pet || '[petitioner]') + ' and ' + (c.ben || '[beneficiary]');
+    return [
+      'I, ' + (a.name || '[full name]') + ', born on ' + (fmtDate(a.dob) || '[date of birth]') + ' in ' + (a.pob || '[place of birth]') + ', residing at ' + (a.address || '[address]').replace(/\n+/g, ', ') + ', make this statement about the marriage of ' + couple + '.',
+      'My relationship to the couple: ' + (a.relation || '[relationship]'),
+      'How I know about their relationship and marriage: ' + (a.knowledge || '[details]'),
+      'Occasions I have seen them together:\n' + (a.events || '[dates, places, what happened]'),
+      'Contact: ' + (a.contact || '[phone and email]'),
+      a.idcopy ? 'Attached: a copy of my ' + (a.idtype || 'government-issued identification') + '.' : '',
+      'I swear (or affirm) that the contents of this affidavit are true to the best of my knowledge and belief.'
+    ].filter(Boolean);
+  }
+  function renderAff() {
+    var list = document.getElementById('aff-list');
+    list.innerHTML = '';
+    state.affidavits.forEach(function (a, i) {
+      var card = el('div', { 'class': 'aff-card' });
+      card.appendChild(el('h3', { text: 'Affidavit ' + (i + 1) }));
+      var printBox = el('div', { 'class': 'aff-print' });
+      function paint() {
+        printBox.innerHTML = '';
+        printBox.appendChild(el('h2', { text: 'Affidavit of ' + (a.name || '[full name]') }));
+        var line = document.querySelector('.cover-line'); if (line && line.textContent) printBox.appendChild(el('p', { text: line.textContent }));
+        affText(a).forEach(function (t) { printBox.appendChild(el('p', { text: t })); });
+        printBox.appendChild(el('p', { 'class': 'sig', text: 'Signature of ' + (a.name || 'affiant') + ': ______________________________\n(Sign only in front of the notary.)' }));
+        printBox.appendChild(el('p', { 'class': 'notary', text: 'Sworn (or affirmed) and signed before me on ____________________ (date) at ______________________________ (place) by ' + (a.name || '______________________________') + ', who proved their identity to me.\n\nNotary public signature: ______________________________\n\nNotary name: ______________________________\n\nCommission or registration details: ______________________________\n\nSeal:' }));
+      }
+      var grid = el('div', { 'class': 'field-row' });
+      AFF_FIELDS.forEach(function (f) {
+        var id = 'aff-' + f.k + '-' + i;
+        var input = f.area ? el('textarea', { id: id, rows: String(f.rows || 3) }) : el('input', { type: f.type || 'text', id: id });
+        if (f.ph) input.setAttribute('placeholder', f.ph);
+        var isBox = f.type === 'checkbox';
+        if (isBox) input.checked = !!a[f.k]; else input.value = a[f.k] || '';
+        input.addEventListener(isBox ? 'change' : 'input', function () { a[f.k] = isBox ? input.checked : input.value; paint(); save(); check(); });
+        var field = isBox ? el('label', { 'class': 'check' }, [input, el('span', { text: f.label })]) : el('div', { 'class': 'field' }, [el('label', { 'for': id, text: f.label }), input]);
+        if (f.k === 'name') card.appendChild(grid);
+        if (['name', 'dob', 'pob'].indexOf(f.k) > -1) grid.appendChild(field); else card.appendChild(field);
+      });
+      var missing = el('p', { 'class': 'hint' });
+      function check() {
+        var need = [['name', 'full name'], ['address', 'address'], ['contact', 'contact details'], ['dob', 'date of birth'], ['pob', 'place of birth'], ['relation', 'relationship to you'], ['knowledge', 'how they know about the marriage']].filter(function (r) { return !a[r[0]]; }).map(function (r) { return r[1]; });
+        missing.textContent = need.length ? 'Still missing: ' + need.join(', ') + '.' : 'All items USCIS lists are filled in. Print it unsigned: the writer signs in front of the notary.';
+      }
+      card.addEventListener('input', check);
+      card.appendChild(missing);
+      card.appendChild(el('div', { 'class': 'row-tools' }, [btn('Delete affidavit', function () {
+        if (!confirm('Delete this affidavit?')) return;
+        state.affidavits.splice(i, 1); save(); renderAff();
+      })]));
+      card.appendChild(printBox);
+      paint(); check();
+      list.appendChild(card);
+    });
+    markSections();
+  }
+  document.getElementById('aff-add').addEventListener('click', function () { state.affidavits.push({}); save(); renderAff(); });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cover]'), function (input) { input.addEventListener('input', renderAff); });
+
+  renderCover(); renderTable('photos'); renderTable('messages'); renderCalls(); renderAff();
+})();
+</script>
+</body>
+</html>
