@@ -1,5 +1,7 @@
 # Site architecture review
 
+> **Status, 15 November 2026:** steps 1 and 2 implemented. Step 1: the top nav is Guide ▾ / Interview / Data / News / Tools + "Submit your timeline", with labels in `docs/site-labels.md`. Step 2: the 14 interview pages share one sidebar from `js/section-nav.js` + `css/section-nav.css`. It's a fixed rail from 1100px up and an "In this section" fold-out under the breadcrumb below that. `/guide/interview` keeps the guide sidebar and is listed in the interview sidebar as "Stage 6".
+
 Reviewed 15 November 2026. Scope: the whole site: 63 public pages, the shared nav and footer (`public/js/nav.js`), breadcrumbs, URL structure and redirects (`vercel.json`), and the homepage. Earlier reviews this builds on: `INTERVIEW_NAVIGATION_REVIEW.md` (implemented 30 Sep: the stage picker and `/interview` hub came from it) and `STAGE_PAGE_RESTRUCTURE.md`.
 
 Method: page inventory with word counts; an internal link graph over every page (inbound/outbound links, orphans); breadcrumb trails extracted from each page; and a walk through the live site at desktop and phone widths. Findings are rated on Nielsen's 0–4 severity scale and tied to a named principle.
