@@ -365,7 +365,10 @@
    call to action need about 820px beside the brand. */
 @media (min-width: 901px) {
   .site-nav .nav-link svg:not(.nav-caret) { display: none; }
-  .site-nav .nav-link--cta svg { display: inline; }
+  .site-nav .nav-link--cta svg,
+  .site-nav .nav-link--search svg { display: inline; }
+  /* Search sits apart from the section links, just before the CTA */
+  .nav-item--search { margin-left: 0.5rem; padding-left: 0.5rem; border-left: 1px solid var(--nav-line); }
   .site-nav .nav-link { padding: 0.5rem 0.7rem; gap: 0.3rem; }
   .nav-menu { gap: 0.25rem; }
 
@@ -452,6 +455,14 @@
 
   .nav-item--cta {
     margin: 0.5rem 0 0;
+  }
+
+  /* Phones: search first, above the sections */
+  .nav-item--search {
+    order: -1;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid var(--nav-line);
   }
 
   .site-nav .nav-link--cta {

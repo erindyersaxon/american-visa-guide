@@ -46,9 +46,17 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+    .nf-search { margin: 0 0 var(--space-6, 1.5rem); }
+    .nf-search__label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
+    .nf-search__row { display: flex; gap: 0.5rem; max-width: 34rem; }
+    .nf-search__row input {
+      flex: 1; min-width: 0; min-height: 44px; padding: 0 0.85rem;
+      border: 1px solid #94a3b8; border-radius: 6px; font: inherit; background: #fff; color: #0f172a;
+    }
+    .nf-search__row input:focus { outline: 3px solid #0f172a; outline-offset: 2px; }
   </style>
-  <link rel="stylesheet" href="/css/nav.css?v=20261115">
-  <script src="/js/nav.js?v=20261115" defer></script>
+  <link rel="stylesheet" href="/css/nav.css?v=20261115b">
+  <script src="/js/nav.js?v=20261115b" defer></script>
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
@@ -59,11 +67,19 @@
     <div class="nf-wrap">
       <div class="nf-eyebrow">404: page not found</div>
       <h1 class="nf-title">This page joined the <em>wrong queue</em></h1>
-      <p class="nf-lead">The page you're looking for doesn't exist or has moved. Everything on the site is reachable from these three places.</p>
+      <p class="nf-lead">The page you're looking for doesn't exist or has moved. Search for it, or start from one of these.</p>
+      <form class="nf-search" action="/search" method="get" role="search">
+        <label for="nf-q" class="nf-search__label">Search the site</label>
+        <div class="nf-search__row">
+          <input id="nf-q" name="q" type="search" autocomplete="off" placeholder="e.g. joint sponsor or 221(g)">
+          <button type="submit" class="btn btn--primary">Search</button>
+        </div>
+      </form>
       <div class="nf-actions">
-        <a href="/index.html" class="btn btn--primary">View the data</a>
-        <a href="/guide.html" class="btn btn--secondary">Read the guide</a>
-        <a href="/checklists.html" class="btn btn--secondary">Checklists &amp; tools</a>
+        <a href="/guide" class="btn btn--secondary">Guide</a>
+        <a href="/interview" class="btn btn--secondary">Interview</a>
+        <a href="/checklists" class="btn btn--secondary">Tools</a>
+        <a href="/data" class="btn btn--secondary">Data</a>
       </div>
     </div>
   </main>

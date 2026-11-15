@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "node scripts/generate-config.js && sed -i 's|%%SUPABASE_URL%%|'${SUPABASE_URL}'|g; s|%%SUPABASE_ANON_KEY%%|'${SUPABASE_ANON_KEY}'|g' public/js/env.js",
+  "buildCommand": "node scripts/generate-config.js && sed -i 's|%%SUPABASE_URL%%|'${SUPABASE_URL}'|g; s|%%SUPABASE_ANON_KEY%%|'${SUPABASE_ANON_KEY}'|g' public/js/env.js && node scripts/build-search.mjs",
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,

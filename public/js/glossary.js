@@ -71,6 +71,8 @@
   ];
 
   const CSS = `
+    .glossary__row--target { background:#fef3c7; box-shadow:0 0 0 0.5rem #fef3c7; border-radius:2px; }
+    .glossary__row { scroll-margin-top:5rem; }
     .glossary { margin:1.25rem 0 1.75rem; border:1px solid #e2e8f0; border-radius:var(--radius-md, 0.375rem); background:#ffffff; overflow:hidden; font-size:0.86rem; line-height:1.55; }
     .glossary summary { cursor:pointer; padding:0.8rem 1.1rem; font-weight:700; color:#1e293b; list-style:none; }
     .glossary summary::-webkit-details-marker { display:none; }
@@ -129,10 +131,17 @@
     });
   }
 
-  function row(t) {
+  // Anchor for one term on the full /glossary page, e.g. term-dq. Site
+  // search links here; scripts/build-search.mjs builds the same slug.
+  function slug(t) {
+    return 'term-' + t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  function row(t, withId) {
     const full = t.full ? `<span class="glossary__full">${t.full}</span>` : '';
     const link = t.link ? ` <a href="${t.link}">More</a>` : '';
-    return `<li class="glossary__row"><div class="glossary__term">${t.term}${full}</div><p class="glossary__body">${t.def}${link}</p></li>`;
+    const id = withId ? ` id="${slug(t)}"` : '';
+    return `<li class="glossary__row"${id}><div class="glossary__term">${t.term}${full}</div><p class="glossary__body">${t.def}${link}</p></li>`;
   }
 
   function termsOnPage(root) {
@@ -158,13 +167,22 @@
       const list = all ? TERMS : onPage;
       if (!list.length) { el.remove(); return; }
       if (all) {
-        el.outerHTML = `<div class="glossary" style="padding:0"><ul class="glossary__list" style="border-top:none">${list.map(row).join('')}</ul></div>`;
+        el.outerHTML = `<div class="glossary" style="padding:0"><ul class="glossary__list" style="border-top:none">${list.map(t => row(t, true)).join('')}</ul></div>`;
       } else {
-        el.outerHTML = `<details class="glossary"><summary>Terms on this page (${list.length})</summary><ul class="glossary__list">${list.map(row).join('')}</ul><p class="glossary__more"><a href="/glossary">Full glossary</a></p></details>`;
+        el.outerHTML = `<details class="glossary"><summary>Terms on this page (${list.length})</summary><ul class="glossary__list">${list.map(t => row(t)).join('')}</ul><p class="glossary__more"><a href="/glossary">Full glossary</a></p></details>`;
       }
     });
 
     markFirstUses(main);
+
+    // The list renders after load, so the browser's own jump to
+    // /glossary#term-... has already missed. Do it now.
+    const target = window.location.hash.startsWith('#term-') &&
+      document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    if (target) {
+      target.classList.add('glossary__row--target');
+      target.scrollIntoView({ block: 'start', behavior: 'instant' });
+    }
   }
 
   if (document.readyState === 'loading') {

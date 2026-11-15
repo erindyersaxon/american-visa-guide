@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/main.css?v=20261024c">
 <link rel="stylesheet" href="/css/components.css?v=20261024c">
-<link rel="stylesheet" href="/css/nav.css?v=20261115">
+<link rel="stylesheet" href="/css/nav.css?v=20261115b">
 <style>
   /*
      I-864 Household Calculator: page styles
@@ -212,7 +212,7 @@
   }
   .i864-calculator a { color: var(--gold); }
   .i864-calculator a:hover { color: var(--purple); }
-  /* Source strip sits on slate inside <main>: (0,2,1) and (0,3,1) beat the
+  /* Source strip sits on slate inside <main data-pagefind-body>: (0,2,1) and (0,3,1) beat the
      rules above and readability.css main a:not([class]):hover (0,2,2). */
   .i864-calculator .source-strip a { color: var(--gold-lt); }
   .i864-calculator .source-strip a:hover { color: var(--color-mark-on-dark, #F87171); }
@@ -624,7 +624,7 @@
 <footer id="footer-placeholder"></footer>
 
 <script src="/js/main.js?v=20260616" defer></script>
-<script src="/js/nav.js?v=20261115" defer></script>
+<script src="/js/nav.js?v=20261115b" defer></script>
 <script>
 // STATE
 const state = {

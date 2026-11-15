@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/js/consent.js?v=20261024c" defer></script>
+  <meta name="description" content="Search every guide stage, interview page, tool, news item and glossary term on American Visa Guide.">
+  <meta name="robots" content="noindex">
+  <title>Search | American Visa Guide</title>
+  <link rel="canonical" href="https://www.americanvisaguide.com/search">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/article-base.css?v=20261025c">
+  <link rel="stylesheet" href="/css/nav.css?v=20261115b">
+  <script src="/js/nav.js?v=20261115b" defer></script>
+  <link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
+  <link rel="stylesheet" href="/css/readability.css?v=20261024c">
+  <!-- Built at deploy time by scripts/build-search.mjs -->
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+  <style>
+    /* Pagefind's own UI, set to the site's slate palette */
+    #search {
+      --pagefind-ui-scale: 0.9;
+      --pagefind-ui-primary: #0f172a;
+      --pagefind-ui-text: #0f172a;
+      --pagefind-ui-background: #ffffff;
+      --pagefind-ui-border: #cbd5e1;
+      --pagefind-ui-tag: #f1f5f9;
+      --pagefind-ui-border-width: 1px;
+      --pagefind-ui-border-radius: 6px;
+      --pagefind-ui-font: 'Public Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    /* Doubled class: readability.css styles plain links in main */
+    #search .pagefind-ui__result-link.pagefind-ui__result-link { color: #0f172a; text-decoration: underline; text-underline-offset: 2px; }
+    #search .pagefind-ui__result-excerpt { color: #334155; max-width: 72ch; }
+    #search mark { background: #fef3c7; color: inherit; }
+    #search .pagefind-ui__search-input:focus { outline: 3px solid #0f172a; outline-offset: 2px; }
+
+    .search-common { margin: 0 0 1.75rem; }
+    .search-common__label { margin: 0 0 0.5rem; font-size: 0.875rem; font-weight: 700; }
+    .search-common ul { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+    .search-common button {
+      min-height: 36px; padding: 0 0.85rem;
+      border: 1px solid #cbd5e1; border-radius: 999px; background: #ffffff;
+      font: 500 0.875rem/1 'Public Sans', system-ui, sans-serif; color: #0f172a; cursor: pointer;
+    }
+    .search-common button:hover { border-color: #64748b; }
+    .search-common button:focus-visible { outline: 3px solid #0f172a; outline-offset: 2px; }
+    .search-common[hidden] { display: none; }
+
+    .search-fallback { margin-top: 1.5rem; font-size: 0.95rem; color: #334155; }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<main class="page-wrap guide-article" id="main">
+
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Search</li></ol></nav>
+
+  <header class="article-header">
+    <h1>Search the site</h1>
+    <p class="article-lead">Every guide stage, interview page and tool, plus news items and glossary terms.</p>
+  </header>
+
+  <div id="search"></div>
+
+  <div class="search-common" id="search-common">
+    <p class="search-common__label" id="search-common-label">Common searches</p>
+    <ul aria-labelledby="search-common-label">
+      <li><button type="button">public charge</button></li>
+      <li><button type="button">221(g)</button></li>
+      <li><button type="button">joint sponsor</button></li>
+      <li><button type="button">police certificate</button></li>
+      <li><button type="button">medical</button></li>
+      <li><button type="button">DS-260</button></li>
+      <li><button type="button">interview letter</button></li>
+      <li><button type="button">green card</button></li>
+    </ul>
+  </div>
+
+  <noscript>
+    <p class="search-fallback">Search needs JavaScript. You can browse the <a href="/guide">guide</a>, the <a href="/interview">interview pages</a> or the <a href="/checklists">tools</a> instead.</p>
+  </noscript>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+  (function () {
+    'use strict';
+    var mount = document.getElementById('search');
+    var common = document.getElementById('search-common');
+
+    if (typeof PagefindUI !== 'function') {
+      // Index missing (e.g. a local preview without `npm run build:search`)
+      mount.innerHTML = '<p class="search-fallback">Search isn’t available right now. Try the <a href="/guide">guide</a>, the <a href="/interview">interview pages</a> or the <a href="/checklists">tools</a>.</p>';
+      common.hidden = true;
+      return;
+    }
+
+    var LABELS = { News: 'News', Glossary: 'Glossary' };
+    function cleanUrl(u) {
+      return u.replace(/\/index\.html(?=$|#)/, '/').replace(/\.html(?=$|#)/, '');
+    }
+
+    var ui = new PagefindUI({
+      element: '#search',
+      showImages: false,
+      showSubResults: true,
+      excerptLength: 24,
+      autofocus: true,
+      translations: {
+        placeholder: 'Search, e.g. joint sponsor or 221(g)',
+        zero_results: 'Nothing found for [SEARCH_TERM]. Try a shorter or different word, or browse the guide.'
+      },
+      processResult: function (result) {
+        result.url = cleanUrl(result.url);
+        (result.sub_results || []).forEach(function (s) { s.url = cleanUrl(s.url); });
+        var section = result.meta && LABELS[result.meta.section];
+        if (section && result.meta.title.indexOf(section + ': ') !== 0) {
+          result.meta.title = section + ': ' + result.meta.title;
+        }
+        return result;
+      }
+    });
+
+    // Keep the term in the address bar (?q=), so a search can be shared,
+    // bookmarked, or reached from a form elsewhere on the site.
+    function syncUrl(term) {
+      var url = new URL(window.location.href);
+      if (term) url.searchParams.set('q', term); else url.searchParams.delete('q');
+      history.replaceState(null, '', url);
+      common.hidden = !!term;
+    }
+
+    var initial = new URL(window.location.href).searchParams.get('q');
+    if (initial) {
+      ui.triggerSearch(initial);
+      common.hidden = true;
+    }
+
+    mount.addEventListener('input', function (e) {
+      if (e.target.classList.contains('pagefind-ui__search-input')) syncUrl(e.target.value.trim());
+    });
+    mount.addEventListener('click', function (e) {
+      if (e.target.closest('.pagefind-ui__search-clear')) syncUrl('');
+    });
+
+    common.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      ui.triggerSearch(btn.textContent);
+      syncUrl(btn.textContent);
+    });
+  })();
+</script>
+</body>
+</html>

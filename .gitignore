@@ -8,3 +8,6 @@ build
 
 # Reddit research output (raw Reddit text, not for the repo)
 scripts/reddit/out/
+
+# Pagefind search index: generated at build time (npm run build:search)
+public/pagefind/

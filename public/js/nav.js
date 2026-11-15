@@ -112,6 +112,14 @@
           Tools
         </a>
       </li>
+      <li class="nav-item--search">
+        <a href="/search" class="nav-link nav-link--search" data-navpage="search">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          Search
+        </a>
+      </li>
       <li class="nav-item--cta">
         <a href="https://forms.fillout.com/t/dTRqnkx9uxus" class="nav-link nav-link--cta" target="_blank" rel="noopener noreferrer" data-navpage="submit">
           Submit your timeline
@@ -162,6 +170,7 @@
      Guide sub-sections ('life', 'naturalization') light the Guide button and
      the matching item in its menu. */
   const ACTIVE_MAP = {
+    'search': 'search',
     'data': 'data',
     'tracker': 'data',
     'news': 'news',
