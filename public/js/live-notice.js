@@ -1,6 +1,6 @@
 /*
-   Single source of truth for the live notice on where interview letters
-   stand. Rendered on the Guide Hub, the stage pages and the interview
+   Single source of truth for the live notice: a one-line link to the
+   weekly London roundups on /news. Rendered on the Guide Hub, the stage pages and the interview
    pages. Edit the notice HERE only; every page updates.
 
    Mount points (each replaced by the same notice):
@@ -14,39 +14,18 @@
 (function () {
   'use strict';
 
-  // One short notice for every mount point. Interview letters (ILs) come in
-  // batches ("drops"); this says where the queue stands and sends readers
-  // to the interview hub for the steps. The id keeps old
-  // /guide#interview-cancellations links working.
-  const UPDATED = '15 November 2026';
-
+  // London status now lives in the weekly roundups on /news, so every
+  // mount point shows just a one-line link there (and nothing on /news
+  // itself). The id keeps old /guide#interview-cancellations links working.
   function notice(opts) {
-    const hub = location.pathname.replace(/\.html$/, '') === '/interview'
-      ? ''
-      : '<a href="/interview">Your interview: start here</a> &middot; ';
-    const news = location.pathname.replace(/\.html$/, '') === '/news'
-      ? ''
-      : '<a href="/news">This week in London</a> &middot; ';
+    if (location.pathname.replace(/\.html$/, '') === '/news') return '';
     const id = opts && opts.withId ? ' id="interview-cancellations"' : '';
     return `
-    <div class="live-note"${id} role="note">
-      <p class="live-note__head">Rescheduled interviews and interview letters</p>
-      <p>London is rebooking the interviews it canceled in September and October. Applicants report new dates from 6 November into December. In the week to <strong>15 November</strong>, some interviews rebooked for 12 and 13 November were moved again, to early January 2027, with only a day or two&rsquo;s notice.</p>
-      <p>If you get a new date, book your medical straight away. Results can take up to 5 working days to reach the embassy, and at least one applicant was turned away because theirs had not arrived.</p>
-      <p>London has not sent any new interview letters since <strong>14 July 2026</strong>, and applicants DQ&rsquo;d in June 2026 are still waiting. We are waiting for drops to resume. State&rsquo;s court filings say each post must finish in-person public charge training before it processes new cases. <a href="/september-2026-update#training">Why new interviews are waiting</a>.</p>
-      <p>These are applicant reports, not embassy announcements.</p>
-      <p>${hub}${news}<a href="/data">See the data</a></p>
-      <p class="live-note__meta">Updated ${UPDATED}.</p>
-    </div>`;
+    <p class="live-note"${id}><a href="/news">Latest London updates</a>: what applicants reported this week about interview letters, reschedules and outcomes.</p>`;
   }
 
   const PAGE_CSS = `
-    .live-note { background:#f1f5f9; border:1px solid #cbd5e1; border-left:4px solid #0f172a; border-radius:8px; padding:0.85rem 1.1rem; margin:0 0 1.5rem; color:#0f172a; line-height:1.55; }
-    .live-note p { margin:0 0 0.4rem; max-width:none; }
-    .live-note p:last-child { margin-bottom:0; }
-    .live-note ul { margin:0 0 0.4rem; padding-left:1.2rem; }
-    .live-note__head { font-weight:700; color:#1e293b; }
-    .live-note__meta { font-size:14px; color:#334155; }
+    .live-note { margin:0 0 1.25rem; padding:0.5rem 0.85rem; border-left:3px solid #0f172a; background:#f1f5f9; border-radius:4px; color:#0f172a; line-height:1.5; max-width:none; }
     .live-note a { color:#1e293b; font-weight:600; text-decoration:underline; text-underline-offset:2px; }
     @media print { .live-note { display:none; } }`;
 
