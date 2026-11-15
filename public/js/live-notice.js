@@ -18,26 +18,24 @@
   // batches ("drops"); this says where the queue stands and sends readers
   // to the interview hub for the steps. The id keeps old
   // /guide#interview-cancellations links working.
-  const UPDATED = '4 November 2026';
+  const UPDATED = '15 November 2026';
 
   function notice(opts) {
     const hub = location.pathname.replace(/\.html$/, '') === '/interview'
       ? ''
       : '<a href="/interview">Your interview: start here</a> &middot; ';
+    const news = location.pathname.replace(/\.html$/, '') === '/news'
+      ? ''
+      : '<a href="/news">This week in London</a> &middot; ';
     const id = opts && opts.withId ? ' id="interview-cancellations"' : '';
     return `
     <div class="live-note"${id} role="note">
       <p class="live-note__head">Rescheduled interviews and interview letters</p>
-      <p>On <strong>23 October 2026</strong>, applicants on <a href="https://www.reddit.com/r/NationalVisaCenter/" target="_blank" rel="noopener noreferrer">r/NationalVisaCenter</a> reported that London had emailed new dates for interviews it canceled:</p>
-      <ul>
-        <li><strong>IR1 and IR5:</strong> 23 September &rarr; 6 November</li>
-        <li><strong>Spouse visa, category not given:</strong> 23 September &rarr; 17 November</li>
-        <li><strong>K-1:</strong> 22 September &rarr; 13 November, and 20 October &rarr; 10 December</li>
-        <li><strong>EB-2:</strong> 20 October &rarr; 1 December</li>
-      </ul>
-      <p>The K-1 and EB-2 reports are listed for timing only: the steps on this site are written for family immigrant visas.</p>
-      <p>London has not sent any interview letters since <strong>14 July 2026</strong>. We are waiting for drops to resume. State's court filings say each post must finish in-person public charge training before it processes new cases. <a href="/september-2026-update#training">Why new interviews are waiting</a>.</p>
-      <p>${hub}<a href="/data">See the data</a></p>
+      <p>London is rebooking the interviews it canceled in September and October. Applicants report new dates from 6 November into December. In the week to <strong>15 November</strong>, some interviews rebooked for 12 and 13 November were moved again, to early January 2027, with only a day or two&rsquo;s notice.</p>
+      <p>If you get a new date, book your medical straight away. Results can take up to 5 working days to reach the embassy, and at least one applicant was turned away because theirs had not arrived.</p>
+      <p>London has not sent any new interview letters since <strong>14 July 2026</strong>, and applicants DQ&rsquo;d in June 2026 are still waiting. We are waiting for drops to resume. State&rsquo;s court filings say each post must finish in-person public charge training before it processes new cases. <a href="/september-2026-update#training">Why new interviews are waiting</a>.</p>
+      <p>These are applicant reports, not embassy announcements.</p>
+      <p>${hub}${news}<a href="/data">See the data</a></p>
       <p class="live-note__meta">Updated ${UPDATED}.</p>
     </div>`;
   }
