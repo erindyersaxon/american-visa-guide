@@ -61,6 +61,11 @@
   ],
   "redirects": [
     {
+      "source": "/september-2026-update",
+      "destination": "/news",
+      "permanent": true
+    },
+    {
       "source": "/public-charge-detail",
       "destination": "/public-charge",
       "permanent": true

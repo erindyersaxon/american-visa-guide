@@ -175,7 +175,6 @@
     'public-charge': 'interview',
     'public-charge-statement': 'interview',
     'visa-pause': 'interview',
-    'september-2026-update': 'interview',
     '221g': 'interview',
     '221g-sheet': 'interview',
     'domicile': 'interview',

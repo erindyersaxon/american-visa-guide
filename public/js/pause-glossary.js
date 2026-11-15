@@ -22,8 +22,8 @@
       what: 'From 21 January 2026, a 221(g) refusal for every immigrant visa applicant holding the nationality of one of 75 listed countries.',
       status: 'Vacated by a court on 21 August 2026, and the guidance behind it rescinded on 10 September 2026. Refusals made only because of it are being reconsidered. On 19 October 2026 the Second Circuit temporarily stayed the order on those refusals; the Department says its review continues.',
       uk: 'No. The UK was not on the list. It applied at London only to applicants interviewing on a listed passport.',
-      link: '/september-2026-update',
-      linkText: 'Immigrant visa pause vacated',
+      link: '/visa-pause',
+      linkText: 'The nationality visa pause, struck down',
     },
     {
       key: 'dv',
@@ -31,7 +31,7 @@
       what: 'From 20 December 2025, a 221(g) refusal for every diversity visa applicant.',
       status: 'Temporarily vacated by a court on 28 August 2026 (a preliminary injunction), and the guidance rescinded on 10 September 2026.',
       uk: 'Only diversity visa applicants.',
-      link: '/september-2026-update#courts',
+      link: '/news#clinic-vacated',
       linkText: 'What the courts decided',
     },
     {

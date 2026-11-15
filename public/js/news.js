@@ -95,6 +95,15 @@
       ]
     },
     {
+      "id": "i130-renewed-activity",
+      "date": "2026-11-11",
+      "type": "community",
+      "source": "Track My Visa",
+      "title": "Early signs of renewed I-130 activity at the front of the line",
+      "url": "https://trackmyvisa.com/i130",
+      "note": "Track My Visa reports more case activity on IR consular I-130s at the old front of the line (priority dates around 25 February 2025), though many of those cases still have no decision. It has heard unofficially that some USCIS field offices have started processing them; USCIS has not confirmed this, and Track My Visa has not moved its front-of-line estimate, so plan around the stall. If you have an IR consular I-130 pending, add your USCIS field office to your Track My Visa dashboard to help. See [the I-130 stage](/guide/i130#i130-status)."
+    },
+    {
       "id": "reddit-2026-10-23-reschedules",
       "date": "2026-10-23",
       "type": "community",
@@ -102,6 +111,168 @@
       "title": "London emails new dates for interviews canceled in September and October",
       "url": "https://www.reddit.com/r/NationalVisaCenter/",
       "note": "Applicants report September interviews moved to November and October interviews moved to December. These are member reports, not an embassy announcement."
+    },
+    {
+      "id": "clinic-defer",
+      "date": "2026-10-23",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "Department asks the court to hold off on deadlines",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "The Department told the court its review instructions have not changed and asked it not to set deadlines during the stay (ECF 132). The court has not ruled."
+    },
+    {
+      "id": "london-pc-refusal",
+      "date": "2026-10-22",
+      "type": "community",
+      "source": "Applicant report",
+      "title": "London issues a public charge refusal under 212(a)(4)",
+      "url": "/public-charge#refused",
+      "note": "A London applicant received a 212(a)(4) refusal form, so London has refused at least one applicant as likely to become a public charge. The form gives no reason. These are member reports, not an embassy announcement."
+    },
+    {
+      "id": "ca2-stay",
+      "date": "2026-10-19",
+      "type": "official",
+      "source": "CLINIC v. Rubio (2d Cir.)",
+      "title": "Second Circuit temporarily stays the order on individual refusals",
+      "url": "https://www.courtlistener.com/docket/74793181/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "The Second Circuit temporarily stayed the part of the judgment that set aside individual refusals, while it decides the government's stay motion (ECF 126). The policy itself stays vacated: no post may apply the pause."
+    },
+    {
+      "id": "clinic-deadline-hearing",
+      "date": "2026-10-14",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "Court hears argument on a deadline for pause cases",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "The court heard argument on whether to set a deadline for deciding pause cases."
+    },
+    {
+      "id": "pause-resumed",
+      "date": "2026-10-05",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "All posts have resumed pause cases, which skip in-person training",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "The Department told the court that every immigrant visa post has resumed pause cases, and that pause cases are exempt from the in-person part of the public charge training. Between 21 August and 30 September officers decided about 706 pause cases again: roughly 318 approved, 388 refused (status report, ECF 96)."
+    },
+    {
+      "id": "london-pause-approval",
+      "date": "2026-10-02",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "London approves a pause case refused in May",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "A London pause case refused on 15 May 2026 was approved after being called back, as reported in the CLINIC filings."
+    },
+    {
+      "id": "ca2-stay-motion",
+      "date": "2026-09-28",
+      "type": "official",
+      "source": "CLINIC v. Rubio (2d Cir.)",
+      "title": "Government asks the Second Circuit for a stay",
+      "url": "https://www.courtlistener.com/docket/74793181/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "The government asked the Second Circuit to stay the CLINIC judgment while it appeals."
+    },
+    {
+      "id": "clinic-no-pause",
+      "date": "2026-09-25",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "Court refuses to pause its judgment and asks about deadlines",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "On 24 September the court ordered the government to explain why it should not set a deadline for deciding pause cases (ECF 108). On 25 September it refused to pause its judgment (ECF 109)."
+    },
+    {
+      "id": "london-first-pause-callback",
+      "date": "2026-09-23",
+      "type": "community",
+      "source": "Applicant reports",
+      "title": "London emails the first reported pause case an interview date",
+      "url": "",
+      "note": "The first reported London pause case was emailed a new interview date. These are member reports, not an embassy announcement."
+    },
+    {
+      "id": "pause-queue",
+      "date": "2026-09-21",
+      "type": "official",
+      "source": "Visa Office",
+      "title": "Queue order set for pause cases",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "Cable 26 STATE 89798 (14 September) expanded daily manager review, and a Visa Office message of 21 September set the order: named plaintiffs and Chief of Mission exception cases first, then everyone else by refusal date. Approved cases get a further review (IVAR) before the visa prints. Both were filed in CLINIC (ECF 114-2, 114-3). See [who goes first](/visa-pause#later)."
+    },
+    {
+      "id": "pause-rescinded",
+      "date": "2026-09-10",
+      "type": "official",
+      "source": "Cable 26 STATE 88862",
+      "title": "State Department rescinds the pause; government appeals",
+      "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/",
+      "note": "Cable 26 STATE 88862 rescinds the pause in full: no one may be refused under 221(g) because of it. Posts must work pause refusals oldest first, write to applicants for anything missing (including new medicals), give the specific reason for any fresh 221(g), and complete the public charge worksheet in every case. The same day the government appealed CLINIC to the Second Circuit. The cable was filed in Medani v. Trump (ECF 95-1)."
+    },
+    {
+      "id": "pause-43000",
+      "date": "2026-09-08",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "Department reports more than 43,000 pause refusals",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "The Department told the court that more than 43,000 applications were refused under the pause. It has given no date for finishing them."
+    },
+    {
+      "id": "training-cable",
+      "date": "2026-09-01",
+      "type": "official",
+      "source": "Cable 26 STATE 86164",
+      "title": "Every consular section must finish in-person public charge training",
+      "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/",
+      "note": "Cable 26 STATE 86164 sets four public charge training requirements, and each consular section must finish in-person training before it processes immigrant visas. This is why new interviews are waiting. The cable was filed in Medani v. Trump (ECF 115-2). See [why pause cases move and new interviews do not](/visa-pause#training)."
+    },
+    {
+      "id": "clinic-aug31",
+      "date": "2026-08-31",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "Status conference: remanded cases should not face new public charge requirements",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/",
+      "note": "Judge Vargas said remanded cases should not face new public charge requirements. Government counsel agreed, but said some cases need re-evaluation and many will need new interviews, medicals and police certificates. This account paraphrases notes of the public call, checked against the filings."
+    },
+    {
+      "id": "clinic-enforce",
+      "date": "2026-08-26",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "Plaintiffs ask the court to enforce the judgment",
+      "url": "https://democracyforward.org/wp-content/uploads/2026/08/ECF-86-Mem.-iso-Motion-to-Enforce-1.pdf",
+      "note": "The CLINIC plaintiffs filed an emergency motion to enforce the judgment (ECF 86)."
+    },
+    {
+      "id": "clinic-vacated",
+      "date": "2026-08-21",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "Court strikes down the 75-country immigrant visa pause",
+      "url": "https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.83.0.pdf",
+      "note": "In CLINIC v. Rubio the Southern District of New York vacated the pause. Vacatur removes the policy for everyone, not only the plaintiffs, and sets aside refusals made only because of it. Final judgment followed on 24 August. A separate pause on diversity visas was also struck down; it does not affect family immigrant visas. Full explanation: [the nationality visa pause, struck down](/visa-pause)."
+    },
+    {
+      "id": "pc-worksheet",
+      "date": "2026-08-15",
+      "type": "official",
+      "source": "Cable 26 STATE 80666",
+      "title": "Public charge worksheet made mandatory; interviews cancelled for training",
+      "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/",
+      "note": "Cable 26 STATE 80666 makes a public charge worksheet mandatory in every immigrant visa case. In early August the Department also launched global public charge training and began cancelling and rescheduling interviews. The cable was filed in Medani v. Trump (ECF 115-3)."
+    },
+    {
+      "id": "pause-announced",
+      "date": "2026-01-14",
+      "type": "official",
+      "source": "Department of State",
+      "title": "State Department announces a 75-country immigrant visa pause",
+      "url": "/visa-pause#what",
+      "note": "From 21 January 2026, officers were told to refuse under 221(g) every immigrant visa applicant from 75 countries the Department rated high risk for public charge. Nationality triggered it, not the embassy, so a non-UK passport holder interviewing in London could be caught."
     }
   ];
   // END NEWS ITEMS
@@ -119,6 +290,8 @@
     .news-list { list-style:none; margin:0; padding:0; }
     .news-item { padding:1rem 0; border-bottom:1px solid #e3ddd0; }
     .news-item:first-child { padding-top:0; }
+    .news-item { scroll-margin-top:5rem; }
+    .news-item--target { background:#fdf8e8; box-shadow:0 0 0 0.6rem #fdf8e8; border-radius:2px; }
     .news-meta { display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem; font-size:14px; color:#334155; margin:0 0 0.3rem; }
     .news-tag { font-size:13px; font-weight:700; padding:0.1rem 0.5rem; border-radius:4px; }
     .news-tag--official { background:#e1ecf2; color:#24485a; }
@@ -127,6 +300,7 @@
     .news-title { font-size:17px; font-weight:600; line-height:1.4; margin:0 0 0.3rem; }
     .news-title a { color:#1e293b; text-decoration:underline; text-underline-offset:2px; }
     .news-note { margin:0; line-height:1.55; max-width:none; }
+    .news-note a { color:#1e293b; text-decoration:underline; text-underline-offset:2px; }
     .news-points { margin:0.5rem 0 0; padding-left:1.25rem; line-height:1.55; }
     .news-points li { margin:0 0 0.35rem; }
     .news-sources { margin:0.5rem 0 0; font-size:14px; color:#334155; line-height:1.55; }
@@ -159,9 +333,25 @@
     return node;
   }
 
+  // Notes are plain text plus [label](/path or https://...) links.
+  function noteNode(text) {
+    const p = el('p', { class: 'news-note' });
+    const rx = /\[([^\]]+)\]\((\/[^)\s]*|https?:\/\/[^)\s]+)\)/g;
+    let last = 0, m;
+    while ((m = rx.exec(text))) {
+      p.append(document.createTextNode(text.slice(last, m.index)));
+      const ext = /^https?:/.test(m[2]);
+      p.append(el('a', ext ? { href: m[2], target: '_blank', rel: 'noopener noreferrer' } : { href: m[2] }, m[1]));
+      last = rx.lastIndex;
+    }
+    p.append(document.createTextNode(text.slice(last)));
+    return p;
+  }
+
   function itemNode(item) {
     const type = TYPES[item.type] || TYPES.press;
-    const li = el('li', { class: 'news-item', 'data-type': item.type });
+    // The id lets other pages link to one item: /news#<id>.
+    const li = el('li', { class: 'news-item', 'data-type': item.type, id: item.id });
 
     const meta = el('p', { class: 'news-meta' });
     meta.append(
@@ -174,12 +364,14 @@
     const title = el('p', { class: 'news-title' });
     if (/^https?:\/\//.test(item.url)) {
       title.append(el('a', { href: item.url, target: '_blank', rel: 'noopener noreferrer' }, item.title));
+    } else if (/^\/[^/]/.test(item.url || '')) {
+      title.append(el('a', { href: item.url }, item.title)); // a page on this site
     } else {
       title.textContent = item.title;
     }
 
     li.append(meta, title);
-    if (item.note) li.append(el('p', { class: 'news-note' }, item.note));
+    if (item.note) li.append(noteNode(item.note));
 
     // Weekly roundup: one point per topic, then the threads it draws on.
     if (Array.isArray(item.points) && item.points.length) {
@@ -255,6 +447,13 @@
       document.head.append(st);
     }
     mounts.forEach(render);
+    // Items render after load, so the browser's own jump to /news#<id>
+    // has already happened (and missed). Do it now.
+    const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target && target.classList.contains('news-item')) {
+      target.classList.add('news-item--target');
+      target.scrollIntoView();
+    }
   }
 
   window.AVG_NEWS = { items: ITEMS, render: init };

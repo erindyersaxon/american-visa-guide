@@ -58,7 +58,6 @@ export const MARK_RULES = [
   ["public/404.html", ".nf-title em"],
   ["public/news.html", ".pg-eyebrow"],
   ["public/public-charge.html", ".pg-eyebrow"],
-  ["public/september-2026-update.html", ".pg-eyebrow"],
   ["public/checklists.html", ".tools-header__eyebrow"],
 ];
 export const ROUND_ALLOW = [
