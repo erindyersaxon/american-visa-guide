@@ -38,6 +38,33 @@
   // BEGIN NEWS ITEMS
   const ITEMS = [
     {
+      "id": "647fe42890",
+      "date": "2026-11-14",
+      "type": "community",
+      "source": "r/NationalVisaCenter",
+      "title": "London still mostly rebooking cancelled interviews; scheduling tool unchanged",
+      "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xpgxto/updated_november_2026_iv_scheduling_tool_for/",
+      "note": "Applicants report London is still mainly rebooking interviews cancelled during the pause. The embassy's November scheduling tool update shows no change: June 2026 DQs for immediate relatives, March 2026 for family preference and February 2026 for employment-based cases. Applicants DQ'd in June and July report no interview letters yet, though one IR-1 direct consular filing case reports a new interview set for December. These are member reports, not an embassy announcement."
+    },
+    {
+      "id": "39e4c91231",
+      "date": "2026-11-14",
+      "type": "community",
+      "source": "r/NationalVisaCenter",
+      "title": "London rebooked interviews continue into December, some at short notice",
+      "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xdeu0k/london_embassy_just_got_a_rescheduled_interview/",
+      "note": "Applicants whose September and October interviews were cancelled report new dates on 13, 17 and 25 November and 8 and 10 December, across K-1, IR-1, F2A and EB-3 cases. Some new dates arrive only 7 to 11 days ahead, and at least one K-1 interview was moved again, from 12 November to January. Two applicants report being turned away or rescheduled because their medical results had not reached the embassy in time, so book the medical as soon as a date arrives. These are member reports, not an embassy announcement."
+    },
+    {
+      "id": "db1c375b1a",
+      "date": "2026-11-14",
+      "type": "community",
+      "source": "r/NationalVisaCenter",
+      "title": "London approvals resume, with more public charge questions at interview",
+      "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xrrpwy/london_ir1_interview_complete/",
+      "note": "Applicants report approvals for rebooked IR-1, F2A and K-1 interviews, usually with the passport kept and a few days of administrative processing before the case shows Issued. Interviews now include public charge questions on housing, health insurance, savings and work plans. Reports include an IR-1 refused under 212(a)(4) and a K-1 given a 221(g) asking for insurance and job-search evidence. Cases put in 221(g) before the pause (April to August) report little movement, though one K-1 from August was automatically scheduled for a re-interview in late November. These are member reports, not an embassy announcement."
+    },
+    {
       "id": "reddit-2026-10-23-reschedules",
       "date": "2026-10-23",
       "type": "community",
