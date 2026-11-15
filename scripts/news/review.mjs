@@ -81,6 +81,8 @@ function list(queue) {
     console.log(`    ${i.url}`);
     if (i.summary) console.log(`    ${i.summary.slice(0, 200)}`);
     if (i.note) console.log(`    proposed note: ${i.note}`);
+    for (const pt of i.points ?? []) console.log(`    • ${pt.label}: ${pt.text}`);
+    if (i.sources?.length) console.log(`    sources: ${i.sources.length} thread(s)`);
     console.log(`    matched: ${i.matched.join(', ')} (score ${i.score})\n`);
   }
   console.log(`${pending.length} pending.`);
@@ -116,6 +118,11 @@ async function main() {
     };
     if (typeof opts.note === 'string') item.note = opts.note;
     else if (q.note) item.note = q.note; // proposed by a digest; --note overrides
+    // Weekly roundups carry a period, topic points and source threads.
+    if (q.period) item.period = q.period;
+    if (q.points?.length) item.points = q.points;
+    if (q.sources?.length) item.sources = q.sources;
+    if (item.points?.some((pt) => /^DRAFT:/.test(pt.text))) fail(`${q.id} still has DRAFT points; rewrite them in data/news-queue.json first.`);
     await saveNews(news, [...news.items, item]);
     q.status = 'approved';
     q.decidedAt = new Date().toISOString();

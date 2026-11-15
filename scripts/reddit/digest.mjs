@@ -1,19 +1,23 @@
 #!/usr/bin/env node
 /*
-   Turn a London Reddit research run into news-queue digests: one pending
-   `community` item per signal (interview letters, reschedules, outcomes),
-   each citing every thread that reports it.
+   Turn a London Reddit research run into ONE weekly roundup for the news
+   queue: a single pending `community` item that captures what applicants
+   reported over the week, with a point per signal (interview letters,
+   reschedules, outcomes) and a short list of source threads.
 
      node scripts/reddit/digest.mjs                 newest out/*-london-*.json
      node scripts/reddit/digest.mjs <file.json>     a specific run
      node scripts/reddit/digest.mjs --dry-run       print, don't write
 
-   Then review as usual:  npm run news:review
-   Nothing here touches the live site.
+   The generated `points` are evidence counts and month tallies, a starting
+   point only: whoever reviews the run rewrites `title`, `note` and `points`
+   in data/news-queue.json from the threads before approving.
+   Then:  npm run news:review   (approve copies note, points, sources, period)
 
-   Ids are per signal per ISO week, so a weekly run makes fresh digests and
-   a rerun in the same week replaces that week's still-pending digest
-   (approved or rejected ones are left alone).
+   Only comments posted inside the week count, so an old thread doesn't
+   replay old news. The id is per ISO week: a rerun in the same week replaces
+   that week's roundup while it is still pending (approved or rejected ones
+   are left alone).
 */
 import { createHash } from 'node:crypto';
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -32,31 +36,31 @@ const file =
   args.find((a) => a.endsWith('.json')) ??
   join(OUT_DIR, readdirSync(OUT_DIR).filter((f) => /-london-.*\.json$/.test(f)).sort().at(-1) ?? '');
 
+const MAX_SOURCES = 6; // threads listed on the public page; all are kept in `urls`
+
 // ── Signals ─────────────────────────────────────────────────────────────
 
 const SIGNALS = {
   il: {
-    label: 'interview letters',
-    title: (n) => `London: applicants report new interview letters (${n})`,
-    re: /\b(interview letter|\bILs?\b|got (my|our|the) interview|interview (date|scheduled|booked)|DQ dates?|scheduling (tool|update))/i,
+    label: 'Interview letters and scheduling',
+    re: /\b(interview letter|\bILs?\b|got (my|our|the) interview|interview (date|scheduled|booked)|DQ dates?|DQ'?d|scheduling (tool|update)|new interviews?)/i,
   },
   reschedule: {
-    label: 'reschedules or cancellations',
-    title: (n) => `London: applicants report rescheduled or cancelled interviews (${n})`,
-    re: /\b(reschedul\w*|cancel+ed|postponed|moved (my|our|the) interview|new (interview )?date)/i,
+    label: 'Reschedules and cancellations',
+    re: /\b(reschedul\w*|cancel+ed|postponed|moved (my|our|his|her|the) interview|new (interview )?date)/i,
   },
   outcome: {
-    label: 'interview outcomes and administrative processing',
-    title: (n) => `London: interview outcomes and 221(g) updates (${n})`,
-    re: /\b(approved|visa in hand|passport (back|returned|delivered)|issued|221\s?\(?g\)?|administrative processing|\bAP\b|refused|denied)/i,
+    label: 'Outcomes and administrative processing',
+    re: /\b(approved|visa in hand|passport (back|returned|delivered|posted)|issued|221\s?\(?g\)?|administrative processing|\bAP\b|refused|denied|public charge)/i,
   },
 };
 
 const MONTHS = 'January|February|March|April|May|June|July|August|September|October|November|December';
 const MONTH_RE = new RegExp(`\\b(${MONTHS})\\b`, 'gi');
+const MONTH_NAMES = MONTHS.split('|');
 
-function isoWeek(d = new Date()) {
-  const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+function isoWeek(d) {
+  const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
   const day = t.getUTCDay() || 7;
   t.setUTCDate(t.getUTCDate() + 4 - day);
   const y = t.getUTCFullYear();
@@ -65,85 +69,105 @@ function isoWeek(d = new Date()) {
 }
 
 const hashId = (s) => createHash('sha1').update(s).digest('hex').slice(0, 10);
+const dayMonth = (iso) => {
+  const [, m, d] = iso.split('-').map(Number);
+  return { d, m: MONTH_NAMES[m - 1] };
+};
+function rangeLabel(from, to) {
+  const a = dayMonth(from), b = dayMonth(to);
+  return a.m === b.m ? `${a.d}–${b.d} ${b.m}` : `${a.d} ${a.m} – ${b.d} ${b.m}`;
+}
 
 // ── Build ───────────────────────────────────────────────────────────────
 
 const run = JSON.parse(readFileSync(file, 'utf8'));
-// Older runs doubled the host ("https://www.reddit.comhttps://...").
-run.posts = run.posts.filter(isLondonIV);
-for (const p of run.posts) p.permalink = p.permalink.replace(/^https:\/\/www\.reddit\.com(?=https?:)/, '');
+const to = run.generated.slice(0, 10);
+const from = run.since ?? new Date(Date.parse(to) - 7 * 864e5).toISOString().slice(0, 10);
 const week = isoWeek(new Date(run.generated));
 const now = new Date().toISOString();
 
-const digests = [];
+// Older runs doubled the host ("https://www.reddit.comhttps://...").
+const posts = run.posts.filter(isLondonIV).map((p) => ({
+  ...p,
+  permalink: p.permalink.replace(/^https:\/\/www\.reddit\.com(?=https?:)/, ''),
+  comments: (p.comments ?? []).filter((c) => c.created >= from),
+}));
+
+const points = [];
+const evidence = new Map(); // thread id -> number of in-week mentions across signals
 for (const [key, sig] of Object.entries(SIGNALS)) {
-  const threads = [];
-  let commentHits = 0;
+  let threads = 0, comments = 0;
   const months = new Map();
-  for (const p of run.posts) {
-    const postHit = sig.re.test(`${p.title}\n${p.selftext}`);
-    const hits = (p.comments ?? []).filter((c) => sig.re.test(c.body));
+  for (const p of posts) {
+    const postHit = p.created >= from && sig.re.test(`${p.title}\n${p.selftext}`);
+    const hits = p.comments.filter((c) => sig.re.test(c.body));
     if (!postHit && !hits.length) continue;
-    commentHits += hits.length;
-    threads.push(p);
-    for (const txt of [p.title, p.selftext, ...hits.map((c) => c.body)]) {
+    threads++;
+    comments += hits.length;
+    evidence.set(p.id, (evidence.get(p.id) ?? 0) + (postHit ? 1 : 0) + hits.length);
+    for (const txt of [postHit ? `${p.title} ${p.selftext}` : '', ...hits.map((c) => c.body)]) {
       for (const m of txt.matchAll(MONTH_RE)) {
         const k = m[1][0].toUpperCase() + m[1].slice(1).toLowerCase();
         months.set(k, (months.get(k) ?? 0) + 1);
       }
     }
   }
-  if (!threads.length) continue;
-
-  threads.sort((a, b) => b.num_comments - a.num_comments || b.created.localeCompare(a.created));
-  const reports = threads.length + commentHits;
-  const subs = [...new Set(threads.map((t) => `r/${t.subreddit}`))];
-  const monthList = [...months].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([m, n]) => `${m} (${n})`);
-
-  const lines = [
-    `${threads.length} thread(s) and ${commentHits} comment(s) mention ${sig.label}, ${run.since ?? 'past ' + run.window} to ${run.generated.slice(0, 10)}.`,
-    reports === 1 ? 'SINGLE REPORT: only one mention; treat as unconfirmed.' : null,
-    monthList.length ? `Months mentioned most: ${monthList.join(', ')}.` : null,
-    key === 'reschedule' && (months.has('September') || months.has('October'))
-      ? 'Some mentions name September/October, which may be the 23 Oct reschedule wave already on /news.'
-      : null,
-    'Threads:',
-    ...threads.slice(0, 8).map((t) => `- ${t.created} r/${t.subreddit}: ${t.title} ${t.permalink}`),
-    threads.length > 8 ? `- …and ${threads.length - 8} more (see urls)` : null,
-  ].filter(Boolean);
-
-  digests.push({
-    id: hashId(`reddit-london-${key}-${week}`),
-    status: 'pending',
-    source: `reddit-london-${key}`,
-    sourceName: subs.length <= 3 ? subs.join(', ') : `Reddit (${subs.length} subreddits)`,
-    type: 'community',
-    date: threads.map((t) => t.created).sort().at(-1),
-    title: sig.title(`${threads.length} thread${threads.length === 1 ? '' : 's'}`),
-    url: threads[0].permalink,
-    urls: threads.map((t) => t.permalink),
-    summary: lines.join('\n'),
-    matched: [key, `${reports} report(s)`],
-    score: reports,
-    reports,
-    foundAt: now,
+  if (!threads) continue;
+  const monthList = [...months].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([m, n]) => `${m} ×${n}`);
+  points.push({
+    key,
+    label: sig.label,
+    text:
+      `DRAFT: ${threads} thread(s), ${comments} comment(s) this week.` +
+      (threads + comments === 1 ? ' SINGLE REPORT.' : '') +
+      (monthList.length ? ` Months mentioned: ${monthList.join(', ')}.` : ''),
   });
 }
+
+const ranked = posts
+  .filter((p) => evidence.has(p.id))
+  .sort((a, b) => evidence.get(b.id) - evidence.get(a.id) || b.num_comments - a.num_comments);
+const subs = [...new Set(ranked.map((p) => `r/${p.subreddit}`))];
+const reports = [...evidence.values()].reduce((a, b) => a + b, 0);
+
+if (!ranked.length) {
+  console.log(`No London reports between ${from} and ${to}; nothing queued.`);
+  process.exit(0);
+}
+
+const roundup = {
+  id: hashId(`reddit-london-week-${week}`),
+  status: 'pending',
+  source: 'reddit-london-week',
+  sourceName: subs.length <= 2 ? `Reddit: ${subs.join(', ')}` : `Reddit: ${subs.slice(0, 2).join(', ')} and others`,
+  type: 'community',
+  date: to,
+  period: { from, to },
+  title: `London this week: ${rangeLabel(from, to)}`,
+  url: '',
+  note: '',
+  points: points.map(({ label, text }) => ({ label, text })),
+  sources: ranked.slice(0, MAX_SOURCES).map((p) => ({ label: p.title, url: p.permalink })),
+  urls: ranked.map((p) => p.permalink),
+  summary: `${ranked.length} thread(s) with ${reports} in-week mention(s), ${from} to ${to}. Rewrite note and points before approving.`,
+  matched: points.map((p) => p.key),
+  score: reports,
+  reports,
+  foundAt: now,
+};
 
 // ── Queue ───────────────────────────────────────────────────────────────
 
 if (DRY) {
-  for (const d of digests) console.log(`[${d.id}] ${d.title}\n${d.summary}\n`);
+  console.log(JSON.stringify(roundup, null, 2));
   process.exit(0);
 }
 
 const queue = JSON.parse(readFileSync(QUEUE_PATH, 'utf8'));
-let added = 0, replaced = 0, kept = 0;
-for (const d of digests) {
-  const i = queue.items.findIndex((x) => x.id === d.id);
-  if (i < 0) { queue.items.push(d); added++; }
-  else if (queue.items[i].status === 'pending') { queue.items[i] = d; replaced++; }
-  else kept++;
-}
+const i = queue.items.findIndex((x) => x.id === roundup.id);
+let action = 'added';
+if (i < 0) queue.items.push(roundup);
+else if (queue.items[i].status === 'pending') { queue.items[i] = roundup; action = 'replaced'; }
+else action = `left alone (already ${queue.items[i].status})`;
 writeFileSync(QUEUE_PATH, JSON.stringify(queue, null, 2) + '\n');
-console.log(`From ${file.split('/').pop()}: ${added} added, ${replaced} replaced, ${kept} already decided. Run: npm run news:review`);
+console.log(`Weekly roundup ${roundup.id} ${action}: ${roundup.title}, ${ranked.length} threads. Run: npm run news:review`);

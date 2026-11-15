@@ -1,6 +1,6 @@
 /*
    Reddit research: search Reddit for N-400 / I-130 / London interview posts
-   and save each relevant post with its top 20 top-level comments.
+   and save each relevant post with up to 100 comments and replies.
 
    Runs inside the Composio CLI, which injects an authenticated execute():
 
@@ -64,7 +64,8 @@ const TIME_WINDOWS = ['hour', 'day', 'week', 'month', 'year', 'all'];
 const WINDOW = ARGS.find((a) => TIME_WINDOWS.includes(a)) ?? 'month';
 
 const POSTS_PER_QUERY = 25;   // Reddit max per page is 100
-const COMMENTS_PER_POST = 20;
+const COMMENTS_PER_POST = 100; // top-level + replies, in thread order
+const REPLY_DEPTH = 10;
 const MIN_COMMENTS = 1;       // skip posts nobody answered
 const GAP_MS = 6000;          // pause between Reddit calls
 const MAX_RETRIES = 4;
@@ -132,23 +133,37 @@ function afterFrom(data) {
   return data?.after ?? data?.data?.after ?? null;
 }
 
-function topComments(data) {
+// Flatten the comment tree (top-level comments and their replies) in
+// thread order: each top-level comment by score, its replies under it.
+// Reddit collapses very long threads into "more" stubs; those are skipped
+// (expanding them costs extra rate-limited calls).
+function allComments(data) {
   const listing =
     data?.comments_listing ?? (Array.isArray(data) ? data[1] : null) ?? data?.[1];
-  const kids = listing?.data?.children ?? [];
-  return kids
-    .filter((c) => c.kind === 't1')
-    .map((c) => c.data)
-    .filter((c) => c.body && !['[deleted]', '[removed]'].includes(c.body))
-    .filter((c) => c.author !== 'AutoModerator' && !c.stickied)
-    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
-    .slice(0, COMMENTS_PER_POST)
-    .map((c) => ({
-      score: c.score ?? 0,
-      created: new Date(c.created_utc * 1000).toISOString().slice(0, 10),
-      body: c.body,
-      permalink: fullLink(c.permalink),
-    }));
+  const out = [];
+  const walk = (children, depth) => {
+    const kept = (children ?? [])
+      .filter((c) => c.kind === 't1')
+      .map((c) => c.data)
+      .filter((c) => c.author !== 'AutoModerator' && !c.stickied)
+      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
+    for (const c of kept) {
+      if (out.length >= COMMENTS_PER_POST) return;
+      if (c.body && !['[deleted]', '[removed]'].includes(c.body)) {
+        out.push({
+          depth,
+          score: c.score ?? 0,
+          created: new Date(c.created_utc * 1000).toISOString().slice(0, 10),
+          body: c.body,
+          permalink: fullLink(c.permalink),
+        });
+      }
+      // Replies of a deleted comment can still be useful, so always descend.
+      walk(c.replies?.data?.children, depth + 1);
+    }
+  };
+  walk(listing?.data?.children, 0);
+  return out;
 }
 
 // ── Run ─────────────────────────────────────────────────────────────────
@@ -215,10 +230,10 @@ try {
     const data = await reddit('REDDIT_RETRIEVE_POST_COMMENTS', {
       article: post.id,
       sort: 'top',
-      depth: 1,
-      limit: 50,
+      depth: REPLY_DEPTH,
+      limit: 500,
     });
-    post.comments = topComments(data);
+    post.comments = allComments(data);
   }
 } catch (err) {
   if (!(err instanceof RateLimited)) throw err;
@@ -247,9 +262,9 @@ const md = [
     '',
     p.selftext ? p.selftext.slice(0, 1500) + (p.selftext.length > 1500 ? ' …' : '') : '_(no body text)_',
     '',
-    `### Top comments (${p.comments?.length ?? 'not fetched'})`,
+    `### Comments and replies (${p.comments?.length ?? 'not fetched'})`,
     '',
-    ...(p.comments ?? []).map((c) => `- **${c.score}** (${c.created}): ${c.body.replace(/\n+/g, ' ').slice(0, 600)}`),
+    ...(p.comments ?? []).map((c) => `${'  '.repeat(c.depth ?? 0)}- **${c.score}** (${c.created}): ${c.body.replace(/\n+/g, ' ').slice(0, 600)}`),
     '',
   ]),
 ].join('\n');

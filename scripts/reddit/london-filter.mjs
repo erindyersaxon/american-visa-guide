@@ -20,7 +20,7 @@ const IV_RE = new RegExp(
 );
 
 // Never in scope: non-immigrant US visas, UK visas, planning questions.
-const EXCLUDE_RE = /\b(F-1 (visa|student)|F-1 administrative|student visa|standard visitor|UKVI|B1\/B2|ESTA|tourist visa|EB-?1C)\b|^F-1\b/i;
+const EXCLUDE_RE = /\b(H-?1B|transit visa|F-1 (visa|student)|F-1 administrative|student visa|standard visitor|UKVI|B1\/B2|ESTA|tourist visa|EB-?1C)\b|^F-1\b/i;
 const EXCLUDE_SUBS = new Set(['ukvisa', 'interpol']);
 
 /** @param {{title: string, selftext: string, subreddit?: string}} post */
