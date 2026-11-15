@@ -55,6 +55,12 @@
       .sample dl { grid-template-columns: 1fr; }
       .sample dd { margin-bottom: 0.35rem; }
     }
+    .aff-card { border: 1px solid var(--line); border-radius: var(--radius-md, 0.375rem); padding: 0.9rem 1rem; margin: 0.75rem 0; }
+    .aff-card h3 { margin: 0 0 0.6rem; font-size: 1rem; }
+    .aff-print { display: none; }
+    .aff-print p { margin: 0 0 0.8rem; white-space: pre-wrap; }
+    .aff-print .sig { margin-top: 2.5rem; }
+    .opt-tag { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.5rem; vertical-align: middle; margin-left: 0.4rem; }
     .pv { display: none; white-space: pre-wrap; }
     .print-head { display: none; }
 
@@ -73,6 +79,11 @@
       .ev-table th { color: #000 !important; background: #eee !important; }
       .page-wrap { max-width: none !important; padding: 0 !important; }
       .calls { min-width: 0; }
+      .aff-card { border: none; padding: 0; margin: 0; break-before: page; }
+      .aff-card:first-of-type { break-before: auto; }
+      .aff-card > *:not(.aff-print) { display: none !important; }
+      .aff-print { display: block; }
+      #aff-section .print-head { display: none; }
     }
   </style>
 <link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
@@ -191,6 +202,25 @@
       </div>
     </section>
 
+    <section class="ev-section" id="aff-section" aria-labelledby="aff-title">
+      <div class="print-head"><h2>Affidavits</h2></div>
+      <h2 id="aff-title" class="no-print">Third-party affidavits <span class="opt-tag">Optional</span></h2>
+      <div class="no-print">
+        <p>A friend or relative who knows you both writes a statement about your relationship and signs it. USCIS accepts affidavits "when primary or secondary evidence does not exist or is unavailable". Treat them as support for your documents. Skip this section if your joint documents and photos already cover the relationship.</p>
+        <p>The USCIS Policy Manual requires each affidavit to contain:</p>
+        <ul>
+          <li>The full name and address of the person making it.</li>
+          <li>Their date and place of birth.</li>
+          <li>Details explaining how they came to know about the marriage.</li>
+        </ul>
+        <p>Choose people who have seen you together in person: at the wedding, on visits, at family events. Ask each one to name dates and places. "They are a lovely couple" tells the officer nothing. "I hosted them for dinner in Santiago on 22 December 2024" does. The writer fills in their own details and signs. Do not write it for them.</p>
+      </div>
+      <div id="aff-list"></div>
+      <div class="btn-row no-print">
+        <button type="button" class="btn" id="aff-add">Add an affidavit</button>
+      </div>
+    </section>
+
     <div class="btn-row no-print" style="margin-top:1.5rem">
       <button type="button" class="btn" onclick="window.print()">Print or save as PDF</button>
       <button type="button" class="btn btn--ghost" id="ev-clear">Clear everything</button>
@@ -203,6 +233,7 @@
     <li>US Embassy Santo Domingo, guidance on proof of relationship for spousal petitions, quoted in <a href="https://dominicantoday.com/?p=194045" target="_blank" rel="noopener noreferrer">Dominican Today, 31 July 2023</a>.</li>
     <li><a href="https://travel.state.gov/content/travel/en/us-visas/Supplements/Supplements_by_Post/SDO-Santo-Domingo.html" target="_blank" rel="noopener noreferrer">travel.state.gov: Santo Domingo immigrant visa supplement</a>, which asks for evidence of the relationship such as photographs, letters or emails.</li>
     <li><a href="https://www.uscis.gov/policy-manual/volume-6-part-b-chapter-6" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 6, Part B, Chapter 6: Spouses</a> [6 USCIS-PM B.6], Section B.3 (bona fide marriages) and Section C.1 (required documentation), updated 17 October 2025.</li>
+    <li><a href="https://www.law.cornell.edu/uscode/text/28/1746" target="_blank" rel="noopener noreferrer">28 U.S.C. 1746</a>, which lets a signed declaration "under penalty of perjury" stand in for a notarized affidavit in federal matters.</li>
     <li><a href="https://www.ecfr.gov/current/title-8/section-204.2" target="_blank" rel="noopener noreferrer">8 CFR 204.2(a)(1)(i)(B)</a>, the regulation behind the six evidence types.</li>
     <li><a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer">USCIS: Form I-130 and instructions</a>.</li>
     <li><a href="https://fam.state.gov/fam/09FAM/09FAM010208.html" target="_blank" rel="noopener noreferrer">9 FAM 102.8: Family-based relationships</a>, the consular rules on which marriages qualify.</li>
@@ -246,7 +277,8 @@
       cover: d.cover || { pet: '', ben: '', 'case': '' },
       photos: (d.photos && d.photos.length) ? d.photos : [blankRow()],
       messages: (d.messages && d.messages.length) ? d.messages : [blankRow()],
-      calls: (d.calls && d.calls.length) ? d.calls : [{}, {}, {}]
+      calls: (d.calls && d.calls.length) ? d.calls : [{}, {}, {}],
+      affidavits: d.affidavits || []
     };
   }
   var status = document.getElementById('ev-status');
@@ -351,6 +383,7 @@
   }
   function markSections() {
     Array.prototype.forEach.call(document.querySelectorAll('.ev-section'), function (sec) {
+      if (sec.id === 'aff-section') { sec.classList.toggle('empty', !state.affidavits.length); return; }
       sec.classList.toggle('empty', !sec.querySelector('tbody tr:not(.empty)'));
     });
   }
@@ -405,7 +438,74 @@
     location.reload();
   });
 
-  renderCover(); renderTable('photos'); renderTable('messages'); renderCalls();
+  var AFF_FIELDS = [
+    { k: 'name', label: 'Full name of the person making the affidavit' },
+    { k: 'dob', label: 'Date of birth', type: 'date' },
+    { k: 'pob', label: 'Place of birth', ph: 'City, country' },
+    { k: 'address', label: 'Full address', area: true, rows: 2 },
+    { k: 'relation', label: 'Relationship to the couple, and for how long', ph: 'Petitioner\'s sister. I have known the beneficiary since March 2023.' },
+    { k: 'knowledge', label: 'How they know about the relationship and the marriage', area: true, rows: 4, ph: 'I attended their wedding in Santo Domingo on 10 May 2025. I have spent time with them together on three visits.' },
+    { k: 'events', label: 'Specific occasions they saw the couple together: date, place, what happened', area: true, rows: 5, ph: '22 December 2024, Santiago: I hosted them for dinner and they told us about their engagement.' },
+    { k: 'contact', label: 'Phone or email (optional)' }
+  ];
+  function affText(a) {
+    var c = state.cover;
+    var couple = (c.pet || '[petitioner]') + ' and ' + (c.ben || '[beneficiary]');
+    return [
+      'I, ' + (a.name || '[full name]') + ', born on ' + (fmtDate(a.dob) || '[date of birth]') + ' in ' + (a.pob || '[place of birth]') + ', residing at ' + (a.address || '[address]').replace(/\n+/g, ', ') + ', make this statement about the marriage of ' + couple + '.',
+      'My relationship to the couple: ' + (a.relation || '[relationship]'),
+      'How I know about their relationship and marriage: ' + (a.knowledge || '[details]'),
+      'Occasions I have seen them together:\n' + (a.events || '[dates, places, what happened]'),
+      a.contact ? 'Contact: ' + a.contact : '',
+      'I declare under penalty of perjury under the laws of the United States of America that the foregoing is true and correct.'
+    ].filter(Boolean);
+  }
+  function renderAff() {
+    var list = document.getElementById('aff-list');
+    list.innerHTML = '';
+    state.affidavits.forEach(function (a, i) {
+      var card = el('div', { 'class': 'aff-card' });
+      card.appendChild(el('h3', { text: 'Affidavit ' + (i + 1) }));
+      var printBox = el('div', { 'class': 'aff-print' });
+      function paint() {
+        printBox.innerHTML = '';
+        printBox.appendChild(el('h2', { text: 'Affidavit of ' + (a.name || '[full name]') }));
+        var line = document.querySelector('.cover-line'); if (line && line.textContent) printBox.appendChild(el('p', { text: line.textContent }));
+        affText(a).forEach(function (t) { printBox.appendChild(el('p', { text: t })); });
+        printBox.appendChild(el('p', { 'class': 'sig', text: 'Signature: ______________________________\n\nDate: ________________   Place: ______________________________' }));
+      }
+      var grid = el('div', { 'class': 'field-row' });
+      AFF_FIELDS.forEach(function (f) {
+        var id = 'aff-' + f.k + '-' + i;
+        var input = f.area ? el('textarea', { id: id, rows: String(f.rows || 3) }) : el('input', { type: f.type || 'text', id: id });
+        if (f.ph) input.setAttribute('placeholder', f.ph);
+        input.value = a[f.k] || '';
+        input.addEventListener('input', function () { a[f.k] = input.value; paint(); save(); });
+        var field = el('div', { 'class': 'field' }, [el('label', { 'for': id, text: f.label }), input]);
+        if (f.k === 'name') card.appendChild(grid);
+        if (['name', 'dob', 'pob'].indexOf(f.k) > -1) grid.appendChild(field); else card.appendChild(field);
+      });
+      var missing = el('p', { 'class': 'hint' });
+      function check() {
+        var need = [['name', 'full name'], ['address', 'address'], ['dob', 'date of birth'], ['pob', 'place of birth'], ['knowledge', 'how they know about the marriage']].filter(function (r) { return !a[r[0]]; }).map(function (r) { return r[1]; });
+        missing.textContent = need.length ? 'Still missing, and required by USCIS: ' + need.join(', ') + '.' : 'All items USCIS requires are filled in. The writer signs and dates the printed copy.';
+      }
+      card.addEventListener('input', check);
+      card.appendChild(missing);
+      card.appendChild(el('div', { 'class': 'row-tools' }, [btn('Delete affidavit', function () {
+        if (!confirm('Delete this affidavit?')) return;
+        state.affidavits.splice(i, 1); save(); renderAff();
+      })]));
+      card.appendChild(printBox);
+      paint(); check();
+      list.appendChild(card);
+    });
+    markSections();
+  }
+  document.getElementById('aff-add').addEventListener('click', function () { state.affidavits.push({}); save(); renderAff(); });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cover]'), function (input) { input.addEventListener('input', renderAff); });
+
+  renderCover(); renderTable('photos'); renderTable('messages'); renderCalls(); renderAff();
 })();
 </script>
 </body>
