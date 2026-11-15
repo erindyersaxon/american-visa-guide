@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVG direction: Visa Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Besley:wght@500;600;700&family=Nothing+You+Could+Do&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --passport:#1B2A4A;      /* dominant: US passport cover navy */
+  --flag-blue:#2E4A7D;     /* links, from the brand chevron */
+  --glory:#B3261E;         /* the one sharp accent: stamp ink red */
+  --glory-on-dark:#F08A80;
+  --paper:#EEF2F4;         /* visa security paper, cool not cream */
+  --white:#FFFFFF;
+  --ink:#16202E;
+  --ink-2:#4A5568;
+  --rule:#C9D3DC;
+  --font-display:'Besley', Georgia, serif;
+  --font-body:'Public Sans', system-ui, sans-serif;
+  --font-hand:'Nothing You Could Do', 'Bradley Hand', cursive;
+  --pen:#1F3F9A;            /* blue ballpoint: forms ask for blue or black ink */
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--ink);font:18px/1.6 var(--font-body)}
+a{color:var(--flag-blue);text-underline-offset:.15em}
+a:focus-visible{outline:3px solid transparent;background:#ffdd00;color:#0b0c0c;box-shadow:0 -2px #ffdd00,0 4px #0b0c0c;text-decoration:none}
+
+/* nav: passport cover */
+.nav{background:var(--passport);color:#fff;display:flex;align-items:center;gap:28px;padding:0 max(16px,calc((100% - 1160px)/2));height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:600 20px/1 var(--font-display);letter-spacing:-.01em}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0 0 0 auto;padding:0;font-size:15px}
+.nav li a{color:#D5DDE8;text-decoration:none;padding:21px 0;border-bottom:3px solid transparent}
+.nav li a[aria-current]{color:#fff;border-bottom-color:var(--glory-on-dark)}
+@media (max-width:900px){.nav ul{display:none}}
+
+/* hero on security paper */
+.hero{position:relative;background:var(--paper);border-bottom:1px solid var(--rule);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url(guilloche.svg) center/cover no-repeat;opacity:.35;pointer-events:none;
+  /* keep the pattern out from behind text: right side, above the route only */
+  -webkit-mask-image:linear-gradient(to right,transparent 48%,#000 72%),linear-gradient(to bottom,#000 50%,transparent 64%);
+  -webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 48%,#000 72%),linear-gradient(to bottom,#000 50%,transparent 64%);mask-composite:intersect}
+@media (max-width:760px){.hero::before{inset:0 0 auto 0;height:40px;-webkit-mask-image:none;mask-image:none;opacity:.5}}
+.hero-in{position:relative;max-width:1160px;margin:0 auto;padding:64px 16px 56px}
+.kicker{font-size:16px;color:var(--ink-2);margin:0 0 14px}
+h1{font:700 clamp(2.1rem,4.4vw,3.4rem)/1.1 var(--font-display);letter-spacing:-.02em;color:var(--passport);margin:0 0 18px;padding-top:.75em}
+@media (max-width:640px){h1{line-height:1.15}}
+/* handwritten insertion: real text in reading order, drawn above the gap */
+.keep{white-space:nowrap}
+.ins{position:relative;display:inline-block;width:.42em}
+.ins-word{position:absolute;left:.4em;bottom:1.02em;font:400 .82em/1 var(--font-hand);color:var(--pen);
+  letter-spacing:0;white-space:nowrap;transform:rotate(-6deg);transform-origin:left bottom}
+.ins-arrow{position:absolute;left:-.12em;bottom:0;width:1em;height:1.1em;overflow:visible;
+  fill:none;stroke:var(--pen);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+@media (forced-colors:active){.ins-word{color:CanvasText}.ins-arrow{stroke:CanvasText}}
+.lede{font-size:20px;max-width:56ch;margin:0 0 44px;color:var(--ink)}
+
+/* the memorable thing: the route, stamped */
+.route-q{font:600 18px/1.3 var(--font-body);margin:0 0 18px}
+.route{position:relative;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(10,1fr);gap:0}
+.route::before{content:"";position:absolute;left:5%;right:5%;top:30px;border-top:2px dashed var(--flag-blue);opacity:.55;
+  transform-origin:left;animation:draw .9s .1s cubic-bezier(.6,0,.2,1) both}
+.route li{position:relative;text-align:center;padding:0 4px}
+.route a{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-size:16px;line-height:1.3;font-weight:500}
+.stamp{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--white);
+  border:2.5px solid var(--flag-blue);box-shadow:inset 0 0 0 3px var(--white),inset 0 0 0 4.5px var(--flag-blue);
+  font:700 22px/1 var(--font-display);color:var(--flag-blue);transform:rotate(var(--tilt,-2deg));
+  animation:press .38s calc(.25s + var(--i)*70ms) cubic-bezier(.3,1.6,.5,1) both;transition:background .15s,color .15s}
+.route a:hover .stamp{background:var(--flag-blue);color:#fff;box-shadow:inset 0 0 0 3px var(--flag-blue),inset 0 0 0 4.5px #fff}
+/* current stage: red fill AND words, so it never relies on colour (WCAG 1.4.1) */
+.route .is-here .stamp{background:var(--glory);border-color:var(--glory);color:#fff;box-shadow:inset 0 0 0 3px var(--glory),inset 0 0 0 4.5px #fff}
+.here-tag{display:block;font-weight:700;color:var(--glory);font-size:16px}
+@media (forced-colors:active){.route .is-here .stamp{forced-color-adjust:none;background:Highlight;color:HighlightText;border-color:Highlight}}
+/* 2. focus: black ring, yellow centre, dark ink; the number stays readable */
+.route a:focus-visible{background:none;box-shadow:none;color:var(--ink)}
+.route a:focus-visible .stamp{background:#ffdd00;color:#0b0c0c;border-color:#0b0c0c;box-shadow:0 0 0 3px #0b0c0c}
+.route a:focus-visible span:last-child{text-decoration:underline 3px;text-underline-offset:.2em}
+/* never split a form number across lines */
+.formno{white-space:nowrap}
+.route a:hover span:last-child{text-decoration:underline}
+.route li:last-child .stamp{border-color:var(--passport);color:var(--passport);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 4.5px var(--passport);font-size:15px}
+@keyframes draw{from{transform:scaleX(0)}}
+@keyframes press{from{opacity:0;transform:scale(1.15) rotate(-6deg)}}
+@media (prefers-reduced-motion:reduce){.route::before,.stamp{animation:none}}
+@media (max-width:760px){
+  .route{grid-template-columns:1fr;gap:14px}
+  .route::before{left:29px;right:auto;top:20px;bottom:20px;border-top:0;border-left:2px dashed var(--flag-blue)}
+  .route a{flex-direction:row;text-align:left;font-size:16px}
+}
+
+/* below the fold: quiet and disciplined */
+.wrap{max-width:1160px;margin:0 auto;padding:64px 16px}
+h2{font:600 30px/1.2 var(--font-display);color:var(--passport);margin:0 0 8px;letter-spacing:-.01em}
+.sub{color:var(--ink-2);margin:0 0 28px}
+.forms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+/* checklists as the forms they are: form number, rule, title */
+.form{border-top:6px solid var(--passport);background:var(--white);padding:18px 0 0}
+.form .no{font:600 16px/1 var(--font-display);color:var(--passport);margin:0 0 10px;display:flex;justify-content:space-between}
+.form .no small{font:500 16px var(--font-body);color:var(--ink-2)}
+.form h3{font:600 22px/1.25 var(--font-display);margin:0 0 8px}
+.form h3 a{color:var(--ink);text-decoration:none}
+.form h3 a:hover{text-decoration:underline}
+.form p{margin:0;color:var(--ink-2);font-size:17px}
+
+.callout{border-left:6px solid var(--flag-blue);background:var(--paper);padding:20px 24px;max-width:72ch;margin-top:48px}
+.callout dt{font-weight:700}
+.callout dd{margin:0 0 10px}
+.role{display:inline-block;background:#1A5FB4;color:#fff;font-weight:700;font-size:16px;padding:1px 10px;border-radius:4px}
+
+.foot{background:var(--passport);color:#D5DDE8;padding:40px 16px;font-size:15px}
+.foot div{max-width:1160px;margin:0 auto}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="#">
+    <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#EEF2F4"/><path d="M4 5 h5.5 L13.5 12 L9.5 19 H4 L8 12 Z" fill="#bf3b3b"/><path d="M11 5 h5.5 L20.5 12 L16.5 19 H11 L15 12 Z" fill="#2e4a7d"/></svg>
+    American Visa Guide
+  </a>
+  <ul>
+    <li><a href="#" aria-current="page">Home</a></li><li><a href="#">Data</a></li><li><a href="#">Guide</a></li><li><a href="#">Checklists</a></li><li><a href="#">Life in the USA</a></li><li><a href="#">Naturalization</a></li><li><a href="#">About</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <p class="kicker">For UK families applying through the US Embassy London</p>
+    <h1>Your <span class="keep">American <span class="ins"><span class="ins-word">family</span><svg class="ins-arrow" viewBox="0 0 100 110" aria-hidden="true" focusable="false"><path d="M84 12 C 64 4, 50 40, 14 78"/><path d="M14 78 L 35 79 M14 78 L 22 58"/></svg></span> visa</span> guide</h1>
+    <p class="lede">Every stage from filing the <span class="formno">I-130</span> to landing in the US, with real wait times from 200+ members and checklists you can print. Written by people going through it now.</p>
+    <p class="route-q" id="rq">Where are you now?</p>
+    <ol class="route" aria-labelledby="rq">
+      <li style="--i:0;--tilt:-3deg"><a href="#"><span class="stamp">1</span><span>Filed the <span class="formno">I-130</span></span></a></li>
+      <li style="--i:1;--tilt:3deg"><a href="#"><span class="stamp">2</span><span>At NVC</span></a></li>
+      <li style="--i:2;--tilt:-3deg"><a href="#" class="is-here"><span class="stamp">3</span><span>Waiting for a letter <span class="here-tag">You are here</span></span></a></li>
+      <li style="--i:3;--tilt:3deg"><a href="#"><span class="stamp">4</span><span>Letter arrived</span></a></li>
+      <li style="--i:4;--tilt:-3deg"><a href="#"><span class="stamp">5</span><span>Medical</span></a></li>
+      <li style="--i:5;--tilt:3deg"><a href="#"><span class="stamp">6</span><span>Interview</span></a></li>
+      <li style="--i:6;--tilt:-3deg"><a href="#"><span class="stamp">7</span><span>After the interview</span></a></li>
+      <li style="--i:7;--tilt:3deg"><a href="#"><span class="stamp">8</span><span>Before you leave</span></a></li>
+      <li style="--i:8;--tilt:-3deg"><a href="#"><span class="stamp">9</span><span>Entering the US</span></a></li>
+      <li style="--i:9;--tilt:0deg"><a href="#"><span class="stamp" aria-hidden="true">USA</span><span>Life in the USA</span></a></li>
+    </ol>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>Checklists to print</h2>
+  <p class="sub">One for each form or appointment. Nothing you tick is sent anywhere.</p>
+  <div class="forms">
+    <article class="form"><p class="no">Form I-130 <small>Stage 1</small></p><h3><a href="#">I-130 pre-submission checklist</a></h3><p>Work through this before you file. Most RFEs are preventable.</p></article>
+    <article class="form"><p class="no">DS-260 + I-864 <small>Stage 2</small></p><h3><a href="#">NVC document checklist</a></h3><p>Civil documents, financial evidence and the order NVC wants them in.</p></article>
+    <article class="form"><p class="no">Interview <small>Stage 6</small></p><h3><a href="#">Interview day checklist</a></h3><p>What goes in the folder, what to leave at home, and the queue at Nine Elms.</p></article>
+  </div>
+
+  <dl class="callout">
+    <dt>You are here</dt><dd>USCIS has approved your I-130 and passed your case to the National Visa Center.</dd>
+    <dt>Do this first</dt><dd><span class="role">Petitioner</span> Get the IRS tax transcript for every sponsor.</dd>
+  </dl>
+</main>
+<footer class="foot"><div>American Visa Guide. A community resource, not legal advice.</div></footer>
+</body>
+</html>
