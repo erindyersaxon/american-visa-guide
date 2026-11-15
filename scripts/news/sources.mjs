@@ -99,6 +99,8 @@ export const SOURCES = [
   },
   // Court cases behind the immigrant visa pause and its rescission. Add a
   // docket here when a new case starts to matter to London applicants.
+  // (Medani v. Trump, N.D. Cal., was dropped: it is a diversity visa case,
+  // cited on /news only because the government filed cables there.)
   {
     id: 'docket-clinic-sdny',
     name: 'Court docket: CLINIC v. Rubio (S.D.N.Y.)',
@@ -120,17 +122,6 @@ export const SOURCES = [
     needs: 'docket',
     since: '2026-10-24',
     url: docket(74793181),
-  },
-  {
-    id: 'docket-medani',
-    name: 'Court docket: Medani v. Trump (N.D. Cal.)',
-    label: 'Medani v. Trump (N.D. Cal.)',
-    case: 'Medani v. Trump',
-    kind: 'atom',
-    type: 'official',
-    needs: 'docket',
-    since: '2026-10-24',
-    url: docket(73529774),
   },
   {
     id: 'gnews-embassy',
