@@ -21,6 +21,9 @@
     .ev-table th { font-family: var(--font-ui); font-size: 0.85rem; background: var(--surface-alt); color: var(--ink); }
     .ev-table col.c-media { width: 55%; }
     .ev-table tr { break-inside: avoid; page-break-inside: avoid; }
+    .media[style*="--n:1"] { max-width: 18rem; }
+    .media[style*="--n:3"] { grid-template-columns: 1fr 1fr; }
+    .media[style*="--n:3"] > :first-child { grid-column: 1 / -1; }
     .ev-num { font-family: var(--font-ui); font-weight: 700; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.35rem; }
 
     .media { display: grid; gap: 0.4rem; grid-template-columns: repeat(var(--n, 1), minmax(0, 1fr)); }
@@ -122,6 +125,7 @@
   </div>
 
   <h2 class="no-print">What a finished row looks like</h2>
+  <p class="no-print">See a <a href="/relationship-evidence-example">full worked example</a>: eight rows for a fictional couple, from the night they met to a visit after filing.</p>
   <div class="sample" aria-label="Example of a completed photo row">
     <table class="ev-table" style="margin:0">
       <colgroup><col class="c-media"><col></colgroup>
