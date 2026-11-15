@@ -208,14 +208,22 @@
       <h2 id="aff-title" class="no-print">Third-party affidavits <span class="opt-tag">Optional</span></h2>
       <div class="no-print">
         <p>A friend or relative who knows you both writes a statement about your relationship and signs it in front of a notary public. USCIS accepts affidavits "when primary or secondary evidence does not exist or is unavailable". Treat them as support for your documents. Skip this section if your joint documents and photos already cover the relationship.</p>
-        <p>The USCIS Policy Manual requires each affidavit to contain:</p>
+        <p><strong>Who can write one.</strong> Get at least two, from different people. USCIS policy asks for "at least two affidavits" when the other records are unavailable. Each writer must:</p>
         <ul>
-          <li>The full name and address of the person making it.</li>
-          <li>Their date and place of birth.</li>
-          <li>Details explaining how they came to know about the marriage.</li>
+          <li>Not be a party to the petition. The petitioner and the beneficiary cannot write one.</li>
+          <li>Have direct personal knowledge: they saw the events themselves.</li>
         </ul>
+        <p>Relatives can write one, and the writer does not need to be a US citizen.</p>
+        <p><strong>What each one contains.</strong> USCIS lists:</p>
+        <ul>
+          <li>Full name, address and contact details.</li>
+          <li>Date and place of birth, and relationship to you.</li>
+          <li>A copy of their government-issued ID, if available. Attach it behind the affidavit.</li>
+          <li>Full details of the facts, and how they know them first-hand.</li>
+        </ul>
+        <p>USCIS states that "affidavits that cannot be verified carry no weight". Use a phone number and email the writer answers, and make sure every date matches your photos and travel records.</p>
         <p>Choose people who have seen you together in person: at the wedding, on visits, at family events. Ask each one to name dates and places. "They are a lovely couple" tells the officer nothing. "I hosted them for dinner in Manchester on 22 December 2024" does. The writer fills in their own details. Do not write it for them.</p>
-        <p><strong>Get it notarized.</strong> The writer prints the affidavit unsigned, takes photo ID to a notary public, swears or affirms that it is true, and signs in front of the notary. The notary completes the block at the end and adds their seal.</p>
+        <p><strong>Get it notarized.</strong> The writer prints the affidavit unsigned, takes photo ID to a notary public, swears or affirms that it is true, and signs in front of the notary. The notary completes the block at the end and adds their seal. Keep the original. USCIS says affidavits are "typically submitted as originals", so bring the original to your interview as well as a copy.</p>
         <ul>
           <li>In the United States, use a notary public commissioned in the writer's state.</li>
           <li>In the United Kingdom, find a notary through the <a href="https://www.thenotariessociety.org.uk/" target="_blank" rel="noopener noreferrer">Notaries Society</a>. UK notaries charge a fee, so ask the price when you book.</li>
@@ -238,6 +246,7 @@
   <ul class="no-print">
     <li>US Embassy Santo Domingo, guidance on proof of relationship for spousal petitions, quoted in <a href="https://dominicantoday.com/?p=194045" target="_blank" rel="noopener noreferrer">Dominican Today, 31 July 2023</a>.</li>
     <li><a href="https://travel.state.gov/content/travel/en/us-visas/Supplements/Supplements_by_Post/SDO-Santo-Domingo.html" target="_blank" rel="noopener noreferrer">travel.state.gov: Santo Domingo immigrant visa supplement</a>, which asks for evidence of the relationship such as photographs, letters or emails.</li>
+    <li><a href="https://www.uscis.gov/policy-manual/volume-7-part-a-chapter-4" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 7, Part A, Chapter 4: Documentation</a> [7 USCIS-PM A.4(B)(3)], on who may write an affidavit and what it should contain.</li>
     <li><a href="https://www.uscis.gov/policy-manual/volume-6-part-b-chapter-6" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 6, Part B, Chapter 6: Spouses</a> [6 USCIS-PM B.6], Section B.3 (bona fide marriages) and Section C.1 (required documentation), updated 17 October 2025.</li>
     <li><a href="https://www.thenotariessociety.org.uk/" target="_blank" rel="noopener noreferrer">The Notaries Society</a>, directory of notaries in England and Wales.</li>
     <li><a href="https://www.ecfr.gov/current/title-8/section-204.2" target="_blank" rel="noopener noreferrer">8 CFR 204.2(a)(1)(i)(B)</a>, the regulation behind the six evidence types.</li>
@@ -452,7 +461,9 @@
     { k: 'relation', label: 'Relationship to the couple, and for how long', ph: 'Petitioner\'s sister. I have known the beneficiary since March 2023.' },
     { k: 'knowledge', label: 'How they know about the relationship and the marriage', area: true, rows: 4, ph: 'I attended their wedding in London on 10 May 2025. I have spent time with them together on three visits.' },
     { k: 'events', label: 'Specific occasions they saw the couple together: date, place, what happened', area: true, rows: 5, ph: '22 December 2024, Manchester: I hosted them for dinner and they told us about their engagement.' },
-    { k: 'contact', label: 'Phone or email (optional)' }
+    { k: 'contact', label: 'Phone number and email' },
+    { k: 'idcopy', label: 'Copy of government-issued ID attached', type: 'checkbox' },
+    { k: 'idtype', label: 'Type of ID attached', ph: 'UK passport' }
   ];
   function affText(a) {
     var c = state.cover;
@@ -462,7 +473,8 @@
       'My relationship to the couple: ' + (a.relation || '[relationship]'),
       'How I know about their relationship and marriage: ' + (a.knowledge || '[details]'),
       'Occasions I have seen them together:\n' + (a.events || '[dates, places, what happened]'),
-      a.contact ? 'Contact: ' + a.contact : '',
+      'Contact: ' + (a.contact || '[phone and email]'),
+      a.idcopy ? 'Attached: a copy of my ' + (a.idtype || 'government-issued identification') + '.' : '',
       'I swear (or affirm) that the contents of this affidavit are true to the best of my knowledge and belief.'
     ].filter(Boolean);
   }
@@ -486,15 +498,16 @@
         var id = 'aff-' + f.k + '-' + i;
         var input = f.area ? el('textarea', { id: id, rows: String(f.rows || 3) }) : el('input', { type: f.type || 'text', id: id });
         if (f.ph) input.setAttribute('placeholder', f.ph);
-        input.value = a[f.k] || '';
-        input.addEventListener('input', function () { a[f.k] = input.value; paint(); save(); });
-        var field = el('div', { 'class': 'field' }, [el('label', { 'for': id, text: f.label }), input]);
+        var isBox = f.type === 'checkbox';
+        if (isBox) input.checked = !!a[f.k]; else input.value = a[f.k] || '';
+        input.addEventListener(isBox ? 'change' : 'input', function () { a[f.k] = isBox ? input.checked : input.value; paint(); save(); check(); });
+        var field = isBox ? el('label', { 'class': 'check' }, [input, el('span', { text: f.label })]) : el('div', { 'class': 'field' }, [el('label', { 'for': id, text: f.label }), input]);
         if (f.k === 'name') card.appendChild(grid);
         if (['name', 'dob', 'pob'].indexOf(f.k) > -1) grid.appendChild(field); else card.appendChild(field);
       });
       var missing = el('p', { 'class': 'hint' });
       function check() {
-        var need = [['name', 'full name'], ['address', 'address'], ['dob', 'date of birth'], ['pob', 'place of birth'], ['knowledge', 'how they know about the marriage']].filter(function (r) { return !a[r[0]]; }).map(function (r) { return r[1]; });
+        var need = [['name', 'full name'], ['address', 'address'], ['contact', 'contact details'], ['dob', 'date of birth'], ['pob', 'place of birth'], ['relation', 'relationship to you'], ['knowledge', 'how they know about the marriage']].filter(function (r) { return !a[r[0]]; }).map(function (r) { return r[1]; });
         missing.textContent = need.length ? 'Still missing, and required by USCIS: ' + need.join(', ') + '.' : 'All items USCIS requires are filled in. Print it unsigned: the writer signs in front of the notary.';
       }
       card.addEventListener('input', check);
