@@ -10,7 +10,8 @@
     "news:review": "node scripts/news/review.mjs",
     "lint": "echo \"No lint configured. Add ESLint if needed.\"",
     "test": "node --test \"test/**/*.test.js\"",
-    "build:search": "node scripts/build-search.mjs"
+    "build:search": "node scripts/build-search.mjs",
+    "build:workbook": "node scripts/build-workbook.mjs"
   },
   "dependencies": {
     "express": "^4.18.4"
@@ -18,6 +19,7 @@
   "devDependencies": {
     "@types/express": "^4.17.19",
     "@types/node": "^20.14.6",
+    "exceljs": "^4.4.0",
     "pagefind": "^1.6.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.6.2"
