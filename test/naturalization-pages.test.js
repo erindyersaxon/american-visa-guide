@@ -38,8 +38,12 @@ test('no same-page links to moved sections', () => {
 // ---------- Section pages ----------
 const SECTION_PAGES = ['naturalization.html', 'naturalization/eligibility.html',
   'naturalization/when-can-i-apply.html', 'naturalization/test.html', 'naturalization/checklist.html'];
-// Previous/Next order of the built step pages (the hub first). Add steps here as they are built.
-const STEP_CHAIN = ['/naturalization', '/naturalization/eligibility', '/naturalization/test'];
+// Previous/Next order of the step pages (the hub first). The last step's Next
+// returns to the hub. Side pages (delays and denials, tools) are not in the chain.
+const STEP_CHAIN = ['/naturalization', '/naturalization/paths', '/naturalization/eligibility',
+  '/naturalization/good-moral-character', '/naturalization/file-n400', '/naturalization/biometrics',
+  '/naturalization/test', '/naturalization/interview', '/naturalization/oath',
+  '/naturalization/after-citizenship'];
 const URL_OF = p => '/' + p.replace(/\.html$/, ''); // 'naturalization/test.html' → '/naturalization/test'
 const sidebars = html => [...html.matchAll(/<ul class="sidebar-nav"[\s\S]*?<\/ul>/g)]
   .map(m => m[0].replace(/ aria-current="page"/g, '').replace(/\s+/g, ' '));
@@ -70,7 +74,7 @@ test('step pages link Previous/Next along the chain', () => {
     const pn = prevNext(read(url.slice(1) + '.html'));
     assert.ok(pn.found, `${url}: has stage-prevnext`);
     assert.equal(pn.prev, STEP_CHAIN[i], `${url}: prev`);
-    assert.equal(pn.next, STEP_CHAIN[i + 2], `${url}: next`);
+    assert.equal(pn.next, STEP_CHAIN[i + 2] || '/naturalization', `${url}: next`);
   });
 });
 
@@ -105,8 +109,8 @@ test('step 5 test page', () => {
     html.indexOf('/js/naturalization-test.js') < html.indexOf('/js/civics-flashcards.js'), 'data loads before flashcards');
   assert.deepEqual(scriptsOn(html), ['civics-flashcards.js']);
   const pn = prevNext(html);
-  assert.equal(pn.prev, '/naturalization/eligibility');
-  assert.equal(pn.next, undefined, 'last built step has no next');
+  assert.equal(pn.prev, '/naturalization/biometrics');
+  assert.equal(pn.next, '/naturalization/interview');
 });
 
 test('step 1 eligibility page', () => {
@@ -115,8 +119,8 @@ test('step 1 eligibility page', () => {
     'state-residence', 'early-filing', 'sources']) assert.ok(hasId(html, id), `id ${id}`);
   assert.match(html, /href="\/naturalization\/when-can-i-apply"/);
   const pn = prevNext(html);
-  assert.equal(pn.prev, '/naturalization');
-  assert.equal(pn.next, '/naturalization/test');
+  assert.equal(pn.prev, '/naturalization/paths');
+  assert.equal(pn.next, '/naturalization/good-moral-character');
   assert.deepEqual(scriptsOn(html), []);
 });
 
