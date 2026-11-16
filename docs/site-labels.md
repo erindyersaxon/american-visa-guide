@@ -8,7 +8,7 @@ One name per section, used the same way in the top nav (`public/js/nav.js`), bre
 | Interview hub and its pages | **Interview** | `/interview` | Your interview |
 | Community timelines | **Data** | `/data` | Data Tracker |
 | News | **News** | `/news` | Embassy news, Updates |
-| Checklists, worksheets, templates | **Tools** | `/checklists` | Checklists & Tools, Checklists and tools, Checklists & Templates |
+| Checklists, worksheets, templates | **Tools** | `/tools` | Checklists & Tools, Checklists and tools, Checklists & Templates |
 | After landing | **Life in the USA** | `/life` | Life in the US |
 | Citizenship | **Naturalization** | `/naturalization` | Citizenship guide |
 | Call to action | **Submit your timeline** | Fillout form | Submit Timeline |
@@ -19,4 +19,4 @@ One name per section, used the same way in the top nav (`public/js/nav.js`), bre
 - **Footer only:** About this site, Glossary, Privacy Policy, Cookie settings, Buy me a coffee.
 - **Home:** the brand mark. There is no "Home" menu item.
 
-When a page joins a section, add its file name to `ACTIVE_MAP` in `nav.js` so the right menu item lights up.
+Every page lives under its section's address (`/interview/221g/green-sheet`, `/tools/workbook`), and the menu lights up the section from the first part of the address. A new top-level section needs one `ACTIVE_MAP` entry in `nav.js`. Breadcrumbs must follow the address too, and `npm test` (test/breadcrumbs.test.js) fails if they drift.

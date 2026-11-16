@@ -13,8 +13,8 @@
   var MAP = {
     'timeline': '/naturalization/when-can-i-apply',
     'calc': '/naturalization/when-can-i-apply',
-    'prepare': '/checklist-n400',
-    'prep': '/checklist-n400',
+    'prepare': '/naturalization/checklist',
+    'prep': '/naturalization/checklist',
     'civics': '/naturalization/test#flashcards',
     'flashcards': '/naturalization/test#flashcards',
     'english': '/naturalization/test#english',

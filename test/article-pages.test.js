@@ -12,13 +12,13 @@ const ROOT = process.env.ARTICLE_PAGES_ROOT || PUBLIC;
 const snapshot = require('./fixtures/article-ids.json');
 const allowlist = require('./fixtures/article-inline-allowlist.json');
 
-const PAGES = ['221g-sheet', '221g', 'administrative-processing', 'delayed-i130-remedies', 'domicile',
-  'history-worksheet', 'interview-dates', 'interview-day-sheet', 'interview-templates', 'interview',
-  'mandamus-pro-se', 'public-charge-statement', 'reinterview', 'visa-pause'].map(p => `${p}.html`);
-const TOOL_PAGES = ['221g-sheet', 'history-worksheet', 'interview-dates', 'interview-day-sheet',
-  'interview-templates', 'public-charge-statement'].map(p => `${p}.html`);
-const STYLE_BLOCK_PAGES = ['delayed-i130-remedies', 'history-worksheet', 'interview-day-sheet',
-  'mandamus-pro-se', 'public-charge-statement'].map(p => `${p}.html`);
+const PAGES = ['interview/221g/green-sheet', 'interview/221g', 'interview/221g/administrative-processing', 'delayed-i130-remedies', 'interview/221g/domicile',
+  'interview/221g/history-worksheet', 'interview/dates', 'interview/day-sheet', 'interview/templates', 'interview',
+  'mandamus-pro-se', 'public-charge/statement', 'interview/reinterview', 'interview/visa-pause'].map(p => `${p}.html`);
+const TOOL_PAGES = ['interview/221g/green-sheet', 'interview/221g/history-worksheet', 'interview/dates', 'interview/day-sheet',
+  'interview/templates', 'public-charge/statement'].map(p => `${p}.html`);
+const STYLE_BLOCK_PAGES = ['delayed-i130-remedies', 'interview/221g/history-worksheet', 'interview/day-sheet',
+  'mandamus-pro-se', 'public-charge/statement'].map(p => `${p}.html`);
 const OLD = ['eyebrow', 'lead', 'table-wrap', 'stage-card', 'stage-head', 'stage-pill', 'stage-title'];
 const TOOL_CLASSES = ['tool', 'field', 'field-row', 'check', 'btn', 'results', 'output'];
 

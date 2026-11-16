@@ -2,7 +2,7 @@
    American Visa Guide: the master document list.
 
    Single source for every document the guide asks you to gather. The
-   master checklist (/master-checklist) renders its tables from DOCS, and
+   master checklist (/tools/master-checklist) renders its tables from DOCS, and
    each stage checklist renders its document items from the same entries:
    a stage page holds an empty <div data-doc-item="ID"> where the item
    goes, and this script fills in the checkbox and label.
@@ -1268,11 +1268,11 @@ var AVG_DOCS = {
   'use strict';
   var STAGES = [['i130', 'I-130'], ['nvc', 'NVC'], ['medical', 'Medical'], ['interview', 'Interview']];
   var LISTS = {
-    i130: ['/checklist-i130', 'I-130'],
-    nvc: ['/checklist-nvc', 'NVC'],
-    medical: ['/checklist-medical', 'Medical day'],
-    interview: ['/checklist-interview', 'Interview day'],
-    binder: ['/checklist-binder', 'Binder']
+    i130: ['/tools/checklist-i130', 'I-130'],
+    nvc: ['/tools/checklist-nvc', 'NVC'],
+    medical: ['/tools/checklist-medical', 'Medical day'],
+    interview: ['/tools/checklist-interview', 'Interview day'],
+    binder: ['/tools/checklist-binder', 'Binder']
   };
   var BADGE = {
     yes: '<span class="stage-badge yes">✓</span>',

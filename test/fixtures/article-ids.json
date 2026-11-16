@@ -1,5 +1,5 @@
 {
-  "221g-sheet.html": [
+  "interview/221g/green-sheet.html": [
     "nav-placeholder",
     "main",
     "g-form",
@@ -9,7 +9,7 @@
     "g-results",
     "footer-placeholder"
   ],
-  "221g.html": [
+  "interview/221g.html": [
     "nav-placeholder",
     "main-content",
     "what",
@@ -25,7 +25,7 @@
     "confusions",
     "footer-placeholder"
   ],
-  "administrative-processing.html": [
+  "interview/221g/administrative-processing.html": [
     "nav-placeholder",
     "main-content",
     "history",
@@ -53,7 +53,7 @@
     "body-6",
     "footer-placeholder"
   ],
-  "domicile.html": [
+  "interview/221g/domicile.html": [
     "nav-placeholder",
     "main",
     "where",
@@ -61,7 +61,7 @@
     "sources",
     "footer-placeholder"
   ],
-  "history-worksheet.html": [
+  "interview/221g/history-worksheet.html": [
     "nav-placeholder",
     "main",
     "h-form",
@@ -93,7 +93,7 @@
     "h-copy",
     "footer-placeholder"
   ],
-  "interview-dates.html": [
+  "interview/dates.html": [
     "nav-placeholder",
     "main",
     "d-form",
@@ -111,12 +111,12 @@
     "rules",
     "footer-placeholder"
   ],
-  "interview-day-sheet.html": [
+  "interview/day-sheet.html": [
     "nav-placeholder",
     "main",
     "footer-placeholder"
   ],
-  "interview-templates.html": [
+  "interview/templates.html": [
     "nav-placeholder",
     "main",
     "t-case",
@@ -149,7 +149,7 @@
     "sources",
     "footer-placeholder"
   ],
-  "public-charge-statement.html": [
+  "public-charge/statement.html": [
     "nav-placeholder",
     "main",
     "pc-form",
@@ -287,7 +287,7 @@
     "pc-clear",
     "footer-placeholder"
   ],
-  "reinterview.html": [
+  "interview/reinterview.html": [
     "nav-placeholder",
     "main",
     "contents",
@@ -300,7 +300,7 @@
     "sources",
     "footer-placeholder"
   ],
-  "visa-pause.html": [
+  "interview/visa-pause.html": [
     "nav-placeholder",
     "main-content",
     "what",

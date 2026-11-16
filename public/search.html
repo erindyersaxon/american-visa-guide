@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/article-base.css?v=20261025c">
   <link rel="stylesheet" href="/css/nav.css?v=20261115b">
-  <script src="/js/nav.js?v=20261115b" defer></script>
+  <script src="/js/nav.js?v=20261115s6" defer></script>
   <link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
   <link rel="stylesheet" href="/css/readability.css?v=20261024c">
   <!-- Built at deploy time by scripts/build-search.mjs -->
@@ -83,7 +83,7 @@
   </div>
 
   <noscript>
-    <p class="search-fallback">Search needs JavaScript. You can browse the <a href="/guide">guide</a>, the <a href="/interview">interview pages</a> or the <a href="/checklists">tools</a> instead.</p>
+    <p class="search-fallback">Search needs JavaScript. You can browse the <a href="/guide">guide</a>, the <a href="/interview">interview pages</a> or the <a href="/tools">tools</a> instead.</p>
   </noscript>
 
 </main>
@@ -99,7 +99,7 @@
 
     if (typeof PagefindUI !== 'function') {
       // Index missing (e.g. a local preview without `npm run build:search`)
-      mount.innerHTML = '<p class="search-fallback">Search isn’t available right now. Try the <a href="/guide">guide</a>, the <a href="/interview">interview pages</a> or the <a href="/checklists">tools</a>.</p>';
+      mount.innerHTML = '<p class="search-fallback">Search isn’t available right now. Try the <a href="/guide">guide</a>, the <a href="/interview">interview pages</a> or the <a href="/tools">tools</a>.</p>';
       common.hidden = true;
       return;
     }

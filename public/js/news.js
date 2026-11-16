@@ -110,7 +110,7 @@
       "source": "CLINIC v. Rubio (S.D.N.Y.)",
       "title": "CLINIC lawsuit now challenges the public charge cables behind interview delays",
       "url": "https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.134.0.pdf",
-      "note": "On 6 November the plaintiffs filed an amended complaint (ECF 134), which the court allowed on 21 October. Beyond the 75-country pause, it now challenges the November 2025 cable that set the State Department's public charge standards, the August and September 2026 cables requiring the public charge worksheet and the in-person training (26 STATE 80666, 86164, 88862 and 89798), and the extra manager review of approvals. It asks the court to set these aside and order posts to resume case-by-case decisions. Eleven plaintiffs joined and three withdrew. Nothing changes for applicants yet: the court has not ruled on the new claims. See [public charge](/public-charge) and [why new interviews are waiting](/visa-pause#training)."
+      "note": "On 6 November the plaintiffs filed an amended complaint (ECF 134), which the court allowed on 21 October. Beyond the 75-country pause, it now challenges the November 2025 cable that set the State Department's public charge standards, the August and September 2026 cables requiring the public charge worksheet and the in-person training (26 STATE 80666, 86164, 88862 and 89798), and the extra manager review of approvals. It asks the court to set these aside and order posts to resume case-by-case decisions. Eleven plaintiffs joined and three withdrew. Nothing changes for applicants yet: the court has not ruled on the new claims. See [public charge](/public-charge) and [why new interviews are waiting](/interview/visa-pause#training)."
     },
     {
       "id": "reddit-2026-10-23-reschedules",
@@ -209,7 +209,7 @@
       "source": "Visa Office",
       "title": "Queue order set for pause cases",
       "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/",
-      "note": "Cable 26 STATE 89798 (14 September) expanded daily manager review, and a Visa Office message of 21 September set the order: named plaintiffs and Chief of Mission exception cases first, then everyone else by refusal date. Approved cases get a further review (IVAR) before the visa prints. Both were filed in CLINIC (ECF 114-2, 114-3). See [who goes first](/visa-pause#later)."
+      "note": "Cable 26 STATE 89798 (14 September) expanded daily manager review, and a Visa Office message of 21 September set the order: named plaintiffs and Chief of Mission exception cases first, then everyone else by refusal date. Approved cases get a further review (IVAR) before the visa prints. Both were filed in CLINIC (ECF 114-2, 114-3). See [who goes first](/interview/visa-pause#later)."
     },
     {
       "id": "pause-rescinded",
@@ -236,7 +236,7 @@
       "source": "Cable 26 STATE 86164",
       "title": "Every consular section must finish in-person public charge training",
       "url": "https://www.courtlistener.com/docket/73529774/medani-v-trump/",
-      "note": "Cable 26 STATE 86164 sets four public charge training requirements, and each consular section must finish in-person training before it processes immigrant visas. This is why new interviews are waiting. The cable was filed in Medani v. Trump (ECF 115-2). See [why pause cases move and new interviews do not](/visa-pause#training)."
+      "note": "Cable 26 STATE 86164 sets four public charge training requirements, and each consular section must finish in-person training before it processes immigrant visas. This is why new interviews are waiting. The cable was filed in Medani v. Trump (ECF 115-2). See [why pause cases move and new interviews do not](/interview/visa-pause#training)."
     },
     {
       "id": "clinic-aug31",
@@ -263,7 +263,7 @@
       "source": "CLINIC v. Rubio (S.D.N.Y.)",
       "title": "Court strikes down the 75-country immigrant visa pause",
       "url": "https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.83.0.pdf",
-      "note": "In CLINIC v. Rubio the Southern District of New York vacated the pause. Vacatur removes the policy for everyone, not only the plaintiffs, and sets aside refusals made only because of it. Final judgment followed on 24 August. A separate pause on diversity visas was also struck down; it does not affect family immigrant visas. Full explanation: [the nationality visa pause, struck down](/visa-pause)."
+      "note": "In CLINIC v. Rubio the Southern District of New York vacated the pause. Vacatur removes the policy for everyone, not only the plaintiffs, and sets aside refusals made only because of it. Final judgment followed on 24 August. A separate pause on diversity visas was also struck down; it does not affect family immigrant visas. Full explanation: [the nationality visa pause, struck down](/interview/visa-pause)."
     },
     {
       "id": "pc-worksheet",
@@ -280,7 +280,7 @@
       "type": "official",
       "source": "Department of State",
       "title": "State Department announces a 75-country immigrant visa pause",
-      "url": "/visa-pause#what",
+      "url": "/interview/visa-pause#what",
       "note": "From 21 January 2026, officers were told to refuse under 221(g) every immigrant visa applicant from 75 countries the Department rated high risk for public charge. Nationality triggered it, not the embassy, so a non-UK passport holder interviewing in London could be caught."
     }
   ];

@@ -161,11 +161,6 @@
       "permanent": true
     },
     {
-      "source": "/checklists.html",
-      "destination": "/checklists",
-      "permanent": true
-    },
-    {
       "source": "/about.html",
       "destination": "/about",
       "permanent": true
@@ -176,63 +171,8 @@
       "permanent": true
     },
     {
-      "source": "/checklist-i130.html",
-      "destination": "/checklist-i130",
-      "permanent": true
-    },
-    {
-      "source": "/checklist-medical.html",
-      "destination": "/checklist-medical",
-      "permanent": true
-    },
-    {
-      "source": "/checklist-interview.html",
-      "destination": "/checklist-interview",
-      "permanent": true
-    },
-    {
-      "source": "/interview-questions.html",
-      "destination": "/interview-questions",
-      "permanent": true
-    },
-    {
-      "source": "/checklist-nvc.html",
-      "destination": "/checklist-nvc",
-      "permanent": true
-    },
-    {
-      "source": "/checklist-binder.html",
-      "destination": "/checklist-binder",
-      "permanent": true
-    },
-    {
-      "source": "/worksheet-ds260.html",
-      "destination": "/worksheet-ds260",
-      "permanent": true
-    },
-    {
-      "source": "/worksheet-i864.html",
-      "destination": "/worksheet-i864",
-      "permanent": true
-    },
-    {
       "source": "/public-charge.html",
       "destination": "/public-charge",
-      "permanent": true
-    },
-    {
-      "source": "/221g.html",
-      "destination": "/221g",
-      "permanent": true
-    },
-    {
-      "source": "/visa-pause.html",
-      "destination": "/visa-pause",
-      "permanent": true
-    },
-    {
-      "source": "/workbook.html",
-      "destination": "/workbook",
       "permanent": true
     },
     {
@@ -241,18 +181,278 @@
       "permanent": true
     },
     {
-      "source": "/tools.html",
-      "destination": "/checklists",
-      "permanent": true
-    },
-    {
-      "source": "/tools",
-      "destination": "/checklists",
-      "permanent": true
-    },
-    {
       "source": "/tracker",
       "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/221g",
+      "destination": "/interview/221g",
+      "permanent": true
+    },
+    {
+      "source": "/221g.html",
+      "destination": "/interview/221g",
+      "permanent": true
+    },
+    {
+      "source": "/221g-sheet",
+      "destination": "/interview/221g/green-sheet",
+      "permanent": true
+    },
+    {
+      "source": "/221g-sheet.html",
+      "destination": "/interview/221g/green-sheet",
+      "permanent": true
+    },
+    {
+      "source": "/administrative-processing",
+      "destination": "/interview/221g/administrative-processing",
+      "permanent": true
+    },
+    {
+      "source": "/administrative-processing.html",
+      "destination": "/interview/221g/administrative-processing",
+      "permanent": true
+    },
+    {
+      "source": "/history-worksheet",
+      "destination": "/interview/221g/history-worksheet",
+      "permanent": true
+    },
+    {
+      "source": "/history-worksheet.html",
+      "destination": "/interview/221g/history-worksheet",
+      "permanent": true
+    },
+    {
+      "source": "/domicile",
+      "destination": "/interview/221g/domicile",
+      "permanent": true
+    },
+    {
+      "source": "/domicile.html",
+      "destination": "/interview/221g/domicile",
+      "permanent": true
+    },
+    {
+      "source": "/reinterview",
+      "destination": "/interview/reinterview",
+      "permanent": true
+    },
+    {
+      "source": "/reinterview.html",
+      "destination": "/interview/reinterview",
+      "permanent": true
+    },
+    {
+      "source": "/interview-dates",
+      "destination": "/interview/dates",
+      "permanent": true
+    },
+    {
+      "source": "/interview-dates.html",
+      "destination": "/interview/dates",
+      "permanent": true
+    },
+    {
+      "source": "/interview-templates",
+      "destination": "/interview/templates",
+      "permanent": true
+    },
+    {
+      "source": "/interview-templates.html",
+      "destination": "/interview/templates",
+      "permanent": true
+    },
+    {
+      "source": "/interview-day-sheet",
+      "destination": "/interview/day-sheet",
+      "permanent": true
+    },
+    {
+      "source": "/interview-day-sheet.html",
+      "destination": "/interview/day-sheet",
+      "permanent": true
+    },
+    {
+      "source": "/interview-questions",
+      "destination": "/interview/questions",
+      "permanent": true
+    },
+    {
+      "source": "/interview-questions.html",
+      "destination": "/interview/questions",
+      "permanent": true
+    },
+    {
+      "source": "/visa-pause",
+      "destination": "/interview/visa-pause",
+      "permanent": true
+    },
+    {
+      "source": "/visa-pause.html",
+      "destination": "/interview/visa-pause",
+      "permanent": true
+    },
+    {
+      "source": "/public-charge-statement",
+      "destination": "/public-charge/statement",
+      "permanent": true
+    },
+    {
+      "source": "/public-charge-statement.html",
+      "destination": "/public-charge/statement",
+      "permanent": true
+    },
+    {
+      "source": "/checklists",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/checklists.html",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/master-checklist",
+      "destination": "/tools/master-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/master-checklist.html",
+      "destination": "/tools/master-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-i130",
+      "destination": "/tools/checklist-i130",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-i130.html",
+      "destination": "/tools/checklist-i130",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-nvc",
+      "destination": "/tools/checklist-nvc",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-nvc.html",
+      "destination": "/tools/checklist-nvc",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-medical",
+      "destination": "/tools/checklist-medical",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-medical.html",
+      "destination": "/tools/checklist-medical",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-interview",
+      "destination": "/tools/checklist-interview",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-interview.html",
+      "destination": "/tools/checklist-interview",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-binder",
+      "destination": "/tools/checklist-binder",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-binder.html",
+      "destination": "/tools/checklist-binder",
+      "permanent": true
+    },
+    {
+      "source": "/worksheet-ds260",
+      "destination": "/tools/worksheet-ds260",
+      "permanent": true
+    },
+    {
+      "source": "/worksheet-ds260.html",
+      "destination": "/tools/worksheet-ds260",
+      "permanent": true
+    },
+    {
+      "source": "/worksheet-i864",
+      "destination": "/tools/worksheet-i864",
+      "permanent": true
+    },
+    {
+      "source": "/worksheet-i864.html",
+      "destination": "/tools/worksheet-i864",
+      "permanent": true
+    },
+    {
+      "source": "/workbook",
+      "destination": "/tools/workbook",
+      "permanent": true
+    },
+    {
+      "source": "/workbook.html",
+      "destination": "/tools/workbook",
+      "permanent": true
+    },
+    {
+      "source": "/i864-household-decision-tree",
+      "destination": "/tools/i864-household",
+      "permanent": true
+    },
+    {
+      "source": "/i864-household-decision-tree.html",
+      "destination": "/tools/i864-household",
+      "permanent": true
+    },
+    {
+      "source": "/relationship-evidence-template",
+      "destination": "/tools/relationship-evidence",
+      "permanent": true
+    },
+    {
+      "source": "/relationship-evidence-template.html",
+      "destination": "/tools/relationship-evidence",
+      "permanent": true
+    },
+    {
+      "source": "/relationship-evidence-example",
+      "destination": "/tools/relationship-evidence/example",
+      "permanent": true
+    },
+    {
+      "source": "/relationship-evidence-example.html",
+      "destination": "/tools/relationship-evidence/example",
+      "permanent": true
+    },
+    {
+      "source": "/english-test",
+      "destination": "/naturalization/english-test",
+      "permanent": true
+    },
+    {
+      "source": "/english-test.html",
+      "destination": "/naturalization/english-test",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-n400",
+      "destination": "/naturalization/checklist",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-n400.html",
+      "destination": "/naturalization/checklist",
       "permanent": true
     }
   ]

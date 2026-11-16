@@ -22,7 +22,7 @@
       what: 'From 21 January 2026, a 221(g) refusal for every immigrant visa applicant holding the nationality of one of 75 listed countries.',
       status: 'Vacated by a court on 21 August 2026, and the guidance behind it rescinded on 10 September 2026. Refusals made only because of it are being reconsidered. On 19 October 2026 the Second Circuit temporarily stayed the order on those refusals; the Department says its review continues.',
       uk: 'No. The UK was not on the list. It applied at London only to applicants interviewing on a listed passport.',
-      link: '/visa-pause',
+      link: '/interview/visa-pause',
       linkText: 'The nationality visa pause, struck down',
     },
     {
@@ -39,7 +39,7 @@
       what: 'A separate presidential proclamation suspending immigrant visas for nationals of 39 countries.',
       status: 'Still in force. The pause rulings do not affect it.',
       uk: 'No, unless you also hold a listed nationality. Check its dual-national exception.',
-      link: '/221g#confusions',
+      link: '/interview/221g#confusions',
       linkText: '221(g) vs 212(a)(4) vs AP vs visa refused',
     },
   ];

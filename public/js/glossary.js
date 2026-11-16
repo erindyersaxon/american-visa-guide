@@ -25,7 +25,7 @@
     { term: 'I-751', full: 'Petition to Remove Conditions on Residence', def: 'Filed by CR1 and CR2 holders before the 2-year conditional green card expires.', match: 'I-751' },
     { term: 'N-400', full: 'Application for Naturalization', def: 'The form a permanent resident files to become a US citizen.', match: 'N-400' },
     { term: 'I-601', full: 'Application for Waiver of Grounds of Inadmissibility', def: 'Asks USCIS to waive a ground the consular officer refused the visa on, where a waiver is available.', match: 'I-601' },
-    { term: '221(g)', full: 'INA section 221(g) refusal', def: 'A refusal at the interview while the officer waits for something more. Usually resolved by sending exactly what the green sheet asks for.', match: '221(g)', link: '/221g' },
+    { term: '221(g)', full: 'INA section 221(g) refusal', def: 'A refusal at the interview while the officer waits for something more. Usually resolved by sending exactly what the green sheet asks for.', match: '221(g)', link: '/interview/221g' },
 
     // Agencies and systems
     { term: 'USCIS', full: 'US Citizenship and Immigration Services', def: 'Decides the I-130, and later issues the green card.', match: 'USCIS' },

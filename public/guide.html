@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/stage.css?v=20261025b">
 <link rel="stylesheet" href="/css/nav.css?v=20261115b">
-<script src="/js/nav.js?v=20261115b" defer></script>
+<script src="/js/nav.js?v=20261115s6" defer></script>
 <!-- Legacy /guide#<stage> deep links → /guide/<stage> (fragments never reach the server) -->
 <script src="/js/guide-anchors.js?v=20260918"></script>
 <link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
@@ -46,8 +46,8 @@
       <li role="presentation"><div class="sidebar-divider"></div></li>
       <li><a href="/guide" aria-current="page">Guide overview</a></li>
       <li><a href="/interview">Interview: start here →</a></li>
-      <li><a href="/221g">Avoiding a 221(g) →</a></li>
-      <li><a href="/checklists">Tools</a></li>
+      <li><a href="/interview/221g">Avoiding a 221(g) →</a></li>
+      <li><a href="/tools">Tools</a></li>
       <li><a href="/glossary">Glossary</a></li>
       <li><a href="/about#resources">Resources</a></li>
     </ul>
@@ -75,8 +75,8 @@
       <li role="presentation"><div class="sidebar-divider"></div></li>
       <li><a href="/guide" aria-current="page">Guide overview</a></li>
       <li><a href="/interview">Interview: start here →</a></li>
-      <li><a href="/221g">Avoiding a 221(g) →</a></li>
-      <li><a href="/checklists">Tools</a></li>
+      <li><a href="/interview/221g">Avoiding a 221(g) →</a></li>
+      <li><a href="/tools">Tools</a></li>
       <li><a href="/glossary">Glossary</a></li>
       <li><a href="/about#resources">Resources</a></li>
     </ul>
@@ -97,7 +97,7 @@
     <section class="section hub-toc" id="stages" aria-labelledby="stages-title">
       <h2 class="section-title" id="stages-title">The stages, in order</h2>
       <p class="text-muted">Each stage has its own page. At the top: where you are, what to do first, an action list and the documents you need.</p>
-      <p id="documents" class="text-muted">For every stage: <a href="/master-checklist">master checklist</a>, <a href="/workbook">Moving to the USA Workbook</a>, <a href="/checklists">all checklists and tools</a>.</p>
+      <p id="documents" class="text-muted">For every stage: <a href="/tools/master-checklist">master checklist</a>, <a href="/tools/workbook">Moving to the USA Workbook</a>, <a href="/tools">all checklists and tools</a>.</p>
       <table class="hub-toc-table">
         <thead><tr><th scope="col">Stage</th><th scope="col">What happens</th><th scope="col">Typical wait</th><th scope="col">Your documents</th></tr></thead>
         <tbody>
@@ -105,7 +105,7 @@
             <th scope="row" data-label="Stage"><a href="/guide/i130">1 · USCIS / I-130</a></th>
             <td data-label="What happens">Prove the relationship to USCIS</td>
             <td data-label="Typical wait">Stalled, per community tracking (USCIS has not acknowledged a pause). The front of the line has not moved past priority dates of around 25 February 2025. IR petitions filed after that date have now waited 19+ months, and counting. For the latest, see <a href="/news">embassy and visa news</a>. See <a href="/guide/delayed-i130">escalation options</a></td>
-            <td data-label="Your documents"><a href="/checklist-i130">I-130 checklist</a>, <a href="/I-130_Visual.png">category overview</a></td>
+            <td data-label="Your documents"><a href="/tools/checklist-i130">I-130 checklist</a>, <a href="/I-130_Visual.png">category overview</a></td>
           </tr>
           <tr>
             <th scope="row" data-label="Stage"><a href="/guide/delayed-i130">If your I-130 is delayed</a></th>
@@ -123,43 +123,43 @@
             <th scope="row" data-label="Stage"><a href="/guide/nvc">2 · NVC</a></th>
             <td data-label="What happens">Fees, DS-260, financial and civil documents</td>
             <td data-label="Typical wait">~14 days per review</td>
-            <td data-label="Your documents"><a href="/checklist-nvc">NVC checklist</a>, <a href="/worksheet-i864">I-864 worksheet</a>, <a href="/worksheet-ds260">DS-260 worksheet</a>, <a href="/i864-household-decision-tree">I-864 household calculator</a></td>
+            <td data-label="Your documents"><a href="/tools/checklist-nvc">NVC checklist</a>, <a href="/tools/worksheet-i864">I-864 worksheet</a>, <a href="/tools/worksheet-ds260">DS-260 worksheet</a>, <a href="/tools/i864-household">I-864 household calculator</a></td>
           </tr>
           <tr>
             <th scope="row" data-label="Stage"><a href="/guide/waiting">3 · Waiting for your interview letter</a></th>
             <td data-label="What happens">The queue, and how to use the wait</td>
             <td data-label="Typical wait">77-day average; drops currently stopped</td>
-            <td data-label="Your documents"><a href="/public-charge">Public charge</a>, <a href="/221g">221(g)</a>, <a href="/data">data tracker</a>, <a href="/checklist-binder">binder checklist</a></td>
+            <td data-label="Your documents"><a href="/public-charge">Public charge</a>, <a href="/interview/221g">221(g)</a>, <a href="/data">data tracker</a>, <a href="/tools/checklist-binder">binder checklist</a></td>
           </tr>
           <tr>
             <th scope="row" data-label="Stage"><a href="/guide/interview-letter">4 · Interview letter received</a></th>
             <td data-label="What happens">Book the medical, register your interview on AIS, and update tax documents</td>
             <td data-label="Typical wait">Interview ~2 months after the IL</td>
-            <td data-label="Your documents"><a href="/checklist-medical">Medical checklist</a>, <a href="/interview-dates">date checker</a></td>
+            <td data-label="Your documents"><a href="/tools/checklist-medical">Medical checklist</a>, <a href="/interview/dates">date checker</a></td>
           </tr>
           <tr>
             <th scope="row" data-label="Stage"><a href="/guide/medical">5 · Medical</a></th>
             <td data-label="What happens">The medical at one London clinic, then the <a href="/guide/medical#doc-check-cancelled">same-day embassy document check</a></td>
             <td data-label="Typical wait">1 day in London; at least 10 working days before interview</td>
-            <td data-label="Your documents"><a href="/checklist-medical">Medical checklist</a>, <a href="/checklist-binder">binder checklist</a></td>
+            <td data-label="Your documents"><a href="/tools/checklist-medical">Medical checklist</a>, <a href="/tools/checklist-binder">binder checklist</a></td>
           </tr>
           <tr>
             <th scope="row" data-label="Stage"><a href="/guide/interview">6 · Interview</a></th>
             <td data-label="What happens">The embassy appointment</td>
             <td data-label="Typical wait">20–40 minutes, a recent shift; 1.5–4.5 hours in the embassy</td>
-            <td data-label="Your documents"><a href="/interview">Start here</a>, <a href="/checklist-interview">interview checklist</a>, <a href="/interview-questions">question bank</a>, <a href="/interview-dates">date checker</a>, <a href="/reinterview">re-interview</a></td>
+            <td data-label="Your documents"><a href="/interview">Start here</a>, <a href="/tools/checklist-interview">interview checklist</a>, <a href="/interview/questions">question bank</a>, <a href="/interview/dates">date checker</a>, <a href="/interview/reinterview">re-interview</a></td>
           </tr>
           <tr>
             <th scope="row" data-label="Stage"><a href="/guide/after-interview">7 · After the interview</a></th>
             <td data-label="What happens">Outcomes, passport return, fees</td>
             <td data-label="Typical wait">~4–11 days for the passport</td>
-            <td data-label="Your documents"><a href="/221g">221(g)</a>, <a href="/visa-pause">visa pause</a>, <a href="/data">data tracker</a></td>
+            <td data-label="Your documents"><a href="/interview/221g">221(g)</a>, <a href="/interview/visa-pause">visa pause</a>, <a href="/data">data tracker</a></td>
           </tr>
           <tr>
             <th scope="row" data-label="Stage"><a href="/guide/before-you-leave">8 · Before you leave the UK</a></th>
             <td data-label="What happens">HMRC, student loans, NI, ISAs</td>
             <td data-label="Typical wait">—</td>
-            <td data-label="Your documents"><a href="/workbook">Workbook</a>, <a href="/Moving_to_the_USA_Workbook.xlsx">spreadsheet</a></td>
+            <td data-label="Your documents"><a href="/tools/workbook">Workbook</a>, <a href="/Moving_to_the_USA_Workbook.xlsx">spreadsheet</a></td>
           </tr>
           <tr>
             <th scope="row" data-label="Stage"><a href="/guide/us-entry">9 · US entry</a></th>
@@ -302,7 +302,7 @@
       <h2 class="section-title" id="across-stages-title">Across every stage</h2>
       <ul class="hub-list">
         <li><a href="/interview">Your interview: start here</a> — first, rescheduled or re-interview: the steps for your situation, in order</li>
-        <li><a href="/221g">Avoiding a 221(g)</a> — the green refusal sheet, how to prevent one at each stage, and how to resolve one</li>
+        <li><a href="/interview/221g">Avoiding a 221(g)</a> — the green refusal sheet, how to prevent one at each stage, and how to resolve one</li>
         <li><a href="/public-charge">Public charge</a> — what the officer now weighs, the written statement and its template, and the questions asked at London</li>
         <li><a href="/news">Embassy and visa news</a> — dated court rulings, State Department cables and weekly London updates, including the immigrant visa pause</li>
         <li><a href="/glossary">Glossary</a> — every form, agency, abbreviation and community word used on this site, in plain language</li>
@@ -335,6 +335,6 @@
 <script src="/js/live-notice.js?v=20261115b"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
 <script src="/js/stage.js?v=20261024"></script>
-<script src="/js/glossary.js?v=20261115c"></script>
+<script src="/js/glossary.js?v=20261115s6"></script>
 </body>
 </html>

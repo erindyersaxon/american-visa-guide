@@ -1,6 +1,6 @@
 /*
    American Visa Guide: public charge statement builder
-   (/public-charge-statement). Produces the same statement as the template
+   (/public-charge/statement). Produces the same statement as the template
    on /public-charge#template, from form fields. The applicant type (spouse,
    child under 18, son or daughter, parent) changes the questions and the
    wording; a child's statement is written by the petitioner on the

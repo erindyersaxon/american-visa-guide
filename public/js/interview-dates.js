@@ -1,5 +1,5 @@
 /*
-   American Visa Guide: interview date checker (/interview-dates).
+   American Visa Guide: interview date checker (/interview/dates).
    Runs entirely in the browser. Inputs are remembered in localStorage on
    this device only, as a convenience; nothing is sent anywhere.
  */
@@ -104,8 +104,8 @@
       out.push(item(left < 0 ? 'bad' : left <= 3 ? 'warn' : 'ok',
         `Public charge statement: upload and email by ${fmt(due)}`,
         left < 0
-          ? ' That is already past. Send it now anyway: upload to CEAC, then email LNDIVSubmissions@state.gov. A late statement is better than none, but it may not be read before the interview. <a href="/public-charge-statement">Build it</a>.'
-          : ` Five working days before the interview, not counting weekends or UK and US holidays. ${left === 0 ? 'That is today.' : left + ' day' + (left === 1 ? '' : 's') + ' from now.'} <a href="/public-charge-statement">Build it</a>.`));
+          ? ' That is already past. Send it now anyway: upload to CEAC, then email LNDIVSubmissions@state.gov. A late statement is better than none, but it may not be read before the interview. <a href="/public-charge/statement">Build it</a>.'
+          : ` Five working days before the interview, not counting weekends or UK and US holidays. ${left === 0 ? 'That is today.' : left + ' day' + (left === 1 ? '' : 's') + ' from now.'} <a href="/public-charge/statement">Build it</a>.`));
 
       // Interview on/after 1 Oct 2026: I-864 edition
       if (interview >= parse('2026-10-01')) {

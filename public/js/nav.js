@@ -105,7 +105,7 @@
         </a>
       </li>
       <li>
-        <a href="/checklists" class="nav-link" data-navpage="tools">
+        <a href="/tools" class="nav-link" data-navpage="tools">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
           </svg>
@@ -165,51 +165,24 @@
   </div>
 </footer>`;
 
-  /* Which nav item lights up for each page (sub-pages map to their hub).
-     Pages not listed (home, about, privacy) light nothing. Values that are
-     Guide sub-sections ('life', 'naturalization') light the Guide button and
-     the matching item in its menu. */
+  /* Which nav item lights up, by the first part of the address: every page
+     lives under its section (/interview/221g/green-sheet, /tools/workbook,
+     /naturalization/oath). Addresses not listed (home, about, privacy) light
+     nothing. 'life' and 'naturalization' light the Guide button and the
+     matching item in its menu. */
   const ACTIVE_MAP = {
-    'search': 'search',
-    'data': 'data',
-    'tracker': 'data',
-    'news': 'news',
     'guide': 'guide',
-    'delayed-i130-remedies': 'guide',
-    'mandamus-pro-se': 'guide',
     'glossary': 'guide',
-    'interview': 'interview',
-    'reinterview': 'interview',
-    'public-charge': 'interview',
-    'public-charge-statement': 'interview',
-    'visa-pause': 'interview',
-    '221g': 'interview',
-    '221g-sheet': 'interview',
-    'domicile': 'interview',
-    'interview-dates': 'interview',
-    'interview-templates': 'interview',
-    'interview-day-sheet': 'interview',
-    'interview-questions': 'interview',
-    'history-worksheet': 'interview',
-    'administrative-processing': 'interview',
-    'checklists': 'tools',
-    'master-checklist': 'tools',
-    'checklist-i130': 'tools',
-    'checklist-nvc': 'tools',
-    'checklist-medical': 'tools',
-    'checklist-interview': 'tools',
-    'checklist-binder': 'tools',
-    'workbook': 'tools',
-    'tools': 'tools',
-    'worksheet-ds260': 'tools',
-    'worksheet-i864': 'tools',
-    'i864-household-decision-tree': 'tools',
-    'relationship-evidence-template': 'tools',
-    'relationship-evidence-example': 'tools',
+    'delayed-i130-remedies': 'guide',  // moves under /guide/ in review step 8
+    'mandamus-pro-se': 'guide',        // moves under /guide/ in review step 8
     'life': 'life',
     'naturalization': 'naturalization',
-    'english-test': 'naturalization',
-    'checklist-n400': 'naturalization',
+    'interview': 'interview',
+    'public-charge': 'interview',
+    'data': 'data',
+    'news': 'news',
+    'tools': 'tools',
+    'search': 'search',
   };
 
   const GUIDE_SECTIONS = { guide: 1, life: 1, naturalization: 1 };
@@ -262,15 +235,8 @@
   }
 
   function markActive(nav) {
-    const path = window.location.pathname;
-    const file = (path.split('/').pop() || 'index.html').replace(/\.html$/, '') || 'index';
-    // Stage pages live under /guide/ and belong to the Guide, even where a
-    // stage shares a file name with a hub (guide/interview vs /interview).
-    // Naturalization pages live under /naturalization/ (their file names, such
-    // as interview or test, would otherwise match other nav keys).
-    const active = /^\/guide\//.test(path) ? 'guide'
-      : /^\/naturalization\//.test(path) ? 'naturalization'
-      : ACTIVE_MAP[file];
+    const first = window.location.pathname.split('/')[1] || '';
+    const active = ACTIVE_MAP[first.replace(/\.html$/, '')];
     if (!active) return;
 
     if (GUIDE_SECTIONS[active]) {

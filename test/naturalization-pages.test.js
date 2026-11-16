@@ -37,7 +37,7 @@ test('no same-page links to moved sections', () => {
 
 // ---------- Section pages ----------
 const SECTION_PAGES = ['naturalization.html', 'naturalization/eligibility.html',
-  'naturalization/when-can-i-apply.html', 'naturalization/test.html', 'checklist-n400.html'];
+  'naturalization/when-can-i-apply.html', 'naturalization/test.html', 'naturalization/checklist.html'];
 // Previous/Next order of the built step pages (the hub first). Add steps here as they are built.
 const STEP_CHAIN = ['/naturalization', '/naturalization/eligibility', '/naturalization/test'];
 const URL_OF = p => '/' + p.replace(/\.html$/, ''); // 'naturalization/test.html' → '/naturalization/test'
@@ -88,7 +88,7 @@ test('calculator page', () => {
 });
 
 test('checklist page', () => {
-  const html = read('checklist-n400.html');
+  const html = read('naturalization/checklist.html');
   for (const id of ['prep', 'prep-reset']) assert.ok(hasId(html, id), `id ${id}`);
   assert.match(html, /class="[^"]*\bnatz-tool\b/);
   assert.deepEqual(scriptsOn(html), ['n400-checklist.js']);
@@ -124,7 +124,7 @@ test('step 1 eligibility page', () => {
 const vm = require('node:vm');
 const ANCHORS = {
   timeline: '/naturalization/when-can-i-apply', calc: '/naturalization/when-can-i-apply',
-  prepare: '/checklist-n400', prep: '/checklist-n400',
+  prepare: '/naturalization/checklist', prep: '/naturalization/checklist',
   civics: '/naturalization/test#flashcards', flashcards: '/naturalization/test#flashcards',
   english: '/naturalization/test#english', resources: '/naturalization#help',
 };
@@ -149,7 +149,7 @@ test('hub links every built page and lists unbuilt steps as text', () => {
   const html = read('naturalization.html');
   assert.ok(html.indexOf('/js/naturalization-anchors.js') < html.indexOf('</head>'), 'anchor map in head');
   const steps = (html.match(/<section[^>]*id="steps"[\s\S]*?<\/section>/) || [''])[0];
-  for (const url of ['/naturalization/eligibility', '/naturalization/when-can-i-apply', '/naturalization/test', '/checklist-n400']) {
+  for (const url of ['/naturalization/eligibility', '/naturalization/when-can-i-apply', '/naturalization/test', '/naturalization/checklist']) {
     assert.ok(steps.includes(`href="${url}"`), `links ${url}`);
   }
   for (const t of ['Good moral character', 'Fill in and file Form N-400', 'Biometrics', 'Interview', 'Oath ceremony', 'After you become a citizen']) {
@@ -163,8 +163,10 @@ test('hub links every built page and lists unbuilt steps as text', () => {
 // ---------- Nav, sitemap, inbound links ----------
 test('nav maps the section', () => {
   const nav = read('js/nav.js');
-  assert.match(nav, /\/\^\\\/naturalization\\\/\/\.test\(window\.location\.pathname\)/, 'section path rule');
-  assert.match(nav, /'checklist-n400': 'naturalization'/);
+  // The active nav item comes from the first part of the address (step 6 of
+  // SITE_ARCHITECTURE_REVIEW.md), so every /naturalization/* page is covered.
+  assert.match(nav, /pathname\.split\('\/'\)\[1\]/, 'section from the first path segment');
+  assert.match(nav, /'naturalization': 'naturalization'/);
 });
 
 test('sitemap lists the section', () => {

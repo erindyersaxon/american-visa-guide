@@ -411,7 +411,7 @@
 }
 @media (max-width: 620px) { .guide-article .sheet-grid { grid-template-columns: 1fr; } }
 
-/* Step cards (/221g prevention and resolution stages) */
+/* Step cards (/interview/221g prevention and resolution stages) */
 .guide-article .step-card {
   margin-bottom: 1rem;
   padding: 1.15rem 1.3rem 1.3rem;
