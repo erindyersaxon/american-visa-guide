@@ -46,6 +46,8 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+    .nf-tried { margin: calc(-1 * var(--space-4, 1rem)) 0 var(--space-6, 1.5rem); font-size: var(--text-sm); color: var(--color-text-secondary); overflow-wrap: anywhere; }
+    .nf-tried code { font-size: inherit; background: #f1f5f9; padding: 0.1rem 0.35rem; border-radius: 4px; }
     .nf-search { margin: 0 0 var(--space-6, 1.5rem); }
     .nf-search__label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
     .nf-search__row { display: flex; gap: 0.5rem; max-width: 34rem; }
@@ -68,6 +70,7 @@
       <div class="nf-eyebrow">404: page not found</div>
       <h1 class="nf-title">This page joined the <em>wrong queue</em></h1>
       <p class="nf-lead">The page you're looking for doesn't exist or has moved. Search for it, or start from one of these.</p>
+      <p class="nf-tried" id="nf-tried" hidden>You tried: <code id="nf-tried-path"></code></p>
       <form class="nf-search" action="/search" method="get" role="search">
         <label for="nf-q" class="nf-search__label">Search the site</label>
         <div class="nf-search__row">
@@ -85,6 +88,21 @@
   </main>
 
   <div id="footer-placeholder"></div>
+
+  <script>
+    /* The homepage sends missing addresses here as /404?from=<address>
+       (see the workaround in index.html). Show what was tried, and offer
+       its words as a search. */
+    (function () {
+      var from = new URLSearchParams(location.search).get('from');
+      if (!from || from.charAt(0) !== '/') return;
+      document.getElementById('nf-tried-path').textContent = from;
+      document.getElementById('nf-tried').hidden = false;
+      var last = from.split('?')[0].replace(/\/+$/, '').split('/').pop() || '';
+      var words = last.replace(/\.html?$/, '').replace(/[-_.+]+/g, ' ').trim();
+      if (words) document.getElementById('nf-q').value = words;
+    })();
+  </script>
 
 </body>
 </html>

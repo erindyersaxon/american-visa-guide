@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    /* Workaround: Vercel serves this homepage, with status 200, for every
+       address that doesn't exist, instead of public/404.html. The cause is
+       outside the repo (tested Nov 2026). Send those visitors to the 404 page,
+       carrying the address they tried. Remove this once Vercel serves
+       404.html for missing pages. */
+    (function () {
+      var p = location.pathname;
+      if (p !== '/' && p !== '/index.html' && p !== '/index') {
+        location.replace('/404?from=' + encodeURIComponent(p + location.search));
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/js/consent.js?v=20261024c" defer></script>
   <title>American Visa Guide | UK to US Family Visa</title>
