@@ -202,6 +202,10 @@
         <div class="field"><label for="insstate">State</label><input type="text" id="insstate"></div>
         <div class="field"><label for="inspremium">Expected monthly premium</label><input type="text" id="inspremium" placeholder="$450"><span class="hint">A <a href="https://www.healthcare.gov/see-plans/" target="_blank" rel="noopener noreferrer">healthcare.gov quote</a> for your age and ZIP code.</span></div>
       </div>
+      <div class="field-row">
+        <div class="field"><label for="insstart">Cover starts <span class="hint">(optional)</span></label><input type="text" id="insstart" placeholder="the day I arrive"><span class="hint">Employer plans differ: some need you in the US, or a Social Security Number, before they add you. Ask the plan.</span></div>
+        <div class="field"><label for="insbridge">Until then, covered by <span class="hint">(leave empty if there is no gap)</span></label><input type="text" id="insbridge" placeholder="a short-term policy from [provider]"></div>
+      </div>
       <div class="field"><label for="inspaid">Premiums paid for by</label><input type="text" id="inspaid" value="my petitioner's income"></div>
     </fieldset>
 
@@ -266,6 +270,7 @@
       <label class="check"><input type="checkbox" id="ev-petother"> P07 Petitioner proof of other income</label>
       <label class="check"><input type="checkbox" id="ev-petdebts"> P08 Petitioner debt statements</label>
       <label class="check"><input type="checkbox" id="ev-petbiz"> P09 Petitioner business records, if self-employed</label>
+      <label class="check"><input type="checkbox" id="ev-depcare"> P10 Cost of care for a dependent with a health or care need</label>
       <label class="check"><input type="checkbox" id="ev-jstax"> J01 Joint sponsor IRS Tax Return Transcripts, last 3 years, and proof of citizenship or residence</label>
       <label class="check"><input type="checkbox" id="ev-jspay"> J02 Joint sponsor payslips, bank statements and latest W-2</label>
       <label class="check"><input type="checkbox" id="ev-jsrel"> J03 Joint sponsor relationship statement</label>
@@ -278,7 +283,7 @@
       <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-property"> B05 Proof of ownership and value of my property</label>
       <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-employer"> B06 My employer letter, or a US job offer</label>
       <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-quote" checked> B07 My health insurance quote</label>
-      <label class="check"><input type="checkbox" id="ev-treatment"> B08 The US price of my ongoing treatment</label>
+      <label class="check"><input type="checkbox" id="ev-treatment"> B08 The US price of my ongoing treatment, and who pays</label>
       <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-slc"> B09 My debt statements, including my UK student loan statement</label>
       <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-credential"> B10 My credential evaluation or licensing correspondence</label>
       <label class="check"><input type="checkbox" id="ev-englishproof"> B11 My proof of English</label>
@@ -288,6 +293,8 @@
       <label class="check opt" data-show="rel=child"><input type="checkbox" id="ev-custody"> B15 Custody order, or the other parent's written consent</label>
       <label class="check opt" data-show="rel=child"><input type="checkbox" id="ev-school"> B16 School report, and proof of a US school place</label>
       <label class="check opt" data-show="rel=adult|rel=parent"><input type="checkbox" id="ev-address"> B17 Proof I live at my petitioner's address now</label>
+      <label class="check opt" data-show="rel!=child"><input type="checkbox" id="ev-otherinc"> B18 Proof of my other income</label>
+      <label class="check"><input type="checkbox" id="ev-benefits"> B19 Records of means-tested benefits in the household</label>
     </fieldset>
   </form>
 
@@ -319,6 +326,6 @@
 
 <div id="footer-placeholder"></div>
 
-<script src="/js/statement-builder.js?v=20261115pc"></script>
+<script src="/js/statement-builder.js?v=20261116arr"></script>
 </body>
 </html>

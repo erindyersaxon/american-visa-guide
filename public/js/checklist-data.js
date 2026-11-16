@@ -472,7 +472,7 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "cond"
    },
-   "note": "Only if any: the latest statement for each debt, such as a mortgage, car loan or credit card balance.",
+   "note": "Only if any: the latest statement for each debt, such as a mortgage, car loan or credit card balance. Add any child support order and a record of payments.",
    "items": []
   },
   {
@@ -487,6 +487,20 @@ var AVG_DOCS = {
     "interview": "cond"
    },
    "note": "Only if a joint sponsor is filing. A signed statement: how long they have known the petitioner and you, where they live, whether they have sponsored anyone before, and any history of support.",
+   "items": []
+  },
+  {
+   "key": "pc-dependent-care",
+   "group": "financial",
+   "name": "Dependents&rsquo; care costs",
+   "code": "P10",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: the cost of care for any dependent with a health condition or care need, and which income or plan pays it. Officers ask who else the petitioner supports.",
    "items": []
   },
   {
@@ -1442,13 +1456,13 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "yes"
    },
-   "note": "A quote for your age and ZIP code from <a href=\"https://www.healthcare.gov/see-plans/\" target=\"_blank\" rel=\"noopener noreferrer\">healthcare.gov</a>. It needs no application or SSN, and a travel policy does not answer this. If the petitioner&rsquo;s health plan will cover you, send proof of that coverage instead.",
+   "note": "A quote for your age and ZIP code from <a href=\"https://www.healthcare.gov/see-plans/\" target=\"_blank\" rel=\"noopener noreferrer\">healthcare.gov</a>. It needs no application or SSN, and a travel policy does not answer this. If the petitioner&rsquo;s health plan will cover you, send proof of that coverage instead. Say when the cover starts and what covers you until then. Losing NHS cover when you move is a qualifying life event, so you can join a plan outside the usual enrolment window: the petitioner&rsquo;s employer plan, a marketplace plan, or your own employer&rsquo;s plan once you start work. Employer plans differ in cost and rules, and some need you in the US, or a Social Security Number, before they add you.",
    "items": []
   },
   {
    "key": "ben-medication",
    "group": "beneficiary",
-   "name": "US cost of ongoing treatment",
+   "name": "US cost of ongoing treatment, and who pays",
    "code": "B08",
    "need": {
     "i130": "no",
@@ -1456,7 +1470,7 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "cond"
    },
-   "note": "Only if any: the US price, in dollars, of any ongoing medication or treatment.",
+   "note": "Only if any: the US price, in dollars, of any ongoing medication or treatment, and who will treat it and which plan or income pays.",
    "items": []
   },
   {
@@ -1470,7 +1484,7 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "cond"
    },
-   "note": "Only if any: the latest statement for each debt, your Student Loans Company statement included.",
+   "note": "Only if any: the latest statement for each debt, your Student Loans Company statement included. Add any child support order and a record of payments.",
    "items": []
   },
   {
@@ -1569,6 +1583,34 @@ var AVG_DOCS = {
     "interview": "cond"
    },
    "note": "Only if the sponsor counts your income on the I-864: a lease, utility bill or council tax bill in your name at that address.",
+   "items": []
+  },
+  {
+   "key": "ben-other-income",
+   "group": "beneficiary",
+   "name": "Your other income",
+   "code": "B18",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: proof of other income you can document, such as rental income, dividends or freelance invoices. Cash or informal income cannot be documented: describe it in your statement as it is, and do not inflate it.",
+   "items": []
+  },
+  {
+   "key": "ben-benefits",
+   "group": "beneficiary",
+   "name": "Past means-tested benefits",
+   "code": "B19",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: means-tested benefits or food bank use by anyone in the household, now or in the past: letters showing when support started and ended, if you have them. Your statement explains when, why, for how long and what changed. Receiving benefits does not disqualify you; concealing them can. <a href=\"/public-charge#benefits\">What counts</a>.",
    "items": []
   }
  ]

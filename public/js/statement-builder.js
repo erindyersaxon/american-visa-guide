@@ -28,6 +28,12 @@
   const ph = (v, placeholder) => v || '[' + placeholder + ']';
   const lines = s => s.split('\n').map(x => x.trim()).filter(Boolean);
   const sentence = s => s ? s.replace(/\s*\.?\s*$/, '.') : '';
+  // When health cover starts, and what covers the gap before it: officers
+  // ask "what covers you until then?". Empty when neither field is filled.
+  const arrivalCover = who => [
+    val('insstart') ? 'This cover starts ' + sentence(val('insstart')) : '',
+    val('insbridge') ? 'Until the plan starts, ' + who + ' covered by ' + sentence(val('insbridge')) : ''
+  ].filter(Boolean).map(s => ' ' + s).join('');
 
   // data-show="a=b&c!=d&!e&f|g": every &-clause must hold, and a clause
   // holds when any of its |-terms does
@@ -166,9 +172,9 @@
     // HEALTH INSURANCE
     p.push('HEALTH INSURANCE');
     if (val('ins') === 'employer') {
-      p.push('Once I receive my Social Security Number, I will join my family\'s employer health insurance plan through ' + ph(val('insemployer'), 'Employer') + '. ' + ph(val('insprovider'), 'Insurance provider') + ' provides the plan, and it covers dependents. We will pay the premiums from ' + ph(val('inspaid'), 'my petitioner\'s income') + '. This coverage depends on employment with ' + ph(val('insemployer'), 'Employer') + ', which has been continuous since ' + ph(val('inssince'), 'year') + '. If that job ended, we would keep cover through ' + ph(val('insfallback'), 'COBRA or the ACA marketplace') + '.');
+      p.push('I will join my family\'s employer health insurance plan through ' + ph(val('insemployer'), 'Employer') + '. ' + ph(val('insprovider'), 'Insurance provider') + ' provides the plan, and it covers dependents. We will pay the premiums from ' + ph(val('inspaid'), 'my petitioner\'s income') + '. This coverage depends on employment with ' + ph(val('insemployer'), 'Employer') + ', which has been continuous since ' + ph(val('inssince'), 'year') + '. If that job ended, we would keep cover through ' + ph(val('insfallback'), 'COBRA or the ACA marketplace') + '.' + arrivalCover('I will be'));
     } else {
-      p.push((rel === 'parent' ? 'As a permanent resident, I can enroll in Medicare only after five years of continuous residence. Until then, ' : '') + 'I will buy health insurance through the Affordable Care Act marketplace. I have compared plans in ' + ph(val('insstate'), 'State') + ' and expect to pay about ' + ph(val('inspremium'), '$XXX') + ' per month. We will pay the premiums from ' + ph(val('inspaid'), 'my petitioner\'s income') + '.');
+      p.push((rel === 'parent' ? 'As a permanent resident, I can enroll in Medicare only after five years of continuous residence. Until then, ' : '') + 'I will buy health insurance through the Affordable Care Act marketplace. I have compared plans in ' + ph(val('insstate'), 'State') + ' and expect to pay about ' + ph(val('inspremium'), '$XXX') + ' per month. We will pay the premiums from ' + ph(val('inspaid'), 'my petitioner\'s income') + '.' + arrivalCover('I will be'));
     }
     p.push('');
 
@@ -304,9 +310,9 @@
 
     p.push('HEALTH INSURANCE');
     if (val('ins') === 'employer') {
-      p.push(c + ' will join my employer health insurance plan through ' + ph(val('insemployer'), 'Employer') + ', which covers dependents. ' + ph(val('insprovider'), 'Insurance provider') + ' provides the plan. We will pay the premiums from ' + ph(val('inspaid'), 'my income') + '. This coverage depends on my employment with ' + ph(val('insemployer'), 'Employer') + ', which has been continuous since ' + ph(val('inssince'), 'year') + '. If that job ended, we would keep cover through ' + ph(val('insfallback'), 'COBRA or the ACA marketplace') + '.');
+      p.push(c + ' will join my employer health insurance plan through ' + ph(val('insemployer'), 'Employer') + ', which covers dependents. ' + ph(val('insprovider'), 'Insurance provider') + ' provides the plan. We will pay the premiums from ' + ph(val('inspaid'), 'my income') + '. This coverage depends on my employment with ' + ph(val('insemployer'), 'Employer') + ', which has been continuous since ' + ph(val('inssince'), 'year') + '. If that job ended, we would keep cover through ' + ph(val('insfallback'), 'COBRA or the ACA marketplace') + '.' + arrivalCover(c + ' will be'));
     } else {
-      p.push('I will buy health insurance for ' + c + ' through the Affordable Care Act marketplace. I have compared plans in ' + ph(val('insstate'), 'State') + ' and expect to pay about ' + ph(val('inspremium'), '$XXX') + ' per month, from ' + ph(val('inspaid'), 'my income') + '.');
+      p.push('I will buy health insurance for ' + c + ' through the Affordable Care Act marketplace. I have compared plans in ' + ph(val('insstate'), 'State') + ' and expect to pay about ' + ph(val('inspremium'), '$XXX') + ' per month, from ' + ph(val('inspaid'), 'my income') + '.' + arrivalCover(c + ' will be'));
     }
     p.push('');
 
@@ -423,7 +429,10 @@
     'ev-cv': () => val('workplan') !== 'retired',
     'ev-birth': () => val('rel') === 'child',
     'ev-school': () => val('rel') === 'child',
-    'ev-custody': () => val('rel') === 'child' && val('custody') === 'apart'
+    'ev-custody': () => val('rel') === 'child' && val('custody') === 'apart',
+    'ev-depcare': () => !!val('depcare'),
+    'ev-otherinc': () => val('rel') !== 'child' && !!val('otherincome'),
+    'ev-benefits': () => val('benefits') === 'yes' || !!val('petbenefits') || !!val('jsbenefits')
   };
   const evPrev = {};
   function syncEvidence(init) {
