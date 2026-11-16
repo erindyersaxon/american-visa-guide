@@ -39,3 +39,8 @@ test('the Tools sidebar names the master workbook', () => {
   const links = SECTIONS.tools.groups.flatMap(g => g.links);
   assert.ok(links.some(l => l.href === '/tools/workbook' && l.text === 'Master workbook'));
 });
+
+test('the page says which copy is always current', () => {
+  assert.match(page, /The Excel download is rebuilt with every update/);
+  assert.match(page, /Google Sheets copy is refreshed by hand/);
+});

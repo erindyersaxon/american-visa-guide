@@ -8,6 +8,8 @@ The master workbook (`/tools/workbook`) is generated, not edited by hand.
 
 ## Erin's step: the Google Sheets copy
 
+**Once, before the first re-import:** the Copy button's link ends in `?rtpof=true`, which usually means the Drive file is an uploaded Excel file rather than a native Google Sheet. If so, open it and use **File → Save as Google Sheets**, then point the Copy to Google Sheets button in `public/tools/workbook.html` at the new sheet's `/copy` link. After that, the steps below work.
+
 The "Copy to Google Sheets" button copies a sheet in Erin's Google Drive (`docs.google.com/spreadsheets/d/1ydOadF2laX3ksGuMaBFoTCemdEEjubhu`). It cannot update itself. After a deploy that changes any stage's tasks or any checklist document:
 
 1. Download the new file from https://www.americanvisaguide.com/downloads/american-visa-guide-master-workbook.xlsx

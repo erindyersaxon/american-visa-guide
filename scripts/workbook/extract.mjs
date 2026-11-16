@@ -40,12 +40,14 @@ export function htmlToText(html) {
 
 const ROLE = /^\s*<span class="role role--(petitioner|beneficiary|either)">[\s\S]*?<\/span><\/span>\s*/;
 
-// The first <ol> or <ul> after the heading with this id.
+// The first <ol> or <ul> after the heading with this id, inside the heading's
+// own <section>, so a missing list fails rather than borrowing the next section's.
 function listAfter(html, id, url) {
   const at = html.indexOf(`id="${id}"`);
   if (at < 0) throw new Error(`${url}: no #${id}`);
-  const list = html.slice(at).match(/<(ol|ul)\b[^>]*>([\s\S]*?)<\/\1>/);
-  if (!list) throw new Error(`${url}: no list after #${id}`);
+  const end = html.indexOf('</section>', at);
+  const list = html.slice(at, end < 0 ? undefined : end).match(/<(ol|ul)\b[^>]*>([\s\S]*?)<\/\1>/);
+  if (!list) throw new Error(`${url}: no list in the #${id} section`);
   const items = [...list[2].matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(m => m[1]);
   if (!items.length) throw new Error(`${url}: empty list after #${id}`);
   return items.map(inner => {
@@ -56,7 +58,9 @@ function listAfter(html, id, url) {
   });
 }
 
-export function extractStage(html, url) {
+export function extractStage(source, url) {
+  // Commented-out markup is invisible on the site, so it stays out of the workbook.
+  const html = source.replace(/<!--[\s\S]*?-->/g, '');
   const h1 = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/);
   if (!h1) throw new Error(`${url}: no <h1>`);
   return {

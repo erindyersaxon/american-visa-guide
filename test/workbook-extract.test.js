@@ -42,3 +42,22 @@ test('extractStage fails loudly on an item with no role', async () => {
   const html = '<h1>T</h1><section><h2 id="action-list-title"></h2><ol><li>No role</li></ol></section>';
   assert.throws(() => extractStage(html, '/guide/broken'), /\/guide\/broken/);
 });
+
+test('extractStage reads only the list inside its own section', async () => {
+  const { extractStage } = await load();
+  const role = '<span class="role role--either">Either<span class="sr-only">:</span></span>';
+  const html = `<h1>T</h1>
+    <section><h2 id="action-list-title">Action list</h2><p>No list here.</p></section>
+    <section><h2 id="before-you-move-on-title">Before you move on</h2><ul><li>${role} Verify.</li></ul></section>`;
+  assert.throws(() => extractStage(html, '/guide/missing-list'), /\/guide\/missing-list.*action-list-title/);
+});
+
+test('extractStage ignores commented-out items', async () => {
+  const { extractStage } = await load();
+  const role = '<span class="role role--either">Either<span class="sr-only">:</span></span>';
+  const html = `<h1>T</h1>
+    <section><h2 id="action-list-title">A</h2><ol><li>${role} Shown.</li><!-- <li>${role} Hidden.</li> --></ol></section>
+    <section><h2 id="before-you-move-on-title">B</h2><ul><li>${role} Check.</li></ul></section>`;
+  const stage = extractStage(html, '/guide/comments');
+  assert.deepEqual(stage.actions.map(t => t.text), ['Shown.']);
+});

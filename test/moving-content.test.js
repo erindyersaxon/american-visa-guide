@@ -46,3 +46,13 @@ test('every stage 8 and 9 list item carries a role', () => {
     }
   }
 });
+
+test('Stage 9 health cover states the qualifying events accurately', () => {
+  const section = entry.slice(entry.indexOf('id="health-cover"'), entry.indexOf('id="ssn"'));
+  const plain = text(section);
+  assert.match(plain, /moving to the US from abroad, and gaining lawful presence, are qualifying life events/i);
+  assert.match(plain, /each plan sets its own rules for adding a spouse or family member/i);
+  assert.doesNotMatch(plain, /Losing (that|NHS) cover is a qualifying life event|starting a new job is a qualifying life event|adding a spouse or family member to a policy is a qualifying life event/i);
+  const action = text(listAfter(entry, 'action-list-title'));
+  assert.doesNotMatch(action, /Losing NHS cover when you move is a qualifying life event|\. How\./);
+});
