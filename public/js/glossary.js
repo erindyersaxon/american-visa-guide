@@ -34,7 +34,7 @@
     { term: 'AIS', full: 'Appointment and courier system', def: 'The London visa appointment site (ais.usvisa-info.com). You register your interview and choose how your passport comes back.', match: 'AIS' },
     { term: 'DOS', full: 'US Department of State', def: 'Runs NVC and the embassy. Decides the visa itself.', match: 'DOS' },
     { term: 'CBP', full: 'US Customs and Border Protection', def: 'Inspects you at the port of entry. You become a permanent resident when a CBP officer admits you.', match: 'CBP' },
-    { term: 'IRS', full: 'Internal Revenue Service', def: 'The US tax authority. Issues the tax return transcripts sponsors upload.', match: 'IRS' },
+    { term: 'IRS', full: 'Internal Revenue Service', def: 'The US tax authority. Issues the Tax Return Transcripts sponsors upload.', match: 'IRS' },
     { term: 'SSA', full: 'Social Security Administration', def: 'Issues Social Security numbers.', match: 'SSA' },
     { term: 'SSN', full: 'Social Security Number', def: 'The US identity number for work, tax and banking. Requested through the DS-260.', match: 'SSN' },
     { term: 'ACRO', full: 'ACRO Criminal Records Office', def: 'Issues the UK police certificate. Valid 12 months for the embassy.', match: 'ACRO' },

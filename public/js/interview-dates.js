@@ -175,7 +175,7 @@
       const have = Number(v.taxyear);
       if (have < latestFileable) {
         out.push(item('warn', `A ${latestFileable} tax return may now be available`,
-          ` Your CEAC documents go up to ${have}. The US filing deadline for ${latestFileable} returns was 15 April ${latestFileable + 1}. If any sponsor has filed, upload the new IRS transcript for every sponsor before the interview. <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">Get a transcript</a>.`));
+          ` Your CEAC documents go up to ${have}. The US filing deadline for ${latestFileable} returns was 15 April ${latestFileable + 1}. If any sponsor has filed, upload the new IRS Tax Return Transcript for every sponsor before the interview. <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener noreferrer">Get a transcript</a>.`));
       } else {
         out.push(item('ok', 'Tax year looks current', ` ${have} is the most recent year a sponsor would normally have filed.`));
       }
