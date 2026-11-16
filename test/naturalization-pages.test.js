@@ -45,29 +45,13 @@ const STEP_CHAIN = ['/naturalization', '/naturalization/paths', '/naturalization
   '/naturalization/test', '/naturalization/interview', '/naturalization/oath',
   '/naturalization/after-citizenship'];
 const URL_OF = p => '/' + p.replace(/\.html$/, ''); // 'naturalization/test.html' → '/naturalization/test'
-const sidebars = html => [...html.matchAll(/<ul class="sidebar-nav"[\s\S]*?<\/ul>/g)]
-  .map(m => m[0].replace(/ aria-current="page"/g, '').replace(/\s+/g, ' '));
 const prevNext = html => {
   const nav = (html.match(/<nav class="stage-prevnext"[\s\S]*?<\/nav>/) || [''])[0];
   const rel = r => (nav.match(new RegExp(`href="([^"]+)" rel="${r}"`)) || [])[1];
   return { found: !!nav, prev: rel('prev'), next: rel('next') };
 };
 
-test('every section page has the hub sidebar, desktop and drawer', () => {
-  const canon = sidebars(read('naturalization.html'))[0];
-  for (const p of SECTION_PAGES) {
-    const s = sidebars(read(p));
-    assert.equal(s.length, 2, `${p}: sidebar + drawer`);
-    s.forEach(x => assert.equal(x, canon, p));
-  }
-});
-
-test('aria-current marks the page itself', () => {
-  for (const p of SECTION_PAGES) {
-    const current = [...read(p).matchAll(/<a href="([^"]+)" aria-current="page"/g)].map(m => m[1]);
-    assert.deepEqual(current, [URL_OF(p), URL_OF(p)], `${p}: once in sidebar, once in drawer`);
-  }
-});
+// The sidebar itself is checked in test/section-nav.test.js (shared list).
 
 test('step pages link Previous/Next along the chain', () => {
   STEP_CHAIN.slice(1).forEach((url, i) => {

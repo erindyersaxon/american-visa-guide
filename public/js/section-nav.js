@@ -19,6 +19,77 @@
   /* Each group: an optional heading and its links. `sub: true` indents a
      link under the one before it ("only if this applies"). */
   const SECTIONS = {
+    guide: {
+      label: 'Guide',
+      groups: [
+        {
+          links: [
+            { href: '/guide', text: 'Guide overview' },
+          ],
+        },
+        {
+          heading: 'Stages',
+          links: [
+            { href: '/guide/i130', text: '1: USCIS / I-130' },
+            { href: '/guide/delayed-i130', text: 'If your I-130 is delayed', sub: true },
+            { href: '/guide/crba', text: 'If your child is a US citizen (CRBA)', sub: true },
+            { href: '/guide/nvc', text: '2: NVC' },
+            { href: '/guide/waiting', text: '3: Waiting for your interview letter' },
+            { href: '/guide/interview-letter', text: '4: Interview letter received' },
+            { href: '/guide/medical', text: '5: Medical' },
+            { href: '/guide/interview', text: '6: Interview' },
+            { href: '/guide/after-interview', text: '7: After the interview' },
+            { href: '/guide/before-you-leave', text: '8: Before you leave the UK' },
+            { href: '/guide/us-entry', text: '9: US entry' },
+            { href: '/life', text: 'Life in the USA →' },
+          ],
+        },
+        {
+          heading: 'Related',
+          links: [
+            { href: '/interview', text: 'Interview: start here' },
+            { href: '/interview/221g', text: 'Avoiding a 221(g)' },
+            { href: '/tools', text: 'Tools' },
+            { href: '/glossary', text: 'Glossary' },
+            { href: '/about#resources', text: 'Official resources' },
+          ],
+        },
+      ],
+    },
+    naturalization: {
+      label: 'Naturalization',
+      groups: [
+        {
+          links: [
+            { href: '/naturalization', text: 'Naturalization overview' },
+          ],
+        },
+        {
+          heading: 'Steps',
+          links: [
+            { href: '/naturalization/paths', text: 'Start: Which path are you on?' },
+            { href: '/naturalization/eligibility', text: '1: Check if you can apply' },
+            { href: '/naturalization/good-moral-character', text: '2: Good moral character' },
+            { href: '/naturalization/file-n400', text: '3: Fill in and file Form N-400' },
+            { href: '/naturalization/biometrics', text: '4: Biometrics' },
+            { href: '/naturalization/test', text: '5: English and civics test' },
+            { href: '/naturalization/english-test', text: 'English test practice', sub: true },
+            { href: '/naturalization/interview', text: '6: Interview' },
+            { href: '/naturalization/oath', text: '7: Oath ceremony' },
+            { href: '/naturalization/after-citizenship', text: '8: After you become a citizen' },
+          ],
+        },
+        {
+          heading: 'Tools and help',
+          links: [
+            { href: '/naturalization/when-can-i-apply', text: 'When can I apply? (calculator)' },
+            { href: '/naturalization/delays-and-denials', text: 'Delays, denials and your options' },
+            { href: '/naturalization/checklist', text: 'N-400 preparation list' },
+            { href: '/naturalization/test#flashcards', text: 'Civics flashcards' },
+          ],
+        },
+      ],
+    },
     'public-charge': {
       label: 'Public charge',
       groups: [
@@ -97,6 +168,12 @@
       ],
     },
   };
+
+  // Node (tests): hand over the lists and stop before touching the DOM.
+  if (typeof document === 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) module.exports = { SECTIONS };
+    return;
+  }
 
   const script = document.currentScript;
   const key = script && script.dataset.section;

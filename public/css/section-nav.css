@@ -98,6 +98,13 @@
   display: none;
 }
 
+/* Guide and naturalization pages (stage.css .wrap layout): stage.css leaves
+   350px for the old hand-copied sidebar. Pages put has-snav on <body> in the
+   HTML so this applies before the script runs, with no layout jump. */
+body.has-snav .wrap {
+  margin-left: 0;
+}
+
 @media (min-width: 1100px) {
   .snav-rail {
     display: block;
@@ -128,6 +135,14 @@
   /* Other layouts (design-system pages): the column sits inside <main> */
   body.has-snav main:not(.page-wrap) {
     padding-left: var(--snav-rail-space);
+  }
+
+  /* Stage layout: the .wrap makes the room, so <main> inside it doesn't */
+  body.has-snav .wrap {
+    margin-left: var(--snav-rail-space);
+  }
+  body.has-snav .wrap > main:not(.page-wrap) {
+    padding-left: 0;
   }
 
   .snav-fold {
@@ -210,7 +225,8 @@
   }
 
   body.has-snav main.page-wrap,
-  body.has-snav main:not(.page-wrap) {
+  body.has-snav main:not(.page-wrap),
+  body.has-snav .wrap {
     margin-left: 0;
     padding-left: 0;
   }

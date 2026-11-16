@@ -1,9 +1,6 @@
 {
   "guide.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "stages",
     "stages-title",
@@ -22,9 +19,6 @@
   ],
   "guide/after-interview.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
@@ -36,9 +30,6 @@
   ],
   "guide/before-you-leave.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
@@ -49,9 +40,6 @@
   ],
   "guide/crba.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "crba",
@@ -73,9 +61,6 @@
   ],
   "guide/delayed-i130.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
@@ -105,9 +90,6 @@
   ],
   "guide/i130.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
@@ -127,9 +109,6 @@
   ],
   "guide/interview-letter.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
@@ -142,9 +121,6 @@
   ],
   "guide/interview.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
@@ -161,9 +137,6 @@
   ],
   "guide/medical.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
@@ -177,9 +150,6 @@
   ],
   "guide/nvc.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
@@ -216,9 +186,6 @@
   ],
   "guide/us-entry.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
@@ -233,9 +200,6 @@
   ],
   "guide/waiting.html": [
     "nav-placeholder",
-    "mobileNavToggle",
-    "mobileNavDrawer",
-    "mobileNavClose",
     "main-content",
     "action-list-title",
     "stage-docs-title",
