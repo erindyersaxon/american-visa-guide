@@ -98,7 +98,12 @@
     });
   });
   const prepReset = document.getElementById('prep-reset');
-  if (prepReset) prepReset.addEventListener('click', function () { savePrep({}); renderPrep(); });
+  if (prepReset) prepReset.addEventListener('click', function () {
+    // Nothing ticked means nothing to lose, so only ask when there is.
+    if (Object.keys(loadPrep()).length && !confirm('Reset this checklist? This action cannot be undone.')) return;
+    savePrep({});
+    renderPrep();
+  });
   renderPrep();
 
 })();

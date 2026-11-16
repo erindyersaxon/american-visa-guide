@@ -1,4 +1,4 @@
-/* American Visa Guide: Data Tracker JS */
+/* American Visa Guide: Data page JS */
 
 async function renderTracker() {
   try {
