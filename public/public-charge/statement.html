@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="/css/nav.css?v=20261115b">
   <script src="/js/nav.js?v=20261115s6" defer></script>
   <link rel="stylesheet" href="/css/section-nav.css?v=20261115b">
-  <script src="/js/section-nav.js?v=20261115s6" data-section="interview" defer></script>
+  <script src="/js/section-nav.js?v=20261115pc" data-section="public-charge" defer></script>
   <style>
     .tool fieldset { border-top: 1px solid var(--line); padding-top: 1rem; }
     .tool fieldset:first-of-type { border-top: none; padding-top: 0; }
@@ -66,12 +66,12 @@
           <option value="parent">Parent (IR5)</option>
           <option value="other">Other relative</option>
         </select>
-        <span class="hint">The builder changes its questions and the statement to fit. What differs: <a href="/public-charge#ir2">children</a>, <a href="/public-charge#ir5">parents</a>.</span></div>
+        <span class="hint">The builder changes its questions and the statement to fit. What differs: <a href="/public-charge/children-and-parents#ir2">children</a>, <a href="/public-charge/children-and-parents#ir5">parents</a>.</span></div>
       <div class="callout callout-info opt" data-show="rel=child">For a child under 18, the petitioner writes the statement on the child's behalf. Where a box says <em>you</em> or <em>your</em>, give the child's details in sections 1 and 2, and your own as the petitioner from section 3 on. Your email address goes in section 1.</div>
       <div class="field-row opt" data-show="rel=child">
         <div class="field"><label for="prel">You, the petitioner, are the child's</label><input type="text" id="prel" placeholder="father"></div>
       </div>
-      <label class="check opt" data-show="rel=child"><input type="checkbox" id="exempt"> <span>The child is under 18, unmarried, and will live with me in the US in my legal and physical custody, so needs no Form I-864. <a href="/public-charge#minor-child">Check this</a>.</span></label>
+      <label class="check opt" data-show="rel=child"><input type="checkbox" id="exempt"> <span>The child is under 18, unmarried, and will live with me in the US in my legal and physical custody, so needs no Form I-864. <a href="/public-charge/children-and-parents#minor-child">Check this</a>.</span></label>
       <div class="field opt" data-show="rel!=spouse&amp;rel!=child"><label for="relother">You are the petitioner's</label><input type="text" id="relother" placeholder="mother"></div>
       <div class="field opt" data-show="rel=adult"><label for="indepsince">You have supported yourself since <span class="hint">(optional; leave empty if your parent supports you)</span></label><input type="text" id="indepsince" placeholder="2017"></div>
     </fieldset>
@@ -183,15 +183,15 @@
         <div class="field opt" data-show="jsname"><label for="jsemployer">Joint sponsor's employer</label><input type="text" id="jsemployer"></div>
         <div class="field opt" data-show="jsname"><label for="jsincome">Joint sponsor's annual income</label><input type="text" id="jsincome"></div>
       </div>
-      <div class="field opt" data-show="jsname"><label for="jswhy">Why you have a joint sponsor, in one true sentence</label><input type="text" id="jswhy" placeholder="the petitioner had only recently returned to US employment"><span class="hint">Not in the statement: this is for you to rehearse. <a href="/public-charge#joint-sponsor">What they ask about joint sponsors</a>.</span></div>
+      <div class="field opt" data-show="jsname"><label for="jswhy">Why you have a joint sponsor, in one true sentence</label><input type="text" id="jswhy" placeholder="the petitioner had only recently returned to US employment"><span class="hint">Not in the statement: this is for you to rehearse. <a href="/public-charge/sponsors#joint-sponsor">What they ask about joint sponsors</a>.</span></div>
     </fieldset>
 
     <fieldset>
       <legend>6. Health insurance</legend>
       <div class="field"><label for="ins">Cover after arrival</label>
         <select id="ins"><option value="employer">Added to the petitioner's (or a family member's) employer plan</option><option value="own">Buying my own plan</option></select></div>
-      <p class="hint opt" data-show="rel=parent">A permanent resident can enroll in Medicare only after five years of continuous residence. Until then a parent usually buys a marketplace plan; the statement says so. <a href="/public-charge#ir5">Why</a>.</p>
-      <p class="hint opt" data-show="rel=adult">An employer plan that covers children must keep them until age 26. From 26, buy your own plan. <a href="/public-charge#adult-child">Why</a>.</p>
+      <p class="hint opt" data-show="rel=parent">A permanent resident can enroll in Medicare only after five years of continuous residence. Until then a parent usually buys a marketplace plan; the statement says so. <a href="/public-charge/children-and-parents#ir5">Why</a>.</p>
+      <p class="hint opt" data-show="rel=adult">An employer plan that covers children must keep them until age 26. From 26, buy your own plan. <a href="/public-charge/children-and-parents#adult-child">Why</a>.</p>
       <div class="field-row opt" data-show="ins=employer">
         <div class="field"><label for="insemployer">Through employer</label><input type="text" id="insemployer"></div>
         <div class="field"><label for="inssince">The plan holder has worked there since</label><input type="text" id="inssince" placeholder="2019"></div>
@@ -235,7 +235,7 @@
       <label class="check"><input type="checkbox" id="retirework" checked> I will work in the US and earn Social Security credits</label>
       <div class="field"><label for="retireplan">Other retirement plan <span class="hint">(optional; name each, with provider and value)</span></label><input type="text" id="retireplan" placeholder="a workplace pension with Aviva, worth about $45,000, and investments of about $15,000"></div>
       </div>
-      <div class="field opt" data-show="rel=parent"><label for="ltc">If you could no longer live alone, who would care for you, and who would pay</label><input type="text" id="ltc" placeholder="I would live with my son, and my savings and pension would pay for any care at home"><span class="hint">Questionnaires ask about long-term care at government expense. <a href="/public-charge#ir5">Why</a>.</span></div>
+      <div class="field opt" data-show="rel=parent"><label for="ltc">If you could no longer live alone, who would care for you, and who would pay</label><input type="text" id="ltc" placeholder="I would live with my son, and my savings and pension would pay for any care at home"><span class="hint">Questionnaires ask about long-term care at government expense. <a href="/public-charge/children-and-parents#ir5">Why</a>.</span></div>
     </fieldset>
 
     <fieldset>
@@ -256,7 +256,7 @@
 
     <fieldset>
       <legend>10. Evidence you are attaching</legend>
-      <p class="hint">Tick each file in your <a href="/public-charge#deliverables">evidence pack</a>. The codes match the file names. Some boxes tick themselves from your answers above.</p>
+      <p class="hint">Tick each file in your <a href="/public-charge/evidence#deliverables">evidence pack</a>. The codes match the file names. Some boxes tick themselves from your answers above.</p>
       <label class="check"><input type="checkbox" id="ev-pettax" checked> P01 Petitioner IRS tax transcripts or returns, last 3 years</label>
       <label class="check"><input type="checkbox" id="ev-petpay" checked> P02 Petitioner payslips, last 3 months, and latest W-2</label>
       <label class="check"><input type="checkbox" id="ev-petbank" checked> P03 Petitioner bank statements, last 3 months</label>
@@ -298,7 +298,7 @@
 
   <h2 id="output-title">Your statement</h2>
   <p id="pc-gaps" class="pc-gaps"></p>
-  <p>Read each sentence and check it against your documents. Then upload it to CEAC with your <a href="/public-charge#deliverables">evidence pack</a> and email both to <strong>LNDIVSubmissions@state.gov</strong>, at least five working days before the interview (<a href="/interview/dates">find the date</a>, <a href="/public-charge#submit">how to submit</a>).</p>
+  <p>Read each sentence and check it against your documents. Then upload it to CEAC with your <a href="/public-charge/evidence#deliverables">evidence pack</a> and email both to <strong>LNDIVSubmissions@state.gov</strong>, at least five working days before the interview (<a href="/interview/dates">find the date</a>, <a href="/public-charge#submit">how to submit</a>).</p>
   <pre class="output" id="pc-out"></pre>
   <div class="btn-row">
     <button type="button" class="btn" id="pc-copy">Copy</button>
@@ -308,7 +308,7 @@
 
   <div class="callout callout-warn">
     <span class="callout-title">Then rehearse it</span>
-    The officer will test what you wrote. <a href="/public-charge#questions">Answer these questions out loud</a>, or drill the <a href="/interview/questions?theme=publiccharge">public charge flashcards</a>.
+    The officer will test what you wrote. <a href="/public-charge/questions#questions">Answer these questions out loud</a>, or drill the <a href="/interview/questions?theme=publiccharge">public charge flashcards</a>.
   </div>
 
   <div class="article-return">
@@ -319,6 +319,6 @@
 
 <div id="footer-placeholder"></div>
 
-<script src="/js/statement-builder.js?v=20261115s6"></script>
+<script src="/js/statement-builder.js?v=20261115pc"></script>
 </body>
 </html>

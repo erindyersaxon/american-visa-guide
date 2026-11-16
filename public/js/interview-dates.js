@@ -110,7 +110,7 @@
       // Interview on/after 1 Oct 2026: I-864 edition
       if (interview >= parse('2026-10-01')) {
         out.push(item('info', 'Any new I-864 must be on the 08/24/26 edition',
-          ' USCIS accepts only that edition from 1 October 2026. It applies to any affidavit signed now, for example from a new or replacement joint sponsor. Sponsors should lift any credit freeze. <a href="/public-charge#i864">Details</a>.'));
+          ' USCIS accepts only that edition from 1 October 2026. It applies to any affidavit signed now, for example from a new or replacement joint sponsor. Sponsors should lift any credit freeze. <a href="/public-charge/sponsors#i864">Details</a>.'));
       }
     }
 

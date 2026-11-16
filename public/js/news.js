@@ -136,7 +136,7 @@
       "type": "community",
       "source": "Applicant report",
       "title": "London issues a public charge refusal under 212(a)(4)",
-      "url": "/public-charge#refused",
+      "url": "/public-charge/refused#refused",
       "note": "A London applicant received a 212(a)(4) refusal form, so London has refused at least one applicant as likely to become a public charge. The form gives no reason. These are member reports, not an embassy announcement."
     },
     {

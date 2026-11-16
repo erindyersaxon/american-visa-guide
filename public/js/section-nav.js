@@ -19,6 +19,42 @@
   /* Each group: an optional heading and its links. `sub: true` indents a
      link under the one before it ("only if this applies"). */
   const SECTIONS = {
+    'public-charge': {
+      label: 'Public charge',
+      groups: [
+        {
+          links: [
+            { href: '/public-charge', text: 'Overview: what you must prove' },
+            { href: '/public-charge/statement', text: 'Statement builder' },
+          ],
+        },
+        {
+          heading: 'Prepare',
+          links: [
+            { href: '/public-charge/evidence', text: 'The evidence pack' },
+            { href: '/public-charge/questions', text: 'Questions to rehearse' },
+            { href: '/public-charge/sponsors', text: 'Sponsors and the I-864' },
+            { href: '/public-charge/children-and-parents', text: 'Children and parents (IR2, IR5)' },
+            { href: '/public-charge/template', text: 'Statement template' },
+          ],
+        },
+        {
+          heading: 'After, and background',
+          links: [
+            { href: '/public-charge/refused', text: 'If refused under 212(a)(4)' },
+            { href: '/public-charge/sources', text: 'What is confirmed, and sources' },
+          ],
+        },
+        {
+          heading: 'Where it fits',
+          links: [
+            { href: '/guide/nvc', text: 'Stage 2: NVC (the I-864)' },
+            { href: '/guide/interview', text: 'Stage 6: Embassy interview' },
+            { href: '/interview', text: 'Interview: start here' },
+          ],
+        },
+      ],
+    },
     interview: {
       label: 'Interview',
       groups: [

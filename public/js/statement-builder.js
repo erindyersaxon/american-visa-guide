@@ -1,7 +1,7 @@
 /*
    American Visa Guide: public charge statement builder
    (/public-charge/statement). Produces the same statement as the template
-   on /public-charge#template, from form fields. The applicant type (spouse,
+   on /public-charge/template#template, from form fields. The applicant type (spouse,
    child under 18, son or daughter, parent) changes the questions and the
    wording; a child's statement is written by the petitioner on the
    child's behalf. Empty optional fields drop
@@ -61,7 +61,7 @@
   const an = w => (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w;
 
   function evidence(p) {
-    // Codes match the evidence pack table on /public-charge#deliverables.
+    // Codes match the evidence pack table on /public-charge/evidence#deliverables.
     // Boxes hidden for this applicant type stay out of the list.
     const ev = ['00 Public charge statement'];
     form.querySelectorAll('input[id^="ev-"]').forEach(box => {

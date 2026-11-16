@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="/js/consent.js?v=20261024c" defer></script>
+    <title>Sponsors and the I-864 | American Visa Guide</title>
+    <meta name="description" content="How the I-864 and a joint sponsor fit the public charge test at US Embassy London: the credit check, gross and net income, and what a joint sponsor is asked." />
+    <link rel="canonical" href="https://www.americanvisaguide.com/public-charge/sponsors" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/design-system.css?v=20261024c" />
+    <link rel="stylesheet" href="/css/print.css?v=20261025a" media="print" />
+    <style>
+      .pg-container { max-width: var(--max-width-prose); margin: 0 auto; }
+      .pg-header { margin-bottom: var(--space-8); padding-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); }
+      .pg-eyebrow { font-size: var(--size-sm); color: var(--color-mark, #991B1B); font-weight: var(--weight-semibold); margin-bottom: var(--space-2); }
+      .pg-title { font-size: var(--size-3xl); font-weight: var(--weight-bold); color: var(--color-navy); margin-bottom: var(--space-4); }
+      .pg-dateline { font-size: var(--size-xs); color: var(--color-text-muted); }
+      .pg-intro { font-size: var(--size-base); color: var(--color-text); line-height: var(--line-lg); margin-bottom: var(--space-8); }
+      .info-card { padding: var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy-light); border-radius: var(--radius-lg); margin-bottom: var(--space-6); }
+      .info-card strong { color: var(--color-navy); }
+      .info-card p { margin-bottom: var(--space-4); font-size: var(--size-sm); line-height: var(--line-lg); }
+      .info-card ul, .info-card ol { margin: var(--space-4) 0 var(--space-4) var(--space-6); }
+      .info-card li { margin-bottom: var(--space-2); font-size: var(--size-sm); line-height: var(--line-lg); }
+      .tip-card { padding: var(--space-6); background: var(--color-gold-xlight); border: 1px solid var(--color-gold); border-radius: var(--radius-lg); margin-bottom: var(--space-6); }
+      .tip-card strong { color: var(--color-navy); }
+      .tip-card p { margin-bottom: var(--space-4); font-size: var(--size-sm); line-height: var(--line-lg); }
+      .tip-card ul, .tip-card ol { margin: var(--space-4) 0 var(--space-4) var(--space-6); }
+      .tip-card li { margin-bottom: var(--space-2); font-size: var(--size-sm); line-height: var(--line-lg); }
+      .tip-card a { color: var(--color-navy); font-weight: var(--weight-semibold); }
+      .warning-card { padding: var(--space-6); background: #fee2e2; border: 2px solid var(--color-error); border-radius: var(--radius-lg); margin-bottom: var(--space-6); }
+      .warning-card strong { color: var(--color-error); }
+      .warning-card p { margin-bottom: var(--space-4); font-size: var(--size-sm); line-height: var(--line-lg); }
+      .warning-card ul { margin: var(--space-4) 0 var(--space-4) var(--space-6); }
+      .warning-card li { margin-bottom: var(--space-2); font-size: var(--size-sm); line-height: var(--line-lg); }
+      .toc { padding: var(--space-5) var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy-light); border-radius: var(--radius-lg); margin-bottom: var(--space-8); }
+      .toc strong { color: var(--color-navy); font-size: var(--size-sm); }
+      .toc ol { margin: var(--space-3) 0 0 var(--space-6); }
+      .toc li { margin-bottom: var(--space-2); font-size: var(--size-sm); }
+      .table-wrapper { width: 100%; overflow-x: auto; border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-bottom: var(--space-6); background: var(--color-surface); }
+      .table { width: 100%; border-collapse: collapse; font-size: var(--size-sm); line-height: var(--line-lg); }
+      .table caption { caption-side: top; text-align: left; padding: var(--space-4) var(--space-5) 0; font-size: var(--size-sm); font-weight: var(--weight-semibold); color: var(--color-navy); }
+      .table th { padding: var(--space-3) var(--space-4); text-align: left; font-weight: var(--weight-semibold); color: var(--color-navy); background: var(--color-surface-alt); border-bottom: 1px solid var(--color-border-strong); vertical-align: top; }
+      .table td { padding: var(--space-3) var(--space-4); color: var(--color-text); border-bottom: 1px solid var(--color-border); vertical-align: top; }
+      .table tbody tr:last-child td { border-bottom: none; }
+      .table th:first-child, .table td:first-child { padding-left: var(--space-5); }
+      .table th:last-child, .table td:last-child { padding-right: var(--space-5); }
+      .email-template { background: white; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6); font-family: 'Courier New', monospace; font-size: var(--size-sm); line-height: 1.8; color: var(--color-text); white-space: pre-wrap; word-wrap: break-word; }
+      .email-placeholder { color: var(--color-navy); font-style: italic; }
+      .copy-btn { display: inline-block; padding: var(--space-3) var(--space-5); background: var(--color-navy); color: white; border: none; border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--size-sm); font-weight: var(--weight-semibold); cursor: pointer; transition: all var(--transition-fast); margin-bottom: var(--space-6); }
+      .copy-btn:hover { background: var(--color-navy-dark); }
+      .copy-btn:focus-visible { outline: 2px solid var(--color-navy); outline-offset: 2px; }
+      .section-title { font-size: var(--size-xl); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-8) 0 var(--space-4) 0; }
+      h3.sub-title { font-size: var(--size-lg); font-weight: var(--weight-semibold); color: var(--color-navy); margin: var(--space-6) 0 var(--space-3) 0; }
+      .source-note { font-size: var(--size-xs); color: var(--color-text-muted); margin-top: calc(var(--space-2) * -1); margin-bottom: var(--space-6); }
+      .source-note a { color: var(--color-text-muted); }
+      .embassy-note { font-size: var(--size-xs); color: var(--color-text-muted); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
+      .embassy-note ul { margin: var(--space-3) 0 var(--space-5) var(--space-6); }
+      .embassy-note li { margin-bottom: var(--space-2); }
+      @media print { .copy-btn { display: none; } .table-wrapper { overflow-x: visible; } }
+      /* Wide screens: let tables use some of the margin the prose column
+         leaves behind. The container is 1280px; the prose column is 68ch. */
+      @media (min-width: 1024px) {
+        .table-wrapper { width: calc(100% + 12rem); margin-left: -6rem; }
+      }
+      /* Narrow screens: restack table rows as labelled blocks. Three columns
+         of prose do not survive a phone, and most readers arrive on one. */
+      @media (max-width: 640px) {
+        .table-wrapper { overflow-x: visible; }
+        .table, .table caption, .table tbody, .table tr, .table td { display: block; width: auto; }
+        .table thead { display: none; }
+        .table caption { padding: var(--space-4) var(--space-5) var(--space-2); }
+        .table tr { border-bottom: 1px solid var(--color-border-strong); padding: var(--space-3) 0; }
+        .table tr:last-child { border-bottom: none; }
+        .table td { border-bottom: none; padding: var(--space-2) var(--space-5); }
+        .table td::before { content: attr(data-label); display: block; font-size: var(--size-xs); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-muted); margin-bottom: 2px; }
+      }
+      .pg-container code { overflow-wrap: anywhere; }
+      /* Keep anchored headings clear of the sticky site header. */
+      .body-sm { font-size: var(--size-sm); line-height: var(--line-lg); margin-bottom: var(--space-5); }
+      .body-sm li { margin-bottom: var(--space-2); }
+      .scope-note { font-size: var(--size-xs); color: var(--color-text-muted); line-height: var(--line-lg); margin-bottom: var(--space-6); }
+      .cta-card { padding: var(--space-6); background: var(--color-surface); border: 2px solid var(--color-navy); border-radius: var(--radius-lg); margin-bottom: var(--space-6); }
+      .cta-card strong { display: block; font-size: var(--size-lg); color: var(--color-navy); }
+      .cta-card p { margin: var(--space-3) 0 var(--space-4); font-size: var(--size-sm); line-height: var(--line-lg); }
+      .cta-card .btn { white-space: normal; text-align: center; }
+      .cta-card .cta-alt { margin: var(--space-3) 0 0; font-size: var(--size-xs); color: var(--color-text-muted); }
+      .template-details { margin-bottom: var(--space-6); }
+      .template-details > summary { cursor: pointer; font-weight: var(--weight-semibold); color: var(--color-navy); font-size: var(--size-sm); padding: var(--space-3) 0; }
+      /* Public charge topic: page list on the overview, previous/next on each page */
+      .pc-topic { padding: var(--space-6); background: var(--color-surface, #fff); border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-bottom: var(--space-8); }
+      .pc-topic__hd { margin: 0 0 var(--space-3); font-weight: var(--weight-bold); color: var(--color-navy); }
+      .pc-topic__hd--sub { margin-top: var(--space-6); }
+      .pc-topic ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+      .pc-topic li { margin: 0; max-width: none; }
+      .pc-topic li a { font-weight: var(--weight-semibold); }
+      .pc-topic li span { display: block; font-size: var(--size-sm); color: var(--color-text-muted); }
+      .pc-topic__onpage { gap: var(--space-2) !important; }
+      .pc-pager { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-12) 0 var(--space-6); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
+      .pc-pager a { display: block; padding: var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); font-weight: var(--weight-semibold); text-decoration: none; color: var(--color-navy); }
+      .pc-pager a:hover { border-color: var(--color-navy); }
+      .pc-pager span { display: block; font-size: var(--size-xs); font-weight: var(--weight-medium); color: var(--color-text-muted); margin-bottom: var(--space-1); }
+      .pc-pager__next { grid-column: 2; text-align: right; }
+      @media (max-width: 560px) { .pc-pager { grid-template-columns: 1fr; } .pc-pager__next { grid-column: 1; } }
+    </style>
+    <link rel="stylesheet" href="/css/nav.css?v=20261115b">
+  <script src="/js/nav.js?v=20261115s6" defer></script>
+  <link rel="stylesheet" href="/css/section-nav.css?v=20261115b">
+  <script src="/js/section-nav.js?v=20261115pc" data-section="public-charge" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261024c">
+</head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav role="navigation" aria-label="Main navigation"></nav>
+
+    <main data-pagefind-body id="main">
+      <div class="container">
+        <div class="pg-container">
+          <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/public-charge">Public charge</a></li><li aria-current="page">Sponsors and the I-864</li></ol></nav>
+          <header class="pg-header">
+            <div class="pg-eyebrow">Public charge &middot; US Embassy London</div>
+            <h1 class="pg-title" id="i864">Sponsors and the I-864</h1>
+            <p class="pg-dateline">Updated 23 October 2026. Part of <a href="/public-charge">public charge: what you must prove, and how</a>.</p>
+          </header>
+
+<div class="info-card">
+            <strong>Clearing 125% of the poverty guidelines gets the I-864 accepted. It does not settle public charge.</strong>
+            <p style="margin-top: var(--space-3);">The officer looks behind the figure, at the sponsor's financial history, their own benefit use, and whether they will make the money available to you. One rule still runs the other way: where an I-864 is required, a missing or insufficient one sinks the case on its own.</p>
+            <ul>
+              <li><strong>Know why you have a joint sponsor, in one true sentence.</strong> Officers ask. "We weren't sure" invites more questions. Form I-864 requires a tax return for the most recent year only (<a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Part 6</a>); a short US tax history is not a reason by itself. Send three years where you have them.</li>
+              <li><strong>Describe the joint sponsor's relationship,</strong> how long they have known each of you, where they live, and whether they have sponsored anyone before. An earlier I-864 obligation still in force raises the income they must show.</li>
+              <li><strong>The petitioner's US domicile still has to hold.</strong> A joint sponsor cannot cover for it. See <a href="/interview/221g/domicile">the domicile problem</a>.</li>
+              <li><strong>Every sponsor now authorizes a credit check</strong> on the 08/24/26 edition of the I-864. Sponsors should read their own credit reports before signing, lift any credit freeze when asked, and be ready to explain defaults or large debts.</li>
+            </ul>
+          </div>
+
+          <p class="prose">Not a spouse? The I-864 treats a child&rsquo;s or parent&rsquo;s own income differently, and some children need no I-864 at all. See <a href="/public-charge/children-and-parents#ir2">children of US citizens</a> for children, sons and daughters on IR2, and <a href="/public-charge/children-and-parents#ir5">parents of US citizens</a> for parents on IR5.</p>
+
+          <details class="template-details detail-block" id="joint-sponsor">
+            <summary>In detail: what posts ask about a joint sponsor</summary>
+            <div style="margin-top: var(--space-3);">
+<p class="prose">With a joint sponsor, the written questionnaire adds a block of questions. One consulate's 221(g) checklist also asks for <em>a more detailed description of how the joint sponsor is related to the petitioner</em>. The joint sponsor does not attend, so you answer for them. Prepare these:</p>
+          <ul class="prose-list">
+            <li><strong>Why you have one.</strong> At another post an officer asked: <em>why did you add a joint sponsor if your wife's income was enough?</em> Give a true answer in one sentence. "The petitioner's income was close to the threshold" works. So does "the petitioner had only recently returned to US employment." "We weren't sure" invites the next question.</li>
+            <li><strong>The relationship, described.</strong> "My husband's colleague" is a label. Say how they know each other, for how long, and how often they speak. An officer who cannot place a joint sponsor gives their support less weight.</li>
+            <li><strong>How long they have known the petitioner <em>and</em> you.</strong> The questionnaire asks about both in one question. A sponsor who has never met you still qualifies. Say so up front.</li>
+            <li><strong>Whether they live in the same state as the petitioner.</strong> Distance does not bar them. The officer uses it to judge whether the sponsor would hand over the money.</li>
+            <li><strong>Whether they have sponsored anyone else for an immigrant visa.</strong> An earlier I-864 obligation that has not ended counts toward the joint sponsor's household size on your I-864, and raises the income they must show. Check before you file, with the <a href="/tools/i864-household">I-864 household decision tree</a>.</li>
+            <li><strong>Whether they have used public assistance.</strong> Officers weigh their benefit history as they weigh the petitioner's.</li>
+          </ul>
+          <p class="prose">If you have spoken to your joint sponsor only once or twice, have a proper conversation before the interview.</p>
+
+          <h4 class="sub-title" style="margin-top:var(--space-4);">A short US tax history does not call for a joint sponsor</h4>
+          <p class="prose">In the case above, the couple added a joint sponsor because the petitioner lacked three years of US tax returns. Form I-864 asks, yes or no, whether you filed a return for each of the last three tax years. It is easy to read that as a requirement. The note under that question in the 08/24/26 edition says you must attach a transcript or photocopy <em>for only the most recent tax year</em>. It adds that you <em>may</em> submit three years if you believe they help (<a href="https://www.uscis.gov/i-864" target="_blank" rel="noopener noreferrer">Form I-864</a>, Part 6, Item Numbers 15 to 19, and their instructions). Send three years where you have them, because they show sustained income. Once you file a joint sponsor's I-864, the officer examines their details in the same depth as the petitioner's.</p>
+            </div>
+          </details>
+
+          <details class="template-details detail-block" id="credit-check">
+            <summary>In detail: the I-864 credit check</summary>
+            <div style="margin-top: var(--space-3);">
+<p class="prose">In the 08/24/26 edition of Form I-864, each sponsor signs a new authorization in Part 8. It lets USCIS and the State Department obtain <em>credit reports and scores</em> from consumer reporting agencies <em>in connection with the sufficiency determination</em> of the affidavit.</p>
+          <ul class="prose-list">
+            <li><strong>It lasts through a 221(g).</strong> The authorization runs until the officer approves the case, the one-year window to overcome a refusal closes, or the sponsor withdraws the I-864. It stays valid <em>during any period in which an application is pending administrative processing</em>.</li>
+            <li><strong>A credit freeze can delay your case.</strong> The form warns sponsors that a security freeze may block the government's access, and asks them to respond to any request to lift it.</li>
+            <li><strong>The government can share negative findings with you</strong>, so that you can respond under 8 CFR 103.2(b)(16).</li>
+          </ul>
+          <p class="prose">Each sponsor, joint sponsors included, should read their own credit reports before signing, and prepare to explain any defaults, collections or large debts. The officer may ask you about the petitioner's debts.</p>
+            </div>
+          </details>
+
+          <details class="template-details detail-block" id="gross-net">
+            <summary>In detail: income before and after tax</summary>
+            <div style="margin-top: var(--space-3);">
+<p class="prose">The I-864 uses <strong>gross</strong> income, and compares it against 125% of the Federal Poverty Guidelines. Written public charge questionnaires ask for the petitioner's annual salary <strong>after taxes</strong>, because the officer wants to know whether the household can absorb another person. Have both numbers, and say which one you are quoting. An officer who expects gross and hears net may read it as a contradiction of the I-864.</p>
+            </div>
+          </details>
+
+          
+          <nav class="pc-pager" aria-label="Public charge pages">
+            <a class="pc-pager__prev" href="/public-charge/questions"><span>Previous</span>Questions to rehearse</a><a class="pc-pager__next" href="/public-charge/children-and-parents"><span>Next</span>Children and parents of US citizens</a>
+          </nav>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+    <script src="/js/page-contents.js?v=20261024c"></script>
+    <script src="/js/public-charge.js?v=20261115pc"></script>
+  </body>
+</html>
