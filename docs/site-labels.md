@@ -9,6 +9,7 @@ One name per section, used the same way in the top nav (`public/js/nav.js`), bre
 | Community timelines | **Data** | `/data` | Data Tracker |
 | News | **News** | `/news` | Embassy news, Updates |
 | Checklists, worksheets, templates | **Tools** | `/tools` | Checklists & Tools, Checklists and tools, Checklists & Templates |
+| The spreadsheet for the whole journey | **Master workbook** | `/tools/workbook` | Moving to the USA Workbook (Nikki's original, named only when thanking her) |
 | After landing | **Life in the USA** | `/life` | Life in the US |
 | Citizenship | **Naturalization** | `/naturalization` | Citizenship guide |
 | Call to action | **Submit your timeline** | Fillout form | Submit Timeline |

@@ -105,7 +105,7 @@
           heading: 'Every stage',
           links: [
             { href: '/tools/master-checklist', text: 'Master Checklist' },
-            { href: '/tools/workbook', text: 'Moving to the USA Workbook' },
+            { href: '/tools/workbook', text: 'Master workbook' },
           ],
         },
         {
