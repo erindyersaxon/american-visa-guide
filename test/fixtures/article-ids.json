@@ -34,25 +34,6 @@
     "sources",
     "footer-placeholder"
   ],
-  "delayed-i130-remedies.html": [
-    "nav-placeholder",
-    "main-content",
-    "body-1",
-    "body-2",
-    "congressional",
-    "body-3",
-    "expedite",
-    "cong-tpl",
-    "whitehouse",
-    "body-4",
-    "wh-tpl",
-    "demand",
-    "body-5",
-    "demand-tpl",
-    "mandamus",
-    "body-6",
-    "footer-placeholder"
-  ],
   "interview/221g/domicile.html": [
     "nav-placeholder",
     "main",
@@ -140,7 +121,7 @@
     "waiting",
     "footer-placeholder"
   ],
-  "mandamus-pro-se.html": [
+  "guide/delayed-i130/mandamus.html": [
     "nav-placeholder",
     "main",
     "contents",

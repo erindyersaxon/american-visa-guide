@@ -155,9 +155,16 @@
 
   /* Print styles */
   @media print { .coffee-btn { display: none; } }
+
+  /* "On this page" box; page-contents.js adds a Contents button once it scrolls away */
+  .toc.otp { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:16px 20px; margin:0 0 40px; }
+  .otp__hd { margin:0 0 8px; font-size:14px; font-weight:700; color:#0f172a; }
+  .otp ol { margin:0; padding-left:1.2rem; columns:2 15rem; column-gap:2rem; }
+  .otp li { margin:0 0 6px; font-size:15px; line-height:1.4; break-inside:avoid; }
+  .otp.otp a { color:#0f172a; text-decoration:underline; text-underline-offset:2px; }
 </style>
 <link rel="stylesheet" href="/css/nav.css?v=20261115b">
-<script src="/js/nav.js?v=20261115s6" defer></script>
+<script src="/js/nav.js?v=20261115d8" defer></script>
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
 <body>
@@ -180,6 +187,19 @@
     <div class="page-hero-eyebrow">After Arrival · Green Card · Practical First Steps</div>
     <h1 class="page-hero-h1">Life in the <span>USA</span></h1>
     <p class="page-hero-sub">Practical first steps after arriving: green card, SSN, banking, tax, and where the London community has settled.</p>
+  </div>
+
+  <div class="toc otp" id="contents">
+    <p class="otp__hd" id="otp-hd">On this page</p>
+    <ol aria-labelledby="otp-hd">
+      <li><a href="#settled">Where the community has settled</a></li>
+      <li><a href="#airports">Entry airports</a></li>
+      <li><a href="#timelines">Green card and SSN timelines</a></li>
+      <li><a href="#first-weeks">Your first weeks: ID, driving and banking</a></li>
+      <li><a href="#first-year">Your first year: tax, registration and travel</a></li>
+      <li><a href="#keeping">Keeping your green card</a></li>
+      <li><a href="#citizenship">Becoming a US citizen</a></li>
+    </ol>
   </div>
 
   <!-- POST-APPROVAL ENTRY POINT -->
@@ -206,7 +226,7 @@
   <div class="map-section">
     <div class="map-header">
       <div class="map-header-left">
-        <h2>Where the community has settled</h2>
+        <h2 id="settled">Where the community has settled</h2>
         <p>Community-submitted data. Updates as members report their state of residence.</p>
       </div>
       <div class="map-stats">
@@ -281,7 +301,7 @@
   <div class="map-section" style="margin-bottom:40px">
     <div class="map-header">
       <div class="map-header-left">
-        <h2>Entry airports</h2>
+        <h2 id="airports">Entry airports</h2>
         <p>Where members first entered the US and activated their green cards. Pre-clearance (Dublin, Shannon) counts as the port of entry.</p>
       </div>
       <div class="map-stats">
@@ -306,7 +326,7 @@
   <div class="map-section" style="margin-bottom:40px" id="gc-ssn-section">
     <div class="map-header">
       <div class="map-header-left">
-        <h2>Green card &amp; SSN timelines: community data</h2>
+        <h2 id="timelines">Green card &amp; SSN timelines: community data</h2>
         <p>Days from entry date, by state. Based on community submissions. Median shown where 2+ data points exist.</p>
       </div>
       <div class="map-stats">
@@ -340,7 +360,7 @@
 
   <!-- STAGE 9 CONTENT placeholder: will be populated from guide content -->
   <div class="content-section" id="life-content">
-    <h2 class="section-label" style="margin-top:0;">Your first weeks: ID, driving and banking</h2>
+    <h2 id="first-weeks" class="section-label" style="margin-top:0;">Your first weeks: ID, driving and banking</h2>
     
       <p>What to do after you arrive as a permanent resident: ID, driving and banking first, then the US and UK tax obligations you manage from your first year.</p>
 
@@ -597,7 +617,7 @@
           </div>
         </div>
       </div>
-      <h2 class="section-label" style="margin-top:40px;">Your first year: tax, registration and travel</h2>
+      <h2 id="first-year" class="section-label" style="margin-top:40px;">Your first year: tax, registration and travel</h2>
       <div class="sub-acc-item" id="life_4" data-sub-group="life">
         <button class="sub-acc-trigger" onclick="toggleSubAcc('life_4')">
           <span class="sub-acc-label">US tax and financial obligations</span>
@@ -764,7 +784,7 @@
 
   <!-- Maintaining Residency / Citizenship Section -->
   <div class="content-section">
-    <h2 class="section-label" style="margin-top:0;">Keeping your green card</h2>
+    <h2 id="keeping" class="section-label" style="margin-top:0;">Keeping your green card</h2>
 
     <p style="color:rgba(15,23,42,0.85);margin-bottom:20px;">Once you arrive as a permanent resident, you have more to learn: protecting your status when you travel, removing the conditions on a CR1 green card, and later applying for US citizenship. Each section below includes a checklist of the key forms involved.</p>
 
@@ -961,7 +981,7 @@
         </div>
       </div>
 
-      <h2 class="section-label" style="margin-top:40px;">Becoming a US citizen</h2>
+      <h2 id="citizenship" class="section-label" style="margin-top:40px;">Becoming a US citizen</h2>
       <p>Your biological or adopted children under 18 who immigrated with you can become citizens automatically; stepchildren cannot. See below. For yourself, the <a href="/naturalization">Naturalization page</a> has a filing date calculator, forms, fees and test preparation.</p>
       <!-- Child Citizenship Act -->
       <div class="sub-acc-item" id="life-cca" data-sub-group="citizenship">
@@ -1329,6 +1349,7 @@ const TL_DATA = [
 buildMap();
 </script>
 
+<script src="/js/page-contents.js?v=20261024c"></script>
 <script src="/js/glossary.js?v=20261115s6"></script>
 </body>
 </html>

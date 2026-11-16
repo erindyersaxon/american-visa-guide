@@ -19,9 +19,6 @@ const EXCEPTIONS = {
   // their crumb shows Stage 1 as the parent although they sit beside it.
   '/guide/crba': 'branch of Stage 1',
   '/guide/delayed-i130': 'branch of Stage 1',
-  // Merged and moved under /guide/delayed-i130 in review step 8.
-  '/delayed-i130-remedies': 'moves in review step 8',
-  '/mandamus-pro-se': 'moves in review step 8',
 };
 
 function pages(dir) {

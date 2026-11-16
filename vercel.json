@@ -454,6 +454,26 @@
       "source": "/checklist-n400.html",
       "destination": "/naturalization/checklist",
       "permanent": true
+    },
+    {
+      "source": "/delayed-i130-remedies",
+      "destination": "/guide/delayed-i130",
+      "permanent": true
+    },
+    {
+      "source": "/delayed-i130-remedies.html",
+      "destination": "/guide/delayed-i130",
+      "permanent": true
+    },
+    {
+      "source": "/mandamus-pro-se",
+      "destination": "/guide/delayed-i130/mandamus",
+      "permanent": true
+    },
+    {
+      "source": "/mandamus-pro-se.html",
+      "destination": "/guide/delayed-i130/mandamus",
+      "permanent": true
     }
   ]
 }

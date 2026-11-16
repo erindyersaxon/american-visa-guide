@@ -173,8 +173,6 @@
   const ACTIVE_MAP = {
     'guide': 'guide',
     'glossary': 'guide',
-    'delayed-i130-remedies': 'guide',  // moves under /guide/ in review step 8
-    'mandamus-pro-se': 'guide',        // moves under /guide/ in review step 8
     'life': 'life',
     'naturalization': 'naturalization',
     'interview': 'interview',

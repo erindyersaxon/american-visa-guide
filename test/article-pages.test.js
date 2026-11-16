@@ -12,13 +12,13 @@ const ROOT = process.env.ARTICLE_PAGES_ROOT || PUBLIC;
 const snapshot = require('./fixtures/article-ids.json');
 const allowlist = require('./fixtures/article-inline-allowlist.json');
 
-const PAGES = ['interview/221g/green-sheet', 'interview/221g', 'interview/221g/administrative-processing', 'delayed-i130-remedies', 'interview/221g/domicile',
+const PAGES = ['interview/221g/green-sheet', 'interview/221g', 'interview/221g/administrative-processing', 'interview/221g/domicile',
   'interview/221g/history-worksheet', 'interview/dates', 'interview/day-sheet', 'interview/templates', 'interview',
-  'mandamus-pro-se', 'public-charge/statement', 'interview/reinterview', 'interview/visa-pause'].map(p => `${p}.html`);
+  'guide/delayed-i130/mandamus', 'public-charge/statement', 'interview/reinterview', 'interview/visa-pause'].map(p => `${p}.html`);
 const TOOL_PAGES = ['interview/221g/green-sheet', 'interview/221g/history-worksheet', 'interview/dates', 'interview/day-sheet',
   'interview/templates', 'public-charge/statement'].map(p => `${p}.html`);
-const STYLE_BLOCK_PAGES = ['delayed-i130-remedies', 'interview/221g/history-worksheet', 'interview/day-sheet',
-  'mandamus-pro-se', 'public-charge/statement'].map(p => `${p}.html`);
+const STYLE_BLOCK_PAGES = ['interview/221g/history-worksheet', 'interview/day-sheet',
+  'guide/delayed-i130/mandamus', 'public-charge/statement'].map(p => `${p}.html`);
 const OLD = ['eyebrow', 'lead', 'table-wrap', 'stage-card', 'stage-head', 'stage-pill', 'stage-title'];
 const TOOL_CLASSES = ['tool', 'field', 'field-row', 'check', 'btn', 'results', 'output'];
 
@@ -83,7 +83,9 @@ test('article-page rules do not reach the stage pages', () => {
   const selectors = [...section.matchAll(/([^{}]+)\{/g)].flatMap(m => m[1].split(','))
     .map(s => s.trim()).filter(s => s && !s.startsWith('@') && !s.startsWith('.guide-article.page-wrap'));
   const defined = new Set(selectors.flatMap(s => [...s.matchAll(/\.([a-zA-Z][\w-]*)/g)].map(m => m[1])));
-  const SHARED_ON_PURPOSE = new Set(['guide-article', 'sr-only', 'next']); // same utility; .next only as .keydate.next
+  // same utility; .next only as .keydate.next; the folded sources list came to the
+  // delayed I-130 stage page when the remedies page was merged into it (review step 8)
+  const SHARED_ON_PURPOSE = new Set(['guide-article', 'sr-only', 'next', 'sources', 'sources-hint']);
   const stageClasses = new Set(STAGE_PAGES.flatMap(p => attrValues(readPublic(p), 'class').flatMap(v => v.split(/\s+/))));
   assert.deepEqual([...defined].filter(c => stageClasses.has(c) && !SHARED_ON_PURPOSE.has(c)), []);
 });

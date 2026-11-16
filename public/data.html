@@ -382,10 +382,17 @@
       font-size: 14px;
       color: var(--color-text-muted);
     }
+
+  /* "On this page" box; page-contents.js adds a Contents button once it scrolls away */
+  .toc.otp { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:16px 20px; margin:0 0 40px; }
+  .otp__hd { margin:0 0 8px; font-size:14px; font-weight:700; color:#0f172a; }
+  .otp ol { margin:0; padding-left:1.2rem; columns:2 15rem; column-gap:2rem; }
+  .otp li { margin:0 0 6px; font-size:15px; line-height:1.4; break-inside:avoid; }
+  .otp.otp a { color:#0f172a; text-decoration:underline; text-underline-offset:2px; }
   </style>
   <link rel="stylesheet" href="/css/nav.css?v=20261115b">
   <script src="/js/phase-cards.js?v=20261026b" defer></script>
-  <script src="/js/nav.js?v=20261115s6" defer></script>
+  <script src="/js/nav.js?v=20261115d8" defer></script>
 <link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
 <link rel="stylesheet" href="/css/readability.css?v=20261024c">
 </head>
@@ -467,6 +474,22 @@
     </section>
 
     <!-- PIPELINE STATUS -->
+    <div class="container">
+  <div class="toc otp" id="contents">
+    <p class="otp__hd" id="otp-hd">On this page</p>
+    <ol aria-labelledby="otp-hd">
+      <li><a href="#pipeline-hd">Pipeline status</a></li>
+      <li><a href="#phases-hd">Wait times by phase</a></li>
+      <li><a href="#drops-hd">IL drop history</a></li>
+      <li><a href="#backlog-hd">DQ backlog: awaiting interview letters</a></li>
+      <li><a href="#outcomes-hd">Interview outcomes</a></li>
+      <li><a href="#passport-hd">Passport return times</a></li>
+      <li><a href="#calc-hd">Timeline calculator</a></li>
+      <li><a href="#official-hd">The national picture: official data</a></li>
+    </ol>
+  </div>
+    </div>
+
     <section class="content-section" aria-labelledby="pipeline-hd">
       <div class="container">
         <div class="section-hd">
@@ -1096,6 +1119,7 @@
   <!-- Environment setup -->
   <script src="/js/env.js?v=20260609"></script>
 
+  <script src="/js/page-contents.js?v=20261024c"></script>
   <script src="/js/main.js?v=20260609"></script>
   <script type="module">
     /* Live data comes from the /api/data serverless endpoint, which aggregates
