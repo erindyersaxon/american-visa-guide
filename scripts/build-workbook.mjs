@@ -110,7 +110,7 @@ function addAbout(book, generatedAt) {
     ['Costs: your savings and expenses. Boxes: your shipping inventory, for customs, your mover and your insurer.'],
     [''],
     ['Thank you, Nikki', { bold: true }],
-    ['This workbook builds on Nikki’s Moving to the USA Workbook. Nikki, a brilliant mod on the Track My Visa server going through the US Embassy London process, built it to share with everyone who needs it.'],
+    ['This workbook builds on Nikki’s Moving to the USA Workbook. Nikki, a brilliant former moderator of the Track My Visa server, built it during the US Embassy London process to share with everyone who needs it.'],
     [''],
     ['The guide', { bold: true }],
     [{ text: `${SITE}/guide`, hyperlink: `${SITE}/guide` }],
