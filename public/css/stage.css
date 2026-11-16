@@ -84,9 +84,6 @@
   a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
   .sub-acc-trigger:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
   .stage-pill:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-  .sidebar-nav a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-  .mobile-nav-toggle:focus-visible { outline: 3px solid var(--text-primary); outline-offset: 4px; }
-  .mobile-nav-drawer-close:focus-visible { outline: 3px solid var(--text-primary); outline-offset: 2px; }
 
   body {
     background: var(--bg);
@@ -104,198 +101,15 @@
     position: relative;
     z-index: 1;
     margin: 0;
-    margin-left: 350px;
     padding: 0 20px 80px;
   }
 
-  /* Mobile Navigation */
-  .mobile-nav-toggle {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 100;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--accent);
-    /* Floating layer: 1px edge plus the overlay shadow. */
-    border: 1px solid var(--nav-line, #334155);
-    box-shadow: var(--shadow-overlay, 0 1px 2px rgba(15,23,42,.08));
-    color: var(--text-inverse);
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-
-  .mobile-nav-toggle:active { transform: scale(0.95); }
-
-  /* Section drawer button with a visible word, so it can't be confused with
-     the site menu (☰) in the top bar. Used by the naturalization pages. */
-  .mobile-nav-toggle--labelled {
-    width: auto;
-    padding: 0 18px 0 14px;
-    border-radius: 24px;
-    gap: 8px;
-    font-family: 'Public Sans', system-ui, sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-  }
-  .mobile-nav-toggle--labelled > span { font-size: 18px; }
-
-  /* Visible "(coming soon)" on unwritten steps: the state is in words, not
-     only in the grey colour */
-  .sidebar-nav .sidebar-soon { font-weight: 400; font-style: italic; }
-  .sidebar-onpage { margin-bottom: 16px; }
-
-  .mobile-nav-toggle.hidden {
-    transform: translateY(120px);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .mobile-nav-drawer {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 99;
-  }
-
-  .mobile-nav-drawer.open {
-    display: block;
-  }
-
-  .mobile-nav-drawer-content {
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 280px;
-    background: var(--bg);
-    padding: 20px;
-    overflow-y: auto;
-    border-left: 1px solid var(--border);
-    box-shadow: var(--shadow-overlay, 0 1px 2px rgba(15,23,42,.08));
-  }
-
-  .mobile-nav-drawer-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: var(--text-secondary);
-    cursor: pointer;
-    padding: 0;
-    width: 24px;
-    height: 24px;
-  }
-
-  .mobile-nav-drawer .sidebar-label {
-    margin-top: 40px;
-  }
-
-  /* Sticky Alert Banner */
+  /* Phones */
   @media (max-width: 700px) {
-    .wrap { grid-template-columns: 1fr; margin-left: 0; }
-    .sidebar { display: none; }
-    .mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
     .stage-jump { margin-bottom: 32px; }
-    .page-hero, .page-header { display: none; }
-  }
-
-  /* Sidebar */
-  .sidebar {
-    position: fixed;
-    left: 20px;
-    top: calc(var(--sticky-offset, 64px) + 36px);
-    width: 280px;
-    max-height: calc(100vh - var(--sticky-offset, 64px) - 56px);
-    overflow-y: auto;
-    padding-top: 0;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md, 0.375rem);
-    padding: 24px 20px;
-    z-index: 10;
-  }
-
-  .sidebar-label {
-    font-family:var(--font-ui);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 16px;
-    padding: 0 8px;
-  }
-
-  .sidebar-nav {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .sidebar-nav a {
-    display: block;
-    font-size: 14px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 10px 12px;
-    border-radius: 6px;
-    border-left: 3px solid transparent;
-    transition: all 0.15s;
-    line-height: 1.4;
-    font-weight: 500;
-  }
-
-  /* A step whose page is not written yet (naturalization section): shown in
-     sequence so the journey is complete, but not a link */
-  .sidebar-nav .sidebar-pending {
-    display: block;
-    font-size: 14px;
-    color: var(--text-secondary);
-    padding: 10px 12px;
-    border-left: 3px solid transparent;
-    line-height: 1.4;
-    font-weight: 500;
-    cursor: default;
-  }
-
-  /* Optional pages that sit under a stage: indented, so they read as
-     "only if this applies", not as a step everyone takes */
-  .sidebar-nav .sidebar-sub a {
-    padding-left: 28px;
-    position: relative;
-  }
-  .sidebar-nav .sidebar-sub a::before {
-    content: '';
-    position: absolute;
-    left: 14px;
-    top: 10px;
-    bottom: 10px;
-    border-left: 1px solid var(--border);
-  }
-
-  .sidebar-nav a:hover {
-    color: var(--text-primary);
-    background: rgba(71,85,105,0.08);
-    border-left-color: var(--accent);
-  }
-
-  .sidebar-nav a.active {
-    color: var(--accent);
-    border-left-color: var(--accent);
-    background: rgba(71,85,105,0.12);
-    font-weight: 600;
-  }
-
-  .sidebar-divider {
-    height: 1px;
-    background: var(--border);
-    margin: 10px 0;
+    /* Keep the page heading on phones, just tighter (the guide overview's
+       H1 used to disappear here). */
+    .page-hero, .page-hero--compact { padding: 8px 0 20px; margin-bottom: 20px; }
   }
 
   /* Main content */
@@ -934,14 +748,6 @@
   @media (max-width: 600px) {
     .stage-prevnext { grid-template-columns: 1fr; }
     .stage-prevnext .next { grid-column: 1; }
-  }
-
-  /* Current stage in the sidebar: same look as the scroll-tracked .active */
-  .sidebar-nav a[aria-current="page"] {
-    color: var(--accent);
-    border-left-color: var(--accent);
-    background: rgba(71,85,105,0.12);
-    font-weight: 600;
   }
 
   /* Same rule as design-system.css, which stage pages do not load */
