@@ -33,3 +33,16 @@ test('the master checklist labels every stage on phones', () => {
   });
   assert.match(html, new RegExp(`grid-template-columns: repeat\\(${AVG_DOCS.stages.length}, 1fr\\)`));
 });
+
+const MOVING = ['move-immigrant-fee', 'move-dog-receipt', 'move-driving-record', 'move-prescriptions',
+  'move-records', 'move-school-records', 'move-inventory'];
+
+test('moving group has the seven moving documents', () => {
+  assert.ok(AVG_DOCS.groups.some(g => g.key === 'moving'), 'group moving');
+  for (const key of MOVING) {
+    const d = AVG_DOCS.docs.find(x => x.key === key);
+    assert.ok(d, key);
+    assert.equal(d.group, 'moving', key);
+    assert.notEqual(needOf(d, 'move'), 'no', key);
+  }
+});

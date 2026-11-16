@@ -91,6 +91,11 @@ var AVG_DOCS = {
    "key": "interview",
    "title": "Interview packet &amp; day-of documents",
    "note": ""
+  },
+  {
+   "key": "moving",
+   "title": "Moving &amp; arrival documents",
+   "note": "For leaving the UK and arriving in the US. The steps are on <a href=\"/guide/before-you-leave\">Stage 8: before you leave</a> and <a href=\"/guide/us-entry\">Stage 9: US entry</a>."
   }
  ],
  "docs": [
@@ -1636,6 +1641,76 @@ var AVG_DOCS = {
     "interview": "cond"
    },
    "note": "Only if any: means-tested benefits or food bank use by anyone in the household, now or in the past: letters showing when support started and ended, if you have them. Your statement explains when, why, for how long and what changed. Receiving benefits does not disqualify you; concealing them can. <a href=\"/public-charge#benefits\">What counts</a>.",
+   "items": []
+  },
+  {
+   "key": "move-immigrant-fee",
+   "group": "moving",
+   "name": "USCIS Immigrant Fee receipt",
+   "need": {
+    "move": "yes"
+   },
+   "note": "The receipt for the $235 USCIS Immigrant Fee. USCIS does not make your green card until it is paid. See <a href=\"/guide/after-interview\">Stage 7</a>.",
+   "items": []
+  },
+  {
+   "key": "move-dog-receipt",
+   "group": "moving",
+   "name": "CDC Dog Import Form receipt",
+   "need": {
+    "move": "cond"
+   },
+   "note": "One for each dog. Show it to the airline before boarding and to US Customs and Border Protection on arrival. The dog must be at least 6 months old, microchipped and healthy. Check your state&rsquo;s and airline&rsquo;s rules too. See <a href=\"/guide/before-you-leave\">pets</a>.",
+   "items": []
+  },
+  {
+   "key": "move-driving-record",
+   "group": "moving",
+   "name": "UK driving record and no-claims letter",
+   "need": {
+    "move": "cond"
+   },
+   "note": "Your DVLA driving record and a no-claims letter from your insurer, gathered before you leave. Both can lower US car insurance. See <a href=\"/life#life_2a\">your UK driving record</a>.",
+   "items": []
+  },
+  {
+   "key": "move-prescriptions",
+   "group": "moving",
+   "name": "GP letter listing your prescriptions",
+   "need": {
+    "move": "cond"
+   },
+   "note": "Only if you take regular medication. Bring enough to last until you see a US doctor.",
+   "items": []
+  },
+  {
+   "key": "move-records",
+   "group": "moving",
+   "name": "Copies of medical and dental records",
+   "need": {
+    "move": "yes"
+   },
+   "note": "Get them while you are still registered: the NHS charges for most care once you have moved.",
+   "items": []
+  },
+  {
+   "key": "move-school-records",
+   "group": "moving",
+   "name": "Children&rsquo;s school reports and records",
+   "need": {
+    "move": "cond"
+   },
+   "note": "For enrolling in a US school. Schools follow their state&rsquo;s vaccination rules.",
+   "items": []
+  },
+  {
+   "key": "move-inventory",
+   "group": "moving",
+   "name": "Shipping inventory",
+   "need": {
+    "move": "cond"
+   },
+   "note": "Only if you ship belongings: every item, in English, with what you paid and when and where you bought it. Use the Boxes tab in the <a href=\"/tools/workbook\">master workbook</a>. Your mover also asks for copies of your passport and visa, Form 3299 and a power of attorney.",
    "items": []
   }
  ]
