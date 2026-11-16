@@ -22,28 +22,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/design-system.css?v=20261024c" />
     <style>
-      .hero-section { padding: var(--space-16) var(--container-padding); background: var(--color-navy-xlight); border-bottom: 1px solid var(--color-border); }
-      .hero-wrapper { max-width: 1000px; margin: 0 auto; }
+      /* The hero band sits flush under the menu; main's usual top padding left a stray strip. */
+      main.about-main { padding-top: 0; }
+      .hero-section { padding: var(--space-12) var(--container-padding) var(--space-10); background: var(--color-navy-xlight); border-bottom: 1px solid var(--color-border); }
+      /* Same column as the body text, so the heading and paragraphs share a left edge. */
+      .hero-wrapper, .about-content { max-width: var(--max-width-prose); margin: 0 auto; }
       .hero-content h1 { margin-bottom: var(--space-4); }
-      .hero-subtitle { font-size: var(--size-lg); color: var(--color-text-muted); line-height: var(--line-lg); margin-bottom: var(--space-4); }
-      .about-content { max-width: var(--max-width-prose); margin: 0 auto; }
+      .hero-subtitle { font-size: var(--size-lg); color: var(--color-text-muted); line-height: var(--line-lg); margin-bottom: 0; }
+      .about-facts { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); margin: var(--space-6) 0 0; padding: 0; list-style: none; }
+      .about-facts li { font-size: var(--size-sm); font-weight: var(--weight-medium); color: var(--color-navy); background: var(--color-surface, #fff); border: 1px solid var(--color-border); border-radius: 999px; padding: var(--space-1) var(--space-3); }
+      .about-facts strong { font-weight: var(--weight-bold); }
       .about-section { margin-bottom: var(--space-12); }
       .about-section h2 { margin-bottom: var(--space-6); }
       .about-section p { margin-bottom: var(--space-4); line-height: var(--line-lg); color: var(--color-text); }
       .about-section p:last-child { margin-bottom: 0; }
-      .about-section a { color: var(--color-gold); text-decoration: none; font-weight: var(--weight-medium); }
       .about-section a.btn-primary { color: #FFFFFF; }
       .about-section a.btn-secondary { color: var(--color-navy); }
-      .about-section a:hover { text-decoration: underline; }
       .highlight { color: var(--color-navy); font-weight: var(--weight-medium); }
-      .contact-section { padding: var(--space-8); background: var(--color-surface-alt); border-radius: var(--radius-lg); margin-top: var(--space-12); }
+      .about-callout { border-left: 4px solid var(--color-navy); background: var(--color-surface-alt); padding: var(--space-4) var(--space-5); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+      .about-callout p { margin-bottom: 0; }
+      .contact-section { padding: var(--space-8); background: var(--color-surface-alt); border-radius: var(--radius-lg); }
       .contact-section p { margin-bottom: var(--space-4); }
-      .contact-email { font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace); color: var(--color-navy); overflow-wrap: anywhere; }
+      .contact-section a.contact-email { font-size: var(--size-lg); font-weight: var(--weight-semibold); overflow-wrap: anywhere; }
+      .contact-note { font-size: var(--size-sm); color: var(--color-text-muted); }
       .resources-hd { font-size: var(--size-lg); margin: var(--space-8) 0 var(--space-3); }
       .resources-list { margin: 0 0 var(--space-4); padding-left: 1.25rem; }
       .resources-list li { margin-bottom: var(--space-2); line-height: var(--line-lg); color: var(--color-text); }
-      .cta-buttons { display: flex; gap: var(--space-4); margin-top: var(--space-8); flex-wrap: wrap; }
-
+      .about-closing { margin-top: var(--space-16); text-align: center; border-top: 1px solid var(--color-border); padding-top: var(--space-12); }
+      .about-closing p { color: var(--color-text-muted); font-size: var(--size-sm); }
+      .cta-buttons { display: flex; gap: var(--space-4); margin-top: var(--space-6); flex-wrap: wrap; justify-content: center; }
     </style>
     <link rel="stylesheet" href="/css/nav.css?v=20261115b">
   <script src="/js/nav.js?v=20261115d8" defer></script>
@@ -53,12 +60,19 @@
     <a href="#main" class="skip-link">Skip to main content</a>
     <nav role="navigation" aria-label="Main navigation"></nav>
 
-    <main data-pagefind-body id="main">
+    <main data-pagefind-body id="main" class="about-main">
       <div class="hero-section">
         <div class="hero-wrapper">
           <div class="hero-content">
             <h1>About American Visa Guide</h1>
             <p class="hero-subtitle">Honest data and plain-language guidance for people going through the London consular process, built by someone who went through it.</p>
+            <!-- Figures refresh from /api/data; the text here is the fallback when it can't load. -->
+            <ul class="about-facts" aria-label="At a glance">
+              <li><strong data-about-members>250+</strong> timelines shared</li>
+              <li>Independent and volunteer-run</li>
+              <li>Official sources linked</li>
+              <li>Data updated <span data-about-updated>daily</span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -67,67 +81,38 @@
         <article class="about-content">
           <section class="about-section" id="who-i-am">
             <h2>Who I am</h2>
-            <p>My name is <span class="highlight">Erin.</span> I went through the US Embassy London consular process myself. I know what it's like to have questions at 2AM because nothing you've found is specific enough, or because you're not sure if you're reading a rule correctly.</p>
-            <p>I built this site because the information gap is real. There are official guides, but they're dense. There are community forums, but they're scattered. There's good data out there, but it's hard to find and harder to trust.</p>
-            <p>American Visa Guide is volunteer-run and independent. <strong>I am not a lawyer.</strong> What I can offer is clarity about how the process works, based on what real people have experienced.</p>
+            <p>My name is <span class="highlight">Erin.</span> I went through the US Embassy London consular process myself. I know what it's like to have questions at 2am because nothing you've found is specific enough, or because you're not sure you're reading a rule correctly.</p>
+            <p>I built this site because the information gap is real. Official guides are dense. Community forums are scattered. Good data exists, but it's hard to find and harder to trust.</p>
+            <div class="about-callout">
+              <p><strong>I am not a lawyer.</strong> What I offer is a clear account of how the London process works, drawn from official guidance and from what real applicants have reported. If your case is complex, see <a href="#lawyer">when to get a lawyer</a>.</p>
+            </div>
           </section>
 
           <section class="about-section" id="what-this-is">
             <h2>What this site is</h2>
             <p>Two things: a community data tracker and a process guide.</p>
-            <p>The tracker shows real timelines from real applicants. As of June 2026, we have 217+ members submitting their milestones. You can see how long people are waiting at each stage, what outcomes look like, and what's shifted over time. It's not predictive, it's historical.</p>
-            <p>The guide is plain-language documentation of the process. How the I-130 works. What NVC does. What to expect at the medical and interview stages. Things that are hard to find anywhere else.</p>
-          </section>
-
-          <section class="about-section" id="how-data-works">
-            <h2>How the data works</h2>
-            <p>People submit milestone dates: when they applied, when they got their approval, when they had their interview - via a form on the site. We store it by username (you choose a pseudonym) so you can track your own progress and see yourself in the community.</p>
-            <p>The averages you see exclude statistical outliers. If someone waited 800 days for an I-130 approval because of a security clearance issue, we note it, but it doesn't skew the average that the rest of the community experienced. We try to show what the community has experienced, not what USCIS's official estimates say you should expect.</p>
-            <p>The data is imperfect. It's self-reported. It only includes people who chose to share. But it's a lot closer to reality than silence.</p>
+            <p>The tracker shows real timelines from real applicants: <span data-about-members-text>more than 250 people</span> have shared their milestones so far. You can see how long people wait at each stage, what outcomes look like, and what has shifted over time. It's historical, not a prediction.</p>
+            <p>The guide is plain-language documentation of the process: how the I-130 works, what NVC does, and what to expect at the medical and the interview.</p>
           </section>
 
           <section class="about-section" id="what-this-is-not">
             <h2>What this site is not</h2>
-                        <p><strong>Not affiliated with USCIS, DOS, or the US Embassy London.</strong> We're independent. Everything here is my research and interpretation of public guidance and community experience.</p>
-            <p><strong>Not affiliated with Track My Visa,</strong> though I have great respect for what they do. (More on that below.)</p>
+            <p><strong>It isn't official.</strong> American Visa Guide is independent. It is not affiliated with USCIS, the State Department, the US Embassy London or Track My Visa. Everything here is my research and interpretation of public guidance and community experience.</p>
+            <p id="tmv">I previously volunteered in the <a href="https://trackmyvisa.com/" target="_blank" rel="noopener noreferrer">Track My Visa</a> Discord community and have great respect for it. Track My Visa covers every consulate. This site focuses only on the UK-to-US journey through London: London data, London guidance, London resources.</p>
           </section>
 
-          <section class="about-section" id="resources">
-            <h2>Key resources</h2>
-            <p>Official government links for every stage of the process, plus where to go when you need more help.</p>
-
-            <h3 class="resources-hd">Official sources</h3>
-            <ul class="resources-list">
-              <li><a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition.html" target="_blank" rel="noopener noreferrer">Travel.State.gov</a>: the immigrant visa process</li>
-              <li><a href="https://travel.state.gov/content/travel/en/us-visas/Supplements/Supplements_by_Post/LND-London.html" target="_blank" rel="noopener noreferrer">US Embassy London</a> (Travel.State.gov)</li>
-              <li><a href="https://ceac.state.gov/IV/Login.aspx" target="_blank" rel="noopener noreferrer">CEAC login</a></li>
-              <li><a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/ask-nvc.html" target="_blank" rel="noopener noreferrer">NVC Public Inquiry Form</a></li>
-              <li><a href="https://ceac.state.gov/ceacstattracker/status.aspx" target="_blank" rel="noopener noreferrer">CEAC visa tracker</a></li>
-              <li><a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a>: appointment &amp; courier registration</li>
-              <li><a href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">USCIS case status</a> (egov.uscis.gov)</li>
-              <li><a href="https://egov.uscis.gov/e-request" target="_blank" rel="noopener noreferrer">USCIS e-Request portal</a> (egov.uscis.gov/e-request): submit requests for corrections, status updates, and other inquiries</li>
-              <li><a href="https://egov.uscis.gov/e-request/typo" target="_blank" rel="noopener noreferrer">Request typographical error correction</a> (egov.uscis.gov/e-request/typo): fix clerical errors made by USCIS or correct mistakes on your application</li>
-              <li><a href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">Track your green card</a> (egov.uscis.gov): after US entry, use the IOE receipt number from paying the USCIS Immigrant Fee</li>
-              <li><a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer">Visa Bulletin</a></li>
-              <li><a href="https://visamedicals.co.uk/united-states/" target="_blank" rel="noopener noreferrer">VisaMedicals</a>: London medical clinic</li>
-              <li><a href="https://www.cbp.gov/travel/preclearance" target="_blank" rel="noopener noreferrer">US Preclearance locations</a> (CBP.gov): Ireland, Canada, Abu Dhabi</li>
-              <li><a href="https://informeddelivery.usps.com/" target="_blank" rel="noopener noreferrer">USPS Informed Delivery</a></li>
-              <li><a href="https://secure.ssa.gov/poms.nsf/lnx/0110211025" target="_blank" rel="noopener noreferrer">SSA policy: IV holders</a></li>
-            </ul>
-
-            <h3 class="resources-hd">Need a lawyer?</h3>
-            <p>Most straightforward family visa cases do not require an immigration attorney. If your situation is complex: prior visa issues, criminal history, prior removal, previous overstays, or complicated financial sponsorship: professional advice is worthwhile.</p>
-            <p><a href="https://www.aila.org/find-an-immigration-lawyer" target="_blank" rel="noopener noreferrer">American Immigration Lawyers Association (AILA)</a>: the professional body for US immigration attorneys. Use their directory to find a qualified lawyer. Be cautious of notarios or immigration consultants who are not licensed attorneys.</p>
-
-            <h3 class="resources-hd">Other independent help</h3>
-            <p><a href="https://trackmyvisa.com/" target="_blank" rel="noopener noreferrer">Track My Visa</a> is an independent USCIS case tracker. It shows case movement before USCIS's own site does, which helps during the I-130 stage. Their <a href="https://discord.gg/8pQdSPAR" target="_blank" rel="noopener noreferrer">I-130 Consular Processing Discord</a> has channels for the whole consular process at every embassy, even though their tracker covers only the I-130. Independent, not affiliated with USCIS or this website.</p>
-            <p><a href="https://www.youtube.com/@KseniyaInternational" target="_blank" rel="noopener noreferrer">Kseniya International</a> is a YouTube channel that does an amazing job explaining the different aspects of the I-130, NVC, and interview stages for DIY family green card cases. Start with the <a href="https://youtu.be/xQup-wCRjBU" target="_blank" rel="noopener noreferrer">online I-130 filing guide for spouses</a>: a step-by-step walkthrough of the marriage-based petition. Independent, not affiliated with USCIS or this website, and not legal advice.</p>
+          <section class="about-section" id="how-data-works">
+            <h2>How the data works</h2>
+            <p>People submit milestone dates through a form on the site: when they filed, when they were approved, when they had their interview. Each timeline is stored under a pseudonym you choose, so you can follow your own progress and see where you sit in the community.</p>
+            <p>Averages leave out extreme outliers. If someone waited 800 days for an I-130 approval because of a security check, their case is still counted, but it doesn't skew the figure everyone else experienced. The aim is to show what the community actually experienced, not what official estimates say to expect.</p>
+            <p>The data is self-reported and only includes people who chose to share, so treat it as a guide to the typical case, not a promise about yours.</p>
           </section>
 
-          <section class="about-section" id="tmv">
-            <h2>Track My Visa relationship</h2>
-            <p>I previously volunteered with the <a href="https://trackmyvisa.com/" target="_blank" rel="noopener noreferrer">Track My Visa</a> Discord community. Track My Visa is an independent company and is not affiliated with USCIS. This site is written independently and is not affiliated with Track My Visa.</p>
-            <p>I built American Visa Guide because I wanted to create something specifically for the London consular process: London-specific data, London-specific guidance, resources tailored to the UK→US journey. Track My Visa covers all consulates globally, and provides channels for each stage of the process for a range of circumstances. American Visa Guide is hyper-focused on folks coming from the UK via the London embassy.</p>
+          <section class="about-section" id="accuracy">
+            <h2>How I keep this accurate</h2>
+            <p>Guidance is based on published government sources, court filings and what applicants report. Official pages are linked so you can check the source yourself.</p>
+            <p>News is collected daily and every item is read and approved by hand before it appears on the site.</p>
+            <p>If you spot something wrong or out of date, <a href="mailto:AmericanVisaGuideInfo@gmail.com">email me</a> and I'll correct it.</p>
           </section>
 
           <section class="about-section" id="nikki">
@@ -137,25 +122,56 @@
 
           <section class="about-section" id="contribute">
             <h2>How to contribute</h2>
-            <p><strong>Submit your timeline data.</strong> The tracker is only useful if people share. You choose a pseudonym; your personal information stays private. Your milestone dates help the next person make a plan.</p>
-            <p><strong>Share the site.</strong> If this has been useful to you, share it with people going through the process. Word-of-mouth is how guides like this reach people who need them.</p>
-            <p><strong>Support via Ko-fi.</strong> If it has been useful, and if you're able, <a href="https://ko-fi.com/erinsaidwhat" target="_blank" rel="noopener noreferrer">Ko-fi contributions</a> help keep the site running.</p>
+            <p><strong><a href="https://forms.fillout.com/t/dTRqnkx9uxus" target="_blank" rel="noopener noreferrer">Submit your timeline.</a></strong> The tracker is only useful if people share. You choose a pseudonym, and your personal information stays private. Your dates help the next person make a plan.</p>
+            <p><strong>Share the site.</strong> If this has been useful, pass it on to someone going through the process. Word of mouth is how guides like this reach the people who need them.</p>
+            <p><strong>Support via Ko-fi.</strong> If you're able, <a href="https://ko-fi.com/erinsaidwhat" target="_blank" rel="noopener noreferrer">Ko-fi contributions</a> help keep the site running.</p>
           </section>
 
           <section class="about-section" id="contact">
             <h2>Contact</h2>
             <div class="contact-section">
-              <p>Have a question? Found an error? Want to contribute data or resources? Send me an email.</p>
-              <p><span class="contact-email">AmericanVisaGuideInfo<wbr>@gmail.com</span></p>
-              <p style="font-size: var(--size-sm); color: var(--color-text-muted);">I read every message. Response time varies depending on what's happening in my own life, but I will respond.</p>
+              <p>Have a question, found an error, or want to contribute data or resources? Email me.</p>
+              <p><a class="contact-email" href="mailto:AmericanVisaGuideInfo@gmail.com">AmericanVisaGuideInfo<wbr>@gmail.com</a></p>
+              <p class="contact-note">I read every message, and I will reply.</p>
             </div>
           </section>
 
-          <section class="about-section" style="margin-top: var(--space-16); text-align: center; border-top: 1px solid var(--color-border); padding-top: var(--space-16);">
-            <p style="color: var(--color-text-muted); font-size: var(--size-sm);">Built with care. Maintained by volunteers (ok, just Erin). For people going through one of the biggest decisions of their lives.</p>
-            <div class="cta-buttons" style="justify-content: center;">
-              <a href="/data" class="btn btn-primary">View Data Tracker</a>
-              <a href="/guide.html" class="btn btn-secondary">Read the Guide</a>
+          <section class="about-section" id="resources">
+            <h2>Key resources</h2>
+            <p>Official government links for every stage of the process, plus where to go when you need more help.</p>
+
+            <h3 class="resources-hd">Official sources</h3>
+            <ul class="resources-list">
+              <li><a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-1-submit-a-petition.html" target="_blank" rel="noopener noreferrer">Travel.State.gov</a>: the immigrant visa process</li>
+              <li><a href="https://travel.state.gov/content/travel/en/us-visas/Supplements/Supplements_by_Post/LND-London.html" target="_blank" rel="noopener noreferrer">US Embassy London</a>: instructions for London applicants</li>
+              <li><a href="https://ceac.state.gov/IV/Login.aspx" target="_blank" rel="noopener noreferrer">CEAC login</a></li>
+              <li><a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/ask-nvc.html" target="_blank" rel="noopener noreferrer">NVC Public Inquiry Form</a></li>
+              <li><a href="https://ceac.state.gov/ceacstattracker/status.aspx" target="_blank" rel="noopener noreferrer">CEAC visa tracker</a></li>
+              <li><a href="https://ais.usvisa-info.com/en-gb/iv/" target="_blank" rel="noopener noreferrer">AIS</a>: appointment &amp; courier registration</li>
+              <li><a href="https://egov.uscis.gov/" target="_blank" rel="noopener noreferrer">USCIS case status</a>: also tracks your green card after US entry, using the IOE receipt number from paying the USCIS Immigrant Fee</li>
+              <li><a href="https://egov.uscis.gov/e-request" target="_blank" rel="noopener noreferrer">USCIS e-Request portal</a>: corrections, status updates and other inquiries, including <a href="https://egov.uscis.gov/e-request/typo" target="_blank" rel="noopener noreferrer">typo corrections</a></li>
+              <li><a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html" target="_blank" rel="noopener noreferrer">Visa Bulletin</a></li>
+              <li><a href="https://visamedicals.co.uk/united-states/" target="_blank" rel="noopener noreferrer">VisaMedicals</a>: London medical clinic</li>
+              <li><a href="https://www.cbp.gov/travel/preclearance" target="_blank" rel="noopener noreferrer">US Preclearance locations</a>: Ireland, Canada, Abu Dhabi</li>
+              <li><a href="https://informeddelivery.usps.com/" target="_blank" rel="noopener noreferrer">USPS Informed Delivery</a></li>
+              <li><a href="https://secure.ssa.gov/poms.nsf/lnx/0110211025" target="_blank" rel="noopener noreferrer">SSA policy: IV holders</a></li>
+            </ul>
+
+            <h3 class="resources-hd" id="lawyer">Need a lawyer?</h3>
+            <p>Most straightforward family visa cases do not require an immigration attorney. If your situation is complex: prior visa issues, criminal history, prior removal, previous overstays, or complicated financial sponsorship: professional advice is worthwhile.</p>
+            <p><a href="https://www.aila.org/find-an-immigration-lawyer" target="_blank" rel="noopener noreferrer">American Immigration Lawyers Association (AILA)</a>: the professional body for US immigration attorneys. Use their directory to find a qualified lawyer. Be cautious of notarios or immigration consultants who are not licensed attorneys.</p>
+
+            <h3 class="resources-hd">Other independent help</h3>
+            <p><a href="https://trackmyvisa.com/" target="_blank" rel="noopener noreferrer">Track My Visa</a> is an independent USCIS case tracker. It shows case movement before USCIS's own site does, which helps during the I-130 stage. Their <a href="https://discord.gg/8pQdSPAR" target="_blank" rel="noopener noreferrer">I-130 Consular Processing Discord</a> has channels for the whole consular process at every embassy, even though their tracker covers only the I-130.</p>
+            <p><a href="https://www.youtube.com/@KseniyaInternational" target="_blank" rel="noopener noreferrer">Kseniya International</a> is a YouTube channel that clearly explains the I-130, NVC and interview stages for DIY family green card cases. Start with the <a href="https://youtu.be/xQup-wCRjBU" target="_blank" rel="noopener noreferrer">online I-130 filing guide for spouses</a>, a step-by-step walkthrough of the marriage-based petition.</p>
+            <p>Both are independent and not affiliated with USCIS or this site.</p>
+          </section>
+
+          <section class="about-section about-closing">
+            <p>Built and maintained by Erin, for people going through one of the biggest decisions of their lives.</p>
+            <div class="cta-buttons">
+              <a href="/data" class="btn btn-primary">See the data</a>
+              <a href="/guide" class="btn btn-secondary">Read the guide</a>
             </div>
           </section>
         </article>
@@ -172,6 +188,30 @@
           activePage: 'about'
         });
       });
+
+      // Live figures for the facts strip. Without /api/data the HTML fallback text stays.
+      (function () {
+        if (!window.fetch) return;
+        fetch('/api/data')
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) {
+            var meta = d && d.meta;
+            if (!meta) return;
+            var n = Number(meta.total_members);
+            if (n > 0) {
+              var shown = n.toLocaleString('en-GB');
+              document.querySelectorAll('[data-about-members]').forEach(function (el) { el.textContent = shown; });
+              document.querySelectorAll('[data-about-members-text]').forEach(function (el) { el.textContent = shown + ' people'; });
+            }
+            var when = meta.last_updated && new Date(meta.last_updated);
+            if (when && !isNaN(when)) {
+              var today = new Date().toDateString() === when.toDateString();
+              var label = today ? 'today' : when.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+              document.querySelectorAll('[data-about-updated]').forEach(function (el) { el.textContent = label; });
+            }
+          })
+          .catch(function () {});
+      })();
     </script>
   </body>
 </html>
