@@ -129,12 +129,12 @@
   /* File code in the public charge evidence pack (P01, B07...) */
   .doc-code { display: inline-block; margin-left: 6px; padding: 1px 6px; border: 1px solid var(--border, #e2e8f0); border-radius: 4px; font-size: 12px; font-weight: 600; color: var(--text-secondary, #475569); white-space: nowrap; }
 
-  /* Phones: each row becomes a card so the six columns never widen the page.
-     The four stage marks sit in a row, each labelled with its stage. */
+  /* Phones: each row becomes a card so the seven columns never widen the page.
+     The five stage marks sit in a row, each labelled with its stage. */
   @media (max-width: 640px) {
     .doc-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     .doc-table, .doc-table tbody, .doc-table tr { display: block; width: 100%; }
-    .doc-table tr { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px 8px; padding: 12px 0; border-bottom: 1px solid rgba(15,23,42,0.18); }
+    .doc-table tr { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px 6px; padding: 12px 0; border-bottom: 1px solid rgba(15,23,42,0.18); }
     .doc-table td { display: block; padding: 0; border-bottom: none; overflow-wrap: anywhere; }
     .doc-table td:first-child, .doc-table td:last-child { grid-column: 1 / -1; }
     .doc-table td:last-child { font-size: 15px; margin-top: 4px; }
@@ -143,6 +143,7 @@
     .doc-table td:nth-child(3)::before { content: "NVC"; }
     .doc-table td:nth-child(4)::before { content: "Medical"; }
     .doc-table td:nth-child(5)::before { content: "Interview"; }
+    .doc-table td:nth-child(6)::before { content: "Move"; }
     .doc-table .stage-col::before { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
   }
 
@@ -266,7 +267,7 @@
     </div>
   </main>
   <div id="footer-placeholder"></div>
-<script src="/js/checklist-data.js?v=20261116gap"></script>
+<script src="/js/checklist-data.js?v=20261116mw1"></script>
 <script src="/js/glossary.js?v=20261116trt"></script>
 </body>
 </html>

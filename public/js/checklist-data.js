@@ -8,7 +8,10 @@
    goes, and this script fills in the checkbox and label.
 
    To change a document, edit it here. Each entry has:
-     need   which stages need it: yes, cond (depends on your case) or no
+     need   which stages need it: yes, cond (depends on your case) or no.
+            A stage left out counts as no. The stages are listed once, in
+            AVG_DOCS.stages: I-130, NVC, Medical, Interview and Move (getting
+            ready to leave and arriving in the US).
      code   optional: the file code in the public charge evidence pack
             (P01, J01, B07...), shown next to the name
      note   the master checklist's note
@@ -21,6 +24,28 @@
    Load as a classic script after the page content and before checklist.js.
  */
 var AVG_DOCS = {
+ "stages": [
+  [
+   "i130",
+   "I-130"
+  ],
+  [
+   "nvc",
+   "NVC"
+  ],
+  [
+   "medical",
+   "Medical"
+  ],
+  [
+   "interview",
+   "Interview"
+  ],
+  [
+   "move",
+   "Move"
+  ]
+ ],
  "groups": [
   {
    "key": "civil",
@@ -1616,9 +1641,18 @@ var AVG_DOCS = {
  ]
 };
 
+// A stage a document does not mention counts as not needed there.
+function needOf(doc, stage) {
+  return (doc.need && doc.need[stage]) || 'no';
+}
+
+// Node (tests and scripts/build-workbook.mjs) reads the same data.
+if (typeof module !== 'undefined' && module.exports) module.exports = { AVG_DOCS: AVG_DOCS, needOf: needOf };
+
 (function () {
   'use strict';
-  var STAGES = [['i130', 'I-130'], ['nvc', 'NVC'], ['medical', 'Medical'], ['interview', 'Interview']];
+  if (typeof document === 'undefined') return;
+  var STAGES = AVG_DOCS.stages;
   var LISTS = {
     i130: ['/tools/checklist-i130', 'I-130'],
     nvc: ['/tools/checklist-nvc', 'NVC'],
@@ -1665,7 +1699,7 @@ var AVG_DOCS = {
         }).join(' &middot; ') + '</span>' : '';
         html += '<tr><td><strong>' + d.name + '</strong>' +
           (d.code ? ' <span class="doc-code">' + d.code + '</span>' : '') + '</td>' +
-          STAGES.map(function (s) { return '<td class="stage-col">' + BADGE[d.need[s[0]]] + '</td>'; }).join('') +
+          STAGES.map(function (s) { return '<td class="stage-col">' + BADGE[needOf(d, s[0])] + '</td>'; }).join('') +
           '<td>' + d.note + on + '</td></tr>';
       });
       html += '</tbody></table>';
