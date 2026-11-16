@@ -9,6 +9,8 @@
 
    To change a document, edit it here. Each entry has:
      need   which stages need it: yes, cond (depends on your case) or no
+     code   optional: the file code in the public charge evidence pack
+            (P01, J01, B07...), shown next to the name
      note   the master checklist's note
      items  where it appears on a stage checklist, with that page's wording.
             Keep each item id unchanged: saved ticks are stored against it.
@@ -28,7 +30,12 @@ var AVG_DOCS = {
   {
    "key": "financial",
    "title": "Financial documents (I-864 affidavit of support)",
-   "note": "For NVC and beyond. The petitioner and every joint sponsor each need their own set."
+   "note": "For NVC and beyond. The petitioner and every joint sponsor each need their own set. The codes (P01, J01) are the file names in the public charge <a href=\"/public-charge/evidence#deliverables\">evidence pack</a>: one labelled PDF per row."
+  },
+  {
+   "key": "beneficiary",
+   "title": "Public charge evidence: you (the beneficiary)",
+   "note": "Officers now ask the beneficiary for financial documents too, not just the petitioner. Send every row that applies to your case, in the public charge <a href=\"/public-charge/evidence#deliverables\">evidence pack</a>, at least five working days before the interview. Skip a row only when the thing does not exist for you."
   },
   {
    "key": "relationship",
@@ -261,7 +268,7 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "cond"
    },
-   "note": "Only if a joint sponsor is filing: their own I-864, IRS transcript, proof of US status and income evidence for their situation.",
+   "note": "Only if a joint sponsor is filing: their own I-864, the last 3 years of IRS Tax Return Transcripts, proof of US citizenship or permanent residence, and the last 3 months of payslips and bank statements plus the latest W-2. Add their relationship statement and any assets (rows below).",
    "items": [
     {
      "list": "nvc",
@@ -273,31 +280,33 @@ var AVG_DOCS = {
      "id": "s3-2",
      "label": "<strong>Form I-864, Joint Sponsor</strong>, if applicable, on the same edition rules as the petitioner's; include their scenario-specific income documents (W-2/employment letter/pay stubs, self-employment documents, SSA-1099/pension, LES, or I-864A), see \"Joint sponsor, documentation by scenario\" in the NVC guide"
     }
-   ]
+   ],
+   "code": "J01–J05"
   },
   {
    "key": "transcript",
    "group": "financial",
-   "name": "IRS tax transcript (every sponsor)",
+   "name": "IRS Tax Return Transcripts (every sponsor)",
    "need": {
     "i130": "no",
     "nvc": "yes",
     "medical": "no",
     "interview": "yes"
    },
-   "note": "Via IRS.gov with ID.me. Most recent tax year required for every sponsor (Form I-864 instructions, 08/24/26). Last 3 years strongly recommended.",
+   "note": "Via IRS.gov with ID.me. Choose the <strong>Tax Return Transcript</strong>, not the Account Transcript: the page is headed &ldquo;Tax Return Transcript&rdquo; and lists the income lines from the 1040 as filed. The I-864 requires the most recent tax year for every sponsor (Form I-864 instructions, 08/24/26). For the public charge pack, send the last 3 years of IRS Tax Return Transcripts: a missing transcript is London&rsquo;s most common financial 221(g).",
    "items": [
     {
      "list": "nvc",
      "id": "nvc-9",
-     "label": "Tax return: IRS transcript via IRS.gov/ID.me for every sponsor (a 1040 with W-2s meets NVC's minimum only, see warning above)"
+     "label": "IRS Tax Return Transcript via IRS.gov/ID.me for every sponsor (a 1040 with W-2s meets NVC's minimum only, see warning above)"
     },
     {
      "list": "binder",
      "id": "s3-3",
-     "label": "<strong>IRS Tax Transcripts</strong>"
+     "label": "<strong>IRS Tax Return Transcripts</strong>"
     }
-   ]
+   ],
+   "code": "P01 · J01"
   },
   {
    "key": "tax-return",
@@ -309,8 +318,9 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "yes"
    },
-   "note": "Full return with all schedules if self-employed (C/E/F/SE). Most recent year required; last 3 years strongly recommended.",
-   "items": []
+   "note": "Full return with all schedules if self-employed (C/E/F/SE). The most recent year is required for the I-864. For the public charge pack, send the last 3 years of IRS Tax Return Transcripts (row above).",
+   "items": [],
+   "code": "P01 · J01"
   },
   {
    "key": "employment",
@@ -353,7 +363,8 @@ var AVG_DOCS = {
      "id": "s3-4",
      "label": "<strong>W-2s / 1099s</strong>"
     }
-   ]
+   ],
+   "code": "P02 · P07"
   },
   {
    "key": "paystubs",
@@ -365,14 +376,15 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "yes"
    },
-   "note": "The latest stubs for each sponsor, showing current income.",
+   "note": "The last 3 months for each sponsor, plus the latest W-2, showing current income.",
    "items": [
     {
      "list": "binder",
      "id": "s3-6",
      "label": "<strong>Recent Pay Stubs</strong>"
     }
-   ]
+   ],
+   "code": "P02 · J02"
   },
   {
    "key": "sponsor-status",
@@ -403,7 +415,78 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "yes"
    },
-   "note": "Recent statements showing US domicile and financial capacity. 3-6 months recommended. Opening a US account and transferring funds are both named in State Department guidance as evidence of establishing domicile.",
+   "note": "The last 3 months, showing the salary arriving; 12 months if self-employed. Opening a US account and transferring funds are both named in State Department guidance as evidence of establishing domicile.",
+   "items": [],
+   "code": "P03 · J02"
+  },
+  {
+   "key": "pc-health",
+   "group": "financial",
+   "name": "Petitioner&rsquo;s health insurance",
+   "code": "P04",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "yes"
+   },
+   "note": "Plan confirmation or summary of benefits. Under the health factor, officers ask whether you will be covered by the petitioner&rsquo;s plan. See <a href=\"/public-charge/questions\">questions to rehearse</a>.",
+   "items": []
+  },
+  {
+   "key": "pc-savings",
+   "group": "financial",
+   "name": "Savings, investment and retirement statements",
+   "code": "P06 · J04",
+   "need": {
+    "i130": "no",
+    "nvc": "cond",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any. For a joint sponsor who counts assets, show how each converts to cash within a year.",
+   "items": []
+  },
+  {
+   "key": "pc-other-income",
+   "group": "financial",
+   "name": "Proof of other income",
+   "code": "P07",
+   "need": {
+    "i130": "no",
+    "nvc": "cond",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: rental, retirement, dividends or self-employment income.",
+   "items": []
+  },
+  {
+   "key": "pc-debts",
+   "group": "financial",
+   "name": "Debt statements (sponsors)",
+   "code": "P08",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: the latest statement for each debt, such as a mortgage, car loan or credit card balance.",
+   "items": []
+  },
+  {
+   "key": "js-relationship",
+   "group": "financial",
+   "name": "Joint sponsor&rsquo;s relationship statement",
+   "code": "J03",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if a joint sponsor is filing. A signed statement: how long they have known the petitioner and you, where they live, whether they have sponsored anyone before, and any history of support.",
    "items": []
   },
   {
@@ -416,7 +499,7 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "cond"
    },
-   "note": "If a sponsor is self-employed: the full return with all schedules, 12 months of business bank statements, and business registration or EIN.",
+   "note": "If anyone is self-employed (petitioner, joint sponsor or you): the full tax return with every schedule, 12 months of bank statements (from the business account if there is one), the state business registration or licence, and proof the business trades, such as a website, recent invoices, client contracts, Forms 1099 or a Better Business Bureau profile. See <a href=\"/public-charge/evidence#self-employed\">if anyone is self-employed</a>.",
    "items": [
     {
      "list": "nvc",
@@ -428,7 +511,8 @@ var AVG_DOCS = {
      "id": "s3-9",
      "label": "<strong>Self-Employment Supporting Documents</strong>, if applicable: Schedule C/E/F, 12 months business bank statements, business registration evidence"
     }
-   ]
+   ],
+   "code": "P09 · J05 · B12"
   },
   {
    "key": "domicile",
@@ -470,7 +554,8 @@ var AVG_DOCS = {
     "interview": "yes"
    },
    "note": "Supports US domicile, but evidences an <em>address</em> rather than residence. Never submit it as the only domicile evidence: pair it with utility bills, US tax filings showing domestic earned income, or a US job contract.",
-   "items": []
+   "items": [],
+   "code": "P05"
   },
   {
    "key": "utilities",
@@ -539,11 +624,11 @@ var AVG_DOCS = {
    "name": "Public charge statement and evidence",
    "need": {
     "i130": "no",
-    "nvc": "yes",
+    "nvc": "no",
     "medical": "no",
     "interview": "yes"
    },
-   "note": "Written statement plus a labelled evidence pack (treat both as mandatory, even though the embassy calls the statement voluntary): the last 3 years of IRS tax returns and 3 months of payslips and bank statements for every sponsor, the petitioner's health insurance and housing, and the beneficiary's own CV, diplomas, bank statements, assets, retirement plan and health insurance quote. Upload the pack to CEAC, email it, and print it for the binder. See <a href=\"/public-charge/evidence#deliverables\">the evidence pack</a> and the <a href=\"/public-charge.html\">statement template</a>.",
+   "note": "Written statement plus a labelled evidence pack. Treat both as mandatory, even though the embassy calls the statement voluntary. The pack is every row on this page with a file code: P for the petitioner, J for a joint sponsor, B for you. Upload it to CEAC and email it at least five working days before the interview, and print it for the binder. See the <a href=\"/public-charge/evidence#deliverables\">evidence pack</a> and the <a href=\"/public-charge/statement\">statement builder</a>.",
    "items": [
     {
      "list": "binder",
@@ -555,7 +640,8 @@ var AVG_DOCS = {
      "id": "s3-13",
      "label": "<strong>Printed copy of the evidence pack</strong>, on its own Public Charge tab, in the same order and under the same file codes as your CEAC upload. When the officer asks for a document, you can find it by code. Members preparing for re-interviews bring everything: CV, diplomas, insurance quotes and the beneficiary's bank and investment statements. If anyone is self-employed, the pack also holds 12 months of bank statements (business account preferred) and proof the business is registered and trading."
     }
-   ]
+   ],
+   "code": "00"
   },
   {
    "key": "timeline",
@@ -1260,6 +1346,230 @@ var AVG_DOCS = {
      "label": "Any documents requested by embassy"
     }
    ]
+  },
+  {
+   "key": "ben-cv",
+   "group": "beneficiary",
+   "name": "CV",
+   "code": "B01",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "yes"
+   },
+   "note": "Every job, employer and date, most recent first.",
+   "items": []
+  },
+  {
+   "key": "ben-diplomas",
+   "group": "beneficiary",
+   "name": "Degree certificates and diplomas",
+   "code": "B02",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "yes"
+   },
+   "note": "Degree certificates, diplomas, transcripts and professional licences. Optional: a US credential evaluation stating the US equivalent of your degree.",
+   "items": []
+  },
+  {
+   "key": "ben-bank",
+   "group": "beneficiary",
+   "name": "Your bank statements, every country",
+   "code": "B03",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "yes"
+   },
+   "note": "The last 3 months for every bank account in your name, home-country accounts included; 12 months if self-employed.",
+   "items": []
+  },
+  {
+   "key": "ben-savings",
+   "group": "beneficiary",
+   "name": "Your savings and investments",
+   "code": "B04",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: statements in your name, apart from the petitioner&rsquo;s.",
+   "items": []
+  },
+  {
+   "key": "ben-property",
+   "group": "beneficiary",
+   "name": "Your property",
+   "code": "B05",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: proof of ownership and value for every property you name, co-owned property included.",
+   "items": []
+  },
+  {
+   "key": "ben-work",
+   "group": "beneficiary",
+   "name": "Employer letter or US job offer",
+   "code": "B06",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: an employer letter confirming you may work from the US, or a US job offer.",
+   "items": []
+  },
+  {
+   "key": "ben-insurance",
+   "group": "beneficiary",
+   "name": "Health insurance quote",
+   "code": "B07",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "yes"
+   },
+   "note": "A quote for your age and ZIP code from <a href=\"https://www.healthcare.gov/see-plans/\" target=\"_blank\" rel=\"noopener noreferrer\">healthcare.gov</a>. It needs no application or SSN, and a travel policy does not answer this. If the petitioner&rsquo;s health plan will cover you, send proof of that coverage instead.",
+   "items": []
+  },
+  {
+   "key": "ben-medication",
+   "group": "beneficiary",
+   "name": "US cost of ongoing treatment",
+   "code": "B08",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: the US price, in dollars, of any ongoing medication or treatment.",
+   "items": []
+  },
+  {
+   "key": "ben-debts",
+   "group": "beneficiary",
+   "name": "Your debt statements",
+   "code": "B09",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if any: the latest statement for each debt, your Student Loans Company statement included.",
+   "items": []
+  },
+  {
+   "key": "ben-credentials",
+   "group": "beneficiary",
+   "name": "Credential evaluation or licensing letters",
+   "code": "B10",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if your field is regulated in the US.",
+   "items": []
+  },
+  {
+   "key": "ben-english",
+   "group": "beneficiary",
+   "name": "Proof of English",
+   "code": "B11",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if English is not your first language: a qualification taught in English, a test result, or enrolment in English classes.",
+   "items": []
+  },
+  {
+   "key": "ben-retirement",
+   "group": "beneficiary",
+   "name": "Retirement plan",
+   "code": "B13",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "yes"
+   },
+   "note": "The latest statement for each pension, private retirement plan or investment you will rely on, and your UK State Pension forecast from <a href=\"https://www.gov.uk/check-state-pension\" target=\"_blank\" rel=\"noopener noreferrer\">GOV.UK</a>. See <a href=\"/public-charge/evidence#retirement\">your retirement plan</a>.",
+   "items": []
+  },
+  {
+   "key": "ben-child-birth",
+   "group": "beneficiary",
+   "name": "Child&rsquo;s full birth certificate",
+   "code": "B14",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "For a child immigrating: the full certificate naming the US citizen parent. See <a href=\"/public-charge/children-and-parents#minor-child\">children</a>.",
+   "items": []
+  },
+  {
+   "key": "ben-custody",
+   "group": "beneficiary",
+   "name": "Custody order or the other parent&rsquo;s consent",
+   "code": "B15",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "For a child whose parents live apart: the custody order, or the other parent&rsquo;s written consent to the move.",
+   "items": []
+  },
+  {
+   "key": "ben-school",
+   "group": "beneficiary",
+   "name": "School report and US school place",
+   "code": "B16",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "For a child immigrating: the latest school report, and proof of a US school place or the school district.",
+   "items": []
+  },
+  {
+   "key": "ben-residence",
+   "group": "beneficiary",
+   "name": "Proof you live at the sponsor&rsquo;s address",
+   "code": "B17",
+   "need": {
+    "i130": "no",
+    "nvc": "no",
+    "medical": "no",
+    "interview": "cond"
+   },
+   "note": "Only if the sponsor counts your income on the I-864: a lease, utility bill or council tax bill in your name at that address.",
+   "items": []
   }
  ]
 };
@@ -1311,7 +1621,8 @@ var AVG_DOCS = {
         var on = lists.length ? '<span class="doc-on">On: ' + lists.map(function (l) {
           return '<a href="' + LISTS[l][0] + '">' + LISTS[l][1] + '</a>';
         }).join(' &middot; ') + '</span>' : '';
-        html += '<tr><td><strong>' + d.name + '</strong></td>' +
+        html += '<tr><td><strong>' + d.name + '</strong>' +
+          (d.code ? ' <span class="doc-code">' + d.code + '</span>' : '') + '</td>' +
           STAGES.map(function (s) { return '<td class="stage-col">' + BADGE[d.need[s[0]]] + '</td>'; }).join('') +
           '<td>' + d.note + on + '</td></tr>';
       });
