@@ -84,8 +84,10 @@ test('article-page rules do not reach the stage pages', () => {
     .map(s => s.trim()).filter(s => s && !s.startsWith('@') && !s.startsWith('.guide-article.page-wrap'));
   const defined = new Set(selectors.flatMap(s => [...s.matchAll(/\.([a-zA-Z][\w-]*)/g)].map(m => m[1])));
   // same utility; .next only as .keydate.next; the folded sources list came to the
-  // delayed I-130 stage page when the remedies page was merged into it (review step 8)
-  const SHARED_ON_PURPOSE = new Set(['guide-article', 'sr-only', 'next', 'sources', 'sources-hint']);
+  // delayed I-130 stage page when the remedies page was merged into it (review step 8);
+  // the "On this page" box went onto the long stage pages (follow-up step 4, N3)
+  const SHARED_ON_PURPOSE = new Set(['guide-article', 'sr-only', 'next', 'sources', 'sources-hint',
+    'toc', 'toc-title']);
   const stageClasses = new Set(STAGE_PAGES.flatMap(p => attrValues(readPublic(p), 'class').flatMap(v => v.split(/\s+/))));
   assert.deepEqual([...defined].filter(c => stageClasses.has(c) && !SHARED_ON_PURPOSE.has(c)), []);
 });
