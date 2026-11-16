@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "node scripts/generate-config.js && sed -i 's|%%SUPABASE_URL%%|'${SUPABASE_URL}'|g; s|%%SUPABASE_ANON_KEY%%|'${SUPABASE_ANON_KEY}'|g' public/js/env.js && node scripts/build-search.mjs",
+  "buildCommand": "node scripts/generate-config.js && sed -i 's|%%SUPABASE_URL%%|'${SUPABASE_URL}'|g; s|%%SUPABASE_ANON_KEY%%|'${SUPABASE_ANON_KEY}'|g' public/js/env.js && node scripts/build-workbook.mjs && node scripts/build-search.mjs",
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
@@ -403,6 +403,11 @@
     {
       "source": "/workbook.html",
       "destination": "/tools/workbook",
+      "permanent": true
+    },
+    {
+      "source": "/Moving_to_the_USA_Workbook.xlsx",
+      "destination": "/downloads/american-visa-guide-master-workbook.xlsx",
       "permanent": true
     },
     {

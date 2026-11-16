@@ -11,3 +11,6 @@ scripts/reddit/out/
 
 # Pagefind search index: generated at build time (npm run build:search)
 public/pagefind/
+
+# Master workbook: generated at build time (npm run build:workbook)
+public/downloads/american-visa-guide-master-workbook.xlsx
