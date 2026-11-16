@@ -26,10 +26,13 @@ const linksOf = (key) => SECTIONS[key].groups.flatMap((g) => g.links.map((l) => 
 // Pages in a section that are reached from a parent page, not the list.
 const OFF_LIST = new Set(['/guide/delayed-i130/mandamus']);
 
-test('every guide and naturalization page uses the shared sidebar', () => {
+// The Tools hub is itself the full list of tools, so it doesn't get the sidebar.
+const NO_SIDEBAR = new Set(['/tools']);
+
+test('every guide, naturalization and tool page uses the shared sidebar', () => {
   for (const { url, html } of ALL) {
     const top = url.split('/')[1];
-    if (top !== 'guide' && top !== 'naturalization') continue;
+    if (!['guide', 'naturalization', 'tools'].includes(top) || NO_SIDEBAR.has(url)) continue;
     assert.equal(sectionOf(html), top, `${url}: data-section="${top}"`);
     assert.match(html, /section-nav\.css\?v=/, `${url}: loads section-nav.css`);
     assert.match(html, /<body[^>]*class="[^"]*\bhas-snav\b/, `${url}: body.has-snav (no layout shift)`);

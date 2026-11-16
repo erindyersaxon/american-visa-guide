@@ -90,6 +90,76 @@
         },
       ],
     },
+    // Same groups, order and names as the Tools page (/tools), so a tool page
+    // shows the other tools for its stage. Tools that live in another section
+    // (interview, public charge, naturalization) are listed here too.
+    tools: {
+      label: 'Tools',
+      groups: [
+        {
+          links: [
+            { href: '/tools', text: 'All tools, by stage' },
+          ],
+        },
+        {
+          heading: 'Every stage',
+          links: [
+            { href: '/tools/master-checklist', text: 'Master Checklist' },
+            { href: '/tools/workbook', text: 'Moving to the USA Workbook' },
+          ],
+        },
+        {
+          heading: 'Stage 1: I-130',
+          links: [
+            { href: '/tools/checklist-i130', text: 'I-130 Pre-Submission Checklist' },
+            { href: '/tools/relationship-evidence', text: 'Relationship Evidence Template' },
+            { href: '/tools/relationship-evidence/example', text: 'Relationship Evidence Example', sub: true },
+          ],
+        },
+        {
+          heading: 'Stage 2: NVC',
+          links: [
+            { href: '/tools/checklist-nvc', text: 'NVC Document Checklist' },
+            { href: '/tools/i864-household', text: 'I-864 Household Decision Tree' },
+            { href: '/tools/worksheet-i864', text: 'I-864 Affidavit of Support Worksheet' },
+            { href: '/tools/worksheet-ds260', text: 'DS-260 Preparation Worksheet' },
+          ],
+        },
+        {
+          heading: 'Stage 5: Medical',
+          links: [
+            { href: '/tools/checklist-medical', text: 'Medical Day Checklist' },
+          ],
+        },
+        {
+          heading: 'Stage 6: Interview',
+          links: [
+            { href: '/tools/checklist-binder', text: 'Interview Binder Layout' },
+            { href: '/tools/checklist-interview', text: 'Interview Day Checklist' },
+            { href: '/interview/day-sheet', text: 'Interview-day sheet' },
+            { href: '/public-charge/statement', text: 'Public charge statement builder' },
+            { href: '/interview/questions', text: 'Interview Question Bank' },
+            { href: '/interview/dates', text: 'Interview date checker' },
+            { href: '/interview/templates', text: 'Interview email templates' },
+          ],
+        },
+        {
+          heading: 'Stage 7: After the interview',
+          links: [
+            { href: '/interview/221g/green-sheet', text: 'Green sheet triage' },
+            { href: '/interview/221g/history-worksheet', text: '15-year history worksheet' },
+          ],
+        },
+        {
+          heading: 'Naturalization',
+          links: [
+            { href: '/naturalization/checklist', text: 'N-400 preparation list' },
+            { href: '/naturalization/test#flashcards', text: 'Civics flashcards' },
+            { href: '/naturalization/english-test', text: 'English test practice' },
+          ],
+        },
+      ],
+    },
     'public-charge': {
       label: 'Public charge',
       groups: [
