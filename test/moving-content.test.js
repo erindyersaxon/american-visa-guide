@@ -41,7 +41,7 @@ test('every stage 8 and 9 list item carries a role', () => {
   for (const html of [leave, entry]) {
     for (const id of ['action-list-title', 'before-you-move-on-title']) {
       for (const li of listAfter(html, id).match(/<li\b[\s\S]*?<\/li>/g)) {
-        assert.match(li, /^<li><span class="role role--(petitioner|beneficiary|either)">/, li.slice(0, 80));
+        assert.match(li, /^<li(?: data-workbook="skip")?><span class="role role--(petitioner|beneficiary|either)">/, li.slice(0, 80));
       }
     }
   }

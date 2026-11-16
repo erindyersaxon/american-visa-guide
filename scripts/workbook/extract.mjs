@@ -1,5 +1,8 @@
 // Reads the guide's stage pages for the master workbook's Tasks tab: each
-// page's Action list and "Before you move on" list, word for word.
+// page's Action list, word for word, one row per piece of work. An <li> with
+// data-workbook="skip" still shows on the site but stays out of the workbook: a
+// task a later stage repeats (the owning stage keeps the row), or a pointer to
+// the next stage that is not a piece of work.
 // Design: docs/superpowers/specs/2026-11-16-master-workbook-design.md
 import fs from 'node:fs';
 import path from 'node:path';
@@ -38,6 +41,10 @@ export function htmlToText(html) {
   return text.replace(/\s+/g, ' ').trim();
 }
 
+// A closing pointer sentence ("Why.", "See Stage 3.", "The steps are in Stage 4.")
+// only makes sense as a link; the workbook row links to its stage instead.
+const POINTER = /([.!?])\s+(?:(?:See|The steps are (?:in|under))\s+)?<a\b[^>]*>[\s\S]*?<\/a>\s*\.\s*$/;
+
 const ROLE = /^\s*<span class="role role--(petitioner|beneficiary|either)">[\s\S]*?<\/span><\/span>\s*/;
 
 // The first <ol> or <ul> after the heading with this id, inside the heading's
@@ -48,13 +55,17 @@ function listAfter(html, id, url) {
   const end = html.indexOf('</section>', at);
   const list = html.slice(at, end < 0 ? undefined : end).match(/<(ol|ul)\b[^>]*>([\s\S]*?)<\/\1>/);
   if (!list) throw new Error(`${url}: no list in the #${id} section`);
-  const items = [...list[2].matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(m => m[1]);
+  const items = [...list[2].matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
   if (!items.length) throw new Error(`${url}: empty list after #${id}`);
-  return items.map(inner => {
+  return items.map(([, attrs, inner]) => {
     const role = inner.match(ROLE);
     if (!role) throw new Error(`${url}: item without a role tag: ${htmlToText(inner).slice(0, 60)}`);
     const who = role[1][0].toUpperCase() + role[1].slice(1);
-    return { who, text: htmlToText(inner.slice(role[0].length)) };
+    return {
+      who,
+      text: htmlToText(inner.slice(role[0].length).replace(POINTER, '$1')),
+      skip: /\bdata-workbook="skip"/.test(attrs),
+    };
   });
 }
 
@@ -67,7 +78,6 @@ export function extractStage(source, url) {
     title: htmlToText(h1[1]),
     url,
     actions: listAfter(html, 'action-list-title', url),
-    verify: listAfter(html, 'before-you-move-on-title', url),
   };
 }
 

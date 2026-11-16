@@ -21,7 +21,7 @@ test('extractStage reads the NVC stage', async () => {
   assert.ok(stage.actions.length >= 5);
   assert.equal(stage.actions[0].who, 'Petitioner');
   assert.match(stage.actions[0].text, /^Pay the \$325 visa processing fee/);
-  for (const t of [...stage.actions, ...stage.verify]) {
+  for (const t of stage.actions) {
     assert.doesNotMatch(t.text, /[<&]|^(Petitioner|Beneficiary|Either)\b/, t.text);
   }
 });
@@ -31,9 +31,22 @@ test('loadStages reads every stage in order', async () => {
   const stages = loadStages(PUBLIC);
   assert.equal(stages.length, 11);
   assert.deepEqual(stages.map(s => s.url), STAGE_PAGES.map(p => p.url));
-  for (const s of stages) {
-    assert.ok(s.actions.length > 0, `${s.url} actions`);
-    assert.ok(s.verify.length > 0, `${s.url} verify`);
+  for (const s of stages) assert.ok(s.actions.length > 0, `${s.url} actions`);
+});
+
+test('repeated tasks and stage pointers are marked to skip', async () => {
+  const { loadStages } = await load();
+  const skipped = loadStages(PUBLIC).flatMap(s => s.actions.filter(t => t.skip).map(t => [s.url, t.text]));
+  const expected = [
+    ['/guide/waiting', 'If the US tax filing deadline has passed'],
+    ['/guide/waiting', 'When the IL arrives, go to Stage 4'],
+    ['/guide/after-interview', 'Plan your travel.'],
+    ['/guide/us-entry', 'Have health cover from the day you land.'],
+    ['/guide/us-entry', 'Pay the $235 USCIS Immigrant Fee'],
+  ];
+  assert.equal(skipped.length, expected.length, JSON.stringify(skipped));
+  for (const [url, start] of expected) {
+    assert.ok(skipped.some(([u, t]) => u === url && t.startsWith(start)), `${url}: ${start}`);
   }
 });
 
@@ -60,4 +73,18 @@ test('extractStage ignores commented-out items', async () => {
     <section><h2 id="before-you-move-on-title">B</h2><ul><li>${role} Check.</li></ul></section>`;
   const stage = extractStage(html, '/guide/comments');
   assert.deepEqual(stage.actions.map(t => t.text), ['Shown.']);
+});
+
+test('extractStage flags a skip and drops a trailing link prompt', async () => {
+  const { extractStage } = await load();
+  const role = '<span class="role role--either">Either<span class="sr-only">:</span></span>';
+  const html = `<h1>T</h1><section><h2 id="action-list-title">A</h2><ol>
+    <li>${role} Do X. <a href="/why">Why</a>.</li>
+    <li>${role} Do Y. See <a href="/s3">Stage 3</a>.</li>
+    <li data-workbook="skip">${role} Do Z. The steps are in <a href="/s4">Stage 4</a>.</li>
+    <li>${role} Read <a href="/a">the guide</a> first.</li>
+  </ol></section>`;
+  const stage = extractStage(html, '/guide/t');
+  assert.deepEqual(stage.actions.map(t => [t.text, t.skip]),
+    [['Do X.', false], ['Do Y.', false], ['Do Z.', true], ['Read the guide first.', false]]);
 });

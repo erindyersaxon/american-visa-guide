@@ -46,9 +46,7 @@ function addTasks(book, stages) {
       row.getCell(3).dataValidation = YES;
       row.getCell(4).numFmt = 'd mmm yyyy';
     };
-    stage.actions.forEach(add);
-    sheet.addRow(['', 'Before you move on']).font = { italic: true };
-    stage.verify.forEach(add);
+    stage.actions.filter(task => !task.skip).forEach(add);
   }
 }
 
@@ -105,7 +103,7 @@ function addAbout(book, generatedAt) {
     [`Generated ${formatDate(generatedAt)} from the guide. Every task and document reads exactly as the site does.`],
     [''],
     ['How to use it', { bold: true }],
-    ['Tasks: every stage’s action list and "Before you move on" checks, in order. Fill in Done, the date and your notes.'],
+    ['Tasks: every piece of work from each stage’s action list, in order, one row each. Fill in Done, the date and your notes.'],
     ['Documents: every document on the master checklist, with the public charge evidence file codes (P01, B07…).'],
     ['Costs: your savings and expenses. Boxes: your shipping inventory, for customs, your mover and your insurer.'],
     [''],

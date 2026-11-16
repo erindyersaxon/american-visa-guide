@@ -44,10 +44,19 @@ test('Tasks lists every stage task word for word', () => {
     const head = rows.find(r => r[1] === title);
     assert.ok(head, title);
     assert.ok(head.includes('Started') && head.includes('Done'), `${title}: Started/Done`);
-    for (const t of [...s.actions, ...s.verify]) {
-      assert.equal(flat.filter(f => f.startsWith(`${t.who}|${t.text}|`)).length >= 1, true, t.text.slice(0, 60));
+    for (const t of s.actions.filter(x => !x.skip)) {
+      assert.equal(flat.filter(f => f.startsWith(`${t.who}|${t.text}|`)).length, 1, t.text.slice(0, 60));
     }
   }
+});
+
+test('Tasks has one row per piece of work: no repeats, no Before you move on', () => {
+  const rows = values(book.getWorksheet('Tasks')).slice(1);
+  const tasks = rows.filter(r => ['Petitioner', 'Beneficiary', 'Either'].includes(r[0])).map(r => r[1]);
+  assert.equal(tasks.length, new Set(tasks).size, 'duplicate task text');
+  assert.equal(tasks.length, stages.flatMap(s => s.actions.filter(t => !t.skip)).length);
+  assert.ok(!rows.some(r => r.includes('Before you move on')));
+  for (const s of stages) for (const t of s.actions.filter(x => x.skip)) assert.ok(!tasks.includes(t.text), t.text.slice(0, 60));
 });
 
 test('Documents has one row per master checklist document', () => {
