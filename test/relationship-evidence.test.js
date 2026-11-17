@@ -406,9 +406,9 @@ test('parent (IR5) example cites the age, derivative, father and name rules', ()
   assert.match(ir5, /<link rel="canonical" href="https:\/\/www\.americanvisaguide\.com\/tools\/relationship-evidence\/parent-example">/);
 });
 
-test('parent (IR5) example is linked from the builder, sidebar, checklist and sitemap', () => {
+test('parent (IR5) example is linked from the sidebar, checklist and sitemap', () => {
   const href = '/tools/relationship-evidence/parent-example';
-  for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html']) {
+  for (const f of ['js/section-nav.js', 'tools/checklist-i130.html']) {
     assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
   }
   assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
@@ -446,9 +446,9 @@ test('married son or daughter (F3) example cites the category, father, derivativ
   assert.match(f3, /<link rel="canonical" href="https:\/\/www\.americanvisaguide\.com\/tools\/relationship-evidence\/married-son-daughter-example">/);
 });
 
-test('married son or daughter (F3) example is linked from the builder, sidebar, checklist and sitemap', () => {
+test('married son or daughter (F3) example is linked from the sidebar, checklist and sitemap', () => {
   const href = '/tools/relationship-evidence/married-son-daughter-example';
-  for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html']) {
+  for (const f of ['js/section-nav.js', 'tools/checklist-i130.html']) {
     assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
   }
   assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
@@ -483,9 +483,9 @@ test('unmarried son or daughter (F1) example cites the category and every conver
   assert.match(f1, /<link rel="canonical" href="https:\/\/www\.americanvisaguide\.com\/tools\/relationship-evidence\/unmarried-son-daughter-example">/);
 });
 
-test('unmarried son or daughter (F1) example is linked from the builder, sidebar, checklist and sitemap', () => {
+test('unmarried son or daughter (F1) example is linked from the sidebar, checklist and sitemap', () => {
   const href = '/tools/relationship-evidence/unmarried-son-daughter-example';
-  for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html']) {
+  for (const f of ['js/section-nav.js', 'tools/checklist-i130.html']) {
     assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
   }
   assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
@@ -524,10 +524,22 @@ test('permanent resident spouse (F2A) example cites the green card, derivative, 
   assert.match(f2a, /<link rel="canonical" href="https:\/\/www\.americanvisaguide\.com\/tools\/relationship-evidence\/permanent-resident-spouse-example">/);
 });
 
-test('permanent resident spouse (F2A) example is linked from the builder, sidebar, checklist and sitemap', () => {
+test('permanent resident spouse (F2A) example is linked from the sidebar, checklist and sitemap', () => {
   const href = '/tools/relationship-evidence/permanent-resident-spouse-example';
-  for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html']) {
+  for (const f of ['js/section-nav.js', 'tools/checklist-i130.html']) {
     assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
   }
   assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
+});
+
+test('the builder points to the side menu instead of listing every example', () => {
+  const html = fs.readFileSync(path.join(PUBLIC, 'tools/relationship-evidence.html'), 'utf8');
+  const section = (html.match(/What a finished row looks like<\/h2>([\s\S]*?)<div class="sample"/) || [])[1] || '';
+  assert.match(section, /see <strong>Evidence examples<\/strong> in the side menu/);
+  assert.match(section, /<strong>In this section<\/strong>/);
+  assert.doesNotMatch(section, /<a href=/);
+  const { SECTIONS } = require('../public/js/section-nav.js');
+  const listed = SECTIONS.tools.groups.flatMap(g => g.links).map(l => l.href).filter(Boolean);
+  const pages = fs.readdirSync(path.join(PUBLIC, 'tools/relationship-evidence')).filter(f => f.endsWith('.html'));
+  for (const f of pages) assert.ok(listed.includes('/tools/relationship-evidence/' + f.replace(/\.html$/, '')), f + ' is in the side menu');
 });
