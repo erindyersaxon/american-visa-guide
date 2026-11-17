@@ -28,16 +28,27 @@ test('extractStage reads the NVC stage', async () => {
 
 test('extractStage reads the domicile and public charge box, labeled by topic', async () => {
   const { extractStage } = await load();
-  const stage = extractStage(fs.readFileSync(path.join(PUBLIC, 'guide/nvc.html'), 'utf8'), '/guide/nvc');
-  assert.ok(stage.thread.some(t => t.who === 'Petitioner' && /^Domicile: Upload domicile evidence/.test(t.text)));
-  assert.ok(stage.thread.some(t => t.who === 'Beneficiary' && /^Public charge: Draft your statement/.test(t.text)));
+  const stage = extractStage(fs.readFileSync(path.join(PUBLIC, 'guide/i130.html'), 'utf8'), '/guide/i130');
+  assert.ok(stage.thread.some(t => t.who === 'Petitioner' && /^Domicile: Find your situation/.test(t.text)));
+  assert.ok(stage.thread.some(t => t.who === 'Beneficiary' && /^Public charge: Read the five factors/.test(t.text)));
   for (const t of stage.thread) assert.doesNotMatch(t.text, /[<&]|Done when/, t.text);
 });
 
-test('every stage on the main path has a domicile and public charge box', async () => {
+test('extractStage reads topic tags and expandable lines in an Action list', async () => {
+  const { extractStage } = await load();
+  const stage = extractStage(fs.readFileSync(path.join(PUBLIC, 'guide/nvc.html'), 'utf8'), '/guide/nvc');
+  const dom = stage.actions.find(t => /^Domicile: /.test(t.text));
+  assert.equal(dom.who, 'Petitioner');
+  assert.match(dom.text, /utility bills\. If the petitioner lives abroad: Upload a signed letter of intent/);
+  assert.ok(stage.actions.some(t => t.who === 'Beneficiary' && /^Public charge: Draft your public charge statement/.test(t.text)));
+  for (const t of stage.actions) assert.doesNotMatch(t.text, /[<&]/, t.text);
+});
+
+test('every stage on the main path has domicile and public charge tasks', async () => {
   const { loadStages } = await load();
-  const withBox = loadStages(PUBLIC).filter(s => s.thread.length).map(s => s.url);
-  assert.deepEqual(withBox, ['/guide/i130', '/guide/nvc', '/guide/waiting', '/guide/interview-letter', '/guide/medical',
+  const tagged = t => /^(Domicile|Public charge): /.test(t.text);
+  const withTasks = loadStages(PUBLIC).filter(s => [...s.actions, ...s.thread].some(tagged)).map(s => s.url);
+  assert.deepEqual(withTasks, ['/guide/i130', '/guide/nvc', '/guide/waiting', '/guide/interview-letter', '/guide/medical',
     '/guide/interview', '/guide/after-interview', '/guide/before-you-leave']);
 });
 

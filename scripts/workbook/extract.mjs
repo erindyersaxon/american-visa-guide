@@ -47,16 +47,21 @@ export function htmlToText(html) {
 const POINTER = /([.!?])\s+(?:(?:See|The steps are (?:in|under))\s+)?<a\b[^>]*>[\s\S]*?<\/a>\s*\.\s*$/;
 
 const ROLE = /^\s*<span class="role role--(petitioner|beneficiary|either)">[\s\S]*?<\/span><\/span>\s*/;
+// A topic tag ("Domicile", "Public charge") may come before the role tag.
+const TOPIC = /^\s*<span class="topic">([\s\S]*?)<span class="sr-only">,<\/span><\/span>\s*/;
 
 function itemsOf(listHtml, url) {
   const items = [...listHtml.matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
-  return items.map(([, attrs, inner]) => {
+  return items.map(([, attrs, raw]) => {
+    const topicTag = raw.match(TOPIC);
+    // An expandable line reads as "Summary: detail" in the workbook.
+    const inner = (topicTag ? raw.slice(topicTag[0].length) : raw).replace(/<\/summary>/g, ': </summary>');
     const role = inner.match(ROLE);
     if (!role) throw new Error(`${url}: item without a role tag: ${htmlToText(inner).slice(0, 60)}`);
     const who = role[1][0].toUpperCase() + role[1].slice(1);
     return {
       who,
-      text: htmlToText(inner.slice(role[0].length).replace(POINTER, '$1')),
+      text: (topicTag ? `${htmlToText(topicTag[1])}: ` : '') + htmlToText(inner.slice(role[0].length).replace(POINTER, '$1')),
       skip: /\bdata-workbook="skip"/.test(attrs),
     };
   });
@@ -66,7 +71,7 @@ function itemsOf(listHtml, url) {
 // <h3>. Rows carry the topic as a prefix ("Public charge: ...") so the Tasks
 // tab shows which thread a task belongs to. Pages without the box return [].
 function threadOf(html, url) {
-  const at = html.indexOf('id="domicile-public-charge"');
+  const at = html.indexOf('class="stage-thread"');
   if (at < 0) return [];
   const end = html.indexOf('</section>', at);
   const box = html.slice(at, end);
