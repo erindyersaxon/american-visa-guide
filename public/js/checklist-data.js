@@ -717,7 +717,7 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "cond"
    },
-   "note": "Photos over time, including the wedding; travel records and boarding passes; communication logs. Reuse them at the interview if asked.",
+   "note": "Photos over time, including the wedding; travel records and boarding passes, plus the beneficiary's CBP I-94 travel history (i94.cbp.dhs.gov, View Travel History) for visits to the US; communication logs. Reuse them at the interview if asked.",
    "items": [
     {
      "list": "i130",
@@ -827,7 +827,7 @@ var AVG_DOCS = {
     {
      "list": "i130",
      "id": "evid-8",
-     "label": "If you live in different countries: money transfer receipts, contracts or invoices for purchases in both names, past and recent social media posts, and flight bookings and boarding passes for each visit"
+     "label": "If you live in different countries: money transfer receipts, contracts or invoices for purchases in both names, past and recent social media posts, and flight bookings and boarding passes for each visit, with the beneficiary's <a href=\"https://i94.cbp.dhs.gov/home\" target=\"_blank\" rel=\"noopener noreferrer\">CBP I-94 travel history</a> for visits to the US"
     }
    ]
   },
