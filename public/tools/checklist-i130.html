@@ -51,6 +51,11 @@
       .doc-conditional { color: var(--color-warning); font-weight: var(--weight-medium); }
       .doc-not-needed { color: var(--color-text-muted); }
       .reference-box { padding: var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .family-cat { margin: 0 0 var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+      .family-cat summary { cursor: pointer; font-weight: var(--weight-semibold); color: var(--color-navy); }
+      .family-cat ul { margin: var(--space-3) 0 0; padding-left: var(--space-6); }
+      .family-cat li { margin-bottom: var(--space-2); }
+      .family-cat + .checklist-item { margin-top: var(--space-6); }
       .reference-box a { color: var(--color-gold); font-weight: var(--weight-medium); text-decoration: none; }
       .reference-box a:hover { text-decoration: underline; }
     </style>
@@ -145,12 +150,12 @@
                   <tr>
                     <td>Civil (Identity)</td>
                     <td class="doc-required">✓</td>
-                    <td>Birth certificates for both petitioner and beneficiary (certified copies). Petitioner must also prove US citizenship (passport, naturalization cert, or birth certificate).</td>
+                    <td>The petitioner proves US citizenship (US birth certificate, unexpired US passport, naturalization certificate or certificate of citizenship, or CRBA) or permanent residence (front and back of the green card). Birth certificates for both the petitioner and the beneficiary, certified copies with parents&rsquo; names.</td>
                   </tr>
                   <tr>
                     <td>Relationship</td>
                     <td class="doc-required">✓</td>
-                    <td>Marriage certificate: a certified copy from the civil registry, timely registered. A church or ceremony certificate, or a marriage licence, is not enough (6 USCIS-PM B.6(C)(1)). If previously married, all divorce decrees or death certificates (certified).</td>
+                    <td>Spouses: the marriage certificate, a certified copy from the civil registry, timely registered. A church or ceremony certificate, or a marriage license, is not enough (6 USCIS-PM B.6(C)(1)). If either spouse was married before, every divorce decree or death certificate. Children, parents and siblings: see <a href="#family">Section 4</a> for the documents that prove your category.</td>
                   </tr>
                   <tr>
                     <td>Translation</td>
@@ -163,9 +168,9 @@
                     <td>I-130 (completed and signed by petitioner). I-130A for every spouse beneficiary; it only needs the beneficiary's signature if they are in the US.</td>
                   </tr>
                   <tr>
-                    <td>Relationship Evidence</td>
-                    <td class="doc-required">✓ (spouse/CR1/IR1)</td>
-                    <td>See Section 4 for spouse/CR1/IR1 evidence requirements. IR5/K visa categories have different requirements.</td>
+                    <td>Bona fide evidence</td>
+                    <td class="doc-required">✓ (spouses)</td>
+                    <td>Spouses also prove the marriage is real: see <a href="#bona-fide">Section 5</a>. A father of a child born to unmarried parents proves a real parent-child relationship instead: see <a href="#family">Section 4</a>.</td>
                   </tr>
                   <tr>
                     <td>Medical</td>
@@ -185,8 +190,69 @@
               </div>
             </section>
 
-            <section class="checklist-section">
-              <h3>4. Relationship evidence (spouse/CR1/IR1 only)</h3>
+            <section class="checklist-section" id="family">
+              <h3>4. Proof of the family relationship</h3>
+              <p>Open your category and send every document it lists. Each petition proves the link between the petitioner and the beneficiary with civil records: who was born to whom, and who married whom (I-130 Instructions, pp. 6&ndash;8; 8 CFR 204.2).</p>
+              <details class="family-cat">
+                <summary>Spouse: CR1/IR1 (US citizen) or F2A (permanent resident)</summary>
+                <ul>
+                  <li>Marriage certificate, and the divorce or death record for every earlier marriage of either spouse.</li>
+                  <li>Form I-130A, and two passport-style photos each of the petitioner and spouse.</li>
+                  <li>Evidence the marriage is real: <a href="#bona-fide">Section 5</a>.</li>
+                  <li><strong>Clear and convincing evidence</strong> of a good-faith marriage if you married while the spouse was in removal proceedings (with a written request for the bona fide marriage exemption), or if the petitioner got a green card through an earlier marriage less than 5 years ago (I-130 Instructions, p. 6; 8 CFR 204.2(a)(1)).</li>
+                  <li>F2A: the spouse&rsquo;s unmarried children under 21 can be listed in Part 4 as derivatives. A US citizen files a separate I-130 for each child.</li>
+                </ul>
+              </details>
+              <details class="family-cat">
+                <summary>Child or son or daughter: IR2, F1, F2A, F2B, F3</summary>
+                <ul>
+                  <li><strong>Mother filing:</strong> the child&rsquo;s birth certificate showing her name.</li>
+                  <li><strong>Father filing:</strong> the child&rsquo;s birth certificate showing both parents, the parents&rsquo; marriage certificate, and records ending any earlier marriage of either parent (8 CFR 204.2(d)(2)(i)).</li>
+                  <li><strong>Parents not married at the birth, father filing:</strong> proof of legitimation before 18, or records made at the time showing a real parent-child relationship before the child turned 21 and while unmarried (8 CFR 204.2(d)(2)(ii)&ndash;(iii)).</li>
+                  <li><strong>Stepchild:</strong> the marriage certificate of the stepparent and the child&rsquo;s parent, dated before the child turned 18 (8 CFR 204.2(d)(2)(iv)).</li>
+                  <li><strong>Adopted child:</strong> the adoption decree from before age 16, and proof of 2 years of legal custody and 2 years living together (8 CFR 204.2(d)(2)(vii)). If the child comes from a Hague Convention country, check the <a href="https://www.uscis.gov/adoption/immigration-through-adoption/family-based-petition-process" target="_blank" rel="noopener noreferrer">USCIS family-based adoption rules</a> first.</li>
+                  <li><strong>F1 or F2B (unmarried, 21 or over):</strong> if the son or daughter was married before, the divorce or death record that ended it.</li>
+                  <li><strong>F1, F2B and F3:</strong> list the beneficiary&rsquo;s spouse and children under 21 in Part 4. They can immigrate as derivatives without their own petition (I-130 Instructions, p. 1). A US citizen filing IR2 files one I-130 per child, with a copy of the spouse&rsquo;s I-130 receipt if you also filed for your spouse.</li>
+                </ul>
+              </details>
+              <details class="family-cat">
+                <summary>Parent of a US citizen: IR5 (petitioner 21 or older)</summary>
+                <ul>
+                  <li><strong>Mother:</strong> the petitioner&rsquo;s birth certificate showing her name.</li>
+                  <li><strong>Father:</strong> the petitioner&rsquo;s birth certificate showing both parents, the parents&rsquo; marriage certificate, and records ending any earlier marriage of either (8 CFR 204.2(f)(2)(i)).</li>
+                  <li><strong>Father, parents not married at the birth:</strong> legitimation before 18, or proof of a real parent-child relationship before the petitioner turned 21 (8 CFR 204.2(f)(2)(ii)&ndash;(iii)).</li>
+                  <li><strong>Stepparent:</strong> the stepparent&rsquo;s marriage to your parent, dated before you turned 18 (I-130 Instructions, Item H).</li>
+                  <li><strong>Adoptive parent:</strong> the adoption decree from before you turned 16, and proof of 2 years of custody and living together (8 CFR 204.2(f)(2)(iv)).</li>
+                  <li>Each parent needs their own I-130. A parent&rsquo;s spouse is not a derivative (8 CFR 204.2(f)(4)). Link the two petitions: see <a href="/guide/i130">Stage 1</a>, Linking family I-130 applications.</li>
+                </ul>
+              </details>
+              <details class="family-cat">
+                <summary>Brother or sister: F4 (petitioner a US citizen, 21 or older)</summary>
+                <ul>
+                  <li>Both birth certificates, showing at least one parent in common (8 CFR 204.2(g)(2)(i)).</li>
+                  <li><strong>Common father:</strong> the parents&rsquo; marriage certificate and records ending any earlier marriages. Different mothers: the father&rsquo;s marriage certificate to each mother (8 CFR 204.2(g)(2)(iv)).</li>
+                  <li><strong>Common father, parents not married at a birth:</strong> legitimation before 18, or proof of each sibling&rsquo;s real relationship with the father before 21 (8 CFR 204.2(g)(2)(ii)&ndash;(iii)).</li>
+                  <li><strong>Through adoption or a stepparent:</strong> the adoption or step-relationship documents for each of you (I-130 Instructions, Items H and I).</li>
+                  <li>List the sibling&rsquo;s spouse and children under 21 in Part 4. They get the same priority date without their own petition (8 CFR 204.2(g)(4)).</li>
+                </ul>
+              </details>
+              <div class="checklist-item" data-doc-item="fam-1"></div>
+              <div class="checklist-item" data-doc-item="form-6"></div>
+              <div class="checklist-item" data-doc-item="fam-2"></div>
+              <div class="checklist-item" data-doc-item="fam-3"></div>
+              <div class="checklist-item" data-doc-item="fam-4"></div>
+              <div class="checklist-item" data-doc-item="fam-5"></div>
+              <div class="checklist-item" data-item-id="fam-6">
+                <input type="checkbox" id="fam-6" />
+                <label for="fam-6">Every derivative spouse and child is listed in Part 4 (F1, F2A, F2B, F3, F4). Every immediate relative (IR1/CR1, IR2, IR5) has their own I-130</label>
+              </div>
+              <div class="reference-box">
+                <p><strong>A birth or marriage record is missing.</strong> Send a letter from the civil authority saying the record does not exist, plus secondary evidence: a religious record of a baptism within two months of birth, a letter from the first school attended, or a census record. Only if none exist, send two or more sworn statements from people alive at the time who know the facts (I-130 Instructions, p. 8; 8 CFR 204.2(d)(2)(v)). See <a href="/guide/i130#evidence-ranking">how USCIS ranks your evidence</a>.</p>
+                <p><strong>DNA.</strong> If other evidence of a parent-child relationship leaves doubt, you can offer DNA results from an AABB-accredited lab. USCIS can also ask for a test. Never send samples with the petition (I-130 Instructions, p. 8).</p>
+              </div>
+            </section>
+            <section class="checklist-section" id="bona-fide">
+              <h3>5. Bona fide marriage evidence (spouses only)</h3>
               <p style="font-size: var(--size-sm); color: var(--color-text-muted); margin-bottom: var(--space-4);">Essential evidence to prove genuine spousal relationship and prevent RFE:</p>
               <div class="checklist-item" data-doc-item="evid-1"></div>
               <div class="checklist-item" data-doc-item="evid-2"></div>
@@ -200,7 +266,7 @@
             </section>
 
             <section class="checklist-section">
-              <h3>5. Consistency audit</h3>
+              <h3>6. Consistency audit</h3>
               <div class="checklist-item" data-item-id="cons-1">
                 <input type="checkbox" id="cons-1" />
                 <label for="cons-1">Petitioner names identical across all documents</label>
@@ -225,7 +291,7 @@
             </section>
 
             <section class="checklist-section">
-              <h3>6. RFE risk scan</h3>
+              <h3>7. RFE risk scan</h3>
               <div class="checklist-item" data-item-id="rfe-1">
                 <input type="checkbox" id="rfe-1" />
                 <label for="rfe-1">Commingling of finances is strong (joint accounts, shared bills)</label>
@@ -253,7 +319,7 @@
             </section>
 
             <section class="checklist-section">
-              <h3>7. CR1 vs IR1 forward planning</h3>
+              <h3>8. CR1 vs IR1 forward planning</h3>
               <div class="checklist-item" data-item-id="cr-1">
                 <input type="checkbox" id="cr-1" />
                 <label for="cr-1">Marriage date confirmed and documented</label>
@@ -269,7 +335,7 @@
             </section>
 
             <section class="checklist-section">
-              <h3>8. Plan ahead: domicile and public charge</h3>
+              <h3>9. Plan ahead: domicile and public charge</h3>
               <p class="text-muted">USCIS tests neither one, but the embassy tests both, and both need months of evidence. See the <a href="/guide/i130#domicile-public-charge">Stage 1 tasks</a>.</p>
               <div class="checklist-item" data-item-id="plan-1">
                 <input type="checkbox" id="plan-1" />
@@ -290,7 +356,7 @@
             </section>
 
             <section class="checklist-section">
-              <h3>9. Final packaging</h3>
+              <h3>10. Final packaging</h3>
               <div class="checklist-item" data-item-id="pack-1">
                 <input type="checkbox" id="pack-1" />
                 <label for="pack-1">Documents organized in logical order</label>
@@ -314,7 +380,7 @@
             </section>
 
             <section class="checklist-section">
-              <h3>10. Post-submission monitoring</h3>
+              <h3>11. Post-submission monitoring</h3>
               <div class="checklist-item" data-item-id="post-1">
                 <input type="checkbox" id="post-1" />
                 <label for="post-1">Expected: months of inactivity and generic "case is being processed" messages</label>
@@ -343,7 +409,7 @@
 
     <footer></footer>
     <script src="/js/shared.js?v=20260612"></script>
-    <script src="/js/checklist-data.js?v=20261117iv"></script>
+    <script src="/js/checklist-data.js?v=20261117fam"></script>
 <script src="/js/checklist.js?v=20260609"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {

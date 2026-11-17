@@ -152,8 +152,24 @@ var AVG_DOCS = {
     "medical": "yes",
     "interview": "yes"
    },
-   "note": "Certified copy. Establishes petitioner identity.",
+   "note": "Certified copy. Establishes petitioner identity. For a parent (IR5) or sibling (F4) petition it is the main relationship document: it must name the parent you share (8 CFR 204.2(f)(2), (g)(2)).",
    "items": []
+  },
+  {
+   "key": "pet-status",
+   "group": "civil",
+   "name": "Proof of the petitioner&rsquo;s US citizenship or permanent residence",
+   "need": {
+    "i130": "yes"
+   },
+   "note": "One of: US birth certificate, unexpired US passport, naturalization certificate or certificate of citizenship, Form FS-240 (CRBA), or an original statement from a US consular officer. A permanent resident sends the front and back of the green card (I-130 Instructions, p. 6).",
+   "items": [
+    {
+     "list": "i130",
+     "id": "fam-1",
+     "label": "Petitioner&rsquo;s status proof: a US birth certificate, unexpired US passport, naturalization certificate or certificate of citizenship, or CRBA (FS-240). A permanent resident sends the front and back of the green card"
+    }
+   ]
   },
   {
    "key": "marriage",
@@ -184,7 +200,7 @@ var AVG_DOCS = {
     "medical": "yes",
     "interview": "yes"
    },
-   "note": "For any prior marriage. Required at all stages if either party previously married.",
+   "note": "For any prior marriage. Required at all stages if either spouse was married before. A father, stepparent or parent of a sibling also proves that the parents&rsquo; earlier marriages ended (8 CFR 204.2(d)(2), (f)(2), (g)(2)).",
    "items": [
     {
      "list": "binder",
@@ -237,8 +253,13 @@ var AVG_DOCS = {
     "medical": "cond",
     "interview": "cond"
    },
-   "note": "Required at all stages if applicable (IR2/CR2 children).",
+   "note": "Required at all stages if applicable (IR2/CR2 children, adoptive parents). Adoption decree from before the child turned 16 (18 for an older sibling adopted by the same parents), plus proof of 2 years of legal custody and 2 years living together (8 CFR 204.2(d)(2)(vii), (f)(2)(iv)).",
    "items": [
+    {
+     "list": "i130",
+     "id": "fam-5",
+     "label": "Adopted child or adoptive parent: the adoption decree from before the child turned 16 (18 for an older sibling adopted by the same parents), a court or government custody order, and records showing 2 years living together, such as school, medical or tenancy records at the same address. A notarized custody affidavit does not count (8 CFR 204.2(d)(2)(vii))"
+    },
     {
      "list": "nvc",
      "id": "nvc-25",
@@ -248,6 +269,73 @@ var AVG_DOCS = {
      "list": "binder",
      "id": "s2-5",
      "label": "<strong>Adoption Documents</strong>: if applicable"
+    }
+   ]
+  },
+  {
+   "key": "parents-marriage",
+   "group": "civil",
+   "name": "Parents&rsquo; marriage certificate",
+   "need": {
+    "i130": "cond"
+   },
+   "note": "When the relationship runs through a father: a father filing for his child, a child filing for a father (IR5), or siblings who share a father (F4). Siblings with a common father and different mothers send the father&rsquo;s marriage certificate to each mother (8 CFR 204.2(d)(2)(i), (f)(2)(i), (g)(2)(i), (g)(2)(iv)).",
+   "items": [
+    {
+     "list": "i130",
+     "id": "fam-2",
+     "label": "If the relationship runs through a father: the parents&rsquo; marriage certificate, and the divorce or death records that ended any earlier marriage of either parent. Siblings who share a father but have different mothers send his marriage certificate to each mother"
+    }
+   ]
+  },
+  {
+   "key": "bona-fide-parent",
+   "group": "civil",
+   "name": "Legitimation or bona fide parent-child evidence",
+   "need": {
+    "i130": "cond",
+    "interview": "cond"
+   },
+   "note": "Only when a father and child are related and the parents were not married at the birth. Either proof the child was legitimated before 18, or records made at the time showing a bona fide parent-child relationship while the child was unmarried and under 21: money transfers, the father&rsquo;s tax returns or insurance naming the child, school records, letters, and affidavits (8 CFR 204.2(d)(2)(ii)-(iii), (f)(2)(ii)-(iii), (g)(2)(ii)-(iii)).",
+   "items": [
+    {
+     "list": "i130",
+     "id": "fam-3",
+     "label": "If the parents were not married when the child was born and the case runs through the father: proof the child was legitimated before 18 (the parents&rsquo; later marriage, or the law where the child or father lived), or records made at the time showing a real parent-child relationship before the child turned 21 and while unmarried. USCIS names money transfers, the father&rsquo;s tax returns, his medical or insurance records listing the child, school records, letters between them, and affidavits (8 CFR 204.2(d)(2)(iii))"
+    }
+   ]
+  },
+  {
+   "key": "step-marriage",
+   "group": "civil",
+   "name": "Marriage certificate creating a step relationship",
+   "need": {
+    "i130": "cond",
+    "nvc": "cond",
+    "interview": "cond"
+   },
+   "note": "For a stepchild or stepparent. The stepparent&rsquo;s marriage to the child&rsquo;s parent must have taken place before the child turned 18. Send the child&rsquo;s birth certificate naming that parent, and proof that any earlier marriages of both ended (8 CFR 204.2(d)(2)(iv); I-130 Instructions, Item H).",
+   "items": [
+    {
+     "list": "i130",
+     "id": "fam-4",
+     "label": "Stepchild or stepparent: the marriage certificate of the stepparent and the child&rsquo;s parent, dated before the child turned 18; the child&rsquo;s birth certificate naming that parent; and divorce or death records for any earlier marriage of either"
+    }
+   ]
+  },
+  {
+   "key": "i130-photos",
+   "group": "identity",
+   "name": "Passport-style photos for a spouse I-130",
+   "need": {
+    "i130": "cond"
+   },
+   "note": "Spouse petitions: two identical 2x2in color photos of the petitioner and two of the spouse, taken within 30 days of filing. Print the name and any A-Number on the back in pencil (I-130 Instructions, p. 6; 8 CFR 204.2(a)(2)).",
+   "items": [
+    {
+     "list": "i130",
+     "id": "form-6",
+     "label": "Spouse petitions: two identical 2x2in color passport-style photos of the petitioner and two of the spouse, taken within 30 days of filing. Check the online form for whether it asks you to upload them"
     }
    ]
   },
