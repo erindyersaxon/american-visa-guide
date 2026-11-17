@@ -66,7 +66,12 @@
     .aff-print .notary { margin-top: 1.5rem; border: 1px solid #000; padding: 0.75rem; min-height: 9rem; }
     .opt-tag { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.5rem; vertical-align: middle; margin-left: 0.4rem; }
     .pv { display: none; white-space: pre-wrap; }
-    #story-table col.c-chapter { width: 30%; }
+    #story-table col.c-chapter, #story-table-parent col.c-chapter { width: 30%; }
+    body:not([data-ev-kind="parent"]) [data-kind="parent"], body[data-ev-kind="parent"] [data-kind="spouse"] { display: none !important; }
+    .ev-kind { border: 1px solid var(--line); border-radius: 0.5rem; padding: 0.75rem 1rem; margin: 0 0 1.5rem; }
+    .ev-kind legend { font-family: var(--font-ui); font-weight: 700; padding: 0 0.25rem; }
+    .ev-kind label { display: block; margin: 0.35rem 0; cursor: pointer; }
+    .ev-kind .hint { margin: 0.5rem 0 0; }
     .ev-table select { width: 100%; font: inherit; padding: 0.3rem 0.4rem; border: 1px solid var(--line); border-radius: 0.25rem; }
     #timeline h3 { font-size: 1rem; margin: 1rem 0 0.35rem; }
     .tl-list { margin: 0 0 0.5rem; padding-left: 1.25rem; }
@@ -115,7 +120,21 @@
   <p class="article-lead">Lead with your financial and legal records: a lease, a joint bank account, money transfers, a mortgage. Then lay out your photos and message logs so an officer can read each one in seconds: who is in it, when, where, and what it shows. Choose a few strong items from across your whole relationship. A labelled page of twelve photos says more than an unlabelled album of two hundred.</p>
   </header>
 
-  <div class="callout callout-info">
+  <fieldset class="ev-kind no-print">
+    <legend>Who is this evidence for?</legend>
+    <label><input type="radio" name="ev-kind" value="spouse" checked> Spouse (CR1, IR1, F2A)</label>
+    <label><input type="radio" name="ev-kind" value="parent"> Parent and child (IR2, IR5, F1, F2A, F2B, F3)</label>
+    <p class="hint">Changes the chapters, document types and affidavit wording below. Anything you have filled in stays.</p>
+  </fieldset>
+
+  <div class="callout callout-info" data-kind="parent">
+    <span class="callout-title">When a parent and child need this</span>
+    <p>Most parent and child petitions rest on civil records alone: the birth certificate, and the parents&rsquo; marriage certificate when the relationship runs through the father. See the <a href="/tools/checklist-i130#family">I-130 checklist</a> for your category.</p>
+    <p>A father whose child was born to unmarried parents must also show a bona fide parent-child relationship, formed while the child was unmarried and under 21, unless the child was legitimated before 18 (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-204/subpart-A/section-204.2" target="_blank" rel="noopener noreferrer">8 CFR 204.2(d)(2)(iii)</a>). The same applies when an adult files for a father (IR5), or siblings who share a father (F4). The regulation asks for evidence of the father&rsquo;s &ldquo;active concern for the child&rsquo;s support, instruction, and general welfare&rdquo;, and that father and child lived together or that he held the child out as his own.</p>
+    <p>USCIS calls documents made at the time the most persuasive evidence. It names money order receipts or canceled checks, the father&rsquo;s tax returns, medical or insurance records listing the child as a dependent, school records, letters between them, and affidavits from friends, neighbors and school officials. Photos and messages support these; they do not replace them.</p>
+  </div>
+
+  <div class="callout callout-info" data-kind="spouse">
     <span class="callout-title">What the officer looks for</span>
     <p>USCIS lists six kinds of evidence that a marriage is bona fide: joint property, a joint lease, shared finances, birth certificates of your children, affidavits from people who know you, and "any other documentation relevant to establishing that the parties did not enter the marriage for the purpose of evading immigration law". Photos and messages fall in that last group. They support the first five, but they do not replace them.</p>
     <p>USCIS weighs evidence by where it came from. A record issued by a bank, landlord, insurer, money transfer service or registrar carries more weight than a photo, a screenshot or a statement written for the petition, because you did not create it. So each record counts on its own, with or without a photo of the same day. List every one in <a href="#doc-title">Financial and legal records</a> below.</p>
@@ -126,7 +145,7 @@
   <div class="callout callout-warn">
     <span class="callout-title">Leave these out</span>
     <ul>
-      <li>Intimate photos: in bed together, not fully clothed, or intimate displays of affection. The Santo Domingo embassy calls them "neither appropriate nor convincing" and warns they "may even be detrimental to your credibility".</li>
+      <li data-kind="spouse">Intimate photos: in bed together, not fully clothed, or intimate displays of affection. The Santo Domingo embassy calls them "neither appropriate nor convincing" and warns they "may even be detrimental to your credibility".</li>
       <li>Near-duplicates. Pick the best photo from each day or event.</li>
       <li>Message screenshots that show only greetings or emoji. Choose messages about plans, visits, family, money or the visa process.</li>
       <li>Anything you cannot explain at interview. Expect the officer to ask about any item in the pack.</li>
@@ -135,8 +154,28 @@
 
   <section id="story" class="no-print">
     <h2>Tell it as a story</h2>
-    <p>The officer should be able to follow your relationship from the day you met to today in a few minutes. Put your evidence in chapters, in date order. Then back up each chapter with two or three kinds of evidence from the same dates. A photo, a ticket and a message from the same night each confirm the others.</p>
-    <table class="ev-table" id="story-table">
+    <p data-kind="spouse">The officer should be able to follow your relationship from the day you met to today in a few minutes. Put your evidence in chapters, in date order. Then back up each chapter with two or three kinds of evidence from the same dates. A photo, a ticket and a message from the same night each confirm the others.</p>
+    <p data-kind="parent">The officer should be able to see, in a few minutes, that the parent has supported, taught and cared for the child over the years. Put your evidence in chapters by what it shows, in date order within each. Back up each chapter with two or three kinds of evidence.</p>
+    <table class="ev-table" id="story-table-parent" data-kind="parent">
+      <colgroup><col class="c-chapter"><col></colgroup>
+      <thead><tr><th scope="col">Chapter</th><th scope="col">What backs it up</th></tr></thead>
+      <tbody>
+        <tr><td>Birth</td><td>Full birth certificate naming the parent &middot; Parents&rsquo; marriage certificate or legitimation record, if any &middot; Photos from the first weeks</td></tr>
+        <tr><td>Financial support</td><td>Bank transfers or money order receipts &middot; Receipts for school fees or medical bills &middot; Messages about money for the child</td></tr>
+        <tr><td>Schooling</td><td>School records naming the parent &middot; Reports or letters sent to the parent &middot; Photos from school events</td></tr>
+        <tr><td>Living together (if this applies)</td><td>School, doctor or tenancy records at the same address &middot; Photos at home &middot; Affidavits from neighbors</td></tr>
+        <tr><td>Visits and contact (if you live apart)</td><td>Travel records for each visit &middot; Photos from each visit &middot; Messages and call logs</td></tr>
+        <tr><td>Care and welfare</td><td>Insurance or medical records naming the child &middot; Letters and cards between you &middot; Affidavits from people who saw it</td></tr>
+      </tbody>
+    </table>
+    <ul data-kind="parent">
+      <li><strong>Lead with records made at the time.</strong> A bank, school, doctor or insurer made them when it happened. A statement written for the petition carries less weight.</li>
+      <li><strong>Cover the years before 21.</strong> The relationship must have formed while the child was unmarried and under 21. Show it across the child&rsquo;s life, not only the months before filing.</li>
+      <li><strong>Fill the gaps.</strong> If you lived apart for years, regular payments, visits and messages show the relationship carried on.</li>
+      <li><strong>Make the dates match.</strong> Every visit should agree with passport stamps, boarding passes and, for visits to the US, the <a href="https://i94.cbp.dhs.gov/home" target="_blank" rel="noopener noreferrer">CBP I-94 travel history</a>.</li>
+    </ul>
+    <p data-kind="parent">See how this looks in the <a href="/tools/relationship-evidence/parent-child-example">parent-child example</a>.</p>
+    <table class="ev-table" id="story-table" data-kind="spouse">
       <colgroup><col class="c-chapter"><col></colgroup>
       <thead><tr><th scope="col">Chapter</th><th scope="col">What backs it up</th></tr></thead>
       <tbody>
@@ -149,18 +188,18 @@
         <tr><td>After the wedding</td><td>Travel records for each visit &middot; Photos &middot; Messages</td></tr>
       </tbody>
     </table>
-    <ul>
+    <ul data-kind="spouse">
       <li><strong>Anchor each chapter on a dated document.</strong> A ticket, a booking or a certificate fixes the date. Your photos and messages then fill in the day. A document still counts when you have no photo to go with it.</li>
       <li><strong>Make the dates match.</strong> Every date should agree with your passport stamps, boarding passes and the travel history on your forms. For visits to the US, the beneficiary can print 10 years of arrivals and departures free from the <a href="https://i94.cbp.dhs.gov/home" target="_blank" rel="noopener noreferrer">CBP I-94 website</a> (View Travel History).</li>
       <li><strong>Point each affidavit at a chapter.</strong> Ask the writer to name what they saw, with the date, the place and roughly the time: "I introduced them at my birthday party in Islington, London, at about 9pm on 3 June 2022."</li>
       <li><strong>Skip chapters that do not apply.</strong> Many couples have not lived together or had children yet. If you live apart, your travel records and messages carry the story instead.</li>
     </ul>
-    <p>See how this looks in the <a href="/tools/relationship-evidence/example">worked example</a>.</p>
+    <p data-kind="spouse">See how this looks in the <a href="/tools/relationship-evidence/example">worked example</a>.</p>
   </section>
 
   <h2 class="no-print">What a finished row looks like</h2>
-  <p class="no-print">See a <a href="/tools/relationship-evidence/example">full worked example</a>: two financial records and eight photo rows for a fictional couple, from the night they met to a visit after filing.</p>
-  <p class="no-print">Filing for your child, and you were not married to the other parent when they were born? See the <a href="/tools/relationship-evidence/parent-child-example">parent-child example</a>: five records made at the time and three photo rows, from birth to filing.</p>
+  <p class="no-print" data-kind="spouse">See a <a href="/tools/relationship-evidence/example">full worked example</a>: two financial records and eight photo rows for a fictional couple, from the night they met to a visit after filing.</p>
+  <p class="no-print">Filing for your child, and you were not married to the other parent when they were born? Choose Parent and child above, and see the <a href="/tools/relationship-evidence/parent-child-example">parent-child example</a>: five records made at the time and three photo rows, from birth to filing.</p>
   <div class="sample" aria-label="Example of a completed photo row">
     <table class="ev-table" style="margin:0">
       <colgroup><col class="c-media"><col></colgroup>
@@ -179,7 +218,18 @@
     </table>
   </div>
 
-  <div class="callout callout-info no-print">
+  <div class="callout callout-info no-print" data-kind="parent">
+    <span class="callout-title">How to fill it in</span>
+    <ul>
+      <li>Fill in Financial and legal records first: the birth certificate, then one row per bank statement, school record, insurance policy or court record. It needs no photo.</li>
+      <li>Cover the child&rsquo;s life up to today, including the years you lived apart.</li>
+      <li>Use one photo row per event, with one to three photos. Name everyone in the photo, and give their relationship to the parent or child.</li>
+      <li>Use "Sort by date" before you print, and choose a chapter for each row. The printout starts with a one-page timeline built from these.</li>
+      <li>Your photos and text stay in this browser. Nothing uploads. Large photos may not save between visits, so print or save as PDF when you finish.</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-info no-print" data-kind="spouse">
     <span class="callout-title">How to fill it in</span>
     <ul>
       <li>Cover the whole relationship: how you met, early visits, the engagement, the wedding, and visits since you filed. The months before the wedding show your intent when you married.</li>
@@ -211,7 +261,8 @@
     <section class="ev-section" aria-labelledby="doc-title">
       <div class="print-head"><h2>Relationship evidence: financial and legal records</h2><p class="cover-line"></p></div>
       <h2 id="doc-title" class="no-print">Financial and legal records</h2>
-      <p class="no-print">Start here. A lease, a bank statement, a money transfer record or a mortgage comes from a company or office with no stake in your petition, so USCIS gives it more weight than a photo. Each one stands on its own: list it here even if no photo goes with it. One row per document. Upload the scans themselves with your filing, and say where each one is.</p>
+      <p class="no-print" data-kind="parent">Start here. A birth certificate, a bank statement, a school record or an insurance policy comes from an office or company with no stake in your petition, so USCIS gives it more weight than a photo. Each one stands on its own: list it here even if no photo goes with it. One row per document. Upload the scans themselves with your filing, and say where each one is.</p>
+      <p class="no-print" data-kind="spouse">Start here. A lease, a bank statement, a money transfer record or a mortgage comes from a company or office with no stake in your petition, so USCIS gives it more weight than a photo. Each one stands on its own: list it here even if no photo goes with it. One row per document. Upload the scans themselves with your filing, and say where each one is.</p>
       <table class="ev-table" id="doc-table">
         <thead><tr><th scope="col">Details</th></tr></thead>
         <tbody></tbody>
@@ -268,7 +319,8 @@
       <div class="print-head"><h2>Affidavits</h2></div>
       <h2 id="aff-title" class="no-print">Third-party affidavits <span class="opt-tag">Optional</span></h2>
       <div class="no-print">
-        <p>A friend or relative who knows you both writes a statement about your relationship and signs it in front of a notary public. USCIS lists affidavits from people who know you as one kind of proof that a marriage is real, so you can send them alongside your records. They carry less weight than your records: the Policy Manual calls affidavits "generally considered tertiary evidence", which puts them third, behind official records and other documents (<a href="https://www.uscis.gov/policy-manual/volume-1-part-e-chapter-6" target="_blank" rel="noopener noreferrer">1 USCIS-PM E.6(B)</a>; see <a href="/guide/i130#evidence-ranking">how USCIS ranks your evidence</a>). Use them to cover a chapter your documents cannot, such as how you met. Skip this section if your financial and legal records and photos already cover the relationship.</p>
+        <p data-kind="parent">Someone who has seen the parent and child together, such as the other parent, a relative, a neighbor or a teacher, writes a statement and signs it in front of a notary public. The regulation names affidavits from &ldquo;friends, neighbors, school officials, or other associates knowledgeable about the relationship&rdquo; as evidence of a bona fide parent-child relationship (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-204/subpart-A/section-204.2" target="_blank" rel="noopener noreferrer">8 CFR 204.2(d)(2)(iii)</a>). They carry less weight than records made at the time, so use them to cover what your documents cannot.</p>
+        <p data-kind="spouse">A friend or relative who knows you both writes a statement about your relationship and signs it in front of a notary public. USCIS lists affidavits from people who know you as one kind of proof that a marriage is real, so you can send them alongside your records. They carry less weight than your records: the Policy Manual calls affidavits "generally considered tertiary evidence", which puts them third, behind official records and other documents (<a href="https://www.uscis.gov/policy-manual/volume-1-part-e-chapter-6" target="_blank" rel="noopener noreferrer">1 USCIS-PM E.6(B)</a>; see <a href="/guide/i130#evidence-ranking">how USCIS ranks your evidence</a>). Use them to cover a chapter your documents cannot, such as how you met. Skip this section if your financial and legal records and photos already cover the relationship.</p>
         <p><strong>Who can write one.</strong> Get at least two, from different people. The regulation calls for "two or more affidavits, sworn to or affirmed by persons who are not parties to the petition who have direct personal knowledge of the event and circumstances." Each writer must:</p>
         <ul>
           <li>Not be a party to the petition. The petitioner and the beneficiary cannot write one.</li>
@@ -325,7 +377,7 @@
 
 <div id="footer-placeholder"></div>
 
-<script src="/js/evidence-story.js?v=20261117d"></script>
+<script src="/js/evidence-story.js?v=20261117pk"></script>
 <script>
 (function () {
   'use strict';
@@ -334,35 +386,37 @@
   var FIELDS = {
     photos: [
       { k: 'chapter', label: 'Chapter', select: true },
-      { k: 'who', label: 'Who is in it', ph: 'Petitioner, beneficiary, beneficiary\'s sister Ana' },
+      { k: 'who', label: 'Who is in it', ph: { spouse: 'Petitioner, beneficiary, beneficiary\'s sister Ana', parent: 'Petitioner (father) and beneficiary (daughter), with her mother' } },
       { k: 'date', label: 'Date', type: 'date' },
       { k: 'where', label: 'Location', ph: 'Edinburgh, United Kingdom' },
-      { k: 'what', label: 'What it shows', area: true, ph: 'Lunch with the beneficiary\'s parents on the second visit. First time meeting the family.' },
-      { k: 'backup', label: 'Backed up by', ph: 'Concert tickets for 3 June; WhatsApp messages that night; Tom Hughes affidavit' }
+      { k: 'what', label: 'What it shows', area: true, ph: { spouse: 'Lunch with the beneficiary\'s parents on the second visit. First time meeting the family.', parent: 'School sports day on the summer visit. The petitioner came to watch.' } },
+      { k: 'backup', label: 'Backed up by', ph: { spouse: 'Concert tickets for 3 June; WhatsApp messages that night; Tom Hughes affidavit', parent: 'Boarding pass for 10 July; school newsletter giving the date; head teacher affidavit' } }
     ],
     messages: [
       { k: 'chapter', label: 'Chapter', select: true },
-      { k: 'who', label: 'Between', ph: 'Petitioner and beneficiary (WhatsApp)' },
+      { k: 'who', label: 'Between', ph: { spouse: 'Petitioner and beneficiary (WhatsApp)', parent: 'Petitioner and the child (or the child\'s other parent)' } },
       { k: 'date', label: 'Date of messages', type: 'date' },
       { k: 'where', label: 'Platform and translation', ph: 'WhatsApp. Welsh, certified English translation attached.' },
-      { k: 'what', label: 'What it shows', area: true, ph: 'Planning the March 2025 visit: flight times, who collects whom from the airport.' },
+      { k: 'what', label: 'What it shows', area: true, ph: { spouse: 'Planning the March 2025 visit: flight times, who collects whom from the airport.', parent: 'Arranging money for a school trip, and the photos the child sent afterwards.' } },
       { k: 'backup', label: 'Backed up by', ph: 'Sam\'s boarding pass for 14 March 2025' }
     ],
     docs: [
-      { k: 'type', label: 'Type of document', options: window.AVG_STORY.DOC_TYPES },
+      { k: 'type', label: 'Type of document', options: true },
       { k: 'chapter', label: 'Chapter', select: true },
       { k: 'date', label: 'Date issued, or start date', type: 'date' },
-      { k: 'issuer', label: 'Issued by', ph: 'Barclays; Foxtons lettings; Leeds Register Office' },
-      { k: 'names', label: 'Names on it', ph: 'Petitioner and beneficiary' },
-      { k: 'what', label: 'What it shows', area: true, ph: 'Joint current account opened January 2025. Both salaries paid in; rent and bills paid out.' },
+      { k: 'issuer', label: 'Issued by', ph: { spouse: 'Barclays; Foxtons lettings; Leeds Register Office', parent: 'General Register Office; Barclays; Brookfield Primary School' } },
+      { k: 'names', label: 'Names on it', ph: { spouse: 'Petitioner and beneficiary', parent: 'Petitioner (father) and beneficiary (child)' } },
+      { k: 'what', label: 'What it shows', area: true, ph: { spouse: 'Joint current account opened January 2025. Both salaries paid in; rent and bills paid out.', parent: 'Monthly payment toward the child\'s care since May 2012, reference "Ella".' } },
       { k: 'ref', label: 'Where it is in your filing', ph: 'Upload 6: statements for January to June 2025' }
     ]
   };
-  var CHAPTERS = window.AVG_STORY.CHAPTERS;
+  function current() { return window.AVG_STORY.setFor(state.kind); }
+  function phFor(f) { return !f.ph ? '' : typeof f.ph === 'string' ? f.ph : f.ph[state.kind] || f.ph.spouse; }
   var TABLE_ID = { photos: 'ph', messages: 'msg', docs: 'doc' };
   var NOUN = { photos: 'Photo', messages: 'Message', docs: 'Document' };
   function chapterTitle(key) {
-    for (var i = 0; i < CHAPTERS.length; i++) if (CHAPTERS[i].key === key) return CHAPTERS[i].title;
+    var chapters = current().chapters;
+    for (var i = 0; i < chapters.length; i++) if (chapters[i].key === key) return chapters[i].title;
     return '';
   }
   var state = load();
@@ -373,6 +427,7 @@
     try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
     d = d || {};
     return {
+      kind: d.kind === 'parent' ? 'parent' : 'spouse',
       cover: d.cover || { pet: '', ben: '', 'case': '' },
       photos: (d.photos && d.photos.length) ? d.photos : [blankRow()],
       messages: (d.messages && d.messages.length) ? d.messages : [blankRow()],
@@ -453,20 +508,22 @@
         var input;
         if (f.select) {
           input = el('select', { id: id }, [el('option', { value: '', text: 'Choose a chapter' })].concat(
-            CHAPTERS.map(function (c) { return el('option', { value: c.key, text: c.title }); })));
+            current().chapters.map(function (c) { return el('option', { value: c.key, text: c.title }); })));
         } else if (f.options) {
           input = el('select', { id: id }, [el('option', { value: '', text: 'Choose a type' })].concat(
-            f.options.map(function (o) { return el('option', { value: o.key, text: o.title + ' (' + o.examples + ')' }); })));
+            current().docTypes.map(function (o) { return el('option', { value: o.key, text: o.title + ' (' + o.examples + ')' }); })));
         } else {
           input = f.area ? el('textarea', { id: id, rows: '3', maxlength: String(MAX_DESC + 50) }) : el('input', { type: f.type || 'text', id: id });
         }
-        if (f.ph) input.setAttribute('placeholder', f.ph);
+        if (f.ph) input.setAttribute('placeholder', phFor(f));
         input.value = row[f.k] || '';
         var pv = el('div', { 'class': 'pv' });
         var count = f.area ? el('span', { 'class': 'count' }) : null;
-        function sync() {
-          row[f.k] = input.value;
-          pv.textContent = f.type === 'date' ? fmtDate(input.value) : f.select ? chapterTitle(input.value) : f.options ? optionTitle(f.options, input.value) : input.value;
+        // Paint only on load: a chapter or type saved under the other
+        // relationship is not in this list, and must not be wiped.
+        function sync() { row[f.k] = input.value; paint(); }
+        function paint() {
+          pv.textContent = f.type === 'date' ? fmtDate(input.value) : f.select ? chapterTitle(input.value) : f.options ? optionTitle(current().docTypes, input.value) : input.value;
           if (count) {
             var n = input.value.length;
             count.textContent = n + ' / ' + MAX_DESC + ' characters' + (n > MAX_DESC ? '. Shorten it: one or two sentences.' : '');
@@ -475,7 +532,7 @@
         }
         var isSelect = f.select || f.options;
         input.addEventListener(isSelect ? 'change' : 'input', function () { sync(); save(); if (isSelect) markRow(); });
-        sync();
+        paint();
         details.appendChild(el('div', { 'class': 'field' }, [el('label', { 'for': id, text: f.label }), input, pv, count]));
       });
       details.appendChild(el('div', { 'class': 'row-tools' }, [
@@ -512,7 +569,7 @@
   // until at least one row has a chapter, so nobody prints a page of "Other".
   function renderTimeline() {
     var box = document.getElementById('timeline');
-    var groups = window.AVG_STORY.buildTimeline(state.photos, state.messages, state.docs);
+    var groups = window.AVG_STORY.buildTimeline(state.photos, state.messages, state.docs, state.kind);
     var hasChapter = groups.some(function (g) { return g.key !== 'other'; });
     document.getElementById('timeline-section').classList.toggle('empty', !hasChapter);
     box.innerHTML = '';
@@ -588,20 +645,22 @@
     { k: 'dob', label: 'Date of birth', type: 'date' },
     { k: 'pob', label: 'Place of birth', ph: 'City, country' },
     { k: 'address', label: 'Full address', area: true, rows: 2 },
-    { k: 'relation', label: 'Relationship to the couple, and for how long', ph: 'Petitioner\'s sister. I have known the beneficiary since March 2023.' },
-    { k: 'knowledge', label: 'How they know about the relationship and the marriage', area: true, rows: 4, ph: 'I attended their wedding in London on 10 May 2025. I have spent time with them together on three visits.' },
-    { k: 'events', label: 'Specific occasions they saw the couple together: date, place, what happened', area: true, rows: 5, ph: '22 December 2024, Manchester: I hosted them for dinner and they told us about their engagement.' },
+    { k: 'relation', label: { spouse: 'Relationship to the couple, and for how long', parent: 'Relationship to the parent and child, and for how long' }, ph: { spouse: 'Petitioner\'s sister. I have known the beneficiary since March 2023.', parent: 'Head teacher at the child\'s primary school from 2016 to 2023.' } },
+    { k: 'knowledge', label: { spouse: 'How they know about the relationship and the marriage', parent: 'How they know about the parent-child relationship' }, area: true, rows: 4, ph: { spouse: 'I attended their wedding in London on 10 May 2025. I have spent time with them together on three visits.', parent: 'The petitioner came to the admission meeting in 2016 and to parents\' evenings by video after he moved to the US.' } },
+    { k: 'events', label: { spouse: 'Specific occasions they saw the couple together: date, place, what happened', parent: 'Specific occasions they saw the parent and child together: date, place, what happened' }, area: true, rows: 5, ph: { spouse: '22 December 2024, Manchester: I hosted them for dinner and they told us about their engagement.', parent: '14 July 2018, Manchester: the petitioner watched his daughter at our school sports day.' } },
     { k: 'contact', label: 'Phone number and email' },
     { k: 'idcopy', label: 'Copy of government-issued ID attached', type: 'checkbox' },
     { k: 'idtype', label: 'Type of ID attached', ph: 'UK passport' }
   ];
+  function labelFor(f) { return typeof f.label === 'string' ? f.label : f.label[state.kind] || f.label.spouse; }
   function affText(a) {
     var c = state.cover;
     var couple = (c.pet || '[petitioner]') + ' and ' + (c.ben || '[beneficiary]');
+    var parent = state.kind === 'parent';
     return [
-      'I, ' + (a.name || '[full name]') + ', born on ' + (fmtDate(a.dob) || '[date of birth]') + ' in ' + (a.pob || '[place of birth]') + ', residing at ' + (a.address || '[address]').replace(/\n+/g, ', ') + ', make this statement about the marriage of ' + couple + '.',
-      'My relationship to the couple: ' + (a.relation || '[relationship]'),
-      'How I know about their relationship and marriage: ' + (a.knowledge || '[details]'),
+      'I, ' + (a.name || '[full name]') + ', born on ' + (fmtDate(a.dob) || '[date of birth]') + ' in ' + (a.pob || '[place of birth]') + ', residing at ' + (a.address || '[address]').replace(/\n+/g, ', ') + ', make this statement about ' + (parent ? 'the parent-child relationship between ' : 'the marriage of ') + couple + '.',
+      (parent ? 'My relationship to them: ' : 'My relationship to the couple: ') + (a.relation || '[relationship]'),
+      (parent ? 'How I know about their relationship: ' : 'How I know about their relationship and marriage: ') + (a.knowledge || '[details]'),
       'Occasions I have seen them together:\n' + (a.events || '[dates, places, what happened]'),
       'Contact: ' + (a.contact || '[phone and email]'),
       a.idcopy ? 'Attached: a copy of my ' + (a.idtype || 'government-issued identification') + '.' : '',
@@ -627,17 +686,17 @@
       AFF_FIELDS.forEach(function (f) {
         var id = 'aff-' + f.k + '-' + i;
         var input = f.area ? el('textarea', { id: id, rows: String(f.rows || 3) }) : el('input', { type: f.type || 'text', id: id });
-        if (f.ph) input.setAttribute('placeholder', f.ph);
+        if (f.ph) input.setAttribute('placeholder', phFor(f));
         var isBox = f.type === 'checkbox';
         if (isBox) input.checked = !!a[f.k]; else input.value = a[f.k] || '';
         input.addEventListener(isBox ? 'change' : 'input', function () { a[f.k] = isBox ? input.checked : input.value; paint(); save(); check(); });
-        var field = isBox ? el('label', { 'class': 'check' }, [input, el('span', { text: f.label })]) : el('div', { 'class': 'field' }, [el('label', { 'for': id, text: f.label }), input]);
+        var field = isBox ? el('label', { 'class': 'check' }, [input, el('span', { text: labelFor(f) })]) : el('div', { 'class': 'field' }, [el('label', { 'for': id, text: labelFor(f) }), input]);
         if (f.k === 'name') card.appendChild(grid);
         if (['name', 'dob', 'pob'].indexOf(f.k) > -1) grid.appendChild(field); else card.appendChild(field);
       });
       var missing = el('p', { 'class': 'hint' });
       function check() {
-        var need = [['name', 'full name'], ['address', 'address'], ['contact', 'contact details'], ['dob', 'date of birth'], ['pob', 'place of birth'], ['relation', 'relationship to you'], ['knowledge', 'how they know about the marriage']].filter(function (r) { return !a[r[0]]; }).map(function (r) { return r[1]; });
+        var need = [['name', 'full name'], ['address', 'address'], ['contact', 'contact details'], ['dob', 'date of birth'], ['pob', 'place of birth'], ['relation', 'relationship to you'], ['knowledge', state.kind === 'parent' ? 'how they know about the relationship' : 'how they know about the marriage']].filter(function (r) { return !a[r[0]]; }).map(function (r) { return r[1]; });
         missing.textContent = need.length ? 'Still missing: ' + need.join(', ') + '.' : 'All items USCIS lists are filled in. Print it unsigned: the writer signs in front of the notary.';
       }
       card.addEventListener('input', check);
@@ -654,6 +713,21 @@
   }
   document.getElementById('aff-add').addEventListener('click', function () { state.affidavits.push({}); save(); renderAff(); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-cover]'), function (input) { input.addEventListener('input', renderAff); });
+
+  // Spouse or parent and child: swaps the chapters, document types, guidance
+  // and affidavit wording. Rows keep what they hold.
+  function applyKind() {
+    document.body.setAttribute('data-ev-kind', state.kind);
+    Array.prototype.forEach.call(document.querySelectorAll('input[name="ev-kind"]'), function (r) { r.checked = r.value === state.kind; });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="ev-kind"]'), function (r) {
+    r.addEventListener('change', function () {
+      if (!r.checked) return;
+      state.kind = r.value; save(); applyKind();
+      renderTable('docs'); renderTable('photos'); renderTable('messages'); renderAff();
+    });
+  });
+  applyKind();
 
   renderCover(); renderTable('docs'); renderTable('photos'); renderTable('messages'); renderCalls(); renderAff();
 })();

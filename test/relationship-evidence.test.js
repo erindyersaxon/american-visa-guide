@@ -165,3 +165,60 @@ test('parent-child example is linked from the builder, sidebar, checklist and si
   }
   assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
 });
+
+const { PARENT_CHAPTERS, PARENT_DOC_TYPES, setFor } = require('../public/js/evidence-story.js');
+
+test('parent and child chapters cover support, schooling and welfare', () => {
+  assert.deepEqual(PARENT_CHAPTERS.map(c => c.key), ['birth', 'support', 'school', 'together', 'visits', 'welfare']);
+  assert.deepEqual(PARENT_CHAPTERS.filter(c => c.optional).map(c => c.key), ['together', 'visits']);
+  assert.ok(PARENT_CHAPTERS.every(c => c.layers.length >= 2));
+  assert.equal(setFor('parent').chapters, PARENT_CHAPTERS);
+  assert.equal(setFor('spouse').chapters, CHAPTERS);
+  assert.equal(setFor(undefined).chapters, CHAPTERS);
+});
+
+test('parent document types lead with the birth certificate', () => {
+  assert.equal(PARENT_DOC_TYPES[0].key, 'birthcert');
+  assert.ok(PARENT_DOC_TYPES.every(d => d.title && d.examples));
+});
+
+test('parent timeline uses parent chapters; a spouse chapter falls to Other', () => {
+  const t = buildTimeline(
+    [{ chapter: 'school', date: '2018-07-14', what: 'Sports day' }, { chapter: 'met', date: '2020-01-01', what: 'Old row' }],
+    [],
+    [{ chapter: 'support', date: '2012-05-01', type: 'support' }],
+    'parent');
+  assert.deepEqual(t.map(g => g.key), ['support', 'school', 'other']);
+  assert.equal(t[0].items[0].what, 'Financial support');
+});
+
+test('template shows every parent chapter in its own story table', () => {
+  const table = (tpl.match(/<table[^>]*id="story-table-parent"[\s\S]*?<\/table>/) || [''])[0];
+  for (const c of PARENT_CHAPTERS) assert.ok(table.includes(c.title) && c.layers.every(l => table.includes(l.replace('’', '&rsquo;'))), c.key);
+});
+
+test('template switches between spouse and parent and child', () => {
+  assert.match(tpl, /<input type="radio" name="ev-kind" value="spouse" checked>/);
+  assert.match(tpl, /<input type="radio" name="ev-kind" value="parent">/);
+  assert.match(tpl, /body:not\(\[data-ev-kind="parent"\]\) \[data-kind="parent"\], body\[data-ev-kind="parent"\] \[data-kind="spouse"\] \{ display: none !important; \}/);
+  assert.match(tpl, /kind: d\.kind === 'parent' \? 'parent' : 'spouse'/);
+  assert.match(tpl, /the parent-child relationship between /);
+  for (const kind of ['spouse', 'parent']) {
+    assert.ok((tpl.match(new RegExp(`data-kind="${kind}"`, 'g')) || []).length >= 6, kind);
+  }
+});
+
+test('parent-child example uses the builder\'s parent chapters and types', () => {
+  const keys = PARENT_CHAPTERS.map(c => c.key);
+  const rows = [...pc.matchAll(/<tr data-(?:doc-)?chapter="([a-z]+)">([\s\S]*?)<\/tr>/g)];
+  assert.equal(rows.length, 8);
+  for (const [, key, row] of rows) {
+    assert.ok(keys.includes(key), key);
+    const title = PARENT_CHAPTERS.find(c => c.key === key).title;
+    assert.match(row, new RegExp(`<dt>Chapter</dt><dd>${title}</dd>`), key);
+  }
+  for (const [, , row] of rows.filter(r => r[0].includes('data-doc-chapter'))) {
+    assert.ok(PARENT_DOC_TYPES.some(d => row.includes(`<dt>Type</dt><dd>${d.title}</dd>`)), 'type from PARENT_DOC_TYPES');
+  }
+  for (const c of PARENT_CHAPTERS.filter(c => c.key !== 'together')) assert.match(pc, new RegExp(`<h3>${c.title}</h3>`));
+});

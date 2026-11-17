@@ -1,5 +1,7 @@
 // Relationship evidence chapters and the timeline builder.
 // Used by /tools/relationship-evidence (Chapter field, printed timeline).
+// Two sets: spouse (CHAPTERS, DOC_TYPES) and parent and child
+// (PARENT_CHAPTERS, PARENT_DOC_TYPES); setFor(kind) picks one.
 // The example page and the "Tell it as a story" table copy these titles and
 // layers as static HTML; test/relationship-evidence.test.js keeps them in step.
 (function () {
@@ -22,6 +24,25 @@
       layers: ['Travel records for each visit', 'Photos', 'Messages'] }
   ];
 
+  // Parent and child (IR2, F1, F2A, F2B, F3, IR5, and F4 through a parent).
+  // Themed on what 8 CFR 204.2(d)(2)(iii) asks a father to show: support,
+  // instruction and general welfare, and that parent and child lived together
+  // or the parent held the child out as their own.
+  var PARENT_CHAPTERS = [
+    { key: 'birth', title: 'Birth', optional: false,
+      layers: ['Full birth certificate naming the parent', 'Parents\u2019 marriage certificate or legitimation record, if any', 'Photos from the first weeks'] },
+    { key: 'support', title: 'Financial support', optional: false,
+      layers: ['Bank transfers or money order receipts', 'Receipts for school fees or medical bills', 'Messages about money for the child'] },
+    { key: 'school', title: 'Schooling', optional: false,
+      layers: ['School records naming the parent', 'Reports or letters sent to the parent', 'Photos from school events'] },
+    { key: 'together', title: 'Living together', optional: true,
+      layers: ['School, doctor or tenancy records at the same address', 'Photos at home', 'Affidavits from neighbors'] },
+    { key: 'visits', title: 'Visits and contact', optional: true,
+      layers: ['Travel records for each visit', 'Photos from each visit', 'Messages and call logs'] },
+    { key: 'welfare', title: 'Care and welfare', optional: false,
+      layers: ['Insurance or medical records naming the child', 'Letters and cards between you', 'Affidavits from people who saw it'] }
+  ];
+
   // The kinds of proof USCIS lists that a marriage is bona fide (6 USCIS-PM B.6;
   // 8 CFR 204.2). A record made at the time by a bank, landlord, insurer or
   // registrar outweighs a photo, so these stand alone with no photo beside them.
@@ -32,8 +53,28 @@
     { key: 'children', title: 'Birth certificate of your child', examples: 'Long-form certificate naming you both' },
     { key: 'other', title: 'Other record made at the time', examples: 'Insurance naming each other, wedding invoices, bookings in both names' }
   ];
-  function docTitle(key) {
-    for (var i = 0; i < DOC_TYPES.length; i++) if (DOC_TYPES[i].key === key) return DOC_TYPES[i].title;
+  // The records 8 CFR 204.2(d)(2) names for a parent and child, primary
+  // evidence first, then the contemporaneous records that show a bona fide
+  // parent-child relationship.
+  var PARENT_DOC_TYPES = [
+    { key: 'birthcert', title: 'Birth certificate naming the parent', examples: 'Full certificate from the civil registry' },
+    { key: 'legitimation', title: 'Legitimation or parents\u2019 marriage', examples: 'Parents\u2019 marriage certificate, or a court or registry record' },
+    { key: 'adoption', title: 'Adoption or custody record', examples: 'Adoption decree, court custody order' },
+    { key: 'support', title: 'Financial support', examples: 'Bank transfers, money order receipts, canceled checks' },
+    { key: 'school', title: 'School record', examples: 'Admission forms or reports naming the parent' },
+    { key: 'medical', title: 'Medical or insurance record', examples: 'Records listing the child as a dependent or beneficiary' },
+    { key: 'other', title: 'Other record made at the time', examples: 'Tax returns, letters between you, court or benefit records' }
+  ];
+
+  // kind is 'spouse' (the default) or 'parent'.
+  function setFor(kind) {
+    return kind === 'parent'
+      ? { chapters: PARENT_CHAPTERS, docTypes: PARENT_DOC_TYPES }
+      : { chapters: CHAPTERS, docTypes: DOC_TYPES };
+  }
+  function docTitle(key, kind) {
+    var types = setFor(kind).docTypes;
+    for (var i = 0; i < types.length; i++) if (types[i].key === key) return types[i].title;
     return '';
   }
 
@@ -43,15 +84,16 @@
     return !Object.keys(row).some(function (k) { return k !== 'chapter' && k !== 'imgs' && row[k]; });
   }
 
-  function buildTimeline(photos, messages, docs) {
+  function buildTimeline(photos, messages, docs, relation) {
     var groups = {};
-    var order = CHAPTERS.map(function (c) { return c.key; });
+    var chapters = setFor(relation).chapters;
+    var order = chapters.map(function (c) { return c.key; });
     var seq = 0;
     function add(kind, rows) {
       (rows || []).forEach(function (row, i) {
         if (isBlank(row)) return;
         var key = order.indexOf(row.chapter) === -1 ? 'other' : row.chapter;
-        var what = row.what || (kind === 'document' ? docTitle(row.type) : '');
+        var what = row.what || (kind === 'document' ? docTitle(row.type, relation) : '');
         (groups[key] = groups[key] || []).push({
           kind: kind, n: i + 1, date: row.date || '', what: what, backup: row.backup || '', _seq: seq++
         });
@@ -62,7 +104,7 @@
     add('photo', photos);
     add('message', messages);
 
-    return CHAPTERS.concat([{ key: 'other', title: 'Other' }])
+    return chapters.concat([{ key: 'other', title: 'Other' }])
       .filter(function (c) { return groups[c.key]; })
       .map(function (c) {
         var items = groups[c.key].sort(function (a, b) {
@@ -79,7 +121,8 @@
       });
   }
 
-  var api = { CHAPTERS: CHAPTERS, DOC_TYPES: DOC_TYPES, buildTimeline: buildTimeline };
+  var api = { CHAPTERS: CHAPTERS, DOC_TYPES: DOC_TYPES, PARENT_CHAPTERS: PARENT_CHAPTERS,
+    PARENT_DOC_TYPES: PARENT_DOC_TYPES, setFor: setFor, buildTimeline: buildTimeline };
   if (typeof window !== 'undefined') window.AVG_STORY = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })();
