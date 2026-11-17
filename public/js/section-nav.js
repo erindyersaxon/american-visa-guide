@@ -118,6 +118,7 @@
             { href: '/tools/relationship-evidence/sibling-example', text: 'Sibling Evidence Example', sub: true },
             { href: '/tools/relationship-evidence/stepchild-example', text: 'Stepchild Evidence Example', sub: true },
             { href: '/tools/relationship-evidence/adopted-child-example', text: 'Adopted Child Evidence Example', sub: true },
+            { href: '/tools/relationship-evidence/parent-example', text: 'Parent Evidence Example', sub: true },
           ],
         },
         {

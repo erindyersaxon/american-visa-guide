@@ -169,8 +169,8 @@ test('parent-child example is linked from the builder, sidebar, checklist and si
 const { PARENT_CHAPTERS, PARENT_DOC_TYPES, setFor } = require('../public/js/evidence-story.js');
 
 test('parent and child chapters cover support, schooling and welfare', () => {
-  assert.deepEqual(PARENT_CHAPTERS.map(c => c.key), ['birth', 'step', 'adopted', 'support', 'school', 'together', 'visits', 'welfare']);
-  assert.deepEqual(PARENT_CHAPTERS.filter(c => c.optional).map(c => c.key), ['step', 'adopted', 'together', 'visits']);
+  assert.deepEqual(PARENT_CHAPTERS.map(c => c.key), ['birth', 'step', 'adopted', 'renamed', 'support', 'school', 'together', 'visits', 'welfare']);
+  assert.deepEqual(PARENT_CHAPTERS.filter(c => c.optional).map(c => c.key), ['step', 'adopted', 'renamed', 'together', 'visits']);
   assert.ok(PARENT_CHAPTERS.every(c => c.layers.length >= 2));
   assert.equal(setFor('parent').chapters, PARENT_CHAPTERS);
   assert.equal(setFor('spouse').chapters, CHAPTERS);
@@ -223,7 +223,7 @@ test('parent-child example uses the builder\'s parent chapters and types', () =>
   for (const [, , row] of rows.filter(r => r[0].includes('data-doc-chapter'))) {
     assert.ok(PARENT_DOC_TYPES.some(d => row.includes(`<dt>Type</dt><dd>${d.title}</dd>`)), 'type from PARENT_DOC_TYPES');
   }
-  for (const c of PARENT_CHAPTERS.filter(c => !['together', 'step', 'adopted'].includes(c.key))) assert.match(pc, new RegExp(`<h3>${c.title}</h3>`));
+  for (const c of PARENT_CHAPTERS.filter(c => !['together', 'step', 'adopted', 'renamed'].includes(c.key))) assert.match(pc, new RegExp(`<h3>${c.title}</h3>`));
 });
 
 const sib = fs.readFileSync(path.join(PUBLIC, 'tools/relationship-evidence/sibling-example.html'), 'utf8');
@@ -368,6 +368,46 @@ test('adopted child example cites the custody, residence and Hague rules', () =>
 
 test('adopted child example is linked from the builder, sidebar, checklist and sitemap', () => {
   const href = '/tools/relationship-evidence/adopted-child-example';
+  for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html']) {
+    assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
+  }
+  assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
+});
+
+const ir5 = fs.readFileSync(path.join(PUBLIC, 'tools/relationship-evidence/parent-example.html'), 'utf8');
+
+test('parent (IR5) example: chain, per-petition table, timeline, records', () => {
+  const at = s => ir5.indexOf(s);
+  assert.ok(at('id="example-chain"') < at('id="example-petitions"') && at('id="example-petitions"') < at('id="example-timeline"') && at('id="example-timeline"') < at('id="example-docs"'));
+  assert.deepEqual([...ir5.matchAll(/<div class="ev-num">Document (\d) of 3<\/div>/g)].map(m => Number(m[1])), [1, 2, 3]);
+  const chain = (ir5.match(/<table class="ev-table chain">[\s\S]*?<\/table>/) || [''])[0];
+  assert.deepEqual([...new Set([...chain.matchAll(/<span class="doc-ref">Document (\d)<\/span>/g)].map(m => Number(m[1])))].sort(), [1, 2, 3]);
+  const petitions = (ir5.match(/<table class="petitions">[\s\S]*?<\/table>/) || [''])[0];
+  assert.match(petitions, /parents&#x27; marriage certificate<\/td><td>Not needed<\/td><td class="yes">Yes<\/td>/);
+  assert.doesNotMatch(ir5, /class="ev-table petitions"/);
+  assert.doesNotMatch(ir5, /<svg/);
+});
+
+test('parent (IR5) example uses the builder\'s parent chapters and types', () => {
+  const rows = [...ir5.matchAll(/<tr data-doc-chapter="([a-z]+)">([\s\S]*?)<\/tr>/g)];
+  assert.equal(rows.length, 3);
+  for (const [, key, row] of rows) {
+    const ch = PARENT_CHAPTERS.find(c => c.key === key);
+    assert.ok(ch, key);
+    assert.ok(row.includes(`<dt>Chapter</dt><dd>${ent(ch.title)}</dd>`), key);
+    assert.ok(PARENT_DOC_TYPES.some(d => row.includes(`<dt>Type</dt><dd>${ent(d.title)}</dd>`)), 'type in ' + key);
+  }
+});
+
+test('parent (IR5) example cites the age, derivative, father and name rules', () => {
+  for (const cite of ['8 CFR 204.2(f)(1)', '8 CFR 204.2(f)(4)', '8 CFR 204.2(f)(2)(i)', '8 CFR 204.2(f)(2)(v)', '8 CFR 204.2(f)(2)(iv)']) assert.ok(ir5.includes(cite), cite);
+  for (const ex of ['parent-child-example', 'stepchild-example', 'adopted-child-example', 'sibling-example']) assert.ok(ir5.includes('/tools/relationship-evidence/' + ex), ex);
+  assert.match(ir5, /href="\/public-charge\/children-and-parents#ir5"/);
+  assert.match(ir5, /<link rel="canonical" href="https:\/\/www\.americanvisaguide\.com\/tools\/relationship-evidence\/parent-example">/);
+});
+
+test('parent (IR5) example is linked from the builder, sidebar, checklist and sitemap', () => {
+  const href = '/tools/relationship-evidence/parent-example';
   for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html']) {
     assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
   }
