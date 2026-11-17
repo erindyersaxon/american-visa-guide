@@ -21,7 +21,7 @@ const urlOf = (file) => ('/' + path.relative(PUBLIC, file).split(path.sep).join(
   .replace(/\.html$/, '').replace(/\/index$/, '') || '/';
 const ALL = pages(PUBLIC).map((f) => ({ url: urlOf(f), html: fs.readFileSync(f, 'utf8') }));
 const sectionOf = (html) => (html.match(/section-nav\.js\?v=[^"]*" data-section="([^"]+)"/) || [])[1];
-const linksOf = (key) => SECTIONS[key].groups.flatMap((g) => g.links.map((l) => l.href));
+const linksOf = (key) => SECTIONS[key].groups.flatMap((g) => g.links.filter((l) => l.href).map((l) => l.href));
 
 // Pages in a section that are reached from a parent page, not the list.
 const OFF_LIST = new Set(['/guide/delayed-i130/mandamus']);
@@ -64,4 +64,22 @@ test('every internal link in a section list points at a real page', () => {
       assert.ok(urls.has(bare), `${key}: ${href} has no page`);
     }
   }
+});
+
+test('group labels sort the evidence examples, and every label has links under it', () => {
+  for (const key of Object.keys(SECTIONS)) {
+    for (const g of SECTIONS[key].groups) {
+      g.links.forEach((l, i) => {
+        if (!l.group) return;
+        assert.ok(!l.href, `${key}: a group label is not a link`);
+        const next = g.links[i + 1];
+        assert.ok(next && next.href && next.sub, `${key}: "${l.group}" has an indented link under it`);
+      });
+    }
+  }
+  const ex = SECTIONS.tools.groups.find((g) => g.heading === 'Stage 1: Evidence examples');
+  assert.ok(ex, 'examples have their own heading');
+  assert.deepEqual(ex.links.filter((l) => l.group).map((l) => l.group), ['Spouses', 'Children', 'Parents and siblings']);
+  assert.equal(ex.links.filter((l) => l.href).length, 9);
+  assert.ok(ex.links.filter((l) => l.href).every((l) => !/Example$/.test(l.text)), 'no repeated "Example"');
 });

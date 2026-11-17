@@ -78,6 +78,22 @@
   font-weight: 600;
 }
 
+/* A label that sorts a long list into kinds; the indented links below it
+   belong to it. Not a link, so no hover or current state. */
+.snav-list .snav-group {
+  margin: 8px 0 1px;
+  padding: 0 12px;
+  font-family: var(--snav-font);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--snav-strong);
+}
+
+.snav-list .snav-group:first-child {
+  margin-top: 2px;
+}
+
 /* Optional pages under a parent: indented with a guide line */
 .snav-list .snav-sub a {
   position: relative;

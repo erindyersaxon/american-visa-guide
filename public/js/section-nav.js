@@ -17,7 +17,9 @@
   'use strict';
 
   /* Each group: an optional heading and its links. `sub: true` indents a
-     link under the one before it ("only if this applies"). */
+     link under the one before it ("only if this applies"). An entry with
+     `group` instead of `href` is a small label that sorts a long list into
+     kinds; the indented links under it belong to it. */
   const SECTIONS = {
     guide: {
       label: 'Guide',
@@ -113,15 +115,23 @@
           links: [
             { href: '/tools/checklist-i130', text: 'I-130 Pre-Submission Checklist' },
             { href: '/tools/relationship-evidence', text: 'Relationship Evidence Template' },
-            { href: '/tools/relationship-evidence/example', text: 'Relationship Evidence Example', sub: true },
-            { href: '/tools/relationship-evidence/permanent-resident-spouse-example', text: 'Permanent Resident Spouse Example', sub: true },
-            { href: '/tools/relationship-evidence/parent-child-example', text: 'Parent-Child Evidence Example', sub: true },
-            { href: '/tools/relationship-evidence/sibling-example', text: 'Sibling Evidence Example', sub: true },
-            { href: '/tools/relationship-evidence/stepchild-example', text: 'Stepchild Evidence Example', sub: true },
-            { href: '/tools/relationship-evidence/adopted-child-example', text: 'Adopted Child Evidence Example', sub: true },
-            { href: '/tools/relationship-evidence/parent-example', text: 'Parent Evidence Example', sub: true },
-            { href: '/tools/relationship-evidence/married-son-daughter-example', text: 'Married Son or Daughter Example', sub: true },
-            { href: '/tools/relationship-evidence/unmarried-son-daughter-example', text: 'Unmarried Son or Daughter Example', sub: true },
+          ],
+        },
+        {
+          heading: 'Stage 1: Evidence examples',
+          links: [
+            { group: 'Spouses' },
+            { href: '/tools/relationship-evidence/example', text: 'Spouse of a US citizen (CR1, IR1)', sub: true },
+            { href: '/tools/relationship-evidence/permanent-resident-spouse-example', text: 'Spouse of a permanent resident (F2A)', sub: true },
+            { group: 'Children' },
+            { href: '/tools/relationship-evidence/parent-child-example', text: 'Child of unmarried parents', sub: true },
+            { href: '/tools/relationship-evidence/stepchild-example', text: 'Stepchild', sub: true },
+            { href: '/tools/relationship-evidence/adopted-child-example', text: 'Adopted child', sub: true },
+            { href: '/tools/relationship-evidence/unmarried-son-daughter-example', text: 'Unmarried son or daughter (F1)', sub: true },
+            { href: '/tools/relationship-evidence/married-son-daughter-example', text: 'Married son or daughter (F3)', sub: true },
+            { group: 'Parents and siblings' },
+            { href: '/tools/relationship-evidence/parent-example', text: 'Parent (IR5)', sub: true },
+            { href: '/tools/relationship-evidence/sibling-example', text: 'Brother or sister (F4)', sub: true },
           ],
         },
         {
@@ -263,6 +273,7 @@
   function listHTML(section, here) {
     return section.groups.map(function (group) {
       const items = group.links.map(function (link) {
+        if (link.group) return '<li class="snav-group">' + link.group + '</li>';
         const current = clean(link.href) === here ? ' aria-current="page"' : '';
         const cls = link.sub ? ' class="snav-sub"' : '';
         return '<li' + cls + '><a href="' + link.href + '"' + current + '>' + link.text + '</a></li>';
