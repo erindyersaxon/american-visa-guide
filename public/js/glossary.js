@@ -56,7 +56,7 @@
     { term: 'F categories', full: 'Family Preference (F1, F2A, F2B, F3, F4)', def: 'Capped categories. The priority date must be current on the Visa Bulletin before NVC starts.' },
     { term: 'LPR', full: 'Lawful permanent resident', def: 'A green card holder.', match: 'LPR' },
     { term: 'AOS', full: 'Adjustment of Status', def: 'Getting a green card from inside the US. This site covers the other route, consular processing through London.', match: 'AOS' },
-    { term: 'DCF', full: 'Direct Consular Filing', def: 'Filing the I-130 at an embassy instead of USCIS, for a US citizen living abroad in exceptional cases. Not covered here.', match: 'DCF' },
+    { term: 'DCF', full: 'Direct Consular Filing', def: 'Filing the I-130 at an embassy instead of USCIS, for a US citizen living abroad in exceptional cases. The I-130 page sums up the London criteria; this site does not support DCF cases.', match: 'DCF' },
     { term: 'CRBA', full: 'Consular Report of Birth Abroad', def: 'Proof that a child born abroad was a US citizen at birth. Replaces an immigrant visa for that child.', match: 'CRBA' },
 
     // People and community terms

@@ -220,6 +220,47 @@
         <button class="sub-ctrl" onclick="subAccGroup('uscis-extra', true)">Expand all</button>
         <button class="sub-ctrl" onclick="subAccGroup('uscis-extra', false)">Collapse all</button>
       </div>
+      <div class="sub-acc-item" id="dcf-london" data-sub-group="uscis-extra">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="dcf-london-body" onclick="toggleSubAcc('dcf-london')">
+          <span class="sub-acc-label">Filing the I-130 at the US Embassy in London (Direct Consular Filing)</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body" id="dcf-london-body">
+          <div class="sub-acc-content">
+            <p>Almost everyone files the I-130 with USCIS, online or by post to the USCIS Dallas Lockbox. The USCIS office in London closed permanently in July 2020. Send general USCIS questions to the <a href="https://www.uscis.gov/contactcenter" target="_blank" rel="noopener noreferrer">USCIS Contact Center</a>.</p>
+            <p>In a few limited cases, the embassy can accept an I-130 in London. This is called Direct Consular Filing (DCF). This site does not support DCF cases. The summary below is here so you can check whether the criteria might apply to you. If they do, follow the embassy's own instructions.</p>
+
+            <h3 class="heading-small">Who can be considered</h3>
+            <p>Only a <strong>US citizen</strong> filing for an <strong>immediate relative</strong>: a spouse, an unmarried child under 21, or a parent (if the citizen is 21 or older). All of these must also be true:</p>
+            <ul>
+              <li>The petitioner and the beneficiary are both physically present in the embassy's consular district.</li>
+              <li>The petitioner files in person at the consular section, with the original documents.</li>
+              <li>The beneficiary can stay in the country for as long as the visa normally takes to process.</li>
+            </ul>
+            <p>You must also show exceptional circumstances, as set out in the <a href="https://www.uscis.gov/policy-manual/volume-6-part-b-chapter-3" target="_blank" rel="noopener noreferrer">USCIS Policy Manual, Volume 6, Part B, Chapter 3</a>. The embassy's request form lists these:</p>
+            <ul>
+              <li>Military emergencies</li>
+              <li>Medical emergencies</li>
+              <li>Threats to personal safety</li>
+              <li>A child close to ageing out</li>
+              <li>A petitioner who has recently naturalized</li>
+              <li>Adoption of a child</li>
+              <li>Short notice of a job relocation</li>
+              <li>A US government employee assigned to the UK</li>
+            </ul>
+            <p>Two groups do not need to show exceptional circumstances: US military members stationed in the UK filing for immediate relatives, and widows or widowers of a US citizen self-petitioning on Form <a href="https://www.uscis.gov/i-360" target="_blank" rel="noopener noreferrer">I-360</a>.</p>
+
+            <div class="callout callout-warn">
+              <div class="callout-title">Already filed with USCIS?</div>
+              <p>If a petition for the same beneficiary is already filed with USCIS, you cannot file a new one at the embassy.</p>
+            </div>
+
+            <h3 class="heading-small">How to ask</h3>
+            <p>Read the embassy's <a href="https://uk.usembassy.gov/immigrant-visa-i-130-petitions/" target="_blank" rel="noopener noreferrer">I-130 petitions page</a>, then send the details on its <a href="https://uk.usembassy.gov/family-immigration-i-130-exceptional-circumstances-request-form/" target="_blank" rel="noopener noreferrer">exceptional circumstances request form</a>. A consular officer decides whether your case qualifies under USCIS guidelines, and the embassy contacts you only if it agrees. Sending a request does not mean you can file locally. Until you hear back, the normal route is to file with USCIS.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="sub-acc-item" id="linking-i130" data-sub-group="uscis-extra">
         <button class="sub-acc-trigger" aria-expanded="false" aria-controls="linking-i130-body" onclick="toggleSubAcc('linking-i130')">
           <span class="sub-acc-label">Linking family I-130 applications (IR2, IR5)</span>
@@ -406,6 +447,6 @@
 <script src="/js/live-notice.js?v=20261115b"></script>
 <!-- Stage page behaviour: accordions, sidebar, mobile drawer, back to top -->
 <script src="/js/stage.js?v=20261116x"></script>
-<script src="/js/glossary.js?v=20261116trt"></script>
+<script src="/js/glossary.js?v=20261116dcf"></script>
 </body>
 </html>
