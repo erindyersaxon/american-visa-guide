@@ -629,7 +629,7 @@ var AVG_DOCS = {
     {
      "list": "nvc",
      "id": "nvc-30",
-     "label": "<strong>If the petitioner lives abroad:</strong> evidence they are re-establishing US domicile. State Department guidance names opening a US bank account, transferring funds, US investments, <strong>seeking US employment</strong>, registering children in US schools, applying for a Social Security number, and voting. Add a dated written statement of intent, a moving or shipping quotation, and the US address arranged (a lease, or an arrangement to stay with family or friends, which the guidance accepts)."
+     "label": "<strong>If the petitioner lives abroad:</strong> evidence they are re-establishing US domicile. State Department guidance names opening a US bank account, transferring funds, US investments, <strong>seeking US employment</strong>, registering children in US schools, applying for a Social Security number, and voting. Add a dated written statement of intent, a moving or shipping quotation, and the US address arranged (a lease, or an arrangement to stay with family or friends, which the guidance accepts). Have this in place before you submit for review: London has put at least one case into administrative processing over domicile."
     },
     {
      "list": "binder",
