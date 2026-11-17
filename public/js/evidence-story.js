@@ -18,7 +18,7 @@
       layers: ['Lease or mortgage in both names', 'Utility bills at the same address', 'Naming each other as insurance beneficiaries'] },
     { key: 'children', title: 'Children', optional: true,
       layers: ['Birth certificates naming you both', 'Photos', 'Insurance covering the child'] },
-    { key: 'since', title: 'Since filing', optional: false,
+    { key: 'after', title: 'After the wedding', optional: false,
       layers: ['Travel records for each visit', 'Photos', 'Messages'] }
   ];
 

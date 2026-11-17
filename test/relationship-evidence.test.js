@@ -9,7 +9,7 @@ const PUBLIC = path.join(__dirname, '..', 'public');
 const { CHAPTERS, buildTimeline } = require('../public/js/evidence-story.js');
 
 test('chapters in story order', () => {
-  assert.deepEqual(CHAPTERS.map(c => c.key), ['met', 'dating', 'engaged', 'wedding', 'home', 'children', 'since']);
+  assert.deepEqual(CHAPTERS.map(c => c.key), ['met', 'dating', 'engaged', 'wedding', 'home', 'children', 'after']);
   assert.deepEqual(CHAPTERS.filter(c => c.optional).map(c => c.key), ['home', 'children']);
   assert.ok(CHAPTERS.every(c => c.layers.length >= 2));
 });
@@ -55,4 +55,19 @@ test('template loads the story module and has a timeline section', () => {
 test('template never parses user text as HTML', () => {
   const sets = [...tpl.matchAll(/innerHTML\s*=\s*([^;]+);/g)].map(m => m[1].trim());
   assert.deepEqual(sets.filter(v => v !== "''"), []);
+});
+
+const ex = fs.readFileSync(path.join(PUBLIC, 'tools/relationship-evidence/example.html'), 'utf8');
+
+test('example rows are in chapters and backed up', () => {
+  const rows = [...ex.matchAll(/<tr data-chapter="([a-z]+)">[\s\S]*?<\/tr>/g)];
+  assert.equal(rows.length, 8);
+  const keys = CHAPTERS.map(c => c.key);
+  for (const [row, key] of rows) {
+    assert.ok(keys.includes(key), key);
+    assert.match(row, /<dt>Backed up by<\/dt><dd>[^<]{10,}<\/dd>/);
+  }
+  assert.ok(!rows.some(r => ['home', 'children'].includes(r[1])));
+  assert.match(ex, /skip those chapters/);
+  assert.match(ex, /id="example-timeline"/);
 });
