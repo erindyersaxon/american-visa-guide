@@ -725,6 +725,11 @@ var AVG_DOCS = {
      "label": "Relationship continuity: photos (wedding, vacations, recent), travel records, communication logs"
     },
     {
+     "list": "interview",
+     "id": "int-6",
+     "label": "<strong>If you have visited the US:</strong> a printout of your <a href=\"https://i94.cbp.dhs.gov/home\" target=\"_blank\" rel=\"noopener noreferrer\">CBP I-94 travel history</a> (View Travel History) for each passport, so your visit dates match your DS-260 and I-130. Optional; London does not list it"
+    },
+    {
      "list": "binder",
      "id": "s6-1",
      "label": "<strong>Relationship Evidence</strong>: photos, messages, travel records, especially wedding photos. Reuse content from your original I-130 submission and add to it (quality over quantity)"
