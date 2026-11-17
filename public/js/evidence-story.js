@@ -23,7 +23,7 @@
   ];
 
   function isBlank(row) {
-    return !row.date && !row.what && !row.backup && !(row.imgs && row.imgs.length);
+    return !row.date && !row.what && !row.backup && !row.who && !row.where && !(row.imgs && row.imgs.length);
   }
 
   function buildTimeline(photos, messages) {

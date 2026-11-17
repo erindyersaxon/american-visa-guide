@@ -78,3 +78,19 @@ test('checklists link to the story guide, not the old URL', () => {
   assert.match(data, /\/tools\/relationship-evidence#story/);
   assert.match(fs.readFileSync(path.join(PUBLIC, 'tools/checklist-i130.html'), 'utf8'), /relationship-evidence#story/);
 });
+
+test('review: a row with only who and where still appears in the timeline', () => {
+  const t = buildTimeline([{ chapter: 'met', who: 'Sam and Priya', where: 'London' }], []);
+  assert.deepEqual(t.map(g => g.key), ['met']);
+});
+
+test('review: example affidavits come from people who saw the event', () => {
+  const row4 = [...ex.matchAll(/<tr data-chapter="([a-z]+)">[\s\S]*?<\/tr>/g)][3][0];
+  assert.doesNotMatch(row4, /affidavit/i);
+  assert.doesNotMatch(ex, /called him/);
+  assert.doesNotMatch(tpl, /I was there when Sam proposed/);
+});
+
+test('review: example notice date does not imply an unlisted trip', () => {
+  assert.doesNotMatch(ex, /Notice of marriage given at Leeds Register Office in February 2024/);
+});
