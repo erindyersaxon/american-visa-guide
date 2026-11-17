@@ -1,0 +1,165 @@
+/* ==========================================================================
+   THE GUIDE banner (home page hero, replaces the visible headline)
+   Built in HTML/CSS rather than an image so it scales and stays readable on
+   phones. Source design: design-assets/the-guide/ (PNG + philosophy.md).
+   Fonts load from Google Fonts with a `text=` subset in index.html.
+   ========================================================================== */
+
+.tg-banner {
+  --tg-ink:   #0f172a;
+  --tg-slate: #64748b;
+  --tg-hair:  #cbd5e1;
+  --tg-red:   var(--color-mark, #991B1B);
+  --tg-blue:  #2e4a7d;
+
+  container-type: inline-size;
+  border: 1px solid var(--tg-hair);
+  padding: clamp(22px, 5cqi, 44px) clamp(14px, 4cqi, 40px) clamp(18px, 4cqi, 32px);
+  max-width: 920px;
+  margin-bottom: var(--space-8, 32px);
+  text-align: center;
+  background: #f8fafc;
+}
+[data-theme="dark"] .tg-banner {
+  --tg-ink:   #f1f5f9;
+  --tg-slate: #94a3b8;
+  --tg-hair:  #334155;
+  --tg-red:   #f87171;
+  --tg-blue:  #93b6e8;
+  background: #101820;
+}
+
+/* ---- Wordmark row: sparkles · THE ∧ GUIDE · sparkles ---- */
+.tg-title {
+  /* The whole row is ~10em wide, so 10cqi fills the frame. */
+  font-size: clamp(26px, 9.8cqi, 84px);
+  font-family: 'Gloock', Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tg-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  /* room above the caps for the handwritten note */
+  padding-top: max(0.42em, 22px);
+}
+
+/* guard against site-wide `h1 span` / `h1 em` styling */
+.tg-title .tg-word { flex: none; display: inline-block; color: var(--tg-ink); font-style: normal; font-weight: 400; }
+/* the last letter's tracking would push the row off-centre */
+.tg-word:last-of-type { margin-right: -0.08em; }
+
+.tg-sparkles {
+  flex: none;
+  width: 1.2em;
+  height: 1.2em;
+  margin: 0 0.36em;
+}
+.tg-sparkles--right { transform: scaleX(-1); }
+.tg-sparkles .a { fill: var(--tg-red); }
+.tg-sparkles .b { fill: var(--tg-blue); }
+.tg-sparkles--right .a { fill: var(--tg-blue); }
+.tg-sparkles--right .b { fill: var(--tg-red); }
+
+/* ---- Editor's caret, with the insertion written above ---- */
+.tg-title .tg-caret {
+  position: relative;
+  display: inline-block;
+  flex: none;               /* never let a tight row squash the caret */
+  width: 0.34em;
+  height: 1em;
+  color: var(--tg-red);
+  font-style: normal;
+}
+.tg-caret svg {
+  position: absolute;
+  left: 50%;
+  top: -0.06em;             /* arms start just above the cap line, point dips into the gap */
+  width: 0.24em;
+  height: 0.34em;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+.tg-caret polyline {
+  fill: none;
+  stroke: var(--tg-red);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.tg-title .tg-note {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: 0.5em;
+  transform: translateX(-50%) rotate(-4deg);
+  transform-origin: center bottom;
+  font-family: 'Nothing You Could Do', 'Bradley Hand', cursive;
+  font-size: max(0.27em, 14px);
+  font-style: normal;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--tg-red);
+}
+
+/* ---- Route: London to USA, ten stage ticks ---- */
+.tg-route {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 840px;
+  margin: clamp(26px, 6cqi, 54px) auto 0;
+  font-family: 'DM Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tg-ink);
+}
+.tg-route-line {
+  position: relative;
+  flex: 1;
+  height: 18px;
+  /* the line itself */
+  background: linear-gradient(var(--tg-ink), var(--tg-ink)) center / 100% 1px no-repeat;
+}
+/* ten ticks: 10 items with space-evenly give 11 equal intervals */
+.tg-route-line {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.tg-route-line b {
+  width: 1px;
+  height: 10px;
+  background: var(--tg-ink);
+}
+.tg-route-line i {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin-top: -4.5px;
+  border-radius: 50%;
+}
+.tg-route-line i:first-child { left: -4.5px; background: var(--tg-red); }
+.tg-route-line i:last-child  { right: -4.5px; background: var(--tg-blue); }
+
+/* ---- Maker's mark ---- */
+.tg-credit {
+  margin: 14px 0 0;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(15px, 2cqi, 17px);
+  color: var(--tg-slate);
+  line-height: 1.3;
+}
+
+@media (max-width: 480px) {
+  .tg-route { gap: 8px; font-size: 10px; letter-spacing: 0.16em; }
+}

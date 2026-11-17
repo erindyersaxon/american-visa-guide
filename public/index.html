@@ -32,6 +32,8 @@
   <link rel="stylesheet" href="/css/main.css?v=20261024c">
   <link rel="stylesheet" href="/css/components.css?v=20261024c">
   <link rel="stylesheet" href="/css/nav.css?v=20261115b">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Gloock&family=Instrument+Serif:ital@1&family=Nothing+You+Could+Do&text=TheGuidTHEGUIDAmericanVisLONDUSAbyErin%2Cwithalotofhelpfrommembersinlondonusa%20&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/the-guide-banner.css?v=20261117c">
   <script src="/js/nav.js?v=20261115d8" defer></script>
 
   <!-- Prefetch community data early so the "This Week in the Community" section can render -->
@@ -376,9 +378,18 @@
     <!-- HERO -->
     <section class="home-hero" aria-labelledby="home-title">
       <div class="container">
-        <h1 id="home-title" class="home-hero__title">
-          Your <em>UK-to-US</em> family visa, step&nbsp;by&nbsp;step
-        </h1>
+        <!-- THE GUIDE banner. The h1 text is the old headline, kept for search
+             engines and screen readers; the visual wordmark is decorative. -->
+        <div class="tg-banner">
+          <h1 id="home-title" class="tg-title">
+            <span class="sr-only">Your UK-to-US family visa, step by step</span>
+            <svg class="tg-sparkles" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><path class="a" d="M132 32 C157.4 74.6 157.4 74.6 200 100 C157.4 125.4 157.4 125.4 132 168 C106.6 125.4 106.6 125.4 64 100 C106.6 74.6 106.6 74.6 132 32Z"/><path class="b" d="M54 8 C64.5 25.5 64.5 25.5 82 36 C64.5 46.5 64.5 46.5 54 64 C43.5 46.5 43.5 46.5 26 36 C43.5 25.5 43.5 25.5 54 8Z"/><path class="a" d="M48 135 C53.6 144.4 53.6 144.4 63 150 C53.6 155.6 53.6 155.6 48 165 C42.4 155.6 42.4 155.6 33 150 C42.4 144.4 42.4 144.4 48 135Z"/></svg>
+            <span class="tg-word" aria-hidden="true">The</span><span class="tg-caret" aria-hidden="true"><svg viewBox="0 0 20 28" preserveAspectRatio="none"><polyline points="1,1 10,27 19,1"/></svg><span class="tg-note">American Visa</span></span><span class="tg-word" aria-hidden="true">Guide</span>
+            <svg class="tg-sparkles tg-sparkles--right" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><path class="a" d="M132 32 C157.4 74.6 157.4 74.6 200 100 C157.4 125.4 157.4 125.4 132 168 C106.6 125.4 106.6 125.4 64 100 C106.6 74.6 106.6 74.6 132 32Z"/><path class="b" d="M54 8 C64.5 25.5 64.5 25.5 82 36 C64.5 46.5 64.5 46.5 54 64 C43.5 46.5 43.5 46.5 26 36 C43.5 25.5 43.5 25.5 54 8Z"/><path class="a" d="M48 135 C53.6 144.4 53.6 144.4 63 150 C53.6 155.6 53.6 155.6 48 165 C42.4 155.6 42.4 155.6 33 150 C42.4 144.4 42.4 144.4 48 135Z"/></svg>
+          </h1>
+          <div class="tg-route" aria-hidden="true"><span>London</span><span class="tg-route-line"><i></i><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><i></i></span><span>USA</span></div>
+          <p class="tg-credit">by Erin, with a lot of help from members in London</p>
+        </div>
         <p class="home-hero__sub">
           Real wait times, plain-language guidance and practical tools for family immigrant visas through the US Embassy London.
         </p>
