@@ -1,7 +1,8 @@
 // Relationship evidence chapters and the timeline builder.
 // Used by /tools/relationship-evidence (Chapter field, printed timeline).
-// Two sets: spouse (CHAPTERS, DOC_TYPES) and parent and child
-// (PARENT_CHAPTERS, PARENT_DOC_TYPES); setFor(kind) picks one.
+// Three sets: spouse (CHAPTERS, DOC_TYPES) and parent and child
+// (PARENT_CHAPTERS, PARENT_DOC_TYPES), and brother or sister
+// (SIBLING_CHAPTERS, SIBLING_DOC_TYPES); setFor(kind) picks one.
 // The example page and the "Tell it as a story" table copy these titles and
 // layers as static HTML; test/relationship-evidence.test.js keeps them in step.
 (function () {
@@ -43,6 +44,26 @@
       layers: ['Insurance or medical records naming the child', 'Letters and cards between you', 'Affidavits from people who saw it'] }
   ];
 
+  // Brother or sister (F4). A chain of civil records, one chapter per link:
+  // the petitioner's status, each birth, the shared parent's marriages, and
+  // the cases that need more (8 CFR 204.2(g)(1)-(2), (g)(5)).
+  var SIBLING_CHAPTERS = [
+    { key: 'status', title: 'Your US citizenship', optional: false,
+      layers: ['US passport, naturalization certificate or US birth certificate', 'A date of birth showing you were 21 or older when you filed'] },
+    { key: 'pet-birth', title: 'Your birth', optional: false,
+      layers: ['Your full birth certificate naming the parent you share', 'Your parents\u2019 marriage certificate, if you share a father'] },
+    { key: 'ben-birth', title: 'Your sibling\u2019s birth', optional: false,
+      layers: ['Your sibling\u2019s full birth certificate naming the parent you share', 'Their parents\u2019 marriage certificate, if you share a father'] },
+    { key: 'marriages', title: 'Parents\u2019 marriages and divorces', optional: true,
+      layers: ['Marriage certificate for each marriage of the shared father', 'Divorce or death record ending each earlier marriage'] },
+    { key: 'names', title: 'Name changes', optional: true,
+      layers: ['Marriage certificate', 'Deed poll or court order'] },
+    { key: 'father', title: 'Relationship with your father', optional: true,
+      layers: ['Legitimation record, or the parents\u2019 later marriage', 'Records made at the time showing his support', 'Affidavits from people who knew the family'] },
+    { key: 'adoption', title: 'Adoption or step relationship', optional: true,
+      layers: ['Adoption decree and custody records', 'Marriage creating the step relationship, before the child turned 18'] }
+  ];
+
   // The kinds of proof USCIS lists that a marriage is bona fide (6 USCIS-PM B.6;
   // 8 CFR 204.2). A record made at the time by a bank, landlord, insurer or
   // registrar outweighs a photo, so these stand alone with no photo beside them.
@@ -66,11 +87,22 @@
     { key: 'other', title: 'Other record made at the time', examples: 'Tax returns, letters between you, court or benefit records' }
   ];
 
-  // kind is 'spouse' (the default) or 'parent'.
+  var SIBLING_DOC_TYPES = [
+    { key: 'status', title: 'Proof of US citizenship', examples: 'US passport, naturalization certificate, US birth certificate' },
+    { key: 'birthcert', title: 'Full birth certificate', examples: 'From the civil registry, naming the parents' },
+    { key: 'marriage', title: 'Parents\u2019 marriage certificate', examples: 'One for each marriage of the shared father' },
+    { key: 'divorce', title: 'Divorce or death record', examples: 'Decree ending an earlier marriage, or a death certificate' },
+    { key: 'namechange', title: 'Name change record', examples: 'Marriage certificate, deed poll, court order' },
+    { key: 'legitimation', title: 'Legitimation or parent-child record', examples: 'Legitimation record, or records showing the father\u2019s support' },
+    { key: 'adoption', title: 'Adoption or custody record', examples: 'Adoption decree, court custody order' },
+    { key: 'other', title: 'Other record made at the time', examples: 'Religious, school or census record when a certificate is missing' }
+  ];
+
+  // kind is 'spouse' (the default), 'parent' or 'sibling'.
   function setFor(kind) {
-    return kind === 'parent'
-      ? { chapters: PARENT_CHAPTERS, docTypes: PARENT_DOC_TYPES }
-      : { chapters: CHAPTERS, docTypes: DOC_TYPES };
+    if (kind === 'parent') return { chapters: PARENT_CHAPTERS, docTypes: PARENT_DOC_TYPES };
+    if (kind === 'sibling') return { chapters: SIBLING_CHAPTERS, docTypes: SIBLING_DOC_TYPES };
+    return { chapters: CHAPTERS, docTypes: DOC_TYPES };
   }
   function docTitle(key, kind) {
     var types = setFor(kind).docTypes;
@@ -122,7 +154,8 @@
   }
 
   var api = { CHAPTERS: CHAPTERS, DOC_TYPES: DOC_TYPES, PARENT_CHAPTERS: PARENT_CHAPTERS,
-    PARENT_DOC_TYPES: PARENT_DOC_TYPES, setFor: setFor, buildTimeline: buildTimeline };
+    PARENT_DOC_TYPES: PARENT_DOC_TYPES, SIBLING_CHAPTERS: SIBLING_CHAPTERS,
+    SIBLING_DOC_TYPES: SIBLING_DOC_TYPES, setFor: setFor, buildTimeline: buildTimeline };
   if (typeof window !== 'undefined') window.AVG_STORY = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })();

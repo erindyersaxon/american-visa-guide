@@ -67,7 +67,9 @@
     .opt-tag { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.5rem; vertical-align: middle; margin-left: 0.4rem; }
     .pv { display: none; white-space: pre-wrap; }
     #story-table col.c-chapter, #story-table-parent col.c-chapter { width: 30%; }
-    body:not([data-ev-kind="parent"]) [data-kind="parent"], body[data-ev-kind="parent"] [data-kind="spouse"] { display: none !important; }
+    body:not([data-ev-kind="parent"]) [data-kind="parent"], body:not([data-ev-kind="sibling"]) [data-kind="sibling"],
+    body[data-ev-kind="parent"] [data-kind="spouse"], body[data-ev-kind="sibling"] [data-kind="spouse"] { display: none !important; }
+    #story-table-sibling col.c-chapter { width: 30%; }
     .ev-kind { border: 1px solid var(--line); border-radius: 0.5rem; padding: 0.75rem 1rem; margin: 0 0 1.5rem; }
     .ev-kind legend { font-family: var(--font-ui); font-weight: 700; padding: 0 0.25rem; }
     .ev-kind label { display: block; margin: 0.35rem 0; cursor: pointer; }
@@ -117,13 +119,16 @@
   <header class="article-header">
   <p class="article-eyebrow">Tool &middot; I-130 and interview</p>
   <h1>Relationship evidence <span>template</span></h1>
-  <p class="article-lead">Lead with your financial and legal records: a lease, a joint bank account, money transfers, a mortgage. Then lay out your photos and message logs so an officer can read each one in seconds: who is in it, when, where, and what it shows. Choose a few strong items from across your whole relationship. A labelled page of twelve photos says more than an unlabelled album of two hundred.</p>
+  <p class="article-lead" data-kind="parent">Lead with records made at the time: the birth certificate, then money transfers, school records and insurance naming the child. Then lay out photos and messages so an officer can read each one in seconds: who is in it, when, where, and what it shows.</p>
+  <p class="article-lead" data-kind="sibling">Lay out the civil records that link you to your brother or sister: your US citizenship, both full birth certificates, and the marriage, divorce and name change records that connect them. Each one proves a single fact, so the officer can check the chain in minutes.</p>
+  <p class="article-lead" data-kind="spouse">Lead with your financial and legal records: a lease, a joint bank account, money transfers, a mortgage. Then lay out your photos and message logs so an officer can read each one in seconds: who is in it, when, where, and what it shows. Choose a few strong items from across your whole relationship. A labelled page of twelve photos says more than an unlabelled album of two hundred.</p>
   </header>
 
   <fieldset class="ev-kind no-print">
     <legend>Who is this evidence for?</legend>
     <label><input type="radio" name="ev-kind" value="spouse" checked> Spouse (CR1, IR1, F2A)</label>
     <label><input type="radio" name="ev-kind" value="parent"> Parent and child (IR2, IR5, F1, F2A, F2B, F3)</label>
+    <label><input type="radio" name="ev-kind" value="sibling"> Brother or sister (F4)</label>
     <p class="hint">Changes the chapters, document types and affidavit wording below. Anything you have filled in stays.</p>
   </fieldset>
 
@@ -132,6 +137,18 @@
     <p>Most parent and child petitions rest on civil records alone: the birth certificate, and the parents&rsquo; marriage certificate when the relationship runs through the father. See the <a href="/tools/checklist-i130#family">I-130 checklist</a> for your category.</p>
     <p>A father whose child was born to unmarried parents must also show a bona fide parent-child relationship, formed while the child was unmarried and under 21, unless the child was legitimated before 18 (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-204/subpart-A/section-204.2" target="_blank" rel="noopener noreferrer">8 CFR 204.2(d)(2)(iii)</a>). The same applies when an adult files for a father (IR5), or siblings who share a father (F4). The regulation asks for evidence of the father&rsquo;s &ldquo;active concern for the child&rsquo;s support, instruction, and general welfare&rdquo;, and that father and child lived together or that he held the child out as his own.</p>
     <p>USCIS calls documents made at the time the most persuasive evidence. It names money order receipts or canceled checks, the father&rsquo;s tax returns, medical or insurance records listing the child as a dependent, school records, letters between them, and affidavits from friends, neighbors and school officials. Photos and messages support these; they do not replace them.</p>
+  </div>
+
+  <div class="callout callout-info" data-kind="sibling">
+    <span class="callout-title">What the officer looks for</span>
+    <p>A sibling petition proves a chain: the petitioner is a US citizen aged 21 or older, and the petitioner and the beneficiary share at least one parent (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-204/subpart-A/section-204.2" target="_blank" rel="noopener noreferrer">8 CFR 204.2(g)(1)&ndash;(2)</a>). Civil records prove each link. Photos and messages do not.</p>
+    <ul>
+      <li><strong>You share a mother:</strong> both full birth certificates naming her.</li>
+      <li><strong>You share a father:</strong> both full birth certificates naming him, his marriage certificate to each mother, and the records ending any earlier marriage of either parent.</li>
+      <li><strong>Either of you was born to unmarried parents, and you share a father:</strong> that sibling also needs proof of legitimation before 18, or of a real relationship with the father before 21.</li>
+      <li><strong>Any name differs between records:</strong> the marriage certificate, deed poll or court order that explains it (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-204/subpart-A/section-204.2" target="_blank" rel="noopener noreferrer">8 CFR 204.2(g)(5)</a>).</li>
+    </ul>
+    <p>If a certificate does not exist, send a letter from the registry saying so, then secondary evidence such as a religious, school or census record. Use sworn statements from people who knew the family only when none of those exist.</p>
   </div>
 
   <div class="callout callout-info" data-kind="spouse">
@@ -175,6 +192,26 @@
       <li><strong>Make the dates match.</strong> Every visit should agree with passport stamps, boarding passes and, for visits to the US, the <a href="https://i94.cbp.dhs.gov/home" target="_blank" rel="noopener noreferrer">CBP I-94 travel history</a>.</li>
     </ul>
     <p data-kind="parent">See how this looks in the <a href="/tools/relationship-evidence/parent-child-example">parent-child example</a>.</p>
+    <p data-kind="sibling">The officer checks one link at a time. Put your records in chapters, one chapter per link, so each fact sits beside the record that proves it. Skip the chapters that do not apply to you.</p>
+    <table class="ev-table" id="story-table-sibling" data-kind="sibling">
+      <colgroup><col class="c-chapter"><col></colgroup>
+      <thead><tr><th scope="col">Chapter</th><th scope="col">What proves it</th></tr></thead>
+      <tbody>
+        <tr><td>Your US citizenship</td><td>US passport, naturalization certificate or US birth certificate &middot; A date of birth showing you were 21 or older when you filed</td></tr>
+        <tr><td>Your birth</td><td>Your full birth certificate naming the parent you share &middot; Your parents&rsquo; marriage certificate, if you share a father</td></tr>
+        <tr><td>Your sibling&rsquo;s birth</td><td>Your sibling&rsquo;s full birth certificate naming the parent you share &middot; Their parents&rsquo; marriage certificate, if you share a father</td></tr>
+        <tr><td>Parents&rsquo; marriages and divorces (if you share a father)</td><td>Marriage certificate for each marriage of the shared father &middot; Divorce or death record ending each earlier marriage</td></tr>
+        <tr><td>Name changes (if any name differs)</td><td>Marriage certificate &middot; Deed poll or court order</td></tr>
+        <tr><td>Relationship with your father (if either of you was born to unmarried parents)</td><td>Legitimation record, or the parents&rsquo; later marriage &middot; Records made at the time showing his support &middot; Affidavits from people who knew the family</td></tr>
+        <tr><td>Adoption or step relationship (if this applies)</td><td>Adoption decree and custody records &middot; Marriage creating the step relationship, before the child turned 18</td></tr>
+      </tbody>
+    </table>
+    <ul data-kind="sibling">
+      <li><strong>Full birth certificates only.</strong> A short certificate leaves out the parents, so it cannot show the parent you share.</li>
+      <li><strong>Check every name.</strong> Lay the two birth certificates side by side. If the shared parent&rsquo;s name differs, or either of you has changed name, add the record that explains it.</li>
+      <li><strong>Close every earlier marriage.</strong> If the shared father married more than once, each marriage needs a certificate and each one that ended needs a divorce or death record.</li>
+    </ul>
+    <p data-kind="sibling">See how this looks in the <a href="/tools/relationship-evidence/sibling-example">sibling example</a>.</p>
     <table class="ev-table" id="story-table" data-kind="spouse">
       <colgroup><col class="c-chapter"><col></colgroup>
       <thead><tr><th scope="col">Chapter</th><th scope="col">What backs it up</th></tr></thead>
@@ -200,7 +237,7 @@
   <h2 class="no-print">What a finished row looks like</h2>
   <p class="no-print" data-kind="spouse">See a <a href="/tools/relationship-evidence/example">full worked example</a>: two financial records and eight photo rows for a fictional couple, from the night they met to a visit after filing.</p>
   <p class="no-print">Filing for your child, and you were not married to the other parent when they were born? Choose Parent and child above, and see the <a href="/tools/relationship-evidence/parent-child-example">parent-child example</a>: five records made at the time and three photo rows, from birth to filing.</p>
-  <p class="no-print">Filing for a brother or sister? Siblings born to married parents prove the relationship with civil records alone. See the <a href="/tools/relationship-evidence/sibling-example">sibling example</a>: seven records that link a brother and sister who share only their father.</p>
+  <p class="no-print">Filing for a brother or sister? Choose Brother or sister above. Siblings born to married parents prove the relationship with civil records alone. See the <a href="/tools/relationship-evidence/sibling-example">sibling example</a>: seven records that link a brother and sister who share only their father.</p>
   <div class="sample" aria-label="Example of a completed photo row">
     <table class="ev-table" style="margin:0">
       <colgroup><col class="c-media"><col></colgroup>
@@ -227,6 +264,17 @@
       <li>Use one photo row per event, with one to three photos. Name everyone in the photo, and give their relationship to the parent or child.</li>
       <li>Use "Sort by date" before you print, and choose a chapter for each row. The printout starts with a one-page timeline built from these.</li>
       <li>Your photos and text stay in this browser. Nothing uploads. Large photos may not save between visits, so print or save as PDF when you finish.</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-info no-print" data-kind="sibling">
+    <span class="callout-title">How to fill it in</span>
+    <ul>
+      <li>Fill in Financial and legal records: one row per certificate, decree or name change record, each in its chapter. No photo needed.</li>
+      <li>In "What it shows", write the one fact the record proves: "Robert Moore is Daniel&rsquo;s father."</li>
+      <li>Leave Photos, Messages and Call log empty unless you are proving a relationship with a father, or covering a missing record. Empty sections do not print.</li>
+      <li>Use "Sort by date" before you print. The printout starts with a one-page timeline built from your chapters.</li>
+      <li>Your text stays in this browser. Nothing uploads.</li>
     </ul>
   </div>
 
@@ -263,6 +311,7 @@
       <div class="print-head"><h2>Relationship evidence: financial and legal records</h2><p class="cover-line"></p></div>
       <h2 id="doc-title" class="no-print">Financial and legal records</h2>
       <p class="no-print" data-kind="parent">Start here. A birth certificate, a bank statement, a school record or an insurance policy comes from an office or company with no stake in your petition, so USCIS gives it more weight than a photo. Each one stands on its own: list it here even if no photo goes with it. One row per document. Upload the scans themselves with your filing, and say where each one is.</p>
+      <p class="no-print" data-kind="sibling">Start here: for a sibling petition, this section is the evidence. List each birth certificate, marriage certificate, divorce or death record, and name change record, one row each. Upload the scans themselves with your filing, and say where each one is.</p>
       <p class="no-print" data-kind="spouse">Start here. A lease, a bank statement, a money transfer record or a mortgage comes from a company or office with no stake in your petition, so USCIS gives it more weight than a photo. Each one stands on its own: list it here even if no photo goes with it. One row per document. Upload the scans themselves with your filing, and say where each one is.</p>
       <table class="ev-table" id="doc-table">
         <thead><tr><th scope="col">Details</th></tr></thead>
@@ -277,6 +326,7 @@
     <section class="ev-section" aria-labelledby="ph-title">
       <div class="print-head"><h2>Relationship evidence: photographs</h2><p class="cover-line"></p></div>
       <h2 id="ph-title" class="no-print">Photos</h2>
+      <p class="no-print" data-kind="sibling">Most sibling petitions need no photos. Use this section only to show a relationship with a father, or to support a record that is missing.</p>
       <table class="ev-table" id="ph-table">
         <colgroup><col class="c-media"><col></colgroup>
         <thead><tr><th scope="col">Photos (1 to 3)</th><th scope="col">Details</th></tr></thead>
@@ -321,6 +371,7 @@
       <h2 id="aff-title" class="no-print">Third-party affidavits <span class="opt-tag">Optional</span></h2>
       <div class="no-print">
         <p data-kind="parent">Someone who has seen the parent and child together, such as the other parent, a relative, a neighbor or a teacher, writes a statement and signs it in front of a notary public. The regulation names affidavits from &ldquo;friends, neighbors, school officials, or other associates knowledgeable about the relationship&rdquo; as evidence of a bona fide parent-child relationship (<a href="https://www.ecfr.gov/current/title-8/chapter-I/subchapter-B/part-204/subpart-A/section-204.2" target="_blank" rel="noopener noreferrer">8 CFR 204.2(d)(2)(iii)</a>). They carry less weight than records made at the time, so use them to cover what your documents cannot.</p>
+        <p data-kind="sibling">For a sibling petition, use affidavits only when a birth or marriage record does not exist and no religious, school or census record covers it. Get two or more, from people who were alive at the time and know the facts first-hand, such as an older relative. Each must give full details of the event and how the writer knows it, and end with a declaration under penalty of perjury. The template adds that line for you (<a href="https://www.uscis.gov/i-130" target="_blank" rel="noopener noreferrer">I-130 Instructions</a>, &ldquo;What if an official document is not available?&rdquo;).</p>
         <p data-kind="spouse">A friend or relative who knows you both writes a statement about your relationship and signs it in front of a notary public. USCIS lists affidavits from people who know you as one kind of proof that a marriage is real, so you can send them alongside your records. They carry less weight than your records: the Policy Manual calls affidavits "generally considered tertiary evidence", which puts them third, behind official records and other documents (<a href="https://www.uscis.gov/policy-manual/volume-1-part-e-chapter-6" target="_blank" rel="noopener noreferrer">1 USCIS-PM E.6(B)</a>; see <a href="/guide/i130#evidence-ranking">how USCIS ranks your evidence</a>). Use them to cover a chapter your documents cannot, such as how you met. Skip this section if your financial and legal records and photos already cover the relationship.</p>
         <p><strong>Who can write one.</strong> Get at least two, from different people. The regulation calls for "two or more affidavits, sworn to or affirmed by persons who are not parties to the petition who have direct personal knowledge of the event and circumstances." Each writer must:</p>
         <ul>
@@ -378,7 +429,7 @@
 
 <div id="footer-placeholder"></div>
 
-<script src="/js/evidence-story.js?v=20261117pk"></script>
+<script src="/js/evidence-story.js?v=20261117sb"></script>
 <script>
 (function () {
   'use strict';
@@ -387,11 +438,11 @@
   var FIELDS = {
     photos: [
       { k: 'chapter', label: 'Chapter', select: true },
-      { k: 'who', label: 'Who is in it', ph: { spouse: 'Petitioner, beneficiary, beneficiary\'s sister Ana', parent: 'Petitioner (father) and beneficiary (daughter), with her mother' } },
+      { k: 'who', label: 'Who is in it', ph: { spouse: 'Petitioner, beneficiary, beneficiary\'s sister Ana', parent: 'Petitioner (father) and beneficiary (daughter), with her mother', sibling: 'Petitioner and beneficiary, with their father Robert' } },
       { k: 'date', label: 'Date', type: 'date' },
       { k: 'where', label: 'Location', ph: 'Edinburgh, United Kingdom' },
-      { k: 'what', label: 'What it shows', area: true, ph: { spouse: 'Lunch with the beneficiary\'s parents on the second visit. First time meeting the family.', parent: 'School sports day on the summer visit. The petitioner came to watch.' } },
-      { k: 'backup', label: 'Backed up by', ph: { spouse: 'Concert tickets for 3 June; WhatsApp messages that night; Tom Hughes affidavit', parent: 'Boarding pass for 10 July; school newsletter giving the date; head teacher affidavit' } }
+      { k: 'what', label: 'What it shows', area: true, ph: { spouse: 'Lunch with the beneficiary\'s parents on the second visit. First time meeting the family.', parent: 'School sports day on the summer visit. The petitioner came to watch.', sibling: 'Christmas with their father. Shows the family together; the birth certificates prove the link.' } },
+      { k: 'backup', label: 'Backed up by', ph: { spouse: 'Concert tickets for 3 June; WhatsApp messages that night; Tom Hughes affidavit', parent: 'Boarding pass for 10 July; school newsletter giving the date; head teacher affidavit', sibling: 'Both full birth certificates naming Robert Moore' } }
     ],
     messages: [
       { k: 'chapter', label: 'Chapter', select: true },
@@ -405,9 +456,9 @@
       { k: 'type', label: 'Type of document', options: true },
       { k: 'chapter', label: 'Chapter', select: true },
       { k: 'date', label: 'Date issued, or start date', type: 'date' },
-      { k: 'issuer', label: 'Issued by', ph: { spouse: 'Barclays; Foxtons lettings; Leeds Register Office', parent: 'General Register Office; Barclays; Brookfield Primary School' } },
-      { k: 'names', label: 'Names on it', ph: { spouse: 'Petitioner and beneficiary', parent: 'Petitioner (father) and beneficiary (child)' } },
-      { k: 'what', label: 'What it shows', area: true, ph: { spouse: 'Joint current account opened January 2025. Both salaries paid in; rent and bills paid out.', parent: 'Monthly payment toward the child\'s care since May 2012, reference "Ella".' } },
+      { k: 'issuer', label: 'Issued by', ph: { spouse: 'Barclays; Foxtons lettings; Leeds Register Office', parent: 'General Register Office; Barclays; Brookfield Primary School', sibling: 'General Register Office; Birmingham County Court; Leicester Register Office' } },
+      { k: 'names', label: 'Names on it', ph: { spouse: 'Petitioner and beneficiary', parent: 'Petitioner (father) and beneficiary (child)', sibling: 'Beneficiary; her father Robert Moore; her mother Anjali Moore' } },
+      { k: 'what', label: 'What it shows', area: true, ph: { spouse: 'Joint current account opened January 2025. Both salaries paid in; rent and bills paid out.', parent: 'Monthly payment toward the child\'s care since May 2012, reference "Ella".', sibling: 'Robert Moore is Hannah\'s father: the parent she shares with the petitioner.' } },
       { k: 'ref', label: 'Where it is in your filing', ph: 'Upload 6: statements for January to June 2025' }
     ]
   };
@@ -428,7 +479,7 @@
     try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
     d = d || {};
     return {
-      kind: d.kind === 'parent' ? 'parent' : 'spouse',
+      kind: d.kind === 'parent' || d.kind === 'sibling' ? d.kind : 'spouse',
       cover: d.cover || { pet: '', ben: '', 'case': '' },
       photos: (d.photos && d.photos.length) ? d.photos : [blankRow()],
       messages: (d.messages && d.messages.length) ? d.messages : [blankRow()],
@@ -646,9 +697,9 @@
     { k: 'dob', label: 'Date of birth', type: 'date' },
     { k: 'pob', label: 'Place of birth', ph: 'City, country' },
     { k: 'address', label: 'Full address', area: true, rows: 2 },
-    { k: 'relation', label: { spouse: 'Relationship to the couple, and for how long', parent: 'Relationship to the parent and child, and for how long' }, ph: { spouse: 'Petitioner\'s sister. I have known the beneficiary since March 2023.', parent: 'Head teacher at the child\'s primary school from 2016 to 2023.' } },
-    { k: 'knowledge', label: { spouse: 'How they know about the relationship and the marriage', parent: 'How they know about the parent-child relationship' }, area: true, rows: 4, ph: { spouse: 'I attended their wedding in London on 10 May 2025. I have spent time with them together on three visits.', parent: 'The petitioner came to the admission meeting in 2016 and to parents\' evenings by video after he moved to the US.' } },
-    { k: 'events', label: { spouse: 'Specific occasions they saw the couple together: date, place, what happened', parent: 'Specific occasions they saw the parent and child together: date, place, what happened' }, area: true, rows: 5, ph: { spouse: '22 December 2024, Manchester: I hosted them for dinner and they told us about their engagement.', parent: '14 July 2018, Manchester: the petitioner watched his daughter at our school sports day.' } },
+    { k: 'relation', label: { spouse: 'Relationship to the couple, and for how long', parent: 'Relationship to the parent and child, and for how long', sibling: 'Relationship to the family, and for how long' }, ph: { spouse: 'Petitioner\'s sister. I have known the beneficiary since March 2023.', parent: 'Head teacher at the child\'s primary school from 2016 to 2023.', sibling: 'Their aunt, the sister of their father Robert. I have known the family since before either was born.' } },
+    { k: 'knowledge', label: { spouse: 'How they know about the relationship and the marriage', parent: 'How they know about the parent-child relationship', sibling: 'How they know the facts: the birth or marriage, and how they saw it' }, area: true, rows: 4, ph: { sibling: 'I visited my brother Robert and his wife Anjali at Leicester Royal Infirmary the day after Hannah was born.', spouse: 'I attended their wedding in London on 10 May 2025. I have spent time with them together on three visits.', parent: 'The petitioner came to the admission meeting in 2016 and to parents\' evenings by video after he moved to the US.' } },
+    { k: 'events', label: { spouse: 'Specific occasions they saw the couple together: date, place, what happened', parent: 'Specific occasions they saw the parent and child together: date, place, what happened', sibling: 'The event in full: date, place, who was there, what happened' }, area: true, rows: 5, ph: { sibling: '3 May 1995, Leicester Royal Infirmary: Hannah Priya Moore, born the day before to Robert James Moore and Anjali Moore.', spouse: '22 December 2024, Manchester: I hosted them for dinner and they told us about their engagement.', parent: '14 July 2018, Manchester: the petitioner watched his daughter at our school sports day.' } },
     { k: 'contact', label: 'Phone number and email' },
     { k: 'idcopy', label: 'Copy of government-issued ID attached', type: 'checkbox' },
     { k: 'idtype', label: 'Type of ID attached', ph: 'UK passport' }
@@ -657,15 +708,18 @@
   function affText(a) {
     var c = state.cover;
     var couple = (c.pet || '[petitioner]') + ' and ' + (c.ben || '[beneficiary]');
-    var parent = state.kind === 'parent';
+    var parent = state.kind === 'parent', sibling = state.kind === 'sibling';
+    var subject = sibling ? 'the family relationship between ' : parent ? 'the parent-child relationship between ' : 'the marriage of ';
     return [
-      'I, ' + (a.name || '[full name]') + ', born on ' + (fmtDate(a.dob) || '[date of birth]') + ' in ' + (a.pob || '[place of birth]') + ', residing at ' + (a.address || '[address]').replace(/\n+/g, ', ') + ', make this statement about ' + (parent ? 'the parent-child relationship between ' : 'the marriage of ') + couple + '.',
-      (parent ? 'My relationship to them: ' : 'My relationship to the couple: ') + (a.relation || '[relationship]'),
-      (parent ? 'How I know about their relationship: ' : 'How I know about their relationship and marriage: ') + (a.knowledge || '[details]'),
-      'Occasions I have seen them together:\n' + (a.events || '[dates, places, what happened]'),
+      'I, ' + (a.name || '[full name]') + ', born on ' + (fmtDate(a.dob) || '[date of birth]') + ' in ' + (a.pob || '[place of birth]') + ', residing at ' + (a.address || '[address]').replace(/\n+/g, ', ') + ', make this statement about ' + subject + couple + '.',
+      (sibling ? 'My relationship to the family: ' : parent ? 'My relationship to them: ' : 'My relationship to the couple: ') + (a.relation || '[relationship]'),
+      (sibling ? 'How I know these facts: ' : parent ? 'How I know about their relationship: ' : 'How I know about their relationship and marriage: ') + (a.knowledge || '[details]'),
+      (sibling ? 'The event:\n' : 'Occasions I have seen them together:\n') + (a.events || '[dates, places, what happened]'),
       'Contact: ' + (a.contact || '[phone and email]'),
       a.idcopy ? 'Attached: a copy of my ' + (a.idtype || 'government-issued identification') + '.' : '',
-      'I swear (or affirm) that the contents of this affidavit are true to the best of my knowledge and belief.'
+      'I swear (or affirm) that the contents of this affidavit are true to the best of my knowledge and belief.',
+      // I-130 Instructions: a statement standing in for a missing record ends with this declaration.
+      sibling ? 'I declare under penalty of perjury under the laws of the United States of America that the foregoing is true and correct. Executed on ____________________ (date), ______________________________ (signature).' : ''
     ].filter(Boolean);
   }
   function renderAff() {
@@ -697,7 +751,7 @@
       });
       var missing = el('p', { 'class': 'hint' });
       function check() {
-        var need = [['name', 'full name'], ['address', 'address'], ['contact', 'contact details'], ['dob', 'date of birth'], ['pob', 'place of birth'], ['relation', 'relationship to you'], ['knowledge', state.kind === 'parent' ? 'how they know about the relationship' : 'how they know about the marriage']].filter(function (r) { return !a[r[0]]; }).map(function (r) { return r[1]; });
+        var need = [['name', 'full name'], ['address', 'address'], ['contact', 'contact details'], ['dob', 'date of birth'], ['pob', 'place of birth'], ['relation', 'relationship to you'], ['knowledge', state.kind === 'sibling' ? 'how they know the facts' : state.kind === 'parent' ? 'how they know about the relationship' : 'how they know about the marriage']].filter(function (r) { return !a[r[0]]; }).map(function (r) { return r[1]; });
         missing.textContent = need.length ? 'Still missing: ' + need.join(', ') + '.' : 'All items USCIS lists are filled in. Print it unsigned: the writer signs in front of the notary.';
       }
       card.addEventListener('input', check);

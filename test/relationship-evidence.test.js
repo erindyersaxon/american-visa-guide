@@ -200,8 +200,11 @@ test('template shows every parent chapter in its own story table', () => {
 test('template switches between spouse and parent and child', () => {
   assert.match(tpl, /<input type="radio" name="ev-kind" value="spouse" checked>/);
   assert.match(tpl, /<input type="radio" name="ev-kind" value="parent">/);
-  assert.match(tpl, /body:not\(\[data-ev-kind="parent"\]\) \[data-kind="parent"\], body\[data-ev-kind="parent"\] \[data-kind="spouse"\] \{ display: none !important; \}/);
-  assert.match(tpl, /kind: d\.kind === 'parent' \? 'parent' : 'spouse'/);
+  for (const k of ['parent', 'sibling']) {
+    assert.ok(tpl.includes(`body:not([data-ev-kind="${k}"]) [data-kind="${k}"]`), k + ' hidden by default');
+    assert.ok(tpl.includes(`body[data-ev-kind="${k}"] [data-kind="spouse"]`), 'spouse hidden in ' + k);
+  }
+  assert.match(tpl, /kind: d\.kind === 'parent' \|\| d\.kind === 'sibling' \? d\.kind : 'spouse'/);
   assert.match(tpl, /the parent-child relationship between /);
   for (const kind of ['spouse', 'parent']) {
     assert.ok((tpl.match(new RegExp(`data-kind="${kind}"`, 'g')) || []).length >= 6, kind);
@@ -248,4 +251,46 @@ test('sibling example is linked from the builder, sidebar, checklist and sitemap
     assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
   }
   assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
+});
+
+const { SIBLING_CHAPTERS, SIBLING_DOC_TYPES } = require('../public/js/evidence-story.js');
+const ent = t => t.replace(/\u2019/g, '&rsquo;');
+
+test('sibling chapters follow the chain of records', () => {
+  assert.deepEqual(SIBLING_CHAPTERS.map(c => c.key), ['status', 'pet-birth', 'ben-birth', 'marriages', 'names', 'father', 'adoption']);
+  assert.deepEqual(SIBLING_CHAPTERS.filter(c => !c.optional).map(c => c.key), ['status', 'pet-birth', 'ben-birth']);
+  assert.ok(SIBLING_CHAPTERS.every(c => c.layers.length >= 2));
+  assert.equal(setFor('sibling').chapters, SIBLING_CHAPTERS);
+  assert.ok(SIBLING_DOC_TYPES.every(d => d.title && d.examples));
+});
+
+test('sibling chapter keys do not collide with the other sets', () => {
+  const others = new Set(CHAPTERS.concat(PARENT_CHAPTERS).map(c => c.key));
+  assert.deepEqual(SIBLING_CHAPTERS.filter(c => others.has(c.key)).map(c => c.key), []);
+});
+
+test('sibling timeline titles documents from the sibling types', () => {
+  const t = buildTimeline([], [], [{ chapter: 'marriages', type: 'divorce', date: '1990-11-06' }, { chapter: 'pet-birth', type: 'birthcert', date: '1985-08-02' }], 'sibling');
+  assert.deepEqual(t.map(g => g.key), ['pet-birth', 'marriages']);
+  assert.equal(t[1].items[0].what, 'Divorce or death record');
+});
+
+test('template has the sibling choice, story table and perjury declaration', () => {
+  assert.match(tpl, /<input type="radio" name="ev-kind" value="sibling">/);
+  const table = (tpl.match(/<table[^>]*id="story-table-sibling"[\s\S]*?<\/table>/) || [''])[0];
+  for (const c of SIBLING_CHAPTERS) assert.ok(table.includes(ent(c.title)) && c.layers.every(l => table.includes(ent(l))), c.key);
+  assert.match(tpl, /I declare under penalty of perjury under the laws of the United States of America that the foregoing is true and correct/);
+  assert.match(tpl, /the family relationship between /);
+  assert.ok((tpl.match(/data-kind="sibling"/g) || []).length >= 6);
+});
+
+test('sibling example uses the builder\'s sibling chapters and types', () => {
+  const rows = [...sib.matchAll(/<tr data-doc-chapter="([a-z-]+)">([\s\S]*?)<\/tr>/g)];
+  assert.equal(rows.length, 7);
+  for (const [, key, row] of rows) {
+    const ch = SIBLING_CHAPTERS.find(c => c.key === key);
+    assert.ok(ch, key);
+    assert.ok(row.includes(`<dt>Chapter</dt><dd>${ent(ch.title)}</dd>`), key);
+    assert.ok(SIBLING_DOC_TYPES.some(d => row.includes(`<dt>Type</dt><dd>${ent(d.title)}</dd>`)), 'type in ' + key);
+  }
 });
