@@ -114,6 +114,7 @@
             { href: '/tools/checklist-i130', text: 'I-130 Pre-Submission Checklist' },
             { href: '/tools/relationship-evidence', text: 'Relationship Evidence Template' },
             { href: '/tools/relationship-evidence/example', text: 'Relationship Evidence Example', sub: true },
+            { href: '/tools/relationship-evidence/permanent-resident-spouse-example', text: 'Permanent Resident Spouse Example', sub: true },
             { href: '/tools/relationship-evidence/parent-child-example', text: 'Parent-Child Evidence Example', sub: true },
             { href: '/tools/relationship-evidence/sibling-example', text: 'Sibling Evidence Example', sub: true },
             { href: '/tools/relationship-evidence/stepchild-example', text: 'Stepchild Evidence Example', sub: true },

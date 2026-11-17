@@ -490,3 +490,44 @@ test('unmarried son or daughter (F1) example is linked from the builder, sidebar
   }
   assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
 });
+
+const DOC_TYPES_SPOUSE = require('../public/js/evidence-story.js').DOC_TYPES;
+
+const f2a = fs.readFileSync(path.join(PUBLIC, 'tools/relationship-evidence/permanent-resident-spouse-example.html'), 'utf8');
+
+test('permanent resident spouse (F2A) example: chain, timeline, required records, bona fide records, Part 4', () => {
+  const at = s => f2a.indexOf(s);
+  const order = ['id="example-chain"', 'id="example-timeline"', 'id="example-required"', 'id="example-docs"', 'id="example-part4"'].map(at);
+  assert.ok(order.every((v, i) => v > -1 && (i === 0 || v > order[i - 1])), order.join(','));
+  assert.deepEqual([...f2a.matchAll(/<div class="ev-num">Document (\d) of 6<\/div>/g)].map(m => Number(m[1])), [1, 2, 3, 4, 5, 6]);
+  const chain = (f2a.match(/<table class="ev-table chain">[\s\S]*?<\/table>/) || [''])[0];
+  assert.deepEqual([...new Set([...chain.matchAll(/<span class="doc-ref">Document (\d)<\/span>/g)].map(m => Number(m[1])))].sort(), [1, 2, 3, 4, 5, 6]);
+  assert.doesNotMatch(f2a, /Callum|Fraser|Nadia/);
+});
+
+test('permanent resident spouse (F2A) bona fide rows use the builder\'s spouse chapters and types', () => {
+  const rows = [...f2a.matchAll(/<tr data-doc-chapter="([a-z]+)">([\s\S]*?)<\/tr>/g)];
+  assert.equal(rows.length, 3);
+  for (const [, key, row] of rows) {
+    const ch = CHAPTERS.find(c => c.key === key);
+    assert.ok(ch, key);
+    assert.ok(row.includes(`<dt>Chapter</dt><dd>${ent(ch.title)}</dd>`), key);
+    assert.ok(DOC_TYPES_SPOUSE.some(d => row.includes(`<dt>Type</dt><dd>${ent(d.title)}</dd>`)), 'type in ' + key);
+  }
+});
+
+test('permanent resident spouse (F2A) example cites the green card, derivative, conversion and 5-year rules', () => {
+  for (const cite of ['8 CFR 204.2(a)(2)', '8 CFR 204.2(a)(4)', '8 CFR 204.2(i)(3)', '8 CFR 204.2(a)(1)(i)(A)']) assert.ok(f2a.includes(cite), cite);
+  assert.match(f2a, /front and back of the card/);
+  assert.match(f2a, /clear and convincing evidence/);
+  assert.match(f2a, /href="\/tools\/relationship-evidence\/stepchild-example"/);
+  assert.match(f2a, /<link rel="canonical" href="https:\/\/www\.americanvisaguide\.com\/tools\/relationship-evidence\/permanent-resident-spouse-example">/);
+});
+
+test('permanent resident spouse (F2A) example is linked from the builder, sidebar, checklist and sitemap', () => {
+  const href = '/tools/relationship-evidence/permanent-resident-spouse-example';
+  for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html']) {
+    assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
+  }
+  assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
+});
