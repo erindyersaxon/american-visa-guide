@@ -34,6 +34,8 @@
       layers: ['Full birth certificate naming the parent', 'Parents\u2019 marriage certificate or legitimation record, if any', 'Photos from the first weeks'] },
     { key: 'step', title: 'Step relationship', optional: true,
       layers: ['Marriage certificate dated before the child turned 18', 'Divorce or death records ending both spouses\u2019 earlier marriages', 'Photos of the family together'] },
+    { key: 'adopted', title: 'Adoption', optional: true,
+      layers: ['Adoption decree from before the child turned 16', 'Court or government custody order', 'Records showing where the child and the birth parents lived'] },
     { key: 'support', title: 'Financial support', optional: false,
       layers: ['Bank transfers or money order receipts', 'Receipts for school fees or medical bills', 'Messages about money for the child'] },
     { key: 'school', title: 'Schooling', optional: false,
