@@ -301,7 +301,7 @@ var AVG_DOCS = {
     {
      "list": "i130",
      "id": "fam-3",
-     "label": "If the parents were not married when the child was born and the case runs through the father: proof the child was legitimated before 18 (the parents&rsquo; later marriage, or the law where the child or father lived), or records made at the time showing a real parent-child relationship before the child turned 21 and while unmarried. USCIS names money transfers, the father&rsquo;s tax returns, his medical or insurance records listing the child, school records, letters between them, and affidavits (8 CFR 204.2(d)(2)(iii))"
+     "label": "If the parents were not married when the child was born and the case runs through the father: proof the child was legitimated before 18 (the parents&rsquo; later marriage, or the law where the child or father lived), or records made at the time showing a real parent-child relationship before the child turned 21 and while unmarried. USCIS names money transfers, the father&rsquo;s tax returns, his medical or insurance records listing the child, school records, letters between them, and affidavits (8 CFR 204.2(d)(2)(iii)). See the <a href=\"/tools/relationship-evidence/parent-child-example\">parent-child example</a>"
     }
    ]
   },

@@ -140,3 +140,28 @@ test('review: example affidavits come from people who saw the event', () => {
 test('review: example notice date does not imply an unlisted trip', () => {
   assert.doesNotMatch(ex, /Notice of marriage given at Leeds Register Office in February 2024/);
 });
+
+const pc = fs.readFileSync(path.join(PUBLIC, 'tools/relationship-evidence/parent-child-example.html'), 'utf8');
+
+test('parent-child example: timeline, then records, then photos', () => {
+  const at = s => pc.indexOf(s);
+  assert.ok(at('id="example-timeline"') > -1);
+  assert.ok(at('id="example-timeline"') < at('id="example-docs"') && at('id="example-docs"') < at('class="ev-photos"'));
+  assert.equal((pc.match(/Document \d of 5/g) || []).length, 5);
+  assert.equal((pc.match(/Photo \d of 3/g) || []).length, 3);
+});
+
+test('parent-child example cites the bona fide parent-child rule and flags CRBA', () => {
+  assert.match(pc, /8 CFR 204\.2\(d\)\(2\)\(iii\)/);
+  assert.match(pc, /href="\/guide\/crba"/);
+  assert.match(pc, /href="\/tools\/checklist-i130#family"/);
+  assert.match(pc, /<link rel="canonical" href="https:\/\/www\.americanvisaguide\.com\/tools\/relationship-evidence\/parent-child-example">/);
+});
+
+test('parent-child example is linked from the builder, sidebar, checklist and sitemap', () => {
+  const href = '/tools/relationship-evidence/parent-child-example';
+  for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html', 'js/checklist-data.js']) {
+    assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
+  }
+  assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
+});

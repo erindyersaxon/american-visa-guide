@@ -114,6 +114,7 @@
             { href: '/tools/checklist-i130', text: 'I-130 Pre-Submission Checklist' },
             { href: '/tools/relationship-evidence', text: 'Relationship Evidence Template' },
             { href: '/tools/relationship-evidence/example', text: 'Relationship Evidence Example', sub: true },
+            { href: '/tools/relationship-evidence/parent-child-example', text: 'Parent-Child Evidence Example', sub: true },
           ],
         },
         {
