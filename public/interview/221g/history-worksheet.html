@@ -50,7 +50,7 @@
       <li>Answer every item. Write "none" where nothing applies: a blank reads as an omission.</li>
       <li>Check each section against your DS-260. Where the DS-260 was shorter, add to it rather than contradicting it. Tick the box when you have checked.</li>
       <li>Describe your work accurately and plainly. Do not overstate or understate it: misrepresentation is far worse than a delay.</li>
-      <li>Your answers stay in this browser only.</li>
+      <li>Your answers never leave this browser, and the browser deletes them when you close the tab. Copy or print the email before you close it.</li>
     </ul>
   </div>
 
@@ -123,7 +123,7 @@
 
   <h2 id="h-out-title">Your email</h2>
   <p>Use the subject line exactly as the post gives it. The one below is the format reported; send to the address on your sheet or in the post's instructions, not a guessed one. Attach your CV. Send it once, then wait.</p>
-  <pre class="output" id="h-out" aria-live="polite"></pre>
+  <pre class="output" id="h-out" aria-live="polite" data-clarity-mask="True"></pre>
   <div class="btn-row">
     <button type="button" class="btn" id="h-copy">Copy</button>
     <button type="button" class="btn btn--ghost" onclick="window.print()">Print</button>
@@ -141,6 +141,10 @@
 (function () {
   'use strict';
   var KEY = 'avg-history-v1';
+  // Answers live in sessionStorage: they survive a refresh, and the browser
+  // deletes them when the tab closes. Earlier versions used localStorage,
+  // which outlives the tab, so delete any copy left there.
+  try { localStorage.removeItem(KEY); } catch (e) {}
   var form = document.getElementById('h-form');
   var out = document.getElementById('h-out');
   var els = Array.prototype.slice.call(form.querySelectorAll('input, textarea'));
@@ -168,10 +172,10 @@
   }
   function save() {
     var d = {}; els.forEach(function (e) { d[e.id] = e.type === 'checkbox' ? e.checked : e.value; });
-    try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
+    try { sessionStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
   }
   try {
-    var d = JSON.parse(localStorage.getItem(KEY) || 'null');
+    var d = JSON.parse(sessionStorage.getItem(KEY) || 'null');
     if (d) els.forEach(function (e) { if (e.id in d) { if (e.type === 'checkbox') e.checked = !!d[e.id]; else e.value = d[e.id]; } });
   } catch (e) {}
   function update() { out.textContent = build(); save(); }
