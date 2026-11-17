@@ -66,12 +66,18 @@
     .aff-print .notary { margin-top: 1.5rem; border: 1px solid #000; padding: 0.75rem; min-height: 9rem; }
     .opt-tag { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.5rem; vertical-align: middle; margin-left: 0.4rem; }
     .pv { display: none; white-space: pre-wrap; }
+    #story-table col.c-chapter { width: 30%; }
+    .ev-table select { width: 100%; font: inherit; padding: 0.3rem 0.4rem; border: 1px solid var(--line); border-radius: 0.25rem; }
+    #timeline h3 { font-size: 1rem; margin: 1rem 0 0.35rem; }
+    .tl-list { margin: 0 0 0.5rem; padding-left: 1.25rem; }
+    .tl-list li { margin-bottom: 0.35rem; }
+    .tl-backup { display: block; color: var(--muted); font-size: 0.9rem; }
     .print-head { display: none; }
 
     @media print {
       nav, footer, .avg-crumbs, .article-header, .callout, .sample, .no-print, .row-tools, .media-tools, .media-empty, .count, .article-return, #nav-placeholder, #footer-placeholder { display: none !important; }
       .tool { border: none; padding: 0; margin: 0; }
-      .ev-table input, .ev-table textarea, .calls input { display: none !important; }
+      .ev-table input, .ev-table textarea, .ev-table select, .calls input { display: none !important; }
       .ev-table .field label { font-size: 0.75rem; color: #444; }
       .pv { display: block; }
       .print-head { display: block; margin-bottom: 0.5rem; }
@@ -126,6 +132,31 @@
     </ul>
   </div>
 
+  <section id="story" class="no-print">
+    <h2>Tell it as a story</h2>
+    <p>The officer should be able to follow your relationship from the day you met to today in a few minutes. Put your evidence in chapters, in date order. Then back up each chapter with two or three kinds of evidence from the same dates. A photo, a ticket and a message from the same night each confirm the others.</p>
+    <table class="ev-table" id="story-table">
+      <colgroup><col class="c-chapter"><col></colgroup>
+      <thead><tr><th scope="col">Chapter</th><th scope="col">What backs it up</th></tr></thead>
+      <tbody>
+        <tr><td>First meeting</td><td>A photo from the day &middot; Tickets or a booking for the event &middot; Messages from that day or the next</td></tr>
+        <tr><td>Getting to know each other</td><td>Flights and boarding passes &middot; Hotel bookings &middot; Photos from each visit</td></tr>
+        <tr><td>Engagement</td><td>Photos of the engagement &middot; Marriage licence or notice of marriage</td></tr>
+        <tr><td>Wedding</td><td>Payments to the venue and suppliers &middot; Photos with your guests &middot; Marriage certificate</td></tr>
+        <tr><td>Living together (if this applies)</td><td>Lease or mortgage in both names &middot; Utility bills at the same address &middot; Naming each other as insurance beneficiaries</td></tr>
+        <tr><td>Children (if this applies)</td><td>Birth certificates naming you both &middot; Photos &middot; Insurance covering the child</td></tr>
+        <tr><td>After the wedding</td><td>Travel records for each visit &middot; Photos &middot; Messages</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><strong>Anchor each chapter on a dated document.</strong> A ticket, a booking or a certificate fixes the date. Your photos and messages then fill in the day.</li>
+      <li><strong>Make the dates match.</strong> Every date should agree with your passport stamps, boarding passes and the travel history on your forms.</li>
+      <li><strong>Point each affidavit at a chapter.</strong> Ask the writer to name what they saw, with the date, the place and roughly the time: "I introduced them at my birthday party in Islington, London, at about 9pm on 3 June 2022."</li>
+      <li><strong>Skip chapters that do not apply.</strong> Many couples have not lived together or had children yet. If you live apart, your travel records and messages carry the story instead.</li>
+    </ul>
+    <p>See how this looks in the <a href="/tools/relationship-evidence/example">worked example</a>.</p>
+  </section>
+
   <h2 class="no-print">What a finished row looks like</h2>
   <p class="no-print">See a <a href="/tools/relationship-evidence/example">full worked example</a>: eight rows for a fictional couple, from the night they met to a visit after filing.</p>
   <div class="sample" aria-label="Example of a completed photo row">
@@ -153,6 +184,7 @@
       <li>Use one row per event, with one to three photos. Name everyone in the photo, and give their relationship to you.</li>
       <li>Match dates and places to your passport stamps, boarding passes and DS-260 travel history.</li>
       <li>Use "Sort by date" before you print. Officers read a timeline faster than a pile.</li>
+      <li>Choose a chapter for each row and list what backs it up. The printout starts with a one-page timeline built from these.</li>
       <li>Your photos and text stay in this browser. Nothing uploads. Large photos may not save between visits, so print or save as PDF when you finish.</li>
     </ul>
   </div>
@@ -166,6 +198,12 @@
         <div class="field"><label for="ev-case">Receipt or case number</label><input type="text" id="ev-case" data-cover="case" placeholder="IOE0123456789 or SDO2024123456"></div>
       </div>
     </fieldset>
+
+    <section class="ev-section" id="timeline-section" aria-labelledby="tl-title">
+      <div class="print-head"><h2>Relationship evidence: timeline</h2><p class="cover-line"></p></div>
+      <h2 id="tl-title" class="no-print">Your timeline</h2>
+      <div id="timeline"></div>
+    </section>
 
     <section class="ev-section" aria-labelledby="ph-title">
       <div class="print-head"><h2>Relationship evidence: photographs</h2><p class="cover-line"></p></div>
@@ -269,6 +307,7 @@
 
 <div id="footer-placeholder"></div>
 
+<script src="/js/evidence-story.js?v=20261117c"></script>
 <script>
 (function () {
   'use strict';
@@ -276,21 +315,30 @@
   var MAX_IMG = 3, MAX_DESC = 250;
   var FIELDS = {
     photos: [
+      { k: 'chapter', label: 'Chapter', select: true },
       { k: 'who', label: 'Who is in it', ph: 'Petitioner, beneficiary, beneficiary\'s sister Ana' },
       { k: 'date', label: 'Date', type: 'date' },
       { k: 'where', label: 'Location', ph: 'Edinburgh, United Kingdom' },
-      { k: 'what', label: 'What it shows', area: true, ph: 'Lunch with the beneficiary\'s parents on the second visit. First time meeting the family.' }
+      { k: 'what', label: 'What it shows', area: true, ph: 'Lunch with the beneficiary\'s parents on the second visit. First time meeting the family.' },
+      { k: 'backup', label: 'Backed up by', ph: 'Concert tickets for 3 June; WhatsApp messages that night; Tom Hughes affidavit' }
     ],
     messages: [
+      { k: 'chapter', label: 'Chapter', select: true },
       { k: 'who', label: 'Between', ph: 'Petitioner and beneficiary (WhatsApp)' },
       { k: 'date', label: 'Date of messages', type: 'date' },
       { k: 'where', label: 'Platform and translation', ph: 'WhatsApp. Welsh, certified English translation attached.' },
-      { k: 'what', label: 'What it shows', area: true, ph: 'Planning the March 2025 visit: flight times, who collects whom from the airport.' }
+      { k: 'what', label: 'What it shows', area: true, ph: 'Planning the March 2025 visit: flight times, who collects whom from the airport.' },
+      { k: 'backup', label: 'Backed up by', ph: 'Sam\'s boarding pass for 14 March 2025' }
     ]
   };
+  var CHAPTERS = window.AVG_STORY.CHAPTERS;
+  function chapterTitle(key) {
+    for (var i = 0; i < CHAPTERS.length; i++) if (CHAPTERS[i].key === key) return CHAPTERS[i].title;
+    return '';
+  }
   var state = load();
 
-  function blankRow() { return { imgs: [], who: '', date: '', where: '', what: '' }; }
+  function blankRow() { return { imgs: [], chapter: '', who: '', date: '', where: '', what: '', backup: '' }; }
   function load() {
     var d = null;
     try { d = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
@@ -370,21 +418,27 @@
       var details = el('td', null, [el('div', { 'class': 'ev-num', text: noun + ' ' + (i + 1) + ' of ' + rows.length })]);
       FIELDS[kind].forEach(function (f) {
         var id = kind + '-' + f.k + '-' + i;
-        var input = f.area ? el('textarea', { id: id, rows: '3', maxlength: String(MAX_DESC + 50) }) : el('input', { type: f.type || 'text', id: id });
+        var input;
+        if (f.select) {
+          input = el('select', { id: id }, [el('option', { value: '', text: 'Choose a chapter' })].concat(
+            CHAPTERS.map(function (c) { return el('option', { value: c.key, text: c.title }); })));
+        } else {
+          input = f.area ? el('textarea', { id: id, rows: '3', maxlength: String(MAX_DESC + 50) }) : el('input', { type: f.type || 'text', id: id });
+        }
         if (f.ph) input.setAttribute('placeholder', f.ph);
         input.value = row[f.k] || '';
         var pv = el('div', { 'class': 'pv' });
         var count = f.area ? el('span', { 'class': 'count' }) : null;
         function sync() {
           row[f.k] = input.value;
-          pv.textContent = f.type === 'date' ? fmtDate(input.value) : input.value;
+          pv.textContent = f.type === 'date' ? fmtDate(input.value) : f.select ? chapterTitle(input.value) : input.value;
           if (count) {
             var n = input.value.length;
             count.textContent = n + ' / ' + MAX_DESC + ' characters' + (n > MAX_DESC ? '. Shorten it: one or two sentences.' : '');
             count.className = 'count' + (n > MAX_DESC ? ' over' : '');
           }
         }
-        input.addEventListener('input', function () { sync(); save(); });
+        input.addEventListener(f.select ? 'change' : 'input', function () { sync(); save(); if (f.select) markRow(); });
         sync();
         details.appendChild(el('div', { 'class': 'field' }, [el('label', { 'for': id, text: f.label }), input, pv, count]));
       });
@@ -398,7 +452,7 @@
       ]));
 
       var tr = el('tr', null, [el('td', null, [media, tools]), details]);
-      function markRow() { tr.className = (row.imgs.length || row.who || row.date || row.where || row.what) ? '' : 'empty'; markSections(); }
+      function markRow() { tr.className = (row.imgs.length || row.who || row.date || row.where || row.what || row.backup) ? '' : 'empty'; markSections(); }
       tr.addEventListener('input', markRow);
       tbody.appendChild(tr); markRow();
     });
@@ -406,9 +460,34 @@
   function markSections() {
     Array.prototype.forEach.call(document.querySelectorAll('.ev-section'), function (sec) {
       if (sec.id === 'aff-section') { sec.classList.toggle('empty', !state.affidavits.length); return; }
+      if (sec.id === 'timeline-section') { renderTimeline(); return; }
       sec.classList.toggle('empty', !sec.querySelector('tbody tr:not(.empty)'));
     });
   }
+  // Printed first: rows grouped by chapter in story order. Hidden in print
+  // until at least one row has a chapter, so nobody prints a page of "Other".
+  function renderTimeline() {
+    var box = document.getElementById('timeline');
+    var groups = window.AVG_STORY.buildTimeline(state.photos, state.messages);
+    var hasChapter = groups.some(function (g) { return g.key !== 'other'; });
+    document.getElementById('timeline-section').classList.toggle('empty', !hasChapter);
+    box.innerHTML = '';
+    if (!hasChapter) {
+      box.appendChild(el('p', { 'class': 'hint', text: 'Choose a chapter for each row below. Your timeline builds here.' }));
+      return;
+    }
+    groups.forEach(function (g) {
+      box.appendChild(el('h3', { text: g.title }));
+      box.appendChild(el('ul', { 'class': 'tl-list' }, g.items.map(function (it) {
+        var ref = (it.kind === 'photo' ? 'Photo ' : 'Message ') + it.n;
+        return el('li', null, [
+          el('span', { text: [fmtDate(it.date), it.what].filter(Boolean).join(' · ') + ' (' + ref + ')' }),
+          it.backup ? el('span', { 'class': 'tl-backup', text: 'Backed up by: ' + it.backup }) : null
+        ]);
+      })));
+    });
+  }
+
   function btn(text, fn) { var b = el('button', { type: 'button', 'class': 'btn btn--ghost btn--sm', text: text }); b.addEventListener('click', fn); return b; }
   function swap(a, i, j) { var t = a[i]; a[i] = a[j]; a[j] = t; }
 
