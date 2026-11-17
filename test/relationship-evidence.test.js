@@ -222,3 +222,30 @@ test('parent-child example uses the builder\'s parent chapters and types', () =>
   }
   for (const c of PARENT_CHAPTERS.filter(c => c.key !== 'together')) assert.match(pc, new RegExp(`<h3>${c.title}</h3>`));
 });
+
+const sib = fs.readFileSync(path.join(PUBLIC, 'tools/relationship-evidence/sibling-example.html'), 'utf8');
+
+test('sibling example: every fact in the chain points to a listed document', () => {
+  const docs = [...sib.matchAll(/<div class="ev-num">Document (\d) of 7<\/div>/g)].map(m => Number(m[1]));
+  assert.deepEqual(docs, [1, 2, 3, 4, 5, 6, 7]);
+  const chain = (sib.match(/<table class="ev-table chain">[\s\S]*?<\/table>/) || [''])[0];
+  const refs = [...chain.matchAll(/<span class="doc-ref">Document (\d)<\/span>/g)].map(m => Number(m[1])).sort();
+  assert.deepEqual(refs, [1, 2, 3, 4, 5, 6, 7]);
+  const at = s => sib.indexOf(s);
+  assert.ok(at('id="example-chain"') < at('id="example-timeline"') && at('id="example-timeline"') < at('id="example-docs"'));
+});
+
+test('sibling example cites the common-father, name change and derivative rules', () => {
+  for (const cite of ['8 CFR 204.2(g)(2)(i), (iv)', '8 CFR 204.2(g)(5)', '8 CFR 204.2(g)(1)', '8 CFR 204.2(g)(4)']) assert.ok(sib.includes(cite), cite);
+  assert.match(sib, /href="\/tools\/relationship-evidence\/parent-child-example"/);
+  assert.match(sib, /<link rel="canonical" href="https:\/\/www\.americanvisaguide\.com\/tools\/relationship-evidence\/sibling-example">/);
+  assert.doesNotMatch(sib, /certified copies/);
+});
+
+test('sibling example is linked from the builder, sidebar, checklist and sitemap', () => {
+  const href = '/tools/relationship-evidence/sibling-example';
+  for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html']) {
+    assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
+  }
+  assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
+});
