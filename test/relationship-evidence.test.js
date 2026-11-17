@@ -71,3 +71,10 @@ test('example rows are in chapters and backed up', () => {
   assert.match(ex, /skip those chapters/);
   assert.match(ex, /id="example-timeline"/);
 });
+
+test('checklists link to the story guide, not the old URL', () => {
+  const data = fs.readFileSync(path.join(PUBLIC, 'js/checklist-data.js'), 'utf8');
+  assert.ok(!data.includes('href=\\"/relationship-evidence-template'));
+  assert.match(data, /\/tools\/relationship-evidence#story/);
+  assert.match(fs.readFileSync(path.join(PUBLIC, 'tools/checklist-i130.html'), 'utf8'), /relationship-evidence#story/);
+});

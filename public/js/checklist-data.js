@@ -698,12 +698,12 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "no"
    },
-   "note": "Narrative: how you met, key milestones, cohabitation start.",
+   "note": "Narrative: how you met, key milestones, and the documents that back up each one.",
    "items": [
     {
      "list": "i130",
      "id": "evid-4",
-     "label": "Relationship timeline: written description of how/where you met, dates of major milestones, key life events together"
+     "label": "Relationship timeline: your story in chapters, from first meeting to today, each backed by dated documents. Use the <a href=\"/tools/relationship-evidence#story\">story guide</a>"
     }
    ]
   },
@@ -854,12 +854,12 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "no"
    },
-   "note": "Two or more notarized statements from people who are not the petitioner or beneficiary and who saw the relationship first-hand (8 CFR 103.2(b)(2)(i)). Helpful if other evidence is thin. Use the <a href=\"/relationship-evidence-template\">relationship evidence template</a>.",
+   "note": "Two or more notarized statements from people who are not the petitioner or beneficiary and who saw the relationship first-hand (8 CFR 103.2(b)(2)(i)). Helpful if other evidence is thin. Use the <a href=\"/tools/relationship-evidence\">relationship evidence template</a>.",
    "items": [
     {
      "list": "i130",
      "id": "evid-7",
-     "label": "Optional: two or more notarized third-party affidavits, from people who are not parties to the petition and saw the relationship first-hand. Build them with the <a href=\"/relationship-evidence-template\">relationship evidence template</a>"
+     "label": "Optional: two or more notarized third-party affidavits, from people who are not parties to the petition and saw the relationship first-hand, naming the dates and places they saw. Build them with the <a href=\"/tools/relationship-evidence\">relationship evidence template</a>"
     }
    ]
   },
