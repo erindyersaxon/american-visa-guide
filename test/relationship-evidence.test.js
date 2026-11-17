@@ -79,6 +79,35 @@ test('checklists link to the story guide, not the old URL', () => {
   assert.match(fs.readFileSync(path.join(PUBLIC, 'tools/checklist-i130.html'), 'utf8'), /relationship-evidence#story/);
 });
 
+test('document types follow the USCIS list, strongest first', () => {
+  const { DOC_TYPES } = require('../public/js/evidence-story.js');
+  assert.deepEqual(DOC_TYPES.map(d => d.key), ['property', 'lease', 'finances', 'children', 'other']);
+  assert.ok(DOC_TYPES.every(d => d.title && d.examples));
+});
+
+test('documents reach the timeline with no photo, first on a shared date', () => {
+  const t = buildTimeline(
+    [{ chapter: 'home', date: '2025-01-10', what: 'Moving day' }],
+    [],
+    [{ chapter: 'home', date: '2025-01-10', type: 'lease', issuer: 'Foxtons' }, { chapter: 'home', date: '2025-02-01', type: 'finances', what: 'Joint Monzo account opened' }]);
+  assert.deepEqual(t[0].items.map(i => [i.kind, i.n]), [['document', 1], ['photo', 1], ['document', 2]]);
+  assert.equal(t[0].items[0].what, 'Lease showing you live together');
+  assert.equal(t[0].items[2].what, 'Joint Monzo account opened');
+});
+
+test('a document row with only a type or issuer is not blank', () => {
+  assert.equal(buildTimeline([], [], [{ chapter: 'home', type: 'lease' }]).length, 1);
+  assert.equal(buildTimeline([], [], [{ chapter: 'home', issuer: 'Barclays' }]).length, 1);
+  assert.deepEqual(buildTimeline([], [], [{ chapter: 'home' }]), []);
+});
+
+test('template has a joint documents section before the photos, with no photo needed', () => {
+  const docs = tpl.indexOf('id="doc-table"');
+  assert.ok(docs > -1 && docs < tpl.indexOf('id="ph-table"'));
+  assert.match(tpl, /docs: \[/);
+  assert.doesNotMatch(tpl, /when primary or secondary evidence does not exist or is unavailable/);
+});
+
 test('review: a row with only who and where still appears in the timeline', () => {
   const t = buildTimeline([{ chapter: 'met', who: 'Sam and Priya', where: 'London' }], []);
   assert.deepEqual(t.map(g => g.key), ['met']);

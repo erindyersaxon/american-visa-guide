@@ -22,11 +22,28 @@
       layers: ['Travel records for each visit', 'Photos', 'Messages'] }
   ];
 
-  function isBlank(row) {
-    return !row.date && !row.what && !row.backup && !row.who && !row.where && !(row.imgs && row.imgs.length);
+  // The kinds of proof USCIS lists that a marriage is bona fide (6 USCIS-PM B.6;
+  // 8 CFR 204.2). A record made at the time by a bank, landlord, insurer or
+  // registrar outweighs a photo, so these stand alone with no photo beside them.
+  var DOC_TYPES = [
+    { key: 'property', title: 'Property you own together', examples: 'Deed or mortgage in both names' },
+    { key: 'lease', title: 'Lease showing you live together', examples: 'Tenancy agreement in both names' },
+    { key: 'finances', title: 'Shared finances', examples: 'Joint bank account, joint tax return, bills in both names' },
+    { key: 'children', title: 'Birth certificate of your child', examples: 'Long-form certificate naming you both' },
+    { key: 'other', title: 'Other record made at the time', examples: 'Insurance naming each other, wedding invoices, bookings in both names' }
+  ];
+  function docTitle(key) {
+    for (var i = 0; i < DOC_TYPES.length; i++) if (DOC_TYPES[i].key === key) return DOC_TYPES[i].title;
+    return '';
   }
 
-  function buildTimeline(photos, messages) {
+  // A row counts once anything besides its chapter is filled in.
+  function isBlank(row) {
+    if (row.imgs && row.imgs.length) return false;
+    return !Object.keys(row).some(function (k) { return k !== 'chapter' && k !== 'imgs' && row[k]; });
+  }
+
+  function buildTimeline(photos, messages, docs) {
     var groups = {};
     var order = CHAPTERS.map(function (c) { return c.key; });
     var seq = 0;
@@ -34,11 +51,14 @@
       (rows || []).forEach(function (row, i) {
         if (isBlank(row)) return;
         var key = order.indexOf(row.chapter) === -1 ? 'other' : row.chapter;
+        var what = row.what || (kind === 'document' ? docTitle(row.type) : '');
         (groups[key] = groups[key] || []).push({
-          kind: kind, n: i + 1, date: row.date || '', what: row.what || '', backup: row.backup || '', _seq: seq++
+          kind: kind, n: i + 1, date: row.date || '', what: what, backup: row.backup || '', _seq: seq++
         });
       });
     }
+    // Documents first, so on a shared date the strongest evidence leads.
+    add('document', docs);
     add('photo', photos);
     add('message', messages);
 
@@ -59,7 +79,7 @@
       });
   }
 
-  var api = { CHAPTERS: CHAPTERS, buildTimeline: buildTimeline };
+  var api = { CHAPTERS: CHAPTERS, DOC_TYPES: DOC_TYPES, buildTimeline: buildTimeline };
   if (typeof window !== 'undefined') window.AVG_STORY = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })();
