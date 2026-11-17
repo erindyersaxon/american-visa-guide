@@ -46,7 +46,7 @@ function addTasks(book, stages) {
       row.getCell(3).dataValidation = YES;
       row.getCell(4).numFmt = 'd mmm yyyy';
     };
-    stage.actions.filter(task => !task.skip).forEach(add);
+    [...stage.actions, ...stage.thread].filter(task => !task.skip).forEach(add);
   }
 }
 

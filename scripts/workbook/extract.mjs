@@ -1,6 +1,7 @@
 // Reads the guide's stage pages for the master workbook's Tasks tab: each
-// page's Action list, word for word, one row per piece of work. An <li> with
-// data-workbook="skip" still shows on the site but stays out of the workbook: a
+// page's Action list, then its domicile and public charge box, word for word,
+// one row per piece of work. An <li> with data-workbook="skip" still shows on
+// the site but stays out of the workbook: a
 // task a later stage repeats (the owning stage keeps the row), or a pointer to
 // the next stage that is not a piece of work.
 // Design: docs/superpowers/specs/2026-11-16-master-workbook-design.md
@@ -47,16 +48,8 @@ const POINTER = /([.!?])\s+(?:(?:See|The steps are (?:in|under))\s+)?<a\b[^>]*>[
 
 const ROLE = /^\s*<span class="role role--(petitioner|beneficiary|either)">[\s\S]*?<\/span><\/span>\s*/;
 
-// The first <ol> or <ul> after the heading with this id, inside the heading's
-// own <section>, so a missing list fails rather than borrowing the next section's.
-function listAfter(html, id, url) {
-  const at = html.indexOf(`id="${id}"`);
-  if (at < 0) throw new Error(`${url}: no #${id}`);
-  const end = html.indexOf('</section>', at);
-  const list = html.slice(at, end < 0 ? undefined : end).match(/<(ol|ul)\b[^>]*>([\s\S]*?)<\/\1>/);
-  if (!list) throw new Error(`${url}: no list in the #${id} section`);
-  const items = [...list[2].matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
-  if (!items.length) throw new Error(`${url}: empty list after #${id}`);
+function itemsOf(listHtml, url) {
+  const items = [...listHtml.matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
   return items.map(([, attrs, inner]) => {
     const role = inner.match(ROLE);
     if (!role) throw new Error(`${url}: item without a role tag: ${htmlToText(inner).slice(0, 60)}`);
@@ -69,6 +62,35 @@ function listAfter(html, id, url) {
   });
 }
 
+// The "Domicile and public charge" box: one list per topic, each under its
+// <h3>. Rows carry the topic as a prefix ("Public charge: ...") so the Tasks
+// tab shows which thread a task belongs to. Pages without the box return [].
+function threadOf(html, url) {
+  const at = html.indexOf('id="domicile-public-charge"');
+  if (at < 0) return [];
+  const end = html.indexOf('</section>', at);
+  const box = html.slice(at, end);
+  const rows = [...box.matchAll(/<h3>([\s\S]*?)<\/h3>\s*<ul>([\s\S]*?)<\/ul>/g)];
+  if (!rows.length) throw new Error(`${url}: empty domicile and public charge box`);
+  return rows.flatMap(([, title, list]) => {
+    const topic = htmlToText(title).replace(/^Petitioner domicile$/, 'Domicile');
+    return itemsOf(list, url).map(t => ({ ...t, text: `${topic}: ${t.text}` }));
+  });
+}
+
+// The first <ol> or <ul> after the heading with this id, inside the heading's
+// own <section>, so a missing list fails rather than borrowing the next section's.
+function listAfter(html, id, url) {
+  const at = html.indexOf(`id="${id}"`);
+  if (at < 0) throw new Error(`${url}: no #${id}`);
+  const end = html.indexOf('</section>', at);
+  const list = html.slice(at, end < 0 ? undefined : end).match(/<(ol|ul)\b[^>]*>([\s\S]*?)<\/\1>/);
+  if (!list) throw new Error(`${url}: no list in the #${id} section`);
+  const items = itemsOf(list[2], url);
+  if (!items.length) throw new Error(`${url}: empty list after #${id}`);
+  return items;
+}
+
 export function extractStage(source, url) {
   // Commented-out markup is invisible on the site, so it stays out of the workbook.
   const html = source.replace(/<!--[\s\S]*?-->/g, '');
@@ -78,6 +100,7 @@ export function extractStage(source, url) {
     title: htmlToText(h1[1]),
     url,
     actions: listAfter(html, 'action-list-title', url),
+    thread: threadOf(html, url),
   };
 }
 

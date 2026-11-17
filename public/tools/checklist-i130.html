@@ -73,7 +73,7 @@
           <p class="subtitle">Work through this before you file. Most RFEs are preventable.</p>
 
           <div class="progress-bar">
-            <span class="progress-text" id="progress-i130">0 of 22 items checked</span>
+            <span class="progress-text" id="progress-i130">0 of 44 items checked</span>
             <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">Print / save as PDF</button>
             <button type="button" class="btn btn-secondary btn-sm" onclick="copyChecklistForDocs(this)">Copy for Google Docs</button>
             <button class="btn btn-secondary btn-sm" id="reset-i130">Reset checklist</button>
@@ -268,7 +268,28 @@
             </section>
 
             <section class="checklist-section">
-              <h3>8. Final packaging</h3>
+              <h3>8. Plan ahead: domicile and public charge</h3>
+              <p class="text-muted">USCIS tests neither one, but the embassy tests both, and both need months of evidence. See the <a href="/guide/i130#domicile-public-charge">Stage 1 box</a>.</p>
+              <div class="checklist-item" data-item-id="plan-1">
+                <input type="checkbox" id="plan-1" />
+                <label for="plan-1">We know which <a href="/interview/221g/domicile#where">domicile situation</a> applies to the petitioner, and we checked the list of qualifying employers if the petitioner lives abroad</label>
+              </div>
+              <div class="checklist-item" data-item-id="plan-2">
+                <input type="checkbox" id="plan-2" />
+                <label for="plan-2">If the petitioner&rsquo;s US domicile has lapsed: a dated plan to re-establish it, with the petitioner living in the US by the date the beneficiary immigrates, or traveling with them</label>
+              </div>
+              <div class="checklist-item" data-item-id="plan-3">
+                <input type="checkbox" id="plan-3" />
+                <label for="plan-3">Petitioner&rsquo;s income checked against the I-864 threshold with the <a href="/tools/i864-household">household calculator</a>, and we know whether we need a joint sponsor</label>
+              </div>
+              <div class="checklist-item" data-item-id="plan-4">
+                <input type="checkbox" id="plan-4" />
+                <label for="plan-4">Slow public charge evidence started: a credential evaluation if the beneficiary&rsquo;s field is regulated, medical records for any condition, and how the beneficiary will get US health insurance</label>
+              </div>
+            </section>
+
+            <section class="checklist-section">
+              <h3>9. Final packaging</h3>
               <div class="checklist-item" data-item-id="pack-1">
                 <input type="checkbox" id="pack-1" />
                 <label for="pack-1">Documents organized in logical order</label>
@@ -292,7 +313,7 @@
             </section>
 
             <section class="checklist-section">
-              <h3>9. Post-submission monitoring</h3>
+              <h3>10. Post-submission monitoring</h3>
               <div class="checklist-item" data-item-id="post-1">
                 <input type="checkbox" id="post-1" />
                 <label for="post-1">Expected: months of inactivity and generic "case is being processed" messages</label>
@@ -321,7 +342,7 @@
 
     <footer></footer>
     <script src="/js/shared.js?v=20260612"></script>
-    <script src="/js/checklist-data.js?v=20261116mw2"></script>
+    <script src="/js/checklist-data.js?v=20261117dp"></script>
 <script src="/js/checklist.js?v=20260609"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
