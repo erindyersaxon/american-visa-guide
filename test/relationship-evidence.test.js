@@ -108,6 +108,23 @@ test('template has a joint documents section before the photos, with no photo ne
   assert.doesNotMatch(tpl, /when primary or secondary evidence does not exist or is unavailable/);
 });
 
+test('example leads with joint documents that have no photo', () => {
+  const { DOC_TYPES } = require('../public/js/evidence-story.js');
+  const docs = [...ex.matchAll(/<tr data-doc-chapter="([a-z]+)">([\s\S]*?)<\/tr>/g)];
+  assert.equal(docs.length, 2);
+  const keys = CHAPTERS.map(c => c.key);
+  for (const [, key, row] of docs) {
+    assert.ok(keys.includes(key), key);
+    assert.doesNotMatch(row, /<svg|<img/);
+    assert.ok(DOC_TYPES.some(d => row.includes(`<dt>Type</dt><dd>${d.title}</dd>`)), 'type from DOC_TYPES');
+    for (const f of ['Issued by', 'Names on it', 'Where it is in your filing']) assert.match(row, new RegExp(`<dt>${f}</dt><dd>[^<]{5,}</dd>`));
+  }
+  const at = id => ex.indexOf(id);
+  assert.ok(at('id="example-timeline"') < at('id="example-docs"') && at('id="example-docs"') < at('class="ev-photos"'));
+  assert.match(ex, /\(Document 1\)/);
+  assert.match(ex, /\(Document 2\)/);
+});
+
 test('review: a row with only who and where still appears in the timeline', () => {
   const t = buildTimeline([{ chapter: 'met', who: 'Sam and Priya', where: 'London' }], []);
   assert.deepEqual(t.map(g => g.key), ['met']);
