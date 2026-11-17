@@ -38,3 +38,21 @@ test('blank rows and empty input give no groups', () => {
   assert.deepEqual(buildTimeline([{ imgs: [], who: '', date: '', where: '', what: '' }], []), []);
   assert.deepEqual(buildTimeline([], []), []);
 });
+
+const tpl = fs.readFileSync(path.join(PUBLIC, 'tools/relationship-evidence.html'), 'utf8');
+
+test('template shows every chapter in the story table', () => {
+  const table = (tpl.match(/<table[^>]*id="story-table"[\s\S]*?<\/table>/) || [''])[0];
+  for (const c of CHAPTERS) assert.ok(table.includes(c.title) && c.layers.every(l => table.includes(l)), c.key);
+});
+
+test('template loads the story module and has a timeline section', () => {
+  assert.match(tpl, /<script src="\/js\/evidence-story\.js\?v=[0-9a-z]+"><\/script>/);
+  assert.match(tpl, /id="timeline-section"/);
+  assert.match(tpl, /'avg-relationship-evidence-v1'/);
+});
+
+test('template never parses user text as HTML', () => {
+  const sets = [...tpl.matchAll(/innerHTML\s*=\s*([^;]+);/g)].map(m => m[1].trim());
+  assert.deepEqual(sets.filter(v => v !== "''"), []);
+});
