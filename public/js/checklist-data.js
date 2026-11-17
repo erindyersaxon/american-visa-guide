@@ -455,12 +455,12 @@ var AVG_DOCS = {
    "name": "Petitioner&rsquo;s health insurance",
    "code": "P04",
    "need": {
-    "i130": "no",
+    "i130": "cond",
     "nvc": "no",
     "medical": "no",
     "interview": "yes"
    },
-   "note": "Plan confirmation or summary of benefits. Under the health factor, officers ask whether you will be covered by the petitioner&rsquo;s plan. See <a href=\"/public-charge/questions\">questions to rehearse</a>.",
+   "note": "Plan confirmation or summary of benefits. At the I-130 stage, find out whether the plan can add you. Under the health factor, officers ask whether you will be covered by the petitioner&rsquo;s plan. See <a href=\"/public-charge/questions\">questions to rehearse</a>.",
    "items": []
   },
   {
@@ -563,12 +563,12 @@ var AVG_DOCS = {
    "group": "financial",
    "name": "Petitioner&rsquo;s proof of US domicile",
    "need": {
-    "i130": "no",
+    "i130": "cond",
     "nvc": "yes",
-    "medical": "no",
+    "medical": "yes",
     "interview": "yes"
    },
-   "note": "Strongest first: US tax filings with domestic earned income, a W-2 or US job offer, utility bills across several months, a state ID. A lease or mortgage shows an address, not a residence. See <a href=\"/domicile\">petitioner domicile</a>.",
+   "note": "Strongest first: US tax filings with domestic earned income, a W-2 or US job offer, utility bills across several months, a state ID. A lease or mortgage shows an address, not a residence. If the petitioner has no US record, start one at the I-130 stage: utility bills need months of history. Print a copy for the binder before the medical. See <a href=\"/domicile\">petitioner domicile</a>.",
    "items": [
     {
      "list": "nvc",
@@ -619,12 +619,13 @@ var AVG_DOCS = {
    "group": "financial",
    "name": "Evidence of re-establishing US domicile",
    "need": {
-    "i130": "no",
+    "i130": "cond",
     "nvc": "cond",
-    "medical": "no",
-    "interview": "cond"
+    "medical": "cond",
+    "interview": "cond",
+    "move": "cond"
    },
-   "note": "<strong>Treat as required, not optional, wherever the petitioner lives abroad</strong>: a joint sponsor cures income but cannot cure the petitioner's domicile, and a petitioner who fails it does not qualify as a sponsor. Moving contract, job contract, job applications, school/childcare inquiries, rental property contracts, US bank account opened or funds transferred, Social Security number application, dated statement of intent. The petitioner must be resident in the US, or arriving, no later than the date the beneficiary immigrates.",
+   "note": "<strong>Treat as required, not optional, wherever the petitioner lives abroad</strong>: a joint sponsor cures income but cannot cure the petitioner's domicile, and a petitioner who fails it does not qualify as a sponsor. Moving contract, job contract, job applications, school/childcare inquiries, rental property contracts, US bank account opened or funds transferred, Social Security number application, dated statement of intent. Write the dated plan at the I-130 stage. The petitioner must be resident in the US, or arriving, no later than the date the beneficiary immigrates.",
    "items": [
     {
      "list": "nvc",
@@ -645,7 +646,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "cond",
-    "medical": "no",
+    "medical": "cond",
     "interview": "cond"
    },
    "note": "Only if a joint sponsor is filing. Same standard as the petitioner&rsquo;s.",
@@ -668,11 +669,11 @@ var AVG_DOCS = {
    "name": "Public charge statement and evidence",
    "need": {
     "i130": "no",
-    "nvc": "no",
-    "medical": "no",
+    "nvc": "yes",
+    "medical": "cond",
     "interview": "yes"
    },
-   "note": "Written statement plus a labelled evidence pack. Treat both as mandatory, even though the embassy calls the statement voluntary. The pack is every row on this page with a file code: P for the petitioner, J for a joint sponsor, B for you. Upload it to CEAC and email it at least five working days before the interview, and print it for the binder. See the <a href=\"/public-charge/evidence#deliverables\">evidence pack</a> and the <a href=\"/public-charge/statement\">statement builder</a>.",
+   "note": "Draft the statement at NVC from the I-864 figures, and finish it while you wait for the interview letter. If the panel physician records a condition, add how you manage it, its US cost and who pays. Written statement plus a labelled evidence pack. Treat both as mandatory, even though the embassy calls the statement voluntary. The pack is every row on this page with a file code: P for the petitioner, J for a joint sponsor, B for you. Upload it to CEAC and email it at least five working days before the interview, and print it for the binder. See the <a href=\"/public-charge/evidence#deliverables\">evidence pack</a> and the <a href=\"/public-charge/statement\">statement builder</a>.",
    "items": [
     {
      "list": "binder",
@@ -1523,12 +1524,12 @@ var AVG_DOCS = {
    "name": "Credential evaluation or licensing letters",
    "code": "B10",
    "need": {
-    "i130": "no",
+    "i130": "cond",
     "nvc": "no",
     "medical": "no",
     "interview": "cond"
    },
-   "note": "Only if your field is regulated in the US.",
+   "note": "Only if your field is regulated in the US. Start the evaluation at the I-130 stage, because it is slow evidence to get.",
    "items": []
   },
   {

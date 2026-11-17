@@ -26,6 +26,21 @@ test('extractStage reads the NVC stage', async () => {
   }
 });
 
+test('extractStage reads the domicile and public charge box, labeled by topic', async () => {
+  const { extractStage } = await load();
+  const stage = extractStage(fs.readFileSync(path.join(PUBLIC, 'guide/nvc.html'), 'utf8'), '/guide/nvc');
+  assert.ok(stage.thread.some(t => t.who === 'Petitioner' && /^Domicile: Upload domicile evidence/.test(t.text)));
+  assert.ok(stage.thread.some(t => t.who === 'Beneficiary' && /^Public charge: Draft your statement/.test(t.text)));
+  for (const t of stage.thread) assert.doesNotMatch(t.text, /[<&]|Done when/, t.text);
+});
+
+test('every stage on the main path has a domicile and public charge box', async () => {
+  const { loadStages } = await load();
+  const withBox = loadStages(PUBLIC).filter(s => s.thread.length).map(s => s.url);
+  assert.deepEqual(withBox, ['/guide/i130', '/guide/nvc', '/guide/waiting', '/guide/interview-letter', '/guide/medical',
+    '/guide/interview', '/guide/after-interview', '/guide/before-you-leave']);
+});
+
 test('loadStages reads every stage in order', async () => {
   const { loadStages, STAGE_PAGES } = await load();
   const stages = loadStages(PUBLIC);
