@@ -52,7 +52,7 @@
       ['a6', 'Reply to any request for evidence before the deadline', 'Send everything asked for in one response.'],
     ]},
     { key: 'interview', title: 'Interview day', items: [
-      ['i1', 'Bring your interview notice, green card, state ID, and every passport and travel document', 'Include expired passports used since you became a resident.'],
+      ['i1', 'Bring your interview notice, green card, state ID, and every passport and travel document', 'Include expired passports used since you became a resident, and a printout of your ' + link('https://i94.cbp.dhs.gov/home', 'CBP I-94 travel history') + ' for each passport.'],
       ['i2', 'Bring the originals of everything you submitted', 'Plus marriage evidence for the 3-year rule or a pending I-751, IRS return and account transcripts, and proof of tax payments.'],
       ['i3', 'Arrive early and expect to go through security', 'The officer places you under oath before asking about your application.'],
       ['i4', 'Get your Form N-652 before you leave', 'It shows whether your case was granted, continued (usually a retest or more documents), or denied.'],
