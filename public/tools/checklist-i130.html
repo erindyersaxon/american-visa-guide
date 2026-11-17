@@ -51,6 +51,7 @@
       .doc-conditional { color: var(--color-warning); font-weight: var(--weight-medium); }
       .doc-not-needed { color: var(--color-text-muted); }
       .reference-box { padding: var(--space-6); background: var(--color-navy-xlight); border: 1px solid var(--color-navy); border-radius: var(--radius-lg); margin: var(--space-6) 0; }
+      .rfe-group { margin: var(--space-6) 0 var(--space-3); font-size: var(--size-base); color: var(--color-navy); }
       .family-cat { margin: 0 0 var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
       .family-cat summary { cursor: pointer; font-weight: var(--weight-semibold); color: var(--color-navy); }
       .family-cat ul { margin: var(--space-3) 0 0; padding-left: var(--space-6); }
@@ -292,14 +293,10 @@
 
             <section class="checklist-section">
               <h3>7. RFE risk scan</h3>
-              <div class="checklist-item" data-item-id="rfe-1">
-                <input type="checkbox" id="rfe-1" />
-                <label for="rfe-1">Commingling of finances is strong (joint accounts, shared bills)</label>
+              <div class="reference-box">
+                <p><strong>Load your first filing fully.</strong> Take the month or two you need to gather every document and put them together as one coherent package, in the order this checklist follows. USCIS can deny a petition that lacks required evidence without sending an RFE or a Notice of Intent to Deny first (<a href="https://www.uscis.gov/policy-manual/volume-1-part-e-chapter-6" target="_blank" rel="noopener noreferrer">Policy Manual, Vol. 1, Part E, Ch. 6.F</a>). An RFE, if you get one, stops your case until you answer. Weeks spent preparing cost less than either.</p>
               </div>
-              <div class="checklist-item" data-item-id="rfe-2">
-                <input type="checkbox" id="rfe-2" />
-                <label for="rfe-2">If long-distance, visits are documented and frequent</label>
-              </div>
+              <h4 class="rfe-group">Every petition</h4>
               <div class="checklist-item" data-item-id="rfe-3">
                 <input type="checkbox" id="rfe-3" />
                 <label for="rfe-3">No major timeline gaps without explanation</label>
@@ -312,9 +309,51 @@
                 <input type="checkbox" id="rfe-5" />
                 <label for="rfe-5">Documents are legible (scans are clear, photocopies readable)</label>
               </div>
+              <h4 class="rfe-group">Spouses</h4>
+              <div class="checklist-item" data-item-id="rfe-1">
+                <input type="checkbox" id="rfe-1" />
+                <label for="rfe-1">Commingling of finances is strong (joint accounts, shared bills)</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-2">
+                <input type="checkbox" id="rfe-2" />
+                <label for="rfe-2">If long-distance, visits are documented and frequent</label>
+              </div>
               <div class="checklist-item" data-item-id="rfe-6">
                 <input type="checkbox" id="rfe-6" />
                 <label for="rfe-6">Bona fide evidence covers the whole relationship, including the months before and around the wedding. USCIS judges your intent "at the inception of the marriage" (6 USCIS-PM B.6(B)(3))</label>
+              </div>
+              <h4 class="rfe-group">Children, parents and siblings</h4>
+              <div class="checklist-item" data-item-id="rfe-7">
+                <input type="checkbox" id="rfe-7" />
+                <label for="rfe-7">Every birth certificate is the full version that names the parents. A short certificate leaves them out and cannot prove the relationship</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-8">
+                <input type="checkbox" id="rfe-8" />
+                <label for="rfe-8">Each parent&rsquo;s name matches across the birth certificates and the I-130. If a parent&rsquo;s name changed, for example on marriage, the legal record of the change is included (8 CFR 204.2(d)(2)(i), (f)(2)(v), (g)(5))</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-9">
+                <input type="checkbox" id="rfe-9" />
+                <label for="rfe-9">If a birth was registered years after it happened, records from the time back it up: school, religious or medical records naming the parents. See <a href="/guide/i130#evidence-ranking">how USCIS ranks your evidence</a></label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-10">
+                <input type="checkbox" id="rfe-10" />
+                <label for="rfe-10">Dates checked: a stepparent&rsquo;s marriage took place before the child turned 18, and an adoption before the child turned 16 (18 for an older sibling). Two years of legal custody come from a court or government order, not a notarized affidavit (8 CFR 204.2(d)(2)(iv), (vii))</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-11">
+                <input type="checkbox" id="rfe-11" />
+                <label for="rfe-11">If the parents were not married at the birth and the case runs through the father: proof of legitimation before 18, or records made at the time showing a real parent-child relationship before 21. Records written for the petition carry less weight. See the <a href="/tools/relationship-evidence/parent-child-example">parent-child example</a></label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-12">
+                <input type="checkbox" id="rfe-12" />
+                <label for="rfe-12">Parent (IR5) or sibling (F4): the petitioner is a US citizen and was 21 or older on the filing date (8 CFR 204.2(f)(1), (g)(1))</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-13">
+                <input type="checkbox" id="rfe-13" />
+                <label for="rfe-13">Sibling (F4): both birth certificates name the same parent. If you share only a father, his marriage certificate to each mother is included (8 CFR 204.2(g)(2)(i), (iv))</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-14">
+                <input type="checkbox" id="rfe-14" />
+                <label for="rfe-14">Son or daughter: the marital status on the I-130 is still true. If an IR2 child or F1 son or daughter marries, the petition becomes F3 (8 CFR 204.2(i)(1)). A permanent resident can petition only for unmarried sons and daughters, so an F2B son or daughter who marries loses the category (INA 203(a)(2)(B))</label>
               </div>
             </section>
 

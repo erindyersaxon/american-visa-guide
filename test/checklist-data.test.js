@@ -46,3 +46,16 @@ test('moving group has the seven moving documents', () => {
     assert.notEqual(needOf(d, 'move'), 'no', key);
   }
 });
+
+test('every stage checklist checkbox sits in its own checklist item', () => {
+  const fs = require('node:fs'), path = require('node:path');
+  const dir = path.join(__dirname, '..', 'public/tools');
+  for (const f of fs.readdirSync(dir).filter(n => /^checklist-.*\.html$/.test(n))) {
+    const html = fs.readFileSync(path.join(dir, f), 'utf8');
+    const ids = [...html.matchAll(/<input type="checkbox" id="([^"]+)"/g)].map(m => m[1]);
+    for (const id of ids) {
+      const re = new RegExp(`<div class="checklist-item" data-item-id="${id}">\\s*<input type="checkbox" id="${id}"`);
+      assert.match(html, re, `${f}: ${id}`);
+    }
+  }
+});
