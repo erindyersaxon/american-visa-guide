@@ -453,3 +453,40 @@ test('married son or daughter (F3) example is linked from the builder, sidebar, 
   }
   assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
 });
+
+const f1 = fs.readFileSync(path.join(PUBLIC, 'tools/relationship-evidence/unmarried-son-daughter-example.html'), 'utf8');
+
+test('unmarried son or daughter (F1) example: chain, timeline, records, Part 4', () => {
+  const at = s => f1.indexOf(s);
+  assert.ok(at('id="example-chain"') < at('id="example-timeline"') && at('id="example-timeline"') < at('id="example-docs"') && at('id="example-docs"') < at('id="example-part4"'));
+  assert.deepEqual([...f1.matchAll(/<div class="ev-num">Document (\d) of 3<\/div>/g)].map(m => Number(m[1])), [1, 2, 3]);
+  const chain = (f1.match(/<table class="ev-table chain">[\s\S]*?<\/table>/) || [''])[0];
+  assert.deepEqual([...new Set([...chain.matchAll(/<span class="doc-ref">Document (\d)<\/span>/g)].map(m => Number(m[1])))].sort(), [1, 2, 3]);
+  assert.doesNotMatch(f1, /Callum|Fraser|Nadia/);
+  assert.doesNotMatch(f1, /<svg/);
+});
+
+test('unmarried son or daughter (F1) example uses the builder\'s parent chapters and types', () => {
+  const rows = [...f1.matchAll(/<tr data-doc-chapter="([a-z]+)">([\s\S]*?)<\/tr>/g)];
+  assert.equal(rows.length, 3);
+  for (const [, key, row] of rows) {
+    const ch = PARENT_CHAPTERS.find(c => c.key === key);
+    assert.ok(ch, key);
+    assert.ok(row.includes(`<dt>Chapter</dt><dd>${ent(ch.title)}</dd>`), key);
+    assert.ok(PARENT_DOC_TYPES.some(d => row.includes(`<dt>Type</dt><dd>${ent(d.title)}</dd>`)), 'type in ' + key);
+  }
+});
+
+test('unmarried son or daughter (F1) example cites the category and every conversion', () => {
+  for (const cite of ['INA 203(a)(1)', '8 CFR 204.2(d)(2)(i)', '8 CFR 204.2(d)(4)', '8 CFR 204.2(i)(2)', '8 CFR 204.2(i)(1)(i)', '8 CFR 204.2(i)(3)', 'INA 204(k)']) assert.ok(f1.includes(cite), cite);
+  assert.match(f1, /href="\/tools\/relationship-evidence\/married-son-daughter-example"/);
+  assert.match(f1, /<link rel="canonical" href="https:\/\/www\.americanvisaguide\.com\/tools\/relationship-evidence\/unmarried-son-daughter-example">/);
+});
+
+test('unmarried son or daughter (F1) example is linked from the builder, sidebar, checklist and sitemap', () => {
+  const href = '/tools/relationship-evidence/unmarried-son-daughter-example';
+  for (const f of ['tools/relationship-evidence.html', 'js/section-nav.js', 'tools/checklist-i130.html']) {
+    assert.ok(fs.readFileSync(path.join(PUBLIC, f), 'utf8').includes(href), f);
+  }
+  assert.ok(fs.readFileSync(path.join(PUBLIC, 'sitemap.xml'), 'utf8').includes('https://www.americanvisaguide.com' + href));
+});
