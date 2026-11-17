@@ -41,7 +41,8 @@ test('every stage 8 and 9 list item carries a role', () => {
   for (const html of [leave, entry]) {
     for (const id of ['action-list-title', 'before-you-move-on-title']) {
       for (const li of listAfter(html, id).match(/<li\b[\s\S]*?<\/li>/g)) {
-        assert.match(li, /^<li(?: data-workbook="skip")?><span class="role role--(petitioner|beneficiary|either)">/, li.slice(0, 80));
+        // A topic tag ("Domicile", "Public charge") may come before the role tag.
+        assert.match(li, /^<li(?: data-workbook="skip")?>(?:<span class="topic">[^<]+<span class="sr-only">,<\/span><\/span> )?<span class="role role--(petitioner|beneficiary|either)">/, li.slice(0, 80));
       }
     }
   }

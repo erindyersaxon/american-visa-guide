@@ -26,14 +26,6 @@ test('extractStage reads the NVC stage', async () => {
   }
 });
 
-test('extractStage reads the domicile and public charge box, labeled by topic', async () => {
-  const { extractStage } = await load();
-  const stage = extractStage(fs.readFileSync(path.join(PUBLIC, 'guide/i130.html'), 'utf8'), '/guide/i130');
-  assert.ok(stage.thread.some(t => t.who === 'Petitioner' && /^Domicile: Find your situation/.test(t.text)));
-  assert.ok(stage.thread.some(t => t.who === 'Beneficiary' && /^Public charge: Read the five factors/.test(t.text)));
-  for (const t of stage.thread) assert.doesNotMatch(t.text, /[<&]|Done when/, t.text);
-});
-
 test('extractStage reads topic tags and expandable lines in an Action list', async () => {
   const { extractStage } = await load();
   const stage = extractStage(fs.readFileSync(path.join(PUBLIC, 'guide/nvc.html'), 'utf8'), '/guide/nvc');
@@ -44,10 +36,10 @@ test('extractStage reads topic tags and expandable lines in an Action list', asy
   for (const t of stage.actions) assert.doesNotMatch(t.text, /[<&]/, t.text);
 });
 
-test('every stage on the main path has domicile and public charge tasks', async () => {
-  const { loadStages } = await load();
-  const tagged = t => /^(Domicile|Public charge): /.test(t.text);
-  const withTasks = loadStages(PUBLIC).filter(s => [...s.actions, ...s.thread].some(tagged)).map(s => s.url);
+test('every stage on the main path tags its domicile and public charge work', async () => {
+  // Stage 6 confirms earlier work, so its tags sit in Before you move on, not the Action list.
+  const { STAGE_PAGES } = await load();
+  const withTasks = STAGE_PAGES.filter(p => /class="topic"/.test(fs.readFileSync(path.join(PUBLIC, p.file), 'utf8'))).map(p => p.url);
   assert.deepEqual(withTasks, ['/guide/i130', '/guide/nvc', '/guide/waiting', '/guide/interview-letter', '/guide/medical',
     '/guide/interview', '/guide/after-interview', '/guide/before-you-leave']);
 });
