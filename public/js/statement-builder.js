@@ -6,13 +6,17 @@
    wording; a child's statement is written by the petitioner on the
    child's behalf. Empty optional fields drop
    their sentence; empty required fields show as [brackets], and a status
-   bar counts them. Runs in the browser; answers are remembered in
-   localStorage on this device only.
+   bar counts them. Runs in the browser; answers are kept in
+   sessionStorage, so they survive a refresh and the browser deletes them
+   when the tab closes. Nothing is sent to the site.
  */
 (function () {
   'use strict';
 
   const KEY = 'avg-pc-statement-v1';
+  // Earlier versions kept answers in localStorage, which outlives the tab.
+  // Delete any copy left there.
+  try { localStorage.removeItem(KEY); } catch (e) { /* storage unavailable */ }
   const form = document.getElementById('pc-form');
   const out = document.getElementById('pc-out');
   if (!form || !out) return;
@@ -350,11 +354,11 @@
   function save() {
     const data = {};
     fields.forEach(el => { if (el.id) data[el.id] = el.type === 'checkbox' ? el.checked : el.value; });
-    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) { /* storage unavailable */ }
+    try { sessionStorage.setItem(KEY, JSON.stringify(data)); } catch (e) { /* storage unavailable */ }
   }
   function restore() {
     try {
-      const data = JSON.parse(localStorage.getItem(KEY) || 'null');
+      const data = JSON.parse(sessionStorage.getItem(KEY) || 'null');
       if (!data) return;
       fields.forEach(el => {
         if (!el.id || !(el.id in data)) return;
@@ -481,7 +485,7 @@
   });
   document.getElementById('pc-clear').addEventListener('click', () => {
     if (!window.confirm('Clear every answer on this form?')) return;
-    try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
+    try { sessionStorage.removeItem(KEY); } catch (e) { /* ignore */ }
     form.reset();
     syncEvidence(true);
     update();
