@@ -32,6 +32,8 @@
   var PARENT_CHAPTERS = [
     { key: 'birth', title: 'Birth', optional: false,
       layers: ['Full birth certificate naming the parent', 'Parents\u2019 marriage certificate or legitimation record, if any', 'Photos from the first weeks'] },
+    { key: 'step', title: 'Step relationship', optional: true,
+      layers: ['Marriage certificate dated before the child turned 18', 'Divorce or death records ending both spouses\u2019 earlier marriages', 'Photos of the family together'] },
     { key: 'support', title: 'Financial support', optional: false,
       layers: ['Bank transfers or money order receipts', 'Receipts for school fees or medical bills', 'Messages about money for the child'] },
     { key: 'school', title: 'Schooling', optional: false,
@@ -81,6 +83,8 @@
     { key: 'birthcert', title: 'Birth certificate naming the parent', examples: 'Full certificate from the civil registry' },
     { key: 'legitimation', title: 'Legitimation or parents\u2019 marriage', examples: 'Parents\u2019 marriage certificate, or a court or registry record' },
     { key: 'adoption', title: 'Adoption or custody record', examples: 'Adoption decree, court custody order' },
+    { key: 'step', title: 'Marriage creating the step relationship', examples: 'Stepparent\u2019s marriage certificate, dated before the child turned 18' },
+    { key: 'divorce', title: 'Divorce or death record', examples: 'Decree ending an earlier marriage, or a death certificate' },
     { key: 'support', title: 'Financial support', examples: 'Bank transfers, money order receipts, canceled checks' },
     { key: 'school', title: 'School record', examples: 'Admission forms or reports naming the parent' },
     { key: 'medical', title: 'Medical or insurance record', examples: 'Records listing the child as a dependent or beneficiary' },
