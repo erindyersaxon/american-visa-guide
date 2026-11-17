@@ -101,14 +101,14 @@ test('a document row with only a type or issuer is not blank', () => {
   assert.deepEqual(buildTimeline([], [], [{ chapter: 'home' }]), []);
 });
 
-test('template has a joint documents section before the photos, with no photo needed', () => {
+test('template has a financial and legal records section before the photos, with no photo needed', () => {
   const docs = tpl.indexOf('id="doc-table"');
   assert.ok(docs > -1 && docs < tpl.indexOf('id="ph-table"'));
   assert.match(tpl, /docs: \[/);
   assert.doesNotMatch(tpl, /when primary or secondary evidence does not exist or is unavailable/);
 });
 
-test('example leads with joint documents that have no photo', () => {
+test('example leads with financial and legal records that have no photo', () => {
   const { DOC_TYPES } = require('../public/js/evidence-story.js');
   const docs = [...ex.matchAll(/<tr data-doc-chapter="([a-z]+)">([\s\S]*?)<\/tr>/g)];
   assert.equal(docs.length, 2);
