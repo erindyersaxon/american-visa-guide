@@ -44,7 +44,7 @@
       "source": "Track My Visa",
       "title": "I-130 Immediate Relative Consular Processing shows signs of recovery",
       "url": "https://trackmyvisa.com/blog/i130-ir-consular-processing-shows-signs-of-recovery",
-      "note": "After about nine months stuck at priority dates around 25 February 2025, Track My Visa now sees steady USCIS activity on IR consular I-130s. Among cases filed 1 January to 15 March 2025, weekly moves out of Received went from 0–6 in September to 22 and 19 in the first two weeks of November. That is still well below normal, and the front of the line has not moved yet. Unofficial reports say USCIS field offices have started deciding these petitions, and recent approvals came from members near 16 field offices; USCIS has not confirmed this. Estimates stay broad for now, so keep planning around a long wait. If you have an IR consular I-130 pending, add your field office (find it with the [USCIS field office locator](https://www.uscis.gov/about-us/find-a-uscis-office/field-offices)) to your Track My Visa dashboard. See [the I-130 stage](/guide/i130#i130-status)."
+      "note": "After about nine months stuck at priority dates around 25 February 2025, [Track My Visa](https://trackmyvisa.com/) now sees steady USCIS activity on IR consular I-130s. Among cases filed 1 January to 15 March 2025, weekly moves out of Received went from 0–6 in September to 22 and 19 in the first two weeks of November. That is still well below normal, and the front of the line has not moved yet. Unofficial reports say USCIS field offices have started deciding these petitions, and recent approvals came from members near 16 field offices; USCIS has not confirmed this. Estimates stay broad for now, so keep planning around a long wait. If you have an IR consular I-130 pending, add your field office (find it with the [USCIS field office locator](https://www.uscis.gov/about-us/find-a-uscis-office/field-offices)) to your [Track My Visa](https://trackmyvisa.com/) dashboard. See [the I-130 stage](/guide/i130#i130-status)."
     },
     {
       "id": "8d5f5a83f1",
@@ -110,7 +110,7 @@
       "source": "Track My Visa",
       "title": "Early signs of renewed I-130 activity at the front of the line",
       "url": "https://trackmyvisa.com/i130",
-      "note": "Track My Visa reports more case activity on IR consular I-130s at the old front of the line (priority dates around 25 February 2025), though many of those cases still have no decision. It has heard unofficially that some USCIS field offices have started processing them; USCIS has not confirmed this, and Track My Visa has not moved its front-of-line estimate, so plan around the stall. If you have an IR consular I-130 pending, add your USCIS field office to your Track My Visa dashboard to help. See [the I-130 stage](/guide/i130#i130-status)."
+      "note": "[Track My Visa](https://trackmyvisa.com/) reports more case activity on IR consular I-130s at the old front of the line (priority dates around 25 February 2025), though many of those cases still have no decision. It has heard unofficially that some USCIS field offices have started processing them; USCIS has not confirmed this, and [Track My Visa](https://trackmyvisa.com/) has not moved its front-of-line estimate, so plan around the stall. If you have an IR consular I-130 pending, add your USCIS field office to your [Track My Visa](https://trackmyvisa.com/) dashboard to help. See [the I-130 stage](/guide/i130#i130-status)."
     },
     {
       "id": "34a0db3234",
