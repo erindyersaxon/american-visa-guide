@@ -565,10 +565,10 @@ var AVG_DOCS = {
    "need": {
     "i130": "cond",
     "nvc": "yes",
-    "medical": "yes",
+    "medical": "no",
     "interview": "yes"
    },
-   "note": "Strongest first: US tax filings with domestic earned income, a W-2 or US job offer, utility bills across several months, a state ID. A lease or mortgage shows an address, not a residence. If the petitioner has no US record, start one at the I-130 stage: utility bills need months of history. Print a copy for the binder before the medical. See <a href=\"/domicile\">petitioner domicile</a>.",
+   "note": "Strongest first: US tax filings with domestic earned income, a W-2 or US job offer, utility bills across several months, a state ID. A lease or mortgage shows an address, not a residence. If the petitioner has no US record, start one at the I-130 stage: utility bills need months of history. Print a copy for the interview binder. See <a href=\"/domicile\">petitioner domicile</a>.",
    "items": [
     {
      "list": "nvc",
@@ -621,7 +621,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "cond",
     "nvc": "cond",
-    "medical": "cond",
+    "medical": "no",
     "interview": "cond",
     "move": "cond"
    },
@@ -646,7 +646,7 @@ var AVG_DOCS = {
    "need": {
     "i130": "no",
     "nvc": "cond",
-    "medical": "cond",
+    "medical": "no",
     "interview": "cond"
    },
    "note": "Only if a joint sponsor is filing. Same standard as the petitioner&rsquo;s.",

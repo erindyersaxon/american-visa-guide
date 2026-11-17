@@ -26,18 +26,21 @@ test('extractStage reads the NVC stage', async () => {
   }
 });
 
-test('extractStage reads the domicile and public charge box, labeled by topic', async () => {
+test('extractStage reads topic tags and expandable lines in an Action list', async () => {
   const { extractStage } = await load();
   const stage = extractStage(fs.readFileSync(path.join(PUBLIC, 'guide/nvc.html'), 'utf8'), '/guide/nvc');
-  assert.ok(stage.thread.some(t => t.who === 'Petitioner' && /^Domicile: Upload domicile evidence/.test(t.text)));
-  assert.ok(stage.thread.some(t => t.who === 'Beneficiary' && /^Public charge: Draft your statement/.test(t.text)));
-  for (const t of stage.thread) assert.doesNotMatch(t.text, /[<&]|Done when/, t.text);
+  const dom = stage.actions.find(t => /^Domicile: /.test(t.text));
+  assert.equal(dom.who, 'Petitioner');
+  assert.match(dom.text, /utility bills\. If the petitioner lives abroad: Upload a signed letter of intent/);
+  assert.ok(stage.actions.some(t => t.who === 'Beneficiary' && /^Public charge: Draft your public charge statement/.test(t.text)));
+  for (const t of stage.actions) assert.doesNotMatch(t.text, /[<&]/, t.text);
 });
 
-test('every stage on the main path has a domicile and public charge box', async () => {
-  const { loadStages } = await load();
-  const withBox = loadStages(PUBLIC).filter(s => s.thread.length).map(s => s.url);
-  assert.deepEqual(withBox, ['/guide/i130', '/guide/nvc', '/guide/waiting', '/guide/interview-letter', '/guide/medical',
+test('every stage on the main path tags its domicile and public charge work', async () => {
+  // Stage 6 confirms earlier work, so its tags sit in Before you move on, not the Action list.
+  const { STAGE_PAGES } = await load();
+  const withTasks = STAGE_PAGES.filter(p => /class="topic"/.test(fs.readFileSync(path.join(PUBLIC, p.file), 'utf8'))).map(p => p.url);
+  assert.deepEqual(withTasks, ['/guide/i130', '/guide/nvc', '/guide/waiting', '/guide/interview-letter', '/guide/medical',
     '/guide/interview', '/guide/after-interview', '/guide/before-you-leave']);
 });
 

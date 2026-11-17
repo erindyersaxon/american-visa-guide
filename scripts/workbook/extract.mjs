@@ -1,6 +1,6 @@
 // Reads the guide's stage pages for the master workbook's Tasks tab: each
-// page's Action list, then its domicile and public charge box, word for word,
-// one row per piece of work. An <li> with data-workbook="skip" still shows on
+// page's Action list, word for word, one row per piece of work. Tasks tagged
+// "Domicile" or "Public charge" keep the tag as a prefix ("Domicile: ..."). An <li> with data-workbook="skip" still shows on
 // the site but stays out of the workbook: a
 // task a later stage repeats (the owning stage keeps the row), or a pointer to
 // the next stage that is not a piece of work.
@@ -47,34 +47,23 @@ export function htmlToText(html) {
 const POINTER = /([.!?])\s+(?:(?:See|The steps are (?:in|under))\s+)?<a\b[^>]*>[\s\S]*?<\/a>\s*\.\s*$/;
 
 const ROLE = /^\s*<span class="role role--(petitioner|beneficiary|either)">[\s\S]*?<\/span><\/span>\s*/;
+// A topic tag ("Domicile", "Public charge") may come before the role tag.
+const TOPIC = /^\s*<span class="topic">([\s\S]*?)<span class="sr-only">,<\/span><\/span>\s*/;
 
 function itemsOf(listHtml, url) {
   const items = [...listHtml.matchAll(/<li\b([^>]*)>([\s\S]*?)<\/li>/g)];
-  return items.map(([, attrs, inner]) => {
+  return items.map(([, attrs, raw]) => {
+    const topicTag = raw.match(TOPIC);
+    // An expandable line reads as "Summary: detail" in the workbook.
+    const inner = (topicTag ? raw.slice(topicTag[0].length) : raw).replace(/<\/summary>/g, ': </summary>');
     const role = inner.match(ROLE);
     if (!role) throw new Error(`${url}: item without a role tag: ${htmlToText(inner).slice(0, 60)}`);
     const who = role[1][0].toUpperCase() + role[1].slice(1);
     return {
       who,
-      text: htmlToText(inner.slice(role[0].length).replace(POINTER, '$1')),
+      text: (topicTag ? `${htmlToText(topicTag[1])}: ` : '') + htmlToText(inner.slice(role[0].length).replace(POINTER, '$1')),
       skip: /\bdata-workbook="skip"/.test(attrs),
     };
-  });
-}
-
-// The "Domicile and public charge" box: one list per topic, each under its
-// <h3>. Rows carry the topic as a prefix ("Public charge: ...") so the Tasks
-// tab shows which thread a task belongs to. Pages without the box return [].
-function threadOf(html, url) {
-  const at = html.indexOf('id="domicile-public-charge"');
-  if (at < 0) return [];
-  const end = html.indexOf('</section>', at);
-  const box = html.slice(at, end);
-  const rows = [...box.matchAll(/<h3>([\s\S]*?)<\/h3>\s*<ul>([\s\S]*?)<\/ul>/g)];
-  if (!rows.length) throw new Error(`${url}: empty domicile and public charge box`);
-  return rows.flatMap(([, title, list]) => {
-    const topic = htmlToText(title).replace(/^Petitioner domicile$/, 'Domicile');
-    return itemsOf(list, url).map(t => ({ ...t, text: `${topic}: ${t.text}` }));
   });
 }
 
@@ -100,7 +89,6 @@ export function extractStage(source, url) {
     title: htmlToText(h1[1]),
     url,
     actions: listAfter(html, 'action-list-title', url),
-    thread: threadOf(html, url),
   };
 }
 
