@@ -163,6 +163,35 @@
   .otp li { margin:0 0 6px; font-size:15px; line-height:1.4; break-inside:avoid; }
   .otp.otp a { color:#0f172a; text-decoration:underline; text-underline-offset:2px; }
 
+
+  /* Community data: takeaways, state picker, ranked bars (17 Nov 2026) */
+  .data-take{font-size:16px;line-height:1.6;color:rgba(15,23,42,0.85)}
+  .map-header-left .data-take{margin-bottom:8px}
+  .data-take strong{color:var(--white)}
+  .legend-none{display:inline-block;width:14px;height:10px;border-radius:2px;background:rgba(15,23,42,0.07);border:1px solid rgba(15,23,42,0.15)}
+  #us-map .state{cursor:pointer}
+  #us-map .state.selected{stroke:#0f172a;stroke-width:2.5}
+  .state-pick{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:16px 0 0}
+  .state-pick label{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--white)}
+  .state-pick select{width:240px;max-width:100%;min-height:44px;font:inherit;font-size:15px;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--white)}
+  .state-panel{flex:1 1 100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;min-height:52px;padding:10px 14px;background:#f8fafc;border:1px solid var(--border-subtle);border-radius:8px;font-size:15px;color:rgba(15,23,42,0.85)}
+  .state-panel strong{color:var(--white)}
+  .state-join{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;background:var(--accent);color:#fff;font-family:var(--font-ui);font-size:14px;font-weight:700;border-radius:var(--radius-md,0.375rem);text-decoration:none}
+  .state-none{font-size:14px;color:var(--muted)}
+  .state-none a{color:#1A5FB4}
+  .rank-h{font-family:var(--font-ui);font-size:15px;font-weight:700;color:var(--white);margin:28px 0 8px}
+  .rank-bars{list-style:none;margin:0;padding:0}
+  .rank-row{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) 2.5rem;align-items:center;gap:12px;padding:5px 0;border-bottom:1px solid var(--border-subtle)}
+  .rank-row:last-child{border-bottom:0}
+  .rank-row[hidden]{display:none}
+  .rank-name{font-size:15px;color:rgba(15,23,42,0.85);overflow-wrap:anywhere}
+  .rank-track{display:block;height:14px}
+  .rank-bar{display:block;height:100%;background:#3E7188;border-radius:0 4px 4px 0}
+  .rank-n{font-family:var(--font-ui);font-size:15px;font-weight:700;color:var(--white);text-align:right;font-variant-numeric:tabular-nums}
+  .rank-empty{font-size:14px;color:var(--muted)}
+  .rank-more{margin-top:8px;min-height:44px;padding:0;background:none;border:0;font-family:var(--font-ui);font-size:15px;font-weight:600;color:#1A5FB4;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .pc-tag{display:inline-block;font-family:var(--font-ui);font-size:12px;font-weight:700;color:#2A5568;background:#DCE8EE;border-radius:999px;padding:1px 8px;margin-left:4px;white-space:nowrap}
+  @media (max-width:560px){.rank-row{grid-template-columns:minmax(0,1fr) 2.5rem}.rank-track{grid-column:1/-1;grid-row:2}.state-pick select{width:100%}}
   /* Timeline sections (restructure 17 Nov 2026) */
   .tl-section{margin-bottom:64px}
   .tl-h2{font-family:var(--font-display);font-size:26px;font-weight:700;line-height:1.25;color:var(--white);margin:0 0 8px;display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;scroll-margin-top:80px}
@@ -252,19 +281,19 @@
     <h2 id="community" class="tl-h2">Find your people</h2>
     <p>London members have set up regional Signal groups for support after you arrive. These are independent community groups, not run by American Visa Guide or any official organization. Signal means you do not share your phone number until you choose to.</p>
     <ul class="chat-grid" data-no-glossary>
-        <li><a href="https://signal.group/#CjQKIMD2fQH9iv1HR2L57E2sclJ7498TcZ6Q2ZObsYL6ymjOEhBGFKb1VkTZxsge0bF-MJhJ" target="_blank" rel="noopener noreferrer"><span class="chat-region">California</span><span class="chat-join">Join on Signal</span></a></li>
-        <li><a href="https://signal.group/#CjQKIBXiKQ7zWgazmTdn3b33-w0ya-3KAHgiFS8scmVa7V05EhABwIKm4syq28-6gELecrWt" target="_blank" rel="noopener noreferrer"><span class="chat-region">Coastal Southeast (NC, SC, GA, FL)</span><span class="chat-join">Join on Signal</span></a></li>
-        <li><a href="https://signal.group/#CjQKIEj1_o5mzvCgWCHgFECzQ7LBqilYEWkTa3rw_jzyAHKkEhDQJEoEF6xdRxwYGN1WOXW-" target="_blank" rel="noopener noreferrer"><span class="chat-region">In &amp; Around DC (DC, MD, VA, WV, DE)</span><span class="chat-join">Join on Signal</span></a></li>
-        <li><a href="https://signal.group/#CjQKIAeyhYHSb9I170b611Yq0FNRgtnKc3Bfupk6UKoCUYlTEhAfGAxB1xjklQvxOhlhUCeM" target="_blank" rel="noopener noreferrer"><span class="chat-region">Massachusetts / New England</span><span class="chat-join">Join on Signal</span></a></li>
-        <li><a href="https://signal.group/#CjQKIG8DSOU6jVKRi2sbgJaumVuscU3jF9Zvbv8t3lRLvRYnEhB-p5dC27cp_iDcSESkbiku" target="_blank" rel="noopener noreferrer"><span class="chat-region">Midwest (IL, IN, IA, KS, MI, MN, MO, NE, ND, OH, SD, WI)</span><span class="chat-join">Join on Signal</span></a></li>
-        <li><a href="https://signal.group/#CjQKIGw6mz_5Tc0oSBuvXRbBYNyn4HUwRfzImBcrgUDTKnpmEhBqxDIqZX38q-MbZkj-BM8q" target="_blank" rel="noopener noreferrer"><span class="chat-region">Mountain West (AZ, CO, ID, MT, NV, NM, UT, WY)</span><span class="chat-join">Join on Signal</span></a></li>
-        <li><a href="https://signal.group/#CjQKICsxtyRWAttZ_jnM2DEKo0TEDli5qCJGi4D403ZljAPsEhCCgzUp_zfpRNVmva_Cfh4P" target="_blank" rel="noopener noreferrer"><span class="chat-region">Pacific Northwest (WA, OR, AK)</span><span class="chat-join">Join on Signal</span></a></li>
-        <li><a href="https://signal.group/#CjQKINusxf6JUKFPuHs96JlpArzAuiWk4OFb7NUKlc5xxqJWEhBKrPyOLRdvY_EplNmJwj-L" target="_blank" rel="noopener noreferrer"><span class="chat-region">Texas</span><span class="chat-join">Join on Signal</span></a></li>
-        <li><a href="https://signal.group/#CjQKID-1DdoWYLsOjrevKwlG8lBX2J8mW7sayAawldSNXZNoEhB_tiPQluoghIABivGa9HJO" target="_blank" rel="noopener noreferrer"><span class="chat-region">Tri-State Area (NY, NJ, CT)</span><span class="chat-join">Join on Signal</span></a></li>
+        <li data-states="California"><a href="https://signal.group/#CjQKIMD2fQH9iv1HR2L57E2sclJ7498TcZ6Q2ZObsYL6ymjOEhBGFKb1VkTZxsge0bF-MJhJ" target="_blank" rel="noopener noreferrer"><span class="chat-region">California</span><span class="chat-join">Join on Signal</span></a></li>
+        <li data-states="North Carolina|South Carolina|Georgia|Florida"><a href="https://signal.group/#CjQKIBXiKQ7zWgazmTdn3b33-w0ya-3KAHgiFS8scmVa7V05EhABwIKm4syq28-6gELecrWt" target="_blank" rel="noopener noreferrer"><span class="chat-region">Coastal Southeast (NC, SC, GA, FL)</span><span class="chat-join">Join on Signal</span></a></li>
+        <li data-states="District of Columbia|Maryland|Virginia|West Virginia|Delaware"><a href="https://signal.group/#CjQKIEj1_o5mzvCgWCHgFECzQ7LBqilYEWkTa3rw_jzyAHKkEhDQJEoEF6xdRxwYGN1WOXW-" target="_blank" rel="noopener noreferrer"><span class="chat-region">In &amp; Around DC (DC, MD, VA, WV, DE)</span><span class="chat-join">Join on Signal</span></a></li>
+        <li data-states="Massachusetts|Maine|New Hampshire|Vermont|Rhode Island"><a href="https://signal.group/#CjQKIAeyhYHSb9I170b611Yq0FNRgtnKc3Bfupk6UKoCUYlTEhAfGAxB1xjklQvxOhlhUCeM" target="_blank" rel="noopener noreferrer"><span class="chat-region">Massachusetts / New England</span><span class="chat-join">Join on Signal</span></a></li>
+        <li data-states="Illinois|Indiana|Iowa|Kansas|Michigan|Minnesota|Missouri|Nebraska|North Dakota|Ohio|South Dakota|Wisconsin"><a href="https://signal.group/#CjQKIG8DSOU6jVKRi2sbgJaumVuscU3jF9Zvbv8t3lRLvRYnEhB-p5dC27cp_iDcSESkbiku" target="_blank" rel="noopener noreferrer"><span class="chat-region">Midwest (IL, IN, IA, KS, MI, MN, MO, NE, ND, OH, SD, WI)</span><span class="chat-join">Join on Signal</span></a></li>
+        <li data-states="Arizona|Colorado|Idaho|Montana|Nevada|New Mexico|Utah|Wyoming"><a href="https://signal.group/#CjQKIGw6mz_5Tc0oSBuvXRbBYNyn4HUwRfzImBcrgUDTKnpmEhBqxDIqZX38q-MbZkj-BM8q" target="_blank" rel="noopener noreferrer"><span class="chat-region">Mountain West (AZ, CO, ID, MT, NV, NM, UT, WY)</span><span class="chat-join">Join on Signal</span></a></li>
+        <li data-states="Washington|Oregon|Alaska"><a href="https://signal.group/#CjQKICsxtyRWAttZ_jnM2DEKo0TEDli5qCJGi4D403ZljAPsEhCCgzUp_zfpRNVmva_Cfh4P" target="_blank" rel="noopener noreferrer"><span class="chat-region">Pacific Northwest (WA, OR, AK)</span><span class="chat-join">Join on Signal</span></a></li>
+        <li data-states="Texas"><a href="https://signal.group/#CjQKINusxf6JUKFPuHs96JlpArzAuiWk4OFb7NUKlc5xxqJWEhBKrPyOLRdvY_EplNmJwj-L" target="_blank" rel="noopener noreferrer"><span class="chat-region">Texas</span><span class="chat-join">Join on Signal</span></a></li>
+        <li data-states="New York|New Jersey|Connecticut"><a href="https://signal.group/#CjQKID-1DdoWYLsOjrevKwlG8lBX2J8mW7sayAawldSNXZNoEhB_tiPQluoghIABivGa9HJO" target="_blank" rel="noopener noreferrer"><span class="chat-region">Tri-State Area (NY, NJ, CT)</span><span class="chat-join">Join on Signal</span></a></li>
     </ul>
     <div class="snap" aria-label="Community snapshot">
       <div><div class="snap-n" id="snap-members">n/a</div><div class="snap-l">members settled in</div></div>
-      <div><div class="snap-n" id="snap-states">n/a</div><div class="snap-l">states</div></div>
+      <div><div class="snap-n" id="snap-states">n/a</div><div class="snap-l">states and territories</div></div>
       <div><div class="snap-n" id="snap-ssn">n/a</div><div class="snap-l" id="snap-ssn-l">median days to SSN card</div></div>
       <div><div class="snap-n" id="snap-gc">n/a</div><div class="snap-l" id="snap-gc-l">median days to green card</div></div>
     </div>
@@ -1039,40 +1068,32 @@
     <div class="map-header">
       <div class="map-header-left">
         <h3 id="settled">Where the community has settled</h3>
-        <p>Community-submitted data. Updates as members report their state of residence.</p>
-      </div>
-      <div class="map-stats">
-        <div class="map-stat">
-          <div class="map-stat-num" id="stat-total">n/a</div>
-          <div class="map-stat-label">members with state data</div>
-        </div>
-        <div class="map-stat">
-          <div class="map-stat-num" id="stat-states">n/a</div>
-          <div class="map-stat-label">states represented</div>
-        </div>
+        <p class="data-take" id="map-take">Loading community data&hellip;</p>
       </div>
     </div>
 
     <div class="map-wrap">
-      <svg id="us-map" viewBox="0 0 960 500"></svg>
+      <svg id="us-map" viewBox="0 0 960 500" role="img" aria-labelledby="map-take"></svg>
     </div>
 
-    <div class="map-legend">
-      <span class="map-legend-label">Members:</span>
-      <svg width="200" height="10" id="legend-svg" style="border-radius:3px;overflow:hidden"></svg>
-      <div class="legend-ends" id="legend-ends" style="min-width:200px"><span>1</span><span id="legend-max">n/a</span></div>
+    <div class="map-legend" aria-hidden="true">
+      <span class="legend-none"></span><span class="map-legend-label">No members yet</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;white-space:nowrap;margin-left:12px"><span class="map-legend-label">1</span>
+      <svg width="160" height="10" id="legend-svg" style="border-radius:3px;overflow:hidden"></svg>
+      <span class="map-legend-label" id="legend-max">n/a</span></span>
     </div>
 
-
-
-    <!-- State leaderboard -->
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:24px;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
-      <div style="font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--muted);">By state</div>
-      <div style="color:var(--muted);">Community data: <a href="https://www.americanvisaguide.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal-light);text-decoration:none;font-weight:600;">americanvisaguide.com</a></div>
+    <div class="state-pick">
+      <label for="state-select">Your state</label>
+      <select id="state-select"><option value="">Choose a state</option></select>
+      <div class="state-panel" id="state-panel" aria-live="polite">Tap a state on the map, or choose one here, to see how many members live there and which regional group covers it.</div>
     </div>
-    <div class="state-board" id="state-board" data-no-glossary>
-      <div style="font-size:14px;color:var(--muted);">Loading...</div>
-    </div>
+
+    <h4 class="rank-h">Members by state</h4>
+    <ol class="rank-bars" id="state-board" data-no-glossary>
+      <li class="rank-empty">Loading&hellip;</li>
+    </ol>
+    <button type="button" class="rank-more" id="state-more" aria-controls="state-board" aria-expanded="false" hidden></button>
   </div>
 
   <!-- TOP ENTRY AIRPORTS -->
@@ -1080,18 +1101,14 @@
     <div class="map-header">
       <div class="map-header-left">
         <h3 id="airports">Entry airports</h3>
-        <p>Where members first entered the US and activated their green cards. Pre-clearance (Dublin, Shannon) counts as the port of entry.</p>
-      </div>
-      <div class="map-stats">
-        <div class="map-stat">
-          <div class="map-stat-num" id="airport-total">n/a</div>
-          <div class="map-stat-label">members with entry data</div>
-        </div>
+        <p class="data-take" id="airport-take">Loading community data&hellip;</p>
+        <p>Where members first entered the US and activated their green cards. At a <span class="pc-tag">pre-clearance</span> airport, such as Dublin or Shannon, CBP inspects you before you board, so that airport counts as your port of entry.</p>
       </div>
     </div>
-    <div class="state-board" id="airport-board" data-no-glossary style="margin-top:0;grid-template-columns:repeat(auto-fill,minmax(min(220px, 100%), 1fr))">
-      <div style="font-size:14px;color:var(--muted);">Loading...</div>
-    </div>
+    <ol class="rank-bars" id="airport-board" data-no-glossary>
+      <li class="rank-empty">Loading&hellip;</li>
+    </ol>
+    <button type="button" class="rank-more" id="airport-more" aria-controls="airport-board" aria-expanded="false" hidden></button>
   </div>
 
   <!-- TRACKER MEMO -->
@@ -1146,36 +1163,84 @@
 const INSETS = new Set(['Alaska','Hawaii','Puerto Rico','US Virgin Islands','Guam','American Samoa','Northern Mariana Islands']);
 const INSET_ABBR = {'Alaska':'AK','Hawaii':'HI','Puerto Rico':'PR','US Virgin Islands':'VI','Guam':'GU','American Samoa':'AS','Northern Mariana Islands':'MP'};
 
-// Color scale: none → deep teal → gold
+// Sequential steel-blue scale (sqrt for perceptual balance); empty states stay neutral
+const MAP_EMPTY = 'rgba(15,23,42,0.07)';
 const colorScale = (count, max) => {
-  if (!count || count === 0) return 'rgba(15,23,42,0.07)';
-  const t = Math.sqrt(count / max); // sqrt for perceptual balance
-  // interpolate teal → gold
-  const r = Math.round(42  + (200 - 42)  * t);
-  const g = Math.round(157 + (169 - 157) * t);
-  const b = Math.round(143 + (110 - 143) * t);
-  const a = 0.25 + 0.65 * t;
-  return `rgba(${r},${g},${b},${a})`;
+  if (!count) return MAP_EMPTY;
+  return d3.interpolateRgb('#DCE8EE', '#2A5568')(Math.sqrt(count / max));
 };
 
-function renderAirports(airports) {
-  const board = document.getElementById('airport-board');
-  const sorted = Object.entries(airports)
-    .filter(([,c]) => c > 0)
-    .sort(([,a],[,b]) => b - a);
-  const total = sorted.reduce((sum, [,c]) => sum + c, 0);
-  document.getElementById('airport-total').textContent = total || 'n/a';
+const RANK_LIMIT = 8;
+const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const plural = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
 
-  if (sorted.length === 0) {
-    board.innerHTML = '<div style="font-size:14px;color:var(--muted);grid-column:1/-1">No entry airport data yet: be the first to submit yours.</div>';
-    return;
-  }
-  board.innerHTML = sorted.map(([name, count], i) => `
-    <div class="state-row${i < 3 ? ' top' : ''}">
-      <span class="state-rank">${i+1}</span>
-      <span class="state-name">${name}</span>
-      <span class="state-count">${count}</span>
-    </div>`).join('');
+// Ranked bar list with a "show all" toggle
+function renderBars(listId, btnId, rows, noun, labelFn) {
+  const list = document.getElementById(listId), btn = document.getElementById(btnId);
+  if (!rows.length) { list.innerHTML = '<li class="rank-empty">No ' + noun + ' data yet: be the first to submit yours.</li>'; btn.hidden = true; return; }
+  const max = rows[0][1];
+  list.innerHTML = rows.map(([name, count], i) => `
+    <li class="rank-row"${i >= RANK_LIMIT ? ' data-extra hidden' : ''}>
+      <span class="rank-name">${labelFn ? labelFn(name) : esc(name)}</span>
+      <span class="rank-track" aria-hidden="true"><span class="rank-bar" style="width:${Math.max(2, Math.round(count / max * 100))}%"></span></span>
+      <span class="rank-n">${count}</span>
+    </li>`).join('');
+  btn.hidden = rows.length <= RANK_LIMIT;
+  const label = open => open ? 'Show top ' + RANK_LIMIT : 'Show all ' + rows.length + ' ' + noun + 's';
+  btn.textContent = label(false);
+  btn.onclick = () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    list.querySelectorAll('[data-extra]').forEach(li => { li.hidden = !open; });
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = label(open);
+  };
+}
+
+const isPreclear = name => /pre-?clearance/i.test(name);
+const airportName = name => name.replace(/\s*pre-?clearance\s*/i, ' ').replace(/\s+/g, ' ').trim();
+function airportLabel(name) {
+  return isPreclear(name) ? esc(airportName(name)) + ' <span class="pc-tag">pre-clearance</span>' : esc(name);
+}
+const airportShort = name => isPreclear(name) ? airportName(name).replace(/\s*\(.*\)$/, '') + ' pre-clearance' : name.replace(/\s*\(.*\)$/, '');
+
+function renderAirports(airports) {
+  const sorted = Object.entries(airports).filter(([,c]) => c > 0).sort(([,a],[,b]) => b - a);
+  // "Other" always sits last, whatever its count
+  const other = sorted.filter(([n]) => /^other$/i.test(n));
+  const rows = sorted.filter(([n]) => !/^other$/i.test(n)).concat(other);
+  const total = rows.reduce((sum, [,c]) => sum + c, 0);
+  const named = rows.filter(([n]) => !/^other$/i.test(n));
+  const take = document.getElementById('airport-take');
+  if (named.length) {
+    let t = `<strong>${esc(airportShort(named[0][0]))} is the most common entry point (${named[0][1]} of ${total}).</strong>`;
+    if (named.length >= 3) t += ` ${esc(airportShort(named[1][0]))} and ${esc(airportShort(named[2][0]))} come next.`;
+    take.innerHTML = t;
+  } else take.textContent = 'No entry airport data yet.';
+  renderBars('airport-board', 'airport-more', rows, 'entry point', airportLabel);
+}
+
+// Regional Signal groups, read from the "Find your people" card
+const REGIONS = [...document.querySelectorAll('.chat-grid li[data-states]')].map(li => ({
+  name: li.querySelector('.chat-region').textContent.replace(/\s*\(.*\)$/, ''),
+  url: li.querySelector('a').href,
+  states: li.dataset.states.split('|'),
+}));
+const regionFor = state => REGIONS.find(r => r.states.includes(state));
+
+let mapCounts = {};
+function selectState(name) {
+  const panel = document.getElementById('state-panel');
+  const sel = document.getElementById('state-select');
+  if (sel.value !== name) sel.value = name;
+  d3.selectAll('#us-map .state').classed('selected', d => d.properties.name === name)
+    .filter(d => d.properties.name === name).raise();
+  if (!name) { panel.textContent = 'Tap a state on the map, or choose one here, to see how many members live there and which regional group covers it.'; return; }
+  const n = mapCounts[name] || 0;
+  const region = regionFor(name);
+  const who = `<span><strong>${esc(name)}</strong>: ${n ? plural(n, 'member') : 'no members yet'}</span>`;
+  panel.innerHTML = who + (region
+    ? `<a class="state-join" href="${esc(region.url)}" target="_blank" rel="noopener noreferrer">Join the ${esc(region.name)} group on Signal</a>`
+    : `<span class="state-none">No regional group covers ${esc(name)} yet. <a href="#community">See the nearest groups</a>.</span>`);
 }
 
 async function buildMap() {
@@ -1186,45 +1251,45 @@ async function buildMap() {
     const data = await res.json();
     dist = data.state_distribution || {};
     renderAirports(data.entry_airports || {});
-  } catch(e) { console.warn('API error', e); }
+  } catch(e) { console.warn('API error', e); renderAirports({}); }
 
-  // Load US TopoJSON
+  const counts = {};
+  for (const [k, v] of Object.entries(dist)) counts[k] = (counts[k] || 0) + v;
+  mapCounts = counts;
+
+  const sorted = Object.entries(counts).filter(([,c]) => c > 0).sort(([,a],[,b]) => b - a);
+  const total = sorted.reduce((a, [,c]) => a + c, 0);
+  document.getElementById('snap-members').textContent = total || 'n/a';
+  document.getElementById('snap-states').textContent = sorted.length || 'n/a';
+
+  const take = document.getElementById('map-take');
+  if (sorted.length) {
+    let t = `<strong>${plural(total, 'member')} in ${sorted.length} states and territories.</strong>`;
+    t += ` ${esc(sorted[0][0])} leads with ${sorted[0][1]}`;
+    t += sorted.length > 1 && sorted[1][1] < sorted[0][1] ? `, then ${esc(sorted[1][0])} with ${sorted[1][1]}.` : '.';
+    take.innerHTML = t;
+  } else take.textContent = 'No state data yet: be the first to submit yours.';
+  renderBars('state-board', 'state-more', sorted, 'state', null);
+
+  // Map
   const us = await d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
   const stateFeatures = topojson.feature(us, us.objects.states).features;
   const stateMesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
-
-  // Normalize: map full state names to counts
-  const fipsByName = {};
-  stateFeatures.forEach(f => { fipsByName[f.properties.name] = f.id; });
-
-  // Build count map keyed by state name
-  const counts = {};
-  for (const [k, v] of Object.entries(dist)) {
-    // k might be full name or abbreviation
-    counts[k] = (counts[k] || 0) + v;
-  }
-
-  const mainCounts = Object.fromEntries(Object.entries(counts).filter(([k]) => !INSETS.has(k)));
-  const max = Math.max(1, ...Object.values(mainCounts));
-
-  // Total + states count
-  const total = Object.values(counts).reduce((a,b) => a+b, 0);
-  const statesCount = Object.keys(mainCounts).filter(k => counts[k] > 0).length;
-  document.getElementById('stat-total').textContent = total || 'n/a';
-  document.getElementById('stat-states').textContent = statesCount || 'n/a';
-  document.getElementById('snap-members').textContent = total || 'n/a';
-  document.getElementById('snap-states').textContent = statesCount || 'n/a';
+  const max = Math.max(1, ...Object.values(counts));
   document.getElementById('legend-max').textContent = max;
 
-  // Draw map
+  const sel = document.getElementById('state-select');
+  stateFeatures.map(f => f.properties.name).sort().forEach(n => sel.add(new Option(n, n)));
+  sel.addEventListener('change', () => selectState(sel.value));
+
   const svg = d3.select('#us-map');
   const width = 960, height = 500;
   const projection = d3.geoAlbersUsa().scale(1300).translate([width/2, height/2]);
   const path = d3.geoPath().projection(projection);
+  const tt = document.getElementById('tooltip');
 
-  // State fills
   svg.selectAll('.state')
-    .data(stateFeatures)
+    .data(stateFeatures.filter(f => path(f)))
     .join('path')
     .attr('class', d => `state${(counts[d.properties.name]||0) > 0 ? ' has-data' : ''}`)
     .attr('d', path)
@@ -1233,57 +1298,32 @@ async function buildMap() {
       const c = counts[d.properties.name] || 0;
       document.getElementById('tt-name').textContent = d.properties.name;
       document.getElementById('tt-count').textContent = c || '0';
-      document.getElementById('tt-label').textContent = c === 1 ? 'member' : c > 1 ? 'members' : 'no data yet';
-      const tt = document.getElementById('tooltip');
+      document.getElementById('tt-label').textContent = c === 1 ? 'member' : c > 1 ? 'members' : 'no members yet';
       tt.style.display = 'block';
       tt.style.left = (event.clientX + 14) + 'px';
       tt.style.top  = (event.clientY - 10) + 'px';
     })
-    .on('mouseleave', () => { document.getElementById('tooltip').style.display = 'none'; });
+    .on('mouseleave', () => { tt.style.display = 'none'; })
+    .on('click', (event, d) => { tt.style.display = 'none'; selectState(d.properties.name); });
 
-  // State borders
   svg.append('path')
     .datum(stateMesh)
     .attr('fill', 'none')
     .attr('stroke', 'rgba(15,23,42,0.25)')
     .attr('stroke-width', 0.5)
+    .attr('pointer-events', 'none')
     .attr('d', path);
 
   // Legend gradient
   const lsvg = d3.select('#legend-svg');
-  const defs = lsvg.append('defs');
-  const grad = defs.append('linearGradient').attr('id','map-grad');
-  const steps = 10;
-  for (let i = 0; i <= steps; i++) {
-    grad.append('stop')
-      .attr('offset', `${i*100/steps}%`)
-      .attr('stop-color', colorScale(i/steps * max, max));
+  const grad = lsvg.append('defs').append('linearGradient').attr('id','map-grad');
+  for (let i = 1; i <= 10; i++) {
+    grad.append('stop').attr('offset', `${(i-1)*100/9}%`).attr('stop-color', colorScale(i/10 * max, max));
   }
-  lsvg.append('rect').attr('width',200).attr('height',10).attr('rx',3).style('fill','url(#map-grad)');
+  lsvg.append('rect').attr('width',160).attr('height',10).attr('rx',3).style('fill','url(#map-grad)');
 
-
-
-  // State leaderboard
-  const board = document.getElementById('state-board');
-  // Include all locations with data: states + territories
-  const allCounts = {};
-  for (const [k, v] of Object.entries(counts)) {
-    allCounts[k] = v;
-  }
-  const sorted = Object.entries(allCounts)
-    .filter(([,c]) => c > 0)
-    .sort(([,a],[,b]) => b - a);
-
-  if (sorted.length === 0) {
-    board.innerHTML = '<div style="font-size:14px;color:var(--muted);grid-column:1/-1">No state data yet: be the first to submit yours.</div>';
-  } else {
-    board.innerHTML = sorted.map(([name, count], i) => `
-      <div class="state-row${i < 3 ? ' top' : ''}">
-        <span class="state-rank">${i+1}</span>
-        <span class="state-name">${name}</span>
-        <span class="state-count">${count}</span>
-      </div>`).join('');
-  }
+  // Open on the largest community so the panel shows what it does
+  if (sorted.length) selectState(sorted[0][0]);
 }
 
 function toggleSubAcc(id) {
