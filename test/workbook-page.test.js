@@ -12,7 +12,7 @@ const page = read('tools/workbook.html');
 test('the workbook page is the download page', () => {
   assert.match(page, /<h1[^>]*>Master workbook<\/h1>/);
   assert.ok(page.includes('href="/downloads/american-visa-guide-master-workbook.xlsx"'));
-  assert.ok(page.includes('href="https://docs.google.com/spreadsheets/d/13oEUhQLu5Ik8jtWNhbTOnSY2n7AVBt-WaXPNsAEaUHc/copy"'));
+  assert.ok(page.includes('href="https://docs.google.com/spreadsheets/d/1_IjUQpvfJsr1hZ3NTikashR73iAI6FKS0Y4rkKjpdew/copy"'));
   for (const tab of ['Tasks', 'Documents', 'Costs', 'Boxes', 'About']) assert.ok(page.includes(tab), tab);
   assert.ok(page.includes('Nikki'));
   assert.doesNotMatch(page, /<table\b/);
