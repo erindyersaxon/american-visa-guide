@@ -129,6 +129,8 @@
     .tl-stat-card{background:rgba(15,23,42,0.04);border:1px solid var(--border-subtle);border-radius: var(--radius-md, 0.375rem);padding:12px 14px}
     .tl-stat-val{font-family:var(--font-body);font-variant-numeric:tabular-nums;font-size:22px;font-weight:600;color:var(--accent);line-height:1;margin-bottom:3px}
     .tl-stat-label{font-size:13px;color:var(--muted)}
+    .tl-stat-meta{font-size:13px;color:rgba(15,23,42,0.85);margin-top:6px;font-variant-numeric:tabular-nums}
+    .tl-shown{font-size:14px;color:var(--muted);margin:0 0 8px}
     .tl-pill{display:inline-block;font-size:13px;padding:2px 7px;border-radius:4px;font-weight:700;font-family:var(--font-ui)}
     .tl-pill-yes{background:rgba(127,29,29,0.15);color:var(--red)}
     .tl-pill-no{background:rgba(79,133,115,0.12);color:var(--teal-light)}
@@ -1122,17 +1124,7 @@
     <div class="map-header">
       <div class="map-header-left">
         <h3 id="timelines">Green card &amp; SSN timelines: community data</h3>
-        <p>Days from entry date, by state. Based on community submissions. Median shown where 2+ data points exist.</p>
-      </div>
-      <div class="map-stats">
-        <div class="map-stat">
-          <div class="map-stat-num" id="tl-count">n/a</div>
-          <div class="map-stat-label">submissions</div>
-        </div>
-        <div class="map-stat">
-          <div class="map-stat-num" id="tl-int-rate">n/a</div>
-          <div class="map-stat-label">intervention rate</div>
-        </div>
+        <p>Days from your US entry date until each card arrived, from members' own reports. Each figure shows the median, the middle half of reports (the interquartile range, or IQR) and how many members reported it (n). Below 10 reports there is no summary.</p>
       </div>
     </div>
 
@@ -1147,10 +1139,10 @@
     </div>
 
     <!-- Summary stat cards -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(140px, 100%), 1fr));gap:8px;margin-bottom:24px" id="tl-stats"></div>
+    <p class="tl-shown" id="tl-shown" aria-live="polite"></p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px, 100%), 1fr));gap:8px;margin-bottom:24px" id="tl-stats"></div>
 
-    <!-- State median table -->
-    <p style="font-size:14px;color:var(--muted);margin-top:16px">Days measured from date of US entry. Intervention = any action beyond automatic processing: SSA office visit, USCIS call, I-90 filing, live agent contact for tracking, congressional inquiry, etc. Single-state entries show exact days rather than median.</p>
+    <p style="font-size:14px;color:var(--muted);margin-top:16px">An intervention is any action beyond waiting: an SSA office visit, a USCIS call, filing Form I-90, a live agent request to trace the card, or a congressional inquiry. Community experience, not official processing times.</p>
   </div>
   </section>
 
@@ -1410,7 +1402,15 @@ const TL_DATA = [
 
 (function(){
   function daysBetween(a,b){if(!a||!b)return null;return Math.round((new Date(b)-new Date(a))/86400000);}
-  function median(arr){if(!arr.length)return null;const s=[...arr].sort((a,b)=>a-b);const m=Math.floor(s.length/2);return s.length%2?s[m]:Math.round((s[m-1]+s[m])/2);}
+  // Quartile with linear interpolation; same method as the "Find your people" snapshot
+  function q(s,p){const i=(s.length-1)*p,lo=Math.floor(i),hi=Math.ceil(i);return Math.round(s[lo]+(s[hi]-s[lo])*(i-lo));}
+  const MIN_N = 10, SMALL_N = 30;
+  function statCard(days, label){
+    const s = days.filter(d=>d!==null&&d>=0).sort((a,b)=>a-b), n = s.length;
+    if(n < MIN_N) return `<div class="tl-stat-card"><div class="tl-stat-val">n/a</div><div class="tl-stat-label">${label}</div><div class="tl-stat-meta">Too few reports for a summary (n=${n})</div></div>`;
+    return `<div class="tl-stat-card"><div class="tl-stat-val">${q(s,0.5)} days</div><div class="tl-stat-label">${label}</div>
+      <div class="tl-stat-meta">Middle half: ${q(s,0.25)}&ndash;${q(s,0.75)} days &middot; n=${n}${n<=SMALL_N?' &middot; small sample':''}</div></div>`;
+  }
 
   const processed = TL_DATA.map(r=>({
     ...r,
@@ -1440,23 +1440,15 @@ const TL_DATA = [
   function renderTL(){
     const rows = getFiltered();
 
-    // Summary stats
-    const validSSN = rows.filter(r=>r.ssn_days!==null);
-    const validGC  = rows.filter(r=>r.gc_days!==null);
     const intCount = rows.filter(r=>r.ssn_int||r.gc_int).length;
-    const medSSN   = median(validSSN.map(r=>r.ssn_days));
-    const medGC    = median(validGC.map(r=>r.gc_days));
-
-    document.getElementById('tl-count').textContent = rows.length||'n/a';
-    document.getElementById('tl-int-rate').textContent = rows.length ? Math.round(intCount/rows.length*100)+'%' : 'n/a';
-
-    document.getElementById('tl-stats').innerHTML = `
-      <div class="tl-stat-card"><div class="tl-stat-val">${rows.length}</div><div class="tl-stat-label">cases shown</div></div>
-      <div class="tl-stat-card"><div class="tl-stat-val">${medSSN!==null?medSSN+'d':'n/a'}</div><div class="tl-stat-label">median SSN (days from entry)</div></div>
-      <div class="tl-stat-card"><div class="tl-stat-val">${medGC!==null?medGC+'d':'n/a'}</div><div class="tl-stat-label">median GC (days from entry)</div></div>
-      <div class="tl-stat-card"><div class="tl-stat-val">${intCount}</div><div class="tl-stat-label">intervention cases</div></div>
-      <div class="tl-stat-card"><div class="tl-stat-val">${rows.length?Math.round(intCount/rows.length*100)+'%':'n/a'}</div><div class="tl-stat-label">intervention rate</div></div>
-    `;
+    const cards = [
+      statCard(rows.map(r=>r.ssn_days), 'median to SSN card'),
+      statCard(rows.map(r=>r.gc_days), 'median to green card'),
+    ];
+    // Intervention share only means something across all reports
+    if(currentFilter==='all' && rows.length) cards.push(`<div class="tl-stat-card"><div class="tl-stat-val">${Math.round(intCount/rows.length*100)}%</div><div class="tl-stat-label">needed an intervention</div><div class="tl-stat-meta">${intCount} of ${rows.length} members</div></div>`);
+    document.getElementById('tl-stats').innerHTML = cards.join('');
+    document.getElementById('tl-shown').textContent = rows.length===TL_DATA.length ? `Showing all ${rows.length} reports.` : `Showing ${rows.length} of ${TL_DATA.length} reports.`;
   }
 
   renderTL();
@@ -1473,7 +1465,7 @@ const TL_DATA = [
     const val=document.getElementById('snap-'+key), lab=document.getElementById('snap-'+key+'-l');
     if(n<10){val.textContent='n/a';lab.textContent=label+' (too few reports)';return;}
     val.textContent=q(s,0.5)+' days';
-    lab.textContent=label+' (IQR '+q(s,0.25)+'\u2013'+q(s,0.75)+', n='+n+(n<=30?', small sample':'')+')';
+    lab.textContent=label+' (middle half '+q(s,0.25)+'\u2013'+q(s,0.75)+' days, n='+n+(n<=30?', small sample':'')+')';
   }
   fill('ssn','median to SSN card');
   fill('gc','median to green card');
