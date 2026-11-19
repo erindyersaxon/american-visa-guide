@@ -1171,7 +1171,7 @@
 
     /* Editorial pipeline narrative: current processing conditions, not in the DB */
     const PIPELINE = {
-      uscis:  { status:'halted', text:'Community tracking shows I-130 approvals for consular cases have largely stopped (USCIS has not acknowledged a pause). <a href="/news">Latest updates on embassy and visa news →</a>' },
+      uscis:  { status:'slow', text:'Community tracking shows USCIS deciding consular I-130s again after a stall from February to October 2026 (USCIS has not acknowledged a pause). In November the front of the line reached priority dates of around 6 March 2025. Weekly approvals run at about half the January 2026 pace. <a href="/news">Latest updates on embassy and visa news →</a>' },
       nvc:    { status:'delayed', text:'As of 26 October 2026, NVC is reviewing documents submitted on 18 August, a 69-day wait. Plan on DQ about 10 weeks after you submit complete documents. NVC is creating cases USCIS sent on 17 October and answering Public Inquiry Forms received on 16 October. Send a second inquiry only if NVC has not replied within that window. <a href="https://travel.state.gov/content/travel/en/us-visas/immigrate/nvc-timeframes.html" target="_blank" rel="noopener noreferrer">NVC timeframes →</a>' },
       london: { status:'paused', text:'London has sent no Interview Letters since 14 July 2026, and other posts report the same. The only applicants interviewing now have a rescheduled interview or a re-interview. London canceled immigrant visa interviews and same-day document checks booked for August to October 2026 for public charge training; medicals appear unaffected. So far, September interviews have moved to October and November, and October ones to December. After the court vacated the 75-country pause, London started emailing applicants refused under it or under 221(g) to book a re-interview. <a href="/interview">What to do if you have a new date →</a> <a href="/interview/reinterview">Re-interview after a 221(g) →</a>' },
     };
@@ -1348,7 +1348,7 @@
 
     function renderPipeline(stats) {
       [
-        { badge:'p-uscis-badge',   summary:'p-uscis-summary',   status: stats?.uscis_status   || 'normal', text: stats?.uscis_summary   || 'I-130 petition processing for immediate relatives of US citizens. Stalled since February 2026: the front of the line has not moved past priority dates of around 25 February 2025.' },
+        { badge:'p-uscis-badge',   summary:'p-uscis-summary',   status: stats?.uscis_status   || 'normal', text: stats?.uscis_summary   || 'I-130 petition processing for immediate relatives of US citizens. Stalled from February to October 2026; in November the front of the line reached priority dates of around 6 March 2025.' },
         { badge:'p-nvc-badge',     summary:'p-nvc-summary',     status: stats?.nvc_status     || 'normal', text: stats?.nvc_summary     || 'Document review and fee payment. Most cases completing NVC in 2–3 months once received.' },
         { badge:'p-london-badge',  summary:'p-london-summary',  status: stats?.london_status  || 'active', text: stats?.london_summary  || 'IL drops are the bottleneck. Once you have an IL, interview scheduling is typically 6–10 weeks out.' },
       ].forEach(s => { set(s.badge, statusBadge(s.status)); set(s.summary, s.text); });
