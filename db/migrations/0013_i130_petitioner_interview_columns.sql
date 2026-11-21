@@ -1,5 +1,6 @@
 -- Migration: I-130 petitioner interview columns
--- NOT YET APPLIED to Supabase. Apply, then add the two Fillout questions.
+-- Applied to Supabase project lkssaokcpqilrfwagxnv on 2026-11-21
+-- (Supabase migration name: i130_petitioner_interview_columns).
 --
 -- The Fillout form gains two optional questions in the I-130 section:
 --   "Did USCIS schedule a petitioner interview before it decided your I-130?"
