@@ -1,3 +1,5 @@
+import { normalizeFields } from './_lib/submit-fields.js'
+
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     return res.status(200).json({ status: 'ok' })
@@ -37,6 +39,8 @@ export default async function handler(req, res) {
       return [key, value === '' ? null : value]
     })
   )
+
+  Object.assign(cleaned, normalizeFields(cleaned))
 
   const username = cleaned.username_raw?.trim?.() || null
   const baseHeaders = {
