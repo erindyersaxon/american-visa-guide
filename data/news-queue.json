@@ -1,48 +1,48 @@
 {
-  "lastRun": "2026-11-15T19:52:37.554Z",
+  "lastRun": "2026-11-21T14:52:28.820Z",
   "sources": {
     "embassy-london": {
-      "lastOk": "2026-11-15T19:52:37.554Z",
+      "lastOk": "2026-11-21T14:52:28.820Z",
       "fetched": 10,
       "queued": 0
     },
     "fr-state": {
-      "lastOk": "2026-11-15T19:52:37.554Z",
+      "lastOk": "2026-11-21T14:52:28.820Z",
       "fetched": 20,
       "queued": 0
     },
     "fr-uscis": {
-      "lastOk": "2026-11-15T19:52:37.554Z",
+      "lastOk": "2026-11-21T14:52:28.820Z",
       "fetched": 20,
       "queued": 0
     },
     "uscis-news": {
-      "lastOk": "2026-11-15T19:52:37.554Z",
+      "lastOk": "2026-11-21T14:52:28.820Z",
       "fetched": 250,
       "queued": 0
     },
     "state-press": {
-      "lastOk": "2026-11-15T19:52:37.554Z",
+      "lastOk": "2026-11-21T14:52:28.820Z",
       "fetched": 10,
       "queued": 0
     },
     "gnews-embassy": {
-      "lastOk": "2026-11-15T19:52:37.554Z",
-      "fetched": 0,
+      "lastOk": "2026-11-21T14:52:28.820Z",
+      "fetched": 1,
       "queued": 0
     },
     "gnews-family": {
-      "lastOk": "2026-11-15T19:52:37.554Z",
-      "fetched": 16,
+      "lastOk": "2026-11-21T14:52:28.820Z",
+      "fetched": 51,
       "queued": 0
     },
     "docket-clinic-sdny": {
-      "lastOk": "2026-11-15T19:52:37.554Z",
+      "lastOk": "2026-11-21T14:52:28.820Z",
       "fetched": 30,
       "queued": 1
     },
     "docket-clinic-ca2": {
-      "lastOk": "2026-11-15T19:52:37.554Z",
+      "lastOk": "2026-11-21T14:52:28.820Z",
       "fetched": 30,
       "queued": 0
     },
@@ -53,6 +53,110 @@
     }
   },
   "items": [
+    {
+      "id": "c8de48c066",
+      "status": "pending",
+      "source": "docket-clinic-sdny",
+      "sourceName": "CLINIC v. Rubio (S.D.N.Y.)",
+      "type": "official",
+      "date": "2026-11-20",
+      "title": "CLINIC v. Rubio: Letter",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/?order_by=desc#entry-138",
+      "summary": "Letter Document: https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.138.0.pdf",
+      "matched": [
+        "letter"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-21T14:52:28.820Z"
+    },
+    {
+      "id": "5a03626057",
+      "status": "pending",
+      "source": "reddit-london-week",
+      "sourceName": "Reddit: r/NationalVisaCenter, r/K1VisaInfo and others",
+      "type": "community",
+      "date": "2026-11-16",
+      "period": {
+        "from": "2026-11-09",
+        "to": "2026-11-16"
+      },
+      "title": "London this week: 9–16 November. Still no new interview letters",
+      "url": "",
+      "note": "Little changed this week. London is still rebooking interviews it cancelled in September, some of them for a second time, and no one has reported a first interview letter for a case waiting at NVC. These are member reports, not an embassy announcement.",
+      "points": [
+        {
+          "label": "Interview letters and scheduling",
+          "text": "Still no reports of a new interview letter. Applicants DQ'd in June and late July 2026 posted on 14 and 15 November that they are still waiting. New this week: one comment said a couple of London cases changed to \"In Transit\" at NVC, which can come before an interview letter. No one has confirmed this yet."
+        },
+        {
+          "label": "Reschedules and cancellations",
+          "text": "Continuing from last week: K-1 interviews rebooked for 12 and 13 November after September cancellations were moved again, at a day or two's notice, to 4 or 5 January. An IR-1 rebooked for 17 November was moved to 7 January 2027 because the embassy had not received the medical, even though it was done on 3 November. Interviews on 13 November went ahead with only one window open."
+        },
+        {
+          "label": "Outcomes",
+          "text": "Approvals of rebooked interviews continue, followed by a few working days of administrative processing. New: an IR-1 case that had shown Refused for administrative processing since 19 October moved to Issued days after the applicant contacted their member of Congress, and the passport arrived on 14 November. A spouse interviewed on 10 November was still in administrative processing two days later."
+        },
+        {
+          "label": "Public charge and 221(g)",
+          "text": "A second applicant said they were refused on public charge grounds on 9 November. The IR-1 family of five reported last week has emailed the embassy asking it to reconsider with a higher-earning joint sponsor, and has had no answer yet. Cases placed in 221(g) in April and June say they have heard nothing, and their medicals are now expiring or have expired. Commenters disagree on whether to redo the medical before the embassy asks."
+        }
+      ],
+      "sources": [
+        {
+          "label": "It was moved.... again",
+          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1xsn3lj/it_was_moved_again/"
+        },
+        {
+          "label": "Appointment rescheduled due to medical not received",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xsmx5y/appointment_rescheduled_due_to_medical_not/"
+        },
+        {
+          "label": "London new interviews",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xv9p6m/london_new_interviews/"
+        },
+        {
+          "label": "Administrative processing London",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xthmvw/administrative_processing_london/"
+        },
+        {
+          "label": "221(g) at US Embassy London: medical expired before possible second interview",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xvb3w4/221g_at_us_embassy_london_medical_expired_before/"
+        },
+        {
+          "label": "Husband's IR-1 refused due to public charge",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xssq6h/husbands_ir1_refused_due_to_public_charge/"
+        }
+      ],
+      "urls": [
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xvdz4q/consulates_who_have_restarted_scheduling_iv_appts/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xv9p6m/london_new_interviews/",
+        "https://www.reddit.com/r/K1VisaInfo/comments/1xsn3lj/it_was_moved_again/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xrrpwy/london_ir1_interview_complete/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xssq6h/husbands_ir1_refused_due_to_public_charge/",
+        "https://www.reddit.com/r/K1VisaInfo/comments/1xro25n/fiance_went_to_london_k1_interview_turned_away/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xthmvw/administrative_processing_london/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xvb3w4/221g_at_us_embassy_london_medical_expired_before/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xuphko/london_k1_reinterview_automatically_scheduled/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xwa498/london_ir1cr1_latest_dq_dates_receiving_interview/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xuaw39/how_long_it_takes_to_receive_visapassport_after/",
+        "https://www.reddit.com/r/visainterviews/comments/1xrq3vu/london_ir1_221g_ap/",
+        "https://www.reddit.com/r/K1VisaInfo/comments/1xvf7eb/221g_refusal_submission_of_additional_evidence/",
+        "https://www.reddit.com/r/NationalVisaCenter/comments/1xsmx5y/appointment_rescheduled_due_to_medical_not/",
+        "https://www.reddit.com/r/USCIS/comments/1xwjwwe/london_dcf_i130_recent_experiences_and_timelines/",
+        "https://www.reddit.com/r/MovingToUSA/comments/1xwjvqm/london_dcf_i130_recent_experiences_and_timelines/",
+        "https://www.reddit.com/r/usvisascheduling/comments/1xu6yot/administrative_processing_london/",
+        "https://www.reddit.com/r/visainterviews/comments/1xu6yzc/administrative_processing_london/"
+      ],
+      "summary": "18 thread(s) with 147 in-week mention(s), 2026-11-09 to 2026-11-16. Rewrite note and points before approving.",
+      "matched": [
+        "il",
+        "reschedule",
+        "outcome"
+      ],
+      "score": 147,
+      "reports": 147,
+      "foundAt": "2026-11-16T14:04:40.558Z"
+    },
     {
       "id": "8d5f5a83f1",
       "status": "approved",
@@ -469,94 +573,6 @@
       "review": "suggest reject",
       "reviewNote": "Inflation increases to H.R. 1 fees for asylum, parole, EAD and TPS (effective 16 Oct 2026); none apply to family immigrant visas.",
       "decidedAt": "2026-11-15T19:59:53.624Z"
-    },
-    {
-      "id": "5a03626057",
-      "status": "pending",
-      "source": "reddit-london-week",
-      "sourceName": "Reddit: r/NationalVisaCenter, r/K1VisaInfo and others",
-      "type": "community",
-      "date": "2026-11-16",
-      "period": {
-        "from": "2026-11-09",
-        "to": "2026-11-16"
-      },
-      "title": "London this week: 9–16 November. Still no new interview letters",
-      "url": "",
-      "note": "Little changed this week. London is still rebooking interviews it cancelled in September, some of them for a second time, and no one has reported a first interview letter for a case waiting at NVC. These are member reports, not an embassy announcement.",
-      "points": [
-        {
-          "label": "Interview letters and scheduling",
-          "text": "Still no reports of a new interview letter. Applicants DQ'd in June and late July 2026 posted on 14 and 15 November that they are still waiting. New this week: one comment said a couple of London cases changed to \"In Transit\" at NVC, which can come before an interview letter. No one has confirmed this yet."
-        },
-        {
-          "label": "Reschedules and cancellations",
-          "text": "Continuing from last week: K-1 interviews rebooked for 12 and 13 November after September cancellations were moved again, at a day or two's notice, to 4 or 5 January. An IR-1 rebooked for 17 November was moved to 7 January 2027 because the embassy had not received the medical, even though it was done on 3 November. Interviews on 13 November went ahead with only one window open."
-        },
-        {
-          "label": "Outcomes",
-          "text": "Approvals of rebooked interviews continue, followed by a few working days of administrative processing. New: an IR-1 case that had shown Refused for administrative processing since 19 October moved to Issued days after the applicant contacted their member of Congress, and the passport arrived on 14 November. A spouse interviewed on 10 November was still in administrative processing two days later."
-        },
-        {
-          "label": "Public charge and 221(g)",
-          "text": "A second applicant said they were refused on public charge grounds on 9 November. The IR-1 family of five reported last week has emailed the embassy asking it to reconsider with a higher-earning joint sponsor, and has had no answer yet. Cases placed in 221(g) in April and June say they have heard nothing, and their medicals are now expiring or have expired. Commenters disagree on whether to redo the medical before the embassy asks."
-        }
-      ],
-      "sources": [
-        {
-          "label": "It was moved.... again",
-          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1xsn3lj/it_was_moved_again/"
-        },
-        {
-          "label": "Appointment rescheduled due to medical not received",
-          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xsmx5y/appointment_rescheduled_due_to_medical_not/"
-        },
-        {
-          "label": "London new interviews",
-          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xv9p6m/london_new_interviews/"
-        },
-        {
-          "label": "Administrative processing London",
-          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xthmvw/administrative_processing_london/"
-        },
-        {
-          "label": "221(g) at US Embassy London: medical expired before possible second interview",
-          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xvb3w4/221g_at_us_embassy_london_medical_expired_before/"
-        },
-        {
-          "label": "Husband's IR-1 refused due to public charge",
-          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xssq6h/husbands_ir1_refused_due_to_public_charge/"
-        }
-      ],
-      "urls": [
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xvdz4q/consulates_who_have_restarted_scheduling_iv_appts/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xv9p6m/london_new_interviews/",
-        "https://www.reddit.com/r/K1VisaInfo/comments/1xsn3lj/it_was_moved_again/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xrrpwy/london_ir1_interview_complete/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xssq6h/husbands_ir1_refused_due_to_public_charge/",
-        "https://www.reddit.com/r/K1VisaInfo/comments/1xro25n/fiance_went_to_london_k1_interview_turned_away/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xthmvw/administrative_processing_london/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xvb3w4/221g_at_us_embassy_london_medical_expired_before/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xuphko/london_k1_reinterview_automatically_scheduled/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xwa498/london_ir1cr1_latest_dq_dates_receiving_interview/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xuaw39/how_long_it_takes_to_receive_visapassport_after/",
-        "https://www.reddit.com/r/visainterviews/comments/1xrq3vu/london_ir1_221g_ap/",
-        "https://www.reddit.com/r/K1VisaInfo/comments/1xvf7eb/221g_refusal_submission_of_additional_evidence/",
-        "https://www.reddit.com/r/NationalVisaCenter/comments/1xsmx5y/appointment_rescheduled_due_to_medical_not/",
-        "https://www.reddit.com/r/USCIS/comments/1xwjwwe/london_dcf_i130_recent_experiences_and_timelines/",
-        "https://www.reddit.com/r/MovingToUSA/comments/1xwjvqm/london_dcf_i130_recent_experiences_and_timelines/",
-        "https://www.reddit.com/r/usvisascheduling/comments/1xu6yot/administrative_processing_london/",
-        "https://www.reddit.com/r/visainterviews/comments/1xu6yzc/administrative_processing_london/"
-      ],
-      "summary": "18 thread(s) with 147 in-week mention(s), 2026-11-09 to 2026-11-16. Rewrite note and points before approving.",
-      "matched": [
-        "il",
-        "reschedule",
-        "outcome"
-      ],
-      "score": 147,
-      "reports": 147,
-      "foundAt": "2026-11-16T14:04:40.558Z"
     }
   ]
 }
