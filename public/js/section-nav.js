@@ -33,6 +33,7 @@
           heading: 'Stages',
           links: [
             { href: '/guide/i130', text: '1: USCIS / I-130' },
+            { href: '/guide/i130/rfe', text: 'If you get an RFE', sub: true },
             { href: '/guide/delayed-i130', text: 'If your I-130 is delayed', sub: true },
             { href: '/guide/crba', text: 'If your child is a US citizen (CRBA)', sub: true },
             { href: '/guide/nvc', text: '2: NVC' },

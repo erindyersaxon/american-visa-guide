@@ -14,7 +14,8 @@ const allowlist = require('./fixtures/article-inline-allowlist.json');
 
 const PAGES = ['interview/221g/green-sheet', 'interview/221g', 'interview/221g/administrative-processing', 'interview/221g/domicile',
   'interview/221g/history-worksheet', 'interview/dates', 'interview/day-sheet', 'interview/templates', 'interview',
-  'guide/delayed-i130/mandamus', 'public-charge/statement', 'interview/reinterview', 'interview/visa-pause'].map(p => `${p}.html`);
+  'guide/delayed-i130/mandamus', 'public-charge/statement', 'interview/reinterview', 'interview/visa-pause',
+  'guide/i130/rfe'].map(p => `${p}.html`);
 const TOOL_PAGES = ['interview/221g/green-sheet', 'interview/221g/history-worksheet', 'interview/dates', 'interview/day-sheet',
   'interview/templates', 'public-charge/statement'].map(p => `${p}.html`);
 const STYLE_BLOCK_PAGES = ['interview/221g/history-worksheet', 'interview/day-sheet',
