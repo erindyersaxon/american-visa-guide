@@ -1,10 +1,11 @@
 /*
    American Visa Guide: Cookie consent
-   Single source of truth for the cookie banner and for loading
-   Microsoft Clarity. Clarity never loads until the visitor accepts.
+   Single source of truth for the cookie banner and for loading the
+   third-party tools that set cookies: Microsoft Clarity and the Ko-fi
+   "Support me" button. Neither loads until the visitor accepts.
 
    Include once in <head> on every page:
-     <script src="/js/consent.js?v=20261024c" defer></script>
+     <script src="/js/consent.js?v=20261123a" defer></script>
 
    The choice is kept in localStorage (strictly necessary, not a cookie).
    Anything can reopen the banner with window.avgConsent.open(), for
@@ -20,14 +21,15 @@
 
   /* Bump when the banner wording or the list of tools changes, so
      everyone is asked again. */
-  const POLICY_VERSION = 1;
+  const POLICY_VERSION = 2;
 
   const BANNER_HTML = `
 <div class="avg-consent__inner">
-  <p class="avg-consent__hd" id="avg-consent-hd">Can we count visits?</p>
+  <p class="avg-consent__hd" id="avg-consent-hd">Can we use cookies?</p>
   <p class="avg-consent__body" id="avg-consent-body">
-    We'd like to use Microsoft Clarity to see which pages help and where people get stuck.
-    It sets cookies and records how pages are scrolled and clicked. Nothing runs unless you say yes,
+    We'd like to use Microsoft Clarity to see which pages help and where people get stuck,
+    and show a Ko-fi "Support me" button. Both set their own cookies, and Clarity records how
+    pages are scrolled and clicked. Nothing runs unless you say yes,
     and you can change your mind any time from <strong>Cookie settings</strong> at the bottom of every page.
     <a href="/privacy.html#cookies">Privacy policy</a>
   </p>
@@ -131,6 +133,32 @@
     });
   }
 
+  /* ---- Ko-fi -------------------------------------------------------- */
+
+  /* Ko-fi's floating "Support me" button. Its script loads a ko-fi.com
+     frame that sets Ko-fi's cookies, so it waits for consent like
+     Clarity. Colours are the site's steel blue (#3E7188, AA with white)
+     rather than Ko-fi's default #00b9fe, which fails contrast. */
+  const KOFI_PAGE = 'erinsaidwhat';
+  const KOFI_SRC = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
+
+  function loadKofi() {
+    if (window.kofiWidgetOverlay || document.querySelector('script[src="' + KOFI_SRC + '"]')) return;
+    const s = document.createElement('script');
+    s.src = KOFI_SRC;
+    s.async = true;
+    s.onload = function () {
+      if (!window.kofiWidgetOverlay) return;
+      window.kofiWidgetOverlay.draw(KOFI_PAGE, {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#3E7188',
+        'floating-chat.donateButton.text-color': '#fff',
+      });
+    };
+    document.head.appendChild(s);
+  }
+
   /* ---- Banner ------------------------------------------------------- */
 
   let banner = null;
@@ -163,14 +191,15 @@
   }
 
   function decide(choice) {
-    const wasRunning = !!window.clarity;
+    const wasRunning = !!(window.clarity || window.kofiWidgetOverlay);
     saveChoice(choice);
     banner.hidden = true;
     if (choice === 'accepted') {
       loadClarity();
+      loadKofi();
     } else {
       clearClarityCookies();
-      /* Clarity can't be unloaded mid-page; a reload stops it. */
+      /* Clarity and Ko-fi can't be unloaded mid-page; a reload stops them. */
       if (wasRunning) location.reload();
     }
   }
@@ -178,7 +207,7 @@
   function init() {
     const record = readChoice();
     if (!record) open(false);
-    else if (record.choice === 'accepted') loadClarity();
+    else if (record.choice === 'accepted') { loadClarity(); loadKofi(); }
   }
 
   window.avgConsent = { open: function () { open(true); } };
