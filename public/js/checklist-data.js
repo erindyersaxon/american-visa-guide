@@ -844,7 +844,7 @@ var AVG_DOCS = {
     {
      "list": "i130",
      "id": "evid-1",
-     "label": "Commingling of finances: joint bank statements over time, shared bills, or joint credit cards"
+     "label": "Commingling of finances: joint bank statements over time, shared bills, or joint credit cards. For each joint account, add a letter from the bank stating when the account was opened and when each name was added. RFEs ask for this letter. See <a href=\"/guide/i130/rfe#shared-life\">what RFEs ask for</a>"
     }
    ]
   },
@@ -915,12 +915,12 @@ var AVG_DOCS = {
     "medical": "no",
     "interview": "cond"
    },
-   "note": "For spouses who live in different countries and have no joint account or lease. Remittance receipts, contracts or invoices for purchases in both names, past and recent social media posts, and flight bookings and boarding passes for each visit.",
+   "note": "For spouses who live in different countries and have no joint account or lease. Remittance receipts, each with what it paid for, contracts or invoices for purchases in both names, past and recent social media posts, and flight bookings and boarding passes for each visit.",
    "items": [
     {
      "list": "i130",
      "id": "evid-8",
-     "label": "If you live in different countries: money transfer receipts, contracts or invoices for purchases in both names, past and recent social media posts, and flight bookings and boarding passes for each visit, with the beneficiary's <a href=\"https://i94.cbp.dhs.gov/home\" target=\"_blank\" rel=\"noopener noreferrer\">CBP I-94 travel history</a> for visits to the US"
+     "label": "If you live in different countries: money transfer records, each with what it paid for and proof of how the money was used (transfers show support, not shared finances: see <a href=\"/guide/i130/rfe#transfers\">how to explain transfers</a>), contracts or invoices for purchases in both names, past and recent social media posts, and flight bookings and boarding passes for each visit, with the beneficiary's <a href=\"https://i94.cbp.dhs.gov/home\" target=\"_blank\" rel=\"noopener noreferrer\">CBP I-94 travel history</a> for visits to the US"
     }
    ]
   },
@@ -952,7 +952,7 @@ var AVG_DOCS = {
     {
      "list": "i130",
      "id": "evid-7",
-     "label": "Optional: two or more notarized third-party affidavits, from people who are not parties to the petition and saw the relationship first-hand, naming the dates and places they saw. Build them with the <a href=\"/tools/relationship-evidence\">relationship evidence template</a>"
+     "label": "Optional: two or more notarized third-party affidavits, from people who are not parties to the petition and saw the relationship first-hand, naming the dates and places they saw. Point each one at a record that confirms it. Build them with the <a href=\"/tools/relationship-evidence\">relationship evidence template</a>"
     }
    ]
   },
