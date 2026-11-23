@@ -79,7 +79,7 @@
           <p class="subtitle">Work through this before you file. USCIS can deny an I-130 that is missing required evidence without sending an RFE first (<a href="https://www.uscis.gov/policy-manual/volume-1-part-e-chapter-6" target="_blank" rel="noopener noreferrer">Policy Manual, Vol. 1, Part E, Ch. 6.F</a>).</p>
 
           <div class="progress-bar">
-            <span class="progress-text" id="progress-i130">0 of 44 items checked</span>
+            <span class="progress-text" id="progress-i130">0 of 65 items checked</span>
             <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">Print / save as PDF</button>
             <button type="button" class="btn btn-secondary btn-sm" onclick="copyChecklistForDocs(this)">Copy for Google Docs</button>
             <button class="btn btn-secondary btn-sm" id="reset-i130">Reset checklist</button>
@@ -156,7 +156,7 @@
                   <tr>
                     <td>Relationship</td>
                     <td class="doc-required">✓</td>
-                    <td>Spouses: the marriage certificate, a certified copy from the civil registry, timely registered. A church or ceremony certificate, or a marriage license, is not enough (6 USCIS-PM B.6(C)(1)). If either spouse was married before, every divorce decree or death certificate. Children, parents and siblings: see <a href="#family">Section 4</a> for the documents that prove your category.</td>
+                    <td>Spouses: the marriage certificate, a certified copy from the civil registry, timely registered. A church or ceremony certificate, or a marriage license, is not enough (6 USCIS-PM B.6(C)(1)). If either spouse was married before, the final record that ended each earlier marriage: a final divorce decree (in England and Wales the Final Order or Decree Absolute, never the Decree Nisi), a final annulment decree or a death certificate (6 USCIS-PM B.6(B)(4), (C)(1)). Children, parents and siblings: see <a href="#family">Section 4</a> for the documents that prove your category.</td>
                   </tr>
                   <tr>
                     <td>Translation</td>
@@ -323,6 +323,30 @@
               <div class="checklist-item" data-item-id="rfe-6">
                 <input type="checkbox" id="rfe-6" />
                 <label for="rfe-6">Bona fide evidence covers the whole relationship, including the months before and around the wedding. USCIS judges your intent "at the inception of the marriage" (6 USCIS-PM B.6(B)(3))</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-12">
+                <input type="checkbox" id="rfe-12" />
+                <label for="rfe-12">Every month from the wedding to your filing date has at least one record made at the time. RFEs set the evidence period &ldquo;from [marriage date] to the present&rdquo;, so a month with nothing stands out. See <a href="/guide/i130/rfe#shared-life">what RFEs ask for</a></label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-13">
+                <input type="checkbox" id="rfe-13" />
+                <label for="rfe-13">Every earlier marriage of either spouse ended before your wedding: the final divorce, annulment or death date is earlier than your marriage date. If a divorce was granted abroad and you married in the US, the state where you married recognizes it (6 USCIS-PM B.6(B)(4)). See <a href="/guide/i130/rfe#free-to-marry">proof you were free to marry</a></label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-14">
+                <input type="checkbox" id="rfe-14" />
+                <label for="rfe-14">A long-form birth certificate for every child either spouse lists on the I-130 or I-130A, including children from earlier relationships. RFEs have asked for &ldquo;birth certificates for all biological children&rdquo;</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-15">
+                <input type="checkbox" id="rfe-15" />
+                <label for="rfe-15">If you list money transfers, each one has a stated purpose and proof of how the money was used. Transfers show support and do not count as commingled finances. See <a href="/guide/i130/rfe#transfers">how to explain transfers</a></label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-16">
+                <input type="checkbox" id="rfe-16" />
+                <label for="rfe-16">If you have not lived together yet, one sentence in your filing says so and why, so the officer reads the missing joint lease or bills correctly</label>
+              </div>
+              <div class="checklist-item" data-item-id="rfe-17">
+                <input type="checkbox" id="rfe-17" />
+                <label for="rfe-17">Optional, if neither of you was married before: RFEs members shared asked for &ldquo;No Record&rdquo; letters, or a Certificate of No Impediment or marital status affirmation for a UK beneficiary. The regulation asks only for proof that earlier marriages ended (8 CFR 204.2(a)(2)), so this is community experience, not a rule. GOV.UK&rsquo;s <a href="https://www.gov.uk/marriages-civil-partnerships-abroad/get-documents-for-a-marriage-or-civil-partnership-abroad" target="_blank" rel="noopener noreferrer">proof you&rsquo;re free to marry</a> service is built for people planning a marriage abroad and may not fit if you are already married</label>
               </div>
               <h4 class="rfe-group">Children, parents and siblings</h4>
               <div class="checklist-item" data-item-id="rfe-7">
