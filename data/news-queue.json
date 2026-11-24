@@ -1,48 +1,48 @@
 {
-  "lastRun": "2026-11-21T14:52:28.820Z",
+  "lastRun": "2026-11-24T18:08:29.648Z",
   "sources": {
     "embassy-london": {
-      "lastOk": "2026-11-21T14:52:28.820Z",
+      "lastOk": "2026-11-24T18:08:29.648Z",
       "fetched": 10,
       "queued": 0
     },
     "fr-state": {
-      "lastOk": "2026-11-21T14:52:28.820Z",
+      "lastOk": "2026-11-24T18:08:29.648Z",
       "fetched": 20,
       "queued": 0
     },
     "fr-uscis": {
-      "lastOk": "2026-11-21T14:52:28.820Z",
+      "lastOk": "2026-11-24T18:08:29.648Z",
       "fetched": 20,
       "queued": 0
     },
     "uscis-news": {
-      "lastOk": "2026-11-21T14:52:28.820Z",
+      "lastOk": "2026-11-24T18:08:29.648Z",
       "fetched": 250,
       "queued": 0
     },
     "state-press": {
-      "lastOk": "2026-11-21T14:52:28.820Z",
+      "lastOk": "2026-11-24T18:08:29.648Z",
       "fetched": 10,
       "queued": 0
     },
     "gnews-embassy": {
-      "lastOk": "2026-11-21T14:52:28.820Z",
+      "lastOk": "2026-11-24T18:08:29.648Z",
       "fetched": 1,
       "queued": 0
     },
     "gnews-family": {
-      "lastOk": "2026-11-21T14:52:28.820Z",
-      "fetched": 51,
+      "lastOk": "2026-11-24T18:08:29.648Z",
+      "fetched": 30,
       "queued": 0
     },
     "docket-clinic-sdny": {
-      "lastOk": "2026-11-21T14:52:28.820Z",
+      "lastOk": "2026-11-24T18:08:29.648Z",
       "fetched": 30,
-      "queued": 1
+      "queued": 3
     },
     "docket-clinic-ca2": {
-      "lastOk": "2026-11-21T14:52:28.820Z",
+      "lastOk": "2026-11-24T18:08:29.648Z",
       "fetched": 30,
       "queued": 0
     },
@@ -53,6 +53,54 @@
     }
   },
   "items": [
+    {
+      "id": "82b90d2052",
+      "status": "pending",
+      "source": "docket-clinic-sdny",
+      "sourceName": "CLINIC v. Rubio (S.D.N.Y.)",
+      "type": "official",
+      "date": "2026-11-23",
+      "title": "CLINIC v. Rubio: Order on Motion for Leave to File Document",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/?order_by=desc#minute-entry-486698120",
+      "summary": "Order on Motion for Leave to File Document",
+      "matched": [
+        "order"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-24T18:08:29.648Z"
+    },
+    {
+      "id": "683f92ed94",
+      "status": "pending",
+      "source": "docket-clinic-sdny",
+      "sourceName": "CLINIC v. Rubio (S.D.N.Y.)",
+      "type": "official",
+      "date": "2026-11-23",
+      "title": "CLINIC v. Rubio: Proposed Order",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/?order_by=desc#entry-142",
+      "summary": "Proposed Order Document: https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.142.0.pdf",
+      "matched": [
+        "order"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-24T18:08:29.648Z"
+    },
+    {
+      "id": "8065982780",
+      "status": "pending",
+      "source": "docket-clinic-sdny",
+      "sourceName": "CLINIC v. Rubio (S.D.N.Y.)",
+      "type": "official",
+      "date": "2026-11-23",
+      "title": "CLINIC v. Rubio: Memorandum of Law in Support of Motion",
+      "url": "https://www.courtlistener.com/docket/72218277/catholic-legal-immigration-network-inc-v-rubio/?order_by=desc#entry-141",
+      "summary": "Memorandum of Law in Support of Motion Document: https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.141.0.pdf",
+      "matched": [
+        "memorandum"
+      ],
+      "score": 3,
+      "foundAt": "2026-11-24T18:08:29.648Z"
+    },
     {
       "id": "c8de48c066",
       "status": "pending",
