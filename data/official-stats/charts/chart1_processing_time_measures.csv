@@ -1,0 +1,5 @@
+Measure,Months,Period,Source
+"Median, IR cases decided in the quarter",13.0,Apr to Jun 2026,"USCIS quarterly all-forms report, FY26 Q3"
+"Median, IR cases decided in the fiscal year",12.7,FY2026 (Oct 2025 to Sep 2026),"USCIS Historic Processing Times page, queried Oct 2026"
+"Average, all I-130s decided in the month (IR and preference)",17.9,Oct 2026,"USCIS report to Congress, Oct 2026"
+"80th percentile, IR, all field offices",29.5,Checked 25 Nov 2026,USCIS Case Processing Times page
