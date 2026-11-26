@@ -90,3 +90,20 @@ test('official pages hold the sections moved from /data', () => {
   has('/data/family-visas', ['od-london-table', 'od-london-cap', 'od-chart-london', 'od-chart-visas', 'od-iv-table', 'od-iv-cap']);
   for (const url of ['/data/i130-us', '/data/family-visas']) assert.match(read(fileFor(url)), /\/js\/official-data-charts\.js\?v=/, url);
 });
+
+test('/data/tracker-vs-uscis is an official page', () => checkTopicPage('/data/tracker-vs-uscis', 'official'));
+
+test('comparison page shows members only by month and wait', () => {
+  const html = read('data/tracker-vs-uscis.html');
+  const pts = html.match(/const PTS = (\[\[[\s\S]*?\]\])/)[1];
+  assert.doesNotMatch(pts, /\d{4}-\d{2}-\d{2}/);
+  assert.equal(JSON.parse(pts).length, 184);
+});
+
+test('comparison page keeps the agreed heading and quarter table', () => {
+  const html = read('data/tracker-vs-uscis.html');
+  assert.match(html, /Our members wait <em>about as long as everyone else<\/em> for I-130 approval/);
+  assert.match(html, /id="table-quarters"/);
+  assert.match(html, /cdnjs\.cloudflare\.com\/ajax\/libs\/d3\/7\.8\.5\/d3\.min\.js/);
+  assert.doesNotMatch(html, /#2a78d6|#eb6834/i, 'artifact palette replaced by section colours');
+});

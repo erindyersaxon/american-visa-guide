@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/consent.js?v=20261123a" defer></script>
+  <title>Do members' waits match USCIS?: Data | American Visa Guide</title>
+  <meta name="description" content="How long London tracker members waited for I-130 approval, next to the median USCIS publishes for all immediate-relative petitions, quarter by quarter.">
+  <link rel="canonical" href="https://www.americanvisaguide.com/data/tracker-vs-uscis">
+  <meta property="og:title" content="Do members' waits match USCIS?: Data | American Visa Guide">
+  <meta property="og:description" content="How long London tracker members waited for I-130 approval, next to the median USCIS publishes for all immediate-relative petitions, quarter by quarter.">
+  <meta property="og:image" content="https://www.americanvisaguide.com/images/og-home.png">
+  <meta property="og:url" content="https://www.americanvisaguide.com/data/tracker-vs-uscis">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
+
+  <link rel="stylesheet" href="/css/main.css?v=20261024c">
+  <link rel="stylesheet" href="/css/components.css?v=20261024c">
+  <link rel="stylesheet" href="/css/data-section.css?v=20261126b">
+  <link rel="stylesheet" href="/css/nav.css?v=20261115b">
+  <script src="/js/nav.js?v=20261115d8" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
+<link rel="stylesheet" href="/css/readability.css?v=20261024c">
+<link rel="stylesheet" href="/css/section-nav.css?v=20261117grp">
+<script src="/js/section-nav.js?v=20261126a" data-section="data" defer></script>
+  <style>
+  /* Tracker vs USCIS comparison, scoped to .tvu so it can't restyle the site.
+     From the claude.ai comparison artifact, version 5 (26 Nov 2026), with the
+     data section's colours: members teal, USCIS brown. */
+  .tvu{--surface:#ffffff;--surface-alt:#f1f5f9;--ink:#0f172a;--ink-2:#334155;--muted:#64748b;--line:#e2e8f0;--axis:#cbd5e1;
+    --tracker:#0F5E66;--uscis:#7A4A12;--pending:#94a3b8;--font-display:Georgia,'Iowan Old Style','Times New Roman',serif;
+    --font-body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+    color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;display:flex;flex-direction:column;gap:40px;padding-block:8px 24px}
+  .tvu-header{display:flex;flex-direction:column;gap:12px}
+  .dsx-h1 em{color:#0F5E66;font-style:italic}
+  .tvu h2{font-family:var(--font-display);font-weight:400;font-size:clamp(22px,3.4vw,28px);line-height:1.25;margin:0;text-wrap:balance}
+  .tvu p{margin:0;max-width:65ch}
+  .tvu .lede{font-size:18px;color:var(--ink-2)}
+  .tvu .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+  .tvu .stat{border-top:2px solid var(--line);padding-top:10px;display:flex;flex-direction:column;gap:4px}
+  .tvu .stat b{font-family:var(--font-display);font-weight:400;font-size:30px;font-variant-numeric:tabular-nums}
+  .tvu .stat .label{font-size:15px;font-weight:500;color:var(--ink)}
+  .tvu .stat .help{font-size:14px;color:var(--muted);line-height:1.5}
+  .tvu #quarter-table h2{font-family:var(--font-display)}
+  .tvu #table-quarters td:nth-child(2),.tvu #table-quarters th:nth-child(2){text-align:right}
+  .tvu .qsub{display:block;font-size:12px;color:var(--muted)}
+  .tvu section{display:flex;flex-direction:column;gap:16px}
+  .tvu .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 16px 16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+  .tvu .legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-2);align-items:center}
+  .tvu .key{display:inline-flex;align-items:center;gap:8px}
+  .tvu .sw-dot{width:10px;height:10px;border-radius:50%;background:var(--tracker);opacity:.55}
+  .tvu .sw-line{width:20px;height:0;border-top:3px solid}
+  .tvu .sw-bar{width:12px;height:12px;border-radius:2px}
+  .tvu .controls{display:flex;flex-wrap:wrap;gap:8px}
+  .tvu .controls button{font:inherit;font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid var(--axis);background:var(--surface);color:var(--ink-2);cursor:pointer}
+  .tvu .controls button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+  .tvu .controls button:focus-visible{outline:2px solid var(--tracker);outline-offset:2px}
+  .tvu .chart{position:relative;width:100%;min-height:300px}
+  .tvu .chart svg{display:block;overflow:visible}
+  .tvu .chart text{fill:var(--muted);font-size:12px;font-family:var(--font-body)}
+  .tvu .tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--axis);border-radius:8px;padding:8px 10px;font-size:13px;line-height:1.45;color:var(--ink);box-shadow:0 4px 16px rgba(15,23,42,.12);white-space:nowrap;z-index:2}
+  .tvu .tip strong{display:block;font-weight:600}
+  .tvu .note{font-size:14px;color:var(--muted)}
+  .tvu .callout{background:var(--surface-alt);border-radius:10px;padding:14px 16px;font-size:15px;color:var(--ink-2)}
+  .tvu .callout strong{color:var(--ink)}
+  .tvu details{font-size:14px}
+  .tvu summary{cursor:pointer;color:var(--ink-2);font-weight:500}
+  .tvu .tablewrap{overflow-x:auto;margin-top:8px}
+  .tvu table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:14px}
+  .tvu th,.tvu td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+  .tvu th:first-child,.tvu td:first-child{text-align:left}
+  .tvu th{color:var(--muted);font-weight:500;font-size:13px}
+  .tvu ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-width:65ch}
+  .tvu a{color:var(--tracker)}
+  .tvu .sources li{font-size:14px;color:var(--ink-2)}
+  .tvu footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body class="has-snav">
+  <a href="#main-content" class="skip-to-main" style="position: absolute; top: -40px; left: 0; background: var(--color-primary); color: white; padding: 8px 16px; text-decoration: none; z-index: 100;">Skip to main content</a>
+
+  <div id="nav-placeholder"></div>
+
+  <main data-pagefind-body id="main-content">
+
+    <section class="hero-section dsx-hero" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/data">Data</a></li><li aria-current="page">Do members' waits match USCIS?</li></ol></nav>
+
+        <span class="dsx-tag dsx-tag--official"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 21h18M4 10h16M12 3 3.5 8h17L12 3z"/><path d="M6 10v8M10 10v8M14 10v8M18 10v8"/></svg>From official reports</span>
+        <h1 id="page-title" class="dsx-h1">Our members wait <em>about as long as everyone else</em> for I-130 approval</h1>
+        <p class="dsx-source">From USCIS quarterly reports and timelines members shared, as of 25 November 2026.</p>
+
+      </div>
+    </section>
+
+    <section class="content-section" aria-label="Comparison">
+      <div class="container">
+        <div class="tvu">
+<div class="tvu-header">
+  <p class="lede">London tracker members waited about as long for I-130 approval as everyone else. From January 2025 to March 2026, our members' typical wait stayed close to the figure USCIS publishes for all spouses, parents and children of U.S. citizens. So the tracker's I-130 dates are a fair guide for other London families.</p>
+  <div class="stats">
+    <div class="stat"><b>174</b><span class="label">members' waits compared</span><span class="help">Everyone on the tracker whose I-130 was approved from January 2025 to March 2026.</span></div>
+    <div class="stat"><b>3 weeks</b><span class="label">the most our typical wait differed from USCIS's</span><span class="help">That was July to September 2025. In the other 4 quarters, the gap was under a week.</span></div>
+    <div class="stat"><b>Under 3%</b><span class="label">of London spouse visas reported to the tracker</span><span class="help">In any month through February 2026. The tracker is a small sample, but a small sample can still be typical.</span></div>
+  </div>
+  <div class="card" id="quarter-table">
+    <h2 style="font-size:20px">Typical wait, quarter by quarter</h2>
+    <div class="tablewrap"><table id="table-quarters">
+      <thead><tr><th>Approved in</th><th>Members</th><th>Our members' typical wait</th><th>USCIS typical wait</th><th>Difference</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <p class="note">"Typical wait" is the middle wait: half of cases took less time, half took more. It's counted from the date USCIS received the I-130 to the date it was approved. The USCIS figure covers every immediate-relative petition it decided that quarter. Quarters with fewer than 10 members are left out.</p>
+  </div>
+</div>
+
+<section id="waits">
+  <h2>Filing to I-130 approval, member by member</h2>
+  <p>Each dot is one member, placed by the month USCIS approved their I-130 and how long they had waited since filing. The lines show the median for each federal fiscal quarter: blue for tracker members, orange for every IR petition USCIS decided.</p>
+  <div class="card">
+    <div class="controls" role="group" aria-label="What the chart shows">
+      <button type="button" id="btn-both" aria-pressed="true">Members and medians</button>
+      <button type="button" id="btn-med" aria-pressed="false">Medians only</button>
+    </div>
+    <div class="chart" id="chart-waits" role="img" aria-label="Scatter of tracker members' I-130 waits by approval date, January 2025 to November 2026, with quarterly medians for tracker members and USCIS. The two medians track within 0.7 months from January 2025 to March 2026."></div>
+    <div class="legend">
+      <span class="key"><i class="sw-dot"></i>One tracker member</span>
+      <span class="key"><i class="sw-line" style="border-color:var(--tracker)"></i>Tracker median</span>
+      <span class="key"><i class="sw-line" style="border-color:var(--uscis);border-top-style:dashed"></i>USCIS median, all IR petitions</span>
+    </div>
+    <details>
+      <summary>Show the numbers</summary>
+      <div class="tablewrap"><table id="table-waits">
+        <thead><tr><th>Quarter</th><th>Months</th><th>USCIS median</th><th>Members</th><th>Tracker median</th><th>Middle half</th><th>Gap</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="callout"><strong>Since April 2026 only 10 members have reported an I-130 approval</strong>, and several of them had waited well over a year. That's too few to compare with USCIS, so the tracker median for those quarters is shown faded and left out of the headline figure.</div>
+</section>
+
+<section id="coverage">
+  <h2>How much of London the tracker sees</h2>
+  <p>The State Department publishes how many spouse visas (IR1 and CR1) London issues each month. Next to those counts, the tracker's reported approvals are small: never more than three a month through February 2026. Most members' approvals came after that, in months the State Department hasn't published yet.</p>
+  <div class="card">
+    <div class="chart" id="chart-cov" role="img" aria-label="Bar chart of IR1 and CR1 visas issued at London each month from October 2023 to February 2026, between 42 and 227 a month, with tracker-reported approvals of 0 to 3 a month in that period and up to 20 a month from March to November 2026, when State Department figures are not yet published."></div>
+    <div class="legend">
+      <span class="key"><i class="sw-bar" style="background:var(--uscis)"></i>Visas issued at London (State Department)</span>
+      <span class="key"><i class="sw-bar" style="background:var(--tracker)"></i>Approvals reported to the tracker</span>
+      <span class="key"><i class="sw-bar" style="background:var(--pending);opacity:.35"></i>State Department figures not yet published</span>
+    </div>
+    <details>
+      <summary>Show the numbers</summary>
+      <div class="tablewrap"><table id="table-cov">
+        <thead><tr><th>Month</th><th>Issued at London</th><th>Tracker approvals</th><th>Share captured</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </details>
+  </div>
+</section>
+
+<section id="reading">
+  <h2>How to read this</h2>
+  <ul>
+    <li>Both medians count petitions decided in the quarter, so they measure the same thing. USCIS's covers spouses, parents and children of U.S. citizens; the tracker's covers members whose case goes through London.</li>
+    <li>Tracker members chose to share their timelines. The close match suggests they're typical at the I-130 stage, but it doesn't prove they're typical later, at NVC or the embassy.</li>
+    <li>Waits are measured from the I-130 priority date to the approval date, in months of 30.4 days. A handful of very short waits are likely upgrades or typing mistakes; they're shown but barely move the median.</li>
+    <li>The coverage figures will change once the State Department publishes March 2026 onwards, which is when most tracker approvals happened.</li>
+  </ul>
+</section>
+
+<section id="sources">
+  <h2>Sources</h2>
+  <ul class="sources">
+    <li>USCIS, I-130 performance data and quarterly all-forms reports, FY2025 Q1 to FY2026 Q3: median processing time for immediate-relative I-130s. <a href="https://www.uscis.gov/tools/reports-and-studies/immigration-and-citizenship-data">uscis.gov immigration and citizenship data</a></li>
+    <li>U.S. Department of State, monthly immigrant visa issuances by post and visa class, October 2023 to February 2026. <a href="https://travel.state.gov/content/travel/en/legal/visa-law0/visa-statistics/immigrant-visa-statistics/monthly-immigrant-visa-issuances.html">travel.state.gov monthly issuances</a></li>
+    <li>American Visa Guide London tracker: timelines members submitted, read 25 November 2026. 184 members with an immediate-relative I-130 approved from January 2025 onwards.</li>
+  </ul>
+</section>
+
+<p class="note">Prepared by American Visa Guide from public government data and members' own reports. Not legal advice.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <nav class="stage-prevnext" aria-label="Previous and next page">
+        <a class="prev" href="/data/family-visas" rel="prev"><small>← Previous</small> London and worldwide family visa data</a>
+      </nav>
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/env.js?v=20260609"></script>
+  <script src="/js/main.js?v=20260609"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const PTS = [["2025-01",15.8],["2025-01",15.8],["2025-02",8.7],["2025-02",16.2],["2025-03",17.4],["2025-03",15.6],["2025-03",15.6],["2025-03",0.5],["2025-03",15.5],["2025-03",15.7],["2025-03",17.1],["2025-04",12.1],["2025-04",14.7],["2025-04",14.7],["2025-04",14.7],["2025-04",14.8],["2025-04",14.6],["2025-04",14.6],["2025-04",11.1],["2025-04",15.2],["2025-04",14.5],["2025-05",14.5],["2025-05",14.5],["2025-05",18.5],["2025-05",14.5],["2025-05",14.4],["2025-05",10.5],["2025-05",14.4],["2025-05",12.3],["2025-05",14.4],["2025-05",14.4],["2025-05",14.4],["2025-05",14.5],["2025-05",14.9],["2025-06",14.5],["2025-06",14.6],["2025-06",14.6],["2025-06",14.6],["2025-06",14.8],["2025-06",14.7],["2025-06",8.9],["2025-06",14.9],["2025-07",14.9],["2025-07",14.9],["2025-07",14.9],["2025-07",15.1],["2025-07",14.8],["2025-07",15.0],["2025-07",14.7],["2025-07",14.8],["2025-07",14.7],["2025-07",14.7],["2025-07",14.5],["2025-07",7.5],["2025-07",14.6],["2025-07",14.8],["2025-07",14.8],["2025-08",14.5],["2025-08",14.5],["2025-08",14.5],["2025-08",14.5],["2025-08",14.4],["2025-08",14.5],["2025-08",14.4],["2025-08",14.3],["2025-08",14.4],["2025-08",14.3],["2025-08",14.3],["2025-08",14.5],["2025-08",14.3],["2025-08",15.5],["2025-08",7.9],["2025-08",14.2],["2025-09",14.2],["2025-09",14.2],["2025-09",14.0],["2025-09",14.0],["2025-09",14.6],["2025-09",14.0],["2025-09",13.9],["2025-09",11.7],["2025-09",13.8],["2025-09",13.8],["2025-09",13.7],["2025-09",13.6],["2025-09",13.2],["2025-09",13.9],["2025-09",13.5],["2025-10",13.6],["2025-10",13.5],["2025-10",13.5],["2025-10",13.4],["2025-10",13.3],["2025-10",13.4],["2025-10",13.4],["2025-10",13.4],["2025-10",13.4],["2025-10",13.4],["2025-10",8.6],["2025-10",13.6],["2025-10",13.4],["2025-10",13.3],["2025-10",13.3],["2025-10",13.5],["2025-10",13.5],["2025-10",20.5],["2025-10",14.0],["2025-10",13.2],["2025-10",13.2],["2025-11",13.2],["2025-11",13.2],["2025-11",13.3],["2025-11",2.8],["2025-11",2.8],["2025-11",13.6],["2025-11",19.6],["2025-11",13.5],["2025-11",13.1],["2025-11",17.3],["2025-11",13.4],["2025-11",13.1],["2025-11",13.1],["2025-11",13.3],["2025-11",13.0],["2025-11",13.1],["2025-12",13.3],["2025-12",13.1],["2025-12",13.1],["2025-12",12.7],["2025-12",13.0],["2025-12",13.5],["2025-12",13.9],["2025-12",13.1],["2025-12",13.1],["2025-12",13.2],["2025-12",13.2],["2025-12",13.1],["2026-01",13.0],["2026-01",13.0],["2026-01",13.0],["2026-01",13.0],["2026-01",13.6],["2026-01",0.2],["2026-01",13.0],["2026-01",26.2],["2026-01",12.8],["2026-01",12.7],["2026-01",12.8],["2026-01",6.3],["2026-01",12.5],["2026-01",12.5],["2026-01",12.5],["2026-01",12.5],["2026-01",12.4],["2026-01",12.4],["2026-01",12.3],["2026-02",12.2],["2026-02",12.4],["2026-02",12.2],["2026-02",12.2],["2026-02",12.3],["2026-02",12.1],["2026-02",12.4],["2026-02",24.4],["2026-02",12.3],["2026-02",12.1],["2026-02",12.1],["2026-02",12.0],["2026-02",12.0],["2026-02",12.0],["2026-02",14.1],["2026-03",12.4],["2026-03",19.4],["2026-03",17.0],["2026-04",15.5],["2026-04",13.6],["2026-06",31.4],["2026-06",31.4],["2026-08",29.2],["2026-09",18.4],["2026-10",13.1],["2026-10",13.1],["2026-11",20.3],["2026-11",23.4]].map(([mo,m]) => ({date: new Date(mo+'-15T00:00:00Z'), m}));
+// Dates are rounded to the month; the chart spreads each month's dots across it so they don't sit on top of each other.
+const jitter = i => ((i * 7919) % 21) - 10; // days, -10 to +10, fixed per dot
+// USCIS quarterly IR I-130 median (months); quarter start dates are federal fiscal quarters
+const USCIS = [['FY25 Q1','2024-10-01',14.3],['FY25 Q2','2025-01-01',15.7],['FY25 Q3','2025-04-01',14.4],['FY25 Q4','2025-07-01',13.7],['FY26 Q1','2025-10-01',13.1],['FY26 Q2','2026-01-01',12.5],['FY26 Q3','2026-04-01',13.0]];
+const QLABEL = {'2024-10-01':'Oct–Dec 2024','2025-01-01':'Jan–Mar 2025','2025-04-01':'Apr–Jun 2025','2025-07-01':'Jul–Sep 2025','2025-10-01':'Oct–Dec 2025','2026-01-01':'Jan–Mar 2026','2026-04-01':'Apr–Jun 2026','2026-07-01':'Jul–Sep 2026','2026-10-01':'Oct–Dec 2026'};
+const QSTARTS = Object.keys(QLABEL).map(s => new Date(s+'T00:00:00Z'));
+const qOf = d => { let q = null; for (const s of QSTARTS) if (d >= s) q = s; return q; };
+const addM = (d,n) => { const x = new Date(d); x.setUTCMonth(x.getUTCMonth()+n); return x; };
+const fyName = s => { const d = new Date(s); const fy = d.getUTCFullYear() + (d.getUTCMonth() >= 9 ? 1 : 0); const q = ({9:1,0:2,3:3,6:4})[d.getUTCMonth()]; return 'FY' + String(fy).slice(2) + ' Q' + q; };
+
+// Tracker quarterly stats, computed from the points on the page
+const groups = d3.groups(PTS, p => +qOf(p.date)).sort((a,b) => a[0]-b[0]);
+const TRK = groups.map(([s, ps]) => {
+  const v = ps.map(p => p.m).sort(d3.ascending);
+  return {start: new Date(s), n: v.length, med: d3.quantileSorted(v,.5), q1: d3.quantileSorted(v,.25), q3: d3.quantileSorted(v,.75)};
+});
+const SMALL = 10; // quarters with fewer members are shown faded
+
+const LONDON = [['2023-10',165],['2023-11',141],['2023-12',133],['2024-01',165],['2024-02',101],['2024-03',134],['2024-04',197],['2024-05',133],['2024-06',106],['2024-07',42],['2024-08',113],['2024-09',127],['2024-10',114],['2024-11',134],['2024-12',104],['2025-01',227],['2025-02',112],['2025-03',132],['2025-04',106],['2025-05',115],['2025-06',128],['2025-07',107],['2025-08',107],['2025-09',101],['2025-10',180],['2025-11',115],['2025-12',133],['2026-01',131],['2026-02',129]];
+const TRACKER_VISAS = {'2025-05':1,'2025-06':1,'2025-08':2,'2025-09':1,'2025-10':3,'2025-11':3,'2025-12':1,'2026-01':1,'2026-02':1,'2026-03':5,'2026-04':7,'2026-05':14,'2026-06':7,'2026-07':20,'2026-08':5,'2026-10':6,'2026-11':1};
+const months = [];
+for (let d = new Date('2023-10-01T00:00:00Z'); d <= new Date('2026-11-01T00:00:00Z'); d = addM(d,1)) months.push(d.toISOString().slice(0,7));
+const issued = Object.fromEntries(LONDON);
+const COV = months.map(m => ({m, issued: issued[m] ?? null, trk: TRACKER_VISAS[m] ?? 0}));
+const fmtMonth = m => d3.utcFormat('%b %Y')(new Date(m+'-01T00:00:00Z'));
+const fmtAxis = d3.utcFormat("%b '%y");
+const f1 = d3.format('.1f');
+
+function tipFor(el){ let t = el.querySelector('.tip'); if(!t){ t = document.createElement('div'); t.className='tip'; t.hidden = true; el.appendChild(t);} return t; }
+function place(t, el, ev){ const [x,y] = d3.pointer(ev, el); const w = t.offsetWidth, h = t.offsetHeight; t.style.left = Math.max(0, Math.min(x + 12, el.clientWidth - w)) + 'px'; t.style.top = Math.max(0, y - h - 10) + 'px'; }
+function tipHTML(t, title, lines){ t.replaceChildren(); const s = document.createElement('strong'); s.textContent = title; t.appendChild(s); for (const l of lines){ const d = document.createElement('div'); d.textContent = l; t.appendChild(d);} }
+
+let showDots = true;
+function drawWaits(){
+  const el = document.getElementById('chart-waits');
+  const W = el.clientWidth, H = W < 520 ? 300 : 360, m = {t:12, r:12, b:30, l:40};
+  d3.select(el).select('svg').remove();
+  const svg = d3.select(el).insert('svg', ':first-child').attr('width', W).attr('height', H);
+  const x = d3.scaleUtc().domain([new Date('2024-10-01T00:00:00Z'), new Date('2027-01-01T00:00:00Z')]).range([m.l, W - m.r]);
+  const y = d3.scaleLinear().domain([0, 33]).range([H - m.b, m.t]);
+  svg.append('g').attr('transform',`translate(${m.l},0)`).call(d3.axisLeft(y).tickValues([0,6,12,18,24,30]).tickSize(-(W-m.l-m.r)).tickFormat(d => d + ' mo'))
+    .call(g => g.select('.domain').remove()).call(g => g.selectAll('line').style('stroke','var(--line)'));
+  svg.append('g').attr('transform',`translate(0,${H-m.b})`).call(d3.axisBottom(x).ticks(W < 520 ? 4 : 8).tickFormat(fmtAxis).tickSizeOuter(0))
+    .call(g => g.selectAll('line,.domain').style('stroke','var(--axis)'));
+  // quarters with no comparison yet
+  svg.append('rect').attr('x', x(new Date('2026-04-01T00:00:00Z'))).attr('width', x.range()[1] - x(new Date('2026-04-01T00:00:00Z'))).attr('y', m.t).attr('height', H - m.t - m.b).style('fill','var(--surface-alt)').style('opacity', .7);
+  svg.append('text').attr('x', x(new Date('2026-04-01T00:00:00Z')) + 6).attr('y', m.t + 14).text('Few reports yet');
+  if (showDots){
+    svg.append('g').selectAll('circle').data(PTS).join('circle')
+      .attr('cx', (p, i) => x(new Date(+p.date + jitter(i) * 864e5))).attr('cy', p => y(p.m)).attr('r', 3.5)
+      .style('fill','var(--tracker)').style('opacity',.35);
+  }
+  const seg = (arr, cls, color, dash, op) => svg.append('g').selectAll('line.'+cls).data(arr).join('line')
+      .attr('x1', d => x(d.start)).attr('x2', d => x(addM(d.start,3)) - 2)
+      .attr('y1', d => y(d.v)).attr('y2', d => y(d.v))
+      .style('stroke', color).attr('stroke-width', 3).attr('stroke-linecap','round')
+      .attr('stroke-dasharray', dash).style('opacity', op);
+  seg(USCIS.map(([,s,v]) => ({start: new Date(s+'T00:00:00Z'), v})), 'u', 'var(--uscis)', '6 4', d => 1);
+  seg(TRK.map(t => ({start: t.start, v: t.med, n: t.n})), 't', 'var(--tracker)', null, d => d.n >= SMALL ? 1 : .35);
+  // hover: nearest quarter column
+  const t = tipFor(el);
+  svg.append('g').selectAll('rect.hit').data(QSTARTS).join('rect')
+    .attr('x', s => Math.max(m.l, x(s))).attr('width', s => Math.max(0, Math.min(x.range()[1], x(addM(s,3))) - Math.max(m.l, x(s))))
+    .attr('y', m.t).attr('height', H - m.t - m.b).attr('fill','transparent')
+    .on('pointerenter pointermove', (ev, s) => {
+      const key = s.toISOString().slice(0,10), u = USCIS.find(r => r[1] === key), tr = TRK.find(r => +r.start === +s);
+      const lines = [];
+      lines.push('USCIS median: ' + (u ? f1(u[2]) + ' months' : 'not published yet'));
+      lines.push(tr ? `Tracker median: ${f1(tr.med)} months (${tr.n} member${tr.n === 1 ? '' : 's'})` : 'Tracker: no approvals reported');
+      if (tr && tr.n >= SMALL) lines.push(`Middle half of members: ${f1(tr.q1)}–${f1(tr.q3)} months`);
+      if (tr && tr.n < SMALL) lines.push('Too few members to compare');
+      tipHTML(t, fyName(key) + ' · ' + QLABEL[key], lines); t.hidden = false; place(t, el, ev);
+    })
+    .on('pointerleave', () => { t.hidden = true; });
+  el.appendChild(t);
+}
+
+function drawCov(){
+  const el = document.getElementById('chart-cov');
+  const W = el.clientWidth, H = W < 520 ? 280 : 320, m = {t:12, r:8, b:30, l:40};
+  d3.select(el).select('svg').remove();
+  const svg = d3.select(el).insert('svg', ':first-child').attr('width', W).attr('height', H);
+  const x = d3.scaleBand().domain(months).range([m.l, W - m.r]).paddingInner(.18);
+  const y = d3.scaleLinear().domain([0, 240]).range([H - m.b, m.t]);
+  svg.append('g').attr('transform',`translate(${m.l},0)`).call(d3.axisLeft(y).tickValues([0,50,100,150,200]).tickSize(-(W-m.l-m.r)))
+    .call(g => g.select('.domain').remove()).call(g => g.selectAll('line').style('stroke','var(--line)'));
+  const every = W < 520 ? 9 : 6;
+  svg.append('g').attr('transform',`translate(0,${H-m.b})`).call(d3.axisBottom(x).tickValues(months.filter((_,i) => i % every === 0)).tickFormat(m => fmtAxis(new Date(m+'-01T00:00:00Z'))).tickSizeOuter(0))
+    .call(g => g.selectAll('line,.domain').style('stroke','var(--axis)'));
+  const bw = x.bandwidth(), r = Math.min(4, bw/2);
+  const bar = (g, xv, val, color, op) => {
+    if (!val) return;
+    const h = y(0) - y(val), rr = Math.min(r, h);
+    g.append('path').attr('d', `M${xv},${y(0)}V${y(val)+rr}Q${xv},${y(val)} ${xv+rr},${y(val)}H${xv+bw-rr}Q${xv+bw},${y(val)} ${xv+bw},${y(val)+rr}V${y(0)}Z`).style('fill', color).style('opacity', op);
+  };
+  const g = svg.append('g');
+  const firstPending = x('2026-03');
+  g.append('rect').attr('x', firstPending - x.step()*x.paddingInner()/2).attr('width', x.range()[1] - firstPending + x.step()*x.paddingInner()/2).attr('y', m.t).attr('height', H - m.t - m.b).style('fill','var(--pending)').style('opacity', .14);
+  g.append('text').attr('x', firstPending + 2).attr('y', m.t + 14).text(W < 520 ? 'Not published' : 'State Dept not yet published');
+  for (const d of COV){
+    bar(g, x(d.m), d.issued, 'var(--uscis)', .85);
+    // tracker bar drawn on top, inset so both stay visible
+    if (d.trk){
+      const h = Math.max(2, y(0) - y(d.trk));
+      g.append('rect').attr('x', x(d.m) + bw*0.2).attr('width', bw*0.6).attr('y', y(0) - h).attr('height', h).attr('rx', Math.min(2, bw*0.3)).style('fill','var(--tracker)').style('stroke','var(--surface)').attr('stroke-width', 1);
+    }
+  }
+  const t = tipFor(el);
+  svg.append('g').selectAll('rect.hit').data(COV).join('rect')
+    .attr('x', d => x(d.m) - x.step()*x.paddingInner()/2).attr('width', x.step()).attr('y', m.t).attr('height', H - m.t - m.b).attr('fill','transparent')
+    .on('pointerenter pointermove', (ev, d) => {
+      const lines = [d.issued == null ? 'Issued at London: not published yet' : 'Issued at London: ' + d.issued, 'Reported to tracker: ' + d.trk];
+      if (d.issued) lines.push('Share captured: ' + f1(100*d.trk/d.issued) + '%');
+      tipHTML(t, fmtMonth(d.m), lines); t.hidden = false; place(t, el, ev);
+    })
+    .on('pointerleave', () => { t.hidden = true; });
+  el.appendChild(t);
+}
+
+function tables(){
+  const tb = document.querySelector('#table-waits tbody');
+  for (const [label, s, v] of USCIS){
+    const tr = TRK.find(r => r.start.toISOString().slice(0,10) === s), row = tb.insertRow();
+    const cells = [label, QLABEL[s], f1(v), tr ? tr.n : 0, tr ? f1(tr.med) : '—', tr && tr.n >= SMALL ? f1(tr.q1)+'–'+f1(tr.q3) : '—', tr && tr.n >= SMALL ? (tr.med - v >= 0 ? '+' : '') + f1(tr.med - v) : 'too few'];
+    for (const c of cells) row.insertCell().textContent = c;
+  }
+  const tc = document.querySelector('#table-cov tbody');
+  for (const d of COV.filter(d => d.issued != null || d.trk)){
+    const row = tc.insertRow();
+    for (const c of [fmtMonth(d.m), d.issued ?? 'not published', d.trk, d.issued ? f1(100*d.trk/d.issued)+'%' : '—']) row.insertCell().textContent = c;
+  }
+}
+
+function quarterTable(){
+  const tb = document.querySelector('#table-quarters tbody');
+  const diff = mo => {
+    const d = Math.round(mo * 30.4375), a = Math.abs(d);
+    if (a < 1) return 'Same';
+    const size = a >= 14 ? Math.round(a / 7) + ' weeks' : a + (a === 1 ? ' day' : ' days');
+    return size + (d > 0 ? ' longer' : ' shorter');
+  };
+  for (const [label, s, v] of USCIS){
+    const tr = TRK.find(r => r.start.toISOString().slice(0,10) === s);
+    if (!tr || tr.n < SMALL) continue;
+    const row = tb.insertRow();
+    const c0 = row.insertCell(); c0.textContent = QLABEL[s];
+    const sub = document.createElement('span'); sub.className = 'qsub'; sub.textContent = label; c0.appendChild(sub);
+    for (const c of [tr.n, f1(tr.med) + ' months', f1(v) + ' months', diff(tr.med - v)]) row.insertCell().textContent = c;
+  }
+}
+
+function setMode(dots){
+  showDots = dots;
+  document.getElementById('btn-both').setAttribute('aria-pressed', String(dots));
+  document.getElementById('btn-med').setAttribute('aria-pressed', String(!dots));
+  drawWaits();
+}
+document.getElementById('btn-both').addEventListener('click', () => setMode(true));
+document.getElementById('btn-med').addEventListener('click', () => setMode(false));
+tables(); quarterTable(); drawWaits(); drawCov();
+let rt; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(() => { drawWaits(); drawCov(); }, 80); }).observe(document.querySelector('.tvu'));
+</script>
+</body>
+</html>
