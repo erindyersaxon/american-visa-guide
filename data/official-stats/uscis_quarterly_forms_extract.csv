@@ -1,0 +1,52 @@
+quarter,period,form,label,received,approved,denied,completions,pending,median_months
+FY24Q1,"October 1, 2023 - December 31, 2023",I-129F,Petition for Alien Fiancé(e),9689,13771,2283,16054,39185,10.4547831
+FY24Q1,"October 1, 2023 - December 31, 2023",I-130,Petition for Alien Relative,235480,172582,31667,204249,2026350,10.8821799
+FY24Q1,"October 1, 2023 - December 31, 2023",I-485,Application to Register Permanent Residence or Adjust Status (Family),110189,82552,9770,92322,519467,9.2712227
+FY24Q1,"October 1, 2023 - December 31, 2023",DS-230 (IV)24,Immigrant Visas,118093,,,125543,53604,
+FY24Q2,"January 1, 2024 - March 31, 2024",I-129F,Petition for Alien Fiancé(e),10938,18586,3406,21992,30137,8.5479358
+FY24Q2,"January 1, 2024 - March 31, 2024",I-130,Petition for Alien Relative,272351,175572,18693,194265,2109145,11.5725901
+FY24Q2,"January 1, 2024 - March 31, 2024",I-485,Application to Register Permanent Residence or Adjust Status (Family),117706,96649,11992,108641,536161,10.1260163
+FY24Q2,"January 1, 2024 - March 31, 2024",DS-230 (IV)24,Immigrant Visas,118301,,,131467,51129,
+FY24Q3,"April 1, 2024 - June 30, 2024",I-129F,Petition for Alien Fiancé(e),11537,17360,2974,20334,22328,8.5479358
+FY24Q3,"April 1, 2024 - June 30, 2024",I-130,Petition for Alien Relative,243397,175966,29058,205024,1949814,11.5725901
+FY24Q3,"April 1, 2024 - June 30, 2024",I-485,Application to Register Permanent Residence or Adjust Status (Family),124926,113472,11699,125171,530739,8.7780726
+FY24Q3,"April 1, 2024 - June 30, 2024",DS-230 (IV)24,Immigrant Visas,153239,,,139267,79691,
+FY24Q4,"July 1, 2024 - September 30, 2024",I-129F,Petition for Alien Fiancé(e),10966,6665,3337,10002,23920,5.5561583
+FY24Q4,"July 1, 2024 - September 30, 2024",I-130,Petition for Alien Relative,229978,186535,25593,212128,2194373,13.5451906
+FY24Q4,"July 1, 2024 - September 30, 2024",I-485,Application to Register Permanent Residence or Adjust Status (Family),120643,119802,14035,133837,515225,7.6931423
+FY24Q4,"July 1, 2024 - September 30, 2024",DS-230 (IV)24,Immigrant Visas,134973,,,139555,90687,
+FY25Q1,"October 1, 2024 - December 31, 2024",I-129F,Petition for Alien Fiancé(e),11609,4728,3211,7939,28839,6.1
+FY25Q1,"October 1, 2024 - December 31, 2024",I-130,Petition for Alien Relative (Immediate Relative),193443,126933,9833,136766,852120,14.3
+FY25Q1,"October 1, 2024 - December 31, 2024",I-130,Petition for Alien Relative (All Other Relative),67593,18591,7371,25962,1448873,33.6
+FY25Q1,"October 1, 2024 - December 31, 2024",I-485,Application to Register Permanent Residence or Adjust Status (Family),129472,84044,12356,96400,548621,9.4
+FY25Q1,"October 1, 2024 - December 31, 2024",DS-230 (IV)24,Immigrant Visas,137904,,,130141,111860,
+FY25Q2,"January 1, 2025 - March 31, 2025",I-129F,Petition for Alien Fiancé(e),12269,7169,3393,10562,31019,5.7
+FY25Q2,"January 1, 2025 - March 31, 2025",I-130,Petition for Alien Relative (Immediate Relative),203682,147093,12734,159827,902455,15.7
+FY25Q2,"January 1, 2025 - March 31, 2025",I-130,Petition for Alien Relative (All Other Relative),66182,15023,8931,23954,1493382,35.3
+FY25Q2,"January 1, 2025 - March 31, 2025",I-485,Application to Register Permanent Residence or Adjust Status (Family),132064,77139,14216,91355,588723,9.7
+FY25Q2,"January 1, 2025 - March 31, 2025",DS-230 (IV)25,Immigrant Visas,143882,,,150550,114712,
+FY25Q3,"April 1, 2025 - June 30, 2025",I-129F,Petition for Alien Fiancé(e),11903,4804,2683,7487,36053,7.2
+FY25Q3,"April 1, 2025 - June 30, 2025",I-130,Petition for Alien Relative (Immediate Relative),188381,211975,15209,227184,871740,14.4
+FY25Q3,"April 1, 2025 - June 30, 2025",I-130,Petition for Alien Relative (All Other Relative),58328,15627,17707,33334,1529528,36.5
+FY25Q3,"April 1, 2025 - June 30, 2025",I-485,Application to Register Permanent Residence or Adjust Status (Family),132422,122813,17198,140011,589287,7.2
+FY25Q3,"April 1, 2025 - June 30, 2025",DS-230 (IV)25,Immigrant Visas,133951,,,192682,68405,
+FY25Q4,"July 1, 2025 - September 30, 2025",I-129F,Petition for Alien Fiancé(e),10958,7214,2025,9239,38599,7.9
+FY25Q4,"July 1, 2025 - September 30, 2025",I-130,Petition for Alien Relative (Immediate Relative),173595,232609,16679,249288,801745,13.7
+FY25Q4,"July 1, 2025 - September 30, 2025",I-130,Petition for Alien Relative (All Other Relative),51382,18496,13156,31652,1555603,38
+FY25Q4,"July 1, 2025 - September 30, 2025",I-485,Application to Register Permanent Residence or Adjust Status (Family),124297,149075,18619,167694,543486,6
+FY25Q4,"July 1, 2025 - September 30, 2025",DS-230 (IV)24,Immigrant Visas,128939,,,166921,35934,
+FY26Q1,"October 1, 2025 - December 31, 2025",I-129F,Petition for Alien Fiancé(e),9385,8612,2919,11531,36875,7.5
+FY26Q1,"October 1, 2025 - December 31, 2025",I-130,Petition for Alien Relative (Immediate Relative),146726,167401,15913,183314,772234,13.1
+FY26Q1,"October 1, 2025 - December 31, 2025",I-130,Petition for Alien Relative (All Other Relative),47649,21035,10968,32003,1576284,38
+FY26Q1,"October 1, 2025 - December 31, 2025",I-485,Application to Register Permanent Residence or Adjust Status (Family),103187,94355,12455,106810,536170,5.3
+FY26Q1,"October 1, 2025 - December 31, 2025",DS-23022,Application for Immigrant Visa and Alien Registration (IV),120453,,,119068,41683,
+FY26Q2,"January 1, 2026 - March 31, 2026",I-129F,Petition for Alien Fiancé(e),8676,8604,2839,11443,34676,7.5
+FY26Q2,"January 1, 2026 - March 31, 2026",I-130,Petition for Alien Relative (Immediate Relative),126666,132960,17243,150203,761638,12.5
+FY26Q2,"January 1, 2026 - March 31, 2026",I-130,Petition for Alien Relative (All Other Relative),37808,13402,10182,23584,1597832,39.4
+FY26Q2,"January 1, 2026 - March 31, 2026",I-485,Application to Register Permanent Residence or Adjust Status (Family),127189,71514,11689,83203,579684,5.9
+FY26Q2,"January 1, 2026 - March 31, 2026",DS-23022,Application for Immigrant Visa and Alien Registration (IV),110778,,,124417,33782,
+FY26Q3,"April 1, 2026 - June 30, 2026",I-129F,Petition for Alien Fiancé(e),9737,6966,2307,9273,35871,9
+FY26Q3,"April 1, 2026 - June 30, 2026",I-130,Petition for Alien Relative (Immediate Relative),126417,82636,16661,99297,786723,13
+FY26Q3,"April 1, 2026 - June 30, 2026",I-130,Petition for Alien Relative (All Other Relative),39905,7951,8883,16834,1617823,43.3
+FY26Q3,"April 1, 2026 - June 30, 2026",I-485,Application to Register Permanent Residence or Adjust Status (Family),95175,54678,12240,66918,611067,7
+FY26Q3,"April 1, 2026 - June 30, 2026",DS-23022,Application for Immigrant Visa and Alien Registration (IV),78997,,,91482,25445,
