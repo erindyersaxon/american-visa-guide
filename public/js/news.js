@@ -38,6 +38,72 @@
   // BEGIN NEWS ITEMS
   const ITEMS = [
     {
+      "id": "c21373f918",
+      "date": "2026-11-26",
+      "type": "community",
+      "source": "Reddit: r/K1VisaInfo, r/NationalVisaCenter",
+      "title": "London: 16–26 November. Rebooked interviews keep getting approved; no first interview letters yet",
+      "url": "",
+      "note": "London is still working through the interviews it cancelled in the autumn, and most that went ahead this fortnight ended in approval. No one has reported a first interview letter for a case waiting at NVC. These are member reports, not an embassy announcement.",
+      "period": {
+        "from": "2026-11-16",
+        "to": "2026-11-26"
+      },
+      "points": [
+        {
+          "label": "Interview letters and scheduling",
+          "text": "Still no reports of a first interview letter. Applicants DQ'd in June and July 2026 posted on 20 and 25 November that they are still waiting. K-1 cases newly sent to London (shown as Ready in CEAC from 13 November) have no dates, and one commenter passed on a report that there are no new appointment slots through February; that is unconfirmed. One applicant said NVC is taking about 70 days to DQ."
+        },
+        {
+          "label": "Reschedules",
+          "text": "Interviews first set for September and rebooked for 13 November mostly went ahead, though some were moved again to January, as reported last week. One applicant whose 13 October interview was rebooked for 10 December is still waiting to see if it holds."
+        },
+        {
+          "label": "Outcomes",
+          "text": "Approvals continue for rebooked interviews, including a spouse visa on 17 November (collected from the courier three days later) and K-1 visas issued around 24 and 25 November. After approval, CEAC often flips between Administrative Processing and Approved for several days before Issued: one 13 November interview showed Issued about a week later. One applicant who resent their passport on 10 November after a 221(g) was still in administrative processing nine days later."
+        },
+        {
+          "label": "Public charge and 221(g)",
+          "text": "Officers are asking about job, education, work history, debts, savings and assets, and US health insurance plans, and asking for proof of each answer. A K-1 was refused under 221(g) around 24 November for more detail on the sponsor's assets and a budgeted plan for the beneficiary's education. Commenters report UK applicants previously on Universal Credit and out of work receiving 212(a)(4) refusals. Cases held in 221(g) since June still have no decision, and some expect a second interview under the new rules."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visa interview questions: London Embassy",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1y18egy/"
+        },
+        {
+          "label": "K-1 interview: embassy needs more documentation",
+          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1y4aoxr/"
+        },
+        {
+          "label": "K-1 fiancé visa: London embassy appointment",
+          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1y3sp7j/"
+        },
+        {
+          "label": "London 221(g) passport return timeline",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1y0hcap/"
+        },
+        {
+          "label": "Second interview: London Embassy",
+          "url": "https://www.reddit.com/r/NationalVisaCenter/comments/1xzse3v/"
+        },
+        {
+          "label": "Concerns about being denied: US petitioner, UK beneficiary",
+          "url": "https://www.reddit.com/r/K1VisaInfo/comments/1y597ee/"
+        }
+      ]
+    },
+    {
+      "id": "8065982780",
+      "date": "2026-11-23",
+      "type": "official",
+      "source": "CLINIC v. Rubio (S.D.N.Y.)",
+      "title": "CLINIC plaintiffs ask the court to pause the public charge cables while the case goes on",
+      "url": "https://storage.courtlistener.com/recap/gov.uscourts.nysd.657161/gov.uscourts.nysd.657161.140.0.pdf",
+      "note": "On 23 November the plaintiffs asked the court for a preliminary injunction and a stay (ECF 140–142). They want the November 2025 public charge cable, the 2026 cables requiring the public charge worksheet and training (26 STATE 80666, 86164, 88862 and 89798) and the extra manager review of approvals paused until the case is decided. Their proposed order would also stop officers discounting an I-864 because a sponsor has received benefits, bar repeat interviews and delays based only on those cables, and require affected refusals to be reconsidered. The government's response is due 17 December and the plaintiffs' reply 30 December, so no decision is likely before January. Nothing changes for applicants until the court rules. See [public charge](/public-charge) and [why new interviews are waiting](/visa-pause#training)."
+    },
+    {
       "id": "i130-signs-of-recovery",
       "date": "2026-11-16",
       "type": "community",
