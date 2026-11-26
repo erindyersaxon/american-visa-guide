@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>London family visa data (design preview) | American Visa Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/stage.css?v=20261117d">
+<link rel="stylesheet" href="/css/nav.css?v=20261115b">
+<script src="/js/nav.js?v=20261115d8" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
+<link rel="stylesheet" href="/css/readability.css?v=20261024c">
+<link rel="stylesheet" href="/css/section-nav.css?v=20261117grp">
+<style>
+/* Design preview only. Two kinds of data, each with its own tag colour; the
+   tag word is always shown, so colour is never the only signal. */
+.dm { --members: #0F5E66; --members-bg: #EAF2F3; --official: #7A4A12; --official-bg: #F5EEE6; }
+.dm-preview-flag { font: 600 14px/1.4 var(--font-ui); background: #FEF3C7; color: #78350F; border: 1px solid #FCD34D; border-radius: 8px; padding: 8px 12px; margin: 16px 0 0; }
+
+/* The one status line */
+.dm-status { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 12px 16px; border: 1px solid var(--border); border-left: 4px solid var(--members); border-radius: 10px; background: var(--card-bg); font: 400 16px/1.5 var(--font-ui); margin: 0 0 40px; }
+.dm-status__dot { width: 10px; height: 10px; border-radius: 50%; background: #B45309; flex: none; }
+.dm-status__text { flex: 1 1 240px; color: var(--text-primary); }
+.dm-status__text strong { font-weight: 700; }
+
+/* Links: underlined, a 44px-high hit area, and a clear focus ring */
+.dm a.dm-go { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.dm a.dm-go--members { color: var(--members); }
+.dm a:focus-visible { outline: 3px solid #0F172A; outline-offset: 3px; border-radius: 4px; }
+
+.dm-tag { display: inline-flex; align-items: center; gap: 6px; font: 700 13px/1 var(--font-ui); letter-spacing: .06em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; margin-bottom: 8px; }
+.dm-tag svg { width: 14px; height: 14px; }
+.dm-tag--members { color: var(--members); background: var(--members-bg); }
+.dm-tag--official { color: var(--official); background: var(--official-bg); }
+
+.dm-group { margin-top: 0; }
+.dm-group + .dm-group { margin-top: 48px; }
+.dm-group > p { color: var(--text-secondary); max-width: 62ch; margin: 0 0 16px; }
+
+/* Page list: one row per page, like the guide's stage table, but a list,
+   because it's a set of links rather than a grid of data. */
+.dm-pages { list-style: none; margin: 0; padding: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--card-bg); }
+.dm-pages li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; align-items: center; padding: 12px 16px; border-top: 1px solid var(--border-subtle); }
+.dm-pages li:first-child { border-top: 0; }
+.dm-pages li:nth-child(even) { background: rgba(15,23,42,0.025); }
+.dm-pages a { font: 700 17px/1.35 var(--font-ui); text-decoration: underline; text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px; justify-self: start; }
+.dm-pages--members a { color: var(--members); }
+.dm-pages--official a { color: var(--official); }
+.dm-pages .dm-desc { grid-column: 1; margin: 0; font-size: 15px; color: var(--text-secondary); }
+.dm-pages .dm-when { grid-column: 2; grid-row: 1 / span 2; margin: 0; font-size: 14px; color: var(--text-secondary); text-align: right; max-width: 18ch; }
+@media (max-width: 600px) {
+  .dm-pages li { grid-template-columns: 1fr; }
+  .dm-pages .dm-when { grid-column: 1; grid-row: auto; text-align: left; max-width: none; }
+}
+.dm-how { margin-top: 48px; padding: 16px 18px; border-radius: 10px; background: #EEF1F5; font-size: 15px; color: #334155; }
+.dm-how strong { color: var(--text-primary); }
+.dm-how a { color: #0F172A; }
+</style>
+</head>
+<body class="has-snav">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="nav-placeholder"></div>
+
+<nav class="snav-rail" aria-label="Data section">
+  <p class="snav-label">Data</p>
+  <ul class="snav-list" role="list"><li><a href="#" aria-current="page">Data overview</a></li></ul>
+  <p class="snav-heading">From members</p>
+  <ul class="snav-list" role="list">
+    <li><a href="#">Interview letters</a></li>
+    <li><a href="#">Wait times and calculator</a></li>
+    <li><a href="#">Interviews and passports</a></li>
+  </ul>
+  <p class="snav-heading">From official reports</p>
+  <ul class="snav-list" role="list">
+    <li><a href="#">I-130s across the US</a></li>
+    <li><a href="#">London and worldwide family visa data</a></li>
+    <li><a href="#">Do members' waits match USCIS?</a></li>
+  </ul>
+  <ul class="snav-list" role="list"><li><a href="#">Share your timeline</a></li></ul>
+</nav>
+
+<div class="wrap">
+<main class="main guide-article dm" id="main-content">
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Data</li></ol></nav>
+  <p class="dm-preview-flag">Design preview: middle option. The live page would fill in the status line from the tracker.</p>
+
+  <div class="page-hero page-hero--compact">
+    <h1 class="page-hero-h1">London family visa data</h1>
+    <p class="page-hero-sub">From members' own timelines, and from official reports by USCIS and the State Department.</p>
+  </div>
+
+  <p class="dm-status" role="status">
+    <span class="dm-status__dot" aria-hidden="true"></span>
+    <span class="dm-status__text"><strong>No new interview letters yet.</strong> London last sent letters on 14&nbsp;July&nbsp;2026, 135 days ago.</span>
+    <a class="dm-go dm-go--members" href="#">See every letter batch</a>
+  </p>
+
+  <section class="dm-group" aria-labelledby="members-hd">
+    <span class="dm-tag dm-tag--members"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.8c1.6.8 2.6 2.4 3 5.2"/></svg>From members</span>
+    <h2 class="section-title" id="members-hd">What members are telling us</h2>
+    <p>Dates London families have shared with us. It's a small group, but it's the only place to see when interview letters go out and how interviews are going. This section is updated as members share dates.</p>
+    <ul class="dm-pages dm-pages--members" role="list">
+      <li>
+        <a href="#">Interview letters</a>
+        <p class="dm-desc">Each batch London has sent, which cases it covered, and who is still waiting.</p>
+      </li>
+      <li>
+        <a href="#">Wait times and calculator</a>
+        <p class="dm-desc">How long each step has taken members, and a rough estimate for your own dates.</p>
+      </li>
+      <li>
+        <a href="#">Interviews and passports</a>
+        <p class="dm-desc">How interviews went, cases asked for more paperwork, and how fast passports came back.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="dm-group" aria-labelledby="official-hd">
+    <span class="dm-tag dm-tag--official"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 21h18M4 10h16M12 3 3.5 8h17L12 3z"/><path d="M6 10v8M10 10v8M14 10v8M18 10v8"/></svg>From official reports</span>
+    <h2 class="section-title" id="official-hd">What the official figures say</h2>
+    <p>Numbers USCIS and the State Department publish. They count every case, not just our members', but they come out months later.</p>
+    <ul class="dm-pages dm-pages--official" role="list">
+      <li>
+        <a href="#">I-130s across the US</a>
+        <p class="dm-desc">How many petitions USCIS receives and decides, how many are waiting, and how long they take.</p>
+        <p class="dm-when">USCIS updates every 3 months</p>
+      </li>
+      <li>
+        <a href="#">London and worldwide family visa data</a>
+        <p class="dm-desc">How many family visas the London embassy gives out each month, and how many are issued worldwide.</p>
+        <p class="dm-when">Monthly, a few months behind</p>
+      </li>
+      <li>
+        <a href="#">Do members' waits match USCIS?</a>
+        <p class="dm-desc">How long our members waited for I-130 approval, next to the national figure.</p>
+        <p class="dm-when">When new official figures come out</p>
+      </li>
+    </ul>
+  </section>
+
+  <div class="dm-how">
+    <strong>Where the numbers come from.</strong> Pages marked "From members" use timelines London families share with us. Pages marked "From official reports" use figures from USCIS and the State Department. Every page says when it was last updated. Waiting yourself? <a href="#">Share your timeline</a> and help the next family.
+  </div>
+</main>
+</div>
+<div id="footer-placeholder"></div>
+</body>
+</html>
