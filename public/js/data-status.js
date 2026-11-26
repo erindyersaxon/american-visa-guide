@@ -24,6 +24,13 @@
   }
   function daysBetween(a, b) { return Math.round((b - a) / DAY); }
 
+  /* Whole days from an ISO date (or date-time) to today's UTC midnight.
+     js/data-pages.js uses this too, so every page counts the same way. */
+  function daysSince(iso, today) {
+    if (!iso) return null;
+    return daysBetween(parse(String(iso).slice(0, 10)), today);
+  }
+
   function statusLine(drops, stats, today) {
     const s = stats || {};
     const last = (drops || [])[0];
@@ -65,6 +72,6 @@
     return { lead: 'No letters expected yet.', rest: expect ? ago + ' ' + expect : ago };
   }
 
-  if (typeof module !== 'undefined' && module.exports) module.exports = { statusLine };
-  if (typeof window !== 'undefined') window.AVGDataStatus = { statusLine };
+  if (typeof module !== 'undefined' && module.exports) module.exports = { statusLine, daysSince };
+  if (typeof window !== 'undefined') window.AVGDataStatus = { statusLine, daysSince };
 })();

@@ -124,8 +124,8 @@
   }
   function daysAgo(s) {
     if (!s) return null;
-    const d = new Date(s.length === 10 ? s + 'T00:00:00Z' : s);
-    return Math.round((Date.now() - d.getTime()) / 86400000);
+    const today = new Date(); today.setUTCHours(0, 0, 0, 0);
+    return window.AVGDataStatus.daysSince(s, today);
   }
   function avgOf(arr, field) {
     const vals = arr.map(r => r[field]).filter(v => v != null && !isNaN(Number(v)));

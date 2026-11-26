@@ -67,3 +67,10 @@ test('missing stats object is tolerated', () => {
   const r = statusLine(drops, null, today);
   assert.equal(r.lead, 'No letters expected yet.');
 });
+
+test('daysSince counts whole days to UTC midnight, the same way as the status line', () => {
+  const { daysSince } = require('../public/js/data-status.js');
+  assert.equal(daysSince('2026-07-14', today), 135);
+  assert.equal(daysSince('2026-07-14T00:00:00Z', today), 135);
+  assert.equal(daysSince(null, today), null);
+});

@@ -172,3 +172,24 @@ test('every data page is in the sitemap', () => {
   const sitemap = read('sitemap.xml');
   for (const url of ORDER) assert.ok(sitemap.includes(`<loc>https://www.americanvisaguide.com${url}</loc>`), url);
 });
+
+test('final review: chart colour tokens are defined for every page, not only #official-data', () => {
+  const css = read('css/data-section.css');
+  assert.match(css, /:root[^{}]*\{[^}]*--viz-s1:\s*#2170a8[^}]*--viz-s2:\s*#c0692f/);
+});
+
+test('final review: each official chart container has a text summary', () => {
+  for (const [file, id] of [['data/i130-us.html', 'od-chart-approvals'], ['data/i130-us.html', 'od-chart-denials'], ['data/family-visas.html', 'od-chart-london'], ['data/family-visas.html', 'od-chart-visas']]) {
+    assert.match(read(file), new RegExp(`<div class="od-chart" id="${id}" role="group" aria-label="[^"]{30,}"`), `${file} #${id}`);
+  }
+});
+
+test('final review: the topic pages\' skip link shows when focused', () => {
+  assert.match(read('css/data-section.css'), /\.skip-to-main:focus\s*\{[^}]*top:\s*0\s*!important/);
+});
+
+test('final review: member pages count days ago the same way as the status line', () => {
+  const js = read('js/data-pages.js');
+  assert.match(js, /AVGDataStatus\.daysSince\(/);
+  assert.doesNotMatch(js, /Date\.now\(\) - d\.getTime\(\)/);
+});

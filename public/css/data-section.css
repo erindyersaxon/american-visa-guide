@@ -56,7 +56,7 @@
 /* ---------- Part 2: data page styles (moved from data.html) ---------- */
     /* Accessibility: Skip link */
     .skip-to-main:focus {
-      top: 0;
+      top: 0 !important;
       outline: 2px solid var(--color-primary);
       outline-offset: 2px;
     }
@@ -356,7 +356,8 @@
     .od-details[open] summary { margin-bottom: var(--space-4); }
 
     /* Official data charts: tokens validated for colour-blind separation and 3:1 contrast */
-    .od-viz, #official-data {
+    /* On :root so charts and their tooltips get colours on every data page */
+    :root, .od-viz, #official-data {
       --viz-s1: #2170a8;   /* all other / single series */
       --viz-s2: #c0692f;   /* 75 pause countries */
     }
