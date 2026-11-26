@@ -26,6 +26,9 @@ const linksOf = (key) => SECTIONS[key].groups.flatMap((g) => g.links.filter((l) 
 // Pages in a section that are reached from a parent page, not the list.
 const OFF_LIST = new Set(['/guide/delayed-i130/mandamus']);
 
+// The /data topic pages are built after the sidebar list (data-section-split plan).
+const DATA_PAGES_PENDING = true;
+
 // The Tools hub is itself the full list of tools, so it doesn't get the sidebar.
 const NO_SIDEBAR = new Set(['/tools']);
 
@@ -61,6 +64,7 @@ test('every internal link in a section list points at a real page', () => {
     for (const href of linksOf(key)) {
       if (!href.startsWith('/')) continue;
       const bare = href.split(/[#?]/)[0];
+      if (DATA_PAGES_PENDING && bare.startsWith('/data/')) continue; // built in Tasks 4-6; flag removed in Task 7
       assert.ok(urls.has(bare), `${key}: ${href} has no page`);
     }
   }
@@ -82,4 +86,14 @@ test('group labels sort the evidence examples, and every label has links under i
   assert.deepEqual(ex.links.filter((l) => l.group).map((l) => l.group), ['Spouses', 'Children', 'Parents and siblings']);
   assert.equal(ex.links.filter((l) => l.href).length, 9);
   assert.ok(ex.links.filter((l) => l.href).every((l) => !/Example$/.test(l.text)), 'no repeated "Example"');
+});
+
+test('the data section lists its pages in the agreed groups', () => {
+  const s = SECTIONS.data;
+  assert.ok(s, 'SECTIONS.data exists');
+  assert.equal(s.label, 'Data');
+  assert.deepEqual(s.groups.map((g) => g.heading || null), [null, 'From members', 'From official reports', null]);
+  assert.deepEqual(linksOf('data').slice(0, 7), ['/data', '/data/interview-letters', '/data/wait-times', '/data/interviews', '/data/i130-us', '/data/family-visas', '/data/tracker-vs-uscis']);
+  assert.deepEqual(s.groups[2].links.map((l) => l.text), ['I-130s across the US', 'London and worldwide family visa data', "Do members' waits match USCIS?"]);
+  assert.equal(linksOf('data')[7], 'https://forms.fillout.com/t/dTRqnkx9uxus');
 });
