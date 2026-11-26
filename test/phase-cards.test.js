@@ -38,15 +38,15 @@ test('cardView shows members still waiting', () => {
   assert.doesNotMatch(C.cardView(phase({ still_waiting: 0 })).source, /still waiting/);
 });
 
-test('data.html keeps the not-a-forecast caveat with the phase cards', () => {
-  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
-  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- IL DROP HISTORY TABLE -->');
+test('the wait times page keeps the not-a-forecast caveat with the phase cards', () => {
+  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data', 'wait-times.html'), 'utf8');
+  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- TIMELINE CALCULATOR -->');
   assert.ok(start > 0 && end > start, 'phases section present');
   assert.match(html.slice(start, end), /Historical data, not a forecast/);
 });
 
-test('data.html DQ backlog has no expected-batch estimates', () => {
-  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
+test('the data pages\' DQ backlog has no expected-batch estimates', () => {
+  const html = ['data.html', 'data/interview-letters.html', 'data/wait-times.html', 'data/interviews.html'].map((f) => require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', f), 'utf8')).join('\n');
   assert.doesNotMatch(html, /Expected Batch|expectedBatchLabel|drops away|drop expected to reach/);
 });
 
@@ -56,20 +56,21 @@ test('cardView adds the all-time median when given', () => {
   assert.doesNotMatch(C.cardView(phase()).source, /all-time/);
 });
 
-test('data.html shows each wait only in the phase cards', () => {
-  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
-  assert.doesNotMatch(html, /Typical recent wait|id="iv-(dqil|iliv|ivpp)"|id="t-(alltime|6mo)"|id="trend-hd"|renderIntervals|renderTrends/);
-  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- IL DROP HISTORY TABLE -->');
+test('the data pages show each wait only in the phase cards', () => {
+  const all = ['data.html', 'data/interview-letters.html', 'data/wait-times.html', 'data/interviews.html'].map((f) => require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', f), 'utf8')).join('\n');
+  assert.doesNotMatch(all, /Typical recent wait|id="iv-(dqil|iliv|ivpp)"|id="t-(alltime|6mo)"|id="trend-hd"|renderIntervals|renderTrends/);
+  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data', 'wait-times.html'), 'utf8');
+  const start = html.indexOf('id="phases-hd"'), end = html.indexOf('<!-- TIMELINE CALCULATOR -->');
   assert.match(html.slice(start, end), /id="tn-days-since"/);
 });
 
-test('data.html has no IL to interview scheduling table', () => {
-  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
+test('the data pages have no IL to interview scheduling table', () => {
+  const html = ['data.html', 'data/interview-letters.html', 'data/wait-times.html', 'data/interviews.html'].map((f) => require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', f), 'utf8')).join('\n');
   assert.doesNotMatch(html, /id="sched-hd"|data-il-interview|il-interview\.js/);
 });
 
-test('data.html puts pipeline status above wait times by phase', () => {
-  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data.html'), 'utf8');
+test('the wait times page puts pipeline status above wait times by phase', () => {
+  const html = require('node:fs').readFileSync(require('node:path').join(__dirname, '..', 'public', 'data', 'wait-times.html'), 'utf8');
   const pipeline = html.indexOf('id="pipeline-hd"'), phases = html.indexOf('id="phases-hd"');
   assert.ok(pipeline > 0 && phases > pipeline);
 });

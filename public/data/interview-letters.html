@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/consent.js?v=20261123a" defer></script>
+  <title>Interview letters: Data | American Visa Guide</title>
+  <meta name="description" content="When the US Embassy London last sent interview letters, which DQ dates each batch covered, and who is still waiting. From timelines members share.">
+  <link rel="canonical" href="https://www.americanvisaguide.com/data/interview-letters">
+  <meta property="og:title" content="Interview letters: Data | American Visa Guide">
+  <meta property="og:description" content="When the US Embassy London last sent interview letters, which DQ dates each batch covered, and who is still waiting. From timelines members share.">
+  <meta property="og:image" content="https://www.americanvisaguide.com/images/og-home.png">
+  <meta property="og:url" content="https://www.americanvisaguide.com/data/interview-letters">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.americanvisaguide.com/images/og-home.png">
+
+  <link rel="stylesheet" href="/css/main.css?v=20261024c">
+  <link rel="stylesheet" href="/css/components.css?v=20261024c">
+  <link rel="stylesheet" href="/css/data-section.css?v=20261126d">
+  <link rel="stylesheet" href="/css/nav.css?v=20261115b">
+  <script src="/js/nav.js?v=20261115d8" defer></script>
+<link rel="stylesheet" href="/css/guide-article.css?v=20261025c">
+<link rel="stylesheet" href="/css/readability.css?v=20261024c">
+<link rel="stylesheet" href="/css/section-nav.css?v=20261117grp">
+<script src="/js/section-nav.js?v=20261126a" data-section="data" defer></script>
+</head>
+<body class="has-snav">
+  <a href="#main-content" class="skip-to-main" style="position: absolute; top: -40px; left: 0; background: var(--color-primary); color: white; padding: 8px 16px; text-decoration: none; z-index: 100;">Skip to main content</a>
+
+  <div id="nav-placeholder"></div>
+
+  <main data-pagefind-body id="main-content">
+
+    <section class="hero-section dsx-hero" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/data">Data</a></li><li aria-current="page">Interview letters</li></ol></nav>
+
+        <span class="dsx-tag dsx-tag--members"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.8c1.6.8 2.6 2.4 3 5.2"/></svg>From members</span>
+        <h1 id="page-title" class="dsx-h1">Interview letters</h1>
+        <p class="dsx-source" data-live>Live from timelines members share. These figures load each time you open the page.</p>
+
+        <!-- Stale data notice -->
+        <div id="data-notice" class="data-notice" role="alert" aria-live="polite">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Live data temporarily unavailable: showing last-known values. Data may be outdated.
+        </div>
+
+        <!-- IL Drop Status Banner -->
+        <div id="il-banner" class="il-banner" role="status" aria-live="polite" aria-label="Interview Letter drop system status">
+          <div class="il-banner__chip">
+            <span class="skel skel--chip" aria-hidden="true"></span>
+          </div>
+          <div class="il-banner__title">
+            <span class="skel skel--line skel--wide" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <!-- 4 key metrics -->
+        <div class="metrics-grid" role="region" aria-label="Key queue metrics">
+
+          <div class="metric-card">
+            <div class="metric-card__label">Last IL drop</div>
+            <div class="metric-card__value" id="m-last-drop">
+              <span class="skel skel--val" aria-hidden="true"></span>
+            </div>
+            <div class="metric-card__sub" id="m-last-drop-sub"></div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__label">Days since the last drop</div>
+            <div class="metric-card__value" id="m-days-since">
+              <span class="skel skel--val" aria-hidden="true"></span>
+            </div>
+            <div class="metric-card__sub" id="m-days-since-sub">days ago</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__label">Latest DQ with an IL</div>
+            <div class="metric-card__value" id="il-latest-dq">
+              <span class="skel skel--val" aria-hidden="true"></span>
+            </div>
+            <div class="metric-card__sub">Standard cases only</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__label">Interview dates</div>
+            <div class="metric-card__value" id="m-interview-range">
+              <span class="skel skel--val" aria-hidden="true"></span>
+            </div>
+            <div class="metric-card__sub" id="m-interview-range-sub"></div>
+          </div>
+
+        </div>
+
+        <p class="metrics-note" id="m-members-note">
+          <span class="skel skel--line skel--narrow" aria-hidden="true"></span>
+        </p>
+
+        <p class="metrics-note" style="margin-top: var(--space-2);">
+          Figures for interview letters (ILs) reflect <strong>Immediate Relative (IR)</strong> visas, based on the volume of data submitted. Family-Sponsored Preference cases follow the same London process but are currently tracking about a month behind IR. For the wider official picture, see <a href="/data/i130-us">the national USCIS figures</a>, the <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/iv-wait-times.html" target="_blank" rel="noopener noreferrer">NVC immigrant visa scheduling status tool</a>, or read more on the <a href="/guide/waiting">guide page</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- IL DROP HISTORY TABLE -->
+    <section class="content-section" aria-labelledby="drops-hd">
+      <div class="container">
+        <div class="section-hd">
+          <h2 class="section-hd__title" id="drops-hd">Interview letter history</h2>
+          <p class="section-hd__sub">Interview Letter drops from the US Embassy London. Most recent first.</p>
+        </div>
+
+        <div class="table-wrapper" role="region" aria-labelledby="drops-hd" tabindex="0">
+          <table class="table table--striped">
+            <caption class="sr-only">Interview Letter drop history: drop date, day of week, time of drop, DQ date range covered, interview date range scheduled, gap since previous drop, and number of ILs issued</caption>
+            <thead>
+              <tr>
+                <th scope="col">Drop Date</th>
+                <th scope="col">Day</th>
+                <th scope="col">Time (London)</th>
+                <th scope="col">DQ Dates Covered</th>
+                <th scope="col">Interview Dates</th>
+                <th scope="col">Gap Since Previous</th>
+                <th scope="col">ILs Issued</th>
+              </tr>
+            </thead>
+            <tbody id="drops-tbody">
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="7"><span class="skel skel--row" style="display:block;"></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- DQ BACKLOG: AWAITING IL -->
+    <section class="content-section" aria-labelledby="backlog-hd">
+      <div class="container">
+        <div class="section-hd">
+          <h2 class="section-hd__title" id="backlog-hd">Waiting for an interview letter</h2>
+          <p class="section-hd__sub">Tracked members who are Documentarily Qualified but haven't received an Interview Letter yet, grouped by DQ month.</p>
+        </div>
+
+        <div class="passport-grid" style="margin-bottom: var(--space-5);">
+          <div class="metric-card">
+            <div class="metric-card__label">Members waiting for an IL</div>
+            <div class="metric-card__value" id="bk-total"><span class="skel skel--val" aria-hidden="true"></span></div>
+            <div class="metric-card__sub" id="bk-total-sub"></div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__label">Oldest waiting DQ</div>
+            <div class="metric-card__value" id="bk-oldest"><span class="skel skel--val" aria-hidden="true"></span></div>
+            <div class="metric-card__sub">First in line for the next drop</div>
+          </div>
+        </div>
+
+        <div class="table-wrapper" role="region" aria-labelledby="backlog-hd" tabindex="0">
+          <table class="table table--striped">
+            <caption class="sr-only">Members Documentarily Qualified and awaiting an Interview Letter: DQ month, number waiting, and DQ date range</caption>
+            <thead>
+              <tr>
+                <th scope="col">DQ Month</th>
+                <th scope="col" class="num">Members Waiting</th>
+                <th scope="col">DQ Dates</th>
+              </tr>
+            </thead>
+            <tbody id="backlog-tbody">
+              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
+              <tr aria-hidden="true"><td colspan="3"><span class="skel skel--row" style="display:block;"></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="section-hd__sub" id="bk-note" style="margin-top: var(--space-4);"></p>
+      </div>
+    </section>
+
+    <div class="container">
+      <nav class="stage-prevnext" aria-label="Previous and next page">
+        <a class="prev" href="/data" rel="prev"><small>← Previous</small> Data overview</a>
+        <a class="next" href="/data/wait-times" rel="next"><small>Next →</small> Wait times and calculator</a>
+      </nav>
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/env.js?v=20260609"></script>
+  <script src="/js/main.js?v=20260609"></script>
+  <script src="/js/data-status.js?v=20261126c" defer></script>
+  <script src="/js/data-pages.js?v=20261126c" defer></script>
+</body>
+</html>

@@ -215,6 +215,37 @@
         },
       ],
     },
+    data: {
+      label: 'Data',
+      groups: [
+        {
+          links: [
+            { href: '/data', text: 'Data overview' },
+          ],
+        },
+        {
+          heading: 'From members',
+          links: [
+            { href: '/data/interview-letters', text: 'Interview letters' },
+            { href: '/data/wait-times', text: 'Wait times and calculator' },
+            { href: '/data/interviews', text: 'Interviews and passports' },
+          ],
+        },
+        {
+          heading: 'From official reports',
+          links: [
+            { href: '/data/i130-us', text: 'I-130s across the US' },
+            { href: '/data/family-visas', text: 'London and worldwide family visa data' },
+            { href: '/data/tracker-vs-uscis', text: "Do members' waits match USCIS?" },
+          ],
+        },
+        {
+          links: [
+            { href: 'https://forms.fillout.com/t/dTRqnkx9uxus', text: 'Share your timeline' },
+          ],
+        },
+      ],
+    },
     interview: {
       label: 'Interview',
       groups: [

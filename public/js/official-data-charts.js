@@ -70,6 +70,15 @@
     });
   }
 
+  function readLondon(tableId) {
+    var rows = document.querySelectorAll('#' + tableId + ' tbody tr');
+    return Array.prototype.map.call(rows, function (tr) {
+      var label = tr.querySelector('th').textContent.trim(); // "Feb 2026"
+      var tds = tr.querySelectorAll('td');
+      return { label: label, m: label.slice(0, 3), year: label.slice(-4), spouse: num(tds[0]), ir1: num(tds[1]), cr1: num(tds[2]) };
+    });
+  }
+
   /* ---------- tooltip ---------- */
 
   var tip;
@@ -256,6 +265,33 @@
     xLabels(f, data, slot, function (d) { return d.m.charAt(0); }, function (d) { return d.year; });
   }
 
+  /* London: IR1 and CR1 visas issued each month (one series) */
+  function londonChart(host, data) {
+    var f = frame(host, 260, 40);
+    f.pad.top = 24; f.ih = f.h - f.pad.top - f.pad.bottom;
+    var max = niceMax(Math.max.apply(null, data.map(function (d) { return d.spouse; })), 50);
+    var ticks = []; for (var t = 0; t <= max; t += 50) ticks.push(t);
+    yAxis(f, max, ticks, compact);
+    var slot = f.iw / data.length;
+    var bw = Math.min(24, slot - 4);
+    data.forEach(function (d, i) {
+      var x = f.pad.left + slot * i + (slot - bw) / 2;
+      var h = (d.spouse / max) * f.ih;
+      var g = el('g', { class: 'od-hit' }, f.svg);
+      el('rect', { x: f.pad.left + slot * i, y: f.pad.top, width: slot, height: f.ih, class: 'od-hitarea' }, g);
+      el('path', { d: columnPath(x, f.pad.top + f.ih - h, bw, h, true), class: 'od-mark', style: 'fill: var(--viz-s1)' }, g);
+      bindHover(g, host, d.label, [
+        { key: '--viz-s1', value: d.spouse.toLocaleString('en-US'), name: 'spouse visas (IR1 and CR1)' },
+        { value: d.ir1.toLocaleString('en-US'), name: 'IR1' },
+        { value: d.cr1.toLocaleString('en-US'), name: 'CR1' }
+      ]);
+    });
+    var last = data[data.length - 1];
+    var lx = f.pad.left + slot * (data.length - 1) + slot / 2;
+    text(f.svg, lx + bw / 2, f.pad.top + f.ih - (last.spouse / max) * f.ih - 6, compact(last.spouse), 'od-value', 'end');
+    xLabels(f, data, slot, function (d) { return d.m.charAt(0); }, function (d) { return d.year; });
+  }
+
   /* ---------- mount ---------- */
 
   function render() {
@@ -264,13 +300,16 @@
     var a = document.getElementById('od-chart-approvals');
     var r = document.getElementById('od-chart-denials');
     var v = document.getElementById('od-chart-visas');
+    var l = document.getElementById('od-chart-london');
+    var lm = readLondon('od-london-table');
+    if (l && lm.length) londonChart(l, lm);
     if (a && q.length) approvalsChart(a, q);
     if (r && q.length) denialChart(r, q);
     if (v && m.length) visasChart(v, m);
   }
 
   function init() {
-    if (!document.getElementById('official-data')) return;
+    if (!document.querySelector('.od-chart')) return;
     render();
     var lastW = window.innerWidth, timer;
     window.addEventListener('resize', function () {

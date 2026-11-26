@@ -29,10 +29,10 @@ const OFF_LIST = new Set(['/guide/delayed-i130/mandamus']);
 // The Tools hub is itself the full list of tools, so it doesn't get the sidebar.
 const NO_SIDEBAR = new Set(['/tools']);
 
-test('every guide, naturalization and tool page uses the shared sidebar', () => {
+test('every guide, naturalization, tool and data page uses the shared sidebar', () => {
   for (const { url, html } of ALL) {
     const top = url.split('/')[1];
-    if (!['guide', 'naturalization', 'tools'].includes(top) || NO_SIDEBAR.has(url)) continue;
+    if (!['guide', 'naturalization', 'tools', 'data'].includes(top) || NO_SIDEBAR.has(url)) continue;
     assert.equal(sectionOf(html), top, `${url}: data-section="${top}"`);
     assert.match(html, /section-nav\.css\?v=/, `${url}: loads section-nav.css`);
     assert.match(html, /<body[^>]*class="[^"]*\bhas-snav\b/, `${url}: body.has-snav (no layout shift)`);
@@ -82,4 +82,14 @@ test('group labels sort the evidence examples, and every label has links under i
   assert.deepEqual(ex.links.filter((l) => l.group).map((l) => l.group), ['Spouses', 'Children', 'Parents and siblings']);
   assert.equal(ex.links.filter((l) => l.href).length, 9);
   assert.ok(ex.links.filter((l) => l.href).every((l) => !/Example$/.test(l.text)), 'no repeated "Example"');
+});
+
+test('the data section lists its pages in the agreed groups', () => {
+  const s = SECTIONS.data;
+  assert.ok(s, 'SECTIONS.data exists');
+  assert.equal(s.label, 'Data');
+  assert.deepEqual(s.groups.map((g) => g.heading || null), [null, 'From members', 'From official reports', null]);
+  assert.deepEqual(linksOf('data').slice(0, 7), ['/data', '/data/interview-letters', '/data/wait-times', '/data/interviews', '/data/i130-us', '/data/family-visas', '/data/tracker-vs-uscis']);
+  assert.deepEqual(s.groups[2].links.map((l) => l.text), ['I-130s across the US', 'London and worldwide family visa data', "Do members' waits match USCIS?"]);
+  assert.equal(linksOf('data')[7], 'https://forms.fillout.com/t/dTRqnkx9uxus');
 });
