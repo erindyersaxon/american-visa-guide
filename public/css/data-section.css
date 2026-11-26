@@ -427,7 +427,7 @@
 
 /* ---------- Part 3: topic page header and previous/next ---------- */
 .dsx-hero .dsx-tag { margin-top: 8px; }
-.dsx-h1 { font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 6vw, 44px); line-height: 1.1; color: #0f172a; margin: 4px 0 8px; }
+.dsx-h1 { font-family: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-weight: 700; font-size: clamp(32px, 7vw, 52px); line-height: 1.05; color: #0f172a; margin: 4px 0 10px; }
 .stage-prevnext { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 48px 0 24px; }
 .stage-prevnext a { display: block; background: #fff; border: 1px solid rgba(15,23,42,0.25); border-radius: 10px; padding: 14px 16px; color: #0f172a; font-weight: 600; text-decoration: none; min-height: 44px; }
 .stage-prevnext a:hover { border-color: #0f172a; }

@@ -42,18 +42,20 @@
       const dq = parse(last.dq_date_to);
       return {
         lead: 'New interview letters went out on ' + long(lastDate) + '.',
-        rest: dq ? 'They covered cases ready by ' + long(dq) + '.' : '',
+        rest: dq ? 'They covered cases ready (DQ) by ' + long(dq) + '.' : '',
       };
     }
 
+    const lastDq = parse(last && last.dq_date_to);
+    const cutoff = lastDq ? ', for cases ready (DQ) by ' + long(lastDq) : '';
     let ago;
     if (lastDate) {
       const n = daysBetween(lastDate, today);
-      ago = 'London last sent letters on ' + long(lastDate) + ', ' + n + (n === 1 ? ' day ago.' : ' days ago.');
+      ago = 'London last sent letters on ' + long(lastDate) + ', ' + n + (n === 1 ? ' day ago' : ' days ago') + cutoff + '.';
     } else {
       ago = "We don't have a date for London's last letters yet.";
     }
-    const expect = start ? 'Members expect the next batch from ' + long(start) + '.' : '';
+    const expect = start ? 'Members expect the next interview letters from ' + long(start) + '.' : '';
 
     if (start) {
       const untilStart = daysBetween(today, start);
@@ -65,7 +67,7 @@
         return { lead: 'Letters could go out any day.', rest: ago };
       }
       if (untilStart > 0 && untilStart <= 7) {
-        const lastShort = lastDate ? 'London last sent letters on ' + long(lastDate) + '.' : ago;
+        const lastShort = lastDate ? 'London last sent letters on ' + long(lastDate) + cutoff + '.' : ago;
         return { lead: 'Letters may go out soon.', rest: expect + ' ' + lastShort };
       }
     }

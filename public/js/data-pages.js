@@ -170,16 +170,16 @@
       const noDropInWindow = !lastDropDate || lastDropDate < start;
       if (pastWindow && noDropInWindow) {
         missedWindow = true;
-        cfg = { cls:'il-banner--delayed',     dot:'delayed',     chip:'IL Drop Delayed' };
+        cfg = { cls:'il-banner--delayed',     dot:'delayed',     chip:'No new interview letters yet' };
       } else if (today >= start && today <= end) {
-        cfg = { cls:'il-banner--in-range',    dot:'in-range',    chip:'In IL Drop Range' };
+        cfg = { cls:'il-banner--in-range',    dot:'in-range',    chip:'Letters could go out any day' };
       } else if (daysUntilStart > 0 && daysUntilStart <= 7) {
-        cfg = { cls:'il-banner--approaching', dot:'approaching', chip:'Approaching IL Drop Range' };
+        cfg = { cls:'il-banner--approaching', dot:'approaching', chip:'Letters may go out soon' };
       } else {
-        cfg = { cls:'il-banner--outside',     dot:'outside',     chip:'Outside of IL Drop Range' };
+        cfg = { cls:'il-banner--outside',     dot:'outside',     chip:'No letters expected yet' };
       }
     } else {
-      cfg = { cls:'il-banner--outside', dot:'outside', chip:'Outside of IL Drop Range' };
+      cfg = { cls:'il-banner--outside', dot:'outside', chip:'No letters expected yet' };
     }
 
     // Once the window has passed with nothing in it, the estimate is a missed

@@ -193,3 +193,39 @@ test('final review: member pages count days ago the same way as the status line'
   assert.match(js, /AVGDataStatus\.daysSince\(/);
   assert.doesNotMatch(js, /Date\.now\(\) - d\.getTime\(\)/);
 });
+
+// Design critique, 26 Nov 2026: one name for interview letters, one heading style.
+test('critique: the letters page badge uses the landing status line\'s words', () => {
+  const js = read('js/data-pages.js');
+  for (const chip of ['No new interview letters yet', 'Letters could go out any day', 'Letters may go out soon', 'No letters expected yet']) {
+    assert.match(js, new RegExp(`chip:'${chip}'`), chip);
+  }
+  assert.doesNotMatch(js, /IL Drop (Delayed|Range)/);
+});
+
+test('critique: interview letters are named the same way across the section', () => {
+  const hub = read('data.html');
+  assert.match(hub, />See every interview letter drop</);
+  assert.match(hub, /for cases ready \(DQ\) by 13 April 2026\./, 'no-JS status text has the cut-off');
+  const letters = read('data/interview-letters.html');
+  assert.match(letters, /interview letters \(ILs\)/, 'IL defined on first use');
+  const labels = [...letters.matchAll(/class="metric-card__label">([^<]+)</g)].map((m) => m[1].trim());
+  assert.deepEqual(labels, ['Last IL drop', 'Days since the last drop', 'Latest DQ with an IL', 'Interview dates', 'Members waiting for an IL', 'Oldest waiting DQ']);
+});
+
+test('critique: section headings use sentence case and the menu\'s words', () => {
+  const heads = (f) => [...read(f).matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map((m) => m[1].trim());
+  assert.deepEqual(heads('data/interview-letters.html'), ['Interview letter history', 'Waiting for an interview letter']);
+  assert.deepEqual(heads('data/wait-times.html'), ['Where each stage stands', 'Wait times by phase', 'Timeline calculator']);
+  assert.deepEqual(heads('data/interviews.html'), ['Interview outcomes', 'Passport return times']);
+  assert.match(read('data/wait-times.html'), />DQ to interview</);
+  assert.match(read('data/wait-times.html'), />Interview to passport</);
+});
+
+test('critique: topic page headings use the landing page\'s heading style', () => {
+  const css = read('css/data-section.css');
+  const rule = css.match(/\.dsx-h1\s*\{([^}]*)\}/)[1];
+  assert.match(rule, /Public Sans/);
+  assert.match(rule, /clamp\(32px,\s*7vw,\s*52px\)/);
+  assert.doesNotMatch(rule, /Georgia/);
+});
