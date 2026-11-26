@@ -26,16 +26,13 @@ const linksOf = (key) => SECTIONS[key].groups.flatMap((g) => g.links.filter((l) 
 // Pages in a section that are reached from a parent page, not the list.
 const OFF_LIST = new Set(['/guide/delayed-i130/mandamus']);
 
-// The /data topic pages are built after the sidebar list (data-section-split plan).
-const DATA_PAGES_PENDING = true;
-
 // The Tools hub is itself the full list of tools, so it doesn't get the sidebar.
 const NO_SIDEBAR = new Set(['/tools']);
 
-test('every guide, naturalization and tool page uses the shared sidebar', () => {
+test('every guide, naturalization, tool and data page uses the shared sidebar', () => {
   for (const { url, html } of ALL) {
     const top = url.split('/')[1];
-    if (!['guide', 'naturalization', 'tools'].includes(top) || NO_SIDEBAR.has(url)) continue;
+    if (!['guide', 'naturalization', 'tools', 'data'].includes(top) || NO_SIDEBAR.has(url)) continue;
     assert.equal(sectionOf(html), top, `${url}: data-section="${top}"`);
     assert.match(html, /section-nav\.css\?v=/, `${url}: loads section-nav.css`);
     assert.match(html, /<body[^>]*class="[^"]*\bhas-snav\b/, `${url}: body.has-snav (no layout shift)`);
@@ -64,7 +61,6 @@ test('every internal link in a section list points at a real page', () => {
     for (const href of linksOf(key)) {
       if (!href.startsWith('/')) continue;
       const bare = href.split(/[#?]/)[0];
-      if (DATA_PAGES_PENDING && bare.startsWith('/data/')) continue; // built in Tasks 4-6; flag removed in Task 7
       assert.ok(urls.has(bare), `${key}: ${href} has no page`);
     }
   }

@@ -107,3 +107,68 @@ test('comparison page keeps the agreed heading and quarter table', () => {
   assert.match(html, /cdnjs\.cloudflare\.com\/ajax\/libs\/d3\/7\.8\.5\/d3\.min\.js/);
   assert.doesNotMatch(html, /#2a78d6|#eb6834/i, 'artifact palette replaced by section colours');
 });
+
+// Old links like /data#calculator are forwarded by js/data-anchors.js.
+const ids = (html) => new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
+const SHELL = new Set(['nav-placeholder', 'main-content', 'page-title', 'footer-placeholder', 'data-notice']);
+const anchorsJs = read('js/data-anchors.js');
+const MOVED = Object.fromEntries([...anchorsJs.matchAll(/'([a-z0-9-]+)': '(\/data\/[a-z0-9-]+)(#[a-z0-9-]+)?'/g)].map((m) => [m[1], m[2]]));
+
+test('the anchor map is loaded in the head of the landing page only', () => {
+  const hub = read('data.html');
+  assert.ok(hub.indexOf('/js/data-anchors.js') > 0 && hub.indexOf('/js/data-anchors.js') < hub.indexOf('</head>'));
+  for (const url of [...MEMBER, ...OFFICIAL]) assert.ok(!read(fileFor(url)).includes('data-anchors.js'), url);
+});
+
+test('every moved anchor exists on its new page, and not on the landing page', () => {
+  assert.ok(Object.keys(MOVED).length >= 50, 'map parsed');
+  const hubIds = ids(read('data.html'));
+  for (const [id, url] of Object.entries(MOVED)) {
+    assert.ok(ids(read(fileFor(url))).has(id), `${url} is missing #${id}`);
+    assert.ok(!hubIds.has(id), `#${id} is still on the landing page, so the redirect would hide it`);
+  }
+});
+
+test('no id appears on two data pages', () => {
+  const seen = new Map();
+  for (const url of ORDER) {
+    for (const id of ids(read(fileFor(url)))) {
+      if (SHELL.has(id)) continue;
+      assert.ok(!seen.has(id), `#${id} is on both ${seen.get(id)} and ${url}`);
+      seen.set(id, url);
+    }
+  }
+});
+
+test('no link on the site points at a moved anchor on /data', () => {
+  const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) return ['pagefind', '_design-preview'].includes(e.name) ? [] : walk(p);
+    return /\.(html|js)$/.test(e.name) && e.name !== 'data-anchors.js' ? [p] : [];
+  });
+  for (const file of walk(PUBLIC)) {
+    for (const m of fs.readFileSync(file, 'utf8').matchAll(/\/data#([a-z0-9-]+)/g)) {
+      assert.ok(!MOVED[m[1]], `${path.relative(PUBLIC, file)} links /data#${m[1]}; use ${MOVED[m[1]]}#${m[1]}`);
+    }
+  }
+});
+
+test('the landing page matches the approved copy', () => {
+  const html = read('data.html');
+  assert.match(html, /<html lang="en-GB"/);
+  assert.match(html, /<h1[^>]*>London family visa data<\/h1>/);
+  assert.match(html, /From members' own timelines, and from official reports by USCIS and the State Department\./);
+  assert.match(html, /This section is updated as members share dates\./);
+  assert.match(html, /What members are telling us/);
+  assert.match(html, /What the official figures say/);
+  assert.match(html, /<p class="dsx-status" id="data-status" role="status">/);
+  assert.match(html, /section-nav\.js\?v=[^"]*" data-section="data"/);
+  assert.match(html, /<main data-pagefind-body/);
+  for (const url of [...MEMBER, ...OFFICIAL]) assert.match(html, new RegExp(`href="${url}"`), url);
+  assert.doesNotMatch(html, /design preview|dm-preview-flag/i);
+});
+
+test('every data page is in the sitemap', () => {
+  const sitemap = read('sitemap.xml');
+  for (const url of ORDER) assert.ok(sitemap.includes(`<loc>https://www.americanvisaguide.com${url}</loc>`), url);
+});
