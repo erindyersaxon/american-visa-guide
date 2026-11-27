@@ -114,8 +114,12 @@
 
   /* ---- Clarity ------------------------------------------------------ */
 
+  /* Pages where visitors paste private case data set <html data-no-trackers>,
+     so neither Clarity nor Ko-fi loads there, whatever the visitor chose. */
+  const NO_TRACKERS = document.documentElement.hasAttribute('data-no-trackers');
+
   function loadClarity() {
-    if (window.clarity) return;
+    if (window.clarity || NO_TRACKERS) return;
     (function (c, l, a, r, i, t, y) {
       c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
       t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
@@ -143,6 +147,7 @@
   const KOFI_SRC = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
 
   function loadKofi() {
+    if (NO_TRACKERS) return;
     if (window.kofiWidgetOverlay || document.querySelector('script[src="' + KOFI_SRC + '"]')) return;
     const s = document.createElement('script');
     s.src = KOFI_SRC;
