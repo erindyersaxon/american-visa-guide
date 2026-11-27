@@ -53,7 +53,18 @@
     // Visa categories and routes
     { term: 'IR', full: 'Immediate Relative', def: 'Spouses, unmarried children under 21 and parents of US citizens. No annual cap.', match: 'IR' },
     { term: 'CR1 / IR1', full: 'Conditional or 10-year resident spouse', def: 'CR1 if married under 2 years when you enter the US (2-year green card); IR1 if 2 years or more (10-year green card).', match: 'CR1' },
-    { term: 'F categories', full: 'Family Preference (F1, F2A, F2B, F3, F4)', def: 'Capped categories. The priority date must be current on the Visa Bulletin before NVC starts.' },
+    { term: 'F categories', full: 'Family Preference (F1, F2A, F2B, F3, F4)', def: 'Capped categories. The priority date must be current on the Visa Bulletin before a visa can be issued.' },
+    { term: 'F2A', full: 'Spouses and children under 21 of permanent residents', def: 'A capped family category, so the case waits for its priority date on the Visa Bulletin. Becomes an immediate relative case if the petitioner naturalises.', match: 'F2A' },
+    { term: 'F2B', full: 'Unmarried sons and daughters, 21 or older, of permanent residents', def: 'A capped family category, usually with a wait of several years. Moves to F1 if the petitioner naturalises.', match: 'F2B' },
+
+    // Visa Bulletin
+    { term: 'Visa Bulletin', full: '', def: 'The State Department\'s monthly list of cut-off dates for each capped category and country. A case moves forward when its priority date is earlier than the date shown.' },
+    { term: 'FAD', full: 'Final Action Date', def: 'The Visa Bulletin chart that decides when a visa can be issued. The case can be scheduled for an interview once the priority date is earlier than this date.', match: 'FAD' },
+    { term: 'DFF', full: 'Dates for Filing', def: 'The earlier Visa Bulletin chart. Once the priority date is earlier than this date, NVC invites you to pay fees and submit documents.', match: 'DFF' },
+    { term: 'Current', full: 'Shown as "C"', def: 'No waiting line in that chart this month: any priority date qualifies. "My PD is current" means the priority date is earlier than the cut-off date.' },
+    { term: 'Retrogression', full: '', def: 'When a Visa Bulletin date moves backwards because demand is higher than the visas left. A case that was current can fall behind again.' },
+    { term: 'Chargeability', full: '', def: 'The country a visa counts against, normally the beneficiary\'s country of birth. Decides which Visa Bulletin column applies.' },
+    { term: 'ROW', full: 'Rest of world', def: 'Forum name for the Visa Bulletin column "All Chargeability Areas Except Those Listed". Used by everyone not born in mainland China, India, Mexico or the Philippines, including the UK.' },
     { term: 'LPR', full: 'Lawful permanent resident', def: 'A green card holder.', match: 'LPR' },
     { term: 'AOS', full: 'Adjustment of Status', def: 'Getting a green card from inside the US. This site covers the other route, consular processing through London.', match: 'AOS' },
     { term: 'DCF', full: 'Direct Consular Filing', def: 'Filing the I-130 at an embassy instead of USCIS, for a US citizen living abroad in exceptional cases. The I-130 page sums up the London criteria; this site does not support DCF cases.', match: 'DCF' },

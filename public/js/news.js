@@ -38,6 +38,59 @@
   // BEGIN NEWS ITEMS
   const ITEMS = [
     {
+      "id": "visa-bulletin-2026-12",
+      "date": "2026-11-27",
+      "type": "official",
+      "source": "US Department of State",
+      "title": "Visa Bulletin for December 2026",
+      "url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html",
+      "note": "For F2A (spouses and children of green card holders), the final action date is 22 November 2026 for every country except Mexico (22 May 2026), and F2A filing dates are current. The State Department warns that dates may move backwards in the coming months to keep visa numbers within the annual limits. Below is what each part of the bulletin means if you hold a green card and are sponsoring family, using the words you will see on forums. See also the [glossary](/glossary) and [what changes when you become a citizen](/naturalization/after-citizenship#f2b).",
+      "points": [
+        {
+          "label": "Priority date (PD)",
+          "text": "Your place in the queue. It is the date USCIS received the I-130, printed on the receipt notice (NOA1). Each month the bulletin gives a cut-off date for every category and country. When forum posts say \"my PD is current\", they mean their priority date is earlier than the cut-off date in their row."
+        },
+        {
+          "label": "Final Action Date (FAD)",
+          "text": "The chart that decides when a visa can actually be issued. Your case can only be scheduled for an interview once your priority date is earlier than this date. December: F2A 22 November 2026 (Mexico 22 May 2026); F2B 22 August 2020 (Mexico 15 May 2010, Philippines 1 October 2013)."
+        },
+        {
+          "label": "Dates for Filing (DFF)",
+          "text": "The earlier chart. Once your priority date is earlier than this date, NVC invites you to pay the fees and submit the DS-260 and documents, so the case is ready when the final action date reaches you. December: F2A is \"C\" for every country; F2B 1 September 2020 (Mexico 22 March 2011, Philippines 1 October 2014). Relatives already in the US who are applying to adjust status check uscis.gov/visabulletininfo, where USCIS says each month which of the two charts it accepts."
+        },
+        {
+          "label": "Current (\"C\")",
+          "text": "\"C\" means there is no waiting line in that chart this month: any priority date qualifies. Because F2A filing dates are current, every F2A case can start its NVC paperwork as soon as the I-130 is approved."
+        },
+        {
+          "label": "Chargeability and ROW",
+          "text": "Which column you use is set by the beneficiary's country of birth, not their nationality or where they live. This is called chargeability. Only China (mainland born), India, Mexico and the Philippines have their own columns. Everyone else uses the column headed \"All Chargeability Areas Except Those Listed\", which forums call ROW (rest of world). Someone born in the UK uses ROW."
+        },
+        {
+          "label": "Exempt from and subject to the per-country limit",
+          "text": "This applies only to F2A. Three quarters of F2A visa numbers ignore the cap on how many visas one country can use (exempt); the rest count towards it (subject). In December, applicants from every country can use the exempt numbers if their priority date is before 22 May 2026. Applicants from every country except Mexico can also use the remaining numbers up to 22 November 2026. That is why Mexico's F2A date is earlier."
+        },
+        {
+          "label": "Retrogression",
+          "text": "When a date moves backwards. The bulletin says dates were moved forward in recent months because fewer immigrant visas are being issued under Proclamations 10949 and 10998, and that retrogression may be needed in the coming months. A case that is current one month can fall behind the next, so being current is not a promise of a visa. If your date is current, finish your NVC documents promptly."
+        },
+        {
+          "label": "If you become a US citizen",
+          "text": "When a green card holder naturalises, the petition converts automatically. An F2A spouse or child under 21 becomes an immediate relative, with no bulletin wait; children listed only as derivatives on a spouse's F2A petition need their own I-130. An F2B son or daughter moves to F1, unmarried son or daughter of a citizen, and can ask to stay in F2B if that line is faster. In December, F1 (22 January 2021) is ahead of F2B (22 August 2020) for ROW."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visa Bulletin (US Department of State)",
+          "url": "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html"
+        },
+        {
+          "label": "Adjustment of status filing charts (USCIS)",
+          "url": "https://www.uscis.gov/visabulletininfo"
+        }
+      ]
+    },
+    {
       "id": "c21373f918",
       "date": "2026-11-26",
       "type": "community",
