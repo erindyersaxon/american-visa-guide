@@ -82,6 +82,11 @@
     <p>These are internal USCIS addresses, not a public service. USCIS does not explain the fields, and it can change or block them at any time. Since about 22 November 2026, members report they return "Access Denied", even when signed in. Use this out of interest only. Do not base decisions on it. For a status you can rely on, use your myUSCIS case page.</p>
   </div>
 
+  <div class="cdr-box">
+    <p class="cdr-box__title">Approved? Check your Documents tab</p>
+    <p>No code or status in this data proves an approval. On 22 and 23 July 2026, a USCIS system error showed many I-130s as approved, with an H008 code, when they were not. USCIS reversed it days later, and no approval notices were issued. A real approval always puts an approval notice, a PDF, in the Documents tab of your myUSCIS account. Always check there.</p>
+  </div>
+
   <h2>1. Open your case data</h2>
   <p>Sign in to <a href="https://my.uscis.gov/" target="_blank" rel="noopener noreferrer">my.uscis.gov</a> first, in this same browser. Then enter your receipt number to get the three links. Your receipt number stays on this page: it only goes into the links, which go straight to USCIS.</p>
   <form class="cdr-step" id="cdr-link-form" novalidate>
@@ -131,19 +136,20 @@
 
   <h2>What this can and cannot tell you</h2>
   <ul>
-    <li><strong>The office</strong> comes from <code>jurisdiction</code> in the Office link. It is the best sign of where your petition is. See <a href="/guide/i130#which-office">which office has your petition</a>.</li>
+    <li><strong>The office</strong> comes from <code>jurisdiction</code> in the Office and status link. It is the best sign of where your petition is. See <a href="/guide/i130#which-office">which office has your petition</a>.</li>
     <li><strong>Event names</strong> come from the NIEM code list that USCIS codes are drawn from. A code that is not on that list, such as FTA1, is marked as unknown rather than guessed.</li>
+    <li><strong>An H008 code is not an approval on its own.</strong> On 22 and 23 July 2026, a USCIS system error added H008 to many I-130s that had not been approved, and it stayed in many members&rsquo; data. A real approval always puts an approval notice, a PDF, in the Documents tab of your myUSCIS account. No approval notice means no approval. Check the tab on the myUSCIS website itself: the documents list in this data stays empty even for approved cases.</li>
     <li><strong>A record change with no new event</strong> does not say what changed. It is not a sign of progress on its own.</li>
     <li><strong>Never post your receipt number.</strong> If you share a screenshot of your case data, cover it everywhere it appears.</li>
   </ul>
-  <p class="cdr-note">Sources: NIEM, <a href="https://niem.github.io/model/4.2/scr/BenefitDocumentStatusCategoryCodeSimpleType/index.html" target="_blank" rel="noopener noreferrer">benefit document status codes</a> (copied 27 November 2026). Everything else on this page comes from what members have seen in their own case data, not from USCIS.</p>
+  <p class="cdr-note">Sources: NIEM, <a href="https://niem.github.io/model/4.2/scr/BenefitDocumentStatusCategoryCodeSimpleType/index.html" target="_blank" rel="noopener noreferrer">benefit document status codes</a> (copied 27 November 2026). The status shown with each code: a member&rsquo;s post on r/USCIS, <a href="https://www.reddit.com/r/USCIS/comments/14jjicn/actioncodes_from_the_uscis/" target="_blank" rel="noopener noreferrer">ActionCodes from the USCIS</a> (June 2023). Everything else on this page comes from what members have seen in their own case data, not from USCIS.</p>
 
 </div>
 </main>
 <div id="footer-placeholder"></div>
 
 <script src="/js/niem-codes.js?v=20261127a"></script>
-<script src="/js/case-data-reader.js?v=20261127a"></script>
+<script src="/js/case-data-reader.js?v=20261127h008"></script>
 <script src="/js/glossary.js?v=20261116dcf"></script>
 </body>
 </html>

@@ -107,6 +107,106 @@ test('an event changed after it was created counts as the latest activity', () =
   assert.equal(s.silentUpdate, null);
 });
 
+// The 22-23 July 2026 glitch, as members' data shows it: an H008 added on
+// 22 July but back-dated, and a copy of the IAF event that changes at every
+// sign-in.
+const glitchCase = (extraEvents = []) => JSON.stringify({ data: {
+  receiptNumber: RECEIPT, formType: 'I-130', submissionDate: '2025-03-25',
+  updatedAt: '2026-08-31', updatedAtTimestamp: '2026-08-31T22:28:33.758Z', documents: [],
+  events: [
+    { eventCode: 'IAF', createdAt: '2025-03-25', createdAtTimestamp: '2025-03-25T14:07:58.369Z',
+      updatedAt: '2026-08-31', updatedAtTimestamp: '2026-08-31T22:28:33.758Z', eventDateTime: '2025-03-25', eventTimestamp: '2025-03-25T00:00:00.000Z' },
+    { eventCode: 'H008', createdAt: '2026-07-22', createdAtTimestamp: '2026-07-22T23:25:23.499Z',
+      updatedAt: '2026-07-22', updatedAtTimestamp: '2026-07-22T23:25:23.499Z', eventDateTime: '2026-05-21', eventTimestamp: '2026-05-21T12:21:00.000Z' },
+    { eventCode: 'IAF', createdAt: '2025-03-25', createdAtTimestamp: '2025-03-25T12:00:23.501Z',
+      updatedAt: '2025-03-25', updatedAtTimestamp: '2025-03-25T12:00:23.501Z', eventDateTime: '2025-03-25', eventTimestamp: '2025-03-25T00:00:00.000Z' },
+    ...extraEvents,
+  ] } });
+
+test('an H008 added on 22 July 2026 is flagged as the system error, not an approval', () => {
+  const s = reader.summarise(reader.parseInput(glitchCase()), codes);
+  assert.deepEqual(s.h008, { glitch: ['2026-07-22'], other: [] });
+  const h = s.events.find(e => e.code === 'H008');
+  assert.equal(h.glitch, true);
+  assert.equal(h.day, '2026-05-21');
+  assert.equal(h.created, '2026-07-22');
+  const words = reader.h008Paragraphs(s.h008).join(' ');
+  assert.match(words, /22 July 2026/);
+  assert.match(words, /system error/);
+  assert.match(words, /approval notice, a PDF, in the Documents tab/);
+  assert.doesNotMatch(words, /Members who were approved/);
+});
+
+test('a later H008 is described as what approvals looked like, still needing the notice', () => {
+  const s = reader.summarise(reader.parseInput(glitchCase([
+    { eventCode: 'H008', createdAt: '2026-11-21', createdAtTimestamp: '2026-11-21T13:59:00.832Z',
+      updatedAt: '2026-11-21', eventDateTime: '2026-11-21', eventTimestamp: '2026-11-21T13:58:48.101Z' },
+  ])), codes);
+  assert.deepEqual(s.h008, { glitch: ['2026-07-22'], other: ['2026-11-21'] });
+  const words = reader.h008Paragraphs(s.h008).join(' ');
+  assert.match(words, /21 November 2026/);
+  assert.match(words, /In members’ real approvals, a new H008 appeared/);
+  assert.match(words, /H008 events from before July 2026 that did not come with an approval/);
+  assert.match(words, /If there is no approval notice/);
+});
+
+test('every H008 summary ends with the approval notice rule and the Documents tab', () => {
+  for (const h of [{ glitch: ['2026-07-23'], other: [] }, { glitch: [], other: ['2026-09-30'] }]) {
+    const p = reader.h008Paragraphs(h);
+    assert.deepEqual(p.slice(-2), [reader.APPROVAL_PROOF, reader.DOCUMENTS_TAB]);
+  }
+});
+
+// A real approval as a member's data showed it (2025): FTA0, FTA0, then H008
+// the next day, record closed, documents list still empty. Then KO when the
+// case went to the State Department.
+test('a real approval with KO gets the KO note, and still points to the Documents tab', () => {
+  const approved = JSON.stringify({ data: {
+    receiptNumber: RECEIPT, submissionDate: '2023-10-01', formType: 'I-130', updatedAt: '2025-01-29',
+    updatedAtTimestamp: '2025-01-29T01:49:02.975Z', closed: true, documents: [],
+    events: [
+      { eventCode: 'KO', createdAt: '2025-02-03', eventDateTime: '2025-02-03' },
+      { eventCode: 'H008', createdAt: '2025-01-29', createdAtTimestamp: '2025-01-29T01:49:03.294Z', updatedAt: '2025-01-29', eventDateTime: '2025-01-29' },
+      { eventCode: 'FTA0', createdAt: '2025-01-28', updatedAt: '2025-01-28', eventDateTime: '2025-01-28' },
+      { eventCode: 'FTA0', createdAt: '2025-01-07', updatedAt: '2025-01-07', eventDateTime: '2023-10-03' },
+    ] } });
+  const s = reader.summarise(reader.parseInput(approved), codes);
+  assert.deepEqual(s.h008, { glitch: [], other: ['2025-01-29'] });
+  assert.deepEqual(s.ko, ['2025-02-03']);
+  assert.equal(s.events.find(e => e.code === 'KO').name, 'PETITION SHIPPED TO DOS AFTER APPROVAL OR REAFFIRMATION');
+  const ko = reader.koParagraphs(s.ko).join(' ');
+  assert.match(ko, /3 February 2025/);
+  assert.match(ko, /approval notice in the Documents tab is still the confirmation/);
+});
+
+test('no H008, no H008 warning', () => {
+  assert.equal(reader.summarise(reader.parseInput(cases), codes).h008, null);
+});
+
+test('the status title is read from the Office and status link, but never statusText', () => {
+  const status = JSON.stringify({ data: { receiptNumber: RECEIPT, formType: 'I-130', currentActionCode: 'FTA0',
+    currentActionCodeDate: '2026-11-06T15:31:10.448Z', statusTitle: 'Case Is Being Actively Reviewed By USCIS',
+    statusText: `On November 6, 2026, we are actively reviewing your Form I-130, Receipt Number ${RECEIPT}.`,
+    jurisdiction: 'NOR', jurisdictionDescription: 'NORFOLK, VA' } });
+  const s = reader.summarise(reader.parseInput(status), codes);
+  assert.deepEqual(s.status, { title: 'Case Is Being Actively Reviewed By USCIS', code: 'FTA0', day: '2026-11-06' });
+  assert.doesNotMatch(JSON.stringify(s), new RegExp(RECEIPT));
+});
+
+test('codes missing from NIEM get the status members recorded with them', () => {
+  const s = reader.summarise(reader.parseInput(JSON.stringify({ data: { events: [
+    { eventCode: 'IMAG', createdAt: '2026-01-05', eventDateTime: '2026-01-05' },
+    { eventCode: 'IKA', createdAt: '2026-01-02', eventDateTime: '2026-01-02' },
+    { eventCode: 'ZZZ9', createdAt: '2026-01-01', eventDateTime: '2026-01-01' },
+  ] } })), codes);
+  const by = Object.fromEntries(s.events.map(e => [e.code, e]));
+  assert.equal(by.IMAG.name, null);
+  assert.equal(by.IMAG.reported, 'Biometrics appointment scheduled');
+  assert.equal(by.IKA.reported, 'Request for initial evidence sent');
+  assert.equal(by.ZZZ9.reported, null);
+  assert.equal(reader.REPORTED_STATUS.H008, 'Case approved');
+});
+
 test('Access Denied is recognised', () => {
   const s = reader.summarise(reader.parseInput('{"error":"Access Denied"}'), codes);
   assert.equal(s.accessDenied, true);
