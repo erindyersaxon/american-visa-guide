@@ -86,7 +86,7 @@ for (const url of ['/data/i130-us', '/data/family-visas']) test(`${url} is an of
 
 test('official pages hold the sections moved from /data', () => {
   const has = (url, ids) => { const h = read(fileFor(url)); for (const id of ids) assert.match(h, new RegExp(`id="${id}"`), `${url} #${id}`); };
-  has('/data/i130-us', ['official-data', 'official-hd', 'od-chart-approvals', 'od-chart-denials', 'od-ir-table', 'od-ir-cap', 'od-fp-table', 'od-fp-cap']);
+  has('/data/i130-us', ['official-data', 'official-hd', 'od-chart-approvals', 'od-chart-denials', 'od-ir-table', 'od-ir-cap', 'od-fp-table', 'od-fp-cap', 'od-chart-queue', 'od-queue-table', 'od-queue-cap']);
   has('/data/family-visas', ['od-london-table', 'od-london-cap', 'od-chart-london', 'od-chart-visas', 'od-iv-table', 'od-iv-cap']);
   for (const url of ['/data/i130-us', '/data/family-visas']) assert.match(read(fileFor(url)), /\/js\/official-data-charts\.js\?v=/, url);
 });
@@ -179,7 +179,7 @@ test('final review: chart colour tokens are defined for every page, not only #of
 });
 
 test('final review: each official chart container has a text summary', () => {
-  for (const [file, id] of [['data/i130-us.html', 'od-chart-approvals'], ['data/i130-us.html', 'od-chart-denials'], ['data/family-visas.html', 'od-chart-london'], ['data/family-visas.html', 'od-chart-visas']]) {
+  for (const [file, id] of [['data/i130-us.html', 'od-chart-approvals'], ['data/i130-us.html', 'od-chart-denials'], ['data/i130-us.html', 'od-chart-queue'], ['data/family-visas.html', 'od-chart-london'], ['data/family-visas.html', 'od-chart-visas']]) {
     assert.match(read(file), new RegExp(`<div class="od-chart" id="${id}" role="group" aria-label="[^"]{30,}"`), `${file} #${id}`);
   }
 });

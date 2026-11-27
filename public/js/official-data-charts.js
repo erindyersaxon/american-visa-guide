@@ -79,6 +79,18 @@
     });
   }
 
+  function readQueue(tableId) {
+    var rows = document.querySelectorAll('#' + tableId + ' tbody tr');
+    return Array.prototype.map.call(rows, function (tr) {
+      var label = tr.querySelector('th').firstChild.textContent.trim(); // "Oct–Dec 2023"
+      var tds = tr.querySelectorAll('td');
+      return {
+        label: label, q: QUARTER_OF[label.slice(0, 3)], year: label.slice(-4),
+        sc: num(tds[0]), fo: num(tds[1]), scIn: num(tds[2]), foIn: num(tds[3])
+      };
+    });
+  }
+
   /* ---------- tooltip ---------- */
 
   var tip;
@@ -292,6 +304,38 @@
     xLabels(f, data, slot, function (d) { return d.m.charAt(0); }, function (d) { return d.year; });
   }
 
+  /* Immediate-relative I-130s waiting, by office: service centres at the base, field offices on top */
+  function queueChart(host, data) {
+    var f = frame(host, 260, 40);
+    var max = niceMax(Math.max.apply(null, data.map(function (d) { return d.sc + d.fo; })), 200000);
+    var ticks = []; for (var t = 0; t <= max; t += 200000) ticks.push(t);
+    yAxis(f, max, ticks, compact);
+    var slot = f.iw / data.length;
+    var bw = Math.min(24, slot - 6);
+    var GAP = 2;
+    var fmt = function (n) { return n.toLocaleString('en-US'); };
+    data.forEach(function (d, i) {
+      var x = f.pad.left + slot * i + (slot - bw) / 2;
+      var base = f.pad.top + f.ih;
+      var hSc = (d.sc / max) * f.ih;
+      var hFo = (d.fo / max) * f.ih;
+      var g = el('g', { class: 'od-hit' }, f.svg);
+      el('rect', { x: f.pad.left + slot * i, y: f.pad.top, width: slot, height: f.ih, class: 'od-hitarea' }, g);
+      el('path', { d: columnPath(x, base - hSc, bw, hSc, false), class: 'od-mark', style: 'fill: var(--viz-s1)' }, g);
+      el('path', { d: columnPath(x, base - hSc - hFo, bw, Math.max(0, hFo - GAP), true), class: 'od-mark', style: 'fill: var(--viz-s2)' }, g);
+      bindHover(g, host, d.label, [
+        { key: '--viz-s1', value: fmt(d.sc), name: 'waiting at service centres' },
+        { key: '--viz-s2', value: fmt(d.fo), name: 'waiting at field offices' },
+        { value: Math.round(100 * d.foIn / (d.scIn + d.foIn)) + '%', name: 'of new petitions sent to field offices' }
+      ]);
+    });
+    // Label the last column's field-office count, the figure the section is about
+    var last = data[data.length - 1];
+    var lx = f.pad.left + slot * (data.length - 1) + slot / 2;
+    text(f.svg, lx + bw / 2, f.pad.top + f.ih - ((last.sc + last.fo) / max) * f.ih - 6, compact(last.fo) + ' at field offices', 'od-value', 'end');
+    xLabels(f, data, slot, function (d) { return d.q; }, function (d) { return d.year; });
+  }
+
   /* ---------- mount ---------- */
 
   function render() {
@@ -306,6 +350,9 @@
     if (a && q.length) approvalsChart(a, q);
     if (r && q.length) denialChart(r, q);
     if (v && m.length) visasChart(v, m);
+    var qu = document.getElementById('od-chart-queue');
+    var qd = readQueue('od-queue-table');
+    if (qu && qd.length) queueChart(qu, qd);
   }
 
   function init() {
