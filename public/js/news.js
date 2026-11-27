@@ -39,7 +39,7 @@
   const ITEMS = [
     {
       "id": "visa-bulletin-2026-12",
-      "date": "2026-11-27",
+      "date": "2026-11-13",
       "type": "official",
       "source": "US Department of State",
       "title": "Visa Bulletin for December 2026",
