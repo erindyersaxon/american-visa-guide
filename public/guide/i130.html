@@ -442,8 +442,63 @@
 
       <div class="callout callout-good">
         <div class="callout-title">What a change here does and does not mean</div>
-        <p>A new timestamp means something changed your record. It does not mean an officer reviewed your petition: routine system updates, address changes and internal transfers all change these fields. The signals that matter are still on the case page: a move to "Actively Being Reviewed", a new document in your account, or an RFE. Processing times on myUSCIS go up and down. That means nothing.</p>
+        <p>A new timestamp means something changed your record. It does not mean an officer reviewed your petition: routine system updates, address changes and internal transfers all change these fields. Many members saw the same update on 17 August 2026, which points to a change across the whole system. The signals that matter are still on the case page: a move to "Actively Being Reviewed", a new document in your account, or an RFE. Processing times on myUSCIS go up and down. That means nothing.</p>
       </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-acc-item" id="which-office" data-sub-group="uscis-extra">
+        <button class="sub-acc-trigger" aria-expanded="false" aria-controls="which-office-body" onclick="toggleSubAcc('which-office')">
+          <span class="sub-acc-label">Which office has your petition: a service center or a field office</span>
+          <span class="sub-acc-chevron">▼</span>
+        </button>
+        <div class="sub-acc-body" id="which-office-body">
+          <div class="sub-acc-content">
+            <p>Between April and June 2026, USCIS moved most immediate-relative I-130s from its service centers to field offices, and it now sends almost every new one there (see <a href="/data/i130-us#od-queue-hd">the USCIS figures</a>). USCIS has not announced the move or told petitioners when their petition moved. Your receipt notice still names the office that received it.</p>
+            <p>Which office has your petition matters when you escalate: a demand letter goes to the office that holds it. That is usually your home office (below). If your most recent notice names a different office, send it to the office on the notice.</p>
+
+            <h4>Find the field office for your area</h4>
+            <p>Each field office covers an area by ZIP code. Enter the petitioner's ZIP code in the USCIS <a href="https://www.uscis.gov/about-us/find-a-uscis-office/field-offices" target="_blank" rel="noopener noreferrer">field office locator</a> to find your home office and its mailing address. USCIS says it may move work to other field offices to process it faster, so an interview notice or request for evidence can come from an office that has not handled your case before. Follow the instructions on your notice. If a notice names a different office, that office has your case.</p>
+
+            <h4>Check your case data</h4>
+            <div class="callout callout-warn">
+              <div class="callout-title">Unofficial, and may no longer work</div>
+              <p>These are the same internal addresses as in <a href="#uscis-api-check">checking hidden case details</a> above, with the same warnings. USCIS does not explain these fields. What follows is what members have seen, not anything USCIS has confirmed. <strong>Since about 22 November 2026, members report these addresses return <code>"Access Denied"</code>, even when signed in.</strong> If you see that, use the other checks below.</p>
+            </div>
+            <p>Sign in at <a href="https://my.uscis.gov/" target="_blank" rel="noopener noreferrer">my.uscis.gov</a>, then open each address in a new tab, with your receipt number in place of <code>IOE##########</code>:</p>
+            <table class="article-table">
+              <thead>
+                <tr><th scope="col">Address</th><th scope="col">Field</th><th scope="col">What members see</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>https://my.uscis.gov/account/case-service/api/case_status/IOE##########</code></td>
+                  <td><code>jurisdiction</code> and <code>jurisdictionDescription</code></td>
+                  <td>The office that holds the petition. A service center, such as <code>"NSC"</code> and <code>"NEBRASKA SERVICE CENTER"</code>, until it moves. Then a field office, such as <code>"NOR"</code> and <code>"NORFOLK, VA"</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>https://my.uscis.gov/secure-messaging/api/case-service/receipt_info/IOE##########</code></td>
+                  <td><code>location</code></td>
+                  <td><code>"FOD"</code> for most petitions since mid-2026, including many still at a service center.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4>How to read it</h4>
+            <ul>
+              <li><strong><code>jurisdiction</code> is the best sign.</strong> Members whose <code>jurisdiction</code> changed to a field office later had the move confirmed by a congressional office or by USCIS. <code>jurisdictionDescription</code> spells out the office name, so you do not need a list of codes. USCIS does not publish one.</li>
+              <li><strong><code>"FOD"</code> alone does not mean your petition is at a field office.</strong> USCIS field offices make up its Field Operations Directorate, or FOD. Many members have shown <code>"FOD"</code> for months while <code>jurisdiction</code> still named a service center. Read it as "assigned to the field office side", not "arrived".</li>
+              <li><strong>The two addresses often disagree.</strong> Nobody outside USCIS knows why.</li>
+              <li><strong>Live chat answers vary.</strong> One member asked six times in one day and was given two different offices. A written reply to a congressional inquiry is the most reliable confirmation.</li>
+            </ul>
+
+            <div class="callout callout-good">
+              <div class="callout-title">Never post your receipt number</div>
+              <p>If you share a screenshot of this data, cover your receipt number everywhere it appears. In <code>receipt_info</code> it appears twice: once in <code>receipt_number</code> and again in the <code>message</code> line at the end.</p>
+            </div>
+
+            <p class="text-muted">Source: USCIS, <a href="https://www.uscis.gov/about-us/find-a-uscis-office/field-offices" target="_blank" rel="noopener noreferrer">Field Offices</a> (ZIP code locator, and the note that USCIS may move work between field offices), checked 27 November 2026. Everything about the case data comes from members' reports, not USCIS.</p>
           </div>
         </div>
       </div>
