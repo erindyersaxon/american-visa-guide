@@ -19,8 +19,30 @@
 
   const RECEIPT_RE = /^[A-Z]{3}\d{10}$/;
 
+  /* On 22 and 23 July 2026 a USCIS system error added an H008 event to many
+     I-130s that had not been approved. Members report the event stayed in
+     their data after USCIS reversed the false approvals, dated (createdAt)
+     on one of these days but often back-dated (eventDateTime) to earlier. */
+  const H008_GLITCH_DAYS = ['2026-07-22', '2026-07-23'];
+
+  /* The public status USCIS showed alongside each code, as one member
+     recorded it from the case_status link (currentActionCode + statusTitle):
+     r/USCIS, "ActionCodes from the USCIS", June 2023, an I-485. Used beside
+     the NIEM names, and in place of them for codes NIEM does not list. */
+  const REPORTED_STATUS = {
+    IAF: 'Case received',
+    IKA: 'Request for initial evidence sent',
+    IMAG: 'Biometrics appointment scheduled',
+    FTA0: 'Actively reviewing, with nothing outstanding',
+    HA: 'Response to a request for evidence received',
+    H008: 'Case approved',
+    H016: 'Case terminated (a denial)',
+    LEE: 'Card picked up by the Post Office',
+    LED: 'Card delivered by the Post Office',
+  };
+
   const LINKS = [
-    { key: 'caseStatus', label: 'Office', path: 'https://my.uscis.gov/account/case-service/api/case_status/' },
+    { key: 'caseStatus', label: 'Office and status', path: 'https://my.uscis.gov/account/case-service/api/case_status/' },
     { key: 'cases', label: 'Events and updates', path: 'https://my.uscis.gov/account/case-service/api/cases/' },
     { key: 'receiptInfo', label: 'Location field', path: 'https://my.uscis.gov/secure-messaging/api/case-service/receipt_info/' },
   ];
@@ -144,13 +166,23 @@
       unreadable: parsed.unreadable,
       office: null, location: null,
       form: null, received: null, lastUpdated: null,
-      events: [], silentUpdate: null,
+      events: [], silentUpdate: null, h008: null, ko: null, status: null,
     };
 
     if (docs.caseStatus) {
       const code = findKey(docs.caseStatus, 'jurisdiction');
       const name = findKey(docs.caseStatus, 'jurisdictionDescription');
       if (code || name) s.office = { code: code || null, name: name || null, kind: officeKind(code, name) };
+      /* statusText is never read: it repeats the receipt number. */
+      const title = findKey(docs.caseStatus, 'statusTitle');
+      const action = findKey(docs.caseStatus, 'currentActionCode');
+      if (title || action) {
+        s.status = {
+          title: title ? String(title) : null,
+          code: action ? String(action) : null,
+          day: dayOf(findKey(docs.caseStatus, 'currentActionCodeDate')),
+        };
+      }
     }
 
     if (docs.receiptInfo) {
@@ -171,17 +203,33 @@
       s.events = events.filter(e => e && typeof e === 'object').map(e => {
         const code = e.eventCode ? String(e.eventCode) : null;
         const day = dayOf(e.eventDateTime || e.createdAt, e.eventTimestamp || e.createdAtTimestamp);
+        const created = dayOf(e.createdAt, e.createdAtTimestamp);
         const changedDay = dayOf(e.updatedAt, e.updatedAtTimestamp);
+        const after = [day, created].filter(Boolean).sort().pop();
         return {
           code,
           name: code && names[code] ? names[code] : null,
+          reported: code && REPORTED_STATUS[code] ? REPORTED_STATUS[code] : null,
           day,
-          changed: changedDay && day && changedDay > day ? changedDay : null,
+          created,
+          changed: changedDay && after && changedDay > after ? changedDay : null,
+          glitch: code === 'H008' && H008_GLITCH_DAYS.includes(created),
         };
       }).sort((a, b) => String(b.day).localeCompare(String(a.day)));
 
+      const ko = s.events.filter(e => e.code === 'KO').map(e => e.created || e.day);
+      if (ko.length) s.ko = ko;
+
+      const h008 = s.events.filter(e => e.code === 'H008');
+      if (h008.length) {
+        s.h008 = {
+          glitch: h008.filter(e => e.glitch).map(e => e.created),
+          other: h008.filter(e => !e.glitch).map(e => e.created || e.day),
+        };
+      }
+
       const latest = s.events.reduce((m, e) => {
-        const d = e.changed || e.day;
+        const d = [e.changed, e.created, e.day].filter(Boolean).sort().pop();
         return d && (!m || d > m) ? d : m;
       }, null);
       if (s.lastUpdated && s.lastUpdated.day && latest && s.lastUpdated.day > latest) {
@@ -209,6 +257,32 @@
         return { tone: 'info', title: 'USCIS lists: ' + label,
           text: 'We do not know what kind of office this is. USCIS does not publish a list of these codes.' };
     }
+  }
+
+  const APPROVAL_PROOF = 'A real approval always puts an approval notice, a PDF, in the Documents tab of your myUSCIS account, and your case status changes. If there is no approval notice in your Documents tab, your petition has not been approved, whatever this data shows.';
+
+  function h008Paragraphs(h) {
+    const out = [];
+    if (h.glitch.length) {
+      out.push('Your data has an H008 event added on ' + h.glitch.map(formatDay).join(' and ') + '. On 22 and 23 July 2026, a USCIS system error added H008 to many I-130s that had not been approved and briefly showed them as approved. USCIS reversed the false approvals, but the H008 event stayed in many members’ data. No approval notice was issued for them.');
+    }
+    if (h.other.length) {
+      out.push((h.glitch.length ? 'Your data also has' : 'Your data has') + ' an H008 event added on ' + h.other.map(formatDay).join(' and ') + '. In members’ real approvals, a new H008 appeared on the day of approval, often a day after an FTA0, together with an approval notice and a "Case Approved" status. But some members also have H008 events from before July 2026 that did not come with an approval, so the code alone does not tell you.');
+    }
+    out.push(APPROVAL_PROOF);
+    out.push(DOCUMENTS_TAB);
+    return out;
+  }
+
+  /* Members' data, approved cases included, has an empty "documents" list,
+     so this data can never confirm or rule out an approval notice. */
+  const DOCUMENTS_TAB = 'Look in the Documents tab on the myUSCIS website itself. The documents list in this data stays empty even for approved cases, so it cannot confirm or rule out an approval notice.';
+
+  function koParagraphs(days) {
+    return [
+      'Your data has a KO event on ' + days.map(formatDay).join(' and ') + '. The published code list calls KO "Petition shipped to DOS after approval or reaffirmation": the step where USCIS sends an approved petition to the State Department’s National Visa Center. Members saw it, often with a second H008, when their approved case moved to the National Visa Center.',
+      'Your approval notice in the Documents tab is still the confirmation of approval.',
+    ];
   }
 
   function locationSentence(location, office) {
@@ -259,13 +333,21 @@
 
     const sec = (title, children) => el('section', { className: 'cdr-section' }, [el('h3', { text: title }), ...children]);
 
+    // H008 first: it is the code most often misread as an approval
+    if (s.h008) {
+      target.appendChild(box('warn', 'H008 is not proof of approval', h008Paragraphs(s.h008)));
+    }
+    if (s.ko) {
+      target.appendChild(box('good', 'KO: shipped to the State Department', koParagraphs(s.ko)));
+    }
+
     // Office
     const officeParts = [];
     if (s.office) {
       const o = officeSentence(s.office);
       officeParts.push(box(o.tone, o.title, [o.text]));
     } else {
-      officeParts.push(el('p', { text: 'Paste the text from the Office link to see which office holds your petition.' }));
+      officeParts.push(el('p', { text: 'Paste the text from the Office and status link to see which office holds your petition.' }));
     }
     if (s.location) {
       officeParts.push(el('p', {}, [el('strong', { text: 'Location field: ' + s.location + '. ' }), locationSentence(s.location, s.office)]));
@@ -273,13 +355,20 @@
     target.appendChild(sec('Which office has it', officeParts));
 
     // Record
-    if (s.found.cases || s.form) {
+    if (s.found.cases || s.form || s.status) {
       const rows = [];
+      if (s.status) {
+        rows.push(['Status in this data', [s.status.title, s.status.code ? '(' + s.status.code + ')' : null].filter(Boolean).join(' ')
+          + (s.status.day ? ', ' + formatDay(s.status.day) : '')]);
+      }
       if (s.form) rows.push(['Form', String(s.form)]);
       if (s.received) rows.push(['Received', formatDay(s.received)]);
       if (s.lastUpdated) rows.push(['Record last changed', formatDay(s.lastUpdated.day) + ', ' + s.lastUpdated.time + ' UTC']);
       const dl = el('dl', { className: 'cdr-facts' }, rows.flatMap(([k, v]) => [el('dt', { text: k }), el('dd', { text: v })]));
       const parts = [dl];
+      if (s.status) {
+        parts.push(el('p', { className: 'cdr-note', text: 'The status comes from the Office and status link. It is the wording the myUSCIS case page uses, but it can be wrong: during the July 2026 system error it said "Case Approved" for cases that were not approved. It can also lag behind an approval notice that is already in your Documents tab.' }));
+      }
       if (s.silentUpdate) {
         parts.push(box('info', 'Changed after the latest event', [
           'Your record changed on ' + formatDay(s.silentUpdate.updated) + ', after the latest event (' + formatDay(s.silentUpdate.latestEvent) + '). Members call this a silent update.',
@@ -299,18 +388,31 @@
           el('td', { text: formatDay(e.day) }),
           el('td', {}, [el('code', { text: e.code || '?' })]),
           el('td', {}, [
-            e.name ? sentenceCase(e.name) : el('em', { text: 'Not in the published code list. Nobody outside USCIS knows what it means.' }),
+            e.name ? sentenceCase(e.name)
+              : e.code === 'H008' ? el('em', { text: 'Not in the published code list. Members read it as approval, but only an approval notice in your Documents tab confirms one.' })
+              : e.reported ? el('em', { text: 'Not in the published code list.' })
+              : el('em', { text: 'Not in the published code list. Nobody outside USCIS knows what it means.' }),
+            e.reported ? el('span', { className: 'cdr-note', text: ' Status reported with this code: ' + e.reported + '.' }) : null,
+            e.glitch ? el('span', { className: 'cdr-note', text: ' Added on ' + formatDay(e.created) + ', during the July 2026 system error.' })
+              : e.created && e.day && e.created > e.day ? el('span', { className: 'cdr-note', text: ' Added on ' + formatDay(e.created) + '.' }) : null,
             e.changed ? el('span', { className: 'cdr-note', text: ' Changed again on ' + formatDay(e.changed) + '.' }) : null,
+            e.changed && e.code === 'IAF' && s.h008 && s.h008.glitch.length
+              ? el('span', { className: 'cdr-note', text: ' Members with the July 2026 H008 see this event change every time they sign in, so this date tells you nothing.' }) : null,
           ]),
         ])));
         parts.push(el('table', { className: 'cdr-table' }, [
           el('thead', {}, [el('tr', {}, ['Date', 'Code', 'Published name'].map(h => el('th', { scope: 'col', text: h })))]),
           tbody,
         ]));
-        parts.push(el('p', { className: 'cdr-note', text: 'Names come from the NIEM code list that USCIS codes are drawn from. USCIS does not publish its own list or say how it uses each code.' }));
+        parts.push(el('p', { className: 'cdr-note', text: 'Names come from the NIEM code list that USCIS codes are drawn from. "Status reported with this code" is the status the myUSCIS case page showed with that code, as one member recorded it in 2023. USCIS does not publish its own list or say how it uses each code.' }));
       }
       target.appendChild(sec('Events', parts));
     }
+
+    // Every reading ends with the one check that proves an approval
+    target.appendChild(box('info', 'Approved? Check your Documents tab', [
+      'Nothing in this data proves an approval: during the July 2026 system error, codes and statuses showed approvals that were not real. ' + APPROVAL_PROOF,
+    ]));
 
     const missing = LINKS.filter(l => !s.found[l.key]).map(l => l.label);
     if (missing.length && !nothing) {
@@ -367,7 +469,7 @@
     });
   }
 
-  const api = { normaliseReceipt, linksFor, splitJson, parseInput, summarise, officeKind, officeSentence, locationSentence, formatDay };
+  const api = { normaliseReceipt, linksFor, splitJson, parseInput, summarise, officeKind, officeSentence, locationSentence, h008Paragraphs, koParagraphs, formatDay, APPROVAL_PROOF, DOCUMENTS_TAB, REPORTED_STATUS };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else {
     root.AVG_CaseDataReader = api;
