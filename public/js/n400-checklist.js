@@ -37,6 +37,7 @@
     { key: 'filing', title: 'Filing the N-400', items: [
       ['f1', 'Answer every question, using "None" or "N/A" where nothing applies', 'Your answers must match your tax, travel and court records.'],
       ['f2', 'Attach all required initial evidence', 'USCIS can deny an incomplete filing without asking for missing documents first.'],
+      ['f8', 'If you need the disability exception, attach Form N-648 now', 'It must be filed with the N-400, certified by a US-licensed MD, DO or clinical psychologist, and explain how the condition stops you from meeting the English or civics requirement. Send one form only. See <a href="/naturalization/test#n648">the N-648 rules</a>.'],
       ['f7', 'Include at least two character reference letters', 'From US citizens who know you well and are not relatives. USCIS uses them to decide whether to skip a neighborhood investigation. See the <a href="/naturalization/file-n400#character-letters">letter guide and template</a>.'],
       ['f3', 'Pay the fee, or attach Form I-912', 'Do not send a fee with a waiver request: USCIS will take the payment and ignore the waiver.'],
       ['f5', 'If you file online, submit within 30 days of your last edit', 'USCIS keeps an online draft for 30 days from the last time you worked on it, then deletes it. A draft is not filed until you submit and pay. ' + link('https://www.uscis.gov/policy-manual/volume-1-part-b-chapter-6', '[USCIS Policy Manual Vol. 1 Part B Ch. 6]')],
@@ -49,7 +50,7 @@
       ['a3', 'Keep trips abroad short', 'Continuous residence must continue until your oath.'],
       ['a4', 'Study for the civics test', 'Use the <a href="/naturalization/test#flashcards">civics flashcards</a>, and practice saying your N-400 answers aloud. English practice sheets are on <a href="/tools#naturalization">Tools</a>.'],
       ['a5', 'Keep filing taxes on time, and prepay enough during the year', 'File by the deadline every year, even if you owed or paid late before. If you earn wages (W-2), raise your W-4 withholding. If you are self-employed, run an LLC or have high income, make quarterly estimated payments large enough to avoid the underpayment penalty. Pay by April even if you file an extension. Avoid any new arrest or citation: good moral character runs until the oath.'],
-      ['a6', 'Reply to any request for evidence before the deadline', 'Send everything asked for in one response.'],
+      ['a6', 'Reply to any request for evidence before the deadline', 'Send everything asked for in one response. Check the deadline on the notice: it can be shorter than 12 weeks, and a mailed notice gets only 3 extra days, even abroad.'],
     ]},
     { key: 'interview', title: 'Interview day', items: [
       ['i1', 'Bring your interview notice, green card, state ID, and every passport and travel document', 'Include expired passports used since you became a resident, and a printout of your ' + link('https://i94.cbp.dhs.gov/home', 'CBP I-94 travel history') + ' for each passport.'],
