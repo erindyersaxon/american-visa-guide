@@ -116,6 +116,7 @@
           links: [
             { href: '/tools/checklist-i130', text: 'I-130 Pre-Submission Checklist' },
             { href: '/tools/relationship-evidence', text: 'Relationship Evidence Template' },
+            { href: '/tools/case-data-reader', text: 'myUSCIS Case Data Reader' },
           ],
         },
         {

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-no-trackers>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- data-no-trackers: consent.js never loads Clarity or Ko-fi on this page, because visitors paste private case data here -->
+<script src="/js/consent.js?v=20261127a" defer></script>
+<title>myUSCIS Case Data Reader | American Visa Guide</title>
+<meta name="description" content="Paste the case data from your own myUSCIS account to see which office has your I-130, what each event code is called and whether your record changed. Runs in your browser; nothing is sent or saved.">
+<link rel="canonical" href="https://www.americanvisaguide.com/tools/case-data-reader">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/design-system.css?v=20261024c">
+<link rel="stylesheet" href="/css/nav.css?v=20261115b">
+<script src="/js/nav.js?v=20261115d8" defer></script>
+<link rel="stylesheet" href="/css/readability.css?v=20261024c">
+<link rel="stylesheet" href="/css/section-nav.css?v=20261117grp">
+<script src="/js/section-nav.js?v=20261127cdr" data-section="tools" defer></script>
+<style>
+  .cdr { max-width: var(--max-width-prose, 46rem); margin: 0 auto; padding: 0 16px 4rem; }
+  .cdr h2 { margin-top: 2.5rem; }
+  .cdr h3 { margin: 1.75rem 0 0.6rem; }
+  .cdr .subtitle { color: var(--color-text-secondary); }
+  .cdr-step { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.1rem 1.2rem; margin: 1rem 0 1.5rem; }
+  .cdr-step label { display: block; font-weight: var(--font-semibold); margin-bottom: 0.4rem; }
+  .cdr-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .cdr input[type="text"] { flex: 1 1 14rem; min-width: 0; font: inherit; font-family: var(--font-mono); padding: 0.55rem 0.7rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); background: #fff; color: var(--color-text); }
+  .cdr textarea { width: 100%; min-height: 11rem; font-family: var(--font-mono); font-size: 0.875rem; padding: 0.7rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); background: #fff; color: var(--color-text); box-sizing: border-box; }
+  .cdr input:focus-visible, .cdr textarea:focus-visible, .cdr button:focus-visible, .cdr a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+  .cdr button { font: inherit; font-weight: var(--font-semibold); padding: 0.55rem 1.1rem; border-radius: var(--radius-md); cursor: pointer; border: 1px solid var(--color-primary); background: var(--color-primary); color: #fff; }
+  .cdr button.cdr-secondary { background: transparent; color: var(--color-primary); }
+  .cdr-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.7rem; }
+  .cdr-links { margin: 0.6rem 0 0; padding-left: 1.3rem; }
+  .cdr-links li { margin: 0.25rem 0; }
+  .cdr-msg { margin: 0.6rem 0 0; color: var(--color-text-secondary); }
+  .cdr-results:focus { outline: none; }
+  .cdr-box { border: 1px solid var(--color-border); border-left: 4px solid var(--color-primary); border-radius: var(--radius-md); background: var(--color-info-subtle); padding: 0.8rem 1rem; margin: 0.8rem 0; }
+  .cdr-box p { margin: 0.3rem 0; }
+  .cdr-box__title { font-weight: var(--font-bold); }
+  .cdr-box--good { background: var(--color-success-subtle); border-left-color: var(--color-success); }
+  .cdr-box--warn { background: var(--color-warning-subtle); border-color: var(--color-warning-border); border-left-color: var(--color-warning); }
+  .cdr-facts { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem; margin: 0.5rem 0; }
+  .cdr-facts dt { font-weight: var(--font-semibold); }
+  .cdr-facts dd { margin: 0; }
+  .cdr-table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+  .cdr-table th, .cdr-table td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+  .cdr-table th { font-size: var(--size-sm); color: var(--color-text-secondary); }
+  .cdr-table td:first-child { white-space: nowrap; }
+  .cdr-note { color: var(--color-text-muted); font-size: var(--size-sm); }
+  .cdr code { font-family: var(--font-mono); font-size: 0.875em; background: var(--color-surface-alt); padding: 0.05rem 0.3rem; border-radius: var(--radius-sm); }
+  .cdr-privacy { border: 1px solid var(--color-success); background: var(--color-success-subtle); border-radius: var(--radius-md); padding: 0.8rem 1rem; margin: 1.25rem 0; }
+  .cdr-privacy p { margin: 0.3rem 0; }
+  @media (max-width: 560px) {
+    .cdr-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .cdr-table, .cdr-table tbody, .cdr-table tr, .cdr-table td { display: block; }
+    .cdr-table tr { padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); }
+    .cdr-table td { border: none; padding: 0.1rem 0; }
+    .cdr-facts { grid-template-columns: 1fr; }
+    .cdr-facts dd { margin-bottom: 0.4rem; }
+  }
+</style>
+</head>
+<body class="has-snav">
+<a href="#main" class="skip-link">Skip to main content</a>
+<div id="nav-placeholder"></div>
+
+<main data-pagefind-body id="main" class="cdr" data-clarity-mask="True">
+  <nav class="avg-crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/tools">Tools</a></li><li aria-current="page">Case data reader</li></ol></nav>
+  <p class="avg-partof">Part of <a href="/guide/i130">Stage 1: File the I-130</a></p>
+  <h1>myUSCIS Case Data Reader</h1>
+  <p class="subtitle">Your myUSCIS account loads more about your case than the case page shows: which office holds it, an event code for each step, and when the record last changed. Paste that data here to read it in plain words.</p>
+
+  <div class="cdr-privacy">
+    <p><strong>Nothing leaves your browser.</strong> We never see your receipt number or your case data, and we do not track them in any way. <a href="#privacy">How your data is handled</a>.</p>
+  </div>
+
+  <div class="cdr-box cdr-box--warn">
+    <p class="cdr-box__title">Unofficial, and may not work right now</p>
+    <p>These are internal USCIS addresses, not a public service. USCIS does not explain the fields, and it can change or block them at any time. Since about 22 November 2026, members report they return "Access Denied", even when signed in. Use this out of interest only. Do not base decisions on it. For a status you can rely on, use your myUSCIS case page.</p>
+  </div>
+
+  <h2>1. Open your case data</h2>
+  <p>Sign in to <a href="https://my.uscis.gov/" target="_blank" rel="noopener noreferrer">my.uscis.gov</a> first, in this same browser. Then enter your receipt number to get the three links. Your receipt number stays on this page: it only goes into the links, which go straight to USCIS.</p>
+  <form class="cdr-step" id="cdr-link-form" novalidate>
+    <label for="cdr-receipt">Receipt number</label>
+    <div class="cdr-row">
+      <input type="text" id="cdr-receipt" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="IOE1234567890" aria-describedby="cdr-link-msg">
+      <button type="submit">Make my links</button>
+    </div>
+    <p class="cdr-msg" id="cdr-link-msg" aria-live="polite"></p>
+    <ul class="cdr-links" id="cdr-links"></ul>
+  </form>
+
+  <h2>2. Paste what they show</h2>
+  <p>On each page that opens, select everything (Ctrl+A, or Cmd+A on a Mac) and copy it. Paste it below. You can paste one page or all three, one after another.</p>
+  <form class="cdr-step" id="cdr-read-form">
+    <label for="cdr-paste">Case data</label>
+    <textarea id="cdr-paste" spellcheck="false" autocomplete="off" placeholder='{"data": { ... }}'></textarea>
+    <div class="cdr-actions">
+      <button type="submit">Read my case data</button>
+      <button type="button" class="cdr-secondary" id="cdr-clear">Clear</button>
+    </div>
+  </form>
+
+  <div id="cdr-results" class="cdr-results" tabindex="-1" aria-live="polite" hidden></div>
+
+  <h2 id="privacy">Your case data stays with you</h2>
+  <p>This reader works entirely inside your browser, on your own device. There is no American Visa Guide server behind it.</p>
+  <ul>
+    <li><strong>We never receive your receipt number or case data.</strong> Nothing you type or paste is sent to us or to anyone else. Your receipt number only goes into the links, and those go straight to USCIS.</li>
+    <li><strong>Nothing is saved.</strong> No account, no database, and nothing kept in your browser&rsquo;s storage. Press Clear or close the tab and it is gone.</li>
+    <li><strong>Nothing is tracked, even if you accepted cookies.</strong> Saying yes to cookies elsewhere on this site does not apply here: this page never loads Microsoft Clarity, the Ko-fi button or any other third-party tool, so nothing records what you type, paste or read.</li>
+    <li><strong>Nothing is shared or pooled.</strong> Your case is not added to any statistics, timelines or &ldquo;community&rdquo; data, with or without your name. There is nothing to opt out of.</li>
+    <li><strong>It is free.</strong> No sign-up, no paid report, no browser extension and no access to your USCIS sign-in.</li>
+  </ul>
+  <p><strong>Check it yourself.</strong> Once this page has loaded, turn off your Wi-Fi or mobile data and press Read: it still works, because it never needed the internet. Or open your browser&rsquo;s developer tools (F12), choose the Network tab, and watch: pressing Read sends nothing.</p>
+
+  <h3>Comparing this with other case data tools</h3>
+  <p>Other sites offer to read your case data, and some work differently from this one. Before you paste into any tool, check its privacy policy for:</p>
+  <ul>
+    <li>whether your data is sent to its server, or read only in your browser</li>
+    <li>whether it keeps a copy, and for how long</li>
+    <li>whether it adds your case to shared statistics by default, and whether part of your receipt number is kept with it</li>
+    <li>whether it records your visit with session-recording tools while you paste</li>
+    <li>whether a browser extension uses your signed-in USCIS session to fetch your data</li>
+  </ul>
+  <p>None of these apply here. Our <a href="/privacy.html#case-data-reader">privacy policy</a> says the same.</p>
+
+  <h2>What this can and cannot tell you</h2>
+  <ul>
+    <li><strong>The office</strong> comes from <code>jurisdiction</code> in the Office link. It is the best sign of where your petition is. See <a href="/guide/i130#which-office">which office has your petition</a>.</li>
+    <li><strong>Event names</strong> come from the NIEM code list that USCIS codes are drawn from. A code that is not on that list, such as FTA1, is marked as unknown rather than guessed.</li>
+    <li><strong>A record change with no new event</strong> does not say what changed. It is not a sign of progress on its own.</li>
+    <li><strong>Never post your receipt number.</strong> If you share a screenshot of your case data, cover it everywhere it appears.</li>
+  </ul>
+  <p class="cdr-note">Sources: NIEM, <a href="https://niem.github.io/model/4.2/scr/BenefitDocumentStatusCategoryCodeSimpleType/index.html" target="_blank" rel="noopener noreferrer">benefit document status codes</a> (copied 27 November 2026). Everything else on this page comes from what members have seen in their own case data, not from USCIS.</p>
+
+  <div id="footer-placeholder"></div>
+</main>
+
+<script src="/js/niem-codes.js?v=20261127a"></script>
+<script src="/js/case-data-reader.js?v=20261127a"></script>
+<script src="/js/glossary.js?v=20261116dcf"></script>
+</body>
+</html>
