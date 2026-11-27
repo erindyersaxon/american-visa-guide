@@ -21,7 +21,7 @@
     if (location.pathname.replace(/\.html$/, '') === '/news') return '';
     const id = opts && opts.withId ? ' id="interview-cancellations"' : '';
     return `
-    <p class="live-note"${id}><a href="/news">Latest London updates</a>: what applicants reported this week about interview letters, reschedules and outcomes.</p>`;
+    <p class="live-note"${id}><a href="/news#c21373f918">Latest London update (16–26 November)</a>: rebooked interviews keep getting approved; no first interview letters yet.</p>`;
   }
 
   const PAGE_CSS = `
